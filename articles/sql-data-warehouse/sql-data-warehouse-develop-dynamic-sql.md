@@ -1,5 +1,5 @@
 ---
-title: aaaDynamic SQL no SQL Data Warehouse | Microsoft Docs
+title: "SQL dinâmico no SQL Data Warehouse | Microsoft Docs"
 description: "Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 4d66eecb37621510f657d1ec9a2a935daaa16052
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinâmico no SQL Data Warehouse
-Ao desenvolver o código do aplicativo para o SQL Data Warehouse, você pode a toouse sql dinâmico toohelp precisa fornecer soluções modulares e flexíveis genéricas. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. Isso pode limitar o tamanho de saudação cadeias de caracteres como tipos blob incluem tipos varchar (max) e nvarchar (max). Se você tiver usado a esses tipos em seu código de aplicativo durante a criação de cadeias de caracteres muito grandes, será necessário código de saudação toobreak em partes e use Olá EXEC instrução em vez disso.
+Ao desenvolver o código do aplicativo para o SQL Data Warehouse, talvez seja preciso usar um sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. Isso pode limitar o tamanho de suas sequências de caracteres como tipos de blob que incluem tipos varchar(max) e nvarchar(max). Se você usou estes tipos no código do seu aplicativo ao compilar cadeias de caracteres muito grandes, você precisará dividir o código em partes e usar a instrução EXEC em seu lugar.
 
 Um exemplo simples:
 
@@ -34,10 +34,10 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se a cadeia de caracteres de saudação é curta que você pode usar [sp_executesql] [ sp_executesql] como normal.
+Se a cadeia de caracteres for curta, você poderá usar [sp_executesql][sp_executesql] normalmente.
 
 > [!NOTE]
-> Instruções executadas como SQL dinâmico ainda serão as regras de validação do assunto tooall TSQL.
+> Instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação de TSQL.
 > 
 > 
 

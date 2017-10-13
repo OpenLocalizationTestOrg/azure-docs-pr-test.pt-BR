@@ -1,6 +1,6 @@
 ---
-title: aaaProblem adicionar um aplicativo da Galeria do AD do Azure | Microsoft Docs
-description: "Entender a face de pessoas problemas comuns Olá ao adicionar aplicativos de galeria do AD do Azure e que você pode fazer tooresolve-los"
+title: Problema ao adicionar um aplicativo da Galeria do Azure AD | Microsoft Docs
+description: "Entenda os problemas comuns que as pessoas enfrentam durante a adição de aplicativos da Galeria do Azure AD e o que você pode fazer para resolvê-los"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 654f98116176d5590563c0471b92809f8763fbd7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b3ae472d52208d3c76424d29192c1eb982639572
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar um aplicativo da Galeria do Azure AD
 
-Este artigo ajuda face de pessoas de problemas comuns do toounderstand Olá ao adicionar aplicativos de galeria do AD do Azure e que você pode fazer tooresolve-los.
+Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam durante a adição de aplicativos da Galeria do Azure AD e o que você pode fazer para resolvê-los.
 
-## <a name="i-clicked-hello-add-button-and-my-application-took-a-long-time-tooappear"></a>Clique em hello "Adicionar" botão e meu aplicativo levaram um tempo longo tooappear
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito tempo para aparecer
 
-Em algumas circunstâncias, pode levar de 1 a 2 minutos (e às vezes, mais) para tooappear um aplicativo após adicioná-lo tooyour directory. Embora isso não seja normais de desempenho esperado hello, você pode ver a adição de aplicativo hello está em andamento clicando no hello **notificações** ícone (bell Olá) no superior de saudação à direita da saudação [Portal do Azure](https://portal.azure.com/)e procurando um **em andamento** ou **concluído** notificação rotulada **criar aplicativo.**
+Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após adicioná-lo ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [Portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo.**
 
-Se seu aplicativo nunca é adicionado ou se você encontrar um erro ao clicar Olá **adicionar** botão, você verá um **notificação** em uma **erro** estado. Se você quiser obter mais detalhes sobre Olá erro toolearn tooor mais compartilhar com um engingeer de suporte, você pode ver mais informações sobre erro hello, seguindo as etapas de Olá Olá [como detalhes de saudação toosee de uma notificação de portal](#how-to-see-the-details-of-a-portal-notification) seção.
+Se seu aplicativo nunca for adicionado, ou você encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
-## <a name="i-clicked-hello-add-button-and-my-application-didnt-appear"></a>Clique em botão de "Adicionar" hello e meu aplicativo não apareceu
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "adicionar" e meu aplicativo não apareceu
 
-Às vezes, devido a problemas de tootransient, problemas de rede ou um erro, adicionando uma falha de aplicativo. Você pode ver isso acontece quando você clica em Olá **notificações** ícone (bell Olá) no canto superior direito Olá Olá Portal do Azure e ver um vermelho (!) tooyour próximo ícone **criar aplicativo** notificação. Isso indica que houve um erro ao criar o aplicativo hello.
+Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo falha. Você sabe que isso aconteceu quando clica no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure e vê um ícone vermelho (!) ao lado de sua notificação **Criar aplicativo**. Isso indica que ocorreu um erro ao criar o aplicativo.
 
-Se você encontrar um erro ao clicar Olá **adicionar** botão, você verá um **notificação** em uma **erro** estado. Se você quiser obter mais detalhes sobre Olá erro toolearn tooor mais compartilhar com um engingeer de suporte, você pode ver mais informações sobre erro hello, seguindo as etapas de Olá Olá [como detalhes de saudação toosee de uma notificação de portal](#how-to-see-the-details-of-a-portal-notification) seção.
+Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
- ## <a name="i-dont-know-how-tooset-up-my-application-once-ive-added-it"></a>Não sei como tooset meu aplicativo uma vez adicioná-lo
+ ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo depois de adicioná-lo
 
-Se precisar de ajuda para aprender sobre os aplicativos, Olá [lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar toostart.
+Se você precisar de ajuda para aprender sobre aplicativos, o artigo [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) é um bom lugar para começar.
 
-Em adição toothis, Olá [biblioteca de documentos de aplicativos do AD do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajudá-lo a toolearn mais sobre logon único com o Azure AD e como ele funciona.
+Além disso, a [Biblioteca de documentos de aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre logon único com o Azure AD e como ele funciona.
 
-## <a name="how-toosee-hello-details-of-a-portal-notification"></a>Como detalhes de saudação toosee de uma notificação de portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação no portal
 
-Você pode ver os detalhes de saudação de qualquer notificação de portal, seguindo as etapas de saudação abaixo:
+Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Clique em Olá **notificações** ícone (bell Olá) no canto superior direito de saudação do hello Portal do Azure
+1.  Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
 
-2.  Selecione qualquer notificação em um **erro** estado (aquelas com um toothem de Avançar vermelho (!)).
+2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
     >[!NOTE]
     >Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
     >
     >
 
-3.  Este Olá abrir **detalhes da notificação** folha.
+3.  Isso abre a folha **Detalhes da Notificação**.
 
-4.  Use essas informações por conta própria toounderstand mais detalhes sobre o problema de saudação.
+4.  Use essas informações para saber mais detalhes sobre o problema.
 
-5.  Se você ainda precisar de Ajuda, você também pode compartilhar essas informações com um suporte engenheiro ou hello grupo tooget Ajuda do produto com o problema.
+5.  Se você ainda precisar de ajuda, também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique em Olá **cópia** **ícone** toohello direito da saudação **copiar erro** textbox toocopy todos os Olá tooshare de detalhes de notificação com um engenheiro de suporte ou produto de grupo
+6.  Clique no **ícone** **cópia** à direita da caixa de texto **Erro de cópia** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 
-## <a name="how-tooget-help-by-sending-notification-details-tooa-support-engineer"></a>Como ajudar a tooget enviando o engenheiro de suporte de tooa de detalhes de notificação
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte
 
-É muito importante que você compartilhe **todos os detalhes abaixo de Olá** com um engenheiro de suporte se você precisar de Ajuda, para que eles podem ajudá-lo rapidamente. Você pode fazer isso facilmente por **tirar uma captura de tela,** ou clicando Olá **ícone de erro de cópia**, encontrado toohello direito da saudação **copiar erro** caixa de texto.
+É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
 
 ## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
-Olá abaixo explica mais que cada um dos itens de notificação Olá significa e fornece exemplos de cada um deles.
+Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – Olá título descritivo da notificação de saudação
+-   **Título** – o título descritivo da notificação
 
   * Exemplo – **Configurações do proxy do aplicativo**
 
--   **Descrição** – Olá descrição do que ocorreu como resultado da operação de saudação
+-   **Descrição** – a descrição do que ocorreu como resultado da operação
 
     -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
--   **Id de notificação** – a id exclusiva Olá da notificação de saudação
+-   **ID da Notificação** – a ID exclusiva da notificação
 
     -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Id de solicitação do cliente** – id de solicitação específica de saudação feita pelo seu navegador
+-   **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
 
     -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Hora UTC de carimbo de data /** – Olá timestamp durante o qual ocorreu notificação hello, em UTC
+-   **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
 
     -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **Id de transação interna** – Olá ID interna, podemos usar erro de saudação toolook em nossos sistemas
+-   **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
 
     -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – usuário Olá que realizou a operação de saudação
+-   **UPN** – o usuário que realizou a operação
 
     -   Exemplo – **tperkins@f128.info**
 
--   **Id do locatário** – ID exclusiva de saudação do locatário Olá Olá usuário que realizou a operação de saudação era um membro de
+-   **Id do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
     -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Id do objeto de usuário** – Olá ID exclusiva do usuário Olá que realizou a operação de saudação
+-   **Id de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
 
     -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
--   **Nome de exibição** – **(pode estar vazia)** um nome para exibição mais detalhado para o erro Olá
+-   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
     -   Exemplo – **Configurações do proxy do aplicativo**
 
--   **Status** – Olá status específicos de notificação de saudação
+-   **Status** – o status específico da notificação
 
     -   Exemplo – **Falha**
 
--   **Id de objeto** – **(pode estar vazia)** Olá ID de objeto em relação a quais Olá a operação foi executada
+-   **Id do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalhes** – Olá descrição detalhada do que ocorreu como resultado da operação de saudação
+-   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
     -   Exemplo – **A URL interna 'http://bing.com/' é inválida, uma vez que está sendo utilizada**
 
--   **Erro de cópia** – clique Olá **ícone para copiar** toohello direito da saudação **copiar erro** textbox toocopy todos os Olá tooshare de detalhes de notificação com um engenheiro de suporte ou produto de grupo
+-   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 
     -   Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 

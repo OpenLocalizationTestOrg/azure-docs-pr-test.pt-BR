@@ -1,6 +1,6 @@
 ---
-title: "exemplos de início rápido aaaAzure Monitor CLI 1.0. | Microsoft Docs"
-description: "Comandos de exemplo da CLI 1.0 para recursos do Azure Monitor. Monitor do Azure é um serviço do Microsoft Azure que permite que as notificações de alerta de toosend, chamada web URLs com base nos valores de dados de telemetria configurado e os serviços de nuvem de dimensionamento automático, máquinas virtuais e aplicativos Web."
+title: "Exemplos de início rápido da CLI 1.0 do Azure Monitor. | Microsoft Docs"
+description: "Comandos de exemplo da CLI 1.0 para recursos do Azure Monitor. O Azure Monitor é um serviço do Microsoft Azure que permite enviar notificações de alerta ou chamar URLs da Web baseadas em valores dos dados de telemetria configurados, bem como dimensionar automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web."
 author: kamathashwin
 manager: orenr
 editor: 
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.openlocfilehash: 6cd9cd62b3a1977276563f5e43f5384ccca66247
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Exemplos de início rápido da CLI 1.0 de plataforma cruzada do Azure Monitor
-Este mostra artigo exemplo toohelp de comandos de interface de linha de comando (CLI) você acessar os recursos do Monitor do Azure. Monitor do Azure permite que notificações de alerta serviços de nuvem, máquinas virtuais e aplicativos Web e toosend tooAutoScale ou chamada web URLs com base nos valores de dados de telemetria configurado.
+Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
 > [!NOTE]
-> Monitor do Azure é Olá novo nome para o que era chamado de "Azure Insights" até 25 de setembro de 2016. No entanto, Olá namespaces e, portanto, comandos de saudação abaixo ainda contêm insights"Olá".
+> O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos a seguir ainda contêm os “insights”.
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você ainda não instalou Olá CLI do Azure, consulte [instalação Olá CLI do Azure](../cli-install-nodejs.md). Se você estiver familiarizado com a CLI do Azure, você pode ler mais sobre ele no [Olá Use CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+Se você ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](../cli-install-nodejs.md). Se não estiver familiarizado com a CLI do Azure, você poderá ler mais sobre ela em [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-No Windows, instale o npm de saudação [site Node.js](https://nodejs.org/). Depois de concluir a instalação Olá, usando CMD.exe com privilégios de executar como administrador, execute o seguinte Olá da pasta Olá onde npm está instalado:
+No Windows, instale o npm do [site do Node.js](https://nodejs.org/). Após concluir a instalação, usando o CMD.exe com os privilégios de Executar como Administrador, execute o seguinte na pasta em que o npm está instalado:
 
 ```console
 npm install azure-cli --global
 ```
 
-Em seguida, navegue até os local da pasta tooany e digite a saudação de linha de comando:
+Em seguida, navegue até qualquer pasta/local desejado e digite na linha de comando:
 
 ```console
 azure help
 ```
 
-## <a name="log-in-tooazure"></a>Faça logon no tooAzure
-Olá primeira etapa é toologin tooyour conta do Azure.
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
+A primeira etapa é fazer logon na conta do Azure.
 
 ```console
 azure login
 ```
 
-Depois de executar esse comando, você tem toosign via instruções Olá na tela hello. Posteriormente, você verá sua Conta, sua TenantId e sua ID da Assinatura padrão. Todos os comandos funcionam no contexto de saudação da sua assinatura padrão.
+Depois de executar esse comando, será necessário entrar usando as instruções na tela. Posteriormente, você verá sua Conta, sua TenantId e sua ID da Assinatura padrão. Todos os comandos funcionam no contexto de sua assinatura padrão.
 
-detalhes de saudação toolist de sua assinatura atual, use Olá comando a seguir.
+Para listar os detalhes da sua assinatura atual, use o comando a seguir.
 
 ```console
 azure account show
 ```
 
-toochange trabalho contexto tooa assinatura diferente, use Olá comando a seguir.
+Para alterar o contexto de trabalho para uma assinatura diferente, use o comando a seguir.
 
 ```console
 azure account set "subscription ID or subscription name"
 ```
 
-toouse Gerenciador de recursos do Azure e o Monitor do Azure os comandos, você precisa toobe no modo do Gerenciador de recursos do Azure.
+Para usar comandos do Azure Resource Manager e do Azure Monitor, você precisa estar no modo do Azure Resource Manager.
 
 ```console
 azure config mode arm
 ```
 
-tooview uma lista de todos os comandos com suporte do Monitor do Azure, execute o seguinte hello.
+Para exibir uma lista de todos os comandos permitidos do Azure Monitor, execute o seguinte.
 
 ```console
 azure insights
 ```
 
 ## <a name="view-activity-log-for-a-subscription"></a>Exibir o log de atividade para uma assinatura
-tooview uma lista de eventos do log de atividade, execute o seguinte Olá.
+Para exibir uma lista de eventos de log de atividade, execute o seguinte.
 
 ```console
 azure insights logs list [options]
 ```
 
-Tente Olá tooview a seguir todas as opções disponíveis.
+Tente o seguinte para exibir todas as opções disponíveis:
 
 ```console
 azure insights logs list -help
 ```
 
-Aqui está um exemplo logs toolist por um grupo de recursos
+Veja um exemplo para listar logs por resourceGroup
 
 ```console
 azure insights logs list --resourceGroup "myrg1"
 ```
 
-Logs do exemplo toolist pelo chamador
+Exemplo para listar logs por chamador
 
 ```console
 azure insights logs list --caller "myname@company.com"
 ```
 
-Logs do exemplo toolist pelo chamador em um tipo de recurso, dentro de uma data de início e término
+Exemplo para listar logs por chamador em um tipo de recurso, entre datas de início e de término
 
 ```console
 azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@company.com" --startTime 2016-03-08T00:00:00Z --endTime 2016-03-16T00:00:00Z
 ```
 
 ## <a name="work-with-alerts"></a>Trabalhar com alertas
-Você pode usar informações de Olá Olá seção toowork com alertas.
+Você pode usar as informações na seção para trabalhar com alertas.
 
 ### <a name="get-alert-rules-in-a-resource-group"></a>Obter regras de alerta em um grupo de recursos
 ```console
@@ -134,7 +134,7 @@ azure insights alerts rule delete abhingrgtest123 andy0323
 ```
 
 ## <a name="log-profiles"></a>Perfis de log
-Use as informações de saudação toowork essa seção com perfis de log.
+Use as informações desta seção para trabalhar com perfis de log.
 
 ### <a name="get-a-log-profile"></a>Obter um perfil de log
 ```console
@@ -165,7 +165,7 @@ azure insights logprofile add --name default --storageId /subscriptions/1a66ce04
 
 
 ## <a name="diagnostics"></a>Diagnostics
-Use as informações de saudação toowork essa seção com as configurações de diagnóstico.
+Use as informações desta seção para trabalhar com configurações de diagnóstico.
 
 ### <a name="get-a-diagnostic-setting"></a>Obter uma configuração de diagnóstico
 ```console
@@ -184,7 +184,7 @@ azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6f
 
 
 ## <a name="autoscale"></a>Autoscale
-Use as informações de saudação toowork essa seção com configurações de dimensionamento automático. É necessário toomodify esses exemplos.
+Use as informações desta seção para trabalhar com configurações de dimensionamento automático. Você precisa modificar estes exemplos.
 
 ### <a name="get-autoscale-settings-for-a-resource-group"></a>Obter configurações de dimensionamento automático para um grupo de recursos
 ```console

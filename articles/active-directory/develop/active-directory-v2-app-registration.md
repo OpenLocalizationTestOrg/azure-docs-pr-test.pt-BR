@@ -1,6 +1,6 @@
 ---
-title: "um aplicativo com o ponto de extremidade de v 2.0 de saudação do AD do Azure usando o portal de saudação do aaaRegister | Microsoft Docs"
-description: Como tooregister um aplicativo com a Microsoft para habilitar entrar e acessar o Microsoft services usando o ponto de extremidade do hello v 2.0
+title: Registrar um aplicativo com o ponto de extremidade do Azure AD v2.0 usando o portal | Microsoft Docs
+description: "Como registrar um aplicativo na Microsoft para habilitar a entrada e acessar os serviços da Microsoft usando o ponto de extremidade v2.0"
 services: active-directory
 documentationcenter: 
 author: lnalepa
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c56c98906656062435516e820cb318a04c03149c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooregister-an-app-with-hello-v20-endpoint"></a>Como tooregister um aplicativo com o ponto de extremidade do hello v 2.0
-toobuild um aplicativo que aceita MSA & AD do Azure entrar, primeiro será necessário tooregister um aplicativo com a Microsoft.  Neste momento, você não ser capaz de toouse quaisquer aplicativos existentes que você possa ter com o AD do Azure ou MSA - você precisará toocreate uma nova marca.
+# <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Como registrar um aplicativo com o ponto de extremidade v2.0
+Para criar um aplicativo que aceite entrada do AD do Azure e do MSA, você primeiro precisará registrar um aplicativo com a Microsoft.  Você não poderá usar nenhum dos seus aplicativos existentes com o Azure AD ou MSA, será necessário criar um novo.
 
 > [!NOTE]
-> Nem todos os recursos e cenários de Active Directory do Azure têm suporte pelo ponto de extremidade do hello v 2.0.  toodetermine se você deve usar o ponto de extremidade de v 2.0 hello, leia sobre [limitações v 2.0](active-directory-v2-limitations.md).
+> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
-## <a name="visit-hello-microsoft-app-registration-portal"></a>Visite o portal de registro de aplicativo hello Microsoft
-Coisas mais importantes primeiro - navegue muito[https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Este é o novo portal de registro de aplicativos em que você pode gerenciar todos os seus aplicativos Microsoft.
+## <a name="visit-the-microsoft-app-registration-portal"></a>Visite o Portal de Registro de Aplicativos da Microsoft
+Primeiro as prioridades, navegue até [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Este é o novo portal de registro de aplicativos em que você pode gerenciar todos os seus aplicativos Microsoft.
 
 Entrar com uma conta da Microsoft pessoal, profissional ou escolar.  Se você não tiver uma, inscreva-se para uma nova conta pessoal. Vá em frente, não vai demorar muito. Vamos aguardar aqui.
 
 Pronto? Você deve agora estar olhando a lista de aplicativos da Microsoft, que provavelmente está vazia.  Vamos mudar isso.
 
-Clique em **Adicionar um aplicativo**e dê um nome a ele.  portal de saudação atribuirá seu aplicativo uma Id globalmente exclusiva do aplicativo que você usará posteriormente no seu código.  Se seu aplicativo inclui um componente do lado do servidor que precisam de tokens de acesso para chamadas APIs (pense: Office, Azure ou sua própria API da web), você desejará toocreate um **segredo do aplicativo** aqui também.
+Clique em **Adicionar um aplicativo**e dê um nome a ele.  O portal atribuirá ao seu aplicativo uma Id de aplicativo globalmente exclusiva que você usará posteriormente em seu código.  Caso seu aplicativo inclua um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui.
 
-Em seguida, adicione Olá plataformas que seu aplicativo usará.
+Em seguida, adicione as Plataformas que seu aplicativo usará.
 
 * Para aplicativos baseados na Web, forneça um **URI de Redirecionamento** em que é possível enviar mensagens de entrada.
-* Para aplicativos móveis, cópia inativo padrão Olá redirecione o uri criado automaticamente para você.
+* Para aplicativos móveis, copie o URI de redirecionamento criado automaticamente para você.
 
-Opcionalmente, você pode personalizar Olá aparência de sua página de entrada hello perfil.  Certifique-se de que tooclick **salvar** antes de continuar.
+Opcionalmente, você pode personalizar a aparência de sua página de entrada na Seção do perfil.  Certifique-se de clicar em **Salvar** antes de continuar.
 
 > [!NOTE]
-> Quando você cria um aplicativo usando [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), aplicativo hello será registrado no locatário de saudação inicial da conta de saudação que você use toosign no portal de saudação.  Isso significa que não é possível registrar um aplicativo no seu locatário do Azure AD usando uma conta pessoal da Microsoft.  Se você explicitamente tooregister um aplicativo em um locatário específico, entre com uma conta que criou originalmente no locatário.
+> Quando você cria um aplicativo usando [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ele será registrado no locatário inicial da conta que você usa para entrar no portal.  Isso significa que não é possível registrar um aplicativo no seu locatário do Azure AD usando uma conta pessoal da Microsoft.  Se você quiser registrar um aplicativo em um determinado locatário explicitamente, entre com uma conta criada originalmente no locatário em questão.
 > 
 > 
 

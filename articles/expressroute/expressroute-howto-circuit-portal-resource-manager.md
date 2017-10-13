@@ -1,6 +1,6 @@
 ---
 title: 'Criar e modificar um circuito ExpressRoute: portal do Azure | Microsoft Docs'
-description: Este artigo descreve como toocreate, provisionar, verifique se, atualizar, excluir e cancelar o provisionamento de um circuito de rota expressa.
+description: Este artigo descreve como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 200418aed6bdebace43a2f57cf532d1c8d13cb83
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -30,131 +30,131 @@ ms.lasthandoff: 10/06/2017
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
 
-Este artigo descreve como toocreate um circuito de rota expressa do Azure usando hello Azure modelo de implantação de Gerenciador de recursos do Azure do portal e hello. Olá também etapas a seguir mostra como toocheck Olá status do circuito hello, atualizá-lo, ou excluir e seu provisionamento.
+Este artigo descreve como criar um circuito da Azure ExpressRoute usando o portal do Azure e o modelo de implantação do Azure Resource Manager. As etapas a seguir também mostrarão a você como verificar o status do circuito, como atualizá-lo ou como excluí-lo e desprovisioná-lo.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Saudação de revisão [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-* Verifique se você tem acesso toohello [portal do Azure](https://portal.azure.com).
-* Certifique-se de que você tenha recursos de rede novas permissões toocreate. Se você não tem permissões corretas hello, entre em contato com o administrador da conta.
-* Você pode [exibir um vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de começar em ordem toobetter entender as etapas de saudação.
+* Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+* Verifique se você tem acesso ao [portal do Azure](https://portal.azure.com).
+* Verifique se você tem permissões para criar novos recursos de rede. Se você não tiver as permissões corretas, entre em contato com o administrador da conta.
+* Você pode [exibir um vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de começar para entender melhor as etapas.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito do ExpressRoute
-### <a name="1-sign-in-toohello-azure-portal"></a>1. Entrar toohello portal do Azure
-Em um navegador, navegue toohello [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Entrar no Portal do Azure
+Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
 
 ### <a name="2-create-a-new-expressroute-circuit"></a>2. Criar um novo circuito do ExpressRoute
 > [!IMPORTANT]
-> O circuito de rota expressa será cobrado do momento Olá que uma chave de serviço é emitida. Certifique-se de que você executar esta operação quando o provedor de conectividade de saudação circuito de saudação tooprovision pronto.
+> O circuito do ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
 > 
 > 
 
-1. Você pode criar um circuito de rota expressa selecionando Olá opção toocreate um novo recurso. Clique em **novo** > **rede** > **ExpressRoute**, conforme mostrado no Olá a imagem a seguir:
+1. Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. Clique em **Novo** > **Rede** > **ExpressRoute**, conforme mostrado na seguinte imagem:
    
     ![Criar um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. Depois de clicar em **ExpressRoute**, você verá Olá **circuito de rota expressa criar** folha. Quando você estiver preenchendo valores hello nesta folha, certifique-se de que você especifique a camada SKU correta hello e medição de dados.
+2. Após clicar em **ExpressRoute**, você verá a folha **Criar circuito de ExpressRoute**. Ao preencher os valores nessa folha, especifique a camada de SKU e os dados de medição corretos.
    
-   * **camada** determina se um complemento padrão ou premium do ExpressRoute está habilitado. Você pode especificar **padrão** tooget Olá SKU standard ou **Premium** para o complemento do premium Olá.
-   * **Dados de medição** determina o tipo de saudação de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de saudação do **Metered** muito**Unlimited**, mas você não pode alterar o tipo de saudação do **Unlimited** muito**Metered**.
+   * **camada** determina se um complemento padrão ou premium do ExpressRoute está habilitado. Você pode especificar **Standard** para obter o SKU padrão ou **Premium** para o complemento premium.
+   * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitado** para **Ilimitado**, mas não pode alterar o tipo de **Ilimitado** para **Limitado**.
      
-     ![Configurar a camada de SKU hello e medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
+     ![Configurar a camada da SKU e a medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 > [!IMPORTANT]
-> Esteja ciente de que Olá local de emparelhamento indica Olá [local físico](expressroute-locations.md) onde você é emparelhamento com a Microsoft. Isso é **não** vinculado muito propriedade "Local", que se refere a geografia toohello onde se encontra Olá provedor de recursos de rede do Azure. Embora eles não estão relacionados, é toochoose uma boa prática toohello de geograficamente fechar um provedor de recursos de rede local de emparelhamento do circuito hello. 
+> Esteja ciente de que o Local de Emparelhamento indica o [local físico](expressroute-locations.md) onde você está emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito. 
 > 
 > 
 
-### <a name="3-view-hello-circuits-and-properties"></a>3. Circuitos de saudação do modo de exibição e propriedades
-**Exibir todos os circuitos Olá**
+### <a name="3-view-the-circuits-and-properties"></a>3. Exibir os circuitos e as propriedades
+**Exibir todos os circuitos**
 
-Você pode exibir todos os circuitos Olá criado selecionando **todos os recursos** no menu do lado esquerdo de saudação.
+Você pode exibir todos os circuitos que criou selecionando **Todos os recursos** no menu do lado esquerdo.
 
 ![Exibir circuitos](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
-**Exibir propriedades de saudação**
+**Exibir as propriedades**
 
-    You can view hello properties of hello circuit by selecting it. On this blade, note hello service key for hello circuit. You must copy hello circuit key for your circuit and pass it down toohello service provider toocomplete hello provisioning process. hello circuit key is specific tooyour circuit.
+    You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
 
 ![Exibir propriedades](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
-### <a name="4-send-hello-service-key-tooyour-connectivity-provider-for-provisioning"></a>4. Enviar Olá tooyour chave conectividade provedor para provisionamento
-Nesta folha **status do provedor** fornece informações sobre o estado atual de saudação do provisionamento no lado do provedor de serviços de saudação. **Status de circuito** informa o estado de saudação em Olá lado da Microsoft. Para obter mais informações sobre estados de provisionamento do circuito, consulte Olá [fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) artigo.
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+Nessa folha, **Status do provedor** fornece informações sobre o estado de provisionamento atual no lado do provedor de serviço. **Status de circuito** fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
-Quando você cria um novo circuito de rota expressa, circuito Olá estará em Olá estado a seguir:
+Quando você criar um novo circuito do ExpressRoute, ele estará no seguinte estado:
 
 Status do provedor: não provisionado<BR>
 Status do circuito: habilitado
 
 ![Iniciar o processo de provisionamento](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
-circuito Olá alterará toohello estado a seguir quando o provedor de conectividade Olá está no processo de saudação de habilitá-la para você:
+O circuito assumirá o estado a seguir quando o provedor de conectividade estiver no processo de habilitá-lo para você:
 
 Status do provedor: provisionando<BR>
 Status do circuito: habilitado
 
-Para você toobe capaz de toouse um circuito de rota expressa, ele deve ser Olá estado a seguir:
+Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no seguinte estado:
 
 Status do provedor: provisionado<BR>
 Status do circuito: habilitado
 
-### <a name="5-periodically-check-hello-status-and-hello-state-of-hello-circuit-key"></a>5. Verifique periodicamente o status de saudação e o estado de saudação da chave de circuito de saudação
-Você pode exibir as propriedades de saudação do circuito Olá que você está interessado em selecionando-a. Verificar Olá **status do provedor** e certifique-se de que ele foi movido muito**provisionado** antes de continuar.
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verifique periodicamente o status e o estado da chave do circuito
+Você pode exibir as propriedades do circuito de seu interesse selecionando-o. Verifique o **Status do provedor** e se ele mudou para **Provisionado** antes de continuar.
 
 ![Status do circuito e do provedor](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
 ### <a name="6-create-your-routing-configuration"></a>6. Criar sua configuração de roteamento
-Para obter instruções passo a passo, consulte toohello [configuração de roteamento de circuito de rota expressa](expressroute-howto-routing-portal-resource-manager.md) artigo toocreate e modificar os emparelhamentos de circuito.
+Para obter instruções passo a passo, confira o artigo [Configuração do roteamento de circuito do ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) para criar e modificar os emparelhamentos de circuito.
 
 > [!IMPORTANT]
-> Essas instruções se aplicam somente a toocircuits que são criados com provedores de serviços que oferecem serviços da camada 2 de conectividade. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
+> Estas instruções aplicam-se apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 > 
 > 
 
-### <a name="7-link-a-virtual-network-tooan-expressroute-circuit"></a>7. Vincular um circuito de rota expressa do tooan de rede virtual
-Em seguida, vincule um circuito de rota expressa do tooyour de rede virtual. Saudação de uso [vinculação virtual redes circuitos tooExpressRoute](expressroute-howto-linkvnet-arm.md) quando você trabalha com o modelo de implantação do Gerenciador de recursos de saudação do artigo.
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Vincular uma rede virtual a um circuito de ExpressRoute
+Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artigo [Vincular redes virtuais a circuitos do ExpressRoute](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
-## <a name="getting-hello-status-of-an-expressroute-circuit"></a>Obter status de saudação de um circuito de rota expressa
-Você pode exibir o status de saudação de um circuito, selecionando-o. 
+## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito do ExpressRoute
+Você pode exibir o status de um circuito selecionando-o. 
 
 ![Status de um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modificando um circuito do ExpressRoute
 Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade.
 
-Você pode fazer Olá sem tempo de inatividade a seguir:
+Você pode fazer o seguinte sem tempo de inatividade:
 
 * Como habilitar ou desabilitar o complemento premium do ExpressRoute para seu circuito do ExpressRoute.
-* Aumento de largura de banda de saudação do circuito ExpressRoute fornecido há capacidade disponível na porta hello. Observe que a largura de banda de saudação de um circuito de downgrade não é suportado. 
-* Alterar o plano de dados limitados tooUnlimited dados de medição de saudação. Observe que esse plano de medição Olá alteração de dados ilimitada tooMetered que dados não tem suporte.
+* Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Observe que não há suporte para o downgrade da largura de banda de um circuito. 
+* Altere o plano de medição de Dados Limitados para Dados Ilimitados. Observe que a alteração do plano de medição de Dados Ilimitados para Dados Limitados não tem suporte.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
 
-Para obter mais informações sobre limitações e limites, consulte toohello [perguntas Frequentes do ExpressRoute](expressroute-faqs.md).
+Para saber mais sobre limites e limitações, confira as [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md).
 
-toomodify um circuito de rota expressa, clique em Olá **configuração** conforme mostrado na figura abaixo a saudação.
+Para modificar um circuito do ExpressRoute, clique na **Configuração**, conforme mostrado na figura abaixo.
 
 ![Modificar o circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
 
-Você pode modificar a largura de banda hello, SKU, modelo de cobrança e permitem operações clássicas dentro de folha de configuração de saudação.
+É possível modificar a largura de banda, o SKU, o modelo de cobrança e permitir operações clássicas na folha de configuração.
 
 > [!IMPORTANT]
-> Você pode ter o circuito de rota expressa Olá toorecreate se não houver capacidade insuficiente na porta existente Olá. Não é possível atualizar o circuito de saudação se não houver nenhuma capacidade adicional disponível nesse local.
+> Talvez seja necessário recriar o circuito de ExpressRoute se não houver capacidade adequada na porta existente. Você não pode atualizar o circuito não se houver capacidade adicional disponível nesse local.
 >
-> Você não pode reduzir a largura de banda de saudação de um circuito de rota expressa sem interrupções. Downgrade da largura de banda requer que o circuito de rota expressa Olá toodeprovision e, em seguida, Reprovisionar um novo circuito de rota expressa.
+> Não é possível reduzir a largura de banda de um circuito do ExpressRoute sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito do ExpressRoute e um reprovisionamento de um novo circuito do ExpressRoute.
 > 
-> Desabilitar complemento premium operação pode falhar se você estiver usando recursos que são maiores do que o que é permitido para o circuito de saudação padrão.
+> A desabilitação da operação de complemento premium poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
 > 
 > 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
-Você pode excluir o circuito de rota expressa selecionando Olá **excluir** ícone. Observe o seguinte hello:
+Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir** . Observe o seguinte:
 
-* Você deve desvincular todas as redes virtuais da saudação circuito de rota expressa. Se essa operação falhar, verifique se as redes virtuais são vinculadas toohello circuito.
-* Se o provedor de serviços de circuito ExpressRoute Olá estado de provisionamento é **provisionamento** ou **provisionado** você deve trabalhar com o circuito de saudação do serviço provedor toodeprovision em seu lado. Vamos continuar tooreserve recursos e cobrar você até que o provedor de serviços Olá Complete desprovisionamento circuito de saudação e nos notifica.
-* Se o provedor de serviços de saudação tem desprovisionada circuito hello (provedor de serviços de saudação estado de provisionamento está definido muito**não provisionado**), em seguida, você pode excluir o circuito de saudação. Isso interromperá a cobrança para o circuito Olá
+* Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
+* Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de criar o circuito, certifique-se de que Olá a seguir:
+Depois de criar seu circuito, faça o seguinte:
 
 * [Criar e modificar o roteamento do circuito do ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
-* [Vincular sua rede virtual de tooyour circuito de rota expressa](expressroute-howto-linkvnet-arm.md)
+* [Vincular a rede virtual ao circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

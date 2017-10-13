@@ -1,6 +1,6 @@
 ---
-title: aaaStorSimple localmente fixados volumes perguntas Frequentes | Microsoft Docs
-description: "Fornece respostas toofrequently frequentes dúvidas sobre o StorSimple localmente fixados volumes."
+title: Perguntas frequentes sobre os volumes do StorSimple localmente afixados | Microsoft Docs
+description: Fornece respostas a perguntas frequentes sobre volumes localmente afixados do StorSimple.
 services: storsimple
 documentationcenter: NA
 author: manuaery
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.openlocfilehash: a3a6557ca15e7e1947b45dcfd005640103c09591
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volume localmente afixado do StorSimple: perguntas frequentes
 ## <a name="overview"></a>Visão geral
-Olá seguem perguntas e respostas que você possa ter quando você criar um volume StorSimple fixado localmente, converter um volume do volume em camadas tooa fixado localmente (e vice-versa), ou fazer backup e restaurar um volume localmente afixado.
+Veja perguntas e respostas que podem ser úteis ao criar um volume localmente afixado do StorSimple, converter um volume em camadas em um volume localmente afixado (e vice-versa) ou fazer backup de um volume localmente afixado e restaurá-lo.
 
-Perguntas e respostas são organizadas em categorias a seguir de saudação
+As perguntas e respostas são organizadas nas seguintes categorias
 
 * Criação de um volume localmente afixado
 * Backup de um volume localmente afixado
-* Converter um volume de tooa localmente afixado volume em camadas
+* Conversão de um volume em camadas em um volume localmente afixado
 * Restauração de um volume localmente afixado
 * Failover de um volume localmente afixado
 
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Perguntas sobre a criação de um volume localmente afixado
-**P.** O que é o tamanho máximo de saudação de um volume localmente afixado que pode criar em dispositivos da série 8000 Olá?
+**P.** Qual é o tamanho máximo de um volume localmente afixado que posso criar em dispositivos da série 8000?
 
-**Um** em dispositivos que executam o StorSimple 8000 Series atualização 3.0, você pode provisionar volumes em camadas até too200 TB no dispositivo 8100 Olá ou volumes localmente afixados backup too8.5 TB. No dispositivo 8600 maior de saudação, você pode provisionar volumes localmente afixados backup too22.5 TB ou volumes em camadas até too500 TB.
+**R** Em dispositivos que executam o StorSimple série 8000 Atualização 3.0, você pode provisionar localmente volumes fixos de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.
 
-**P.** Atualizei meu tooUpdate de dispositivo 8100 3.0 recentemente e quando tento toocreate um volume localmente afixado, tamanho máximo disponível da saudação é apenas 6 TB e não 8,5 TB. Por que não consigo criar um volume de 8,5 TB?
+**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 3.0 e, quando tento criar um volume fixado localmente, o tamanho máximo disponível é de apenas 6 TB, não de 8,5 TB. Por que não consigo criar um volume de 8,5 TB?
 
-**Um** se o dispositivo está executando a atualização 3.0, você pode provisionar volumes localmente afixados backup too8.5 TB ou volumes em camadas até too200 TB em Olá dispositivo 8100. Se o dispositivo já tem em camadas volumes, Olá espaço disponível para criar um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se aproximadamente 106 TB de volumes em camadas já tiver sido provisionado no seu dispositivo 8100 (que é metade de saudação capacidade hierárquica), tamanho máximo de saudação de um volume local que você pode criar no dispositivo Olá 8100 será reduzido too4 TB ( aproximadamente metade de máximo de saudação localmente fixados a capacidade de volume).
+**R** Se seu dispositivos estiver executando a Atualização 3.0, você poderá provisionar volumes fixados localmente de até 8,5 TB OU volumes em camada de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se cerca de 106 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que representa metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (cerca de metade da capacidade máxima do volume fixado localmente).
 
-Como espaço local no dispositivo Olá Olá usado toohost conjunto de volumes em camadas de trabalho, espaço disponível de saudação para a criação de um volume localmente afixado é reduzido se dispositivo Olá tem hierárquico volumes. Por outro lado, a criação de um volume localmente afixado proporcionalmente reduz o espaço disponível de saudação para volumes em camadas. Olá tabelas a seguir resume a capacidade disponível em camadas de saudação em dispositivos Olá 8100 e 8600 quando volumes localmente afixados são criados.
+Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente fixos são criados.
 
 #### <a name="update-30"></a>Atualização 3.0 
-| Capacidade provisionada para volumes localmente afixados | Capacidade disponível toobe provisionado para volumes em camadas - 8100 | Capacidade disponível toobe provisionado para volumes em camadas - 8600 |
+| Capacidade provisionada para volumes localmente afixados | Capacidade disponível para ser provisionada para volumes em camadas - 8100 | Capacidade disponível para ser provisionada para volumes em camadas - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
 | 1 TB |176,5 TB |477,8 TB |
@@ -56,148 +56,148 @@ Como espaço local no dispositivo Olá Olá usado toohost conjunto de volumes em
 
 **P.** Por que a criação de um volume localmente afixado é uma operação demorada?
 
-**A.** Os volumes localmente afixados são provisionados de forma densa. espaço toocreate no Olá camadas locais do dispositivo hello, alguns dados de volumes em camadas existentes podem ser enviados por push nuvem toohello durante o processo de provisionamento de saudação. E como isso depende do tamanho de saudação do volume de saudação sendo provisionada, os dados existentes em seu dispositivo e hello largura de banda disponível toohello nuvem, Olá tempo de saudação levado toocreate que um volume local pode ter várias horas.
+**A.** Os volumes localmente afixados são provisionados de forma densa. Para criar espaço nas camadas locais do dispositivo, alguns dados de volumes em camadas existentes podem ser enviados para a nuvem durante o processo de provisionamento. Já que isso depende do tamanho do volume que está sendo provisionado, nos dados existentes no dispositivo e na largura de banda disponível para a nuvem, o tempo necessário para criar um volume local pode consistir em várias horas.
 
-**P.** Quanto tempo leva toocreate um volume localmente afixado?
+**P.** Quanto tempo leva para criar um volume localmente afixado?
 
-**A.** Porque os volumes localmente afixados são muito provisionados, alguns dados existentes dos volumes em camadas podem ser enviada por push nuvem toohello durante o processo de provisionamento de saudação. Portanto, Olá tempo toocreate um volume localmente afixado depende de vários fatores, incluindo o tamanho de saudação do volume de hello, Olá dados em seu dispositivo e Olá largura de banda disponível. Em um dispositivo recém-instalado que não tem volumes, Olá tempo toocreate um volume localmente afixado é cerca de 10 minutos por terabyte de dados. No entanto, a criação de volumes locais pode levar várias horas, com base em fatores Olá explicados acima em um dispositivo que está em uso.
+**A.** Como volumes localmente afixados são provisionados de forma densa, alguns dados existentes de volumes em camadas podem ser enviados para a nuvem durante o processo de provisionamento. Portanto, o tempo necessário para criar um volume localmente afixado depende de vários fatores, como o tamanho do volume, os dados no dispositivo e a largura de banda disponível. Em um dispositivo recém-instalado que não tem volumes, o tempo para criar um volume localmente afixado é de cerca de 10 minutos por terabyte de dados. No entanto, a criação de volumes locais pode levar várias horas, com base nos fatores explicados acima, em um dispositivo que esteja em uso.
 
-**P.** Desejo toocreate um volume localmente afixado. Há as práticas recomendadas que necessário toobe atento?
+**P.** Desejo criar um volume localmente afixado. Existem práticas recomendadas que preciso conhecer?
 
-**A.** Volumes localmente afixados são adequados para cargas de trabalho que exigem garantias de locais de dados em todos os momentos e latências toocloud confidenciais. Ao considerar o uso de volumes locais para qualquer uma das suas cargas de trabalho, esteja ciente do seguinte hello:
+**A.** Os volumes localmente afixados são adequados para cargas de trabalho que exigem garantias locais de dados em todos os momentos e são sensíveis às latências da nuvem. Ao considerar o uso de volumes locais para qualquer uma de suas cargas de trabalho, lembre-se do seguinte:
 
-* Volumes localmente afixados são muito provisionados e criar volumes locais afeta o espaço disponível de saudação para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
-* Provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes da nuvem de toohello volumes em camadas. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
-* O provisionamento de volumes locais é uma operação demorada. tempo real de saudação envolvido depende de vários fatores: Olá tamanho do volume Olá sendo provisionada, dados em seu dispositivo e a largura de banda disponível. Se você não tiver feito sua nuvem de toohello volumes existentes, criação de volume é mais lenta. Sugerimos que você crie instantâneos em nuvem dos volumes existentes antes de provisionar um volume local.
-* Você pode converter os volumes toolocally fixado volumes em camadas existentes, e essa conversão envolve o provisionamento de espaço no dispositivo Olá Olá resultante volume localmente afixado (em adição toobringing dados hierárquico, se houver, da nuvem de saudação). Novamente, essa é uma operação demorada que depende dos fatores discutidos anteriormente. Sugerimos que você faça backup seu tooconversion anterior de volumes existentes que o processo de saudação será ainda mais lento se os volumes existentes não são feitos backup. O dispositivo também poderá ter desempenho reduzido durante esse processo.
+* Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais tem impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
+* O provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes de volumes em camadas para a nuvem. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
+* O provisionamento de volumes locais é uma operação demorada. O tempo real envolvidos depende de vários fatores: o tamanho do volume que está sendo provisionado, os dados no dispositivo e a largura de banda disponível. Se você não tiver feito backup dos volumes existentes para a nuvem, a criação do volume será mais lenta. Sugerimos que você crie instantâneos em nuvem dos volumes existentes antes de provisionar um volume local.
+* É possível converter os volumes em camadas existentes em volumes fixados localmente e essa conversão envolve o provisionamento de espaço no dispositivo para o volume fixado localmente resultante (além da remoção dos dados em camadas da nuvem, caso existam). Novamente, essa é uma operação demorada que depende dos fatores discutidos anteriormente. Sugerimos que você faça o backup dos volumes existentes antes da conversão, pois o processo será ainda mais lento se não for feito o backup dos volumes existentes. O dispositivo também poderá ter desempenho reduzido durante esse processo.
 
-Para obter mais informações sobre como muito[criar um volume localmente afixado](storsimple-8000-manage-volumes-u2.md#add-a-volume)
+Mais informações sobre como [criar um volume localmente afixado](storsimple-8000-manage-volumes-u2.md#add-a-volume)
 
-**P.** Posso criar vários volumes fixados localmente no hello simultaneamente?
+**P.** Posso criar vários volumes localmente afixados ao mesmo tempo?
 
 **A.** Sim, mas os trabalhos de criação e expansão de volumes localmente afixados são processados em sequência.
 
-Volumes localmente afixados são muito provisionados e isso exige a criação de espaço local no dispositivo de saudação (que pode resultar em dados existentes de volumes em camadas toobe enviada por push de nuvem toohello durante o processo de provisionamento de saudação). Portanto, se um trabalho de provisionamento estiver em andamento, outros trabalhos de criação de volumes locais serão enfileirados até o trabalho ser concluído.
+Os volumes localmente afixados são provisionados de forma densa e isso exige a criação de espaço local no dispositivo (o que pode fazer com que dados existentes de volumes em camadas sejam enviados para a nuvem durante o processo de provisionamento). Portanto, se um trabalho de provisionamento estiver em andamento, outros trabalhos de criação de volumes locais serão enfileirados até o trabalho ser concluído.
 
-Da mesma forma, se um volume local existente está sendo expandido ou um volume em camadas está sendo convertido tooa localmente fixados volume, hello criação de um novo volume localmente afixado está na fila até que o trabalho de saudação anterior seja concluído. Expandir o tamanho de saudação de um volume localmente afixado envolve a expansão de saudação do espaço de local existente Olá para esse volume. Conversão de um volume em camadas toolocally fixado também envolve a criação de saudação de espaço local para Olá resultante volume localmente afixado. Em ambas essas operações, a criação ou a expansão do espaço local é um trabalho de longa execução.
+Da mesma forma, se um volume local existente estiver sendo expandido ou se um volume em camadas estiver sendo convertido em um volume localmente afixado, a criação de um novo volume localmente afixado será enfileirada até que o trabalho anterior seja concluído. A expansão do tamanho de um volume localmente afixado envolve a expansão do espaço local existente para esse volume. A conversão de um volume em camadas em um volume localmente afixado também envolve a criação de espaço local para o volume localmente afixado resultante. Em ambas essas operações, a criação ou a expansão do espaço local é um trabalho de longa execução.
 
-Você pode exibir esses trabalhos no hello **trabalhos** folha de saudação de serviço do Gerenciador de dispositivos do StorSimple. Olá trabalho ativamente está sendo processado é continuamente atualizada tooreflect progresso de saudação do provisionamento de espaço. Olá restantes volume localmente afixado trabalhos é marcado como em execução, mas seu progresso é interrompido e elas são aplicadas na ordem de saudação que entraram na fila.
+Você pode exibir esses trabalhos na folha **Trabalhos** do serviço do Gerenciador de Dispositivos do StorSimple. O trabalho que está sendo processado ativamente é atualizado de forma contínua para refletir o progresso do provisionamento de espaço. Os trabalhos de volume localmente fixados restantes são marcados como em execução, mas seu progresso é interrompido e eles são selecionados na ordem em que foram colocados na fila.
 
-**P.** Exclui um volume localmente afixado. Por que não vejo espaço Olá recuperada refletidas no espaço disponível hello quando tento toocreate um novo volume?
+**P.** Exclui um volume localmente afixado. Por que não vejo o espaço recuperado refletido no espaço disponível ao tentar criar um novo volume?
 
-**A.** Se você excluir um volume localmente afixado, espaço para novos volumes Olá pode não ser atualizado imediatamente. saudação de serviço do Gerenciador de dispositivos do StorSimple atualiza Olá local espaço aproximadamente a cada hora. Sugerimos que você aguarde uma hora antes de tentar de novo volume do toocreate hello.
+**A.** Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O Serviço do Gerenciador de Dispositivos do StorSimple atualiza o espaço local disponível aproximadamente a cada hora. Sugerimos que você aguarde por uma hora antes de tentar criar o novo volume.
 
-**P.** Há suporte para volumes localmente afixados no dispositivo de nuvem Olá?
+**P.** Os volumes localmente afixados são compatíveis com o dispositivo de nuvem?
 
-**A.** Não há suporte para volumes fixados localmente no dispositivo de nuvem da saudação (8010 e 8020 dispositivos tooas anteriormente chamado hello dispositivo virtual StorSimple).
+**A.** Não há suporte para volumes localmente afixados no dispositivo de nuvem (dispositivos 8010 e 8020, conhecidos anteriormente como o dispositivo virtual StorSimple).
 
-**P.** É possível usar toocreate de cmdlets do PowerShell do Azure hello e gerenciar volumes fixados localmente?
+**P.** Posso usar os cmdlets do Azure PowerShell para criar e gerenciar volumes localmente afixados?
 
-**A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell é em camadas). Também sugerimos que você não use toomodify de cmdlets do PowerShell do Azure Olá as propriedades de um volume localmente afixado, conforme será ter Olá indesejado efeitos da modificação Olá tootiered de tipo de volume.
+**A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell é em camadas). Também sugerimos que você não use os cmdlets do Azure PowerShell para modificar as propriedades de um volume localmente afixado, pois isso terá o efeito indesejado de modificar o tipo de volume para em camadas.
 
 ## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Perguntas sobre o backup de um volume localmente afixado
 **P.** Há suporte a instantâneos locais de volumes localmente afixados?
 
-**A.** Sim, você pode criar instantâneos locais de volumes localmente afixados. No entanto, é altamente recomendável que você regularmente os volumes localmente afixados tooensure de instantâneos de nuvem que seus dados sejam protegidos em backup Olá eventualidade de um desastre.
+**A.** Sim, você pode criar instantâneos locais de volumes localmente afixados. No entanto, é altamente recomendável fazer o backup regular dos volumes localmente afixados com instantâneos de nuvem para garantir que os dados estejam protegidos na eventualidade de um desastre.
 
-Observe que local instantâneos de volumes localmente afixados também podem camada out toohello nuvem e não há garantia de toostay na camada de local de saudação do dispositivo hello.
+Observe que os instantâneos locais de volumes fixados localmente também podem ser dispostos em camadas na nuvem e não há garantiam que eles permanecerão na camada local do dispositivo.
 
 **P.** Há diretrizes para o gerenciamento de instantâneos locais para volumes localmente afixados?
 
-**A.** Frequência de instantâneos locais junto com uma alta taxa de rotatividade de dados de saudação localmente volume afixado pode fazer com que o espaço local no hello dispositivo toobe consumido rapidamente e resultar em dados dos volumes em camadas que estão sendo enviados por push toohello nuvem. Portanto, sugerimos que minimizar o número de saudação de instantâneos locais.
+**A.** Instantâneos locais frequentes e uma alta taxa de variação de dados no volume localmente afixado podem fazer com que o espaço local do dispositivo seja consumido rapidamente e dados dos volumes em camadas sejam enviados para a nuvem. Portanto, sugerimos que você minimize o número de instantâneos locais.
 
 **P.** Recebi um alerta informando que meus instantâneos locais de volumes localmente afixados podem ser invalidados. Quando isso acontece?
 
-**A.** Frequência de instantâneos locais junto com uma alta taxa de rotatividade de dados de saudação localmente volume afixado pode causar o espaço local em Olá dispositivo toobe consumido rapidamente. Se camadas de saudação local do dispositivo de saudação são usadas, uma interrupção de nuvem estendida pode resultar em dispositivo Olá fiquem cheios e volume de toohello de gravações de entrada pode resultar em invalidação de instantâneos da saudação (como nenhum espaço existe tooupdate Olá instantâneos toorefer toohello mais antigos blocos de dados que foram substituídos). Tal uma saudação situação gravações toohello volume continuarão toobe servido, mas os instantâneos locais Olá podem ser inválidos. Não há nenhum instantâneo de nuvem impacto tooyour existente.
+**A.** Os instantâneos locais frequentes e uma alta taxa de variação de dados no volume localmente afixado podem fazer com que o espaço local no dispositivo seja consumido rapidamente. Se as camadas locais do dispositivo forem usadas intensamente, uma interrupção de nuvem estendida poderá fazer com que o dispositivo fique cheio e as gravações recebidas no volume poderão causar a invalidação dos instantâneos (como não há espaço para atualizar os instantâneos para referir-se aos blocos de dados mais antigos que foram substituídos). Nessa situação, as gravações no volume continuarão a ser feitas, mas os instantâneos locais poderão ser inválidos. Não há impacto sobre os instantâneos de nuvem existentes.
 
-Aviso de alerta de saudação é toonotify você que tal situação pode surgir e certifique-se de que endereço Olá mesmo oportunamente revisando os instantâneos locais agenda tootake menos instantâneos locais frequentes ou excluir instantâneos locais mais antigos que não estão mais Necessário.
+O aviso de alerta é para notificá-lo de que essa situação pode ocorrer e garantir que você a aborde oportunamente, examinando as agendas de instantâneos locais para criar instantâneos locais menos frequentes ou excluindo instantâneos locais mais antigos que não são mais necessários.
 
-Se os instantâneos locais Olá sejam invalidados, você receberá um alerta de informações notificando que os instantâneos locais para a política de backup específico Olá Olá foram invalidados junto com a lista de saudação de carimbos de hora de instantâneos locais de saudação que foram invalidados. Esses instantâneos serão excluídos automaticamente e não será capaz de tooview em Olá **catálogos de Backup** folha em Olá portal do Azure.
+Se os instantâneos locais forem invalidados, você receberá um alerta de informação notificando-o de que os instantâneos locais da política de backup específica foram invalidados, juntamente com a lista de carimbos de data/hora dos instantâneos locais que foram invalidados. Esses instantâneos serão excluídos automaticamente e não será mais possível exibi-los na folha **Catálogos de Backup** no Portal do Azure.
 
-## <a name="questions-about-converting-a-tiered-volume-tooa-locally-pinned-volume"></a>Perguntas sobre a conversão de um volume de tooa localmente afixado volume em camadas
-**P.** Eu estou observando alguns lentidão no dispositivo de saudação durante a conversão de um volume do volume em camadas tooa fixado localmente. Por que isso está acontecendo?
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Perguntas sobre como converter um volume em camadas em um volume localmente afixado
+**P.** Tenho observado uma certa lentidão no dispositivo durante a conversão de um volume em camadas em um volume localmente afixado. Por que isso está acontecendo?
 
-**A.** o processo de conversão Olá envolve duas etapas:
+**A.** O processo de conversão envolve duas etapas:
 
-1. Provisionamento de espaço no dispositivo Olá Olá volume ser convertido em breve fixado localmente.
-2. Baixar todos os dados em camadas de saudação nuvem tooensure local garante.
+1. Provisionamento de espaço no dispositivo para o volume localmente afixado que será convertido em breve.
+2. Download de dados em camadas da nuvem para assegurar que haja garantias locais.
 
-Essas duas etapas são longos executando operações que dependem do tamanho de saudação do volume de hello está sendo convertido, os dados no dispositivo hello e largura de banda disponível. Como alguns dados de volumes em camadas existentes podem despejar toohello nuvem como parte do processo de provisionamento de saudação, seu dispositivo pode experimentar desempenho reduzido durante esse tempo. Além disso, o processo de conversão de saudação pode ser mais lento se:
+Essas duas etapas são operações de longa execução que dependem do tamanho do volume que está sendo convertido, dos dados no dispositivo e da largura de banda disponível. Como alguns dados dos volumes em camadas existentes podem ser colocados na nuvem como parte do processo de provisionamento, o dispositivo poderá ter o desempenho reduzido durante esse período. Além disso, o processo de conversão poderá ser mais lento se:
 
-* Os volumes existentes não foi feitos backup de nuvem toohello; Portanto, sugerimos que você fazer backup de seu tooinitiating anterior de volumes uma conversão.
-* As políticas de limitação de largura de banda que foram aplicadas, o que poderá restringir a nuvem de toohello de largura de banda disponível Olá; Portanto, recomendamos que você tenha um dedicado de 40 Mbps ou mais nuvem toohello de conexão.
-* o processo de conversão Olá pode levar várias horas devido toohello vários fatores explicados acima. Portanto, sugerimos que você executar esta operação durante horários não picos ou em um fim de semana tooavoid Olá impacto sobre consumidores finais.
+* Se o backup na nuvem dos volumes existentes não tiver sido feito. Portanto, sugerimos que você faça backup dos volumes antes de iniciar uma conversão.
+* Políticas de limitação de largura de banda foram aplicadas, o que poderá restringir a largura de banda disponível para a nuvem. Portanto, recomendamos que você tenha uma ou mais conexões de 40 Mbps dedicadas para a nuvem.
+* O processo de conversão pode levar várias horas devido aos vários fatores explicados anteriormente. Portanto, sugerimos que você execute essa operação fora dos horários de pico ou no fim de semana para evitar o impacto sobre os consumidores finais.
 
-Para obter mais informações sobre como muito[converter um volume do volume em camadas tooa fixado localmente](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
+Mais informações sobre como [converter um volume em camadas em um volume localmente afixado](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
 
-**P.** Posso cancelar a operação de conversão de volume Olá?
+**P.** Posso cancelar a operação de conversão de volume?
 
-**A.** Não, você não pode Olá Cancelar operação de conversão de saudação depois de iniciada. Como discutido na pergunta anterior de saudação, esteja ciente das Olá possíveis problemas de desempenho que você pode encontrar durante o processo de saudação e siga práticas recomendadas de saudação listadas acima, ao planejar sua conversão.
+**A.** Não, você não pode cancelar a operação de conversão depois que ela é iniciada. Conforme discutido na pergunta anterior, tenha em mente os possíveis problemas de desempenho que você poderá encontrar durante o processo e, ao planejar a conversão, siga as práticas recomendadas listadas acima.
 
-**P.** Se a operação de conversão de saudação falhar, o que acontece toomy volume?
+**P.** O que acontecerá com o volume se a operação de conversão falhar?
 
-**A.** Conversão de volume pode falhar devido a problemas de conectividade de toocloud. dispositivo de Olá eventualmente pode parar o processo de conversão de saudação após uma série de toobring tentativas malsucedidas de dados hierárquico da nuvem de saudação. Nesse cenário, o tipo de volume Olá continuará toobe Olá fonte volume tipo anterior tooconversion, e:
+**A.** A conversão de volume pode falhar devido a problemas de conectividade de nuvem. O dispositivo pode eventualmente parar o processo de conversão após uma série de tentativas malsucedidas de obter dados em camadas da nuvem. Nesse cenário, o tipo de volume continuará a ser o tipo de volume de origem anterior à conversão e:
 
-* Um alerta crítico será gerado toonotify de falha de conversão de volume hello. Para obter mais informações sobre [toolocally relacionados fixado volumes de alertas](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
-* Se você estiver convertendo um volume em camadas tooa fixado localmente, o volume Olá continuará tooexhibit propriedades de um volume em camadas que dados ainda podem residir na nuvem de saudação. Sugerimos que você resolver os problemas de conectividade hello e, em seguida, repita a operação de conversão de saudação.
-* Da mesma forma, quando a conversão de um tooa localmente afixado em camadas falha do volume, embora o volume de saudação será marcado como um volume localmente afixado, ela funcionará como um volume em camadas (porque os dados podem ter vazados toohello nuvem). No entanto, ele continuará espaço toooccupy nas camadas de local de saudação do dispositivo hello. Esse espaço não estará disponível para outros volumes localmente afixados. Sugerimos que você repita tooensure esta operação que Olá volume conversão seja concluída e Olá o espaço local no dispositivo Olá a ser recuperada.
+* Será gerado um alerta crítico para notificá-lo da falha de conversão do volume. Mais informações sobre [alertas relacionados a volumes localmente afixados](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
+* Se você estiver convertendo um volume em camadas em um volume localmente afixado, o volume continuará a exibir propriedades de um volume em camadas, pois ainda pode haver dados residentes na nuvem. Sugerimos que você resolva os problemas de conectividade e repita a operação de conversão.
+* Da mesma forma, quando a conversão de um volume localmente afixado em um volume em camadas falha, embora o volume seja marcado como um volume localmente afixado, ele funcionará como um volume em camadas (porque dados podem ter sido colocados na nuvem). No entanto, ele continuará a ocupar espaço nas camadas locais do dispositivo. Esse espaço não estará disponível para outros volumes localmente afixados. Sugerimos que você repita a operação para garantir que a conversão de volume seja concluída e que o espaço local no dispositivo possa ser recuperado.
 
 ## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Perguntas sobre como restaurar um volume localmente afixado
 **P.** Os volumes localmente afixados são restaurados instantaneamente?
 
-**A.** Sim, os volumes localmente afixados são restaurados instantaneamente. Assim que as informações de metadados de saudação para o volume de saudação são extraídas da nuvem de saudação como parte da operação de restauração Olá, o volume de hello está online e pode ser acessado pelo host hello. No entanto, garantias locais para volume Olá dados não estarão presentes até que todos os dados de saudação foi baixado da nuvem hello e você pode enfrentar um desempenho reduzido nesses volumes durante saudação restauração de saudação.
+**A.** Sim, os volumes localmente afixados são restaurados instantaneamente. Assim que as informações de metadados do volume são obtidas da nuvem como parte da operação de restauração, o volume é colocado online e pode ser acessado pelo host. No entanto, garantias locais para os dados do volume não estarão presentes até que todos os dados sejam baixado da nuvem. Pode ocorrer redução do desempenho nos volumes durante a restauração.
 
-**P.** Quanto tempo leva toorestore um volume localmente afixado?
+**P.** Quanto tempo leva para restaurar um volume localmente afixado?
 
-**A.** Volumes localmente afixados serão restaurados instantaneamente e colocados online, assim como informações de metadados de volume Olá são recuperadas da nuvem Olá, enquanto os dados de volume Olá continuam toobe baixado em segundo plano de saudação. Esta última parte da operação de restauração de hello – voltando garantias local Olá Olá para dados de volume - é uma operação demorada e pode levar várias horas para todos os toobe de dados Olá torna local novamente. Olá tempo toocomplete hello mesmo depende de vários fatores, como tamanho de saudação do volume hello está sendo restaurado e Olá largura de banda disponível. Se o volume original de saudação que está sendo restaurado foi excluído, mais tempo será levado toocreate Olá local espaço Olá dispositivo como parte da operação de restauração de saudação.
+**A.** Volumes localmente afixados são restaurados instantaneamente e colocados online assim que as informações de metadados do volume são recuperadas da nuvem, enquanto os dados do volume continuam a ser baixados em segundo plano. Essa última parte da operação de restauração (obter de volta as garantias locais para os dados do volume) é uma operação demorada e pode levar várias horas para que todos os dados estejam disponíveis localmente de novo. O tempo necessário para concluir esse mesmo processo depende de vários fatores, como o tamanho do volume que está sendo restaurado e a largura de banda disponível. Se o volume original que está sendo restaurado foi excluído, levará mais tempo para criar o espaço local no dispositivo como parte da operação de restauração.
 
-**P.** Preciso de toorestore meu existente localmente fixados instantâneo mais antigo de tooan de volume (obtido quando o volume de saudação foi em camadas). Volume Olá voltará como camadas nesse caso?
+**P.** Preciso restaurar meu volume localmente afixado existente para um instantâneo mais antigo (obtido quando o volume era em camadas). Nesse caso, o volume será restaurado em camadas?
 
-**A.** Não, o volume de saudação será restaurado como um volume localmente afixado. Embora Olá instantâneo tempo toohello de datas ao volume Olá foi hierárquico, ao restaurar volumes existentes, o StorSimple sempre usa o tipo de saudação do volume no disco hello como existe atualmente.
+**A.** Não, o volume será restaurado como um volume localmente afixado. Embora o instantâneo seja de quando o volume era em camadas, ao restaurar volumes existentes, o StorSimple sempre usa o tipo de volume no disco da forma como ele existe atualmente.
 
-**P.** Eu estendido Meu volume localmente afixado recentemente, mas agora preciso toorestore Olá dados tooa hora do volume Olá menor em tamanho. Restauração redimensionará volume atual hello e será necessário tooextend tamanho de saudação do volume Olá após a conclusão da restauração Olá?
+**P.** Estendi meu volume localmente afixado recentemente, mas agora preciso restaurar os dados para uma hora em que o volume tinha tamanho menor. A restauração redimensionará o volume atual e precisarei estender o tamanho do volume após a restauração ser concluída?
 
-**A.** Sim, restauração Olá será redimensionado o volume de saudação e você precisará tooextend Olá tamanho do hello volume após a restauração de saudação.
+**A.** Sim, a restauração redimensionará o volume e você precisará estender o tamanho do volume após a restauração ser concluída.
 
-**P.** Pode alterar o tipo de saudação de um volume durante a restauração?
+**P.** Posso alterar o tipo de um volume durante a restauração?
 
-**R.**não, você não pode alterar o tipo de volume Olá durante a restauração.
+**R.**Não, você não pode alterar o tipo de volume durante a restauração.
 
-* Volumes que tenham sido excluídos são restaurados como tipo de saudação armazenado no instantâneo de saudação.
-* Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo hello armazenado no instantâneo de saudação (consulte Perguntas toohello dois anterior).
+* Os volumes excluídos são restaurados como o tipo armazenado no instantâneo.
+* Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo armazenado no instantâneo (confira as duas perguntas anteriores).
 
-**P.** Preciso toorestore Meu volume localmente afixado mas selecionei um ponto incorreto no instantâneo de tempo. Posso cancelar a operação de restauração atual Olá?
+**P.** Preciso restaurar um volume localmente afixado, mas escolhi um ponto incorreto no instantâneo de tempo. Posso cancelar a operação de restauração atual?
 
-**A.** Sim, você pode cancelar uma operação de restauração em andamento. estado de saudação do volume Olá será revertido estado toohello no início de saudação da restauração de saudação. No entanto, todas as gravações feitas toohello volume enquanto restauração Olá estava em andamento serão perdidas.
+**A.** Sim, você pode cancelar uma operação de restauração em andamento. O estado do volume será revertido para o estado do início da restauração. No entanto, as gravações feitas no volume enquanto a restauração estava em andamento serão perdidas.
 
 **P.** Comecei uma operação de restauração em um de meus volumes localmente afixados e agora há um instantâneo no catálogo de lista de pendências que não me lembro de ter criado. Para que isso é usado?
 
-**A.** Isso é Olá temporário instantâneo é criado a operação de restauração anterior toohello e é usado para reversão no caso de restauração Olá foi cancelada ou falha. Não exclua esse instantâneo; ele serão automaticamente excluído quando Olá restauração for concluída. Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração de saudação inclui apenas os volumes em camadas, em seguida, esse comportamento não ocorrerá.
+**A.** Esse é o instantâneo temporário criado antes da operação de restauração que é usado para a reversão, caso a restauração seja cancelada ou falhe. Não exclua esse instantâneo. Ele será automaticamente excluído quando a restauração for concluída. Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá.
 
 **P.** Posso clonar um volume localmente afixado?
 
-**A.** Sim, pode. No entanto, volume Olá localmente fixado será clonada como um volume em camadas por padrão. Para obter mais informações sobre como muito[clonar um volume localmente afixado](storsimple-8000-clone-volume-u2.md)
+**A.** Sim, pode. No entanto, o volume localmente afixado será clonado como um volume em camadas por padrão. Mais informações sobre como [clonar um volume localmente afixado](storsimple-8000-clone-volume-u2.md)
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Perguntas sobre como fazer o failover de um volume localmente afixado
-**P.** Preciso de toofail em meu dispositivo físico do dispositivo tooanother. O failover será feito nos volumes localmente afixados como localmente afixados ou em camadas?
+**P.** Preciso fazer failover de um dispositivo para outro dispositivo físico. O failover será feito nos volumes localmente afixados como localmente afixados ou em camadas?
 
-**A.** Olá localmente afixado volumes são submetidos a failover fixado localmente se o dispositivo de destino Olá estiver executando atualização de série StorSimple 8000 3 ou posterior.
+**A.** Os volumes fixados localmente passam por failover fixado localmente se o dispositivo de destino executar um StorSimple da série 8000 com atualização 3 ou superior.
 
 Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
 **P.** Os volumes localmente afixados são restaurados instantaneamente durante a RD (recuperação de desastre)?
 
-**A.** Sim, os volumes localmente afixados são restaurados instantaneamente durante o failover. Assim como informações de metadados de saudação para o volume de saudação são extraídas da nuvem de saudação como parte da operação de failover de saudação, o volume de Olá é colocada online no dispositivo de destino hello e pode ser acessado pelo host hello. Enquanto isso, dados de volume de saudação continuarão toodownload no plano de fundo Olá, e você pode enfrentar desempenho reduzido nesses volumes durante Olá Olá failover.
+**A.** Sim, os volumes localmente afixados são restaurados instantaneamente durante o failover. Assim que as informações de metadados do volume são obtidas da nuvem como parte da operação de failover, o volume é colocado online no dispositivo de destino e pode ser acessado pelo host. Enquanto isso, os dados do volume continuarão a ser baixados em segundo plano e o desempenho poderá ser reduzido nos volumes durante o failover.
 
-**P.** Consulte o trabalho de failover Olá concluído, como pode rastrear progresso de saudação do volume localmente afixado que está sendo restaurado no dispositivo de destino Olá?
+**P.** Vejo que o trabalho de failover foi concluído. Como posso acompanhar o andamento do volume localmente afixado que está sendo restaurado no dispositivo de destino?
 
-**A.** Durante uma operação de failover, o trabalho de failover hello está marcado como concluído depois que todos os volumes de saudação no conjunto de failover de saudação foram instantaneamente restaurados e colocados online no dispositivo de destino de saudação. Isso inclui todos os volumes localmente afixados falha podem ter sido No entanto, garantias de locais de dados Olá só estarão disponíveis quando todos os dados de saudação para o volume de saudação foi baixado. Você pode acompanhar esta progresso para cada volume localmente afixado falhou com monitoramento Olá correspondente trabalhos de restauração que são criados como parte do failover de saudação. Esses trabalhos de restauração individuais só serão criados para volumes localmente afixados.
+**A.** Durante uma operação de failover, o trabalho de failover é marcado como concluído depois que todos os volumes no conjunto de failover tiverem sido instantaneamente restaurados e colocados online no dispositivo de destino. Isso inclui todos os volumes localmente afixados que podem ter sido submetidos a failover. No entanto, as garantias locais dos dados só estarão disponíveis quando todos os dados do volume forem baixados. Você pode acompanhar o andamento de cada volume localmente afixado que falhou monitorando os trabalhos de restauração correspondentes que são criados como parte do failover. Esses trabalhos de restauração individuais só serão criados para volumes localmente afixados.
 
-**P.** Pode alterar o tipo de saudação de um volume durante o failover?
+**P.** Posso alterar o tipo de um volume durante o failover?
 
-**A.** Não, você não pode alterar o tipo de volume Olá durante um failover. Se você estiver falhando tooanother dispositivo físico que está executando o Storsimples 8000 series atualização 3, Olá volumes serão submetidos a failover com base no tipo de volume Olá armazenado no instantâneo de saudação.
+**A.** Não, você não pode alterar o tipo de volume durante um failover. Se você estiver fazendo o failover para outro dispositivo físico que execute o StorSimple da série 8000 com atualização 3, o failover dos volumes será feito com base no tipo de volume armazenado no instantâneo.
 
-**P.** Podem falhar em um contêiner de volume com o dispositivo de nuvem toohello volumes fixados localmente?
+**P.** Posso fazer o failover em um contêiner de volume com volumes localmente afixados para o dispositivo de nuvem?
 
-**A.** Sim, pode. Olá localmente afixado volumes serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**A.** Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

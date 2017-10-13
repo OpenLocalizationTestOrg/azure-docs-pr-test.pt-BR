@@ -1,5 +1,5 @@
 ---
-title: "exemplos de configuração de roteador aaaExpressRoute cliente | Microsoft Docs"
+title: "Exemplos de configuração do roteador do cliente ExpressRoute | Microsoft Docs"
 description: "Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper."
 documentationcenter: na
 services: expressroute
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-ms.openlocfilehash: 5c91f24e6082e01c3e8df91b4fcfda46a6c29fa8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="router-configuration-samples-tooset-up-and-manage-routing"></a>Configuração do roteador exemplos tooset backup e gerenciar o roteamento
-Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX. Esses exemplos toobe pretendido para obter orientação apenas e não devem ser usados como está. Você pode trabalhar com seu fornecedor toocome com as configurações apropriadas para sua rede. 
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
+Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 
 
 > [!IMPORTANT]
-> Os exemplos nesta página são toobe pretendido puramente para obter orientação. Você deve trabalhar com a equipe de vendas / técnico do fornecedor e sua rede toocome de equipe backup com as configurações apropriadas toomeet suas necessidades. A Microsoft não oferecerá suporte para problemas relacionados ao tooconfigurations listados nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
+> Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
 > 
 > 
 
 ## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Configurações de MSS TCP e MTU em interfaces do roteador
-* Olá MTU para interface de rota expressa Olá é 1500, Olá típico MTU padrão para uma interface Ethernet em um roteador. A menos que seu roteador tem uma MTU diferente por padrão, há toospecify sem necessidade de um valor na interface do roteador hello.
-* Ao contrário de um Gateway de VPN do Azure, Olá MSS TCP para um circuito de rota expressa não precisa toobe especificado.
+* A MTU para a interface do ExpressRoute é 1500, que é a MTU padrão típica para uma interface Ethernet em um roteador. A menos que seu roteador tenha uma MTU diferente por padrão, não é necessário especificar um valor na interface do roteador.
+* Ao contrário de um Gateway de VPN do Azure, o MSS TCP para um circuito ExpressRoute não precisa ser especificado.
 
-Exemplos de configuração de roteador abaixo se aplicam a tooall emparelhamentos. Examine [emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre roteamento.
+Os modelos de configuração abaixo se aplicam a todos os emparelhamentos. Examine [emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre roteamento.
 
 
 ## <a name="cisco-ios-xe-based-routers"></a>Roteadores com base em Cisco IOS-XE
-exemplos de saudação nesta seção se aplica a qualquer roteador executando a família de sistemas operacionais de IOS XE de saudação.
+Os modelos nesta seção se aplicam a qualquer roteador que esteja executando a família de sistemas operacionais IOS XE.
 
 ### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e sub-interfaces
-Você precisará de uma interface sub por emparelhamento em cada roteador conectar tooMicrosoft. Uma interface de sub-rotina pode ser identificada com uma ID de VLAN ou um par empilhado de IDs VLAN e um endereço IP.
+Você precisará de uma sub interface por emparelhamento em cada roteador, que o conecte à Microsoft. Uma interface de sub-rotina pode ser identificada com uma ID de VLAN ou um par empilhado de IDs VLAN e um endereço IP.
 
 **Definição da interface Dot1Q**
 
-Este exemplo fornece a definição de interface subgrupos de saudação para uma interface sub com uma única ID de VLAN. Olá VLAN ID é exclusiva por emparelhamento. último octeto saudação de seu endereço de IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de sub-interface para a sub-interface com uma ID de VLAN única. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
@@ -51,14 +51,14 @@ Este exemplo fornece a definição de interface subgrupos de saudação para uma
 
 **Definição da interface QinQ**
 
-Este exemplo fornece uma definição de interface sub Olá para uma interface sub com duas IDs de VLAN. Olá externa VLAN ID (s-tag), se usado permanece Olá iguais em todos os emparelhamentos de saudação. interna Olá ID de VLAN (c-tag) seja exclusiva por emparelhamento. último octeto saudação de seu endereço de IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de sub-interface para a sub-interface com duas IDs de VLAN única. ID da VLAN externa (s-tag), se usada permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. Configuração das sessões eBGP
-Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. exemplo Hello abaixo permite que você toosetup uma sessão BGP com a Microsoft. Se Olá endereço IPv4 usado para a sua interface sub a.b.c. d, endereço IP de saudação do vizinho BGP hello (Microsoft) será a.b.c.d+1. último octeto saudação do endereço de IPv4 do vizinho BGP Olá sempre será um número par.
+Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. O exemplo a seguir lhe permite configurar uma sessão BGP com a Microsoft. Se o endereço IPv4 usado para a sua sub interface era a.b.c. d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -69,8 +69,8 @@ Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. 
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-toobe-advertised-over-hello-bgp-session"></a>3. Configuração de toobe prefixos divulgados sessão BGP de saudação
-Você pode configurar seu tooMicrosoft do roteador tooadvertise prefixos select. Você pode fazer isso usando Olá exemplo abaixo.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando os prefixos anunciados sobre a sessão BGP
+Você pode configurar seu roteador para anunciar prefixos selecionados para a Microsoft. Você pode fazer isso usando o exemplo a seguir.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -83,7 +83,7 @@ Você pode configurar seu tooMicrosoft do roteador tooadvertise prefixos select.
     !
 
 ### <a name="4-route-maps"></a>4. Mapas de rotas
-Você pode usar mapas de rota e prefixo lista toofilter prefixos propagados em sua rede. Você pode usar o exemplo hello abaixo tooaccomplish tarefa de saudação. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
+Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Você pode usar o exemplo a seguir para realizar a tarefa. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -101,13 +101,13 @@ Você pode usar mapas de rota e prefixo lista toofilter prefixos propagados em s
 
 
 ## <a name="juniper-mx-series-routers"></a>Roteadores da série Juniper MX
-exemplos de saudação nesta seção se aplicam para os roteadores da série Juniper MX.
+Os exemplos nesta seção se aplicam aos os roteadores da série Juniper MX.
 
 ### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e sub-interfaces
 
 **Definição da interface Dot1Q**
 
-Este exemplo fornece a definição de interface subgrupos de saudação para uma interface sub com uma única ID de VLAN. Olá VLAN ID é exclusiva por emparelhamento. último octeto saudação de seu endereço de IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de sub-interface para a sub-interface com uma ID de VLAN única. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interfaces {
         vlan-tagging;
@@ -124,7 +124,7 @@ Este exemplo fornece a definição de interface subgrupos de saudação para uma
 
 **Definição da interface QinQ**
 
-Este exemplo fornece uma definição de interface sub Olá para uma interface sub com duas IDs de VLAN. Olá externa VLAN ID (s-tag), se usado permanece Olá iguais em todos os emparelhamentos de saudação. interna Olá ID de VLAN (c-tag) seja exclusiva por emparelhamento. último octeto saudação de seu endereço de IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de sub-interface para a sub-interface com duas IDs de VLAN única. ID da VLAN externa (s-tag), se usada permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interfaces {
         <Interface_Number> {
@@ -139,7 +139,7 @@ Este exemplo fornece uma definição de interface sub Olá para uma interface su
     }                           
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. Configuração das sessões eBGP
-Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. exemplo Hello abaixo permite que você toosetup uma sessão BGP com a Microsoft. Se Olá endereço IPv4 usado para a sua interface sub a.b.c. d, endereço IP de saudação do vizinho BGP hello (Microsoft) será a.b.c.d+1. último octeto saudação do endereço de IPv4 do vizinho BGP Olá sempre será um número par.
+Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. O exemplo a seguir lhe permite configurar uma sessão BGP com a Microsoft. Se o endereço IPv4 usado para a sua sub interface era a.b.c. d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -154,8 +154,8 @@ Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. 
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-toobe-advertised-over-hello-bgp-session"></a>3. Configuração de toobe prefixos divulgados sessão BGP de saudação
-Você pode configurar seu tooMicrosoft do roteador tooadvertise prefixos select. Você pode fazer isso usando Olá exemplo abaixo.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando os prefixos anunciados sobre a sessão BGP
+Você pode configurar seu roteador para anunciar prefixos selecionados para a Microsoft. Você pode fazer isso usando o exemplo a seguir.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -180,7 +180,7 @@ Você pode configurar seu tooMicrosoft do roteador tooadvertise prefixos select.
 
 
 ### <a name="4-route-maps"></a>4. Mapas de rotas
-Você pode usar mapas de rota e prefixo lista toofilter prefixos propagados em sua rede. Você pode usar o exemplo hello abaixo tooaccomplish tarefa de saudação. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
+Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Você pode usar o exemplo a seguir para realizar a tarefa. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -210,5 +210,5 @@ Você pode usar mapas de rota e prefixo lista toofilter prefixos propagados em s
     }
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte Olá [perguntas frequentes sobre o rota expressa](expressroute-faqs.md) para obter mais detalhes.
+Consulte as [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

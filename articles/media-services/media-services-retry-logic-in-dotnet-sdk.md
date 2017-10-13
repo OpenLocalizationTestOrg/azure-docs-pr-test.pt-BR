@@ -1,6 +1,6 @@
 ---
-title: "lógica de aaaRetry em Olá SDK de serviços de mídia para .NET | Microsoft Docs"
-description: "tópico de saudação dá uma visão geral de lógica de repetição em Olá SDK do Media Services para .NET."
+title: "Lógica de repetição no SDK dos Serviços de Mídia para .NET | Microsoft Docs"
+description: "Este tópico fornece uma visão geral da lógica de repetição no SDK dos Serviços de Mídia para .NET."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.openlocfilehash: 18d0a9d68e55a48bc769fb6ae5711ddba78ed8e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 859dd76db4ba06196a853469a1385703d835fa22
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="retry-logic-in-hello-media-services-sdk-for-net"></a>Lógica de repetição em Olá SDK do Media Services para .NET
-Ao trabalhar com os serviços do Microsoft Azure, algumas falhas transitórias podem ocorrer. Se ocorrer uma falha temporária, na maioria dos casos, após várias tentativas alguns hello operação for bem-sucedida. Olá SDK de serviços de mídia para .NET implementa Olá repetição lógica toohandle falhas transitórias associadas com exceções e erros causados por solicitações da web, executar consultas, salvar as alterações e operações de armazenamento.  Por padrão, Olá SDK de serviços de mídia para .NET executa quatro repetições antes de relançar o aplicativo de tooyour hello exceção. código Olá em seu aplicativo deve tratar essa exceção corretamente.  
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de Serviços de Mídia para .NET
+Ao trabalhar com os serviços do Microsoft Azure, algumas falhas transitórias podem ocorrer. Se alguma ocorrer, na maioria dos casos, depois de algumas tentativas a operação é bem-sucedida. O SDK dos Serviços de Mídia para .NET implementa a lógica de repetição para lidar com falhas transitórias associadas a exceções e erros causados por solicitações da Web, execução de consultas, gravação de alterações e operações de armazenamento.  Por padrão, o SDK dos Serviços de Mídia para .NET executa quatro tentativas antes de lançar novamente a exceção para o seu aplicativo. Assim, o código em seu aplicativo deve tratar essa exceção corretamente.  
 
- a seguir Olá é uma diretriz breve das políticas de solicitação da Web, armazenamento, consulta e SaveChanges:  
+ Veja a seguir uma breve orientação sobre as políticas de Solicitação da Web, Armazenamento, Consulta e SaveChanges:  
 
-* Olá política de armazenamento é usada para operações de armazenamento de blob (carregamentos ou download de arquivos de ativo).  
-* Olá diretiva de solicitação da Web é usada para solicitações de web genéricos (por exemplo, para obter uma autenticação de token e resolver usuários Olá ponto de extremidade do cluster).  
-* Olá diretiva de consulta é usada para consultar entidades do REST (por exemplo, mediaContext.Assets.Where(...)).  
-* Olá SaveChanges política é usada para fazer qualquer coisa que as alterações de dados no serviço de saudação (por exemplo, criar uma entidade de uma entidade, chamar uma função de serviço para uma operação de atualização).  
+* A política de Armazenamento é usada para operações de armazenamento de blobs (uploads ou download de arquivos de ativo).  
+* A política de Solicitação da Web é usada para solicitações genéricas da Web (por exemplo, para obter um token de autenticação e resolver o ponto de extremidade do cluster de usuários).  
+* A política de Consulta é usada para consultar entidades do REST (por exemplo, mediaContext.Assets.Where(...)).  
+* A política SaveChanges é usada para fazer qualquer coisa que altere os dados dentro do serviço (por exemplo, criar uma entidade atualizando uma entidade, chamar uma função de serviço para uma operação).  
   
-  Este tópico lista os tipos de exceção e lógica de repetição de códigos de erro que são manipulados pelo Olá SDK do Media Services para .NET.  
+  Este tópico lista os tipos de exceção e os códigos de erro tratados pelo SDK dos Serviços de Mídia para .NET.  
 
 ## <a name="exception-types"></a>Tipos de exceção
-Olá tabela a seguir descreve as exceções que Olá SDK do Media Services para .NET identificadores ou não lida com algumas operações que podem causar falhas transitórias.  
+A tabela a seguir descreve as exceções que o SDK dos Serviços de Mídia para .NET trata ou não para algumas operações que podem causar falhas transitórias.  
 
 | Exceção | Solicitação da Web | Armazenamento | Consultar | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>Para obter mais informações, consulte Olá [códigos de status WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) seção. |Sim |Sim |Sim |Sim |
+| WebException<br/>Para saber mais, consulte a seção [Códigos de status WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |Sim |Sim |Sim |Sim |
 | DataServiceClientException<br/> Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
 | DataServiceQueryException<br/> Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
 | DataServiceRequestException<br/> Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
@@ -48,7 +48,7 @@ Olá tabela a seguir descreve as exceções que Olá SDK do Media Services para 
 | IOException |Não |Sim |Não |Não |
 
 ### <a name="WebExceptionStatus"></a> Códigos de status WebException
-Olá tabela a seguir mostra quais erro WebException lógica de repetição de saudação de códigos é implementada. Olá [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeração define os códigos de status de saudação.  
+A tabela a seguir mostra para quais códigos de erro WebException a lógica de repetição é implementada. A enumeração [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define os códigos de status.  
 
 | Status | Solicitação da Web | Armazenamento | Consultar | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -63,10 +63,10 @@ Olá tabela a seguir mostra quais erro WebException lógica de repetição de sa
 | ReceiveFailure |Sim |Sim |Sim |Não |
 | RequestCanceled |Sim |Sim |Sim |Não |
 | Tempo limite |Sim |Sim |Sim |Não |
-| ProtocolError <br/>repetição de saudação em erro de protocolo é controlada pela manipulação de código de status HTTP hello. Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
+| ProtocolError <br/>A repetição em ProtocolError é controlada pela manipulação do código de status HTTP. Para saber mais, consulte [Códigos de status de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
 
 ### <a name="HTTPStatusCode"></a> Códigos de status de erro HTTP
-Quando as operações de consulta e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, Olá código de status de erro HTTP é retornado em Olá propriedade StatusCode.  Olá tabela a seguir mostra quais códigos de erro de lógica de repetição de saudação é implementada.  
+Quando as operações de Consulta e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de status de erro HTTP retorna na propriedade StatusCode.  A tabela a seguir mostra para quais códigos de erro a lógica de repetição é implementada.  
 
 | Status | Solicitação da Web | Armazenamento | Consultar | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ Quando as operações de consulta e SaveChanges lançam DataServiceClientExcepti
 | 503 |Sim |Sim |Sim |Sim |
 | 504 |Sim |Sim |Sim |Não |
 
-Se você quiser tootake uma olhada na implementação real Olá Olá SDK do Media Services para lógica de repetição do .NET, consulte [azure sdk para o media services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Se você quiser dar uma olhada na implementação real do SDK dos Serviços de Mídia para .NET, consulte [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

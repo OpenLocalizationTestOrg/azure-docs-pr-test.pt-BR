@@ -1,6 +1,6 @@
 ---
-title: "Visão geral da fábrica de conectado aaaAzure IoT Suite | Microsoft Docs"
-description: "Uma descrição do hello Azure IoT Suite conectado solução pré-configurada de fábrica."
+title: "Visão geral de fábrica conectada do Azure IoT Suite | Microsoft Docs"
+description: "Uma descrição da solução pré-configurada de fábrica conectada do Azure IoT Suite."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,263 +15,263 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 929b5ed41ef7d82c9b4480d02aa3f0db38931919
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="get-started-with-hello-connected-factory-preconfigured-solution"></a>Introdução à solução de fábrica pré-configurado Olá conectado
+# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introdução à solução pré-configurada de fábrica conectada
 
-Azure IoT Suite [soluções pré-configuradas] [ lnk-preconfigured-solutions] combinar várias IoT do Azure services toodeliver ponta a ponta soluções que implementam cenários comuns de negócios de IoT. Olá *fábrica conectada* solução pré-configurada conecta tooand monitora seus dispositivos industriais. Você pode usar o fluxo de saudação do hello solução tooanalyze de dados de seus dispositivos e produtividade operacional toodrive e lucratividade.
+As [soluções pré-configuradas][lnk-preconfigured-solutions] do Azure IoT Suite combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *fábrica conectada* conecta aos dispositivos industriais e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e promover a lucratividade e a produtividade operacionais.
 
-Este tutorial mostra como tooprovision Olá conectadas fábrica pré-configurado de solução. Ele também orienta você por meio de recursos básicos de saudação da solução Olá pré-configurado. Você pode acessar muitos desses recursos de solução de saudação *painel* que implanta como parte da solução Olá pré-configurados:
+Este tutorial mostra como provisionar a solução pré-configurada de fábrica conectada. Ele também explica os recursos básicos da solução pré-configurada. Você pode acessar muitos desses recursos no *painel* de solução que é implantado como parte da solução pré-configurada:
 
 ![Painel de solução pré-configurada de fábrica conectada][img-cf-home]
 
-toocomplete neste tutorial, você precisa de uma assinatura ativa do Azure.
+Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [!NOTE]
 > Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 > 
 > 
 
-## <a name="provision-hello-solution"></a>Provisionar Olá solução
+## <a name="provision-the-solution"></a>Provisionar a solução
 
-1. Faça logon no tooazureiotsuite.com usando suas credenciais de conta do Azure e, em seguida, clique em "**+**" toocreate uma solução.
-2. Clique em **selecione** em Olá **fábrica conectada** lado a lado.
+1. Faça logon em azureiotsuite.com usando as credenciais de sua conta do Azure e clique em "**+**" para criar uma nova solução.
+2. Clique em **Selecionar** no bloco **Fábrica conectada**.
 3. Digite um **Nome de solução** para a solução pré-configurada de fábrica conectada.
-4. Selecione Olá **assinatura** e **região** deseja toouse tooprovision Olá solução.
-5. Clique em **criar solução** Olá toobegin processo de provisionamento. Normalmente, esse processo leva vários toorun de minutos.
+4. Selecione a **Assinatura** e a **Região** que você deseja usar para provisionar a solução.
+5. Clique em **Criar Solução** para iniciar o processo de provisionamento. Este processo normalmente leva vários minutos para ser executado.
 
-### <a name="while-you-wait-for-hello-provisioning-process-toocomplete"></a>Enquanto aguarda Olá toocomplete do processo de provisionamento
+### <a name="while-you-wait-for-the-provisioning-process-to-complete"></a>Enquanto você aguarda até que o processo de provisionamento seja concluído
 
-1. Clique em bloco de saudação para sua solução com **provisionamento** status.
-2. Saudação de aviso **provisionamento estados** como serviços do Azure são implantados na sua assinatura do Azure.
-3. Após a conclusão do provisionamento, Olá alterações de status muito**pronto**.
-4. Clique em Olá bloco toosee Olá detalhes de sua solução no painel direito da saudação.
+1. Clique no bloco da sua solução com o status **Provisionamento** .
+2. Observe os **estados de Provisionamento** à medida que os serviços do Azure são implantados em sua assinatura do Azure.
+3. Após o provisionamento ser concluído, o status será alterado para **Pronto**.
+4. Clique no bloco para ver os detalhes da solução no painel à direita.
 
 > [!NOTE]
-> Se você encontrar problemas de implantação de solução Olá pré-configurado, examine [permissões no site do hello azureiotsuite.com] [ lnk-permissions] e hello [conectado perguntas Frequentes de fábrica](iot-suite-faq-cf.md). Se os problemas de saudação persistirem, criar um tíquete de serviço em Olá [portal][lnk-portal].
+> Se estiver tendo problemas para implantar a solução pré-configurada, dê uma olhada em [Permissões no site azureiotsuite.com][lnk-permissions] e nas [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md). Se os problemas persistirem, crie um tíquete de serviço no [portal][lnk-portal].
 
-Há detalhes esperado toosee que não estejam listados para sua solução? Envie sugestões de recursos no [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+Há detalhes que você esperaria ver e que não estão listados para sua solução? Envie sugestões de recursos no [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
-Quando você implanta Olá conectado fábrica pré-configurado solução, ele será preenchido com recursos que permitem que você toostep por meio de um cenário industrial comum. Nesse cenário, diversas fábricas conectado relatórios de solução de toohello toocompute necessária de valores de dados de saudação eficiência geral de equipamentos (OEE) e indicadores chave de desempenho (KPIs). Olá seções a seguir mostram como para:
+Quando você implantar a solução pré-configurada de fábrica conectada, ela será pré-populada com recursos que permitem que você percorra um cenário industrial comum. Nesse cenário, várias fábricas conectadas à solução relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). As seções a seguir mostram como:
 
 * Monitorar fábrica, linhas de produção, OEE de estação e valores de KPI
-* Analisar dados de telemetria Olá gerados a partir desses dispositivos usando o Azure Insights de série de tempo
-* Agir sobre problemas de toofix de alertas
+* Analisar os dados de telemetria gerados por esses dispositivos usando Análises de Séries Temporais do Azure
+* Agir sobre alertas para corrigir problemas
 
-Um recurso principal deste cenário é que você pode executar todas essas ações remotamente no painel de solução de saudação. Dispositivos de toohello acesso físico não é necessário.
+Um recurso-chave desse cenário é que você pode executar todas essas ações remotamente no painel da solução. Não é necessário acesso físico aos dispositivos.
 
-## <a name="view-hello-solution-dashboard"></a>Painel de solução de saudação de View
+## <a name="view-the-solution-dashboard"></a>Exibir o painel de solução
 
-Painel de solução de saudação permite toomanage solução de saudação implantada. É uma representação hierárquica de uma configuração global de fábrica. Por exemplo, você pode exibir KPIs e OEE, publicar novos nós para alertas de telemetria e de ação.
+O painel de solução permite que você gerencie a solução implantada. É uma representação hierárquica de uma configuração global de fábrica. Por exemplo, você pode exibir KPIs e OEE, publicar novos nós para alertas de telemetria e de ação.
 
-1. Quando Olá provisionamento for concluído e lado a lado para sua solução pré-configurada Olá indica **pronto**, escolha **iniciar** tooopen seu portal de solução de fábrica conectados em uma nova guia.
+1. Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, escolha **Iniciar** para abrir o portal de solução de fábrica conectada em uma nova guia.
 
-    ![Iniciar a solução de saudação pré-configurado][img-launch-solution]
+    ![Iniciar a solução pré-configurada][img-launch-solution]
 
-1. Por padrão, o portal de solução Olá mostra Olá *painel*. toonavigate tooother áreas do portal hello, use o menu de saudação no lado esquerdo de saudação da página de saudação.
+1. Por padrão, o portal de solução mostra o *painel*. Para navegar para outras áreas do portal, use o menu no lado esquerdo da página.
 
     ![Painel de solução pré-configurada de fábrica conectada][cf-img-menu]
 
-Painel de saudação exibe Olá informações a seguir:
+O painel exibe as seguintes informações:
 
-* Um **lista fábrica** painel que mostra o status de saudação, o local e a configuração atual de produção na solução de saudação. Quando você executa solução hello, há um número de dispositivos simulados. simulação de linha de produção de Hello é composta de três OPC UA servidores reais por linha de produção que executem tarefas simuladas e compartilham dados. Para obter mais informações sobre OPC UA, consulte Olá [conectado perguntas Frequentes de fábrica](iot-suite-faq-cf.md).
-* Um **mapa** exibe Olá local de cada dispositivo conectado toohello solução. solução de saudação pode usar informações de tooplot de API do Bing Maps Olá mapa hello. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Se não, consulte Olá [perguntas frequentes sobre] [ lnk-faq] toolearn como toomake Olá mapa dinâmico.
+* Um painel **Lista de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
+* Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para plotar informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
 * Um painel **Alertas** que exibe alertas gerados quando um valor KPI/OEE ou de telemetria excede um limite específico.
-* Um **eficiência geral de equipamento** painel que mostra valores OEE Olá Olá fábrica/produção ou empresa inteira Olá linha/estação que você está exibindo. Esse valor é agregado de saudação estação exibição toohello de nível empresarial. a Figura OEE Hello e seus elementos constituintes podem ser analisados adicional.
-* **Indicadores chave de desempenho** painel que exibe o número de saudação de unidades produzidas e energia usada pela empresa inteira hello ou linha de fábrica/produção de hello/estação que você está exibindo. Esses valores são agregados de um nível de empresa toohello estação exibição.
+* Um painel **Eficiência Geral de Equipamento** que mostra os valores OEE para toda a empresa ou a fábrica/produção linha/estação que você está exibindo. Esse valor é agregado da exibição de estação para o nível corporativo. A figura de OEE e seus elementos constituintes podem ser mais analisados.
+* Painel **Indicadores Chave de Desempenho** que exibe o número de unidades produzidas e a energia usada por toda a empresa ou a linha de produção/fábrica/estação que você está exibindo. Esses valores são agregados de uma exibição de estação para o nível corporativo.
 
 ## <a name="view-factories"></a>Exibir fábricas
 
-Olá *fábricas* painel mostra Olá localização geográfica de todas as fábricas de Olá Olá solução, seus status e configuração de produção atual. Na lista de locais de saudação, você pode navegar toohello outros níveis na hierarquia de solução de saudação. linhas de saudação na lista de saudação são hiperlinks que vinculam os detalhes das linhas de produção de hello nesse local. É possível toodrill em detalhes da linha de produção de hello e para baixo de exibição de nível de estação de toohello. Você também pode aplicar uma lista de toohello de filtro.
+O painel *Fábricas* mostra a localização geográfica de todas as fábricas da solução, seus status e a configuração de produção atual. Na lista de locais, você pode navegar para os outros níveis na hierarquia de solução. As linhas na lista são hiperlinks que vinculam os detalhes das linhas de produção nesse local. Em seguida, é possível analisar os detalhes da linha de produção e a exibição de nível de estação. Você também pode aplicar um filtro à lista.
 
 ![Fábricas de solução pré-configurada de fábrica conectada][cf-img-factories] 
 
-1. Olá **painel fábrica** Olá mostra a lista de fábrica para esta solução.
+1. O **painel Fábrica** mostra a lista de fábricas para essa solução.
 
-2. lista de fábrica Olá inicialmente mostra seis fábricas criadas pelo processo de provisionamento de saudação. Você pode adicionar a solução de toohello de dispositivos adicionais simulada e físico.
+2. A lista de fábrica inicialmente mostra seis fábricas criadas pelo processo de provisionamento. Você pode adicionar dispositivos simulados e físicos extras à solução.
 
-3. tooview detalhes de saudação de uma fábrica, clique em lista de fábrica de saudação da linha de saudação.
+3. Para exibir os detalhes de uma fábrica, clique na linha da lista de fábricas.
 
-4. detalhes de saudação tooview de uma linha de produção, clique em lista de saudação da linha de saudação.
+4. Para exibir os detalhes de uma linha de produção, clique na linha na lista.
 
-5. Olá tooview publicado nós OPC UA da estação na linha de produção de hello, clique em linha hello na lista de saudação.
+5. Para exibir os nós OPC UA publicados de uma estação na linha de produção, clique na linha na lista.
 
-6. tooview detalhes em um nó específico na estação Olá, clique em lista de saudação da linha de saudação. Essa ação inicia o painel de contexto Olá com visualizações de informações da série de tempo. Clique nessas análises adicionais de toodo gráficos em ambiente de explorer Olá Insights de série de tempo.
+6. Para exibir detalhes sobre um nó específico na estação, clique na linha na lista. Essa ação abre o painel de contexto com visualizações de Informações da Série Temporal. Clique nesses gráficos para continuar a análise no ambiente do explorador de Análises de Séries Temporais.
 
 ## <a name="view-map"></a>Exibir mapa
 
-Se sua assinatura tiver acesso toohello API do Bing Maps, Olá *fábricas* mapa mostra localização geográfica hello e o status de todas as fábricas de saudação na solução de saudação. toodrill detalhes Olá local, clique em locais de saudação exibidos no mapa de saudação.
+Se sua assinatura tiver acesso à API do Bing Maps, o mapa de *Fábricas* mostrará a localização geográfica e o status de todas as fábricas na solução. Para analisar os detalhes de local, clique nos locais exibidos no mapa.
 
 ![Mapa de solução pré-configurada de fábrica conectada][cf-img-map]
 
 ## <a name="view-alerts"></a>Exibir alertas
 
-Olá **alerta** painel mostra alertas gerados devido tooa relatado valor ou um valor calculado de OEE/KPI exceder seu limite configurado. Esse painel exibe alertas em cada nível da hierarquia de hello, da exibição global do toohello Olá estação exibição de nível. alertas de saudação contêm uma descrição do alerta hello, data, hora, local e número de ocorrências. Você pode obter informações em dados toohello que causou o alerta de saudação usando Olá dados Insights de série de tempo. Olá tempo série Insights dados são visualizados no hello alertas, onde aplicável. Se você for um administrador, você pode executar ações de padrão em alertas hello, como:
+O painel **Alerta** mostra os alertas gerados devido a um valor relatado ou a um valor calculado de OEE/KPI que excedeu seu limite configurado. Este painel exibe alertas em cada nível da hierarquia do modo de exibição de nível de estação para o modo de exibição global. Os alertas contêm uma descrição do alerta, data, hora, local e número de ocorrências. Você pode se aprofundar nos dados que causaram o alerta usando os dados de informações da série temporal. Os dados de Informações de Série Temporal são visualizados em alertas, quando aplicável. Se for Administrador, você poderá executar ações de padrão em relação aos alertas, como:
 
-* Alerta de saudação fechar.
-* Reconhece o alerta de saudação.
+* Feche o alerta.
+* Reconhecer o alerta.
 
-Opcionalmente, você pode executar ações mais complexas. Por exemplo, para Olá pressão OPC UA nó de saudação Assembly, você pode:
+Opcionalmente, você pode executar ações mais complexas. Por exemplo, para o nó Pressure OPC UA do Assembly, você pode:
 
 * Exiba informações de suporte em uma página da Web em uma nova janela do navegador.
-* Mitigar a causa de saudação do alerta Olá chamando um método de OPC UA no dispositivo de saudação.
-* Suprima a disponibilidade de saudação de ações de padrão de saudação.
+* Mitigar a causa do alerta chamando um método de OPC UA no dispositivo.
+* Suprima a disponibilidade das ações padrão.
 
     ![Alertas de solução pré-configurada de fábrica conectada][cf-img-alerts]
 
 > [!NOTE]
-> Esses alertas são gerados por regras que são especificadas em um arquivo de configuração na solução Olá pré-configurado. Essas regras podem gerar alertas quando Olá OEE ou valores KPI ou valores de OPC UA nó estão excedendo o limite configurado.
+> Esses alertas são gerados por regras que são especificadas em um arquivo de configuração da solução pré-configurada. Essas regras podem gerar alertas quando os valores de nó de UA OPC ou valores de OEE ou KPI excedem o limite configurado.
 
-1. Olá **painel alertas** mostra Olá alertas gerados nesta solução.
+1. O **Painel de alertas** mostra os alertas gerados nesta solução.
 
-2. detalhes de saudação tooview de um alerta, clique no painel de alertas Olá Olá.
+2. Para exibir os detalhes de um alerta, clique no alerta no painel de alertas.
 
-3. toofurther analisar dados de alerta de saudação, clique em gráfico de saudação no ambiente de explorer Olá painel alerta tooopen Olá Insights de série de tempo.
+3. Para analisar melhor os dados de alerta, clique no gráfico no painel de alerta para abrir o ambiente de soluções de informações da série temporal.
 
-4. tooaddress Olá alerta, várias ações estão disponíveis no painel alerta hello. Escolha a opção apropriada Olá para você e clique em Olá executar botão de comando de ação.
+4. Para resolver o alerta, várias ações estão disponíveis no painel de alerta. Escolha a opção apropriada para você e clique no botão de comando de execução de ação.
 
 ## <a name="view-overall-equipment-efficiency"></a>Exibir a eficiência geral do equipamento
 
-Taxas OEE Olá eficiência do processo de produção de hello usando uma chave parâmetros operacionais relacionados à produção. OEE é um padrão de medida calculada multiplicando a taxa de disponibilidade hello, a taxa de desempenho e a taxa de qualidade da indústria: OEE = disponibilidade x qualidade de desempenho x.
+O OEE classifica a eficiência do processo de fabricação, usando uma chave parâmetros operacionais relacionados à produção. OEE é um padrão de medida do setor calculado multiplicando-se a taxa de disponibilidade, a taxa de desempenho e a taxa de qualidade: OEE = disponibilidade x qualidade x desempenho.
 
 ![OEE de solução pré-configurada de fábrica conectada][cf-img-oee]
 
-1. tooview OEE para qualquer nível da hierarquia hello, navegue toohello exibição específica que você precisa. Olá OEE para essa exibição é exibido no painel de saudação junto com cada um dos elementos de saudação que compõem a saudação porcentagem OEE.
+1. Para exibir o OEE para qualquer nível na hierarquia, navegue até o modo de exibição específico de que você precisa. O OEE para essa exibição é mostrado no painel junto com cada um dos elementos que compõem a porcentagem de OEE.
 
-2. toofurther analisar hello OEE para qualquer nível de dados da hierarquia hello, clique Olá OEE, disponibilidade, desempenho ou porcentagem de qualidade. Um painel de contexto é exibida com informações da série de tempo alimentadas visualizações que mostra dados de saudação última hora, últimas 24 horas e últimos 7 dias.
+2. Para analisar melhor o OEE para qualquer nível dos dados da hierarquia, clique na porcentagem de OEE, de disponibilidade, de desempenho ou de qualidade. É exibido um painel de contexto com Informações da Série de Tempo com visualizações que mostra dados da última hora, das últimas 24 horas e dos últimos sete dias.
 
     ![Visualização de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-visualization]
 
-3. toofurther analisar dados de alerta de saudação, clique em gráfico de saudação no painel alerta hello. Essa ação abre o ambiente de explorer Olá Insights de série de tempo.
+3. Para analisar melhor os dados de alerta, clique no gráfico no painel de alerta. Essa ação abre o ambiente de explorador Insights de Informações da Série Temporal.
 
     ![Explorador de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Exibir Indicadores Chave de Desempenho
 
-solução de saudação fornece dois indicadores chave de desempenho, *unidades por hora* e *energia usada em kWh*.
+A solução fornece dois indicadores-chave de desempenho, *unidades por hora* e *energia usada em kWh*.
 
 ![KPI de solução pré-configurada de fábrica conectada][cf-img-kpi]
 
-1. unidades de tooview por hora ou energia usada para qualquer nível da hierarquia hello, navegue toohello exibição específica que você precisa. unidades de saudação por hora e energia usadas exibição no painel de saudação.
+1. Para exibir as unidades por hora ou energia usadas para qualquer nível na hierarquia, navegue até o modo de exibição específico de que você precisa. As unidades por hora e energia usadas são exibidas no painel.
 
-2. unidades tooanalyze por hora ou energia usada para qualquer nível na hierarquia de saudação adicional, clique em Olá indicador em hello **indicadores chave de desempenho** painel. Um painel de contexto é exibido com visualizações de Insights de série de tempo da plataforma, permitindo que você tooview dados Olá última hora, Olá últimas 24 horas e últimos 7 dias.
+2. Para analisar melhor as unidades por hora ou a energia usada em qualquer nível na hierarquia, clique no medidor do painel **Indicadores chave de desempenho**. É exibido um painel de contexto com Informações da Série de Tempo com visualizações, habilitando-o a exibir dados da última hora, das últimas 24 horas e dos últimos sete dias.
 
 ## <a name="scenario-review"></a>Análise do cenário
 
-Nesse cenário, você monitorou os fábricas OEE KPIs valores e, no painel de saudação. Em seguida, usado tooprovide de informações da série de tempo mais informações toohelp aprofundar ainda mais em dados de telemetria Olá para KPIs e OEE toohelp com detecção de anomalias. Você também usado problemas de tooview do painel alerta Olá com seu fábricas e você usou o alerta de Olá Olá ações disponíveis tooyou tooresolve.
+Nesse cenário, você monitorou os valores de OEE e KPIs de fábricas no painel. Você usou então Informações da Série Temporal para fornecer mais informações e analisar ainda mais os dados de telemetria de OEE e KPIs para ajudar na detecção de anomalias. Você também usou o painel de alerta para exibir os problemas com as fábricas e usou as ações disponíveis para resolver o alerta.
 
 ## <a name="other-features"></a>Outros recursos
 
-Olá seções a seguir descreve alguns recursos adicionais de solução de fábrica Olá conectado que não são descritos no cenário anterior hello.
+As seções a seguir descrevem alguns recursos adicionais de solução de fábrica conectada que não são descritos no cenário anterior.
 
 ## <a name="apply-filters"></a>Aplicar filtros
 
-1. Clique em Olá **divisa** toodisplay uma lista de filtros disponíveis no painel de locais de fábrica hello ou painel de alertas de saudação.
+1. Clique na **divisa** para exibir uma lista de filtros disponíveis no painel nos locais de fábrica ou no painel de alertas.
 
-2. Painel de filtros de saudação é exibida para você. 
+2. O painel de filtros é exibido para você. 
 
     ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter]
 
-3. Escolha o filtro de saudação que você precisa. Também é possível tootype o texto livre nos campos de filtro de saudação.
+3. Escolha o filtro necessário. Também é possível digitar texto livre nos campos de filtro.
 
-4. saudação de filtro é aplicada para você. estado do filtro Olá também é exibido no painel de saudação por meio de um funil que exibe em fábricas hello e tabelas de alertas.
+4. O filtro é aplicado para você. O estado do filtro também é mostrado no painel por meio de um funil que é exibido nas tabelas de fábricas e alertas.
 
     ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter-funnel]
 
     > [!NOTE]
-    > Um filtro ativo não afeta valores hello exibido OEE e um KPI, ela apenas filtra o conteúdo da lista de saudação.
+    > Um filtro ativo não afeta os valores OEE e KPI exibidos. Ele apenas filtra o conteúdo da lista.
 
-5. tooclear um filtro, clique em funil hello e filtro no painel de contexto de filtro de saudação. Olá texto **todos os** é exibido no fábricas hello e tabelas de alertas.
+5. Para limpar um filtro, clique no funil e clique no filtro no painel de contexto de filtro. O texto **Tudo** é exibido nas tabelas de alertas e fábricas.
 
 ## <a name="browse-an-opc-ua-server"></a>Procurar um servidor de OPC UA
 
-Quando você implanta a solução Olá pré-configurados, você automaticamente provisionar servidores OPC UA simulados que você pode procurar por meio do Gerenciador de soluções de saudação. Esses servidores são *servidores OPC UA simulados*. Servidores simuladas tornam mais fácil para você tooexperiment com solução Olá pré-configurado sem Olá necessidade toodeploy real servidores físicos. Se você quiser tooconnect uma solução de toohello servidor OPC UA real, consulte Olá [conectar sua solução de fábrica pré-configurado OPC UA dispositivo toohello conectado] [ lnk-connect-cf] tutorial.
+Ao implantar a solução pré-configurada, você provisiona automaticamente servidores OPC UA simulados que pode procurar por meio do navegador de solução. Esses servidores são *servidores OPC UA simulados*. Com os servidores simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar servidores físicos reais. Se deseja conectar um servidor de OPC UA real à solução, confira o tutorial [Conectar seu dispositivo OPC UA à solução pré-configurada de fábrica conectada][lnk-connect-cf].
 
-1. Clique em Olá **ícone fábrica** na barra de navegação do painel de saudação.
+1. Clique no **ícone de fábrica** na barra de navegação do painel.
 
     ![Navegador de servidor de chamada de solução pré-configurada de fábrica conectada][cf-img-server-browser]
 
-2. Escolha um dos servidores de saudação lista pré-configurado de saudação. Esta lista mostra os servidores de saudação que são implantados na solução Olá pré-configurado.
+2. Escolha um dos servidores na lista pré-configurada. Esta lista mostra os servidores que são implantados na solução pré-configurada.
 
     ![Seleção de chamada de solução pré-configurada de fábrica conectada][cf-img-server-choice]
 
-3. Clique em **Conectar**. Uma caixa de diálogo de segurança será exibida. Simulação de Olá, é seguro tooclick **prosseguir**
+3. Clique em **Conectar**. Uma caixa de diálogo de segurança será exibida. Para a simulação, é seguro clicar em **Continuar**
 
-4. tooexpand qualquer um de nós de saudação na árvore de saudação do servidor, clique nele. Nós que estão publicando telemetria têm uma marcação ao lado deles.
+4. Clique em um dos nós na árvore de servidor para expandi-lo. Nós que estão publicando telemetria têm uma marcação ao lado deles.
 
     ![Árvore de chamada de solução pré-configurada de fábrica conectada][cf-img-server-tree]
 
-5. Clique com botão direito tooread um item, gravar, publicar ou chamar esse nó. Olá ações disponíveis tooyou dependem de suas permissões e os atributos de saudação do nó de saudação. Olá ler opção toodisplays um painel de contexto que mostram o valor de saudação do nó específico hello. Olá gravar opção exibe um painel de contexto em que você pode inserir um novo valor. opção de chamada Hello exibe um nó onde você pode inserir parâmetros Olá para chamada de saudação.
+5. Clique com o botão direito do mouse em um item para ler, gravar, publicar ou chamar esse nó. As ações disponíveis para você dependem de suas permissões e dos atributos do nó. A opção de leitura de exibe um painel de contexto mostrando o valor de nó específico. A opção de gravação exibe um painel de contexto em que você pode inserir um novo valor. A opção de chamada exibe um nó em que você pode inserir os parâmetros para a chamada.
 
 ## <a name="publish-a-node"></a>Publicar um nó
 
-Quando você procura um *server simulada de OPC UA*, você também pode escolher toopublish novos nós. Você pode analisar a telemetria de saudação desses nós na solução de saudação. Essas *simulados servidores OPC UA* torná-lo tooexperiment fácil com a solução Olá pré-configurado sem implantar dispositivos físicos reais.
+Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar novos nós. Você pode analisar a telemetria desses nós na solução. Esses *servidores OPC UA simulados* facilitam o teste da solução pré-configurada sem implantar dispositivos físicos reais.
 
-1. Procure nó tooa Olá árvore do navegador OPC UA server que você deseja toopublish.
+1. Navegue até um nó na árvore do navegador de servidor OPC UA que você deseja publicar.
 
-2. Nó de saudação com o botão direito.
+2. Clique com o botão direito do mouse no nó.
 
 3. Escolha **Publicar**.
 
     ![A fábrica conectada publica o nó][cf-img-publish-node]
 
-4. Um painel de contexto é exibido que informa que Olá publicação foi bem-sucedida. nó de saudação aparece na exibição de nível de estação Olá com uma marca de seleção ao lado dela.
+4. É exibido um painel de contexto que informa que a publicação foi bem-sucedida. O nó aparece na exibição do nível de estação com uma marca de seleção ao lado dele.
 
     ![Publicação com êxito de chamada de solução pré-configurada de fábrica conectada][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Comando e controle
 
-fábrica conectado Olá permite comando e controlar os dispositivos de setor diretamente da nuvem hello. Você pode usar este tooalerts toorespond de recurso gerado pelo dispositivo hello. Por exemplo, você pode enviar um dispositivo de toohello do comando de nuvem hello. Você pode encontrar hello comandos disponíveis no hello **StationCommands** nó Olá árvore do navegador de servidores de OPC UA. Nesse cenário, você deve abrir uma válvula de versão de pressão na estação de assembly de saudação de uma linha de produção em Munique. toouse Olá comando e controle de funcionalidade, você deve estar no hello **administrador** função hello pré-configurado a implantação da solução.
+A fábrica conectada permite que você comande e controle os dispositivos do setor diretamente da nuvem. Você pode usar esse recurso para responder aos alertas gerados pelo dispositivo. Por exemplo, você pode enviar um comando para o dispositivo da nuvem. Você pode encontrar os comandos disponíveis no nó **StationCommands** na árvore do navegador de servidores OPC UA. Nesse cenário, você abre uma válvula de liberação de pressão na estação de montagem de uma linha de produção em Munique. Para usar a funcionalidade de comando e controle, você deve estar na função de **Administrador** para a implantação da solução pré-configurada.
 
-1. Procurar toohello **StationCommands** nó Olá árvore do navegador de servidor OPC UA.
+1. Navegue até o **StationCommands** nó na árvore do navegador do servidor UA OPC.
 
-2. Escolha o comando Olá que você deseja usar.
+2. Escolha o comando que você deseja usar.
 
-3. Nó de saudação com o botão direito.
+3. Clique com o botão direito do mouse no nó.
 
 4. Escolha **Chamar**.
 
     ![Comando de chamada de solução pré-configurada de fábrica conectada][cf-img-call-command]
 
-5. Um painel de contexto é exibido informando a você qual método você sobre toocall e quaisquer detalhes de parâmetro é aplicável.
+5. É exibido um painel de contexto que informa o método que você está prestes a chamar e quaisquer detalhes de parâmetros aplicáveis.
 
 6. Escolha **Chamar**.
 
     ![Contexto de chamada de solução pré-configurada de fábrica conectada][cf-img-call-context]
 
-7. Painel de contexto de saudação é atualizada tooinform que Olá chamada de método foi bem-sucedida. Você pode verificar a chamada hello teve êxito ao ler o valor de saudação do nó de pressão Olá atualizados como resultado da chamada de saudação.
+7. O painel de contexto é atualizado para informar que a chamada de método foi bem-sucedida. Você pode verificar se a chamada foi bem-sucedida lendo o valor do nó de pressão atualizado como resultado da chamada.
 
     ![Sucesso de chamada de solução pré-configurada de fábrica conectada][cf-img-call-success]
 
 
-## <a name="behind-hello-scenes"></a>Em segundo plano da saudação
+## <a name="behind-the-scenes"></a>Nos bastidores
 
-Quando você implanta uma solução pré-configurada, o processo de implantação de saudação cria vários recursos no hello assinatura do Azure que você selecionou. Você pode exibir esses recursos no hello Azure [portal][lnk-portal]. o processo de implantação Olá cria um **grupo de recursos** com um nome baseado no nome hello escolhido para sua solução pré-configurada:
+Ao implantar uma solução pré-configurada, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal][lnk-portal] do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para sua solução pré-configurada:
 
-![Solução pré-configurada em Olá portal do Azure][img-cf-portal]
+![Solução pré-configurada no portal do Azure][img-cf-portal]
 
-Você pode exibir configurações de saudação de cada recurso, selecionando-o na lista de saudação de recursos no grupo de recursos de saudação.
+Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos.
 
-Você também pode exibir o código-fonte Olá para solução de saudação pré-configurado. Olá conectado fábrica pré-configurado solução código-fonte está em Olá [azure iot-conectado-fábrica] [ lnk-cfgithub] repositório GitHub:
+Você também pode exibir o código-fonte para a solução pré-configurada. O código-fonte da solução pré-configurada de fábrica conectada está no repositório do GitHub [azure-iot-connected-factory][lnk-cfgithub]:
 
-Quando você terminar, você pode excluir solução Olá pré-configurado de sua assinatura do Azure em Olá [azureiotsuite.com] [ lnk-azureiotsuite] site. Este site permite que você exclua tooeasily que todos os recursos que foram provisionados quando você criou a solução Olá pré-configurado de hello.
+Quando você terminar, poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Esse site permite que você exclua facilmente todos os recursos que foram provisionados quando criou a solução pré-configurada.
 
 > [!NOTE]
-> tooensure excluir tudo relacionados à solução toohello pré-configurado, excluí-la em Olá [azureiotsuite.com] [ lnk-azureiotsuite] site. Não exclua o grupo de recursos de saudação no portal de saudação.
+> Para garantir que você exclua tudo relacionado à solução pré-configurada, exclua-a no site [azureiotsuite.com][lnk-azureiotsuite]. Não exclua o grupo de recursos no portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você implantou uma solução de trabalho pré-configurados, você pode continuar a guia de Introdução com IoT Suite lendo Olá artigos a seguir:
+Agora que você implantou uma solução de trabalho pré-configurada, poderá continuar a introdução ao Suite IoT lendo os seguintes artigos:
 
 * [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
-* [Conectar sua solução do dispositivo toohello conectado fábrica pré-configurado][lnk-connect-cf]
-* [Permissões no site de azureiotsuite.com Olá][lnk-permissions]
+* [Conecte o dispositivo à solução pré-configurada de fábrica conectada][lnk-connect-cf]
+* [Permissões no site azureiotsuite.com][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
 [img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png

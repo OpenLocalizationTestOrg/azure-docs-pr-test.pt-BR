@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toocreate uma solicitação de suporte do Azure | Microsoft Docs"
-description: "Como toocreate do Azure oferecem suporte a solicitação."
+title: "Como criar uma solicitação de suporte do Azure | Microsoft Docs"
+description: "Como criar uma solicitação de suporte do Azure."
 services: Azure Supportability
 documentationcenter: 
 author: ganganarayanan
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 19283a8cc1c4fc6b8277efdc60640bec8a90d40a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 70a4762383d64dc8d568c628cf260ebd8f2d179d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-an-azure-support-request"></a>Como toocreate do Azure oferecem suporte a solicitação
+# <a name="how-to-create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 ## <a name="summary"></a>Resumo
-Clientes do Azure podem criar e gerenciar solicitações de suporte em Olá portal do Azure, [https://portal.azure.com](https://portal.azure.com).
+Os clientes do Azure podem criar e gerenciar solicitações de suporte no Portal do Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
-> Portal do Azure para Alemanha é [https://portal.microsoftazure.de](https://portal.microsoftazure.de) portal do Azure para governo dos Estados Unidos de saudação é [https://portal.azure.us](https://portal.azure.us).
+> O Portal do Azure da Alemanha é [https://portal.microsoftazure.de](https://portal.microsoftazure.de) e o Portal do governo dos Estados Unidos é [https://portal.azure.us](https://portal.azure.us).
 > 
 > 
 
-Com base nos comentários dos clientes, atualizamos Olá suporte solicitação experiência toofocus nos três objetivos principais:
+Com base nos comentários dos clientes, atualizamos a experiência de solicitação de suporte com foco em três metas principais:
 
-* **Simplificada**: reduzir o processo de saudação toomake cliques e folhas de envio de um simples de solicitação de suporte.
-* **Integrado**: quando você estiver solucionando um problema com um recurso do Azure, ele deve ser fácil tooopen uma solicitação de suporte para esse recurso sem alternância de contexto.
-* **Eficiente**: reunir informações de chave Olá seu engenheiro de suporte será necessário tooefficiently resolver o problema.
+* **Otimizada**: reduzir cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
+* **Integrada**: quando você estiver solucionando um problema com um recurso do Azure, deverá ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
+* **Eficiente**: reunir as principais informações que o engenheiro de suporte precisará para resolver eficazmente o problema.
 
 ## <a name="getting-started"></a>Introdução
-No menu de navegação superior hello ou diretamente de uma folha de recursos, você pode criar uma solicitação de suporte.
+Você pode criar uma solicitação de suporte no menu de navegação superior ou diretamente na folha de um recurso.
 
-**Na barra de navegação superior Olá**
+**Na barra de navegação superior**
 
 ![Nova solicitação de suporte](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
@@ -47,10 +47,10 @@ No menu de navegação superior hello ou diretamente de uma folha de recursos, v
 ![No contexto](./media/how-to-create-azure-support-request/Incontext.png)
 
 ## <a name="basics"></a>Noções básicas
-Olá, primeira etapa do processo de solicitação de suporte Olá coleta informações básicas sobre o problema e o plano de suporte.
+A primeira etapa do processo de solicitação de suporte coleta informações básicas sobre o problema e seu plano de suporte.
 
 Vamos ver um exemplo: Você está com dificuldades técnicas em sua máquina virtual e suspeita de um problema com a conectividade da rede.
-Selecionando hello ("Máquina Virtual que executa o Windows") de serviço e Olá recurso (Olá nome de sua máquina virtual) na primeira etapa Olá Olá assistente inicia Olá processo de obter ajuda para esse problema.
+A escolha do serviço ("Máquina Virtual executando o Windows") e o recurso (o nome da máquina virtual) na primeira etapa do assistente inicia o processo de obter ajuda para esse problema.
 
 ![Folha de Noções básicas](./media/how-to-create-azure-support-request/Basics.png)
 
@@ -60,49 +60,49 @@ Selecionando hello ("Máquina Virtual que executa o Windows") de serviço e Olá
 > 
 
 ## <a name="problem"></a>Problema
-a segunda etapa saudação do Assistente de saudação reúne detalhes adicionais sobre o problema de saudação. Fornecendo detalhes precisos nesta etapa permite tooroute projetar seu caso toohello melhor suporte para saída de hello e toobegin diagnosticar o problema de saudação assim que possível.
+A segunda etapa do assistente coleta detalhes adicionais sobre o problema. Fornecer detalhes precisos nesta etapa nos permite encaminhar seu caso para o melhor engenheiro de suporte e começar a diagnosticar o problema assim que possível.
 
 ![Folha do problema](./media/how-to-create-azure-support-request/Problem.png)
 
-Continuando com o exemplo de conectividade de máquina virtual hello acima, preencha este formulário tooindicate um problema de conectividade de rede, e você deve fornecer mais detalhes sobre o problema de hello, incluindo o tempo aproximado de hello quando você apresentar Olá problema.
+Continuando com o exemplo acima de conectividade da máquina virtual, você preencheria este formulário para indicar um problema de conectividade de rede e forneceria mais detalhes sobre ele, incluindo a hora aproximada em que o problema ocorreu.
 
 ## <a name="related-help"></a>Ajuda relacionada
-Para alguns problemas, fornecemos Ajuda relacionadas problema de saudação tootroubleshoot links. Se Olá recomendado documentos não ajudar, pode continuar com hello processo toocreate uma solicitação de suporte.
+Em alguns casos, fornecemos links de ajuda relacionada para solucionar o problema. Se os documentos recomendados não ajudarem, você poderá continuar o processo de criação de uma solicitação de suporte.
 ![Ajuda relacionada](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 ## <a name="contact-information"></a>Informações de contato
-a última etapa saudação do Assistente de saudação confirma suas informações de contato para sabermos como tooreach você.
+A última etapa do assistente confirma suas informações de contato para que saibamos como contatar você.
 ![Informações de contato](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-Dependendo da gravidade de saudação do seu problema, você poderá ser solicitado tooindicate se deseja toocontact você durante o horário comercial ou se você preferir uma 24x7 resposta, o que significa que podemos contatá-lo a qualquer momento.
+Dependendo da severidade do problema, poderá ser solicitado que você indique se deseja que entremos em contato durante o horário comercial ou se prefere uma resposta em qualquer hora do dia, todos os dias da semana.
 ![Informações de contato 24 horas por dia, 7 dias por semana](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## <a name="manage-support-requests"></a>Gerenciar solicitações de suporte
-Depois de criar solicitação de suporte Olá, você pode exibir detalhes de saudação do hello **gerenciar solicitações de suporte** página.
+Depois de criar a solicitação de suporte, você pode exibir os detalhes na página **Gerenciar Solicitações de Suporte** .
 
-**Na barra de navegação superior Olá**
+**Na barra de navegação superior**
 
 ![Link Gerenciar Solicitações de Suporte](./media/how-to-create-azure-support-request/ManageSupportRequest-link.png)
 
-Em Olá **gerenciar solicitações de suporte** página, você pode exibir todas as solicitações de suporte e seus status.
+Na página **Gerenciar solicitações de suporte** , é possível exibir todas as solicitações de suporte e o respectivo status.
 ![Gerenciar Solicitações de Suporte](./media/how-to-create-azure-support-request/ManageSupportRequest.png)
 
-Selecione Olá suporte tooview detalhes da solicitação, incluindo severidade e o levará para uma toorespond engenheiro de suporte de tempo de saudação esperado.
+Escolha a solicitação de suporte para exibir os detalhes, incluindo a severidade e o tempo esperado que será necessário para um engenheiro de suporte responder.
 ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-Severidade de saudação toochange da solicitação de saudação, clique em Olá **impacto nos negócios** lado a lado. No exemplo anterior de hello, solicitação hello está definida atualmente tooSeverity C.
+Se quiser alterar a severidade da solicitação, clique no bloco **Impacto nos negócios** . No exemplo anterior, a solicitação está configurada para Severidade C.
 
-Clicando em Olá bloco mostra Olá lista de severidade, você pode atribuir tooan solicitação de suporte aberto.
+Clicar no bloco mostra a lista de severidades que é possível atribuir a uma solicitação de suporte em aberto.
 
 > [!NOTE]
-> nível de severidade máxima Olá depende de seu plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+> O nível máximo de severidade depende do seu plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
 > 
 > 
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## <a name="feedback"></a>Comentários
-Estamos sempre abrir toofeedback e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode envolver conosco por meio de [Twitter](https://twitter.com/azuresupport) ou hello [fóruns MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Saiba mais
 [Perguntas frequentes sobre o suporte do Azure.](https://azure.microsoft.com/support/faq)

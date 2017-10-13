@@ -1,6 +1,6 @@
 ---
-title: aaaProtect do Active Directory e o DNS com o Azure Site Recovery | Microsoft Docs
-description: "Este artigo descreve como tooimplement uma solução de recuperação de desastres para o Active Directory usando o Azure Site Recovery."
+title: Proteger o Active Directory e o DNS com o Azure Site Recovery | Microsoft Docs
+description: "Este artigo descreve como implementar uma solução de recuperação de desastre para o Active Directory usando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
-ms.openlocfilehash: 49903e54f6d6e1839b0571b7a852c6d7517f0aa1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Proteger o Active Directory e o DNS com o Azure Site Recovery
-Aplicativos corporativos, como o SharePoint, Dynamics AX e SAP dependem do Active Directory e um toofunction de infraestrutura DNS corretamente. Quando você cria uma solução de recuperação de desastres para aplicativos, é importante tooremember que você precisa tooprotect e recupere o Active Directory e DNS antes de saudação outros componentes do aplicativo, tooensure coisas funcionem corretamente quando ocorrer um desastre.
+Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Quando você cria uma solução de recuperação de desastre para aplicativos, é importante se lembrar de que você precisa proteger e recuperar o Active Directory e o DNS antes dos outros componentes de aplicativo, para garantir que tudo funcione corretamente quando ocorrer um desastre.
 
-O Site Recovery é um serviço do Azure que fornece recuperação de desastre por meio da orquestração de replicação, failover e recuperação de máquinas virtuais. Recuperação de site oferece suporte a vários cenários de replicação tooconsistently proteger e perfeitamente nuvens do failover aplicativos e máquinas virtuais do tooprivate, public ou hoster.
+O Site Recovery é um serviço do Azure que fornece recuperação de desastre por meio da orquestração de replicação, failover e recuperação de máquinas virtuais. O Site Recovery dá suporte a vários cenários de replicação, com o intuito de proteger e executar failover de forma consistente de máquinas virtuais e aplicativos em nuvens privadas, públicas ou de hoster.
 
-Com a Recuperação de Site, você pode criar um plano totalmente automatizado de recuperação de desastre para o Active Directory. Quando ocorrem interrupções, você pode iniciar um failover em poucos segundos de qualquer lugar para que o Active Directory esteja em funcionamento em alguns minutos. Se você implantou o Active Directory para vários aplicativos, como o SharePoint e SAP em seu site primário, e você desejar toofail pela completa do site hello, você pode fazer failover do Active Directory usando o primeiro Site de recuperação e failover, em seguida, Olá outros aplicativos usando planos de recuperação de aplicativos específicos.
+Com a Recuperação de Site, você pode criar um plano totalmente automatizado de recuperação de desastre para o Active Directory. Quando ocorrem interrupções, você pode iniciar um failover em poucos segundos de qualquer lugar para que o Active Directory esteja em funcionamento em alguns minutos. Se você implantou o Active Directory para vários aplicativos, como o SharePoint e o SAP, em seu site primário e deseja executar failover de todo o site, é possível executar o failover do Active Directory primeiro usando a Recuperação de Site e depois executar o failover dos outros aplicativos que usam planos de recuperação específicos do aplicativo.
 
-Este artigo explica como toocreate uma solução de recuperação de desastres para o Active Directory, como tooperform planejado, não planejado e failovers de teste usando um plano de recuperação de um único clique, Olá pré-requisitos e configurações com suporte.  Antes de começar, você deve estar familiarizado com o Active Directory e o Azure Site Recovery.
+Este artigo explica como criar uma solução de recuperação de desastre para o Active Directory, como executar failovers de teste planejados e não planejados usando um plano de recuperação de um clique, as configurações com suporte e os pré-requisitos.  Antes de começar, você deve estar familiarizado com o Active Directory e o Azure Site Recovery.
 
 ## <a name="replicating-domain-controller"></a>Replicando o controlador de domínio
 
-Você precisa toosetup [replicação do Site Recovery](#enable-protection-using-site-recovery) em pelo menos uma máquina virtual que hospeda o controlador de domínio e DNS. Se você tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) em seu ambiente, além de tooreplicating Olá máquina de virtual do controlador de domínio com o Site Recovery, você também deve ter tooset até um [docontroladordedomínioadicional](#protect-active-directory-with-active-directory-replication) no site de destino da saudação (Azure ou em um datacenter local secundário). 
+Você precisa configurar a [replicação do Site Recovery](#enable-protection-using-site-recovery) em pelo menos uma máquina virtual que hospeda o Controlador de Domínio e o DNS. Se você tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) em seu ambiente, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, também precisará configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (datacenter local secundário ou do Azure). 
 
 ### <a name="single-domain-controller-environment"></a>Ambiente de controlador de domínio único
-Se você tem apenas um único controlador de domínio e de alguns aplicativos e desejar toofail em todo o site Olá juntos, recomendamos usando o controlador de domínio do Site Recovery tooreplicate Olá site secundário toohello (se você estiver realizando o failover tooAzure ou tooa site secundário). Olá mesmo replicadas domínio DNS/controlador virtual máquina pode ser usada para [failover de teste](#test-failover-considerations) também.
+Se você tiver alguns aplicativos e um único controlador de domínio e desejar executar failover de todo o site, é recomendável usar o Site Recovery para replicar o controlador de domínio no site secundário (esteja você executando failover no Azure ou em um site secundário). A mesma máquina virtual controladora/DNS replicada também pode ser usada para o [failover de teste](#test-failover-considerations).
 
 ### <a name="environment-with-multiple-domain-controllers"></a>Ambiente com vários controladores de domínio
-Se você tiver muitos aplicativos e há mais de um controlador de domínio no ambiente de hello, ou se você planejar toofail em alguns aplicativos cada vez, é recomendável que, além disso tooreplicating virtual de controlador de domínio de saudação do computador com a recuperação de Site você também Configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino da saudação (Azure ou em um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pela recuperação de Site e failover, Olá outro controlador de domínio no site de destino de saudação. 
+Se você tiver muitos aplicativos e houver mais de um controlador de domínio no ambiente ou se planeja executar failover de alguns aplicativos por vez, é recomendável, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, configurar também um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (Azure ou um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pelo Site Recovery; para failover, use o controlador de domínio adicional no site de destino. 
 
 
-Olá seções a seguir explicam como tooenable proteção para um controlador de domínio na recuperação de Site e como tooset um controlador de domínio no Azure.
+As seções a seguir explicam como habilitar a proteção para um controlador de domínio na Recuperação de Site e como configurar um controlador de domínio no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma implantação local do servidor DNS e do Active Directory.
 * Um cofre dos Serviços do Azure Site Recovery em uma assinatura do Microsoft Azure.
-* Se você estiver replicando tooAzure, execute a ferramenta de avaliação de preparação de máquina Virtual do Azure de saudação em VMs tooensure são compatíveis com VMs do Azure e serviços de recuperação de Site do Azure.
+* Se estiver replicando no Azure, execute a ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure nas VMs para garantir que sejam compatíveis com as VMs do Azure e com os Serviços do Azure Site Recovery.
 
 ## <a name="enable-protection-using-site-recovery"></a>Habilitar a proteção com a Recuperação de Site
-### <a name="protect-hello-virtual-machine"></a>Proteger a máquina virtual de saudação
-Habilite proteção da máquina de virtual DNS/controlador de domínio de saudação na recuperação de Site. Defina configurações de recuperação de Site com base no tipo de máquina virtual da saudação (Hyper-V ou VMware). controlador de domínio Olá replicada usando a recuperação de Site é usado para [failover de teste](#test-failover-considerations). Verifique se que ele atende Olá requisitos a seguir:
+### <a name="protect-the-virtual-machine"></a>Proteger a máquina virtual
+Habilite a proteção da máquina virtual do DNS/controlador de domínio na Site Recovery. Defina configurações da Recuperação de Site de acordo com o tipo de máquina virtual (Hyper-V ou VMware). O controlador de domínio replicado usando o Site Recovery é usado para [failover de teste](#test-failover-considerations). Verifique se ele atende aos seguintes requisitos:
 
-1. controlador de domínio de saudação é um servidor de catálogo global
-2. o controlador de domínio Olá deve ser o proprietário da função FSMO Olá para as funções que serão necessários durante um failover de teste (caso contrário, essas funções precisará toobe [captado](http://aka.ms/ad_seize_fsmo) após o failover de saudação)
+1. O controlador de domínio é um servidor de catálogo global
+2. O controlador de domínio deve ser o proprietário da função FSMO para as funções que serão necessárias durante um failover de teste (do contrário, essa funções precisarão ser [aproveitadas](http://aka.ms/ad_seize_fsmo) após o failover)
 
 ### <a name="configure-virtual-machine-network-settings"></a>Definir configurações de rede da máquina virtual
-Para a máquina de virtual DNS/controlador de domínio hello, defina configurações de rede na recuperação de Site para que máquinas virtuais de saudação rede certa toohello anexado após o failover. 
+Para a máquina virtual do controlador de domínio/DNS, defina as configurações de rede do Site Recovery de modo que a máquina virtual seja conectada à rede correta após o failover. 
 
 ![Configurações de rede da VM](./media/site-recovery-active-directory/DNS-Target-IP.png)
 
 ## <a name="protect-active-directory-with-active-directory-replication"></a>Proteger o Active Directory com a replicação do Active Directory
 ### <a name="site-to-site-protection"></a>Proteção site a site
-Crie um controlador de domínio no site secundário hello. Quando você promove a função de controlador de domínio do hello servidor tooa, especifique o nome de saudação do hello mesmo domínio que está sendo usado no site primário hello. Você pode usar o hello **serviços e Sites do Active Directory** snap-in do objeto tooconfigure configurações no link de site Olá toowhich Olá sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência. Para saber mais, veja [Agendamento da replicação entre sites](https://technet.microsoft.com/library/cc731862.aspx).
+Crie um controlador de domínio no site secundário. Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio que está sendo usado no site primário. Você pode usar o snap-in dos **Sites e Serviços do Active Directory** para definir as configurações no objeto de link de site ao qual os sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência. Para saber mais, veja [Agendamento da replicação entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Proteção Site ao Azure
-Siga as instruções de saudação muito[criar um controlador de domínio em uma rede virtual Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Quando você promove a função de controlador de domínio do hello servidor tooa, especifique Olá mesmo nome de domínio que é usado no site primário hello.
+Siga estas instruções para [criar um controlador de domínio em uma rede virtual do Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio usado no site primário.
 
-Em seguida, [reconfigurar Olá de servidor DNS para a rede virtual Olá](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), servidor DNS Olá toouse no Azure.
+Depois disso, [reconfigure o servidor DNS para a rede virtual](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)para usar o servidor DNS no Azure.
 
 ![Rede do Azure](./media/site-recovery-active-directory/azure-network.png)
 
@@ -75,11 +75,11 @@ Em seguida, [reconfigurar Olá de servidor DNS para a rede virtual Olá](../acti
 ## <a name="test-failover-considerations"></a>considerações sobre failover de teste
 O failover de teste ocorre em uma rede isolada da rede de produção para que não ocorra impactos nas cargas de trabalho de produção.
 
-A maioria dos aplicativos também exigem a presença de saudação de um controlador de domínio e um toofunction de servidor DNS. Portanto, antes que o aplicativo hello realizar failover, um controlador de domínio precisa toobe criado no hello isolado toobe de rede usado para failover de teste. Olá toodo de maneira mais fácil trata tooreplicate uma máquina de virtual DNS/controlador de domínio com a recuperação de Site. Em seguida, execute um failover de teste da máquina de virtual do controlador de domínio de saudação antes de executar um failover de teste saudação do plano de recuperação para o aplicativo hello. Veja como fazer isso:
+A maioria dos aplicativos também exige a presença de um controlador de domínio e de um servidor DNS para funcionar. Portanto, antes do failover do aplicativo, um controlador de domínio precisa ser criado na rede isolada para ser usado para failover de teste. A maneira mais fácil de fazer isso é replicar uma máquina virtual do controlador de domínio/DNS com o Site Recovery. Em seguida, execute um failover de teste da máquina virtual do controlador de domínio antes de executar um failover de teste do plano de recuperação para o aplicativo. Veja como fazer isso:
 
-1. [Replicar](site-recovery-replicate-vmware-to-azure.md) Olá máquina de virtual DNS/controlador de domínio com a recuperação de Site.
-1. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. É recomendável que o intervalo de endereços IP Olá para essa rede é mesmo que sua rede de produção. Não habilite a conectividade site a site nessa rede.
-1. Forneça um endereço IP do DNS na rede Olá criado, como endereço IP de saudação que espera Olá tooget de máquina virtual DNS. Se você estiver replicando tooAzure, em seguida, forneça endereço IP de Olá para Olá VM que é usada no failover no **IP de destino** definindo em **de computação e rede** configurações. 
+1. [Replique](site-recovery-replicate-vmware-to-azure.md) a máquina virtual do controlador de domínio/DNS usando o Site Recovery.
+1. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. Recomendamos que o intervalo de endereços IP dessa rede seja o mesmo de sua rede de produção. Não habilite a conectividade site a site nessa rede.
+1. Forneça um endereço IP de DNS na rede criada, como o endereço IP que você espera que a máquina virtual do DNS obtenha. Se estiver replicando no Azure, forneça o endereço IP da VM que é usada no failover na configuração **IP de Destino** das configurações **Computação e Rede**. 
 
     ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png) **IP de destino**
 
@@ -88,35 +88,35 @@ A maioria dos aplicativos também exigem a presença de saudação de um control
     **DNS na Rede de teste do Azure**
 
 > [!TIP]
-> Tentativas de recuperação de site toocreate máquinas de virtuais de teste em uma sub-rede de mesmo nome e usando Olá mesmo IP que é fornecida em **de computação e rede** configurações de máquina virtual de saudação. Se a sub-rede de mesmo nome não está disponível no hello rede virtual do Azure fornecido para failover de teste de máquina virtual de teste será criado na sub-rede primeiro Olá em ordem alfabética. Se fizer parte de Olá escolhido sub-rede IP de destino Olá, recuperação de Site tenta máquina toocreate Olá teste failover virtual usando o IP de destino de saudação. Se Olá IP de destino não é parte da saudação escolhida sub-rede, máquina de virtual de failover de teste é criada usando qualquer IP disponível em Olá escolhido sub-rede. 
+> O Site Recovery tenta criar máquinas virtuais de teste em uma sub-rede de mesmo nome e usando o mesmo IP fornecido nas configurações de **Computação e Rede** da máquina virtual. Se a sub-rede de mesmo nome não estiver disponível na rede virtual do Azure fornecida para failover de teste, então a máquina virtual de teste será criada na primeira sub-rede em ordem alfabética. Se o IP de destino fizer parte da sub-rede escolhida, o Site Recovery tentará criar a máquina virtual do failover de teste usando o IP de destino. Se o IP de destino não fizer parte da sub-rede escolhida, a máquina virtual do failover de teste será criada usando qualquer IP disponível na sub-rede escolhida. 
 >
 >
 
 
-1. Se você estiver replicando tooanother no site local e você estiver usando o DHCP, siga as instruções de saudação muito[a instalação do DNS e DHCP para failover de teste](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
-1. Faça um failover de teste da máquina de virtual Olá domínio controlador executado na rede isolada hello. Use mais recente disponível **consistente com aplicativo** ponto de recuperação Olá domínio controlador máquina virtual toodo saudação do failover de teste. 
-1. Execute um failover de teste Olá plano de recuperação que contém máquinas virtuais de aplicativo hello. 
-1. Depois que o teste for concluído, **failover de teste de limpeza** na máquina de virtual do controlador de domínio de saudação. Esta etapa exclui o controlador de domínio de saudação que foi criada para failover de teste.
+1. Se você estiver replicando em outro site local e estiver usando DHCP, siga as instruções de modo a [configurar o DNS e o DHCP para failover de teste](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
+1. Execute um failover de teste na máquina virtual do controlador de domínio da rede isolada. Use o ponto de recuperação **consistente com o aplicativo** mais recente disponível da máquina virtual do controlador de domínio para fazer o failover de teste. 
+1. Execute um failover de teste para o plano de recuperação que contém máquinas virtuais do aplicativo. 
+1. Depois que o teste for concluído, **limpe o failover de teste** na máquina virtual do controlador de domínio. Essa etapa exclui o controlador de domínio que foi criado para o failover de teste.
 
 
-### <a name="removing-reference-tooother-domain-controllers"></a>Removendo controladores de domínio de tooother de referência
-Quando você estiver fazendo um failover de teste, você não colocar todos os controladores de domínio de saudação na rede de teste de saudação. referência de saudação tooremove outros controladores de domínio que existem em seu ambiente de produção, talvez seja necessário muito[executar funções FSMO Active Directory](http://aka.ms/ad_seize_fsmo) e [a limpeza de metadados](https://technet.microsoft.com/library/cc816907.aspx) de domínio ausente controladores. 
+### <a name="removing-reference-to-other-domain-controllers"></a>Remover a referência a outros controladores de domínio
+Ao fazer um failover de teste, você não coloca todos os controladores de domínio na rede de teste. Para remover a referência a outros controladores de domínio no ambiente de produção, talvez seja necessário [aproveitar as funções FSMO do Active Directory](http://aka.ms/ad_seize_fsmo) e fazer a [limpeza dos metadados](https://technet.microsoft.com/library/cc816907.aspx) de controladores de domínio ausentes. 
 
 
 
 > [!IMPORTANT]
-> Algumas das configurações de saudação descritas em Olá seção a seguir não são configurações de controlador de domínio saudação padrão. Se você não quiser toomake controlador de domínio essas alterações tooa produção, você pode criar um toobe dedicado de controlador de domínio usado para failover de teste de recuperação de Site e fazer essas alterações toothat.  
+> Algumas das configurações descritas na seção a seguir não são as configurações padrão do controlador de domínio. Se não quiser fazer essas alterações em um controlador de domínio de produção, você poderá criar um controlador de domínio dedicado a ser usado para o failover de teste do Site Recovery e fazer as alterações nele.  
 >
 >
 
 ### <a name="issues-because-of-virtualization-safeguards"></a>Problemas devido às defesas da virtualização 
 
-Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas proteções ajudam a proteger controladores de domínio virtualizados contra reversões de USN, desde que a plataforma do hipervisor subjacente Olá dá suporte a VM-GenerationID. Azure oferece suporte a VM-GenerationID, o que significa que os controladores de domínio que executam o Windows Server 2012 ou máquinas virtuais do Azure posteriormente tem proteções adicionais hello. 
+Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas defesas ajudam a proteger os controladores de domínio virtualizados contra Reversões de USN, desde que a plataforma do hipervisor subjacente ofereça suporte a VM-GenerationID. O Azure dá suporte a VM-GenerationID, o que significa que os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm as proteções adicionais. 
 
 
-Quando Olá VM-GenerationID é redefinida, Olá invocationID do banco de dados do hello AD DS também é redefinido, Olá pool RID é descartado e SYSVOL é marcado como não autoritativo. Para obter mais informações, consulte [tooActive Introdução virtualização de serviços de domínio do diretório](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [virtualização segura da DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)
+Quando a VM-GenerationID é redefinida, a invocationID do banco de dados do AD DS também é redefinida, a pool RID é descartada e SYSVOL é marcado como não autoritativo. Para saber mais, confira [Introdução à virtualização do Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualização segura do DFSR)
 
-Failover tooAzure pode fazer com que a redefinição de VM-GenerationID e que é acionada proteções adicionais hello quando Olá máquina de virtual do controlador de domínio é iniciado no Azure. Isso pode resultar em uma **um atraso significativo** sendo máquina de virtual do controlador de domínio de toohello toologin capaz de usuário. Uma vez que esse controlador de domínio seria usado apenas um failover de teste, as defesas da virtualização não são necessárias. tooensure que VM-GenerationID da máquina de virtual de controlador de domínio Olá não são alterados, em seguida, você pode alterar o valor de saudação do seguinte too4 DWORD no controlador de domínio local Olá.
+Fazer failover no Azure pode causar a redefinição de VM-GenerationID e isso aciona as defesas adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em um **atraso significativo** na capacidade de o usuário fazer logon na máquina virtual do controlador de domínio. Uma vez que esse controlador de domínio seria usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que VM-GenerationID para a máquina virtual do controlador de domínio não mude, você pode alterar o valor DWORD a seguir para 4 no controlador de domínio local.
 
         
         HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start
@@ -146,7 +146,7 @@ Todos os bancos de dados DFSR são excluídos
 
 
 > [!IMPORTANT]
-> Algumas das configurações de saudação descritas em Olá seção a seguir não são configurações de controlador de domínio saudação padrão. Se você não quiser toomake controlador de domínio essas alterações tooa produção, você pode criar um toobe dedicado de controlador de domínio usado para failover de teste de recuperação de Site e fazer essas alterações toothat.  
+> Algumas das configurações descritas na seção a seguir não são as configurações padrão do controlador de domínio. Se não quiser fazer essas alterações em um controlador de domínio de produção, você poderá criar um controlador de domínio dedicado a ser usado para o failover de teste do Site Recovery e fazer as alterações nele.  
 >
 >
 
@@ -154,52 +154,52 @@ Todos os bancos de dados DFSR são excluídos
 ### <a name="troubleshooting-domain-controller-issues-during-test-failover"></a>Solucionando problemas do controlador de domínio durante o failover de teste
 
 
-Em um prompt de comando, execute Olá toocheck de comando a seguir se o SYSVOL e NETLOGON pastas compartilhadas:
+Em um prompt de comando, execute o seguinte comando para verificar se as pastas SYSVOL e NETLOGON estão compartilhadas:
 
     NET SHARE
 
-No prompt de comando hello, execute Olá após o comando tooensure que Olá controlador de domínio está funcionando corretamente.
+No prompt de comando, execute o comando a seguir para garantir que o controlador de domínio esteja funcionando corretamente.
 
     dcdiag /v > dcdiag.txt
 
-No log de saída de hello, procure seguir tooconfirm de texto que Olá controlador de domínio está funcionando bem. 
+No log de saída, procure o texto a seguir para confirmar se o controlador de domínio está funcionando bem. 
 
 * "passou no teste Connectivity"
 * "passou no teste Advertising"
 * "passou no teste MachineAccount"
 
-Se hello condições anteriores forem atendidas, é provável que esse controlador de domínio hello está funcionando bem. Caso contrário, tente as etapas a seguir.
+Se as condições anteriores forem atendidas, é provável que o controlador de domínio esteja funcionando bem. Caso contrário, tente as etapas a seguir.
 
 
-* Faça uma restauração autoritativa saudação do controlador de domínio.
-    * Embora seja [não recomendável toouse FRS replicação](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), mas se você ainda estiver usando, execute as etapas de saudação fornecidas [aqui](https://support.microsoft.com/kb/290762) toodo uma restauração autoritativa. Você pode ler mais sobre Burflags descreveu no link anterior Olá [aqui](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Se você estiver usando a replicação DFSR, siga etapas de saudação disponíveis [aqui](https://support.microsoft.com/kb/2218556) toodo uma restauração autoritativa. Você também pode usar funções do Powershell disponíveis neste [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) para essa finalidade. 
+* Faça uma restauração autoritativa do controlador de domínio.
+    * Embora [não seja recomendável usar a replicação FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), mas se ainda a estiver usando, siga as etapas fornecidas [aqui](https://support.microsoft.com/kb/290762) para fazer uma restauração autoritativa. Você pode ler mais sobre os Burflags mencionados no link anterior [aqui](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+    * Se estiver usando replicação DFSR, siga as etapas disponíveis [aqui](https://support.microsoft.com/kb/2218556) para fazer uma restauração autoritativa. Você também pode usar funções do Powershell disponíveis neste [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) para essa finalidade. 
     
-* Ignorar a necessidade de sincronização inicial, definindo too0 chave do registro no controlador de domínio local Olá a seguir. Se esse DWORD não existir, você poderá criá-lo no nó 'Parameters'. Saiba mais sobre isso [aqui](https://support.microsoft.com/kb/2001093)
+* Ignore o requisito de sincronização inicial definindo a chave de registro a seguir para 0 no controlador de domínio local. Se esse DWORD não existir, você poderá criá-lo no nó 'Parameters'. Saiba mais sobre isso [aqui](https://support.microsoft.com/kb/2001093)
 
         HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-* Desabilite o requisito de saudação que um servidor de catálogo global está disponível toovalidate logon de usuário, definindo a too1 de chave do registro no controlador de domínio local Olá a seguir. Se esse DWORD não existir, você poderá criá-lo no nó 'Lsa'. Saiba mais sobre isso [aqui](http://support.microsoft.com/kb/241789)
+* Desabilite o requisito de que um servidor de catálogo global está disponível para validar o logon do usuário definindo a chave de registro a seguir para 1 no controlador de domínio local. Se esse DWORD não existir, você poderá criá-lo no nó 'Lsa'. Saiba mais sobre isso [aqui](http://support.microsoft.com/kb/241789)
 
         HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
 
 
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em computadores diferentes
-Se o DNS não está em Olá mesma máquina virtual como controlador de domínio hello, você precisa toocreate uma VM do DNS para failover de teste de saudação. Se estiver na Olá mesma VM, você poderá ignorar esta seção.
+Caso o DNS não esteja na mesma máquina virtual que o controlador de domínio, será necessário criar uma VM do DNS para o failover de teste. Caso eles estejam na mesma VM, você pode ignorar esta seção.
 
-Você pode usar um servidor DNS atualizado e criar todas as zonas Olá necessário. Por exemplo, se seu domínio do Active Directory for contoso.com, você pode criar uma zona DNS com hello nome contoso.com. entradas de saudação correspondentes tooActive diretório devem ser atualizadas no DNS, da seguinte maneira:
+Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se o domínio do Active Directory for contoso.com, é possível criar uma zona DNS com o nome contoso.com. As entradas que correspondem ao Active Directory devem ser atualizadas no DNS, da seguinte maneira:
 
-1. Certifique-se de que essas configurações estão em vigor antes de qualquer outra máquina virtual no plano de recuperação de saudação é exibida:
+1. Assegure-se de que essas configurações estão definidas antes que outra máquina virtual apareça no plano de recuperação:
    
-   * zona de saudação deve ser nomeada com o nome raiz da floresta hello.
-   * zona de saudação deve ser baseado em arquivo.
-   * zona de saudação deve ser habilitada para atualizações seguras e não seguras.
-   * resolvedor de saudação do hello máquina de virtual do controlador de domínio deve apontar toohello endereço IP da máquina de virtual Olá DNS.
-2. Execute Olá comando a seguir na máquina de virtual do controlador de domínio:
+   * A zona deve ser nomeada depois do nome raiz da floresta.
+   * A zona deve ter backup em arquivo.
+   * A zona deve ser habilitada para atualizações seguras e não seguras.
+   * O resolvedor da máquina virtual do controlador de domínio deve apontar para o endereço IP da máquina virtual do DNS.
+2. Execute o seguinte comando na máquina virtual do controlador de domínio:
    
     `nltest /dsregdns`
-3. Adicionar uma zona no servidor DNS hello, permitir atualizações não seguras e adicione uma entrada para ele tooDNS:
+3. Adicionar uma zona no servidor DNS, permitir atualizações não seguras e adicionar uma entrada para ela no DNS:
    
         dnscmd /zoneadd contoso.com  /Primary
         dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
@@ -207,5 +207,5 @@ Você pode usar um servidor DNS atualizado e criar todas as zonas Olá necessár
         dnscmd /config contoso.com /allowupdate 1
 
 ## <a name="next-steps"></a>Próximas etapas
-Leitura [que cargas de trabalho posso proteger?](site-recovery-workload.md) toolearn mais sobre como proteger as cargas de trabalho com o Azure Site Recovery.
+Leia [Quais cargas de trabalho posso proteger?](site-recovery-workload.md) para saber mais sobre como proteger as cargas de trabalho corporativas com o Azure Site Recovery.
 

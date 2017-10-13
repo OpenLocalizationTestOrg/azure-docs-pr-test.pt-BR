@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate sua primeira VM em um laboratório no Azure DevTest Labs | Microsoft Docs"
-description: "Saiba como toocreate sua primeira máquina virtual em um laboratório no Azure DevTest Labs"
+title: "Criar a primeira VM em um laboratório no Azure DevTest Labs | Microsoft Docs"
+description: "Saiba como criar a primeira máquina virtual em um laboratório no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 4c3257efca9be6fdd190eaac1db731464e07fcfd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Criar a primeira VM no Azure DevTest Labs
 
-Quando você inicialmente acessar DevTest Labs e deseja toocreate sua VM primeiro, você provavelmente vai fazer isso usando um pré-carregados [imagem do marketplace base](devtest-lab-configure-marketplace-images.md). Posteriormente no, você também será capaz de toochoose de um [imagem personalizada e uma fórmula](devtest-lab-add-vm.md) ao criar mais VMs. 
+Ao acessar inicialmente o DevTest Labs e desejar criar a primeira VM, você deverá fazer isso usando uma [imagem do Marketplace base](devtest-lab-configure-marketplace-images.md) pré-carregada. No futuro, você também poderá escolher uma imagem personalizada [ e uma fórmula](devtest-lab-add-vm.md) ao criar mais VMs. 
 
-Este tutorial orienta usando Olá tooadd portal do Azure laboratório em DevTest Labs tooa VM primeiro.
+Este tutorial orienta você pelo Portal do Azure para adicionar uma VM a um laboratório no DevTest Labs.
 
-## <a name="steps-tooadd-your-first-vm-tooa-lab-in-azure-devtest-labs"></a>Etapas tooadd seu primeiro laboratório tooa VM no Azure DevTest Labs
-1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
-1. Saudação de laboratórios, selecione lista laboratório Olá no qual você deseja toocreate Olá VM.  
-1. No laboratório de saudação **visão geral** folha, selecione **+ adicionar**.  
+## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar a primeira VM a um laboratório no Azure DevTest Labs
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.  
+1. Na folha **Visão geral** do laboratório, selecione **+ Adicionar**.  
 
     ![Botão Adicionar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Em Olá **escolher uma base** folha, selecione a imagem de um mercado para Olá VM.
-1. Em Olá **Máquina Virtual** folha, digite um nome para a máquina virtual da nova Olá no hello **nome da máquina Virtual** caixa de texto.
+1. Na folha **Escolher uma base**, selecione uma imagem do Marketplace para a VM.
+1. Na folha **Máquina virtual**, insira um nome para a nova máquina virtual na caixa de texto **Nome da máquina virtual**.
 
     ![Folha VM de Laboratório](./media/devtest-lab-add-vm/devtestlab-lab-add-first-vm.png)
 
-1. Insira um **nome de usuário** que tem privilégios de administrador na máquina virtual de saudação.  
-1. Digite uma senha no campo de texto de saudação rotulado **digite um valor**.
-1. Olá **tipo de disco de máquina Virtual** determina qual tipo de disco de armazenamento será permitido para máquinas virtuais de saudação laboratório hello.
-1. Selecione **tamanho da máquina Virtual** e selecione uma das Olá predefinidos itens que especificam os núcleos de processador hello, tamanho da RAM e tamanho de disco rígido de saudação do hello VM toocreate.
-1. Selecione **artefatos** - lista de saudação de artefatos - e selecione Configurar artefatos Olá que deseja que a imagem base do tooadd toohello.
-    **Observação:** se você for novo laboratórios de tooDevTest ou configurando artefatos, consulte toohello [adicionar um tooa de artefato existente VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) seção e, em seguida, retornar aqui quando terminar.
-1. Selecione **criar** tooadd Olá especificado laboratório toohello de VM.
+1. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual.  
+1. Digite uma senha no campo de texto identificado como **Digite um valor**.
+1. O **tipo de disco de máquina virtual** determina que tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
+1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
+1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base.
+    **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
+1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
 
-   folha de laboratório Olá exibe o status de saudação da criação da VM Olá - primeiro como **criando**, em seguida, como **executando** após Olá VM foi iniciada.
+   A folha do laboratório exibe o status da criação da VM; primeiro como **Criando** e como **Executando** após a inicialização da VM.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Uma vez Olá VM tiver sido criada, você pode se conectar toohello VM selecionando **conectar** na folha de saudação da VM.
-* Check-out [adicionar um laboratório de tooa VM](devtest-lab-add-vm.md) para obter informações mais completas sobre como adicionar VMs subsequentes no laboratório.
-* Explorar Olá [Galeria de modelos do DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
+* Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
+* Marque [Adicionar uma VM a um laboratório](devtest-lab-add-vm.md) para informações mais completas sobre como adicionar VMs subsequentes no laboratório.
+* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

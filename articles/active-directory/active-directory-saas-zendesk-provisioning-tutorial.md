@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: configurar o ZenDesk para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como as contas de usuário de provisionar e provisionar eliminação de tooautomatically de Active Directory do Azure do tooconfigure tooZenDesk."
+description: "Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no ZenDesk."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 200e8790ec1755f5cf927274ceb38527dd993f3c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1a1414eefd20e6d7c025da08cfd5ae7c45daad33
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-zendesk-for-automatic-user-provisioning"></a>Tutorial: configurar o ZenDesk para provisionamento automático de usuário
 
 
-Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform no ZenDesk e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooZenDesk. 
+O objetivo deste tutorial é mostrar as etapas que precisam ser seguidas no ZenDesk e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o ZenDesk. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory
-*   Um locatário do ZenDesk com hello [plano empresarial](https://www.zendesk.com/product/pricing/) ou melhor habilitado 
+*   Um locatário do ZenDesk com o [plano Enterprise](https://www.zendesk.com/product/pricing/) ou outro melhor habilitado 
 *   Uma conta de usuário no ZenDesk com permissões de administrador 
 
 > [!NOTE]
-> Olá provisionamento integração do AD do Azure depende de saudação [API REST do ZenDesk](https://developer.zendesk.com/rest_api/docs/core/introduction#the-api), que é equipes tooZenDesk disponíveis no plano essencial hello ou superior.
+> A integração de provisionamento do Azure AD depende da [API REST do ZenDesk](https://developer.zendesk.com/rest_api/docs/core/introduction#the-api), disponível para as equipes do ZenDesk no plano Essential ou outro melhor.
 
-## <a name="assigning-users-toozendesk"></a>Atribuir usuários tooZenDesk
+## <a name="assigning-users-to-zendesk"></a>Atribuição de usuários ao ZenDesk
 
-Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, são sincronizados apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure. 
+O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados. 
 
-Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure representam Olá usuários precisam acessar tooyour ZenDesk aplicativo. Depois de decidir, você pode atribuir esses aplicativos de ZenDesk de tooyour de usuários, seguindo as instruções de saudação aqui:
+Antes de configurar e habilitar o serviço de provisionamento, é necessário decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao seu aplicativo ZenDesk. Depois de decidir, atribua esses usuários ao seu aplicativo ZenDesk seguindo estas instruções:
 
-[Atribuir um aplicativo de enterprise tooan usuário ou grupo](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toozendesk"></a>Dicas importantes para atribuir usuários tooZenDesk
+### <a name="important-tips-for-assigning-users-to-zendesk"></a>Dicas importantes para atribuir usuários ao ZenDesk
 
-*   É recomendável que um único usuário do AD do Azure é atribuído tooZenDesk tootest Olá configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao ZenDesk para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário tooZenDesk, você deve selecionar o hello **usuário** função ou outra válida específicas do aplicativo função (se disponível) na caixa de diálogo de atribuição de saudação. Olá **acesso padrão** função não funciona para o provisionamento, e esses usuários são ignorados.
+*   Ao atribuir um usuário ao ZenDesk, é necessário selecionar a função **Usuário** ou outra função válida específica do aplicativo (se disponível) na caixa de diálogo de atribuição. A função **Acesso Padrão** não funciona para o provisionamento e esses usuários são ignorados.
 
 > [!NOTE]
-> Como um recurso adicionado, Olá provisionar um serviço lê qualquer funções personalizadas definidas no Zendesk e as importa para onde pode ser selecionadas na caixa de diálogo Olá Selecionar função do AD do Azure. Essas funções ficará visíveis no portal do Azure de saudação após Olá provisionamento de serviço está habilitado e um ciclo de sincronização foi concluída.
+> Como um recurso adicional, o serviço de provisionamento lê as funções personalizadas definidas no Zendesk e as importa para o Azure AD, no qual podem ser selecionadas na caixa de diálogo Selecionar função. Essas funções ficarão visíveis no Portal do Azure depois que o serviço de provisionamento for habilitado e um ciclo de sincronização for concluído.
 
-## <a name="configuring-user-provisioning-toozendesk"></a>Configurando tooZenDesk de provisionamento do usuário 
+## <a name="configuring-user-provisioning-to-zendesk"></a>Configuração do provisionamento de usuários no ZenDesk 
 
-Esta seção orienta você conectar-se a API de provisionamento de conta de usuário do tooZenDesk seu AD do Azure e configurar Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído no ZenDesk com base na atribuição de usuário e grupo no AD do Azure.
+Esta seção explica como conectar o Azure AD à API de provisionamento de conta de usuário do ZenDesk e configurar o serviço de provisionamento a fim de criar, atualizar e desabilitar contas de usuário atribuídas no ZenDesk com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!TIP] 
-> Você também pode escolher tooenabled baseado no SAML SSO para o ZenDesk, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode optar por habilitar o Logon Único baseado em SAML para o ZenDesk, seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 
-### <a name="configure-automatic-user-account-provisioning-toozendesk-in-azure-ad"></a>Configurar conta de usuário automático provisionamento tooZenDesk no AD do Azure
+### <a name="configure-automatic-user-account-provisioning-to-zendesk-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o ZenDesk no Azure AD
 
 
-1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado o ZenDesk para o logon único, procure sua instância do ZenDesk usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **ZenDesk** na Galeria de aplicativo hello. Selecione ZenDesk Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
+2. Se você já tiver configurado o ZenDesk para logon único, pesquise sua instância do ZenDesk usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **ZenDesk** na galeria de aplicativos. Selecione ZenDesk nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância do ZenDesk, em seguida Olá **provisionamento** guia.
+3. Selecione sua instância do ZenDesk e selecione a guia **Provisionamento**.
 
-4. Saudação de conjunto **modo de provisionamento** muito**automática**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Provisionamento do ZenDesk](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Em Olá **credenciais de administrador** seção, Olá entrada **Admin Username tokenkey & domínio** gerado pela conta do ZenDesk (token Olá pode ser encontrado em sua conta: **Admin**   >  **API** > **configurações**). 
+5. Na seção **Credenciais de Administrador**, insira o **Admin Username&tokenkey&Domain** gerado pela conta do ZenDesk (é possível localizar o token em sua conta: **Administrador** > **API** > **Configurações**). 
 
     ![Provisionamento do ZenDesk](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
-6. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour ZenDesk aplicativo. Se a conexão de saudação falhar, certifique-se de que sua conta do ZenDesk tem permissões de administrador e repita a etapa 5.
+6. No Portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao seu aplicativo ZenDesk. Se a conexão falhar, verifique se sua conta do ZenDesk tem permissões de Administrador e repita a etapa 5.
 
-7. Digite hello endereço de email de uma pessoa ou grupo que deve receber notificações de erros de provisionamento no hello **Email de notificação** campo e a caixa de seleção de saudação de seleção "enviam uma notificação por email quando ocorre uma falha."
+7. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção “Enviar uma notificação por email quando ocorrer uma falha”.
 
 8. Clique em **Salvar**. 
 
-9. Em Olá mapeamentos, selecione **tooZenDesk sincronizar do Azure Active Directory Users**.
+9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ZenDesk**.
 
-10. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do tooZenDesk do AD do Azure. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usado no ZenDesk para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
+10. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário sincronizados do Azure AD para o ZenDesk. Os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário no ZenDesk para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-11. tooenable Olá serviço de provisionamento do AD do Azure para o ZenDesk, alteração Olá **Status de provisionamento** muito**na** em Olá **configurações** seção
+11. Para habilitar o serviço de provisionamento do Azure AD para o ZenDesk, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
 12. Clique em **Salvar**. 
 
-Essa operação inicia a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooZenDesk em Olá usuários e a seção de grupos. a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionamento de serviço.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao ZenDesk na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 
-Para obter mais informações sobre como o provisionamento de saudação do AD do Azure tooread registra, consulte [relatórios sobre o provisionamento de conta de usuário automático](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -104,4 +104,4 @@ Para obter mais informações sobre como o provisionamento de saudação do AD d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como tooreview registra e obtenha relatórios sobre a atividade de provisionamento](active-directory-saas-provisioning-reporting.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](active-directory-saas-provisioning-reporting.md)

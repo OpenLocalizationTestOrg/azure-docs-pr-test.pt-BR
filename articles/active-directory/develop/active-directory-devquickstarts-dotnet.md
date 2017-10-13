@@ -1,6 +1,6 @@
 ---
-title: ".NET aaaAzure AD Introdução | Microsoft Docs"
-description: Como toobuild um aplicativo de Desktop do Windows .NET que se integra ao AD do Azure para entrar e chama o AD do Azure usando o OAuth APIs protegidas.
+title: "Introdução ao .NET do Azure AD | Microsoft Docs"
+description: "Como compilar um aplicativo .NET de área de trabalho do Windows que se integre ao AD do Azure para entrada e que chame APIs protegidas do AD do Azure usando OAuth."
 services: active-directory
 documentationcenter: .net
 author: jmprieur
@@ -15,64 +15,64 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c09b358f24c7bfb371b34cf72ca48c0a45042f5f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integrar o AD do Azure em um aplicativo WPF de área de trabalho do Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Se você estiver desenvolvendo um aplicativo de área de trabalho, o AD do Azure torna simples e direta para você tooauthenticate os usuários com suas contas do Active Directory.  Ele também permite que seu aplicativo toosecurely consumir qualquer web API protegida pelo AD do Azure, como Olá APIs do Office 365 ou Olá API do Azure.
+Se você estiver desenvolvendo um aplicativo de desktop, o AD do Azure torna a autenticação dos usuários com suas contas do Active Directory simples e direta.  Ele também permite que seu aplicativo consuma com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
 
-Para clientes nativos .NET que necessitam de recursos tooaccess protegido, o AD do Azure fornece Olá biblioteca de autenticação do Active Directory ou ADAL.  Única finalidade do ADAL é toomake fácil para seus tokens de acesso do aplicativo tooget.  toodemonstrate facilidade é, aqui, criaremos um aplicativo de lista de tarefas do .NET WPF que:
+Para clientes nativos .NET que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL.  A única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso.  Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas pendentes para .NET WPF que:
 
-* Obtém acesso tokens para chamar a API do Azure AD Graph hello usando Olá [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Obtém tokens de acesso para chamar a Graph API do AD do Azure usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Pesquisa um diretório para usuários com um determinado alias.
 * Desconecta usuários.
 
-aplicativo de trabalho concluída hello de toobuild, você precisará:
+Para compilar o aplicativo em funcionamento completo, você precisará:
 
-1. Registrar seu aplicativo no Azure AD.
+1. Registrar seu aplicativo no AD do Azure.
 2. Instalar e configurar a ADAL.
-3. Use ADAL tooget tokens do AD do Azure.
+3. Usar a ADAL para obter tokens do AD do Azure.
 
-tooget iniciado, [baixar o esqueleto do aplicativo hello](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) ou [baixar exemplo hello concluída](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Você também precisará de um locatário do AD do Azure no qual você possa criar usuários e registrar um aplicativo.  Se você ainda não tiver um locatário, [Saiba como tooget uma](active-directory-howto-tenant.md).
+Para começar, [baixe o esqueleto do aplicativo](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) ou [baixe o exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Você também precisará de um locatário do AD do Azure no qual você possa criar usuários e registrar um aplicativo.  Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
 
-## <a name="1-register-hello-directorysearcher-application"></a>1. Registrar Olá DirectorySearcher aplicativo
-tooenable tokens de tooget seu aplicativo, primeiro será necessário tooregistê-lo no AD do Azure locatário e atribuí-lo Olá tooaccess de permissão do Azure AD Graph API:
+## <a name="1-register-the-directorysearcher-application"></a>1. Registrar o aplicativo DirectorySearcher
+Para habilitar seu aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do AD do Azure e conceder permissão para acessar a Graph API do AD do Azure:
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. Na barra superior do hello, clique em sua conta e em Olá **diretório** , escolha um locatário do Active Directory Olá onde você deseja tooregister seu aplicativo.
-3. Clique em **mais serviços** Olá navegação à esquerda e escolha **Active Directory do Azure**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
+3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
 4. Clique em **Registros do Aplicativo** e escolha **Adicionar**.
-5. Siga os prompts de saudação e criar um novo **aplicativo cliente nativo**.
-  * Olá **nome** da saudação aplicativo descrevem os usuários tooend de aplicativos
-  * Olá **Uri de redirecionamento** é uma combinação de esquema e a cadeia de caracteres que o AD do Azure usará tooreturn respostas de token.  Insira um aplicativo de tooyour específico de valor, por exemplo, `http://DirectorySearcher`.
-6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas seções de Avançar Olá, portanto copie-o da página de aplicativo hello.
-7. De saudação **configurações** escolha **permissões necessárias** e escolha **adicionar**. Selecione Olá **Microsoft Graph** como Olá API e adicione Olá **ler dados do diretório** permissão em **permissões delegadas**.  Isso permitirá a saudação de tooquery aplicativo Graph API para os usuários.
+5. Siga os prompts e crie um novo **Aplicativo cliente nativo**.
+  * O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
+  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens.  Insira um valor específico para seu aplicativo, por exemplo, `http://DirectorySearcher`.
+6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
+7. Na página **Configurações**, escolha **Permissões Necessárias** e escolha **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**.  Isso permitirá que seu aplicativo consulte a Graph API para usuários.
 
 ## <a name="2-install--configure-adal"></a>2. Instalar e Configurar o ADAL
-Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade.  Para toocommunicate capaz de toobe ADAL com o Azure AD, é necessário tooprovide-lo com algumas informações sobre o registro do seu aplicativo.
+Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade.  Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
 
-* Comece adicionando o projeto de DirectorySearcher toohello ADAL usando Olá Package Manager Console.
+* Comece adicionando o ADAL ao projeto DirectorySearcher usando o Console do Gerenciador de Pacotes.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* No projeto de DirectorySearcher hello, abra `app.config`.  Substituir valores de saudação de elementos Olá Olá `<appSettings>` Olá de tooreflect seção valores de entrada hello Portal do Azure.  Seu código fará referência a esses valores sempre que ele usar a ADAL.
-  * Olá `ida:Tenant` é o domínio de saudação do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com
-  * Olá `ida:ClientId` é Olá clientId do aplicativo é copiada do portal de saudação.
-  * Olá `ida:RedirectUri` é hello registrado no portal de saudação do url de redirecionamento.
+* No projeto DirectorySearcher, abra `app.config`.  Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores inseridos por você no Portal do Azure.  Seu código fará referência a esses valores sempre que ele usar a ADAL.
+  * O `ida:Tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
+  * O `ida:ClientId` é a clientId do seu aplicativo que você copiou do portal.
+  * O `ida:RedirectUri` é a URL de redirecionamento registrada no portal.
 
-## <a name="3----use-adal-tooget-tokens-from-aad"></a>3.    Usar Tokens tooGet ADAL do AAD
-Olá princípio básico de ADAL é que sempre que seu aplicativo precisa de um token de acesso, ele simplesmente chama `authContext.AcquireTokenAsync(...)`, e ADAL Olá rest.  
+## <a name="3----use-adal-to-get-tokens-from-aad"></a>3.    Usar o ADAL para obter tokens do AAD
+O princípio básico da ADAL é que sempre que seu aplicativo precisa de um token de acesso, ele simplesmente chama `authContext.AcquireTokenAsync(...)`, e a ADAL faz o resto.  
 
-* Em Olá `DirectorySearcher` projeto, abra `MainWindow.xaml.cs` e localize Olá `MainWindow()` método.  primeira etapa de saudação é tooinitialize seu aplicativo `AuthenticationContext` -ADAL da classe principal.  Isso é onde você passa ADAL Olá coordenadas necessárias toocommunicate com o Azure AD e informe como toocache tokens.
+* No projeto `DirectorySearcher`, abra `MainWindow.xaml.cs` e localize o método `MainWindow()`.  A primeira etapa é inicializar o `AuthenticationContext` de seu aplicativo: a classe principal da ADAL.  É aqui que você passa à ADAL as coordenadas necessárias para se comunicar com o AD do Azure e informar a ele como armazenar tokens em cache.
 
 ```C#
 public MainWindow()
@@ -85,19 +85,19 @@ public MainWindow()
 }
 ```
 
-* Localizar agora Olá `Search(...)` método, que será invocado quando Olá usuário cliks hello "Pesquisar" botão na interface de usuário do aplicativo hello.  Esse método torna um tooquery de toohello do Azure AD Graph API de solicitação GET para usuários cujo UPN começa com hello dado o termo de pesquisa.  Mas em Olá de tooquery ordem API do Graph, você precisa tooinclude um access_token no hello `Authorization` cabeçalho da saudação solicitar - onde ADAL é.
+* Agora localize o método `Search(...)` , que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo.  Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
 {
-    // Validate hello Input String
+    // Validate the Input String
     if (string.IsNullOrEmpty(SearchText.Text))
     {
-        MessageBox.Show("Please enter a value for hello tooDo item name");
+        MessageBox.Show("Please enter a value for the To Do item name");
         return;
     }
 
-    // Get an Access Token for hello Graph API
+    // Get an Access Token for the Graph API
     AuthenticationResult result = null;
     try
     {
@@ -107,7 +107,7 @@ private async void Search(object sender, RoutedEventArgs e)
     }
     catch (AdalException ex)
     {
-        // An unexpected error occurred, or user canceled hello sign in.
+        // An unexpected error occurred, or user canceled the sign in.
         if (ex.ErrorCode != "access_denied")
             MessageBox.Show(ex.Message);
 
@@ -117,26 +117,26 @@ private async void Search(object sender, RoutedEventArgs e)
     ...
 }
 ```
-* Quando o aplicativo solicita um token chamando `AcquireTokenAsync(...)`, ADAL tentará tooreturn um token sem solicitar credenciais de usuário hello.  Se ADAL determina que o usuário Olá precisa toosign em tooget um token, ele exibe uma caixa de diálogo de logon, coletar credenciais de saudação do usuário e retorna um token após a autenticação bem-sucedida.  Se o ADAL está tooreturn não é possível um token por qualquer motivo, ela irá gerar um `AdalException`.
-* Observe que Olá `AuthenticationResult` objeto contém um `UserInfo` objeto que pode ser usado toocollect informações seu aplicativo pode ser necessário.  Em Olá DirectorySearcher, `UserInfo` é a interface do usuário do aplicativo de saudação toocustomize usado com a id de saudação do usuário.
-* Quando o usuário Olá clica hello "Sair" botão, queremos tooensure que Olá próxima chamada muito`AcquireTokenAsync(...)` pedirá Olá usuário toosign no.  ADAL, isso é tão fácil quanto limpar o cache de token hello:
+* Quando o aplicativo solicita um token chamando `AcquireTokenAsync(...)`, a ADAL tentará retornar um token sem pedir as credenciais ao usuário.  Se a ADAL determina que o usuário precisa entrar para obter um token, exibirá uma caixa de diálogo de logon, coletar as credenciais do usuário e retornar um token após uma autenticação bem-sucedida.  Se a ADAL não puder retornar um token por qualquer motivo, o status exibirá `AdalException`.
+* Observe que o objeto `AuthenticationResult` contém um objeto `UserInfo` que pode ser usado para coletar informações que seu aplicativo pode precisar.  Em DirectorySearcher, `UserInfo` é usado para personalizar a interface do usuário do aplicativo com a ID do usuário.
+* Quando o usuário clica no botão "Sair", queremos garantir que a próxima chamada para `AcquireTokenAsync(...)` solicitará que o usuário entre.  Com a ADAL, isso é tão fácil quanto limpar o cache de tokens:
 
 ```C#
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
-    // Clear hello token cache
+    // Clear the token cache
     authContext.TokenCache.Clear();
 
     ...
 }
 ```
 
-* No entanto, se o usuário Olá não botão hello "Sair", você desejará toomaintain Olá sessão de usuário para Olá próxima vez que executar Olá DirectorySearcher.  Quando o aplicativo hello é iniciado, você pode verificar o cache de token do ADAL para um token existente e atualize o hello da interface do usuário adequadamente.  Em Olá `CheckForCachedToken()` método, fazer outra chamada muito`AcquireTokenAsync(...)`, desta vez passando Olá `PromptBehavior.Never` parâmetro.  `PromptBehavior.Never`informará ADAL que usuário Olá não deve ser solicitado para entrar e ADAL em vez disso, gerar uma exceção se for tooreturn não é possível um token.
+* No entanto, se o usuário não clicar no botão "Sair", convém manter a sessão do usuário para a próxima vez que ele executar o DirectorySearcher.  Quando o aplicativo for iniciado, você pode verificar o cache de token da ADAL e procurar um token existente e atualizar a interface do usuário de acordo.  No método `CheckForCachedToken()`, faça outra chamada para `AcquireTokenAsync(...)`, desta vez, aprovando o parâmetro `PromptBehavior.Never`.  `PromptBehavior.Never` informará à ADAL que não se deve solicitar a entrada do usuário e a ADAL, em vez disso, deve emitir uma exceção se não for possível retornar um token.
 
 ```C#
 public async void CheckForCachedToken() 
 {
-    // As hello application starts, try tooget an access token without prompting hello user.  If one exists, show hello user as signed in.
+    // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.
     AuthenticationResult result = null;
     try
     {
@@ -150,21 +150,21 @@ public async void CheckForCachedToken()
             MessageBox.Show(ex.Message);
         }
 
-        // If user interaction is required, proceed toomain page without singing hello user in.
+        // If user interaction is required, proceed to main page without singing the user in.
         return;
     }
 
-    // A valid token is in hello cache
+    // A valid token is in the cache
     SignOutButton.Visibility = Visibility.Visible;
     UserNameLabel.Content = result.UserInfo.DisplayableId;
 }
 ```
 
-Parabéns! Você agora tem um aplicativo .NET WPF que tem Olá capacidade tooauthenticate usuários de trabalho, com segurança chamar APIs da Web usando o OAuth 2.0 e obter informações básicas sobre o usuário Olá.  Se você ainda não fez isso, agora é Olá tempo toopopulate seu locatário com alguns usuários.  Execute o aplicativo DirectorySearcher e faça logon com um desses usuários.  Procure por outros usuários com base em seus UPNs.  Feche o aplicativo hello e execute-a novamente.  Observe como a sessão do usuário Olá permanece intacta.  Saia e faça logon novamente como outro usuário.
+Parabéns! Agora você tem um aplicativo .NET WPF que tem a capacidade de autenticar usuários, chamar APIs da Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.  Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários.  Execute o aplicativo DirectorySearcher e entre com um desses usuários.  Procure por outros usuários com base em seus UPNs.  Feche o aplicativo e execute-o novamente.  Observe como a sessão do usuário permanece intacta.  Saia e entre novamente como outro usuário.
 
-ADAL torna fácil tooincorporate todos esses recursos comuns de identidade em seu aplicativo.  Cuida de todo o trabalho sujo Olá para você - gerenciamento de cache, suporte ao protocolo OAuth, apresentando usuário Olá com um logon de interface do usuário, atualizando tokens expirados e muito mais.  Tudo o que você realmente precisa de tooknow é uma única chamada de API, `authContext.AcquireTokenAsync(...)`.
+A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu aplicativo.  Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais.  Tudo o que você realmente precisa saber é uma única chamada à API, `authContext.AcquireTokenAsync(...)`.
 
-Para referência, o exemplo hello concluída (sem os valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Agora você pode mover tooadditional cenários.  Você pode desejar tootry:
+Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Agora você pode passar para cenários de adicionais.  Você pode desejar experimentar:
 
 [Proteger uma API da Web .NET com o Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 

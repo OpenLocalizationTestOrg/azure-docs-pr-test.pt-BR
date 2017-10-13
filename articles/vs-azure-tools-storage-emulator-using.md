@@ -1,6 +1,6 @@
 ---
-title: "aaaConfiguring e usando Olá emulador de armazenamento com o Visual Studio | Microsoft Docs"
-description: Como configurar e usar o hello emulador de armazenamento com o Visual Studio
+title: Configurando e usando o Emulador de Armazenamento com o Visual Studio | Microsoft Docs
+description: Configurando e usando o emulador de armazenamento com o Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: kraigb
-ms.openlocfilehash: d590f21146c86bcb7bfa6b6164b92c6df5938d5b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f4cd8ccc3b186cf2b4178b7d8a98d8928c705cbc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="configuring-and-using-hello-storage-emulator-with-visual-studio"></a>Como configurar e usar o hello emulador de armazenamento com o Visual Studio
+# <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>Visão geral
-ambiente de desenvolvimento do SDK do Azure Olá inclui o emulador de armazenamento hello, um utilitário que simula Olá Blob, fila e tabela de serviços de armazenamento disponíveis no Azure em sua máquina de desenvolvimento local. Se você estiver criando um serviço de nuvem que utiliza os serviços de armazenamento do Azure hello, ou gravar todos os aplicativos externos chamadas Olá serviços de armazenamento, você pode testar seu código localmente no emulador de armazenamento de saudação. Olá ferramentas do Azure para Microsoft Visual Studio integra o gerenciamento de emulador de armazenamento Olá no Visual Studio. Ferramentas do Azure Olá inicializar banco de dados do emulador de armazenamento de saudação no primeiro uso, inicia Olá serviço emulador de armazenamento quando você executa ou depura seu código do Visual Studio e fornece acesso somente leitura toohello armazenamento emulador dados via hello Azure Storage Explorer.
+O ambiente de desenvolvimento SDK do Azure inclui o emulador de armazenamento, um utilitário que simula os serviços Blob, Fila e Tabela disponíveis no Azure em seu computador de desenvolvimento local. Se você estiver criando um serviço de nuvem que utiliza os serviços de armazenamento do Azure, ou escrevendo qualquer aplicativo externos que chama os serviços de armazenamento, você pode testar seu código localmente no emulador de armazenamento. As Ferramentas do Azure para o Microsoft Visual Studio integram o gerenciamento do emulador de armazenamento no Visual Studio. As Ferramentas do Azure inicializam o banco de dados do emulador de armazenamento no primeiro uso, iniciam o serviço do emulador de armazenamento quando você executa ou depura seu código do Visual Studio e fornecem acesso somente leitura aos dados de emulador de armazenamento por meio do Gerenciador de Armazenamento do Azure.
 
-Para obter informações detalhadas sobre o emulador de armazenamento hello, incluindo requisitos de sistema e instruções de configuração personalizada, consulte [Olá Use Azure Storage Emulator para desenvolvimento e testes](storage/common/storage-use-emulator.md).
-
-> [!NOTE]
-> Há algumas diferenças na funcionalidade entre a simulação de emulador de armazenamento hello e serviços de armazenamento do Azure hello. Consulte [Olá diferenças entre o emulador de armazenamento e serviços de armazenamento do Azure](storage/common/storage-use-emulator.md) em Olá documentação do SDK do Azure para obter informações sobre diferenças específicas hello.
-> 
-> 
-
-## <a name="configuring-a-connection-string-for-hello-storage-emulator"></a>Configurando uma cadeia de caracteres de conexão para o emulador de armazenamento Olá
-emulador de armazenamento tooaccess saudação do código dentro de uma função, você desejará tooconfigure uma conexão que emulador de armazenamento toohello pontos de cadeia de caracteres e que posteriormente pode ser alterado toopoint tooan conta de armazenamento do Azure. Uma cadeia de caracteres de conexão é uma configuração que sua função pode ler a conta de armazenamento do tempo de execução tooconnect tooa. Para obter mais informações sobre como toocreate cadeias de caracteres de conexão, consulte [Olá Configurando aplicativos do Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Para obter informações detalhadas sobre o emulador de armazenamento incluindo requisitos de sistema e instruções de configuração personalizada, consulte [Usar o Emulador de Armazenamento do Azure para Desenvolvimento e Teste](storage/common/storage-use-emulator.md).
 
 > [!NOTE]
-> Você pode retornar uma conta de emulador de armazenamento de toohello de referência no seu código usando Olá **DevelopmentStorageAccount** propriedade. Essa abordagem funciona corretamente se você quiser tooaccess Olá emulador de armazenamento do seu código, mas se você planejar toopublish tooAzure seu aplicativo, será necessário toocreate um tooaccess de cadeia de caracteres de conexão sua conta de armazenamento do Azure e modificar seu código toouse que cadeia de conexão antes de publicá-lo. Se estiver alternando entre a conta do emulador de armazenamento hello e uma conta de armazenamento do Azure com frequência, uma cadeia de caracteres de conexão será simplificar esse processo.
+> Existem algumas diferenças de funcionalidade entre a simulação do emulador de armazenamento e os serviços de armazenamento do Azure. Consulte [Diferenças entre o Emulador de Armazenamento e os Serviços de Armazenamento do Azure](storage/common/storage-use-emulator.md) na documentação do SDK do Azure para obter informações sobre as diferenças específicas.
 > 
 > 
 
-## <a name="initializing-and-running-hello-storage-emulator"></a>Inicializando e executando o emulador de armazenamento Olá
-Você pode especificar que, quando você executa ou depurar seu serviço no Visual Studio, o Visual Studio automaticamente inicia o emulador de armazenamento hello. No Solution Explorer, abra o menu de atalho de saudação seu **Azure** do projeto e escolha **propriedades**. Em Olá **desenvolvimento** guia Olá **iniciar o emulador de armazenamento do Azure** , escolha **True** (se ela já não está configurada toothat valor).
-
-Olá a primeira vez que você executar ou depurar seu serviço no Visual Studio, o emulador de armazenamento Olá inicia um processo de inicialização. Esse processo reserva portas locais para o emulador de armazenamento hello e cria o banco de dados de emulador de armazenamento hello. Uma vez concluído, esse processo não precisa toorun novamente, a menos que o banco de dados de emulador de armazenamento Olá é excluído.
+## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configurando uma cadeia de conexão para o emulador de armazenamento
+Para acessar o emulador de armazenamento do código dentro de uma função, você deve configurar uma cadeia de conexão que aponta para o emulador de armazenamento e que pode ser alterada posteriormente para apontar para uma conta de armazenamento do Azure. Uma cadeia de conexão é uma configuração que sua função pode ler em tempo de execução para conectar-se a uma conta de armazenamento. Para obter mais informações sobre como criar cadeias de conexão, consulte [Configurar o Aplicativo do Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
 
 > [!NOTE]
-> A partir da versão de junho de 2012 de saudação do hello ferramentas do Azure, o emulador de armazenamento Olá é executado, por padrão, no SQL Express LocalDB. Em versões anteriores do hello ferramentas do Azure, o emulador de armazenamento Olá é executado em relação a uma instância padrão do SQL Express 2005 ou 2008, que deve ser instalado antes de instalar o hello SDK do Azure. Você também pode executar o emulador de armazenamento Olá em relação a uma instância nomeada do SQL Express ou um conjunto nomeado ou padrão do Microsoft SQL Server. Se você precisar toorun de emulador de armazenamento tooconfigure Olá em relação a uma instância padrão além hello, consulte [Olá Use Azure Storage Emulator para desenvolvimento e testes](storage/common/storage-use-emulator.md).
+> Você pode retornar uma referência à conta do emulador de armazenamento do seu código usando a propriedade **DevelopmentStorageAccount** . Essa abordagem funciona corretamente se você deseja acessar o emulador de armazenamento do seu código, mas se você planeja publicar seu aplicativo no Azure, você precisará criar uma cadeia de conexão para acessar sua conta de armazenamento do Azure e modificar seu código, antes de publicá-lo, para usar essa cadeia de conexão. Se você estiver alternando com frequência entre a conta do emulador de armazenamento e uma conta de armazenamento do Azure, uma cadeia de conexão simplificará esse processo.
 > 
 > 
 
-emulador de armazenamento Olá fornece um status de saudação do usuário interface tooview Olá local de serviços de armazenamento e toostart, pare e redefini-los. Depois que o serviço do emulador de armazenamento Olá tiver sido iniciado, você pode exibir a interface do usuário hello ou iniciar ou parar o serviço clicando com o ícone da área de notificação para Olá Olá Olá emulador do Microsoft Azure na barra de tarefas de Windows hello.
+## <a name="initializing-and-running-the-storage-emulator"></a>Inicializando e executando o emulador de armazenamento
+Você pode especificar que, quando você executa ou depura seu serviço no Visual Studio, o Visual Studio inicia automaticamente o emulador de armazenamento. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do **Azure** e escolha **Propriedades**. Na guia **Desenvolvimento**, na lista **Iniciar o Emulador de Armazenamento do Azure**, escolha **Verdadeiro** (se ainda não estiver definido para esse valor).
+
+Na primeira vez que você executar ou depurar o serviço do Visual Studio, o emulador de armazenamento inicia um processo de inicialização. Esse processo reserva portas locais para o emulador de armazenamento e cria o banco de dados do emulador de armazenamento. Uma vez concluído, esse processo não precisa executar novamente a menos que o banco de dados do emulador de armazenamento seja excluído.
+
+> [!NOTE]
+> Começando com a versão de junho de 2012 das ferramentas do Azure, o emulador de armazenamento é executado, por padrão, no SQL Express LocalDB. Em versões anteriores das Ferramentas do Azure, o emulador de armazenamento é executado em uma instância padrão do SQL Express 2005 ou 2008, que deve ser instalado antes de você instalar o SDK do Azure. Você também pode executar o emulador de armazenamento em uma instância nomeada do SQL Express ou uma instância nomeada ou padrão do Microsoft SQL Server. Se você precisa configurar o emulador de armazenamento para executar em uma instância diferente da instância padrão, consulte [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage/common/storage-use-emulator.md).
+> 
+> 
+
+O emulador de armazenamento fornece uma interface do usuário para exibir o status dos serviços de armazenamento local e para iniciá-los, pará-los e redefini-los. Depois que o serviço do emulador de armazenamento tiver sido iniciado, você poderá exibir a interface do usuário ou iniciar ou parar o serviço clicando no ícone da área de notificação para o Emulador do Microsoft Azure na barra de tarefas do Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Exibindo dados do emulador de armazenamento no Gerenciador de Servidores
-nó de armazenamento do Azure Olá no Gerenciador de servidores permite que você tooview dados e alterar as configurações para o blob e dados de tabela em suas contas de armazenamento, incluindo Olá emulador de armazenamento. Consulte [Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Versão Prévia)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
+O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Consulte [Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Versão Prévia)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar-se tooAzure banco de dados para PostgreSQL usando Java | Microsoft Docs
-description: "Este guia de início rápido fornece um exemplo de código Java, você pode usar tooconnect e consultar dados do banco de dados PostgreSQL."
+title: Conectar-se ao Banco de Dados do Azure para PostgreSQL usando Java | Microsoft Docs
+description: "Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,38 +11,38 @@ ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: 8f6e0a47a0d6dfebf29eb56c31ccccabd7c2b670
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="azure-database-for-postgresql-use-java-tooconnect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Java tooconnect e consultar dados
-Este guia de início rápido demonstra como tooconnect tooan Azure banco de dados para PostgreSQL usando um aplicativo Java. Ele mostra como toouse tooquery de instruções SQL, inserir, atualizar e excluir dados no banco de dados de saudação. Olá etapas neste artigo presumem que você esteja familiarizado com o desenvolvimento usando o Java, e que você é novo tooworking com o banco de dados do Azure para PostgreSQL.
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Java para se conectar e consultar dados
+Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando o Java e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido usa recursos de saudação criados em qualquer um desses guias como um ponto de partida:
+Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI do Azure](quickstart-create-server-database-azure-cli.md)
 
 Você também precisará:
-- Baixar Olá [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) correspondente a sua versão do Java e hello Java Development Kit.
-- Inclua Olá arquivo jar de PostgreSQL JDBC (por exemplo, postgresql-42.1.1.jar) no classpath seu aplicativo. Para saber mais, confira [detalhes de classpath](https://jdbc.postgresql.org/documentation/head/classpath.html).
+- Baixar o [Driver JDBC PostgreSQL](https://jdbc.postgresql.org/download.html) correspondente à versão do Java e o Java Development Kit.
+- Incluir o arquivo jar do JDBC PostgreSQL (por exemplo, postgresql-42.1.1.jar) no classpath do seu aplicativo. Para saber mais, confira [detalhes de classpath](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
-Obter Olá conexão informações necessárias tooconnect toohello banco de dados PostgreSQL. Você precisa Olá credenciais de logon e de nome totalmente qualificado do servidor.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
-1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
-2. No menu esquerdo de saudação no portal do Azure, clique em **todos os recursos** e pesquisa para o servidor de saudação que você criou, como **mypgserver 20170401**.
-3. Clique em nome do servidor de saudação **mypgserver 20170401**.
-4. Servidor de saudação selecione **visão geral** página. Anote Olá **nome do servidor** e **nome de logon do administrador de servidor**.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **mypgserver-20170401**.
+3. Clique no nome do servidor **mypgserver-20170401**.
+4. Selecione a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
  ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/connect-java/1-connection-string.png)
-5. Se você esquecer suas informações de logon de servidor, navegue toohello **visão geral** página nome de logon de administrador de servidor do tooview hello e, se necessário, Redefinir senha hello.
+5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
-Saudação de uso seguintes código tooconnect e carga Olá dados usando a função hello com um **inserir** instrução SQL. Olá métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), e [ExecuteQuery ()](https://jdbc.postgresql.org/documentation/head/query.html) são usado tooconnect, descarte e crie a tabela de saudação. Olá [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) objeto é usado toobuild Olá os comandos insert, com valores de parâmetro de saudação toobind setString() e setInt(). Método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) Olá de execuções de comando para cada conjunto de parâmetros. 
+Use o código a seguir para se conectar e carregar os dados usando a função com uma instrução SQL **INSERT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery ()](https://jdbc.postgresql.org/documentation/head/query.html) são usados para se conectar, descartar e criar a tabela. O objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) é usado para criar os comandos insert, com setString() e setInt() para associar os valores de parâmetro. O método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) executa o comando para cada conjunto de parâmetros. 
 
-Substitua os valores hello que você especificou quando criou seu próprio servidor e banco de dados host hello, banco de dados, usuário e parâmetros de senha.
+Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 
 ```java
 import java.sql.*;
@@ -59,7 +59,7 @@ public class CreateTableInsertRows {
         String user = "mylogin@mypgserver-20170401";
         String password = "<server_admin_password>";
 
-        // check that hello driver is installed
+        // check that the driver is installed
         try
         {
             Class.forName("org.postgresql.Driver");
@@ -78,7 +78,7 @@ public class CreateTableInsertRows {
         {
             String url = String.format("jdbc:postgresql://%s/%s", host, database);
             
-            // set up hello connection properties
+            // set up the connection properties
             Properties properties = new Properties();
             properties.setProperty("user", user);
             properties.setProperty("password", password);
@@ -89,13 +89,13 @@ public class CreateTableInsertRows {
         }
         catch (SQLException e)
         {
-            throw new SQLException("Failed toocreate connection toodatabase.", e);
+            throw new SQLException("Failed to create connection to database.", e);
         }
         if (connection != null) 
         { 
-            System.out.println("Successfully created connection toodatabase.");
+            System.out.println("Successfully created connection to database.");
         
-            // Perform some SQL queries over hello connection.
+            // Perform some SQL queries over the connection.
             try
             {
                 // Drop previous table of same name if one exists.
@@ -123,7 +123,7 @@ public class CreateTableInsertRows {
                 nRowsInserted += preparedStatement.executeUpdate();
                 System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
     
-                // NOTE No need toocommit all changes toodatabase, as auto-commit is enabled by default.
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
     
             }
             catch (SQLException e)
@@ -132,7 +132,7 @@ public class CreateTableInsertRows {
             }       
         }
         else {
-            System.out.println("Failed toocreate connection toodatabase.");
+            System.out.println("Failed to create connection to database.");
         }
         System.out.println("Execution finished.");
     }
@@ -140,9 +140,9 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Ler dados
-Dados de saudação tooread com código a seguir de saudação Use um **selecione** instrução SQL. Olá métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), e [ExecuteQuery ()](https://jdbc.postgresql.org/documentation/head/query.html) são usado tooconnect, criar e executar a instrução select hello. resultados de saudação são processados usando um [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) objeto. 
+Use o código a seguir para ler os dados com uma instrução SQL **SELECT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) são usados para se conectar, criar e executar a instrução select. Os resultados são processados usando um objeto [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
-Substitua os valores hello que você especificou quando criou seu próprio servidor e banco de dados host hello, banco de dados, usuário e parâmetros de senha.
+Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 
 ```java
 import java.sql.*;
@@ -159,7 +159,7 @@ public class ReadTable {
         String user = "mylogin@mypgserver-20170401";
         String password = "<server_admin_password>";
 
-        // check that hello driver is installed
+        // check that the driver is installed
         try
         {
             Class.forName("org.postgresql.Driver");
@@ -178,7 +178,7 @@ public class ReadTable {
         {
             String url = String.format("jdbc:postgresql://%s/%s", host, database);
             
-            // set up hello connection properties
+            // set up the connection properties
             Properties properties = new Properties();
             properties.setProperty("user", user);
             properties.setProperty("password", password);
@@ -189,13 +189,13 @@ public class ReadTable {
         }
         catch (SQLException e)
         {
-            throw new SQLException("Failed toocreate connection toodatabase.", e);
+            throw new SQLException("Failed to create connection to database.", e);
         }
         if (connection != null) 
         { 
-            System.out.println("Successfully created connection toodatabase.");
+            System.out.println("Successfully created connection to database.");
         
-            // Perform some SQL queries over hello connection.
+            // Perform some SQL queries over the connection.
             try
             {
     
@@ -218,7 +218,7 @@ public class ReadTable {
             }       
         }
         else {
-            System.out.println("Failed toocreate connection toodatabase.");
+            System.out.println("Failed to create connection to database.");
         }
         System.out.println("Execution finished.");
     }
@@ -227,9 +227,9 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Dados de saudação toochange com código a seguir de saudação Use um **atualização** instrução SQL. Olá métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usado tooconnect, preparar e executar a instrução de atualização de saudação. 
+Use o código a seguir para alterar os dados com uma instrução SQL **UPDATE**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usados para se conectar, preparar e executar a instrução select. 
 
-Substitua os valores hello que você especificou quando criou seu próprio servidor e banco de dados host hello, banco de dados, usuário e parâmetros de senha.
+Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 
 ```java
 import java.sql.*;
@@ -245,7 +245,7 @@ public class UpdateTable {
         String user = "mylogin@mypgserver-20170401";
         String password = "<server_admin_password>";
 
-        // check that hello driver is installed
+        // check that the driver is installed
         try
         {
             Class.forName("org.postgresql.Driver");
@@ -264,7 +264,7 @@ public class UpdateTable {
         {
             String url = String.format("jdbc:postgresql://%s/%s", host, database);
             
-            // set up hello connection properties
+            // set up the connection properties
             Properties properties = new Properties();
             properties.setProperty("user", user);
             properties.setProperty("password", password);
@@ -275,13 +275,13 @@ public class UpdateTable {
         }
         catch (SQLException e)
         {
-            throw new SQLException("Failed toocreate connection toodatabase.", e);
+            throw new SQLException("Failed to create connection to database.", e);
         }
         if (connection != null) 
         { 
-            System.out.println("Successfully created connection toodatabase.");
+            System.out.println("Successfully created connection to database.");
         
-            // Perform some SQL queries over hello connection.
+            // Perform some SQL queries over the connection.
             try
             {
                 // Modify some data in table.
@@ -292,7 +292,7 @@ public class UpdateTable {
                 nRowsUpdated += preparedStatement.executeUpdate();
                 System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
     
-                // NOTE No need toocommit all changes toodatabase, as auto-commit is enabled by default.
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
             }
             catch (SQLException e)
             {
@@ -300,16 +300,16 @@ public class UpdateTable {
             }       
         }
         else {
-            System.out.println("Failed toocreate connection toodatabase.");
+            System.out.println("Failed to create connection to database.");
         }
         System.out.println("Execution finished.");
     }
 }
 ```
 ## <a name="delete-data"></a>Excluir dados
-Código a seguir de saudação de uso tooremove dados com um **excluir** instrução SQL. Olá métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usado tooconnect, preparar e executar a instrução de delete hello. 
+Use o código a seguir para remover dados com uma instrução SQL **DELETE**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) são usados para se conectar, preparar e executar a instrução select. 
 
-Substitua os valores hello que você especificou quando criou seu próprio servidor e banco de dados host hello, banco de dados, usuário e parâmetros de senha.
+Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 
 ```java
 import java.sql.*;
@@ -325,7 +325,7 @@ public class DeleteTable {
         String user = "mylogin@mypgserver-20170401";
         String password = "<server_admin_password>";
 
-        // check that hello driver is installed
+        // check that the driver is installed
         try
         {
             Class.forName("org.postgresql.Driver");
@@ -344,7 +344,7 @@ public class DeleteTable {
         {
             String url = String.format("jdbc:postgresql://%s/%s", host, database);
             
-            // set up hello connection properties
+            // set up the connection properties
             Properties properties = new Properties();
             properties.setProperty("user", user);
             properties.setProperty("password", password);
@@ -355,13 +355,13 @@ public class DeleteTable {
         }
         catch (SQLException e)
         {
-            throw new SQLException("Failed toocreate connection toodatabase.", e);
+            throw new SQLException("Failed to create connection to database.", e);
         }
         if (connection != null) 
         { 
-            System.out.println("Successfully created connection toodatabase.");
+            System.out.println("Successfully created connection to database.");
         
-            // Perform some SQL queries over hello connection.
+            // Perform some SQL queries over the connection.
             try
             {
                 // Delete some data from table.
@@ -371,7 +371,7 @@ public class DeleteTable {
                 nRowsDeleted += preparedStatement.executeUpdate();
                 System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
     
-                // NOTE No need toocommit all changes toodatabase, as auto-commit is enabled by default.
+                // NOTE No need to commit all changes to database, as auto-commit is enabled by default.
             }
             catch (SQLException e)
             {
@@ -379,7 +379,7 @@ public class DeleteTable {
             }       
         }
         else {
-            System.out.println("Failed toocreate connection toodatabase.");
+            System.out.println("Failed to create connection to database.");
         }
         System.out.println("Execution finished.");
     }

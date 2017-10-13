@@ -1,6 +1,6 @@
 ---
-title: "aaaCollect e analisar as mensagens de Syslog na análise de logs do OMS | Microsoft Docs"
-description: "Syslog é um protocolo de registro em log de eventos é tooLinux comuns. Este artigo descreve como tooconfigure coleção de mensagens de Syslog na análise de Log e os detalhes de registros de saudação criado no repositório do OMS hello."
+title: Coletar e analisar mensagens do Syslog no Log Analytics do OMS | Microsoft Docs
+description: "O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros que eles criam no repositório do OMS."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 8bfa0bca3f2f18287d1352c98bbaa2a70e41e276
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Fontes de dados de Syslog no Log Analytics
-Syslog é um protocolo de registro em log de eventos é tooLinux comuns.  Aplicativos enviará mensagens que podem ser armazenadas no computador local hello ou entregues tooa Syslog coletor.  Olá agente do OMS para Linux for instalado, ele configura Olá Syslog daemon tooforward mensagens toohello agente local.  Olá agente envia mensagem de saudação tooLog Analytics onde um registro correspondente é criado no repositório do OMS hello.  
+O Syslog é um protocolo de registro de eventos em log que é comum para o Linux.  Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog.  Quando o agente do OMS para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente.  O agente então envia a mensagem para o Log Analytics, no qual um registro correspondente é criado no repositório OMS.  
 
 > [!NOTE]
-> Análise de log dá suporte a coleção de mensagens enviadas por rsyslog ou syslog-ng, onde rsyslog é o daemon saudação padrão. Não há suporte para o daemon do syslog saudação padrão na versão 5 do Red Hat Enterprise Linux, CentOS e Oracle Linux (sysklog) para coleta de eventos de syslog. Olá toocollect dados de syslog dessa versão de distribuições, [daemon de rsyslog](http://rsyslog.com) deve ser instalado e configurado tooreplace sysklog.
+> O Log Analytics dá suporte à coleta de mensagens enviadas por rsyslog ou syslog-ng, em que rsyslog é o daemon padrão. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão das distribuições, o [daemon rsyslog](http://rsyslog.com) deverá ser instalado e configurado para substituir sysklog.
 >
 >
 
 ![Coleção do Syslog](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configurando Syslog
-Olá agente do OMS para Linux coletará apenas eventos com instalações de saudação e gravidades especificadas em sua configuração.  Você pode configurar o Syslog por meio do portal do OMS hello ou por meio do gerenciamento de arquivos de configuração em seus agentes do Linux.
+O Agente do OMS para Linux coletará apenas os eventos com os recursos e severidades especificadas em sua configuração.  Você pode configurar o Syslog por meio do portal do OMS ou gerenciando arquivos de configuração em seus agentes do Linux.
 
-### <a name="configure-syslog-in-hello-oms-portal"></a>Configurar o Syslog no portal do OMS Olá
-Configurar o Syslog Olá [menu dados nas configurações de análise de Log](log-analytics-data-sources.md#configuring-data-sources).  Essa configuração é entregue toohello o arquivo de configuração em cada agente do Linux.
+### <a name="configure-syslog-in-the-oms-portal"></a>Configurar o Syslog no portal do OMS
+Configure o Syslog do menu [Dados nas Configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Você pode adicionar um novo recurso, digitando seu nome e clicando em **+**.  Para cada recurso, apenas as mensagens com severidades de saudação selecionada serão coletadas.  Verifique severidades Olá para que você deseja toocollect de recurso específico do hello.  Você não pode fornecer qualquer critérios adicionais toofilter mensagens.
+Você pode adicionar um novo recurso, digitando seu nome e clicando em **+**.  Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar Syslog](media/log-analytics-data-sources-syslog/configure.png)
 
-Por padrão, todas as alterações de configuração são enviadas automaticamente tooall agentes.  Se você quiser tooconfigure Syslog manualmente em cada agente do Linux, em seguida, desmarque a caixa Olá *aplicar abaixo máquinas de Linux toomy configuração*.
+Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Se você quiser configurar o Syslog manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurar o Syslog no agente do Linux
-Olá quando [agente do OMS é instalado em um cliente Linux](log-analytics-linux-agents.md), ele instala um arquivo de configuração de syslog padrão que define o recurso de saudação e gravidade da saudação mensagens que são coletados.  Você pode modificar essa configuração de saudação do arquivo toochange.  arquivo de configuração de saudação é diferente dependendo Olá Syslog daemon que Olá cliente foi instalado.
+Quando o [agente do OMS é instalado em um cliente Linux](log-analytics-linux-agents.md), ele instala um arquivo de configuração de Syslog padrão, que define o recurso e a severidade das mensagens que são coletadas.  Você pode modificar esse arquivo para alterar a configuração.  O arquivo de configuração é diferente, dependendo do daemon do Syslog que o cliente tem instalado.
 
 > [!NOTE]
-> Se você editar configuração de syslog Olá, você deve reiniciar o daemon do syslog Olá Olá alterações tootake efeito.
+> Se você editar a configuração de syslog, deverá reiniciar o daemon syslog para que as alterações entrem em vigor.
 >
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Olá arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95-omsagent.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso reúne mensagens de syslog enviadas do agente local Olá para todos os recursos com um nível de aviso ou superior.
+O arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95-omsagent.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso coleta mensagens do syslog enviadas do agente local para todos os recursos com um nível de aviso ou superior.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +71,13 @@ Olá arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Você pode remover um recurso, removendo sua seção saudação do arquivo de configuração.  Você pode limitar severidades Olá que são coletadas para um recurso específico, modificando entrada desse recurso.  Por exemplo, toolimit Olá usuário recurso toomessages com uma severidade de erro ou maior que modificaria essa linha de saudação toohello de arquivo de configuração a seguir:
+Você pode remover um recurso removendo sua seção do arquivo de configuração.  Você pode limitar as severidades coletadas para um recurso específico, modificando a entrada desse recurso.  Por exemplo, para limitar o recurso do usuário a mensagens com uma severidade de erro ou superior, você modificaria essa linha do arquivo de configuração para o seguinte:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-arquivo de configuração de saudação do syslog-ng é local em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso reúne mensagens de syslog enviadas de agente local Olá para todos os recursos e todas as gravidades.   
+O arquivo de configuração para syslog-ng é a localização em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso coleta mensagens do syslog enviadas do agente local para todos os recursos e todas as severidades.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +128,7 @@ arquivo de configuração de saudação do syslog-ng é local em **/etc/syslog-n
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Você pode remover um recurso, removendo sua seção saudação do arquivo de configuração.  Você pode limitar severidades Olá que são coletadas para um recurso específico, removendo-as da sua lista.  Por exemplo, toolimit Olá usuário recurso toojust mensagens de alerta e críticas, deverá modificar essa seção do hello toohello de arquivo de configuração a seguir:
+Você pode remover um recurso removendo sua seção do arquivo de configuração.  Você pode limitar as severidades coletadas para um recurso específico, removendo-as de sua lista.  Por exemplo, para limitar o recurso exclusivamente a mensagens críticas e de alerta, você modificaria essa seção do arquivo de configuração para o seguinte:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -136,14 +136,14 @@ Você pode remover um recurso, removendo sua seção saudação do arquivo de co
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Coletar dados de portas de Syslog adicionais
-agente do OMS Olá escuta mensagens de Syslog no cliente local de saudação na porta 25224.  Quando Olá agente é instalado, uma configuração de syslog padrão é aplicada e encontrada no hello local a seguir:
+O agente do OMS escuta as mensagens do Syslog no cliente local na porta 25224.  Quando o agente é instalado, uma configuração de syslog padrão é aplicada e encontra o seguinte local:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
-Você pode alterar o número da porta Olá criando dois arquivos de configuração: um arquivo de configuração FluentD e um arquivo de ng de rsyslog ou syslog dependendo de ter instalado o daemon Syslog hello.  
+Você pode alterar o número da porta criando dois arquivos de configuração: um arquivo de configuração FluentD, e um arquivo rsyslog-or-syslog-ng, dependendo do daemon do Syslog que você instalou.  
 
-* arquivo de configuração do Hello FluentD deve ser um novo arquivo localizado em: `/etc/opt/microsoft/omsagent/conf/omsagent.d` e substitua o valor Olá Olá **porta** entrada com o número da porta personalizada.
+* O arquivo de configuração FluentD deve ser um novo arquivo localizado em: `/etc/opt/microsoft/omsagent/conf/omsagent.d` e substituir o valor na entrada da **porta** por seu número da porta personalizado.
 
         <source>
           type syslog
@@ -156,10 +156,10 @@ Você pode alterar o número da porta Olá criando dois arquivos de configuraç�
           type filter_syslog
         </filter>
 
-* Para rsyslog, você deve criar um novo arquivo de configuração localizado em: `/etc/rsyslog.d/` e substitua Olá valor % SYSLOG_PORT % com o número da porta personalizada.  
+* Para rsyslog, você deve criar um novo arquivo de configuração localizado em: `/etc/rsyslog.d/` e substituir o valor % SYSLOG_PORT % pelo número da porta personalizada.  
 
     > [!NOTE]
-    > Se você modificar esse valor no arquivo de configuração de saudação `95-omsagent.conf`, ele será substituído quando o agente de saudação aplica uma configuração padrão.
+    > Se você modificar esse valor no arquivo de configuração `95-omsagent.conf`, ele será substituído quando o agente aplicar a uma configuração padrão.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -168,34 +168,34 @@ Você pode alterar o número da porta Olá criando dois arquivos de configuraç�
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Hello syslog-ng config deve ser modificado, copiando a configuração de exemplo hello mostrada abaixo e adicionando Olá personalizado configurações modificadas toohello final do arquivo de configuração de syslog ng.conf Olá localizado em `/etc/syslog-ng/`.  Fazer **não** usar saudação padrão rótulo **% WORKSPACE_ID % _oms** ou **% WORKSPACE_ID_OMS**, definir um personalizado toohelp rótulo distinguir as alterações.  
+* A configuração de syslog-ng deve ser modificada por meio da cópia da configuração de exemplo mostrada abaixo e adicionando as configurações modificadas personalizadas ao final do arquivo de configuração syslog ng.conf localizado em `/etc/syslog-ng/`.  **Não** use o rótulo padrão **% WORKSPACE_ID %_oms** ou **% WORKSPACE_ID_OMS**, defina um rótulo personalizado para ajudar a distinguir as alterações.  
 
     > [!NOTE]
-    > Se você modificar os valores padrão de saudação no arquivo de configuração de hello, eles serão substituídos quando o agente de saudação aplica uma configuração padrão.
+    > Se você modificar os valores padrão no arquivo de configuração, eles serão substituídos quando o agente aplicar uma configuração padrão.
     >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Depois de concluir as alterações hello, Olá Syslog e hello o serviço de agente do OMS precisa toobe reiniciado tooensure Olá configuração alterações entrarão em vigor.   
+Depois de concluir as alterações, o Syslog e o serviço do agente do OMS precisarão ser reiniciados para garantir que as alterações de configuração entrem em vigor.   
 
 ## <a name="syslog-record-properties"></a>Propriedades de registro do syslog
-Registros de syslog têm um tipo de **Syslog** e têm propriedades de saudação em Olá a tabela a seguir.
+Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computador |Computador que Olá evento foi coletado do. |
-| Recurso |Define a parte de saudação do sistema de saudação que gerou a mensagem de saudação. |
-| HostIP |Endereço IP do sistema Olá enviar mensagem de saudação. |
-| HostName |Nome do sistema de saudação enviar mensagem de saudação. |
-| SeverityLevel |Nível de severidade do evento hello. |
-| SyslogMessage |Texto da mensagem de saudação. |
-| ProcessID |ID do processo de saudação que gerou a mensagem de saudação. |
-| EventTime |Data e hora em que Olá evento foi gerado. |
+| Computador |Computador do qual o evento foi coletado. |
+| Recurso |Define a parte do sistema que gerou a mensagem. |
+| HostIP |Endereço IP do sistema que envia a mensagem. |
+| HostName |Nome do sistema enviando a mensagem. |
+| SeverityLevel |Nível de severidade do evento. |
+| SyslogMessage |Texto da mensagem. |
+| ProcessID |A ID do processo que gerou a mensagem. |
+| EventTime |Data e hora em que o alerta foi gerado. |
 
 ## <a name="log-queries-with-syslog-records"></a>Consultas do log com registros do Syslog
-Olá tabela a seguir fornece exemplos de diferentes de consultas de log que recuperam registros de Syslog.
+A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do Syslog.
 
 | Consultar | Descrição |
 |:--- |:--- |
@@ -205,7 +205,7 @@ Olá tabela a seguir fornece exemplos de diferentes de consultas de log que recu
 | Type=Syslog &#124; measure count() by Facility |Contagem de registros do Syslog por recurso. |
 
 >[!NOTE]
-> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), e em seguida, Olá acima consultas alteraria toohello a seguir.
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
 
 > | Consultar | Descrição |
 |:--- |:--- |
@@ -215,6 +215,6 @@ Olá tabela a seguir fornece exemplos de diferentes de consultas de log que recu
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Contagem de registros do Syslog por recurso. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) dados de saudação tooanalyze coletados de fontes de dados e soluções.
-* Use [campos personalizados](log-analytics-custom-fields.md) tooparse dados de registros de syslog em campos individuais.
-* [Configurar agentes do Linux](log-analytics-linux-agents.md) toocollect outros tipos de dados.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.
+* Use [campos personalizados](log-analytics-custom-fields.md) para analisar dados dos registros do syslog em campos individuais.
+* [Configure Agentes do Linux](log-analytics-linux-agents.md) para coletar outros tipos de dados.

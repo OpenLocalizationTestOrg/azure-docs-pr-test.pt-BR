@@ -1,6 +1,6 @@
 ---
 title: "Segurança de cluster do Service Fabric: funções de cliente | Microsoft Docs"
-description: "Este artigo descreve duas funções de cliente hello e permissões de saudação fornecidas toohello funções."
+description: "Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 4a4a9f93e91ea816005b730bebbcb317f8bab255
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controle de acesso baseado em função para clientes do Service Fabric
-Malha do serviço do Azure oferece suporte a dois tipos de controle de acesso diferentes para os clientes conectados tooa malha do serviço de cluster: administrador e usuário. Controle de acesso permite Olá administrador toolimit acesso toocertain cluster as operações de cluster para diferentes grupos de usuários, tornando o cluster hello mais segura.  
+O Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.  
 
-**Os administradores** têm acesso completo toomanagement recursos (incluindo recursos de leitura/gravação). Por padrão, **usuários** só têm acesso de leitura toomanagement recursos (por exemplo, recursos de consulta) e serviços e aplicativos de tooresolve de capacidade de saudação.
+**administradores** têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Por padrão, os **usuários** têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.
 
-Você pode especificar funções de cliente Olá dois (cliente e administrador) em tempo de saudação da criação do cluster fornecendo certificados separados para cada. Confira [Service Fabric cluster security](service-fabric-cluster-security.md) (Segurança de cluster do Service Fabric) para obter detalhes sobre como configurar um cluster do Service Fabric.
+As duas funções de clientes (administrador ou cliente) são especificadas no momento da criação do cluster, com o fornecimento de certificados separados para cada um. Confira [Service Fabric cluster security](service-fabric-cluster-security.md) (Segurança de cluster do Service Fabric) para obter detalhes sobre como configurar um cluster do Service Fabric.
 
 ## <a name="default-access-control-settings"></a>Configurações padrão de controle de acesso
-tipo de controle de acesso de administrador Olá tem Olá tooall de acesso completo FabricClient APIs. Ele pode executar qualquer leituras e gravações no cluster do Service Fabric hello, incluindo Olá seguintes operações:
+O tipo de controle de acesso de administrador tem acesso total a todas as APIs FabricClient. Com ele, é possível executar qualquer operação de leitura e gravação no cluster do Service Fabric, incluindo as seguintes:
 
 ### <a name="application-and-service-operations"></a>Operações de aplicativos e serviço
 * **CreateService**: criação de serviço                             
@@ -41,7 +41,7 @@ tipo de controle de acesso de administrador Olá tem Olá tooall de acesso compl
 * **UpgradeApplication**: iniciar ou interromper atualizações de aplicativo                             
 * **UnprovisionApplicationType**: desprovisionar o tipo de aplicativo                             
 * **MoveNextUpgradeDomain**: retomar as atualizações de aplicativo com um domínio de atualização explícito                             
-* **ReportUpgradeHealth**: retomando atualizações de aplicativo com o progresso de atualização atual Olá                             
+* **ReportUpgradeHealth**: retomar as atualizações de aplicativo com o andamento da atualização atual                             
 * **ReportHealth**: relatório de integridade                             
 * **PredeployPackageToNode**: API de pré-implantação                            
 * **CodePackageControl**: reiniciar pacotes de código                             
@@ -55,7 +55,7 @@ tipo de controle de acesso de administrador Olá tem Olá tooall de acesso compl
 * **UpgradeFabric**: inicialização de atualizações de cluster                             
 * **UnprovisionFabric**: MSI e/ou desprovisionamento de manifesto do cluster                         
 * **MoveNextFabricUpgradeDomain**: retomar as atualizações de cluster com um domínio de atualização explícito                             
-* **ReportFabricUpgradeHealth**: retomando atualizações de cluster com o progresso de atualização atual Olá                             
+* **ReportFabricUpgradeHealth**: retomar as atualizações de cluster com o progresso de atualização atual                             
 * **StartInfrastructureTask**: iniciar tarefas de infraestrutura                             
 * **FinishInfrastructureTask**: concluir tarefas de infraestrutura                             
 * **InvokeInfrastructureCommand**: comandos de gerenciamento de tarefas de infraestrutura                              
@@ -66,20 +66,20 @@ tipo de controle de acesso de administrador Olá tem Olá tooall de acesso compl
 * **GetNodeDeactivationStatus**: verificar o status de desativação                             
 * **NodeStateRemoved**: relatar o estado do nó removido                             
 * **ReportFault**: falha de relatórios                             
-* **FileContent**: a imagem de transferência de arquivos de cliente de armazenamento (toocluster externo)                             
-* **FileDownload**: imagem iniciação do download arquivo do repositório de cliente (toocluster externo)                             
+* **FileContent**: transferência de arquivos de cliente de repositório de imagens (externo ao cluster)                             
+* **FileDownload**: inicialização de download de arquivos de cliente de repositório de imagens (externo ao cluster)                             
 * **InternalList**: operação de lista de arquivos de cliente de repositório de imagens (interno)                             
 * **Delete**: operação de exclusão do cliente de repositório de imagens                              
 * **Upload**: operação de upload do cliente de repositório de imagens                             
 * **NodeControl**: iniciar, interromper e reiniciar nós                             
-* **MoveReplicaControl**: Mover réplicas de um nó tooanother                             
+* **MoveReplicaControl**: mover réplicas de um nó para outro                             
 
 ### <a name="miscellaneous-operations"></a>Operações diversas
 * **Ping**: pings em cliente                             
 * **Query**: todas as consultas permitidas
 * **NameExists**: verificações de existência do URI de nomenclatura                             
 
-Por padrão, Olá tipo de controle de acesso de usuário é limitada toohello seguintes operações: 
+O tipo de Controle de Acesso de Usuários é, por padrão, limitado às operações a seguir: 
 
 * **EnumerateSubnames**: nomenclatura de enumeração de URI                             
 * **EnumerateProperties**: nomenclatura de enumeração de propriedade                             
@@ -96,10 +96,10 @@ Por padrão, Olá tipo de controle de acesso de usuário é limitada toohello se
 * **ResetPartitionLoad**: redefinir a carga de uma Unidade de Failover                             
 * **ToggleVerboseServicePlacementHealthReporting**: alternar o posicionamento do relatório de integridade do serviço detalhado                             
 
-controle de acesso de administrador Olá também tem acesso toohello operações precedentes.
+O Controle de Acesso de administrador também tem acesso às operações anteriores.
 
 ## <a name="changing-default-settings-for-client-roles"></a>Alterando as configurações padrão para funções do cliente
-No arquivo de manifesto de cluster hello, você pode fornecer o cliente de toohello de recursos do administrador se necessário. Você pode alterar os padrões de saudação vai toohello **configurações de malha** opção durante [criação de cluster](service-fabric-cluster-creation-via-portal.md)e fornecendo Olá precedem configurações em Olá **nome**, **admin**, **usuário**, e **valor** campos.
+No arquivo de manifesto do cluster,você pode fornecer recursos de administração ao cliente, se for necessário. Você pode alterar os padrões ao acessar a opção **Configurações da Malha** durante a [criação do cluster](service-fabric-cluster-creation-via-portal.md) e fornecer as configurações anteriores nos campos **nome**, **administrador**, **usuário** e **valor**.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)

@@ -1,5 +1,5 @@
 ---
-title: "fluxos de trabalho de aprovação de gerenciamento de identidade com privilégios de aaaAzure | Microsoft Docs"
+title: "Fluxos de trabalho de aprovação do Azure Privileged Identity Management | Microsoft Docs"
 description: "Saiba mais sobre os fluxos de trabalho de aprovação do PIM (Privileged Identity Management)"
 services: active-directory
 documentationcenter: 
@@ -14,37 +14,37 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 4afaf5c138798a803eb3d3b7905b9361d65792cd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="approvals-preview"></a>Aprovações (Visualização)
 
 ## <a name="overview"></a>Visão geral
 
-Com aprovações para Privileged Identity Management, você pode configurar funções toorequire aprovação para ativação e escolha um ou vários usuários ou grupos de aprovadores como delegados. Continue lendo toolearn como tooconfigure funções e selecione aprovadores.
+Com Aprovações para o Privileged Identity Management, você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Continue lendo para saber como configurar funções e selecionar aprovadores.
 
 >[!NOTE]
-Tenha em mente que esse recurso ainda está em desenvolvimento e você poderá encontrar bugs. Olá funcionalidade, incluindo texto e convenções de nomenclatura estão sujeitos a alterações e não devem ser considerados finais.
+Tenha em mente que esse recurso ainda está em desenvolvimento e você poderá encontrar bugs. A funcionalidade, incluindo o texto e as convenções de nomenclatura, está sujeita a alterações e não deverá ser considerada definitiva.
 
 
 ## <a name="key-terminology"></a>Terminologia principal
 
-*Usuário de função qualificado* – uma função qualificado é um usuário dentro de sua organização que foi atribuído a função tooan AD do Azure como qualificados (função exige a ativação).
+*Usuário de Função Qualificada* – um usuário de função qualificada é um usuário de sua organização que foi atribuído a uma função do Azure AD como qualificada (a função exige a ativação).
 
 *Aprovador Delegado* – um aprovador delegado é um ou vários indivíduos ou grupos do Azure AD responsáveis por aprovar solicitações de ativação de função.
 
 ## <a name="scenarios"></a>Cenários
 
-visualização privada Olá dá suporte a saudação os seguintes cenários:
+A visualização particular dá suporte aos seguintes cenários:
 
 **Como um PRA (Administrador de Função com Privilégios), você pode:**
 
 -   [habilitar a aprovação para funções específicas](#enable-approval-for-specific-roles)
 
--   [especificar as solicitações de tooapprove de usuários e/ou grupos do aprovador](#specify-approver-users-and/or-groups-to-approve-requests)
+-   [especificar usuários e/ou grupos aprovadores para aprovar solicitações](#specify-approver-users-and/or-groups-to-approve-requests)
 
 -   [exibir o histórico de solicitações e aprovações de todas as funções com privilégios](#view-request-and-approval-history-for-all-privileged-roles)
 
@@ -60,31 +60,31 @@ visualização privada Olá dá suporte a saudação os seguintes cenários:
 
 -   [solicitar a ativação de uma função que exige aprovação](#request-activation-of-a-role-that-requires-approval)
 
--   [Exibir o status Olá tooactivate sua solicitação](#view-the-status-of-your-request-to-activate)
+-   [exibir o status de sua solicitação a ser ativada](#view-the-status-of-your-request-to-activate)
 
 -   [concluir a tarefa no Azure AD caso a ativação tenha sido aprovada](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navegação
 
-Nós atualizamos aprovações de toosupport de navegação Olá
+Atualizamos a navegação para dar suporte a aprovações
 
 ![](media/azure-ad-pim-approval-workflow/image001.png)
 
-página de aterrissagem Olá fornece acesso conveniente tooinformation sobre a documentação de aprovações PIM e hello novo.
+A página de aterrissagem padrão fornece acesso conveniente às informações sobre o PIM e à nova documentação de aprovações.
 
 ![](media/azure-ad-pim-approval-workflow/image002.png)
 
-Também adicionamos uma nova seção para todos os usuários do PIM, “Meu Histórico de Auditoria”. Aqui você pode encontrar todas as identidades do hello informações tooyour relevantes. Isso inclui todas as suas solicitações pendentes e concluídas, qualquer decisões feitas sobre solicitações de saudação resolver e todas as suas ativações de função anteriores em um local conveniente.
+Também adicionamos uma nova seção para todos os usuários do PIM, “Meu Histórico de Auditoria”. Aqui você pode encontrar todas as informações relevantes à sua identidade. Isso inclui todas as suas solicitações pendentes e concluídas, decisões feitas sobre as solicitações resolvidas e todas as ativações de função anteriores em um único local conveniente.
 
 ![](media/azure-ad-pim-approval-workflow/image003.png)
 
 ### <a name="enable-approval-for-specific-roles"></a>Habilitar a aprovação para funções específicas
 
-tooenable aprovação para uma função específica, primeiro selecione as funções de diretório de navegação à esquerda da saudação.
+Para habilitar a aprovação para uma função específica, primeiro selecione Funções de Diretório na barra de navegação à esquerda.
 
 ![](media/azure-ad-pim-approval-workflow/image004.png)
 
-Localizar e selecionar as configurações no hello navegação à esquerda de funções de diretório
+Localizar e selecionar as configurações na barra de navegação à esquerda de Funções de Diretório
 
 ![](media/azure-ad-pim-approval-workflow/image006.png)
 
@@ -92,49 +92,49 @@ Selecionar Funções com privilégios:
 
 ![](media/azure-ad-pim-approval-workflow/image009.png)
 
-Selecione "Ativar" na saudação exigem a seção de aprovação:
+Selecione “Habilitar” na seção Exigir aprovação:
 
 ![](media/azure-ad-pim-approval-workflow/image011.png)
 
-Uma vez habilitada, folha Olá expandirá Olá tooshow detalhes a seguir:
+Depois de habilitada, a folha será expandida para mostrar os seguintes detalhes:
 
 ![](media/azure-ad-pim-approval-workflow/image013.png)
 
 >[!NOTE]
-Se você não especificar qualquer aprovadores, Olá PRA(s) se tornam saudação padrão aprovadores. PRA(s) seria necessário tooapprove ativação todas as solicitações para essa função.
+Se você NÃO especificar nenhum aprovador, os PRAs se tornarão os aprovadores padrão. Os PRAs precisarão aprovar TODAS as solicitações de ativação dessa função.
 
-### <a name="specify-approver-users-andor-groups-tooapprove-requests"></a>Especificar as solicitações de tooapprove de usuários e/ou grupos do aprovador
+### <a name="specify-approver-users-andor-groups-to-approve-requests"></a>Especificar usuários e/ou grupos aprovadores para aprovar solicitações
 
-aprovação de toodelegate, clique em opção de saudação muito "Selecionar aprovadores":
+Para delegar a aprovação, clique na opção para “Selecionar aprovadores”:
 
 ![](media/azure-ad-pim-approval-workflow/image015.png)
 
-Quando a folha de aprovadores selecione Olá carrega, você pode procurar por um usuário ou grupo específico utilizando barra de pesquisa Olá Olá superior ou selecionando na lista pré-populada hello e clique em "Select" quando terminar:
+Quando a folha Selecionar aprovadores for carregada, você poderá pesquisar um usuário ou grupo específico usando a barra de pesquisa na parte superior ou selecionando na lista pré-populada e, em seguida, clicar em “Selecionar” quando terminar:
 
 ![](media/azure-ad-pim-approval-workflow/image017.png)
 
 Observação: é possível selecionar vários usuários ou grupos por vez.
 
-Sua seleção aparecerá na lista de saudação de aprovadores selecionados, conforme mostrado abaixo:
+Sua seleção será exibida na lista de aprovadores selecionados, conforme visto abaixo:
 
 ![](media/azure-ad-pim-approval-workflow/image019.png)
 
-tooremove um aprovador, simplesmente clique Olá remover botão próximo tootheir nome.
+Para remover um aprovador, basta clicar no botão Remover ao lado do nome.
 
-tooadd aprovadores adicionais, o processo de repetição hello.
+Para adicionar outros aprovadores, repita o processo.
 
 ## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>Exibir o histórico de solicitações e aprovações de todas as funções com privilégios
 
-histórico de solicitação e aprovação de tooview para todas as funções privilegiadas, selecione Histórico de auditoria do painel hello:
+Para exibir o histórico de solicitações e aprovações de todas as funções com privilégios, selecione Histórico de Auditoria do painel:
 
 ![](media/azure-ad-pim-approval-workflow/image021.png)
 
 >[!NOTE]
-Você pode classificar dados Olá por ação e procure "Ativação aprovado"
+É possível classificar os dados por Ação e procurar “Ativação Aprovada”
 
 ### <a name="view-pending-approvals-requests"></a>Exibir as aprovações pendentes (solicitações)
 
-Como aprovador delegado, você receberá notificações por email quando uma solicitação estiver aguardando sua aprovação. tooview essas solicitações no portal do PIM hello, na guia Painel (em nova navegação de saudação) selecione hello "aprovação solicitações pendentes" em hello esquerda a barra de navegação.
+Como aprovador delegado, você receberá notificações por email quando uma solicitação estiver aguardando sua aprovação. Para exibir essas solicitações no portal do PIM, no painel (na nova barra de navegação), selecione a guia “Solicitações com Aprovação Pendente” na barra de navegação à esquerda.
 
 ![](media/azure-ad-pim-approval-workflow/image023.png)
 
@@ -144,23 +144,23 @@ Aqui, você verá uma lista de solicitações com aprovação pendente:
 
 ### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Aprovar ou rejeitar solicitações de elevação de função (única e/ou em massa)
 
-Selecione solicitações Olá deseja tooapprove ou negar e Olá botão na barra de ação que corresponde à sua decisão:
+Selecione as solicitações que você deseja aprovar ou negar e clique no botão na barra de ação que corresponde à sua decisão:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
 ### <a name="provide-justification-for-my-approvalrejection"></a>Fornecer uma justificativa para minha aprovação/rejeição
 
-Isso abre um novo tooapprove de folha ou negar as solicitações de vários ao mesmo tempo. Inserir uma justificativa para sua decisão, e clique em Aprovar (ou negar) na inferior de saudação ou folha hello:
+Isso abrirá uma nova folha para aprovar ou negar várias solicitações ao mesmo tempo. Insira uma justificativa para sua decisão e clique em Aprovar (ou Negar) na parte inferior ou na folha:
 
 ![](media/azure-ad-pim-approval-workflow/image029.png)
 
-Quando o processo de solicitação de saudação for concluído, símbolo de status Olá refletirá a decisão tomada (neste exemplo, Olá decisão é aprovar):
+Quando o processo de solicitação for concluído, o símbolo de status refletirá a decisão tomada (neste exemplo, a decisão é aprovar):
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
 ### <a name="request-activation-of-a-role-that-requires-approval"></a>Solicitar a ativação de uma função que exige aprovação
 
-Solicitando a ativação de uma função que requer aprovação pode ser iniciada de navegação de PIM antiga hello ou navegação nova hello, como um processo de saudação para função ativação permanece Olá mesmo. Basta selecione uma função na lista de saudação de funções para ativar:
+A solicitação da ativação de uma função que exige aprovação pode ser iniciada na barra de navegação antiga do PIM ou na nova barra de navegação, pois o processo de ativação de função permanece o mesmo. Basta selecionar uma função na lista de funções a ser ativada:
 
 ![](media/azure-ad-pim-approval-workflow/image033.png)
 
@@ -172,24 +172,24 @@ Depois de concluída, clique em Ativar e forneça uma justificativa (se necessá
 
 ![](media/azure-ad-pim-approval-workflow/image037.png)
 
-solicitante de saudação será exibida uma notificação que Olá solicitação está com aprovação pendente:
+O solicitante verá uma notificação indicando que a solicitação está com aprovação pendente:
 
 ![](media/azure-ad-pim-approval-workflow/image039.png)
 
-### <a name="view-hello-status-of-your-request-tooactivate"></a>Exibir o status Olá tooactivate sua solicitação
+### <a name="view-the-status-of-your-request-to-activate"></a>Exibir o status de sua solicitação a ser ativada
 
-Exibindo o status de saudação de uma solicitação pendente tooactivate deve ser acessado do novo painel de navegação. Na barra de navegação à esquerda do hello, selecione guia de "Minhas solicitações de" hello:
+A exibição do status de uma solicitação pendente a ser ativada deve ser acessada na nova barra de navegação. Na barra de navegação à esquerda, selecione a guia “Minhas Solicitações”:
 
 ![](media/azure-ad-pim-approval-workflow/image041.png)
 
-estado da solicitação da saudação padrão é muito "Pendente", mas você pode alternar toosee todos ou solicitações negadas.
+O estado de solicitação usa “Pendente” como padrão, mas é possível ativar/desativar para ver todas as solicitações ou as solicitações negadas.
 
 ### <a name="complete-your-task-in-azure-ad-if-activation-was-approved"></a>Concluir a tarefa no Azure AD caso a ativação tenha sido aprovada
 
-Após a aprovação de solicitação hello, função hello está ativa e você pode continuar com qualquer trabalho que exija a essa função.
+Depois que a solicitação for aprovada, a função ficará ativa e você poderá continuar com qualquer trabalho que exige essa função.
 
 ![](media/azure-ad-pim-approval-workflow/image043.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Seu comentário é valioso toous. Sinta-se livre tooshare comentários conosco aqui!
+Seu comentário é valioso para nós. Fique à vontade compartilhar seus comentários conosco aqui!

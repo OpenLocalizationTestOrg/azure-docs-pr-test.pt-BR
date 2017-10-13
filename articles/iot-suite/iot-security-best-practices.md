@@ -1,5 +1,5 @@
 ---
-title: "práticas recomendadas de segurança aaaIoT | Microsoft Docs"
+title: "Práticas recomendadas de segurança de IoT | Microsoft Docs"
 description: "Práticas recomendadas de segurança para proteger sua infraestrutura de IoT"
 services: 
 suite: iot-suite
@@ -15,71 +15,71 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 3a546c67978a519446ab6c83917a0789675f1b52
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das Coisas
-toosecure uma infra-estrutura de Internet das coisas (IoT) requer uma estratégia de segurança em camadas rigorosa. Essa estratégia requer toosecure dados na nuvem hello, proteger a integridade de dados em trânsito Olá internet pública e com segurança provisionar dispositivos. Cada camada cria uma maior garantia de segurança no hello infra-estrutura geral.
+Proteger uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia de segurança em camadas rigorosa. Essa estratégia exige que você proteja dados na nuvem, proteja a integridade dos dados enquanto eles estão em trânsito na Internet pública e provisione dispositivos com segurança. Cada camada cria uma maior garantia de segurança na infraestrutura geral.
 
 ## <a name="secure-an-iot-infrastructure"></a>Proteger uma infraestrutura de IoT
-Essa estratégia de segurança em camadas pode ser desenvolvida e executada com participação ativa de vários jogadores envolvidos na produção de hello, desenvolvimento e implantação de infraestrutura e de dispositivos IoT. Veja a seguir uma descrição de alto nível desses participantes.  
+Essa estratégia de segurança em camadas pode ser desenvolvida e executada com a participação ativa de vários participantes envolvidos na produção, desenvolvimento e implantação de dispositivos e infraestrutura de IoT. Veja a seguir uma descrição de alto nível desses participantes.  
 
-* **Fabricante do hardware de IoT/integrador**: normalmente, esses são os fabricantes de saudação do IoT hardware que está sendo implantado, integradores de montagem de hardware de diversos fabricantes ou fornecedores fornecendo o hardware para uma implantação de IoT fabricada ou integrada por outros fornecedores.
-* **Desenvolvedor de solução de IoT**: desenvolvimento de saudação de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. Olá desenvolvedor de solução de IoT pode desenvolver vários componentes da solução de IoT saudação do zero, integrar vários componentes disponíveis no mercado ou de código-fonte aberto ou adotar soluções pré-configuradas com adaptação secundária.
-* **Implantador de solução de IoT**: solução após uma IoT é desenvolvida, é necessário toobe implantado no campo hello. Isso envolve a implantação de hardware, interconexão de dispositivos e implantação de soluções na nuvem de saudação ou dispositivos de hardware.
-* **Operador de solução de IoT**: após a implantação, Olá solução de IoT requer operações de longo prazo, monitoramento, atualizações e manutenção. Isso pode ser feito por uma equipe interna que inclui especialistas em tecnologia de informação, as operações de hardware e as equipes de manutenção e especialistas de domínio que monitoram o comportamento correto de saudação da infraestrutura geral do IoT.
+* **Fabricante/integrador de hardware de IoT**: normalmente, esses são os fabricantes de hardware de IoT que está sendo implantado, os integradores montando hardware de vários fabricantes ou os fornecedores de hardware para uma implantação de IoT fabricado ou integrado por outros fornecedores.
+* **Desenvolvedor de soluções IoT**: o desenvolvimento de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. O desenvolvedor de soluções IoT pode desenvolver vários componentes da solução IoT do zero, integrar vários componentes prontos ou de software livre, ou então adotar soluções pré-configuradas com pequenas adaptações.
+* **Implantador de solução IoT**: depois que uma solução IoT é desenvolvida, ela precisa ser implantada em campo. Isso envolve a implantação de hardware, A interconexão de dispositivos e A implantação de soluções nos dispositivos de hardware ou na nuvem.
+* **Operador de solução IoT**: quando a solução IoT é implantada, ela requer operações, monitoramento, atualizações e manutenção de longo prazo. Isso pode ser feito por uma equipe interna composta por especialistas em tecnologia da informação, equipes de operações e manutenção de hardware e especialistas em domínio que monitoram o comportamento correto da infraestrutura geral de IoT.
 
-seções Olá a seguir fornecem práticas recomendadas para cada um desses toohelp players desenvolverem, implantar e operam uma infra-estrutura de IoT segura.
+As seções a seguir fornecem práticas recomendadas para cada um desses participantes para ajudar a desenvolver, implantar e operar uma infraestrutura de IoT segura.
 
 ## <a name="iot-hardware-manufacturerintegrator"></a>Fabricante/integrador de hardware de IoT
-Olá seguem as práticas recomendadas de saudação IoT fabricantes de hardware e os integradores de hardware.
+A seguir estão as práticas recomendadas para fabricantes de hardware IoT e integradores de hardware.
 
-* **Definir o escopo de requisitos de hardware do toominimum**: design de hardware Olá deve incluir recursos mínimos hello, necessários para a operação de hardware Olá e nada mais. Um exemplo é tooinclude as portas USB apenas se necessário para a operação de saudação do dispositivo hello. Esses recursos adicionais abrir o dispositivo de saudação de vetores de ataque indesejados que deve ser evitado.
-* **Verifique o hardware invioláveis**: Criar mecanismos toodetect físico violação, como abrir de cobertura do dispositivo hello ou removendo uma parte Olá dispositivo. Esses violar sinais pode ser parte de saudação dados carregado de fluxo toohello nuvem, o que poderia operadores desses eventos de alerta.
-* **Criar em hardware seguro**: se o COGS permitir, crie recursos de segurança, como recursos de armazenamento seguro e criptografado ou a funcionalidade de inicialização com base em TPM (Trusted Platform Module). Dispositivos de tornar esses recursos mais seguro e ajudam a proteger Olá infra-estrutura IoT geral.
-* **Fazer atualizações de segurança**: as atualizações de Firmware durante o tempo de vida de saudação do dispositivo Olá são inevitáveis. Criação de dispositivos com caminhos seguros para criptografia garantia de versões de firmware e atualizações permitirá Olá dispositivo toobe seguro durante e após a atualização.
+* **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais. Um exemplo é incluir portas USB somente se necessário para a operação do dispositivo. Esses recursos adicionais expõem o dispositivo a vetores de ataque indesejados, o que deve ser evitado.
+* **Tornar o hardware à prova de adulteração**: mecanismos internos para detectar violação física, tal como a abertura da tampa do dispositivo ou a remoção de uma peça do dispositivo. Esses sinais de violação podem fazer parte do fluxo de dados carregado para a nuvem, o que poderia alertar os operadores sobre esses eventos.
+* **Criar em hardware seguro**: se o COGS permitir, crie recursos de segurança, como recursos de armazenamento seguro e criptografado ou a funcionalidade de inicialização com base em TPM (Trusted Platform Module). Esses recursos tornam os dispositivos mais seguros e ajudam a proteger a infraestrutura geral de IoT.
+* **Tornar as atualizações seguras**: atualizações de firmware durante o tempo de vida do dispositivo são inevitáveis. Criar dispositivos com caminhos seguros para atualizações e garantia criptográfica das versões de firmware permitirá que o dispositivo fique seguro durante e após atualizações.
 
 ## <a name="iot-solution-developer"></a>Desenvolvedor de soluções IoT
-Olá seguem as práticas recomendadas de saudação para desenvolvedores de solução de IoT:
+A seguir estão as práticas recomendadas para desenvolvedores de solução de IoT:
 
-* **Siga a metodologia de desenvolvimento de software seguro**: desenvolvimento de software seguro requer o aterramento pensar sobre segurança, desde a criação de saudação do projeto Olá todos Olá maneira tooits implementação, teste e implantação. Opções de saudação de plataformas, linguagens e ferramentas são influenciadas com essa metodologia. Olá Microsoft Security Development Lifecycle fornece uma abordagem passo a passo toobuilding segura de software.
-* **Escolha o software de código-fonte aberto com cuidado**: software de código-fonte aberto fornece uma oportunidade tooquickly desenvolver soluções. Quando você escolhe o software de código-fonte aberto, considere o nível de atividade de saudação da comunidade Olá para cada componente do código-fonte aberto. Uma comunidade ativa garante que existirá suporte para o software e que os problemas serão descobertos e tratados. Como alternativa, um software livre obscuro e inativo poderá não ter suporte e os problemas provavelmente não serão descobertos.
-* **Integrar com cuidado**: existem muitas falhas de segurança de software no limite de saudação de bibliotecas e APIs. Funcionalidade que não pode ser necessária para a implantação atual Olá ainda pode estar disponível por meio de uma camada de API. tooensure geral de segurança, certifique-se de que toocheck todas as interfaces de componentes que está sendo integrados para falhas de segurança.      
+* **Seguir a metodologia de desenvolvimento de software seguro**: o desenvolvimento de software seguro requer uma consideração inicial desde a concepção do projeto até sua implementação, teste e implantação. A escolha de plataformas, linguagens e ferramentas são influenciados por essa metodologia. O Microsoft Security Development Lifecycle fornece uma abordagem passo a passo para a criação de software seguro.
+* **Escolher software livre com cuidado**: software livre fornece uma oportunidade o rápido desenvolvimento de soluções. Ao escolher o software livre, considere o nível de atividade da comunidade para cada componente de software livre. Uma comunidade ativa garante que existirá suporte para o software e que os problemas serão descobertos e tratados. Como alternativa, um software livre obscuro e inativo poderá não ter suporte e os problemas provavelmente não serão descobertos.
+* **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. Funcionalidades que podem não ser necessárias para a implantação atual ainda podem estar disponíveis por meio de uma camada de API. Para garantir a segurança geral, certifique-se de verificar todas as interfaces de componentes sendo integradas para ver se há falhas de segurança.      
 
 ## <a name="iot-solution-deployer"></a>Implantador de soluções IoT
-Olá seguem as práticas recomendadas para implementadores de solução de IoT:
+A seguir estão as práticas recomendadas para implantadores de solução de IoT:
 
-* **Implantar o hardware com segurança**: IoT implantações podem exigir hardware toobe implantado em locais não seguros, como espaços públicos ou localidades sem supervisão. Em tais situações, certifique-se de que a implantação de hardware é à prova de adulteração toohello máximo. Se USB ou outras portas disponíveis no hardware hello, certifique-se de que eles são abordados com segurança. Muitos vetores de ataque podem usá-las como ponto de entrada.
-* **Proteger as chaves de autenticação**: durante a implantação, cada dispositivo requer identificações de dispositivo e chaves de autenticação geradas pelo serviço de nuvem Olá associadas. Mantenha essas chaves fisicamente seguro mesmo após a implantação de saudação. Qualquer chave comprometida pode ser usado por um dispositivo mal-intencionado toomasquerade como um dispositivo existente.
+* **Implantar o hardware com segurança**: implantações de IoT podem exigir que o hardware seja implantado em locais não seguros, como espaços públicos ou localidades sem supervisão. Em tais situações, certifique-se de que a implantação de hardware seja à prova de adulteração o máximo possível. Se USB ou outras portas estiverem disponíveis no hardware, certifique-se de que elas estejam cobertas com segurança. Muitos vetores de ataque podem usá-las como ponto de entrada.
+* **Manter as chaves de autenticação em segurança**: durante a implantação, cada dispositivo requer IDs de dispositivo e chaves de autenticação associadas geradas pelo serviço de nuvem. Mantenha essas chaves fisicamente seguras mesmo após a implantação. Qualquer chave comprometida pode ser usada por um dispositivo mal-intencionado passando-se por um dispositivo existente.
 
 ## <a name="iot-solution-operator"></a>Operador de solução IoT
-Olá seguem as práticas recomendadas de saudação para operadores de solução de IoT:
+A seguir estão as práticas recomendadas para operadores de solução de IoT:
 
-* **Manter o sistema Olá toodate**: Certifique-se de que os sistemas operacionais de dispositivos e todos os drivers de dispositivo são versões mais recentes do toohello atualizado. Se você ativar as atualizações automáticas no Windows 10 (IoT ou outros SKUs), o Microsoft as mantém o toodate, fornecendo um sistema operacional seguro para dispositivos IoT. Manter os outros sistemas operacionais (como o Linux) backup toodate ajuda a garantir que eles também estejam protegidos contra ataques mal-intencionados.
-* **Proteger contra atividades mal-intencionadas**: se o sistema operacional de saudação permitir, instalar recursos mais recentes de antivírus e antimalware Olá em cada sistema operacional do dispositivo. Isso pode ajudar a atenuar a maioria das ameaças externas. Você pode proteger os sistemas operacionais mais modernos contra ameaças seguindo as etapas apropriadas.
-* **Auditoria com frequência**: auditoria IoT infraestrutura para problemas de segurança é essencial ao responder a incidentes toosecurity. A maioria dos sistemas operacionais fornecem o log de eventos internos que deve ser examinados com frequência toomake-se de que nenhuma violação de segurança ocorreu. Informações de auditoria podem ser enviadas como um serviço de nuvem separado telemetria fluxo toohello onde ele pode ser analisado.
-* **Proteja fisicamente a infraestrutura de IoT Olá**: Olá pior IoT infraestrutura ataques de segurança são iniciadas usando o acesso físico toodevices. Uma prática de segurança importante é tooprotect contra o uso mal-intencionado de portas USB e outros acesso físico. Violações de um toouncovering chave que possam ter ocorrido registro em log de acesso físico, como o uso da porta USB. Novamente, o Windows 10 (IoT e outros SKUs) habilita o registro em log detalhado desses eventos.
-* **Proteger as credenciais de nuvem**: credenciais de autenticação de nuvem usadas para configuração e operação de uma implantação de IoT são possivelmente acesso de toogain de maneira mais fácil hello e comprometer um sistema de IoT. Proteger credenciais hello, alterando a senha de saudação com frequência e não usar essas credenciais em computadores públicos.
+* **Manter o sistema atualizado**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. Se você ativar as atualizações automáticas no Windows 10 (IoT ou outras SKUs), a Microsoft vai mantê-las atualizadas, fornecendo um sistema operacional seguro para dispositivos IoT. Manter outros sistemas atualizados (como o Linux) ajuda a garantir que eles também estejam protegidos contra ataques mal-intencionados.
+* **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, instale as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo. Isso pode ajudar a atenuar a maioria das ameaças externas. Você pode proteger os sistemas operacionais mais modernos contra ameaças seguindo as etapas apropriadas.
+* **Auditar frequentemente**: auditar problemas relacionados à infraestrutura de IoT é essencial ao responder a incidentes de segurança. A maioria dos sistemas operacionais fornece o log de eventos internos que deve ser analisado com frequência para certificar-se de que não ocorreu nenhuma violação de segurança. Informações de auditoria podem ser enviadas como um fluxo de telemetria separado para o serviço de nuvem, em que serão analisadas.
+* **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos. Uma prática de segurança importante é proteger contra o uso mal-intencionado de portas USB e outros acessos físicos. Um ponto importante para descobrir violações que podem ter ocorrido é registrar o acesso físico em log, tal como o uso da porta USB. Novamente, o Windows 10 (IoT e outros SKUs) habilita o registro em log detalhado desses eventos.
+* **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT. Proteja as credenciais alterando a senha com frequência e evitando o uso dessas credenciais em computadores públicos.
 
-As funcionalidades de diferentes dispositivos IoT variam. Alguns dispositivos podem ser computadores executando sistemas operacionais de desktop comuns, e outros dispositivos podem estar executando sistemas operacionais muito leves. Olá práticas recomendadas de segurança descritas anteriormente podem ser dispositivos toothese aplicável em vários níveis. Se fornecido, segurança e implantação de práticas recomendadas adicionais de fabricantes de saudação esses dispositivos devem ser seguidas.
+As funcionalidades de diferentes dispositivos IoT variam. Alguns dispositivos podem ser computadores executando sistemas operacionais de desktop comuns, e outros dispositivos podem estar executando sistemas operacionais muito leves. As práticas recomendadas de segurança descritas anteriormente podem ser aplicáveis a esses dispositivos em graus variados. Se fornecidas, as práticas recomendadas de segurança e de implantação do fabricante desses dispositivos deverão ser seguidas.
 
-Alguns dispositivos herdados e restritos podem não ter sido projetados especificamente para a implantação de IoT. Esses dispositivos podem não têm dados de tooencrypt de capacidade de saudação, conectar-se com hello Internet ou forneça auditoria avançada. Nesses casos, um gateway de campo moderno e seguro pode agregar dados de dispositivos herdados e fornecer segurança Olá necessária para se conectar a esses dispositivos pela Internet da saudação. Gateways de campo podem fornecer autenticação segura, negociação de sessões criptografadas, o recebimento de comandos de nuvem hello e muitos outros recursos de segurança.
+Alguns dispositivos herdados e restritos podem não ter sido projetados especificamente para a implantação de IoT. Esses dispositivos podem não ter a capacidade de criptografar dados, conectar-se à Internet ou fornecer auditoria avançada. Nesses casos, um gateway de campo moderno e seguro pode agregar dados de dispositivos herdados e fornecer a segurança necessária para conectar esses dispositivos pela Internet. Gateways de campo fornecem autenticação segura, negociação de sessões criptografadas, recebimento de comandos da nuvem e muitos outros recursos de segurança.
 
 ## <a name="see-also"></a>Consulte também
-toolearn mais sobre como proteger sua solução de IoT, consulte:
+Para saber mais sobre como proteger sua solução IoT, confira:
 
 * [Arquitetura de segurança IoT][lnk-security-architecture]
 * [Proteger sua implantação IoT][lnk-security-deployment]
 
-Você também pode explorar alguns Olá outros recursos e capacidades de soluções do IoT Suite pré-configurado hello:
+Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 * [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
 * [Perguntas frequentes sobre o Azure IoT Suite][lnk-faq]
 
-Você pode ler sobre a segurança de IoT Hub no [tooIoT de acesso de controle Hub] [ lnk-devguide-security] em Olá guia do desenvolvedor de IoT Hub.
+Leia sobre a segurança do Hub IoT em [Controlar o acesso ao Hub IoT][lnk-devguide-security] no guia do desenvolvedor do Hub IoT.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md

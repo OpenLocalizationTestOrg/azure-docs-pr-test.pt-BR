@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> hub IoT de saudação estarão descobertos publicamente como um ponto de extremidade DNS, então certifique-se de que tooavoid informações confidenciais ao nomear.
+> O hub IoT será publicamente detectável como um ponto de extremidade DNS. Portanto,evite qualquer informação confidencial ao nomear.
 >

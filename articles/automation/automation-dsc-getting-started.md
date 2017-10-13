@@ -1,6 +1,6 @@
 ---
-title: "aaaGetting de Introdução ao DSC de automação do Azure | Microsoft Docs"
-description: "Explicações e exemplos das tarefas mais comuns de saudação no Azure Automation desejado configuração de estado (DSC)"
+title: "Introdução ao DSC de Automação do Azure | Microsoft Docs"
+description: "Explicações e exemplos das tarefas mais comuns no DSC (Configuração de Estado Desejado) de Automação do Azure"
 services: automation
 documentationcenter: na
 author: eslesar
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 82910c96e928b9264c2e1b52a5c98dc47273dcc5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introdução ao DSC de Automação do Azure
-Este tópico explica como toodo Olá tarefas mais comuns com o Azure automação desejado configuração de estado (DSC), como criar, importar e compilar configurações, integração muito gerenciar máquinas e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação da DSC, consulte [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação da DSC, consulte [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Este tópico fornece um guia passo a passo de toousing DSC de automação do Azure. Se você quiser um ambiente de exemplo que já está configurado sem Olá etapas descritas neste tópico, você pode usar [Olá seguinte modelo do ARM](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Esse modelo define um ambiente completo do DSC de Automação do Azure, incluindo uma VM do Azure que é gerenciada pelo DSC de Automação do Azure.
+Este tópico fornece um guia passo a passo para usar o DSC de Automação do Azure. Se você quiser um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste tópico, poderá usar [o seguinte modelo de ARM](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Esse modelo define um ambiente completo do DSC de Automação do Azure, incluindo uma VM do Azure que é gerenciada pelo DSC de Automação do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-toocomplete Olá exemplos neste tópico, a seguinte Olá é necessários:
+Para concluir os exemplos neste tópico, são necessários:
 
 * Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
-* Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre como criar uma VM, consulte [criar sua primeira máquina virtual Windows no hello portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Criando uma configuração de DSC
-Vamos criar um simples [configuração DSC](https://msdn.microsoft.com/powershell/dsc/configurations) que garante a presença de saudação ou ausência de saudação **Web-Server** recurso (IIS) do Windows, dependendo de como você atribui a nós.
+Criaremos uma [configuração de DSC](https://msdn.microsoft.com/powershell/dsc/configurations) simples que garante a presença ou a ausência do WindowsFeature do **Servidor Web** (IIS), dependendo de como os nós são atribuídos.
 
-1. Inicie Olá ISE do Windows PowerShell (ou qualquer editor de texto).
-2. Saudação de tipo texto a seguir:
+1. Inicie o ISE do Windows PowerShell (ou qualquer editor de texto).
+2. Digite o seguinte texto:
    
     ```powershell
     configuration TestConfig
@@ -62,155 +62,155 @@ Vamos criar um simples [configuração DSC](https://msdn.microsoft.com/powershel
         }
         }
     ```
-3. Salve o arquivo hello como `TestConfig.ps1`.
+3. Salve o arquivo como `TestConfig.ps1`.
 
-Essa configuração chama um recurso em cada bloco de nó, hello [recurso WindowsFeature](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), que garante a presença de saudação ou ausência de saudação **Web-Server** recurso.
+Esta configuração chama um recurso em cada bloco de nó, o [recurso WindowsFeature](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), que garante a presença ou a ausência da funcionalidade **Servidor Web** .
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importando uma configuração na Automação do Azure
-Em seguida, podemos vai importar configuração de saudação para Olá conta de automação.
+Em seguida, importaremos a configuração para a conta de Automação.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **configurações DSC**.
-4. Em Olá **configurações DSC** folha, clique em **adicionar uma configuração de**.
-5. Em Olá **Importar configuração** folha, procurar toohello `TestConfig.ps1` arquivo no seu computador.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Configurações da DSC**.
+4. Na folha **Configurações da DSC**, clique em **Adicionar uma configuração**.
+5. Na folha **Importar Configuração**, navegue até o arquivo `TestConfig.ps1` em seu computador.
    
-    ![Captura de tela de hello * * folha Importar configuração * *](./media/automation-dsc-getting-started/AddConfig.png)
+    ![Captura de tela da folha **Importar Configuração**](./media/automation-dsc-getting-started/AddConfig.png)
 6. Clique em **OK**.
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>Exibindo uma configuração na Automação do Azure
-Depois de importar uma configuração, você pode exibi-lo no portal do Azure de saudação.
+Depois de importar uma configuração, você pode vê-la no Portal do Azure.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **configurações DSC**
-4. Em Olá **configurações DSC** folha, clique em **TestConfig** (esse é nome hello da configuração de saudação você importou no procedimento anterior Olá).
-5. Em Olá **TestConfig configuração** folha, clique em **Exibir código-fonte configuração**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Configurações da DSC**
+4. Na folha **Configurações da DSC**, clique em **TestConfig** (este é o nome da configuração importada no procedimento anterior).
+5. Na folha **Configuração do TestConfig**, clique em **Exibir fonte da configuração**.
    
-    ![Captura de tela da folha de configuração TestConfig Olá](./media/automation-dsc-getting-started/ViewConfigSource.png)
+    ![Captura de tela da folha TestConfig configuration (Configuração do TestConfig)](./media/automation-dsc-getting-started/ViewConfigSource.png)
    
-    Um **fonte de configuração TestConfig** folha é aberta, exibindo o código do PowerShell Olá para configuração de saudação.
+    A folha **Fonte da Configuração do TestConfig** é aberta, exibindo o código do PowerShell para a configuração.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Compilando uma configuração na Automação do Azure
-Antes de aplicar um nó de tooa de estado desejado, uma configuração DSC definindo o estado deve ser compilada em uma ou mais configurações de nó (documento MOF) e colocada no servidor de Pull de DSC de automação de saudação. Para obter uma descrição mais detalhada da compilação das configurações na DSC de Automação do Azure, consulte [Compilando as configurações na DSC de Automação do Azure](automation-dsc-compile.md). Para obter mais informações sobre a compilação das configurações, consulte [Configurações da DSC](https://msdn.microsoft.com/PowerShell/DSC/configurations).
+Antes de aplicar um estado desejado a um nó, uma configuração DSC definindo esse estado deve ser compilada em uma ou mais configurações de nó (documento MOF) e colocada no servidor de pull do DSC de Automação. Para obter uma descrição mais detalhada da compilação das configurações na DSC de Automação do Azure, consulte [Compilando as configurações na DSC de Automação do Azure](automation-dsc-compile.md). Para obter mais informações sobre a compilação das configurações, consulte [Configurações da DSC](https://msdn.microsoft.com/PowerShell/DSC/configurations).
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **configurações DSC**
-4. Em Olá **configurações DSC** folha, clique em **TestConfig** (nome de saudação do hello importado anteriormente configuração).
-5. Em Olá **TestConfig configuração** folha, clique em **compilar**e, em seguida, clique em **Sim**. Isso inicia um trabalho de compilação.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Configurações da DSC**
+4. Na folha **Configurações da DSC**, clique em **TestConfig** (o nome da configuração importada anteriormente).
+5. Na folha **Configuração do TestConfig**, clique em **Compilar** e **Sim**. Isso inicia um trabalho de compilação.
    
-    ![Captura de tela da folha de configuração TestConfig Olá realce de botão de compilação](./media/automation-dsc-getting-started/CompileConfig.png)
+    ![Captura de tela da folha TestConfig configuration (Configuração do TestConfig) realçando o botão de compilação](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Quando você compila uma configuração na automação do Azure, ele implanta automaticamente a qualquer servidor de pull criado nó configuração MOFs toohello.
+> Quando você compila uma configuração na Automação do Azure, ela implanta automaticamente quaisquer MOFs de configuração de nó no servidor de pull.
 > 
 > 
 
 ## <a name="viewing-a-compilation-job"></a>Exibindo um trabalho de compilação
-Depois de iniciar uma compilação, você pode exibi-lo no hello **trabalhos de compilação** lado a lado no hello **configuração** folha. Olá **trabalhos de compilação** bloco mostra atualmente em execução, concluído e trabalhos com falha. Quando você abre uma folha de trabalho de compilação, mostra informações sobre o trabalho incluindo erros ou avisos encontrados, parâmetros de entrada usado na configuração de saudação e compilação logs.
+Depois de iniciar uma compilação, você pode vê-la no bloco **Trabalhos de compilação** na folha **Configuração**. O bloco **Trabalhos de compilação** mostra os trabalhos atualmente em execução, concluídos e com falha. Quando você abre uma folha de trabalho de compilação, ela mostra informações sobre esse trabalho, incluindo quaisquer erros ou avisos encontrados, parâmetros de entrada usados na configuração e logs de compilação.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **configurações DSC**.
-4. Em Olá **configurações DSC** folha, clique em **TestConfig** (nome de saudação do hello importado anteriormente configuração).
-5. Em Olá **trabalhos de compilação** lado a lado de saudação **TestConfig configuração** folha, clique em qualquer um dos trabalhos de saudação listados. Um **trabalho de compilação** abre folha, rotulado com data Olá Olá trabalho de compilação foi iniciado.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Configurações da DSC**.
+4. Na folha **Configurações da DSC**, clique em **TestConfig** (o nome da configuração importada anteriormente).
+5. No bloco **Trabalhos de compilação** da folha **Configuração do TestConfig**, clique em qualquer um dos trabalhos listados. Uma folha **Trabalho de Compilação** é aberta, rotulada com a data em que o trabalho de compilação foi iniciado.
    
-    ![Captura de tela da folha de trabalho de compilação de saudação](./media/automation-dsc-getting-started/CompilationJob.png)
-6. Clique em qualquer lado a lado no hello **trabalho de compilação** folha toosee mais detalhes sobre o trabalho de saudação.
+    ![Captura de tela da folha Trabalho de Compilação](./media/automation-dsc-getting-started/CompilationJob.png)
+6. Clique em qualquer bloco na folha **Trabalho de Compilação** para ver mais detalhes sobre o trabalho.
 
 ## <a name="viewing-node-configurations"></a>Exibindo configurações de nó
-A conclusão com êxito de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF é implantado toohello servidor de pull e pronto toobe extraída e aplicada por um ou mais nós. Você pode exibir as configurações de nó de saudação em sua conta de automação em Olá **configurações do nó DSC** folha. Uma configuração de nó tem um nome com o formulário de saudação *ConfigurationName*. *NodeName*.
+A conclusão com êxito de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de pull e está pronto para ser submetido ao pull e aplicado por um ou mais nós. Você pode exibir as configurações do nó em sua conta de Automação na folha **Configurações do Nó DSC** . Uma configuração de nó tem um nome com o formato *NomeConfiguração*.*NomeNó*.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **configurações do nó DSC**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Configurações do Nó DSC**.
    
-    ![Captura de tela da folha de configurações do nó DSC Olá](./media/automation-dsc-getting-started/NodeConfigs.png)
+    ![Captura de tela da folha DSC Node Configurations (Configurações de Nó DSC)](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Integrando uma VM do Azure para o gerenciamento com o DSC de Automação do Azure
-Você pode usar o DSC de automação do Azure toomanage Azure VMs (clássico e o Gerenciador de recursos), VMs locais, máquinas Linux, AWS VMs e máquinas físicas locais. Neste tópico, abordaremos como tooonboard somente máquinas virtuais do Gerenciador de recursos do Azure. Para obter informações sobre a integração de outros tipos de computadores, consulte [Integrando computadores para o gerenciamento pela DSC de Automação do Azure](automation-dsc-onboarding.md).
+Você pode usar o DSC de Automação do Azure para gerenciar VMs do Azure (Clássicas e Resource Manager), VMs locais, computadores Linux, VMs AWS e computadores físicos locais. Neste tópico, abordamos como integrar somente VMs do Azure Resource Manager. Para obter informações sobre a integração de outros tipos de computadores, consulte [Integrando computadores para o gerenciamento pela DSC de Automação do Azure](automation-dsc-onboarding.md).
 
-### <a name="tooonboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>tooonboard uma VM do Azure Resource Manager para o gerenciamento de DSC de automação do Azure
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **nós DSC**.
-4. Em Olá **nós DSC** folha, clique em **adicionar a máquina virtual do Azure**.
+### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Para integrar uma VM do Azure Resource Manager para o gerenciamento pelo DSC de Automação do Azure
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Nós DSC**.
+4. Na folha **Nós DSC**, clique em **Adicionar VM do Azure**.
    
-    ![Captura de tela da folha de nós de DSC Olá realce de botão de adicionar a máquina virtual do Azure Olá](./media/automation-dsc-getting-started/OnboardVM.png)
-5. Em Olá **adicionar VMs do Azure** folha, clique em **selecionar máquinas virtuais tooonboard**.
-6. Em Olá **selecione VMs** folha, selecione Olá VM que você deseja tooonboard e clique em **Okey**.
+    ![Captura de tela da folha Nós DSC realçando o botão Adicionar VM do Azure](./media/automation-dsc-getting-started/OnboardVM.png)
+5. Na folha **Adicionar VMs do Azure**, clique em **Selecionar máquinas virtuais para integração**.
+6. Na folha **Selecionar VMs**, selecione a VM que você deseja integrar e clique em **OK**.
    
    > [!IMPORTANT]
    > Ela deve ser uma VM do Azure Resource Manager executando o Windows Server 2008 R2 ou posterior.
    > 
    > 
-7. Em Olá **adicionar VMs do Azure** folha, clique em **configurar dados de registro**.
-8. Em hello **registro** folha, insira o nome da saudação Olá da configuração de nó que você deseja tooapply toohello VM em Olá **nome de configuração de nó** caixa. Isso deve corresponder exatamente o nome de saudação de uma configuração de nó Olá conta de automação. Fornecer um nome neste ponto é opcional. Você pode alterar a configuração de nó de saudação atribuída após o nó de saudação de integração.
+7. Na folha **Adicionar VMs do Azure**, clique em **Configurar dados de registro**.
+8. Na folha **Registro**, insira o nome da configuração do nó que você deseja aplicar à VM na caixa **Nome de Configuração do Nó**. Isso deve corresponder exatamente ao nome de uma configuração de nó na conta de Automação. Fornecer um nome neste ponto é opcional. Você pode alterar a configuração de nó atribuída após integrar o nó.
    Marque **Reinicializar o Nó se Necessário** e clique em **OK**.
    
-    ![Captura de tela da folha de registro Olá](./media/automation-dsc-getting-started/RegisterVM.png)
+    ![Captura de tela da folha Registro](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    configuração do nó Olá especificado será aplicado toohello VM em intervalos especificados por Olá **frequência do modo de configuração**, e Olá VM verificará a configuração de nó toohello atualizações em intervalos especificados por Olá  **Frequência de atualização**. Para obter mais informações sobre como esses valores são usados, consulte [Configurando Olá Gerenciador de configurações Local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-9. Em Olá **adicionar VMs do Azure** folha, clique em **criar**.
+    A configuração do nó especificada será aplicada à VM em intervalos especificados pela **Frequência do Modo de Configuração** e a VM verificará se há atualizações para a configuração do nó em intervalos especificados pela **Frequência de Atualização**. Para obter mais informações sobre como esses valores são usados, consulte [Configurando o Gerenciador de Configuração Local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+9. Na folha **Adicionar VMs do Azure**, clique em **Criar**.
 
-Azure iniciará o processo de saudação de integração hello VM. Quando for concluído, Olá VM será exibido no hello **nós DSC** folha em Olá conta de automação.
+O Azure iniciará o processo de integração da VM. Quando for concluída, a VM será exibida na folha **Nós DSC** na conta de Automação.
 
-## <a name="viewing-hello-list-of-dsc-nodes"></a>Exibição de lista de saudação de nós de DSC
-Você pode exibir a lista de saudação de todos os computadores que foram incorporados para gerenciamento na sua conta de automação em Olá **nós DSC** folha.
+## <a name="viewing-the-list-of-dsc-nodes"></a>Exibindo a lista de nós DSC
+Você pode exibir a lista de todos os computadores que foram integrados para gerenciamento em sua conta de Automação na folha **Nós DSC** .
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **nós DSC**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Nós DSC**.
 
 ## <a name="viewing-reports-for-dsc-nodes"></a>Exibindo relatórios para nós DSC
-Cada vez que DSC de automação do Azure executa uma verificação de consistência em um nó gerenciado, o nó Olá envia um servidor de pull de toohello voltar de relatório de status. Você pode exibir esses relatórios na folha de saudação para esse nó.
+Cada vez que o DSC de Automação do Azure executa uma verificação de consistência em um nó gerenciado, o nó envia um relatório de status para o servidor de pull. Você pode exibir esses relatórios na folha do nó.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **nós DSC**.
-4. Em Olá **relatórios** lado a lado, clique em qualquer um dos relatórios de saudação na lista de saudação.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Nós DSC**.
+4. No bloco **Relatórios** , clique em qualquer um dos relatórios na lista.
    
-    ![Captura de tela da folha de relatório Olá](./media/automation-dsc-getting-started/NodeReport.png)
+    ![Captura de tela da folha Relatório](./media/automation-dsc-getting-started/NodeReport.png)
 
-Na folha de saudação para um relatório individual, você pode ver Olá segue as informações de status para manter a consistência correspondente Olá verificar:
+Na folha de um relatório individual, você pode ver as seguintes informações de status para a verificação de consistência correspondente:
 
-* Olá relatar o status — se o nó de saudação é "Compatíveis", a configuração de hello "Não", ou "nó hello não é compatível com" (quando o nó hello está em **applyandmonitor** modo e hello máquina não está em estado de saudação desejado).
-* hora de início da saudação para verificação de consistência de saudação.
-* tempo de execução total consistência Olá Olá verificar.
-* verificação de tipo de saudação de consistência.
-* Erros, incluindo a mensagem de erro e o código de erro de saudação. 
-* Todos os recursos DSC usados na configuração de Olá e o estado de saudação de cada recurso (se o nó de saudação está no estado de saudação desejado para esse recurso) — você pode clicar em cada recurso tooget informações mais detalhadas sobre esse recurso.
-* nome de saudação, o endereço IP e o modo de configuração do nó de saudação.
+* Status do relatório — se o nó é "Compatível", a configuração está "Com Falha" ou o nó "Não é Compatível" (quando o nó está no modo **applyandmonitor** e o computador não está no estado desejado).
+* A hora de início para a verificação de consistência.
+* O tempo de execução total para a verificação de consistência.
+* O tipo de verificação de consistência.
+* Quaisquer erros, incluindo o código de erro e a mensagem de erro. 
+* Todos os recursos DSC usados na configuração e o estado de cada recurso (se o nó está no estado desejado para esse recurso) — você pode clicar em cada recurso para obter informações mais detalhadas para esse recurso.
+* O nome, o endereço IP e o modo de configuração do nó.
 
-Você também pode clicar em **Exibir relatório bruto** toosee Olá dados reais que Olá nó enviam toohello server. Para obter mais informações sobre como usar esses dados, consulte [Usando um servidor de relatório da DSC](https://msdn.microsoft.com/powershell/dsc/reportserver).
+Você também pode clicar em **Exibir relatório bruto** para ver os dados reais que o nó envia para o servidor. Para obter mais informações sobre como usar esses dados, consulte [Usando um servidor de relatório da DSC](https://msdn.microsoft.com/powershell/dsc/reportserver).
 
-Pode levar algum tempo depois de um nó é incorporada antes que o primeiro relatório de saudação está disponível. Talvez seja necessário toowait backup too30 minutos para o primeiro relatório de saudação após você integrar um nó.
+Pode levar algum tempo depois de um nó ser integrado até que o primeiro relatório esteja disponível. Talvez seja necessário aguardar até 30 minutos para o primeiro relatório após você integrar um nó.
 
-## <a name="reassigning-a-node-tooa-different-node-configuration"></a>Reatribuindo uma configuração de nó diferente do nó tooa
-Você pode atribuir uma configuração de nó diferente de toouse um nó de Olá um atribuídas inicialmente.
+## <a name="reassigning-a-node-to-a-different-node-configuration"></a>Reatribuindo um nó a uma configuração de nó diferente
+Você pode atribuir um nó para usar uma configuração de nó diferente daquela que inicialmente atribuída.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **nós DSC**.
-4. Em Olá **nós DSC** folha, clique no nome de saudação do nó Olá deseja tooreassign.
-5. Na folha de saudação do nó, clique em **atribuir nó**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Nós DSC**.
+4. Na folha **Nós DSC** , clique no nome do nó que você deseja reatribuir.
+5. Na folha do nó, clique em **Atribuir nó**.
    
-    ![Captura de tela da folha de nó Olá realce de botão de nó atribuir Olá](./media/automation-dsc-getting-started/AssignNode.png)
-6. Em Olá **atribuir a configuração do nó** folha, selecione Olá nó configuração toowhich você quiser tooassign Olá nó e, em seguida, clique em **Okey**.
+    ![Captura de tela da folha Nó realçando o botão Assign Node (Atribuir Nó)](./media/automation-dsc-getting-started/AssignNode.png)
+6. Na folha **Atribuir Configuração de Nó**, selecione a configuração de nó à qual você deseja atribuir o nó, em seguida, clique em **OK**.
    
-    ![Captura de tela da folha de configuração do nó atribuir Olá](./media/automation-dsc-getting-started/AssignNodeConfig.png)
+    ![Captura de tela da folha Atribuir Configuração de Nó](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 
 ## <a name="unregistering-a-node"></a>Cancelando o registro de um nó
-Se você não quiser mais um toobe nó gerenciado pelo DSC de automação do Azure, você pode cancelar seu registro.
+Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do Azure, você poderá cancelar o registro dele.
 
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. No menu de Hub hello, clique em **todos os recursos** e, em seguida, Olá nome de sua conta de automação.
-3. Em Olá **conta de automação** folha, clique em **nós DSC**.
-4. Em Olá **nós DSC** folha, clique no nome de saudação do nó Olá deseja toounregister.
-5. Na folha de saudação do nó, clique em **Unregister**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, clique em **Todos os recursos** , em seguida, no nome da sua conta de Automação.
+3. Na folha **Conta de Automação**, clique em **Nós DSC**.
+4. Na folha **Nós DSC** , clique no nome do nó cujo registro você deseja cancelar.
+5. Na folha desse nó, clique em **Cancelar Registro**.
    
-    ![Captura de tela da folha de nó Olá realce de botão de cancelamento de registro de saudação](./media/automation-dsc-getting-started/UnregisterNode.png)
+    ![Captura de tela da folha Nó realçando o botão Cancelar Registro](./media/automation-dsc-getting-started/UnregisterNode.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md)

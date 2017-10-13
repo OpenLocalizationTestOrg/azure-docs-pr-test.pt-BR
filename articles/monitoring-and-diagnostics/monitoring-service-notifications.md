@@ -1,6 +1,6 @@
 ---
-title: "aaaWhat são as notificações de integridade do serviço | Microsoft Docs"
-description: "As notificações de integridade do serviço permitem que mensagens de integridade do serviço tooview publicar pelo Microsoft Azure."
+title: "O que são notificações de integridade do serviço | Microsoft Docs"
+description: "As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 6f2fe72154c3e80d85062655c49dd1799b718e3f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-health-notifications"></a>Notificações de integridade do serviço
 ## <a name="overview"></a>Visão geral
 
-Este artigo mostra como notificações de integridade do serviço tooview usando Olá portal do Azure.
+Este artigo mostra como exibir notificações de integridade do serviço usando o portal do Azure.
 
-As notificações de integridade do serviço permitem que você tooview integridade mensagens do serviço publicadas pelo Olá, equipe do Azure que possa estar afetando recursos Olá em sua assinatura. Essas notificações são uma subclasse de atividade de log de eventos e também podem ser encontradas na folha de log de atividade de saudação. As notificações de integridade do serviço podem ser informativos ou acionáveis dependendo da classe hello.
+As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pela equipe do Azure que podem estar afetando os recursos em sua assinatura. Essas notificações são uma subclasse dos eventos do log de atividades e também podem ser encontradas na folha do log de atividades. As notificações de integridade do serviço podem ser informativas ou acionáveis, dependendo da classe.
 
 Há cinco classes de notificações de integridade do serviço:  
 
-- **Ação necessária:** de tempo tootime pode percebemos algo incomum acontecer em sua conta. Talvez seja necessário toowork com você tooremedy isso. Você receberá uma notificação ou detalhando ações Olá precisará tootake ou com detalhes sobre como toocontact Azure engenharia ou suporte.  
-- **Recuperação Assistida:** um evento ocorreu e os engenheiros confirmaram que você ainda está sofrendo um impacto. Engenharia precisará toowork com você diretamente toobring toorestoration seus serviços.  
-- **Incidente:** um serviço de evento que está afetando atualmente está afetando um ou mais dos recursos de saudação em sua assinatura.  
-- **Manutenção:** esta é uma notificação informando de uma atividade de manutenção planejada que pode afetar um ou mais dos recursos de saudação em sua assinatura.  
-- **Informações:** de tempo tootime podemos enviar notificações tooyou uma comunicação sobre otimizações possíveis que podem ajudar a melhora a utilização de recursos.  
+- **Ação Necessária:** periodicamente, podemos perceber algo incomum em sua conta. Talvez seja necessário trabalharmos com você para corrigir isso. Nós lhe enviaremos uma notificação detalhando as ações que você precisará tomar ou com detalhes sobre como contatar o suporte ou a engenharia do Azure.  
+- **Recuperação Assistida:** um evento ocorreu e os engenheiros confirmaram que você ainda está sofrendo um impacto. A engenharia precisará trabalhar com você diretamente para restaurar seus serviços.  
+- **Incidente:** um evento que causa impacto em um serviço atualmente está afetando um ou mais recursos em sua assinatura.  
+- **Manutenção:** essa é uma notificação que informa de uma atividade de manutenção planejada que pode afetar um ou mais recursos em sua assinatura.  
+- **Informação:** periodicamente, podemos lhe enviar notificações para comunicar sobre possíveis otimizações que podem ajudar a melhorar a utilização de recursos.  
 - **Segurança:** informações urgentes relacionadas à segurança sobre suas soluções em execução no Azure.
 
-Cada notificação de integridade do serviço terá detalhes nos recursos de tooyour de escopo e impacto de saudação. Os detalhes incluirão:
+Cada notificação de integridade do serviço trará detalhes sobre o escopo e o impacto em seus recursos. Os detalhes incluirão:
 
 Nome da Propriedade | Descrição
 -------- | -----------
-canais | É uma saudação valores a seguir: "Admin", "Operação"
-correlationId | É geralmente um GUID no formato de cadeia de caracteres de saudação. Eventos que pertencem a mesma ação uber geralmente compartilham de toohello Olá mesma correlationId.
-eventDataId | É o identificador exclusivo de saudação de um evento
-eventName | É o título de saudação do evento Olá
-level | Nível de evento hello. Uma saudação valores a seguir: "Crítico", "Error", "Aviso", "Informativo" e "Detalhado"
-resourceProviderName | Nome do provedor de recursos Olá Olá afetado recursos
-resourceType| tipo de saudação do recurso de saudação afetado recursos
-subStatus | Geralmente Olá código de status HTTP da saudação correspondente chamada REST, mas também pode incluir outras cadeias de caracteres que descrevam um substatus, como esses valores comuns: Okey (código de Status HTTP: 200), criado (código de Status HTTP: 201), aceito (código de Status HTTP: 202), nenhum conteúdo (HTTP Código de status: 204), solicitação incorreta (código de Status HTTP: 400), não encontrado (código de Status HTTP: 404), conflito (código de Status HTTP: 409), erro de servidor interno (código de Status HTTP: 500), o Service não está disponível (código de Status HTTP: 503), tempo limite do Gateway (código de Status HTTP: 504).
-eventTimestamp | Evento Olá correspondente de solicitação de carimbo de hora do evento Olá foi gerado pelo Olá Olá de processamento de serviço do Azure.
-submissionTimestamp |   Carimbo de hora do evento Olá se tornaram disponível para consulta.
-subscriptionId | Olá assinatura do Azure na qual este evento foi registrado
-status | Cadeia de caracteres que descreve o status de saudação da operação de saudação. Alguns valores comuns são: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido.
-operationName | Nome da operação de saudação.
+canais | É um dos seguintes valores: “Admin” ou “Operation”
+correlationId | Geralmente, é um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação superior geralmente compartilham a mesma correlationId.
+eventDataId | É o identificador exclusivo de um evento
+eventName | É o título do evento
+level | Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado”
+resourceProviderName | Nome do provedor de recursos do recurso afetado
+resourceType| O tipo de recurso do recurso afetado
+subStatus | Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus, como estes valores comuns: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro de Servidor Interno (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504).
+eventTimestamp | Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento.
+submissionTimestamp |   Carimbo de hora quando o evento tornou-se disponível para consulta.
+subscriptionId | A assinatura do Azure na qual esse evento foi registrado
+status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido.
+operationName | Nome da operação.
 categoria | “ServiceHealth”
-resourceId | Id do recurso da saudação afetados recursos.
-Properties.title | Olá localizado título para essa comunicação. Inglês é o idioma padrão de saudação.
-Properties.communication | Olá localizado detalhes de comunicação de saudação com marcação HTML. Inglês é o padrão de saudação.
+resourceId | Id de recurso do recurso afetado.
+Properties.title | O título localizado dessa comunicação. Inglês é o idioma padrão.
+Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
 Properties.incidentType | Possíveis valores: AssistedRecovery, ActionRequired, Information, Incident, Maintenance, Security
-Properties.trackingId | Identifica o incidente Olá que esse evento está associado. Use este incidente de tooan relacionados toocorrelate Olá eventos.
-Properties.impactedServices | Um blob com caracteres de escape do JSON que descreve os serviços de saudação e regiões que são afetados pelo incidente de saudação. Uma lista de Services, que, individualmente, tem um ServiceName e uma lista de ImpactedRegions, que têm um RegionName.
-Properties.defaultLanguageTitle | comunicação de saudação em inglês
-Properties.defaultLanguageContent | comunicação de saudação em inglês como marcação html ou como texto sem formatação
+Properties.trackingId | Identifica o incidente ao qual esse evento está associado. Use-a para correlacionar os eventos relacionados a um incidente.
+Properties.impactedServices | Um blob JSON com escape que descreve as regiões e os serviços que são afetados pelo incidente. Uma lista de Services, que, individualmente, tem um ServiceName e uma lista de ImpactedRegions, que têm um RegionName.
+Properties.defaultLanguageTitle | A comunicação em inglês
+Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação
 Properties.stage | Os possíveis valores para AssistedRecovery, ActionRequired, Information, Incident e Security são Active e Resolved. Para Maintenance, eles são: Active, Planned, InProgress, Canceled, Rescheduled, Resolved, Complete
-Properties.communicationId | comunicação Olá esse evento está associado.
+Properties.communicationId | A comunicação à qual esse evento está associado.
 
 
-## <a name="viewing-your-service-health-notifications-in-hello-azure-portal"></a>Exibir as notificações de integridade do serviço no hello portal do Azure
-1.  Em Olá [portal](https://portal.azure.com), navegar toohello **Monitor** serviço
+## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Exibindo as notificações de integridade do serviço no portal do Azure
+1.  No [portal](https://portal.azure.com), navegue até o serviço **Monitor**
 
     ![Monitoramento](./media/monitoring-service-notifications/home-monitor.png)
-2.  Clique em Olá **Monitor** tooopen opção a folha de Monitor de saudação. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ele é aberto pela primeira vez toohello **log de atividades** seção.
+2.  Clique na opção **Monitor** para abrir a folha Monitor. Esta folha reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. Ela abre primeiro na seção **Log de atividades** .
 
 3.  Agora clique na seção **Notificações de Serviço**
 
     ![Monitoramento](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Clique em qualquer um dos tooview de itens de linha hello mais detalhes
+4.  Clique em um dos itens de linha para exibir mais detalhes
 
-5. Clique em Olá **+ Adicionar atividade de Log de alerta** operação tooreceive notificações tooensure você será notificado para notificações de serviço futuras desse tipo. mais informações sobre como configurar alertas em notificações de serviço de toolearn [clique aqui](monitoring-activity-log-alerts-on-service-notifications.md)
+5. Clique na operação **+ Adicionar Alerta do Log de Atividades** para receber notificações, a fim de garantir que você receberá notificações de serviço futuras desse tipo. Para saber mais sobre como configurar alertas nas notificações de serviço, [clique aqui](monitoring-activity-log-alerts-on-service-notifications.md)
 
 ## <a name="next-steps"></a>Próximas etapas:
 Receber [notificações de alerta sempre que uma notificação de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md) é postada  

@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure integração do Mobile Engagement Android SDK"
+title: "Integração do SDK do Android do Azure Mobile Engagement"
 description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6085a9ba90b713235e0aae99759597af9db77865
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>Conteúdo do SDK
-Este documento lista e descreve o conteúdo de saudação do arquivo morto SDK hello.
+Este documento lista e descreve o conteúdo do arquivo SDK.
 
 `mobile-engagement-VERSION.jar`
 
@@ -31,7 +31,7 @@ Este documento lista e descreve o conteúdo de saudação do arquivo morto SDK h
 
 `res` pasta
 
-> Recursos do SDK do Reach contrato (drawable e tooinclude de arquivos de layout em seus aplicativos).
+> Recursos do SDK do Engagement Reach (arquivos sorteáveis e de layout para incluir em seus aplicativos).
 > 
 > 
 
@@ -39,15 +39,15 @@ Este documento lista e descreve o conteúdo de saudação do arquivo morto SDK h
 
 > Código-fonte do SDK do Engagement.
 > 
-> Observe que fontes de saudação do serviço de saudação não são incluídos (`com.microsoft.azure.engagement.service.EngagementService` e seus arquivos de origem relacionados).
+> Observe que as fontes do serviço não estão incluídas (`com.microsoft.azure.engagement.service.EngagementService` e seus arquivos de origem relacionados).
 > 
 > 
 
 `documentation.html`
 
-> Um atalho toohello documentação site correspondente toohello baixou a versão de hello SDK.
+> Um atalho para o site de documentação correspondente à versão de download do SDK.
 > 
 > 
 
-Outros arquivos são uma cópia das licenças de software hello.
+Outros arquivos são uma cópia das licenças de software.
 

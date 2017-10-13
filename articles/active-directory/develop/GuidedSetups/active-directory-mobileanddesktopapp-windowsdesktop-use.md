@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 Windows Desktop Introdução - uso | Microsoft Docs"
+title: "Introdução à Área de Trabalho do Windows no Azure AD v2 – Uso | Microsoft Docs"
 description: "Como os aplicativos .NET da Área de Trabalho do Windows (XAML) podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: bb258fe5f523ec727ca02716fd823d853d3349b8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-## <a name="use-hello-microsoft-authentication-library-msal-tooget-a-token-for-hello-microsoft-graph-api"></a>Use Olá biblioteca de autenticação da Microsoft (MSAL) tooget um token para Olá Microsoft Graph API
+## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a MSAL (Biblioteca de Autenticação da Microsoft) para obter um token para a API do Microsoft Graph
 
-Esta seção mostra como toouse MSAL tooget um token Olá Microsoft Graph API.
+Esta seção mostra como usar a MSAL para obter um token da API do Microsoft Graph.
 
-1.  Em `MainWindow.xaml.cs`, adicionar referência de saudação para classe de toohello MSAL biblioteca:
+1.  Em `MainWindow.xaml.cs`, adicione a referência para a biblioteca MSAL à classe:
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -40,10 +40,10 @@ Substitua o código da classe <code>MainWindow</code> por:
 ```csharp
 public partial class MainWindow : Window
 {
-    //Set hello API Endpoint tooGraph 'me' endpoint
+    //Set the API Endpoint to Graph 'me' endpoint
     string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    //Set hello scope for API call toouser.read
+    //Set the scope for API call to user.read
     string[] _scopes = new string[] { "user.read" };
 
 
@@ -53,7 +53,7 @@ public partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Call AcquireTokenAsync - tooacquire a token requiring user toosign-in
+    /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
     /// </summary>
     private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
     {
@@ -65,7 +65,7 @@ public partial class MainWindow : Window
         }
         catch (MsalUiRequiredException ex)
         {
-            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need toocall AcquireTokenAsync tooacquire a token
+            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
             System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
             try
@@ -96,28 +96,28 @@ public partial class MainWindow : Window
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 #### <a name="getting-a-user-token-interactive"></a>Obtendo um token de usuário interativo
-Olá chamada `AcquireTokenAsync` método resulta em uma janela solicitando Olá toosign de usuário no. Aplicativos geralmente exigem toosign um usuário no interativamente Olá primeira vez que precisam tooaccess um recurso protegido, ou quando uma operação silenciosa tooacquire um token de falha (por exemplo, senha do usuário Olá expirado).
+A chamada ao método `AcquireTokenAsync` resulta em uma janela que solicita a conexão do usuário. Em geral, os aplicativos exigem que um usuário se conecte de forma interativa na primeira vez que precisam acessar um recurso protegido ou quando uma operação silenciosa para a aquisição de um token falha (por exemplo, a senha do usuário expirou).
 
 #### <a name="getting-a-user-token-silently"></a>Obtendo um token de usuário no modo silencioso
-`AcquireTokenSilentAsync` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Depois de `AcquireTokenAsync` é executado para Olá primeira vez, `AcquireTokenSilentAsync` é Olá método normal usado tooobtain tokens usados tooaccess recursos para as chamadas subsequentes - protegidos como chamadas toorequest ou renovar os tokens são feitas silenciosamente.
-Por fim, `AcquireTokenSilentAsync` falhará – por exemplo, o usuário Olá foi desconectado ou alterou sua senha em outro dispositivo. Quando MSAL detecta que Olá problema pode ser resolvido, exigindo uma ação interativa, ele dispara um `MsalUiRequiredException`. O aplicativo pode tratar essa exceção de duas maneiras:
+`AcquireTokenSilentAsync` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Depois que `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` é o método comum usado para obter tokens para acessar recursos protegidos nas próximas chamadas – já que as chamadas para solicitar ou renovar tokens são feitas no modo silencioso.
+Em certas ocasiões, `AcquireTokenSilentAsync` falhará – por exemplo, o usuário saiu do serviço ou alterou sua senha em outro dispositivo. Quando a MSAL detectar que o problema pode ser resolvido com a solicitação de uma ação interativa, ela disparará uma `MsalUiRequiredException`. O aplicativo pode tratar essa exceção de duas maneiras:
 
-1.  Fazer uma chamada contra `AcquireTokenAsync` imediatamente, o que resulta em Avisar usuário Olá toosign-in. Esse padrão é geralmente usado em aplicativos online onde não há nenhum conteúdo offline no aplicativo hello disponíveis para usuário hello. gerado por esta instalação interativa do exemplo Hello usa esse padrão: você pode vê-lo na saudação de ação primeira vez que você executar o exemplo hello: porque nenhum usuário já utilizada aplicativo hello, `PublicClientApp.Users.FirstOrDefault()` conterá um valor nulo e um `MsalUiRequiredException` exceção será lançada. Olá código no exemplo hello e identificadores Olá exceção chamando `AcquireTokenAsync` resultando em Avisar usuário Olá toosign-in.
+1.  Fazer uma chamada a `AcquireTokenAsync` imediatamente, o que resultará na solicitação de conexão do usuário. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário. A amostra gerada por esta instalação guiada usa esse padrão: você pode vê-lo em ação na primeira vez que executar a amostra: como nenhum usuário nunca usou o aplicativo, `PublicClientApp.Users.FirstOrDefault()` conterá um valor nulo e uma exceção `MsalUiRequiredException` será gerada. Em seguida, o código na amostra trata a exceção chamando `AcquireTokenAsync`, o que resulta na solicitação de conexão do usuário.
 
-2.  Os aplicativos também podem fazer um usuário toohello indicação visual que uma entrada interativa é necessária para que o usuário Olá pode selecionar Olá hora certa toosign em ou aplicativo hello pode repetir `AcquireTokenSilentAsync` mais tarde. Isso geralmente é usado quando o usuário Olá pode usar outras funcionalidades de aplicativo hello sem interrupção — por exemplo, há conteúdo off-line disponível no aplicativo hello. Nesse caso, o usuário Olá pode decidir quando quiserem toosign no recurso de saudação protegido tooaccess, Olá toorefresh desatualizado informações ou seu aplicativo pode decidir tooretry `AcquireTokenSilentAsync` quando a rede é restaurada depois de ficar indisponível temporariamente.
+2.  Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `AcquireTokenSilentAsync` novamente mais tarde. Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo. Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `AcquireTokenSilentAsync` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.
 <!--end-collapse-->
 
-## <a name="call-hello-microsoft-graph-api-using-hello-token-you-just-obtained"></a>Chamar API do Microsoft Graph hello usando Olá token obtido apenas
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Chamar a API do Microsoft Graph usando o token obtido recentemente
 
-1. Adicionar novo método hello abaixo tooyour `MainWindow.xaml.cs`. método Hello é usado toomake um `GET` solicitação em relação a API do Graph usando um cabeçalho de autorização:
+1. Adicione o novo método abaixo ao `MainWindow.xaml.cs`. O método é usado para fazer uma solicitação `GET` na API do Graph usando um cabeçalho de autorização:
 
 ```csharp
 /// <summary>
-/// Perform an HTTP GET request tooa URL using an HTTP Authorization header
+/// Perform an HTTP GET request to a URL using an HTTP Authorization header
 /// </summary>
-/// <param name="url">hello URL</param>
-/// <param name="token">hello token</param>
-/// <returns>String containing hello results of hello GET operation</returns>
+/// <param name="url">The URL</param>
+/// <param name="token">The token</param>
+/// <returns>String containing the results of the GET operation</returns>
 public async Task<string> GetHttpContentWithToken(string url, string token)
 {
     var httpClient = new System.Net.Http.HttpClient();
@@ -125,7 +125,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
     try
     {
         var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-        //Add hello token in Authorization header
+        //Add the token in Authorization header
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         response = await httpClient.SendAsync(request);
         var content = await response.Content.ReadAsStringAsync();
@@ -140,16 +140,16 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre como fazer uma chamada REST em uma API protegida
 
-Este aplicativo de exemplo hello `GetHttpContentWithToken` método é usado toomake um HTTP `GET` solicitação em um recurso protegido que requer um chamador de conteúdo toohello Olá token e retornar. Este método adiciona token Olá adquirido em Olá *cabeçalho de autorização HTTP*. Para este exemplo, o recurso de saudação é Olá Microsoft Graph API *me* ponto de extremidade – que exibe informações de perfil do usuário hello.
+Neste aplicativo de exemplo, o método `GetHttpContentWithToken` é usado para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token e, em seguida, retornar o conteúdo para o chamador. Esse método adiciona o token adquirido no *cabeçalho de Autorização HTTP*. Para esta amostra, o recurso é o ponto de extremidade *me* da API do Microsoft Graph – que exibe as informações de perfil do usuário.
 <!--end-collapse-->
 
-## <a name="add-a-method-toosign-out-hello-user"></a>Adicionar um toosign método usuário Olá
+## <a name="add-a-method-to-sign-out-the-user"></a>Adicionar um método para desconectar o usuário
 
-1. Adicionar Olá após o método tooyour `MainWindow.xaml.cs` toosign usuário hello:
+1. Adicione o seguinte método ao `MainWindow.xaml.cs` para desconectar o usuário:
 
 ```csharp
 /// <summary>
-/// Sign out hello current user
+/// Sign out the current user
 /// </summary>
 private void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
@@ -172,17 +172,17 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Mais informações sobre a Saída
 
-`SignOutButton_Click`Remove Olá usuário do cache de usuário MSAL – isso efetivamente informará o usuário atual do MSAL tooforget Olá para que uma solicitação futuras tooacquire um token terá êxito apenas se ele for feito toobe interativo.
-Embora o aplicativo hello neste exemplo dá suporte a um único usuário, MSAL oferece suporte a cenários onde várias contas podem ser assinados-em Olá simultaneamente – um exemplo é um aplicativo de email onde um usuário tenha várias contas.
+`SignOutButton_Click` remove o usuário do cache de usuário da MSAL – efetivamente, isso informará a MSAL para esquecer o usuário atual; portanto, uma solicitação futura de aquisição de um token terá êxito apenas se for feita para ser interativa.
+Embora o aplicativo nesta amostra dê suporte a um único usuário, a MSAL dá suporte a cenários em que várias contas podem estar conectadas ao mesmo tempo – um exemplo é um aplicativo de email no qual um usuário tem várias contas.
 <!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Exibir informações básicas de token
 
-1. Adicionar Olá após o método tootooyour `MainWindow.xaml.cs` toodisplay as informações básicas sobre o token hello:
+1. Adicione o seguinte método ao `MainWindow.xaml.cs` para exibir informações básicas sobre o token:
 
 ```csharp
 /// <summary>
-/// Display basic information contained in hello token
+/// Display basic information contained in the token
 /// </summary>
 private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 {
@@ -199,6 +199,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
-Tokens adquirido por meio de *OpenID Connect* também contêm um pequeno subconjunto de usuário de toohello pertinentes de informações. `DisplayBasicTokenInfo`Exibe informações básicas sobre contida no token Olá: por exemplo, usuário Olá exibir nome e ID, bem como Olá expiração do token data e hello cadeia de caracteres que representa o token de acesso de saudação em si. Essa informação é exibida para você toosee. Você pode pressionar Olá *chamar a API do Microsoft Graph* botão várias vezes e veja que Olá mesmo token foi usado para solicitações subsequentes. Você também pode ver a data de validade hello está sendo estendida quando MSAL decide é tempo toorenew Olá token.
+Os tokens adquirido por meio do *OpenID Connect* também contêm um pequeno subconjunto de informações pertinentes ao usuário. `DisplayBasicTokenInfo` exibe informações básicas contidas no token: por exemplo, o nome de exibição do usuário e a ID, bem como a data de expiração do token e a cadeia de caracteres que representa o token de acesso em si. Essas informações são exibidas para sua visualização. Pressione o botão *Chamar API do Microsoft Graph* várias vezes e veja que o mesmo token foi reutilizado em solicitações posteriores. Veja também a data de expiração que está sendo estendida quando a MSAL decide a hora de renovar o token.
 <!--end-collapse-->
 

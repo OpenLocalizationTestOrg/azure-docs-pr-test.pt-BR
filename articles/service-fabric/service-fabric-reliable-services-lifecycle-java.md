@@ -1,6 +1,6 @@
 ---
-title: "aaaOverview de saudação do ciclo de vida de serviços do Azure Service Fabric confiáveis | Microsoft Docs"
-description: "Saiba mais sobre eventos de ciclo de vida diferente Olá em serviços confiáveis do Service Fabric"
+title: "Visão geral do ciclo de vida do Azure Service Fabric Reliable Services | Microsoft Docs"
+description: Saiba mais sobre os diferentes eventos de ciclo de vida no Service Fabric Reliable Services
 services: Service-Fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 6d48c217d12bc5248c2da57b544aac747cecd872
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -26,48 +26,48 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Ao pensar Olá ciclos de vida de serviços confiáveis, Noções básicas de saudação do ciclo de vida de saudação são hello mais importante. Em geral:
+Ao pensar sobre os ciclos de vida do Reliable Services, os conceitos básicos são os mais importantes. Em geral:
 
 * Durante a inicialização
   * Serviços são construídos
-  * Eles têm uma oportunidade tooconstruct e retornam zero ou mais ouvintes
-  * Todos os ouvintes retornados abertos, permitindo que a comunicação com o serviço de saudação
-  * método de runAsync de saudação do serviço é chamado, permitindo Olá toodo do serviço de longa execução ou trabalho de plano de fundo
+  * Eles têm a oportunidade de construir e retornar zero ou mais ouvintes
+  * Todos os ouvintes retornados são abertos, permitindo a comunicação com o serviço
+  * O método runAsync do serviço é chamado, possibilitando um serviço de longa execução ou trabalho em segundo plano
 * Durante o desligamento
-  * toorunAsync passado token de cancelamento Olá será cancelada e ouvintes de saudação são fechadas
-  * Assim que estiver concluído, próprio objeto de serviço Olá é destruído
+  * O token de cancelamento passado para o runAsync é cancelado e os ouvintes são fechados
+  * Assim que estiver concluído, o objeto do serviço será destruído
 
-Há detalhes sobre Olá exata de ordenação desses eventos. Em particular, a ordem de saudação de eventos pode mudar um pouco dependendo se Olá serviço confiável é sem monitoração de estado ou de monitoração de estado. Além disso, para os serviços com monitoração de estado, temos toodeal com cenário de troca primário hello. Durante essa sequência, função hello principal é transferido tooanother réplica (ou voltar a ficar) sem o desligamento do serviço hello. Por fim, temos toothink sobre condições de erro ou falha.
+Há detalhes sobre a ordem exata desses eventos. Em especial, a ordem de eventos pode mudar um pouco dependendo se o Reliable Service tem estado ou não. Além disso, para serviços com estado, temos de lidar com o cenário de troca primário. Durante esta sequência, a função da Primária é transferida para outra réplica (ou retorna) sem o desligamento do serviço. Por fim, temos de pensar sobre as condições de erro ou falha.
 
 ## <a name="stateless-service-startup"></a>Inicialização de serviço sem estado
-saudação de ciclo de vida de um serviço sem monitoração de estado é bastante simples. Aqui está a ordem de saudação de eventos:
+O ciclo de vida de um serviço sem estado é bastante simples. Aqui está a ordem de eventos:
 
-1. Olá serviço é construído
+1. O Serviço foi construído
 2. Em seguida, ocorrem duas coisas em paralelo:
     - `StatelessService.createServiceInstanceListeners()` é invocado e todos os ouvintes retornados serão Abertos (`CommunicationListener.openAsync()` é chamado em cada ouvinte)
-    - Olá runAsync método serviço (`StatelessService.runAsync()`) é chamado
-3. Se estiver presente, o método de onOpenAsync hello do serviço é chamado (especificamente, `StatelessService.onOpenAsync()` é chamado. Esta é uma substituição incomum, mas está disponível).
+    - O método runAsync (`StatelessService.runAsync()`) do serviço é chamado
+3. Se existir, o próprio método onOpenAsync do serviço será chamado (especificamente, `StatelessService.onOpenAsync()` será chamado. Esta é uma substituição incomum, mas está disponível).
 
-É importante toonote que não há nenhuma ordem entre Olá chamadas toocreate e ouvintes de saudação aberto e runAsync. ouvintes de saudação podem abrir antes runAsync é iniciado. Da mesma forma, runAsync poderá acabar invocado antes de ouvintes de comunicação Olá estão abertas ou até mesmo foram construídos. Se nenhuma sincronização é necessária, ela será deixada como implementador de toohello um exercício. Soluções comuns:
+É importante observar que não há nenhuma ordem entre as chamadas para criar e abrir os ouvintes e o runAsync. Os ouvintes podem ser abertos antes de o runAsync ser iniciado. Da mesma forma, o runAsync pode acabar sendo invocado antes que os ouvintes de comunicação sejam abertos ou até mesmo antes de serem construídos. Se nenhuma sincronização for necessária, isso será deixado como um exercício para o implementador. Soluções comuns:
 
-* Algumas vezes os ouvintes não funcionam até que outras informações sejam criadas ou algum trabalho seja realizado. Para serviços sem monitoração de estado de trabalho geralmente pode ser feito no construtor do serviço hello, durante a saudação `createServiceInstanceListeners()` chamar, ou como parte da construção de saudação do ouvinte de saudação em si.
-* Às vezes, hello código runAsync não quer toostart até ouvintes Olá estão abertas. Nesse caso, coordenação adicional será necessária. Uma solução comum é alguns sinalizador em ouvintes Olá indicando quando eles tem concluído, que é verificado no runAsync antes de continuar o trabalho de tooactual.
+* Algumas vezes os ouvintes não funcionam até que outras informações sejam criadas ou algum trabalho seja realizado. Para serviços sem monitoração de estado, esse trabalho geralmente pode ser realizado no construtor do serviço, durante a chamada `createServiceInstanceListeners()` ou como parte da construção do ouvinte propriamente dito.
+* Às vezes, o código em runAsync não é iniciado até que os ouvintes estejam abertos. Nesse caso, coordenação adicional será necessária. Uma solução comum é um sinalizador dentro dos ouvintes indicando quando eles foram concluídos, que é verificado no runAsync antes de passar para o trabalho real.
 
 ## <a name="stateless-service-shutdown"></a>Desligamento de serviço sem estado
-Ao desligar um serviço sem monitoração de estado, Olá mesmo padrão é seguido apenas na ordem inversa:
+Ao desligar um serviço sem estado, o mesmo padrão é seguido, porém na ordem inversa:
 
 1. Em paralelo
     - Todos os ouvintes abertos são Fechados (`CommunicationListener.closeAsync()` é chamado em cada ouvinte)
-    - token de cancelamento Olá passado muito`runAsync()` foi cancelada (verificação de token de cancelamento a saudação `isCancelled` propriedade retorna true e se a chamada do token Olá `throwIfCancellationRequested` método lança um `CancellationException`)
-2. Uma vez `closeAsync()` conclusão em cada ouvinte e `runAsync()` também completa do serviço Olá `StatelessService.onCloseAsync()` método é chamado, se estiver presente (novamente essa é uma substituição incomuns).
-3. Depois de `StatelessService.onCloseAsync()` for concluído, o objeto de serviço Olá é destruído
+    - O token de cancelamento passado para `runAsync()` é cancelado (verificar a propriedade `isCancelled` do token de cancelamento retornará true e, se chamado, o método `throwIfCancellationRequested` do token retornará um `CancellationException`)
+2. Uma vez que `closeAsync()` é concluído em cada ouvinte e `runAsync()` também é finalizado, o método `StatelessService.onCloseAsync()` do serviço é chamado, se existir (novamente, essa é uma substituição incomum).
+3. Depois da conclusão de `StatelessService.onCloseAsync()`, o objeto de serviço é destruído
 
 ## <a name="notes-on-service-lifecycle"></a>Observações sobre o ciclo de vida do serviço
-* Ambos os Olá `runAsync()` método e hello `createServiceInstanceListeners` chamadas são opcionais. Um serviço pode ter um deles, ambos ou nenhum. Por exemplo, se o serviço de saudação faz seu trabalho em resposta toouser chamadas, não é necessário para que ele tooimplement `runAsync()`. É necessário apenas os ouvintes de comunicação hello e seu código associado. Da mesma forma, criando e retornando ouvintes de comunicação é opcional, pois o serviço Olá pode ter apenas em segundo plano toodo de trabalho e então só precisa tooimplement`runAsync()`
-* Ele é válido para um serviço toocomplete `runAsync()` com êxito e retorno dele. Isso não é considerado uma condição de falha e pode representar o trabalho de plano de fundo Olá Olá serviço concluir. Para serviços confiáveis com monitoração de estado `runAsync()` será chamado novamente se o serviço Olá foram rebaixado do primário e, em seguida, promovida tooprimary voltar.
-* Se um serviço sai do `runAsync()` lançando uma exceção inesperada, esta é uma falha e o objeto de serviço Olá é desligado e relatou um erro de integridade.
-* Embora não haja nenhum limite de tempo no retorno de um desses métodos, você perde imediatamente Olá capacidade toowrite e, portanto, não pode concluir qualquer trabalho real. É recomendável que você retorne mais rápido possível após o recebimento da solicitação de cancelamento de saudação. Se o serviço não responder chamadas de API do toothese em um período razoável que do Service Fabric pode forçar cancelar seu serviço. Geralmente isso ocorre apenas durante atualizações de aplicativo ou quando um serviço está sendo excluído. Esse tempo limite é de 15 minutos por padrão.
-* Falhas em Olá `onCloseAsync()` resultados de caminho em `onAbort()` sendo chamada que é uma oportunidade de melhor esforço de última chance de saudação serviço tooclean backup e liberar todos os recursos que eles já solicitou.
+* Tanto o método `runAsync()` quanto as chamadas `createServiceInstanceListeners` são opcionais. Um serviço pode ter um deles, ambos ou nenhum. Por exemplo, se o serviço fizer todo seu trabalho em resposta a chamadas do usuário, não será necessário implementar `runAsync()`. Apenas os ouvintes de comunicação e seu código associado são necessários. Da mesma forma, criar e retornar ouvintes de comunicação é opcional, pois o serviço pode ter apenas trabalho em segundo plano e só precisar implementar `runAsync()`
+* Isso é válido para um serviço concluir `runAsync()` com êxito e retornar dele. Isso não é considerado uma condição de falha e representa o trabalho em segundo plano após o término do serviço. Para serviços confiáveis com estado, `runAsync()` seria chamado novamente se o serviço tiver sido rebaixado de primário e promovido novamente para primário.
+* Se um serviço sai de `runAsync()` gerando uma exceção inesperada, há uma falha e o objeto de serviço é desligado e relatado um erro de integridade.
+* Embora não haja um limite de tempo para o retorno desses métodos, você perde imediatamente a capacidade de gravar e, portanto, não pode concluir qualquer trabalho real. Recomendamos que você retorne o mais rápido possível após o recebimento da solicitação de cancelamento. Se o serviço não responder a essas chamadas à API dentro de um período razoável, o Service Fabric poderá forçar o encerramento do serviço. Geralmente isso ocorre apenas durante atualizações de aplicativo ou quando um serviço está sendo excluído. Esse tempo limite é de 15 minutos por padrão.
+* Falhas no caminho de `onCloseAsync()` resultam em uma chamada de `onAbort()`, que é uma oportunidade de melhor esforço de última chance para o serviço ser limpo e liberar quaisquer recursos ocupados.
 
 > [!NOTE]
 > Ainda não há suporte para Reliable Services com monitoração de estado em java.
@@ -75,6 +75,6 @@ Ao desligar um serviço sem monitoração de estado, Olá mesmo padrão é segui
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Serviços de tooReliable de Introdução](service-fabric-reliable-services-introduction.md)
+* [Introdução ao Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 * [Uso avançado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)

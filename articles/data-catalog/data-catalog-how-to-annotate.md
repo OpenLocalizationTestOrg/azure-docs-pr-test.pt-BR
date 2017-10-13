@@ -1,6 +1,6 @@
 ---
-title: fontes de dados de tooannotate aaaHow | Microsoft Docs
-description: "Realce como tooarticle como tooannotate ativos de dados no catálogo de dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
+title: Como anotar fontes de dados | Microsoft Docs
+description: "Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 1d1ef34e3f1ef73cdc65129209d938abe1e36c01
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4518fc126c717cc79ca7950c0b1ddcd9f1d8c7d2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-tooannotate-data-sources"></a>Como tooannotate fontes de dados
+# <a name="how-to-annotate-data-sources"></a>Como anotar fontes de dados
 ## <a name="introduction"></a>Introdução
-**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o catálogo de dados está ajudando as pessoas a descobrir, entender e usar fontes de dados e ajudar as organizações tooget mais valor de seus dados existentes. Quando uma fonte de dados é registrada no catálogo de dados, seus metadados são copiados e indexados pelo serviço de saudação, mas o texto de saudação não termina existe. Catálogo de dados permite que os usuários tooprovide seus próprios metadados de saudação descritivo metadados – como marcas e descrições – toosupplement extraídos da fonte de dados de saudação e mais pessoas toomore compreensível da fonte de dados de saudação do toomake.
+**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o Catálogo de Dados ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no Catálogo de Dados, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí. O Catálogo de Dados permite que os usuários forneçam seus próprios metadados descritivos – como descrições e marcas – para complementar os metadados extraídos da fonte de dados e fazer com que a fonte de dados fique mais compreensível para mais pessoas.
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotação e crowdsourcing
 Todo mundo tem uma opinião. E isso é bom.
-O Catálogo de Dados reconhece que diferentes usuários têm diferentes perspectivas em fontes de dados empresariais e cada uma dessas perspectivas pode ser valiosa. Considere Olá cenário a seguir:
+O Catálogo de Dados reconhece que diferentes usuários têm diferentes perspectivas em fontes de dados empresariais e cada uma dessas perspectivas pode ser valiosa. Considere este cenário:
 
-* administrador do sistema Olá sabe o contrato de nível de serviço Olá para Olá servidores ou serviços essa fonte de dados de saudação do host.
-* administrador de banco de dados de saudação sabe backup Olá agendar para cada banco de dados, e Olá janelas de processamento de ETL permitidos.
-* proprietário do sistema Olá sabe processo Olá usuários toorequest acesso toohello fonte de dados.
-* administrador de dados Olá sabe como ativos de saudação e atributos na fonte de dados Olá mapeiam toohello modelo de dados de empresa.
-* Analista de saudação sabe como dados de saudação são usados no contexto de Olá Olá dos processos de negócios que oferece suporte a ele.
+* O administrador do sistema conhece o contrato de nível de serviço para os servidores ou serviços que hospedam a fonte de dados.
+* O administrador de banco de dados conhece a agenda de backup de cada banco de dados e as janelas de processamento de ETL permitidas.
+* O proprietário do sistema conhece o processo para que usuários solicitem acesso à fonte de dados.
+* O administrador de dados sabe como os ativos e os atributos na fonte de dados são mapeados para o modelo de dados da empresa.
+* O analista sabe como os dados são usados no contexto dos processos de negócios aos quais ele oferece suporte.
 
-Cada um desses perspectivas é valiosa e catálogo de dados usa um toometadata abordagem crowdsourcing que permite que cada um toobe capturada e usada tooprovide uma visão completa de fontes de dados registrados. Usando o portal do catálogo de dados de hello, cada usuário pode adicionar e editar suas próprias anotações, enquanto estiver sendo tooview capaz de anotações fornecidas por outros usuários.
+Cada uma dessas perspectivas é valiosa, e o Catálogo de Dados usa uma abordagem de crowdsourcing para metadados que permitem que cada um seja capturado e usado para fornecer uma visão completa das fontes de dados registradas. Usando o portal do Catálogo de Dados, cada usuário pode adicionar e editar suas próprias anotações, sendo capaz de exibir anotações fornecidas por outros usuários.
 
 ## <a name="different-types-of-annotations"></a>Diferentes tipos de anotações
-Oferece suporte de catálogo de dados Olá seguintes tipos de anotações:
+O Catálogo de Dados dá suporte aos seguintes tipos de anotações:
 
 | Anotação | Observações |
 | --- | --- |
-| Nome amigável |Nomes amigáveis podem ser fornecidos no nível de ativos de dados hello, ativos de dados toomake hello mais facilmente entendido. Nomes amigáveis são mais úteis quando o nome do objeto subjacente Olá é toousers criptografadas, abreviado ou caso contrário, não é significativa. |
-| Descrição |As descrições podem ser fornecidas no atributo e o ativo de dados de saudação / níveis de coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário Olá no ativo de dados hello ou seu uso. |
-| Marcas (marcas de usuário) |Marcas podem ser fornecidas no atributo e ativos de dados Olá / níveis de coluna. Marcas de usuário são rótulos definidos pelo usuário que podem ser usado toocategorize ativos de dados ou atributos. |
-| Marcas (marcas de glossário) |Marcas podem ser fornecidas no atributo e ativos de dados Olá / níveis de coluna. Marcas de glossário são termos do glossário definidas centralmente que podem ser usado toocategorize ativos de dados ou atributos usando uma taxonomia comum de negócios. Para obter mais informações, consulte [como tooset backup Olá Glossário de negócios para marcação controlado](data-catalog-how-to-business-glossary.md) |
-| Especialistas |Os especialistas podem ser fornecidos no nível da saudação dados ativos. Os especialistas identificam usuários ou grupos com perspectivas especialistas em dados hello e podem servir como pontos de contato para usuários que descobrir Olá registrado fontes de dados e tem dúvidas que não foram respondidas por anotações existentes hello. |
-| Solicitar acesso |Informações de acesso de solicitação podem ser fornecidas no nível da saudação dados ativos. Essas informações são para os usuários que descobrir uma fonte de dados que eles ainda não têm permissões tooaccess. Os usuários podem inserir o endereço de email de saudação do hello usuário ou grupo que concede acesso, Olá URL do processo Olá, ferramenta que os usuários o acesso necessário toogain ou pode inserir o próprio processo de saudação como texto. |
-| Documentação |Documentação pode ser fornecida no nível da saudação dados ativos. A documentação de ativos é informação em rich text que pode incluir links e imagens e fornecer todas as informações que não são transmitidas por meio de marcações e descrições. |
+| Nome amigável |Os nomes amigáveis podem ser fornecidos no nível do ativo de dado, para facilitar a compreensão dos ativos de dados. Os nomes amigáveis serão mais úteis quando o nome do objeto subjacente for confuso, abreviado ou não significativa para os usuários. |
+| Descrição |As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
+| Marcas (marcas de usuário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna As marcas de usuário são rótulos definidos pelo usuário que podem ser usados para categorizar os ativos de dados ou os atributos. |
+| Marcas (marcas de glossário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para saber mais, consulte [Como configurar o Glossário de Negócios para a Marcação Governada](data-catalog-how-to-business-glossary.md) |
+| Especialistas |Os especialistas podem ser fornecidos no nível do ativo de dados. Os especialistas identificam usuários ou grupos com perspectivas de especialista sobre os dados e podem servir como pontos de contato para usuários que descobrirem as fontes de dados registradas e que tenham dúvidas não respondidas pelas anotações existentes. |
+| Solicitar acesso |As informações sobre a solicitação de acesso podem ser fornecidas no nível do ativo de dados. Essas informações destinam-se aos usuários que descobrirem uma fonte de dados que ainda não tenham permissões para acessar. Os usuários podem inserir o endereço de email do usuário ou grupo que concede acesso, a URL do processo ou a ferramenta que os usuários precisam acessar, ou podem inserir o próprio processo como texto. |
+| Documentação |Fornecemos documentação no nível do ativo de dados. A documentação de ativos é informação em rich text que pode incluir links e imagens e fornecer todas as informações que não são transmitidas por meio de marcações e descrições. |
 
 ## <a name="annotating-multiple-assets"></a>Anotando vários ativos
-Ao selecionar vários ativos de dados no portal do catálogo de dados hello, os usuários podem anotar todos os ativos selecionados em uma única operação. Anotações aplicará ativos tooall selecionado, tornando fácil tooselect e fornecer uma descrição consistente e conjuntos de marcas e especialistas para ativos de dados relacionados.
+Ao selecionarem vários ativos de dados no portal do Catálogo de Dados, os usuários poderão anotar todos os ativos em uma única operação. As anotações serão aplicadas a todos os recursos selecionados, facilitando a seleção e o fornecimento de uma descrição consistente e conjuntos de marcas e de especialistas para ativos de dados relacionados.
 
 > [!NOTE]
-> As marcas e os especialistas também podem ser fornecidos quando registrar ativos de dados usando dados de catálogo de dados de saudação ferramenta de registro de origem.
+> Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do Catálogo de Dados.
 >
 >
 
-Ao selecionar várias tabelas e exibições, somente colunas todas selecionadas ativos têm em comum de dados será exibido no portal do catálogo de dados de saudação. Isso permite que as marcas de tooprovide de usuários e descrições de todas as colunas com o mesmo nome de saudação para todos os ativos selecionados.
+Quando várias tabelas e exibições forem selecionadas, somente as colunas que todos os ativos de dados selecionados tiverem em comum serão exibidas no portal do Catálogo de Dados. Isso permite que os usuários forneçam marcas e descrições de todas as colunas com o mesmo nome para todos os ativos selecionados.
 
 ## <a name="annotations-and-discovery"></a>Anotações e descoberta
-Assim como Olá extraídos da fonte de dados Olá durante o registro de metadados é adicionado toohello índice de pesquisa de catálogo de dados, metadados fornecidos pelo usuário também é indexado. Isso significa que não apenas fazem anotações facilitam para os dados usuários toounderstand Olá que eles descobrir, anotações facilitam para os usuários toodiscover Olá anotado dados ativos ao pesquisar usando termos Olá que fazem sentido toothem.
+Assim como os metadados extraídos da fonte de dados durante o registro são adicionados ao índice de pesquisa do Catálogo de Dados, os metadados fornecidos pelo usuário também são indexados. Isso significa que não só as anotações fazem com que seja mais fácil para os usuários compreenderem os dados descobertos, como as anotações também facilitam a descoberta dos ativos de dados anotados por meio da pesquisa com os termos que fazem sentido para eles.
 
 ## <a name="summary"></a>Resumo
-Registrar uma fonte de dados com o catálogo de dados torna dados detectáveis copiando metadados estruturais e descritivo da fonte de dados Olá para Olá serviço de catálogo. Quando uma fonte de dados tiver sido registrada, os usuários podem fornecer anotações toomake mais fácil toodiscover e entender de dentro do portal de catálogo de dados hello.
+O registro de uma fonte de dados no Catálogo de Dados torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do Catálogo de Dados.
 
-## <a name="see-also"></a>Consulte também
-* [Introdução ao Data Catalog do Azure](data-catalog-get-started.md) tutorial para obter detalhes passo a passo sobre como tooannotate fontes de dados.
+## <a name="see-also"></a>Confira também
+* [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.

@@ -1,5 +1,5 @@
 ---
-title: "aaaSecurity Hubs de notificação"
+title: "Segurança para Hubs de notificação"
 description: "Este tópico explica a segurança para hubs de notificação do Azure."
 services: notification-hubs
 documentationcenter: .net
@@ -14,35 +14,35 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: f59ad4594c2c0a2e2b22ab0b6d6bad53825a4dc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>Segurança
 ## <a name="overview"></a>Visão geral
-Este tópico descreve o modelo de segurança de saudação de Hubs de notificação do Azure. Como os Hubs de notificação são uma entidade de barramento de serviço, eles implementam Olá mesmo modelo de segurança de barramento de serviço. Para obter mais informações, consulte Olá [autenticação do barramento de serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) tópicos.
+Este tópico descreve o modelo de segurança dos Hubs de notificação do Azure. Como os Hubs de notificação são uma entidade do barramento de serviço, eles implementam o mesmo modelo de segurança que o barramento de serviço. Para mais informações, consulte os tópicos de [Autenticação do barramento de serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) .
 
 ## <a name="shared-access-signature-security-sas"></a>Segurança de assinatura de acesso compartilhado (SAS)
-Os hubs de notificação implementam um esquema de segurança de nível de entidade chamado SAS (assinatura de acesso compartilhado). Esse esquema permite que mensagens toodeclare de entidades, as regras de autorização too12 nas suas descrições que concedem direitos naquela entidade.
+Os hubs de notificação implementam um esquema de segurança de nível de entidade chamado SAS (assinatura de acesso compartilhado). Esse esquema permite que as entidades de mensagens declarem até 12 regras de autorização nas suas descrições que concedem direitos naquela entidade.
 
-Cada regra contém um nome, um valor de chave (segredo compartilhado) e um conjunto de direitos, conforme explicado na seção hello "Declarações de segurança". Ao criar um Hub de notificação, duas regras são automaticamente criadas: uma com direitos de escuta (que Olá usos de aplicativo do cliente) e outra com todos os direitos (que Olá usos de back-end do aplicativo).
+Cada regra contém um nome, um valor de chave (segredo compartilhado) e um conjunto de direitos, conforme explicado na seção “Declarações de segurança”. Ao criar um Hub de notificação, duas regras são automaticamente criadas: uma com direitos de escuta (que usa o aplicativo cliente) e outra com todos os direitos (que usa o back-end).
 
-Ao executar o gerenciamento de registros dos aplicativos cliente, se as informações de saudação enviadas por meio de notificações não for confidencial (por exemplo, atualizações de clima), um tooaccess de maneira comum um Hub de notificação é o valor da chave toogive Olá de saudação regra acesso de somente escuta toohello aplicativo cliente e valor da chave toogive Olá de saudação regra acesso completo toohello aplicativo back-end.
+Ao realizar o gerenciamento de registro dos aplicativos clientes, se as informações enviadas por meio de notificações não forem confidenciais (por exemplo, atualizações de clima), uma maneira comum de acessar um Hub de notificação é fornecer o valor da chave da regra de acesso de somente escuta para o aplicativo cliente e fornecer o valor de chave da regra de acesso completo para o back-end do aplicativo.
 
-Não é recomendável que você inserir o valor de chave de saudação em aplicativos de cliente da Windows Store. Um tooavoid de maneira inserindo o valor de chave de saudação é toohave Olá cliente aplicativo recuperá-la de back-end de aplicativo hello na inicialização.
+Não é recomendável que você insira o valor da chave em aplicativos cliente da Windows Store. Uma maneira de evitar a inserção do valor chave é recuperar o aplicativo cliente do back-end do aplicativo na inicialização.
 
-É importante toounderstand que Olá chave com acesso de escuta permite que um cliente tooregister do aplicativo de qualquer marca. Se seu aplicativo deve restringir os clientes do registros toospecific marcas toospecific (por exemplo, quando as marcas representam IDs de usuário), o back-end do aplicativo deve executar registros hello. Para mais informações, consulte a seção Gerenciamento de registro. Observe que dessa maneira, Olá aplicativo cliente não terá acesso direto tooNotification Hubs.
+É importante entender que a chave de acesso de escuta permite que um aplicativo cliente seja registrado para qualquer marca. Se seu aplicativo tiver que restringir registros de marcas específicas para clientes específicos (por exemplo, quando as marcas representam IDs de usuário), o back-end do aplicativo deverá executar os registros. Para mais informações, consulte a seção Gerenciamento de registro. Observe que, dessa maneira, o aplicativo cliente não terá acesso direto aos Hubs de notificação.
 
 ## <a name="security-claims"></a>Declarações de segurança
-Entidades tooother semelhante, operações de Hub de notificação são permitidas para três declarações de segurança: escutar, enviar e gerenciar.
+Semelhantes a outras entidades, as operações de Hub de notificação são permitidas para três declarações de segurança: ouvir, enviar e gerenciar.
 
 | Declaração | Descrição | Operações permitidas |
 | --- | --- | --- |
 | Escutar |Criar/atualizar, ler e excluir registros simples |Criar/Atualizar o registro<br><br>Ler registro<br><br>Ler todos os registros para um identificador<br><br>Excluir registro |
-| Enviar |Enviar o hub de notificação de toohello de mensagens |Enviar mensagem |
+| Enviar |Enviar mensagens ao hub de notificação |Enviar mensagem |
 | Gerenciar |CRUDs nos Hubs de notificação (incluindo atualização de credenciais PNS e chaves de segurança) e ler registros baseados em marcas |Criar/Atualizar/Ler/Excluir hubs de notificação<br><br>Ler registros por marca |
 
-Hubs de notificação aceitam declarações concedidas pelos tokens de controle de acesso do Microsoft Azure e por tokens de assinatura gerados com chaves compartilhadas configuradas diretamente no Hub de notificação de saudação.
+Os hubs de notificação aceitam declarações concedidas pelos tokens de controle de acesso do Microsoft Azure e por tokens de assinatura gerados com chaves compartilhadas configuradas diretamente no hub de notificação.
 

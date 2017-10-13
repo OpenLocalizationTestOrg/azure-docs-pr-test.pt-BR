@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure resgate de convite de colaboração B2B do Active Directory | Microsoft Docs"
+title: "Resgate do convite de colaboração do Azure Active Directory B2B | Microsoft Docs"
 description: "Experiência de resgate do convite de colaboração do Azure Active Directory B2B"
 services: active-directory
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.openlocfilehash: e1162c9b4d159d9a22d1b15db5be0e55d3fb884c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
 ## <a name="azure-ad-and-microsoft-account-users"></a>Usuários do Azure AD e de contas da Microsoft
-Para usuários com contas da Microsoft ou de conta existente do AD do Azure, a experiência de resgate Olá é tão fácil quanto entrar.
+Para usuários com uma conta existente do Azure AD ou com contas da Microsoft, a experiência de resgate é tão fácil quanto entrar na conta.
 
 ## <a name="social-id-user-first-time-redemption"></a>Primeiro resgate de usuário de ID Social
-Colaboração B2B do AD do Azure facilita para qualquer toobe de endereço de email usado para resgate. Uma olhada na experiência de resgate hello quando um endereço de email não Microsoft é usado para colaboração B2B. Esse fluxo de resgate é mais envolvido, porque você pode ter uma conta de toocreate ao tempo de saudação de resgate. Check-out no hello vídeo a seguir:
+A colaboração do Azure AD B2B facilita o uso de qualquer endereço de email para o resgate. Confira a experiência de resgate quando um endereço de email que não é da Microsoft é usado para colaboração B2B. Esse fluxo de resgate precisa de mais envolvimento, pois talvez seja necessário criar uma conta no momento do resgate. Confira no vídeo a seguir:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
 > 
@@ -39,7 +39,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
 * [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-iw-add-users.md)
-* [elementos de saudação do hello email de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
+* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
 * [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)

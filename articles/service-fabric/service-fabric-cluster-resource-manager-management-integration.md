@@ -1,6 +1,6 @@
 ---
-title: "aaaService Gerenciador de recursos de Cluster de malha - integração do gerenciamento | Microsoft Docs"
-description: "Uma visão geral dos pontos de integração de saudação entre hello Gerenciador de recursos de Cluster e gerenciamento de malha do serviço."
+title: "Resource Manager de Cluster do Service Fabric – integração de gerenciamento | Microsoft Docs"
+description: "Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9a24c9de121fbe2e8e5e8e4d117e64686918936a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9601e758e1033b4e2f86c2c230d4f49479fe6f45
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
-Olá Gerenciador de recursos de Cluster do serviço de malha não faça upgrade na malha do serviço, mas ele está envolvido. Olá primeiro maneira Olá Gerenciador de recursos de Cluster ajuda com o gerenciamento pelo controle Olá desejada do estado do cluster hello e serviços hello dentro dele. Olá Gerenciador de recursos de Cluster envia relatórios de integridade quando ele não é possível colocar o cluster Olá na configuração de saudação desejado. Por exemplo, se houver insuficiente Olá capacidade Gerenciador de recursos de Cluster envia indicando um problema de saudação de erros e avisos de integridade. Outra parte da integração tem toodo com o funcionam das atualizações. Olá Gerenciador de recursos de Cluster altera seu comportamento um pouco durante as atualizações.  
+O Gerenciador de recursos de Cluster do Service Fabric não realiza as atualizações no Service Fabric, mas está envolvido. A primeira maneira que o Cluster Resource Manager pode ajudar no gerenciamento é rastreando o estado desejado do cluster e dos serviços dentro dele. O Cluster Resource Manager envia relatórios de integridade quando não consegue deixar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gerenciador de Recursos de Cluster enviará avisos de integridade e erros indicando o problema. Outra parte de integração tem a ver com a forma como as atualizações funcionam. O Gerenciador de Recursos de Cluster altera ligeiramente seu comportamento durante as atualizações.  
 
 ## <a name="health-integration"></a>Integração da integridade
-Olá Gerenciador de recursos de Cluster rastreia constantemente regras Olá definidas para colocar seus serviços. Ele também acompanha Olá restantes de capacidade para cada métrica em nós de saudação e em cluster Olá em cluster hello como um todo. Se ele não puder atender a essas regras ou se não houver capacidade insuficiente, erros e avisos de integridade serão emitidos. Por exemplo, se um nó está sobre capacidade e hello Gerenciador de recursos de Cluster tentará situação de saudação toofix movendo serviços. Se ele não pode corrigir a situação Olá emite um aviso de integridade indicando qual nó está acima da capacidade e para quais métricas.
+O Gerenciador de Recursos de Cluster controla constantemente as regras que você definiu para posicionamento de seus serviços. Ele também controla a capacidade restante de cada métrica nos nós no cluster, e no cluster como um todo. Se ele não puder atender a essas regras ou se não houver capacidade insuficiente, erros e avisos de integridade serão emitidos. Por exemplo, se um nó estiver acima da capacidade, o Cluster Resource Manager tentará corrigir a situação movendo serviços. Se não puder corrigir a situação, ele emitirá um aviso de integridade indicando qual nó está acima da capacidade e para quais métricas.
 
-Outro exemplo de avisos de integridade do Gerenciador de recursos de saudação é violações de restrições de posicionamento. Por exemplo, se você tiver definido uma restrição de posicionamento (como `“NodeColor == Blue”`) e Olá Gerenciador de recursos detecta uma violação de restrição, ele emite um aviso de integridade. Isso é verdadeiro para personalizado restrições e saudação padrão (como Olá restrições de domínio de falha e atualização do domínio).
+Outro exemplo de avisos de integridade do Resource Manager são violações de restrições de posicionamento. Por exemplo, se você tiver definido uma restrição de posicionamento (como `“NodeColor == Blue”`) e o Resource Manager detectar uma violação desta restrição, ele emitirá um aviso de integridade. Isso é válido tanto para restrições personalizadas e padrão (como restrições de Domínio de Falha e Domínio de Atualização).
 
-Eis um exemplo de tal relatório de integridade. Nesse caso, o relatório de integridade Olá é para uma das partições do serviço de sistema hello. mensagem de saudação do integridade indica Olá réplicas dessa partição temporariamente são incluídas em poucos domínios de atualização.
+Eis um exemplo de tal relatório de integridade. Nesse caso, o relatório de integridade é voltado para uma das partições do serviço do sistema. A mensagem de integridade indica quais réplicas dessa partição estão temporariamente empacotadas em Domínios de Atualização insuficientes.
 
 ```posh
 PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
@@ -63,8 +63,8 @@ HealthEvents          :
                         SentAt                : 8/10/2015 7:53:31 PM
                         ReceivedAt            : 8/10/2015 7:53:33 PM
                         TTL                   : 00:01:05
-                        Description           : hello Load Balancer has detected a Constraint Violation for this Replica: fabric:/System/FailoverManagerService Secondary Partition 00000000-0000-0000-0000-000000000001 is
-                        violating hello Constraint: UpgradeDomain Details: UpgradeDomain ID -- 4, Replica on NodeName -- Node.8 Currently Upgrading -- false Distribution Policy -- Packing
+                        Description           : The Load Balancer has detected a Constraint Violation for this Replica: fabric:/System/FailoverManagerService Secondary Partition 00000000-0000-0000-0000-000000000001 is
+                        violating the Constraint: UpgradeDomain Details: UpgradeDomain ID -- 4, Replica on NodeName -- Node.8 Currently Upgrading -- false Distribution Policy -- Packing
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/10/2015 7:13:02 PM, LastError = 1/1/0001 12:00:00 AM
@@ -72,46 +72,46 @@ HealthEvents          :
 
 Veja o que a mensagem de integridade está nos dizendo:
 
-1. Todas as réplicas de saudação próprios estão íntegros: possuem AggregatedHealthState: Okey
-2. Olá restrição de distribuição de atualização do domínio no momento está sendo violado. Isso significa que um determinado Domínio de Atualização tem mais réplicas desta partição do que deveria.
-3. Nó que contém a violação de causando Olá Olá réplica. Nesse caso é Olá nó com o nome hello "Node.8"
+1. Todas as réplicas estão íntegras: cada uma tem AggregatedHealthState: OK
+2. No momento, a restrição de distribuição Domínio de Atualização está sendo violada. Isso significa que um determinado Domínio de Atualização tem mais réplicas desta partição do que deveria.
+3. Qual nó contém a réplica que está causando a violação. Nesse caso, é o nó com o nome "Node.8"
 4. Se uma atualização estiver ocorrendo no momento para essa partição ("Atualmente em Atualização - falso")
-5. Olá a política de distribuição para este serviço: "Distribuição política--remessa". Isso é controlado por Olá `RequireDomainDistribution` [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
-6. Quando o relatório de saudação aconteceu - 8/10/2015 19:13:02: 00
+5. A política de distribuição para esse serviço: "Política de Distribuição -- Empacotamento". Isso é controlado pela [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) do `RequireDomainDistribution`. "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
+6. Quando o relatório ocorreu (10/08/2015 19:13:02)
 
-Informações como este alerta potências disparados em toolet de produção, você sabe, algo deu errado e também é usado toodetect e interromper atualizações incorretas. Nesse caso, queremos toosee se conseguimos descobrir por que Olá Resource Manager teve toopack réplicas de saudação em Olá domínio de atualização. Empacotando geralmente é transitório pois nós Olá Olá outros domínios de atualização foram para baixo, por exemplo.
+Informações sobre como isso gera alertas que são disparados na produção, para que você saiba que algo deu errado. Também são usadas para detectar e impedir atualizações inválidas. Nesse caso, queremos ver se conseguimos descobrir por que o Resource Manager precisou empacotar as réplicas no Domínio de Atualização. Normalmente, o empacotamento é temporário, pois os nós em outros Domínios de Atualização estavam inativos, por exemplo.
 
-Digamos que Olá Gerenciador de recursos de Cluster está tentando tooplace alguns serviços, mas não existem quaisquer soluções que funcionam. Quando os serviços não podem ser colocados, é normalmente para uma saudação motivos a seguir:
+Digamos que o Gerenciador de Recursos de Cluster esteja tentando posicionar alguns serviços, mas nenhuma solução parece funcionar. Quando os serviços não podem ser posicionados, normalmente é por um dos seguintes motivos:
 
-1. Algumas condições transitórias tornou impossível tooplace essa instância de serviço ou a réplica corretamente
-2. requisitos de posicionamento do serviço Olá são satisfatória.
+1. Alguma condição temporária impossibilitou o posicionamento correto dessa instância de serviço ou dessa réplica
+2. Os requisitos de posicionamento do serviço não podem ser atendidos.
 
-Nesses casos, os relatórios de integridade da saudação Gerenciador de recursos de Cluster ajudarão-lo a determinar por que o serviço Olá não pode ser colocado. Chamamos essa sequência de eliminação do processo Olá restrição. Durante a ele, sistema Olá orienta restrições Olá configurado afetando registros e serviço Olá que eliminam. Dessa forma, quando os serviços não são capaz toobe colocado, você pode ver quais nós foram eliminados e por quê.
+Nesses casos, os relatórios de integridade do Gerenciador de Recursos de Cluster ajudarão você a determinar por que o serviço não pode ser posicionado. Chamamos esse processo de sequência de eliminação de restrição. Durante o processo, o sistema percorre as restrições configuradas que afetam o serviço e os registros que eliminam. Dessa forma, quando os serviços não podem ser posicionados, você pode ver quais nós foram eliminados e por quê.
 
 ## <a name="constraint-types"></a>Tipos de restrição
-Vamos falar sobre cada uma das restrições de diferentes Olá nesses relatórios de integridade. Você verá integridade mensagens relacionadas toothese restrições ao réplicas não podem ser colocadas.
+Vamos falar sobre cada uma das diferentes restrições nesses relatórios de integridade. Você verá mensagens de integridade relacionadas a essas restrições quando não for possível posicionar as réplicas.
 
-* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: essas restrições indica que uma solução foi rejeitada porque dois objetos de serviço do hello mesma partição toobe colocaria em Olá mesmo nó. Isso não é permitido, pois a falha desse nó afetaria demais nessa partição. ReplicaExclusionStatic e ReplicaExclusionDynamic são quase Olá mesmo diferenças de regra e hello não são muito importam. Se você estiver vendo uma sequência de eliminação de restrição que contém qualquer restrição ReplicaExclusionStatic ou ReplicaExclusionDynamic, Olá Gerenciador de recursos de Cluster Olá considera se não houver nós suficientes. Isso requer restantes soluções toouse esses posicionamentos inválidos que não são permitidos. Olá outras restrições na sequência de saudação serão geralmente Conte-nos por que nós estão sendo eliminados em primeiro lugar de saudação.
-* **PlacementConstraint**: se você vir essa mensagem, isso significa que podemos eliminado alguns nós porque eles não correspondem a restrições de posicionamento do serviço hello. Podemos rastrear restrições de posicionamento de saudação configurada atualmente como parte desta mensagem. Isso é normal se houver restrições de posicionamento em vigor. No entanto, se a restrição de posicionamento está causando incorretamente muitos toobe nós eliminado trata de como você perceberá.
-* **NodeCapacity**: essa restrição significa que Olá Gerenciador de recursos de Cluster não pôde colocar réplicas Olá em Olá indicado nós porque que colocaria acima da capacidade.
-* **Afinidade**: essa restrição indica que é não pôde colocar réplica Olá em nós Olá afetado porque isso causaria uma violação de restrição de afinidade de saudação. Veja mais informações sobre afinidade [neste artigo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** e **UpgradeDomain**: esta restrição elimina nós se inserir réplica Olá Olá indicado nós causaria a remessa em um domínio de atualização ou a falha específica. Vários exemplos de abordar essa restrição são apresentados no tópico de saudação em [restrições de domínio falha e atualização e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: normalmente não verá essa restrição removendo nós da solução hello, pois ele é executado como uma otimização, por padrão. Olá preferencial a restrição de local também está presente durante as atualizações. Durante a atualização é usado toomove serviços back toowhere, que estavam quando Olá atualização iniciada.
+* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: essas restrições indicam que uma solução foi rejeitada porque dois objetos de serviço da mesma partição precisariam ser colocadas no mesmo nó. Isso não é permitido, pois a falha desse nó afetaria demais nessa partição. ReplicaExclusionStatic e ReplicaExclusionDynamic são regras quase idênticas, e as diferenças não importam. Se você estiver vendo uma sequência de eliminação de restrição contendo a restrição ReplicaExclusionStatic ou ReplicaExclusionDynamic, o Cluster Resource Manager considerará que não existem nós válidos suficientes. Isso exige que as soluções restantes usem esses posicionamentos inválidos que não têm permissão. As outras restrições na sequência normalmente nos contarão o motivo de os nós estarem sendo eliminados em primeiro lugar.
+* **PlacementConstraint**: se você encontrar essa mensagem, significa que eliminamos alguns nós porque eles não correspondiam a restrições de posicionamento do serviço. Rastreamos as restrições de posicionamento configuradas atualmente como parte dessa mensagem. Isso é normal se houver restrições de posicionamento em vigor. No entanto, se a restrição de posicionamento estiver causando incorretamente a eliminação de muitos nós, isso será notado aqui.
+* **NodeCapacity**: essa restrição significa que o Gerenciador de Recursos de Cluster não conseguiu posicionar as réplicas nos nós indicados, pois isso faria com que o nó ficasse acima da capacidade.
+* **Affinity**: essa restrição indica que não é possível colocar a réplica nos nós afetados, pois isso causaria uma violação da restrição de afinidade. Veja mais informações sobre afinidade [neste artigo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** e **UpgradeDomain**: essa restrição elimina nós se o posicionamento da réplica nos nós indicados causar empacotamento em um domínio de atualização ou de falha específico. Há vários exemplos que discutem essa restrição no tópico sobre [restrições de domínio de falha e de atualização e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: normalmente, você não veria essa restrição removendo os nós da solução, já que ela é executada como uma otimização por padrão. Além disso, a restrição de local preferencial também está presente durante as atualizações. Durante a atualização, ela é usada para mover os serviços para onde estavam quando a atualização foi iniciada.
 
 ## <a name="blocklisting-nodes"></a>Incluir os nós em lista de bloqueio
-Outra mensagem hello Gerenciador de recursos de Cluster relatórios de integridade é quando os nós são blocklisted. Você pode pensar na inclusão em uma lista de bloqueio como uma restrição temporária aplicada automaticamente a você. Os nós são incluídos na lista de bloqueio quando sofrem falhas repetidas ao iniciar instâncias desse tipo de serviço. Os nós são incluídos em uma lista de bloqueio de acordo com o tipo de serviço. Um nó pode ser incluído em uma lista de bloqueio para um tipo de serviço, mas não outro. 
+Outra mensagem de integridade reportada pelo Gerenciador de Recursos de Cluster é quando os nós são incluídos em uma lista de bloqueio. Você pode pensar na inclusão em uma lista de bloqueio como uma restrição temporária aplicada automaticamente a você. Os nós são incluídos na lista de bloqueio quando sofrem falhas repetidas ao iniciar instâncias desse tipo de serviço. Os nós são incluídos em uma lista de bloqueio de acordo com o tipo de serviço. Um nó pode ser incluído em uma lista de bloqueio para um tipo de serviço, mas não outro. 
 
-Você verá blocklisting ativada com frequência durante o desenvolvimento: alguns bugs que faz com que o toocrash de host de serviço na inicialização. Malha do serviço tenta host de serviço toocreate Olá algumas vezes e continua a ocorrer falha de saudação. Após algumas tentativas, nó Olá obtém blocklisted e Olá Gerenciador de recursos de Cluster tentará toocreate serviço de saudação em outro lugar. Se essa falha continuar acontecendo em vários nós, é possível que todos nós válido Olá Olá cluster terminam bloqueada. Blocklisting também pode remover tantos nós que insuficiente pode iniciar com êxito a escala do hello serviço toomeet Olá desejado. Normalmente, você verá erros adicionais ou avisos de saudação Gerenciador de recursos de Cluster que indica se o serviço de hello está abaixo da réplica desejada hello ou contagem de instância, bem como mensagens de integridade indicando falha que Olá é que está levando toohello blocklisting em primeiro lugar de saudação.
+Você verá a inclusão em uma lista de bloqueio ocorrer com frequência durante o desenvolvimento: alguns bugs fazem com que o host de serviço falhe na inicialização. O Service Fabric tenta criar o host de serviço algumas vezes, e a falha continua ocorrendo. Após algumas tentativas, o nó é incluído em uma lista de bloqueio, e o Gerenciador de Recursos de Cluster tentará criar o serviço em outro lugar. Se essa falha continuar acontecendo em vários nós, talvez todos os nós válidos no cluster acabem bloqueados. A inclusão na lista de bloqueio também pode remover vários nós não conseguem iniciar o serviço a fim de atender à escala desejada. Normalmente, você verá erros ou avisos adicionais do Gerenciador de Recursos de Cluster, indicando que o serviço está abaixo da contagem desejada de réplicas ou de instâncias, bem como mensagens de integridade indicando o motivo da falha que está gerando a inclusão na lista de bloqueio.
 
-A inclusão na lista de bloqueio não é uma condição permanente. Após alguns minutos, nó de saudação for removido da lista de bloqueios de saudação e Service Fabric ativar serviços Olá nesse nó novamente. Se os serviços continuam toofail, o nó de saudação é blocklisted para esse tipo de serviço novamente. 
+A inclusão na lista de bloqueio não é uma condição permanente. Após alguns minutos, o nó é removido da lista de bloqueios, e o Service Fabric pode ativar novamente os serviços nesse nó. Se os serviços continuarem falhando, o nó será incluído na lista de bloqueio para esse tipo de serviço novamente. 
 
 ### <a name="constraint-priorities"></a>Prioridades de restrição
 
 > [!WARNING]
-> A alteração das prioridades de restrição não é recomendada e pode ter efeitos adversos consideráveis em seu cluster. Olá abaixo informações é fornecido para referência de prioridades de restrição de padrão de saudação e seu comportamento. 
+> A alteração das prioridades de restrição não é recomendada e pode ter efeitos adversos consideráveis em seu cluster. As informações abaixo são fornecidas para referência das prioridades de restrição padrão e seu comportamento. 
 >
 
-Todas essas restrições, você pode ter pensado "Ei – acho que restrições de domínio de falha são hello mais importante no sistema. Em ordem tooensure hello restrição de domínio de falha não for violada, estou está disposto tooviolate outras restrições. "
+Em todas essas restrições, você pode ter pensado “Ei, acho que restrições de domínio de falha são a coisa mais importante em meu sistema. Para garantir a não violação da restrição de domínio de falha, estou disposto(a) a violar outras restrições."
 
 As restrições podem ser configuradas com níveis de prioridade diferentes. Estes são:
 
@@ -120,15 +120,15 @@ As restrições podem ser configuradas com níveis de prioridade diferentes. Est
    - "otimização” (2)
    - "desativado" (-1). 
    
-A maioria das restrições de saudação é configurada como restrições de disco rígidas por padrão.
+A maioria das restrições é configurada como inflexível por padrão.
 
-Alterar a prioridade de saudação de restrições é incomum. Houve vezes onde prioridades de restrição necessário toochange, normalmente toowork em torno de alguns bugs ou comportamento que estava afetando o ambiente de saudação. Geralmente flexibilidade de saudação da infraestrutura de prioridade de restrição Olá funcionou muito bem, mas ela não é necessária com frequência. A maioria do tempo de saudação tudo o que se encontra em suas prioridades padrão. 
+A alteração da prioridade das restrições é incomum. Às vezes, era necessário alterar as prioridades de restrição, normalmente para solucionar alguns bugs ou comportamento que estava afetando o ambiente. Em geral, a flexibilidade da infraestrutura de prioridade da restrição funcionou muito bem, mas ela não é necessário com tanta frequência. Na maioria das vezes, tudo fica em suas prioridades padrão. 
 
-níveis de prioridade de saudação não significam que uma restrição de determinado _será_ ser violado, nem que ele sempre será atendido. As prioridades de restrição definem uma ordem de imposição das restrições. As prioridades definem compensações hello quando for impossível toosatisfy todas as restrições. Normalmente, todas as restrições de saudação podem ser atendidas a menos que haja algo mais ambiente de saudação. Alguns exemplos de cenários que levarão tooconstraint violações são restrições conflitantes, ou grandes números de falhas simultâneas.
+A existência dos níveis de prioridade não significa que uma certa restrição _será_ violada, nem que sempre será atendida. As prioridades de restrição definem uma ordem de imposição das restrições. As prioridades definem as compensações quando não é possível atender a todas as restrições. Geralmente, todas as restrições podem ser atendidas, exceto se algo a mais estiver ocorrendo no ambiente. Entre os exemplos de cenários que causarão violações de restrição estão as restrições conflitantes ou muitas falhas simultâneas.
 
-Em situações avançadas, você pode alterar as prioridades de restrição de saudação. Por exemplo, digamos que você desejava tooensure que afinidade sempre seria violada quando problemas de capacidade do nó toosolve necessário. tooachieve isso, você pode definir a prioridade de saudação da restrição de afinidade Olá muito "soft" (1) e deixe a restrição de capacidade de saudação definida muito "grave" (0).
+Em situações avançadas, é possível alterar as prioridades de restrição. Por exemplo, digamos que você queira garantir que a afinidade seja sempre violada quando for necessário solucionar problemas de capacidade do nó. Para fazer isso, você poderia definir a prioridade da restrição de afinidade como “flexível” (1) e deixar a restrição de capacidade definida como “inflexível” (0).
 
-valores de prioridade saudação padrão para as diferentes restrições de saudação são especificados em Olá configuração a seguir:
+Os valores de prioridade padrão para as diferentes restrições são especificados na configuração a seguir:
 
 ClusterManifest.xml
 
@@ -180,32 +180,32 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restrições de domínio de falha e de atualização
-Olá Gerenciador de recursos de Cluster deseja tookeep serviços distribuídos entre domínios de falha e atualização. Ele simula isso como uma restrição de dentro do Gerenciador de recursos do Cluster Olá mecanismo. Para obter mais informações sobre como eles são usados e seu comportamento específico, consulte o artigo de saudação em [configuração de cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
+O Gerenciador de Recursos de Cluster deseja manter os serviços distribuídos entre domínios de falha e de atualização. Ele simula isso como uma restrição dentro do mecanismo do Gerenciador de Recursos de Cluster. Para saber mais sobre como eles são usados e o comportamento específico, confira o artigo na [configuração de cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Olá Gerenciador de recursos de Cluster pode ser necessário toopack duas réplicas em um domínio de atualização na ordem toodeal com atualizações, falhas ou outras violações de restrição. Empacotando em domínios de falha ou atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema Olá impedindo posicionamento corretas. Se você quiser tooprevent remessa mesmo durante nessas situações, você pode utilizar Olá `RequireDomainDistribution` [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
+O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas em um domínio de atualização para lidar com atualizações, falhas ou outras violações de restrição. O empacotamento dentro de domínios de falha ou de atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema que impede o posicionamento correto. Se você quiser evitar o empacotamento mesmo durante essas situações, você pode utilizar a [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) do `RequireDomainDistribution`. Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
 
-Se o ambiente de saudação está configurado corretamente, todas as restrições são respeitadas totalmente, mesmo durante as atualizações. Olá chave é que o Gerenciador de recursos de Cluster está observando as restrições de saudação. Ao detectar uma violação que imediatamente reporta e tente toocorrect problema de saudação.
+Se o ambiente estiver configurado corretamente, todas as restrições serão totalmente respeitadas, mesmo durante as atualizações. O mais importante é que o Gerenciador de Recursos de Cluster esteja observando suas restrições. Ao detectar uma violação, ele imediatamente informa e tenta corrigir o problema.
 
-## <a name="hello-preferred-location-constraint"></a>restrição de local de saudação preferida
-Olá PreferredLocation restrição é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. Olá Gerenciador de recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado tooensure que, quando atualizações forem concluídas que réplicas retornam tootheir locais inicias. Hello outros Olá PreferredLocation restrição é usado para de saudação [ `PreferredPrimaryDomain` política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambos são otimizações e, portanto, Olá PreferredLocation restrição é única restrição de saudação definida muito "Otimização" por padrão.
+## <a name="the-preferred-location-constraint"></a>A restrição do local preferencial
+A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. Outro uso da restrição PreferredLocation destina-se à [`PreferredPrimaryDomain` política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) do. Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
 
 ## <a name="upgrades"></a>Atualizações
-Olá Gerenciador de recursos de Cluster também ajuda a durante a aplicativos e atualizações de cluster, durante o qual ele tem dois trabalhos:
+O Cluster Resource Manager também ajuda durante atualizações de aplicativos e clusters, quando então ele tem dois trabalhos:
 
-* Certifique-se de que as regras de saudação do cluster de saudação não sejam comprometidas
-* tente ir de atualização de saudação toohelp suave
+* verificar se as regras do cluster não foram comprometidos
+* tentar ajudar a atualização a ocorrer sem problemas
 
-### <a name="keep-enforcing-hello-rules"></a>Manter impor regras de saudação
-Olá principal toobe atento é que regras hello – restrições estrito hello como restrições de posicionamento e as capacidades - ainda são impostas durante as atualizações. Restrições de posicionamento garantem que suas cargas de trabalho serão executadas apenas onde elas são permitidas, mesmo durante atualizações. Quando os serviços forem altamente restritos, as atualizações podem demorar mais. Ao serviço hello ou nó Olá estiver em execução é interrompido para uma atualização que pode haver algumas opções para onde ele pode ficar.
+### <a name="keep-enforcing-the-rules"></a>Manter a imposição das regras
+O principal a ser observado são se as regras, restrições rígidas sobre coisas como restrições de posicionamento e capacidades, ainda são impostas durante as atualizações. Restrições de posicionamento garantem que suas cargas de trabalho serão executadas apenas onde elas são permitidas, mesmo durante atualizações. Quando os serviços forem altamente restritos, as atualizações podem demorar mais. Quando o serviço, ou o nó onde ele está em execução, ficar inativo devido a uma atualização, você terá algumas opções.
 
 ### <a name="smart-replacements"></a>Substituições inteligentes
-Quando uma atualização é iniciada, Olá Gerenciador de recursos de tira um instantâneo de organização atual de saudação do cluster hello. Como cada domínio de atualização for concluído, ele tenta tooreturn Olá serviços na organização original tootheir domínio de atualização. Dessa forma há no máximo dois faz a transição para um serviço durante a atualização de saudação. Há uma movimentação fora do nó Olá afetado e um retroceder em. Retornar Olá toohow cluster ou serviço que estava antes da atualização Olá também garante a atualização de saudação não afeta o layout de saudação do cluster hello. 
+Quando uma atualização é iniciada, o Resource Manager tira um instantâneo da disposição atual do cluster. À medida que cada Domínio de Atualização for concluído, ele tentará retornar os serviços que estavam nesse Domínio de Atualização para a organização original. Dessa forma, há no máximo duas transições para um serviço durante a atualização. Há uma movimentação para fora do nó afetado e uma movimentação para dentro. Retornar o cluster ou serviço ao estado anterior à atualização também garante que a atualização não afete o layout do cluster. 
 
 ### <a name="reduced-churn"></a>Variação reduzida
-Outra coisa que ocorre durante as atualizações é que hello desativa o Gerenciador de recursos de Cluster de balanceamento. Impedindo balanceamento impede a atualização de toohello de reações desnecessário em si, como mover serviços para nós removidos para atualização de saudação. Se a atualização de saudação em questão for uma atualização de Cluster, cluster inteiro Olá não é equilibrado durante a atualização de saudação. Verificações de restrição ficam ativas, movimentação somente com base em Olá balanceamento proativo de métricas está desabilitada.
+Outra coisa que acontece durante as atualizações é que o Gerenciador de Recursos de Cluster desativa o balanceamento. Impedir o balanceamento impede reações desnecessárias à atualização em si, como a movimentação dos serviços para nós que foram esvaziados para a atualização. Se a atualização em questão for uma atualização de Cluster, então o cluster inteiro não poderá ser balanceado durante a atualização. As verificações de restrição permanecem ativas, somente a movimentação com base no balanceamento proativo de métricas é desabilitada.
 
 ### <a name="buffered-capacity--upgrade"></a>Capacidade de buffer e atualização
-Geralmente, você deseja toocomplete atualização Olá mesmo se o cluster Olá é restrita ou fechar toofull. Gerenciamento de capacidade de saudação do cluster Olá é ainda mais importante durante as atualizações que o usual. Dependendo da saudação número de domínios de atualização entre 5 e 20% da capacidade deve ser migrado como hello atualização passa por cluster hello. Se o trabalho tem toogo em algum lugar. Isso é onde Olá noção de [buffer capacidades](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. A capacidade de buffer é respeitada durante a operação normal. Olá Gerenciador de recursos de Cluster pode preencher nós tootheir a capacidade total (consumindo buffer Olá) durante as atualizações, se necessário.
+Em geral, convém concluir a atualização mesmo se o cluster estiver sob restrição ou quase cheio. Ser capaz de gerenciar a capacidade do cluster é ainda mais importante do que o normal. Dependendo do número de domínios de atualização, entre cinco e 20% da capacidade devem ser migradas à medida que a atualização percorre o cluster. Esse trabalho precisa ir para algum lugar. É aqui que a noção de [capacidades de buffer](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. A capacidade de buffer é respeitada durante a operação normal. O Gerenciador de Recursos de Cluster pode preencher os nós até sua capacidade total (consumindo o buffer) durante as atualizações, se for necessário.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Desde o início de saudação e [obter uma introdução toohello Gerenciador de recursos de Cluster do serviço de malha](service-fabric-cluster-resource-manager-introduction.md)
+* Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)

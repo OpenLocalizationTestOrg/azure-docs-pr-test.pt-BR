@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 iOS guia de Introdução - instalação | Microsoft Docs"
+title: "Introdução ao iOS no Azure AD v2 – Configuração | Microsoft Docs"
 description: Como aplicativos iOS (Swift) podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 62c4ee9a2d4ccaec780bee09fb4bc34cff2eb6df
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d25353a61b2a60bff28aa0679d38110e77d19e64
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="setting-up-your-ios-application"></a>Configurando seu aplicativo iOS
 
-Esta seção fornece instruções passo a passo sobre como toocreate um novo toodemonstrate de projeto como toointegrate um aplicativo iOS (Swift) com *entrar com a Microsoft* para que ele possa consultar APIs da Web que exigem um token.
+Esta seção fornece instruções passo a passo sobre como criar um novo projeto para demonstrar como integrar um aplicativo iOS (Swift) com a opção *Entrar com a conta da Microsoft*, de forma que ele possa consultar APIs Web que exigem um token.
 
-> Preferir toodownload XCode projeto desse exemplo em vez disso? [Baixar um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e ignorar toohello [etapa de configuração](#create-an-application-express) exemplo de código tooconfigure hello antes de executar.
+> Prefere baixar este projeto de exemplo do XCode? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e vá para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
 
 
-## <a name="install-carthage-toodownload-and-build-msal"></a>Instalar toodownload Carthage e criar MSAL
-Gerenciador de pacote Carthage é usado durante o período de visualização de saudação do MSAL – ele se integra com o XCode mantendo a capacidade de saudação de biblioteca do Microsoft toomake alterações toohello.
+## <a name="install-carthage-to-download-and-build-msal"></a>Instale o Carthage para baixar e criar a MSAL
+O gerenciador de pacotes Carthage é usado durante o período de versão prévia da MSAL – ele se integra ao XCode enquanto mantém a capacidade da Microsoft de fazer alterações na biblioteca.
 
-- Baixe e instale a versão mais recente de saudação do Carthage [aqui](https://github.com/Carthage/Carthage/releases "Carthage URL de download")
+- Baixe e instale a versão mais recente do Carthage [aqui](https://github.com/Carthage/Carthage/releases "URL de download do Carthage")
 
 ## <a name="creating-your-application"></a>Criando seu aplicativo
 
 1.  Abra o XCode e selecione `Create a new Xcode project`
 2.  Selecione `iOS` > `Single view Application` e clique em *Avançar*
 3.  Forneça um nome de produto e clique em *Avançar*
-4.  Selecione uma pasta toocreate seu aplicativo e clique em *criar*
+4.  Selecione uma pasta para criar seu aplicativo e clique em *Criar*
 
-## <a name="build-hello-msal-framework"></a>Criar hello MSAL Framework
+## <a name="build-the-msal-framework"></a>Criar a estrutura da MSAL
 
-Siga as instruções de saudação abaixo toopull e, em seguida, criar a versão mais recente Olá das bibliotecas MSAL usando Carthage:
+Siga as instruções abaixo para efetuar o pull e, em seguida, criar a versão mais recente das bibliotecas MSAL usando o Carthage:
 
-1.  Abra Olá bash terminal e acesse a pasta raiz de toohello do aplicativo
-2.  Olá abaixo de copiar e colar no hello bash terminal toocreate um arquivo de 'Cartfile':
+1.  Abra o terminal de busca e vá até a pasta raiz do aplicativo
+2.  Copiar o que está abaixo e cole no terminal de busca para criar um arquivo “Cartfile”:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -51,7 +51,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Copie e cole Olá abaixo. Este comando busca dependências em uma pasta Carthage/check-outs, e cria a biblioteca MSAL hello:
+Copie e cole o que está abaixo. Este comando busca dependências em uma pasta do Carthage/de check-outs e cria a biblioteca MSAL:
 </li>
 </ol>
 
@@ -59,15 +59,15 @@ Copie e cole Olá abaixo. Este comando busca dependências em uma pasta Carthage
 carthage update
 ```
 
-> processo de saudação acima é toodownload usado e compilação Olá biblioteca de autenticação da Microsoft (MSAL). MSAL lida com a aquisição, cache e atualizar usuário tokens usados tooaccess APIs protegidos pelo Olá v2 do Active Directory do Azure.
+> O processo acima é usado para baixar e criar a MSAL (Biblioteca de Autenticação da Microsoft). A MSAL manipula a aquisição, o armazenamento em cache e a atualização de tokens de usuário usados para acessar APIs protegidas pelo Azure Active Directory v2.
 
-## <a name="add-hello-msal-framework-tooyour-application"></a>Adicionar Olá MSAL framework tooyour aplicativo
-1.  No Xcode, abra Olá `General` guia
-2.  Vá toohello `Linked Frameworks and Libraries` seção e clique em`+`
+## <a name="add-the-msal-framework-to-your-application"></a>Adicionar a estrutura da MSAL ao seu aplicativo
+1.  No Xcode, abra o a guia `General`
+2.  Vá para a seção `Linked Frameworks and Libraries` e clique em `+`
 3.  Selecione `Add other…`
-4.  Selecione: `Carthage` > `Build` > `iOS` > `MSAL.framework` e clique em *Abrir*. Você deve ver `MSAL.framework` adicionado toohello lista.
-5.  Vá muito`Build Phases` guia e, em seguida, clique em `+` ícone, escolha`New Run Script Phase`
-6.  Adicionar Olá toohello de conteúdo a seguir *área de script*:
+4.  Selecione: `Carthage` > `Build` > `iOS` > `MSAL.framework` e clique em *Abrir*. Você deve ver `MSAL.framework` adicionado à lista.
+5.  Vá para a guia `Build Phases`, clique no ícone `+` e escolha `New Run Script Phase`
+6.  Adicione o seguinte conteúdo à *área de script*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -76,7 +76,7 @@ carthage update
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Adicionar Olá seguir muito<code>Input Files</code> clicando <code>+</code>:
+Adicione o seguinte a <code>Input Files</code> clicando em <code>+</code>:
 </li>
 </ol>
 
@@ -85,10 +85,10 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
 ## <a name="creating-your-applications-ui"></a>Criando a interface do usuário de seu aplicativo
-Um arquivo Main.storyboard deve ser criado automaticamente como parte do modelo de projeto. Siga as instruções de saudação abaixo toocreate Olá aplicativo da interface do usuário:
+Um arquivo Main.storyboard deve ser criado automaticamente como parte do modelo de projeto. Siga as instruções abaixo para criar a interface do usuário do aplicativo:
 
-1.  CTRL + clique `Main.storyboard` toobring até o menu contextual hello e, em seguida, clique em:`Open As` > `Source Code`
-2.  Substituir saudação `<scenes>` nó com o código de saudação abaixo:
+1.  Pressione CTRL e clique em `Main.storyboard` para abrir o menu contextual e, em seguida, clique em: `Open As` > `Source Code`
+2.  Substitua o nó `<scenes>` pelo código a seguir:
 
 ```xml
  <scenes>

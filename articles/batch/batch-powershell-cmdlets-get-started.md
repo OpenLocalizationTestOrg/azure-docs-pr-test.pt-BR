@@ -1,6 +1,6 @@
 ---
-title: aaaGet iniciado com o PowerShell para o lote do Azure | Microsoft Docs
-description: "Uma breve introdução toohello cmdlets do PowerShell do Azure você pode usar recursos de lote toomanage."
+title: "Introdução ao PowerShell do Lote do Azure | Microsoft Docs"
+description: "Uma rápida introdução aos cmdlets do Azure PowerShell que podem ser usados para gerenciar os recursos do Lote."
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,48 +15,48 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4d12e9c1e52a5b2db2dd44346edda93b7ef92b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
-Com hello cmdlets do PowerShell do lote do Azure, você pode executar e script muitas Olá mesmas tarefas que você realizar com hello APIs de lote, Olá portal do Azure e hello Azure Interface de linha de comando (CLI). Isso é cmdlets de toohello uma rápida introdução, você pode usar toomanage as contas de lote e trabalhar com os recursos de lote como pools, trabalhos e tarefas.
+Com os cmdlets do PowerShell do Lote do Azure, você pode executar e criar scripts para muitas das mesmas tarefas que executa com as APIs do Lote, o portal do Azure e a CLI (Interface de Linha de Comando) do Azure. Essa é uma breve introdução aos cmdlets que você pode usar para gerenciar suas contas do Lote e trabalhar com seus recursos do Lote, como pools, trabalhos e tarefas.
 
-Para obter uma lista completa de cmdlets de lote e sintaxe do cmdlet detalhadas, consulte Olá [referência de cmdlet do Azure Batch](/powershell/module/azurerm.batch/#batch).
+Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet, consulte a [Referência de cmdlet do Lote do Azure](/powershell/module/azurerm.batch/#batch).
 
-Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. Recomendamos que você atualize o PowerShell do Azure com frequência tootake vantagem do serviço de atualizações e aprimoramentos.
+Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. É recomendável que você atualize o Azure PowerShell com frequência para tirar proveito de atualizações e aprimoramentos do serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Execute Olá após operações toouse Azure PowerShell toomanage seus recursos de lote.
+Execute as seguintes operações para usar o Azure PowerShell para gerenciar os recursos de Lote.
 
 * [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
-* Executar Olá **AzureRmAccount Login** cmdlet tooconnect tooyour assinatura (Olá ship do lote do Azure cmdlets no módulo do Azure Resource Manager Olá):
+* Execute o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
   
     `Login-AzureRmAccount`
-* **Registrar com o namespace do provedor de lote Olá**. Esta operação só precisa toobe executada **uma vez por assinatura**.
+* **Registrar com o namespace do provedor de Lote**. Essa operação só precisa ser executada **uma vez por assinatura**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gerenciar contas e chaves do Batch
 ### <a name="create-a-batch-account"></a>Criar uma conta do Batch
-**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando Olá [AzureRmResourceGroup novo](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. Especifique um hello Azure regiões no hello **local** parâmetro, como "Central US". Por exemplo:
+**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Em seguida, crie uma conta de lote no grupo de recursos hello, especificando um nome de conta de saudação em <*account_name*> e o local de saudação e o nome do seu grupo de recursos. Criar conta do lote Olá pode levar algum tempo toocomplete. Por exemplo:
+Em seguida, crie uma conta do Lote no grupo de recursos, especificando um nome para a conta em <*nome_da_conta*> e o local e o nome de seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo:
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
 > [!NOTE]
-> conta do lote Olá nome deve ser exclusivo toohello região do Azure para o grupo de recursos de saudação conter entre 3 e 24 caracteres e usar somente letras minúsculas e números.
+> O nome da conta do Lote deve ser exclusivo na região do Azure para o grupo de recursos, conter entre três e 24 caracteres e usar somente números e letras minúsculas.
 > 
 > 
 
 ### <a name="get-account-access-keys"></a>Obter chaves de acesso da conta
-**Get-AzureRmBatchAccountKeys** mostra Olá chaves de acesso associadas a uma conta de lote do Azure. Por exemplo, execute Olá tooget Olá primários e secundários as chaves da conta Olá criado a seguir.
+**Get-AzureRmBatchAccountKeys** mostra as chaves de acesso associadas a uma conta do Lote do Azure. Por exemplo, execute o seguinte para obter as chaves primária e secundária da conta criada por você.
 
     $Account = Get-AzureRmBatchAccountKeys –AccountName <account_name>
 
@@ -65,12 +65,12 @@ Em seguida, crie uma conta de lote no grupo de recursos hello, especificando um 
     $Account.SecondaryAccountKey
 
 ### <a name="generate-a-new-access-key"></a>Gerar uma nova chave de acesso
-**New-AzureRmBatchAccountKey** gera uma nova chave de conta primária ou secundária para uma conta do Lote do Azure. Por exemplo, toogenerate uma nova chave primária para sua conta em lotes, digite:
+**New-AzureRmBatchAccountKey** gera uma nova chave de conta primária ou secundária para uma conta do Lote do Azure. Por exemplo, para gerar uma nova chave primária para a sua conta do Batch, digite:
 
     New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 > [!NOTE]
-> toogenerate uma nova chave secundária, especifique "Secundário" para Olá **KeyType** parâmetro. Você tem chaves de primárias e secundárias Olá tooregenerate separadamente.
+> Para gerar uma nova chave secundária, especifique "Secondary" para o parâmetro **KeyType** . É necessário gerar novamente as chaves primária e secundária separadamente.
 > 
 > 
 
@@ -79,69 +79,69 @@ Em seguida, crie uma conta de lote no grupo de recursos hello, especificando um 
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
-Quando solicitado, confirme que você deseja tooremove Olá conta. Remoção de conta pode levar algum tempo toocomplete.
+Quando solicitado, confirme que você deseja remover a conta. A remoção de conta pode levar algum tempo para ser concluída.
 
 ## <a name="create-a-batchaccountcontext-object"></a>Criar um objeto BatchAccountContext
-usando tooauthenticate Olá cmdlets do PowerShell de lote quando você cria e gerenciar pools de lote, trabalhos, tarefas, e outros recursos, primeiro crie um toostore de objeto BatchAccountContext seu nome de conta e chaves:
+Para se autenticar usando os cmdlets do PowerShell do Lote ao criar e gerenciar pools, trabalhos, tarefas e outros recursos do Lote, primeiro crie um objeto BatchAccountContext para armazenar o nome e as chaves da conta:
 
     $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
-Você passa o objeto de BatchAccountContext Olá em cmdlets que use Olá **BatchContext** parâmetro.
+Você passa o objeto BatchAccountContext para os cmdlets que usam o parâmetro **BatchContext** .
 
 > [!NOTE]
-> Por padrão, a chave primária da conta Olá é usado para autenticação, mas você pode selecionar toouse chave Olá alterando seu objeto de BatchAccountContext **KeyInUse** propriedade: `$context.KeyInUse = "Secondary"`.
+> Por padrão, a chave primária da conta é usada para autenticação, mas você pode selecionar a chave a ser usada alterando a propriedade **KeyInUse** do seu objeto de BatchAccountContext: `$context.KeyInUse = "Secondary"`.
 > 
 > 
 
 ## <a name="create-and-modify-batch-resources"></a>Criar e modificar recursos do Lote
-Como usar os cmdlets **New-AzureBatchPool**, **New-AzureBatchJob**, e **AzureBatchTask novo** toocreate recursos em uma conta de lote. Há correspondentes **Get -** e **Set -** propriedades de saudação tooupdate cmdlets dos recursos existentes, e **Remove -** cmdlets tooremove recursos em uma conta de lote.
+Use cmdlets como **New-AzureBatchPool**, **New-AzureBatchJob** e **New-AzureBatchTask** para criar recursos em uma conta do Lote. Há cmdlets correspondentes **Get-** e **Set-** para atualizar as propriedades de recursos existentes e cmdlets **Remove-** para remover recursos em uma conta do Lote.
 
-Ao usar muitos desses cmdlets em adição toopassing um objeto BatchContext, você precisa toocreate ou passa objetos que contêm configurações de recursos detalhado, conforme mostrado no exemplo a seguir de saudação. Consulte Olá ajuda detalhada para cada cmdlet para obter exemplos adicionais.
+Ao usar muitos desses cmdlets, além de passar um objeto BatchContext, você precisa criar ou passar objetos que contêm as configurações detalhadas de recursos, conforme mostrado no exemplo a seguir. Confira a ajuda detalhada de cada cmdlet para obter exemplos adicionais.
 
 ### <a name="create-a-batch-pool"></a>Criar um pool do Lote
-Ao criar ou atualizar um pool de lote, selecione a configuração de máquina virtual de hello ou configuração de serviço de nuvem Olá para hello sistema operacional Olá nós de computação (consulte [visão geral do recurso de lote](batch-api-basics.md#pool)). Se você especificar a configuração do serviço de nuvem hello, seus nós de computação são representados com uma saudação [versões do sistema operacional de convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se você especificar a configuração de máquina virtual hello, você pode especificar uma saudação suporte para Linux ou imagens de VM do Windows hello listado na [Marketplace de máquinas virtuais do Azure][vm_marketplace], ou forneça um personalizado imagem que você preparou.
+Ao criar ou atualizar um pool de lote, selecione a configuração de serviço de nuvem ou a configuração de máquina virtual para o sistema operacional em nós de computação (confira [Visão geral do recurso de Lote](batch-api-basics.md#pool)). Se você especificar a configuração do serviço de nuvem, os nós de computação serão representados com uma das [versões do sistema operacional convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se você especificar a configuração da máquina virtual, poderá especificar uma das imagens de VM Linux ou Windows com suporte listadas no [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou fornecer uma imagem personalizada preparada.
 
-Quando você executa **AzureBatchPool novo**, passar um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration configurações do sistema operacional hello. Por exemplo, hello cmdlet a seguir cria um novo pool de lote conosco de computação pequenos de tamanho na configuração de serviço de nuvem hello, criação de uma imagem com a versão do sistema operacional mais recente Olá da família 3 (Windows Server 2012). Aqui, Olá **CloudServiceConfiguration** parâmetro especifica Olá *$configuration* variável como objeto de PSCloudServiceConfiguration hello. Olá **BatchContext** parâmetro especifica uma variável definida anteriormente *$context* como objeto de BatchAccountContext hello.
+Ao executar **New-AzureBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o cmdlet a seguir cria um novo pool do Lote com nós de computação de tamanho pequeno na configuração de serviço de nuvem, com a imagem criada com a última versão do sistema operacional da família 3 (Windows Server 2012). Aqui, o parâmetro **CloudServiceConfiguration** especifica a variável *$configuration* do objeto PSCloudServiceConfiguration. O parâmetro **BatchContext** especifica uma variável definida anteriormente *$context* como o objeto BatchAccountContext.
 
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
 
     New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
-número de destino de saudação de nós de computação no novo pool de saudação é determinado por uma fórmula de dimensionamento automático. Nesse caso, a fórmula de saudação é simplesmente **$TargetDedicated = 4**, indicando que o número de saudação de nós de computação no pool de saudação está 4 no máximo.
+O número de nós de computação no novo pool de destino é determinado por uma fórmula de dimensionamento automático. Nesse caso, a fórmula é simplesmente **$TargetDedicated=4**, indicando que o número de nós de computação no pool é 4, no máximo.
 
 ## <a name="query-for-pools-jobs-tasks-and-other-details"></a>Consultar pools, trabalhos, tarefas e outros detalhes
-Como usar os cmdlets **Get-AzureBatchPool**, **Get-AzureBatchJob**, e **Get-AzureBatchTask** tooquery para entidades criadas em uma conta de lote.
+Use cmdlets como**Get-AzureBatchPool**, **Get-AzureBatchJob** e **Get-AzureBatchTask** para consultar entidades criadas em uma conta do Lote.
 
 ### <a name="query-for-data"></a>Consultar dados
-Por exemplo, use **Get-AzureBatchPools** toofind os pools. Por padrão essa consulta para todos os pools na sua conta, supondo que você já armazenado objeto BatchAccountContext Olá *$context*:
+Por exemplo, use **Get-AzureBatchPools** para encontrar os pools. Por padrão, isso consulta todos os pools em sua conta, supondo que você já tenha armazenado o objeto BatchAccountContext em *$context*:
 
     Get-AzureBatchPool -BatchContext $context
 
 ### <a name="use-an-odata-filter"></a>Usar um filtro OData
-Você pode fornecer um filtro OData usando Olá **filtro** toofind parâmetro hello apenas objetos que você está interessado. Por exemplo, você pode localizar todos os pools com ids que começam com "myPool":
+Você pode fornecer um filtro OData usando o parâmetro **Filter** para localizar apenas os objetos de seu interesse. Por exemplo, você pode localizar todos os pools com ids que começam com "myPool":
 
     $filter = "startswith(id,'myPool')"
 
     Get-AzureBatchPool -Filter $filter -BatchContext $context
 
-Esse método não é tão flexível quanto usar "Where-Object" em um pipeline local. No entanto, consulta Olá é enviada toohello serviço de lote diretamente para que toda a filtragem ocorre no lado do servidor de saudação, economizando largura de banda de Internet.
+Esse método não é tão flexível quanto usar "Where-Object" em um pipeline local. No entanto, a consulta é enviada para o serviço Batch diretamente para que toda a filtragem ocorra no servidor, poupando largura de banda de Internet.
 
-### <a name="use-hello-id-parameter"></a>Use o parâmetro de Id de saudação
-Um filtro de OData tooan alternativo é Olá toouse **Id** parâmetro. tooquery de um determinado pool com id "myPool":
+### <a name="use-the-id-parameter"></a>Use o parâmetro de Id
+Uma alternativa a um filtro OData é usar o parâmetro **Id** . Para consultar um pool específico com id "myPool":
 
     Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-Olá **Id** parâmetro oferece suporte a somente pesquisa completo-id, não curingas ou filtros de estilo do OData.
+O parâmetro **ID** só dá suporte à pesquisa de ID completo, não a curingas ou a filtros de estilo OData.
 
-### <a name="use-hello-maxcount-parameter"></a>Use o parâmetro MaxCount de saudação
-Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro toobring volta menos objetos tanto definir explicitamente um máximo usando Olá **MaxCount** parâmetro. Por exemplo:
+### <a name="use-the-maxcount-parameter"></a>Usar o parâmetro MaxCount
+Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo:
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
-Definir limite superior do tooremove Olá, **MaxCount** too0 ou menos.
+Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 
-### <a name="use-hello-powershell-pipeline"></a>Usar o pipeline do PowerShell Olá
-Cmdlets de lote podem utilizar dados toosend de pipeline de PowerShell saudação entre cmdlets. Isso tem o mesmo efeito que especificar um parâmetro, mas torna trabalhar com várias entidades de saudação.
+### <a name="use-the-powershell-pipeline"></a>Usar o pipeline do PowerShell
+Os cmdlets do Batch podem aproveitar o pipeline do PowerShell para enviar dados entre cmdlets. Isso tem o mesmo efeito que especificar um parâmetro, mas facilita o trabalho com várias entidades.
 
 Por exemplo, localize e exiba todas as tarefas em sua conta:
 
@@ -152,7 +152,7 @@ Reinicializar todos os nós de computação em um pool:
     Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
 ## <a name="application-package-management"></a>Gerenciamento de pacote de aplicativos
-Pacotes de aplicativos fornecem uma maneira de simplificado toodeploy aplicativos toohello nós de computação em seus pools. Com hello cmdlets do PowerShell do lote, carregar e gerenciar pacotes de aplicativos em sua conta de lote e implantar nós de toocompute de versões do pacote.
+Os pacotes de aplicativos fornecem uma maneira simplificada de implantar aplicativos para nós de computação em seus pools. Com os cmdlets do PowerShell do Lote, carregue e gerencie pacotes de aplicativos em sua conta do Lote e implante versões do pacote para nós de computação.
 
 **Criar** um aplicativo:
 
@@ -162,7 +162,7 @@ Pacotes de aplicativos fornecem uma maneira de simplificado toodeploy aplicativo
 
     New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 
-Saudação de conjunto **versão padrão** para o aplicativo hello:
+Defina a **versão padrão** para o aplicativo:
 
     Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 
@@ -181,14 +181,14 @@ Saudação de conjunto **versão padrão** para o aplicativo hello:
     Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 > [!NOTE]
-> Você deve excluir todas as versões do pacote de aplicativo do aplicativo antes de excluir o aplicativo hello. Se você tentar toodelete um aplicativo que tem atualmente os pacotes de aplicativos, você receberá um erro de 'conflito de '.
+> Você deve excluir todas as versões do pacote do aplicativo antes de excluir o aplicativo. Se você tentar excluir um aplicativo que atualmente tem pacotes de aplicativos, receberá um erro de 'Conflito'.
 > 
 > 
 
 ### <a name="deploy-an-application-package"></a>Implantar um pacote de aplicativos
-Você pode especificar um ou mais pacotes de aplicativos para implantação durante a criação de um pool. Quando você especificar um pacote no momento da criação de pool, é implantado tooeach nó como Olá nó junções pool. Pacotes também são implantados quando um nó é reinicializado ou quando sua imagem é refeita.
+Você pode especificar um ou mais pacotes de aplicativos para implantação durante a criação de um pool. Quando você especifica um pacote no momento da criação do pool, ele é implantado em cada nó como o pool de junções de nó. Pacotes também são implantados quando um nó é reinicializado ou quando sua imagem é refeita.
 
-Especifique a saudação `-ApplicationPackageReference` opção ao criar um pool toodeploy nós de um pacote toohello do pool de aplicativos ao entrarem pool hello. Primeiro, crie um **PSApplicationPackageReference** de objeto e configurá-lo com hello Id e o pacote de versão do aplicativo deseja que nós de computação do pool de toodeploy toohello:
+Especifique a opção `-ApplicationPackageReference` durante a criação de um pool para implantar um pacote de aplicativos nos nós do pool à medida que eles ingressarem no pool. Primeiro, crie um objeto **PSApplicationPackageReference** e configure-o com a versão do pacote e a Id de aplicativo que deseja implantar em nós de computação do pool:
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
@@ -196,19 +196,19 @@ Especifique a saudação `-ApplicationPackageReference` opção ao criar um pool
 
     $appPackageReference.Version = "1.0"
 
-Agora criar pool hello e especificar o objeto de referência de pacote hello como Olá argumento toohello `ApplicationPackageReferences` opção:
+Agora, crie o pool e especifique o objeto de referência do pacote como o argumento para a opção `ApplicationPackageReferences`:
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Você pode encontrar mais informações sobre pacotes de aplicativos em [implantar aplicativos toocompute nós com pacotes de aplicativos de lote](batch-application-packages.md).
+Veja mais informações sobre pacotes de aplicativos em [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
 
 > [!IMPORTANT]
-> Você deve [vincular uma conta de armazenamento do Azure](#linked-storage-account-autostorage) tooyour lote conta toouse pacotes de aplicativos.
+> Você deve [vincular uma conta de Armazenamento do Azure](#linked-storage-account-autostorage) à sua conta do Lote para usar os pacotes de aplicativos.
 > 
 > 
 
 ### <a name="update-a-pools-application-packages"></a>Atualizar pacotes de aplicativos de um pool
-aplicativos de saudação tooupdate atribuídos tooan pool existente, primeiro crie um objeto de PSApplicationPackageReference com propriedades de saudação desejada (versão de pacote e a Id de aplicativo):
+Para atualizar os aplicativos atribuídos a um pool existente, primeiro crie um objeto PSApplicationPackageReference com as propriedades desejadas (versão do pacote e Id de aplicativo):
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
@@ -216,7 +216,7 @@ aplicativos de saudação tooupdate atribuídos tooan pool existente, primeiro c
 
     $appPackageReference.Version = "2.0"
 
-Em seguida, obter o pool de saudação do lote, limpar todos os pacotes existentes, adicionar nossa nova referência de pacote e atualizar o serviço de lote de saudação com novas configurações de pool hello:
+Em seguida, obtenha o pool do Lote, apague todos os pacotes existentes, adicione nossa nova referência de pacote e atualize o serviço do Lote com as novas configurações do pool:
 
     $pool = Get-AzureBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
@@ -226,17 +226,17 @@ Em seguida, obter o pool de saudação do lote, limpar todos os pacotes existent
 
     Set-AzureBatchPool -BatchContext $context -Pool $pool
 
-Agora que você atualizou os propriedades do pool de saudação no serviço de lote de saudação. tooactually implantar Olá novo aplicativo pacote toocompute nós no pool hello, no entanto, você deve reinicializar ou refazer em nós. Você pode reiniciar todos os nós em um pool com este comando:
+Agora você atualizou as propriedades do pool no serviço de Lote. Para realmente implantar o novo pacote de aplicativo para nós de computação no pool, entretanto, reinicie ou recrie esses nós. Você pode reiniciar todos os nós em um pool com este comando:
 
     Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
 > [!TIP]
-> Você pode implantar vários aplicativos pacotes toohello nós de computação em um pool. Se você quiser muito*adicionar* um pacote de aplicativo em vez de substituir os pacotes de saudação atualmente implantado, omita Olá `$pool.ApplicationPackageReferences.Clear()` linha acima.
+> Você pode implantar vários pacotes de aplicativos nos nós de computação em um pool. Se você quiser *adicionar* um pacote de aplicativo em vez de substituir os pacotes implantados atualmente, omita a linha `$pool.ApplicationPackageReferences.Clear()` acima.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter a sintaxe detalhada do cmdlet, veja [Referência de cmdlet do Lote do Azure](/powershell/module/azurerm.batch/#batch).
-* Para obter mais informações sobre aplicativos e pacotes de aplicativos em lote, consulte [implantar aplicativos toocompute nós com pacotes de aplicativos de lote](batch-application-packages.md).
+* Para obter mais informações sobre aplicativos e pacotes de aplicativos no Lote, confira [Implantação de aplicativos com pacotes de aplicativos do Lote](batch-application-packages.md).
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

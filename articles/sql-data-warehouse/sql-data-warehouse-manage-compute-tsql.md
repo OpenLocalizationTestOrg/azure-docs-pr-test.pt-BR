@@ -1,6 +1,6 @@
 ---
-title: aaaPause, retomar, dimensionar com T-SQL no Azure SQL Data Warehouse | Microsoft Docs
-description: "Transact-SQL (T-SQL) tarefas tooscale desempenho ajustando DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
+title: Pausar, retomar, dimensionar com o T-SQL no Azure SQL Data Warehouse | Microsoft Docs
+description: "Tarefas de Transact-SQL (T-SQL) para escalar horizontalmente o desempenho ao ajustar DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 84c6868acb673221d8853319ac9a05bb98b2b7c2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)
 > [!div class="op_single_selector"]
@@ -33,11 +33,11 @@ ms.lasthandoff: 10/06/2017
 <a name="current-dwu-bk"></a>
 
 ## <a name="view-current-dwu-settings"></a>Exibir configurações atuais de DWU
-tooview Olá DWU configurações para seus bancos de dados:
+Para exibir as configurações atuais de DWU para seus bancos de dados:
 
 1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio.
-2. Conecte o banco de dados mestre toohello associado ao servidor de banco de dados SQL lógico hello.
-3. Selecione na exibição de gerenciamento dinâmico Olá sys.database_service_objectives. Aqui está um exemplo: 
+2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
+3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Veja um exemplo: 
 
 ```sql
 SELECT
@@ -56,10 +56,10 @@ JOIN
 ## <a name="scale-compute"></a>Computação de escala
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Olá toochange DWUs:
+Para alterar as DWUs:
 
-1. Conecte o banco de dados mestre toohello associado a seu servidor lógico do banco de dados SQL.
-2. Saudação de uso [ALTER DATABASE] [ ALTER DATABASE] instrução TSQL. Olá, exemplo a seguir define serviço Olá nível tooDW1000 objetivo para o banco de dados Olá MySQLDW. 
+1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
+2. Use a declaração TSQL [ALTER DATABASE][ALTER DATABASE]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -71,8 +71,8 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ## <a name="check-database-state-and-operation-progress"></a>Verificar estado do banco de dados e o progresso da operação
 
-1. Conecte o banco de dados mestre toohello associado a seu servidor lógico do banco de dados SQL.
-2. Enviar o estado do banco de dados de toocheck de consulta
+1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
+2. Enviar consulta para verificar o estado do banco de dados
 
 ```sql
 SELECT *
@@ -80,7 +80,7 @@ FROM
 sys.databases
 ```
 
-3. Enviar toocheck consultar o status da operação
+3. Enviar consulta para verificar o status da operação
 
 ```sql
 SELECT *
@@ -92,7 +92,7 @@ AND
     major_resource_id = 'MySQLDW'
 ```
 
-Essa DMV retornará informações sobre várias operações de gerenciamento no Data Warehouse do SQL, como o estado de operação e Olá Olá da operação de saudação, que será IN_PROGRESS ou concluída.
+Esta DMV retorna informações sobre várias operações de gerenciamento no SQL Data Warehouse, como a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
 
 
 

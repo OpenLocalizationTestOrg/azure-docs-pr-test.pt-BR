@@ -1,5 +1,5 @@
 ---
-title: aaaOverview de DNS reverso no Azure | Microsoft Docs
+title: "Visão geral do DNS reverso no Azure | Microsoft Docs"
 description: Saiba como funciona o DNS reverso e como ele pode ser usado no Azure
 services: dns
 documentationcenter: na
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 687663fb83469ab8e696bb714649d0856915bad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Visão geral de DNS reverso e suporte no Azure
 
-Este artigo fornece uma visão geral de como inversa DNS funciona e hello cenários inversas de DNS com suporte no Azure.
+Este artigo fornece uma visão geral de como funciona o DNS reverso e os cenários de DNS reverso com suporte no Azure.
 
 ## <a name="what-is-reverse-dns"></a>O que é DNS reverso?
 
-Os registros DNS convencionais habilitar um mapeamento de um endereço IP do DNS nome (como "www.contoso.com") tooan (como 64.4.6.100).  Reversa de DNS permite que a tradução de saudação de um nome de tooa back (64.4.6.100) do endereço IP ("www.contoso.com").
+Os registros convencionais de DNS permitem um mapeamento de um nome DNS (por exemplo, 'www.contoso.com’) para um endereço IP (como 64.4.6.100).  O DNS reverso permite a conversão de um endereço IP (64.4.6.100) novamente para um nome ('www.contoso.com').
 
-Registros DNS reversos são usados em uma variedade de situações. Por exemplo, registros DNS reversos são amplamente usados no combate spam de email, verificando o remetente de saudação de uma mensagem de email.  recupera de servidor de email recebimento Olá Olá registro DNS reverso de enviar o endereço IP do servidor de saudação e verifica se que hospedam email toosend autorizados Olá originária domínio. 
+Registros DNS reversos são usados em uma variedade de situações. Por exemplo, registros DNS reversos são amplamente usados no combate ao spam de email ao verificarem o remetente de uma mensagem de email.  O servidor de recebimento de email recupera o registro de DNS reverso do endereço IP do servidor de envio e verifica se o host está autorizado a enviar email do domínio de origem. 
 
 ## <a name="how-reverse-dns-works"></a>Como funciona o DNS reverso
 
-Os registros do DNS reverso são hospedados em zonas DNS especiais, conhecidas como zonas 'ARPA'.  Essas zonas formam uma hierarquia DNS separada em paralelo com a hierarquia de normal Olá hospedagem domínios como 'contoso.com'.
+Os registros do DNS reverso são hospedados em zonas DNS especiais, conhecidas como zonas 'ARPA'.  Essas zonas formam uma hierarquia DNS separada em paralelo com a hierarquia normal de hospedagem de domínios como ‘contoso.com’.
 
-Por exemplo, Olá 'www.contoso.com' do registro de DNS é implementado usando um registro DNS 'A' com nome hello www na zona de saudação 'contoso.com'.  Esse registro pontos toohello correspondente o endereço IP, neste caso 64.4.6.100.  pesquisa inversa Olá é implementada separadamente, usando um registro de 'PTR' denominado '100' na zona de saudação '6.4.64.in-addr.arpa' (Observe que os endereços IP são revertidos em zonas ARPA.)  Esse registro PTR, se ele tiver sido configurado corretamente, pontos de nome toohello 'www.contoso.com'.
+Por exemplo, o registro DNS 'www.contoso.com' é implementado usando um registro DNS 'A' com o nome ‘www’ na zona ‘contoso.com’.  Este registro A aponta para o endereço IP correspondente, neste caso, 64.4.6.100.  A pesquisa inversa é implementada separadamente, usando um registro 'PTR' chamado '100' na zona '6.4.64.in-addr.arpa' (observe que os endereços IP são revertidos em zonas ARPA).  Esse registro PTR, caso tenha sido configurado corretamente, aponta para o nome ‘www.contoso.com’.
 
-Quando uma organização recebe um bloco de endereço IP, eles também adquirem zona Olá ARPA correspondente à direita toomanage hello. Olá zonas ARPA correspondente endereço IP toohello blocos usados pelo Azure hospedados e gerenciados pela Microsoft. Seu ISP pode hospedar a zona ARPA Olá para seus próprios endereços IP para você, ou pode permitir tooyou host zona ARPA Olá em um serviço DNS de sua escolha, como DNS do Azure.
+Quando uma organização recebe um bloco de endereços IP, também adquirem o direito de gerenciar a zona ARPA correspondente. As zonas ARPA correspondentes aos blocos de endereços IP usados pelo Azure são hospedadas e gerenciadas pela Microsoft. Seu ISP pode hospedar a zona ARPA para seus próprios endereços IP para você, ou pode permitir que você hospede a zona ARPA em um serviço DNS de sua escolha, como o Azure DNS.
 
 > [!NOTE]
-> As pesquisas DNS diretas e as pesquisas DNS inversas são implementadas em hierarquias de DNS separadas e paralelas. saudação de pesquisa inversa de 'www.contoso.com' é **não** hospedado na zona hello "contoso.com", em vez disso, ele está hospedado na zona ARPA Olá para o bloco de endereço IP correspondente hello. Zonas separadas são usadas para blocos de endereço IPv4 e IPv6.
+> As pesquisas DNS diretas e as pesquisas DNS inversas são implementadas em hierarquias de DNS separadas e paralelas. A pesquisa inversa para 'www.contoso.com' **não** é hospedada na zona ‘contoso.com’, mas na região ARPA para o bloco de endereços IP correspondente. Zonas separadas são usadas para blocos de endereço IPv4 e IPv6.
 
 ### <a name="ipv4"></a>IPv4
 
-nome de saudação de uma zona de pesquisa inversa IPv4 deve estar no hello formato a seguir: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+O nome de uma zona de pesquisa inversa de IPv4 deve estar no seguinte formato: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
-Por exemplo, ao criar uma zona inversa toohost registros para hosts com IPs que estão no prefixo de 192.0.2.0/24 Olá, nome da zona Olá seria criado isolando o prefixo de rede de saudação do endereço da saudação (192.0.2) e invertendo a ordem da saudação (2.0.192) e adicionando Olá sufixo `.in-addr.arpa`.
+Por exemplo, ao criar uma zona inversa para hospedar registros de hosts com IPs que estão no prefixo 192.0.2.0/24, o nome da zona seria criado isolando o prefixo de rede do endereço (192.0.2) e, em seguida, invertendo a ordem (2.0.192) e adicionando o sufixo `.in-addr.arpa`.
 
 |Classe de sub-rede|Prefixo de rede  |Prefixo de rede invertido  |Sufixo padrão  |Nome da zona inversa |
 |-------|----------------|------------|-----------------|---------------------------|
@@ -53,13 +53,13 @@ Por exemplo, ao criar uma zona inversa toohost registros para hosts com IPs que 
 
 ### <a name="classless-ipv4-delegation"></a>Delegação de IPv4 sem classe
 
-Em alguns casos, o intervalo IP de saudação alocado tooan organização é menor do que uma classe C (/ 24) intervalo. Nesse caso, o intervalo de IP hello não está em um limite de zona em Olá `.in-addr.arpa` hierarquia da zona e, portanto, não pode ser delegada como uma zona filho.
+Em alguns casos, o intervalo de IP alocado a uma organização é menor do que o intervalo de uma Classe C (/24). Nesse caso, o intervalo de IP não está em um limite de zona dentro da hierarquia de zonas `.in-addr.arpa` e, portanto, não pode ser delegado como uma zona filho.
 
-Em vez disso, um mecanismo diferente é usado tooa dedicado zona DNS de registros de controle de tootransfer de pesquisa inversa individual (PTR). Esse mecanismo delega uma zona filho para cada intervalo IP e mapeia cada endereço IP no hello individualmente intervalo toothat zona de filho usando registros CNAME.
+Em vez disso, um mecanismo diferente é usado para transferir o controle de registros individuais de pesquisa inversa (PTR) a uma zona DNS dedicada. Esse mecanismo delega uma zona filho para cada intervalo de IP, depois, mapeia cada endereço IP no intervalo individualmente para essa zona filho usando registros CNAME.
 
-Por exemplo, suponha que uma organização recebe Olá IP intervalo 192.0.2.128/26 por seu ISP. Isso representa 64 endereços IP, de 192.0.2.128 too192.0.2.191. O DNS reverso para esse intervalo é implementado da seguinte maneira:
-- organização de saudação cria uma zona de pesquisa inversa chamada 128-26.2.0.192.in-addr. arpa. prefixo de saudação ' 128-26' representa Olá rede segmento atribuído toohello organização dentro Olá classe C (/ 24) intervalo.
-- Olá ISP cria tooset de registros NS backup Olá delegação de saudação acima da zona DNS da zona de pai de classe C hello. Ele também cria registros CNAME na zona de pesquisa inversa do hello pai (classe C), cada endereço IP na Olá IP intervalo toohello nova zona criada pela organização de saudação de mapeamento:
+Por exemplo, suponha que uma organização receba o intervalo de IP 192.0.2.128/26 de seu ISP. Isso representa 64 endereços IP, de 192.0.2.128 a 192.0.2.191. O DNS reverso para esse intervalo é implementado da seguinte maneira:
+- A organização cria uma zona de pesquisa inversa chamada 128-26.2.0.192.in-addr.arpa. O prefixo '128-26' representa o segmento de rede atribuído à organização dentro do intervalo da Classe C (/24).
+- O ISP cria os registros NS para configurar a delegação de DNS para a zona acima a partir da zona pai da Classe C. Ele também cria registros CNAME na zona de pesquisa inversa pai (Classe C), mapeando cada endereço IP no intervalo de IP para a nova zona criada pela organização:
 
 ```
 $ORIGIN 2.0.192.in-addr.arpa
@@ -72,7 +72,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 131       CNAME    131.128-26.2.0.192.in-addr.arpa
 ; etc
 ```
-- Olá organização e gerencia os registros PTR individuais hello dentro de suas zonas filho.
+- Em seguida, a organização gerencia os registros PTR individuais dentro de sua zona filho.
 
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
@@ -82,13 +82,13 @@ $ORIGIN 128-26.2.0.192.in-addr.arpa
 131      PTR    partners.contoso.com
 ; etc
 ```
-Uma pesquisa inversa para consultas de endereço '192.0.2.129' hello IP para um registro PTR chamado '129.2.0.192.in-addr.arpa'. Essa consulta resolve via Olá CNAME no registro PTR Olá pai zona toohello na zona de filho hello.
+Uma pesquisa inversa para o endereço Ip '192.0.2.129' consulta um registro PTR chamado '129.2.0.192.in-addr.arpa'. Essa consulta é resolvida por meio do CNAME na zona pai para o registro PTR na zona filho.
 
 ### <a name="ipv6"></a>IPv6
 
-nome de saudação de uma zona de pesquisa inversa IPv6 deve estar no hello formulário a seguir:`<IPv6 network prefix in reverse order>.ip6.arpa`
+O nome de uma zona de pesquisa inversa de IPv6 deve estar no seguinte formato: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Por exemplo, Ao criar uma zona inversa toohost registros para hosts com IPs que estão em Olá 2001:db8:1000:abdc:: / 64 prefixo, nome da zona Olá seria criado isolando o prefixo de rede de saudação do endereço da saudação (2001:db8:abdc::). Em seguida, expanda tooremove de prefixo de rede IPv6 de saudação [zero compactação](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), se ele foi o prefixo de endereço usado tooshorten Olá IPv6 (2001:0db8:abdc:0000::). Olá ordem inversa, usando um período como Olá delimitador entre cada número hexadecimal no prefixo hello, Olá toobuild revertida prefixo de rede (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicione o sufixo Olá `.ip6.arpa`.
+Por exemplo, Ao criar uma zona inversa para hospedar registros de hosts com IPs que estão no prefixo 2001:db8:1000:abdc::/64, o nome da zona seria criado isolando o prefixo de rede do endereço (2001:db8:abdc::). Em seguida, expanda o prefixo de rede IPv6 para remover [compactação zero](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), se ela tiver sido usada para reduzir o prefixo de endereço IPv6 (2001:0db8:abdc:0000::). Inverta a ordem usando um período como o delimitador entre cada número hexadecimal no prefixo, a fim de compilar o prefixo de rede invertido (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicionar o sufixo `.ip6.arpa`.
 
 
 |Prefixo de rede  |Prefixo de rede expandido e invertido |Sufixo padrão |Nome da zona inversa  |
@@ -99,18 +99,18 @@ Por exemplo, Ao criar uma zona inversa toohost registros para hosts com IPs que 
 
 ## <a name="azure-support-for-reverse-dns"></a>Suporte do Azure para DNS reverso
 
-Azure oferece suporte a dois cenários separados relacionadas tooreverse DNS:
+O Azure dá suporte a dois cenários separados relacionados ao DNS reverso:
 
-**Olá pesquisa inversa zona correspondente tooyour bloco de endereço IP de hospedagem.**
-DNS do Azure podem ser usados de maneira muito[hospedar as zonas de pesquisa inversa e gerenciar registros PTR Olá para cada pesquisa inversa de DNS](dns-reverse-dns-hosting.md), tanto para IPv4 quanto IPv6.  Olá o processo de criação de zona de pesquisa inversa (ARPA) Olá, configurar a delegação de saudação e configurando PTR registros é Olá mesmo que para as zonas DNS regulares.  Olá apenas as diferenças são que Olá delegação deve ser configurada por meio de seu ISP, em vez de um registrador de DNS e Olá tipo de registro PTR deve ser usado.
+**Hospedagem da zona de pesquisa inversa correspondente ao seu bloco de endereços IP.**
+O Azure DNS pode ser usado para [hospedar suas zonas de pesquisa inversa e gerenciar os registros PTR para cada pesquisa de DNS reverso](dns-reverse-dns-hosting.md) para IPv4 e IPv6.  O processo de criação da zona de pesquisa inversa (ARPA), de configuração da delegação e de configuração de registros PTR é o mesmo para as zonas DNS regulares.  As únicas diferenças são que a delegação deve ser configurada por meio de seu ISP em vez de um registrador de DNS, e somente o tipo de registro PTR deve ser usado.
 
-**Configure o registro DNS reverso Olá para o endereço IP hello atribuído tooyour serviço do Azure.** Azure permite muito[Configurar pesquisa inversa Olá para endereços IP de saudação alocados tooyour serviço do Azure](dns-reverse-dns-for-azure-services.md).  Esta pesquisa inversa é configurada pelo Azure como um registro PTR na zona ARPA correspondente hello.  Essas zonas ARPA, correspondente a intervalos IP hello tooall usados pelo Azure, hospedadas pela Microsoft
+**Configure o registro DNS reverso para o endereço IP atribuído ao seu serviço do Azure.** O Azure permite que você [configure a pesquisa inversa para os endereços IP alocados para seu serviço do Azure](dns-reverse-dns-for-azure-services.md).  Essa pesquisa inversa é configurada pelo Azure como um registro PTR na zona ARPA correspondente.  Essas zonas ARPA, correspondentes a todos os intervalos IP usados pelo Azure, são hospedadas pela Microsoft
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Saiba como muito[zona de pesquisa inversa de saudação de host para o intervalo IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [hospedar a zona de pesquisa inversa para o intervalo de IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 <br>
-Saiba como muito[gerenciar registros DNS reversos para os serviços do Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [gerenciar registros DNS reversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md).
 

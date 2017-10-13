@@ -1,5 +1,5 @@
 ---
-title: "aaaScheduler autenticação de saída"
+title: "Autenticação de Saída do Agendador"
 description: "Autenticação de Saída do Agendador"
 services: scheduler
 documentationcenter: .NET
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-ms.openlocfilehash: ef713f4770b48d0a9176415e87c1042a823582e5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticação de Saída do Agendador
-Trabalhos do Agendador talvez seja necessário toocall out tooservices que requer autenticação. Dessa forma, um serviço chamado pode determinar se o trabalho do Agendador Olá poderá acessar seus recursos. Alguns desses serviços incluem outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados.
+Os trabalhos do Agendador podem precisar chamar serviços que requerem autenticação. Dessa forma, um serviço chamado pode determinar se o trabalho do Agendador poderá acessar seus recursos. Alguns desses serviços incluem outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados.
 
 ## <a name="adding-and-removing-authentication"></a>Adição e Remoção de Autenticação
-Adicionando o trabalho do Agendador tooa autenticação é simple: Adicione um elemento filho JSON `authentication` toohello `request` elemento ao criar ou atualizar um trabalho. Segredos passados toohello serviço do Agendador em uma solicitação PUT, PATCH ou POST – como parte da saudação `authentication` objeto – nunca são retornados em respostas. Nas respostas, informações secretas estão definidas toonull ou podem ter um token público que representa a entidade Olá autenticado.
+Adicionar a autenticação para um trabalho do Agendador é simples: adicione um elemento filho JSON `authentication` para o elemento `request` ao criar ou atualizar um trabalho. Os segredos passados para o serviço do Agendador em uma solicitação PUT, PATCH ou POST, como parte do objeto `authentication` , nunca são retornados em respostas. Nas respostas, as informações secretas são definidas como nulo ou podem ter um token público que representa a entidade autenticada.
 
-autenticação tooremove, PUT ou PATCH trabalho Olá explicitamente, definindo Olá `authentication` toonull do objeto. Você não verá quaisquer propriedades de autenticação na resposta.
+Para remover a autenticação, faça PUT ou PATCH do trabalho explicitamente, configurando o objeto `authentication` como nulo. Você não verá quaisquer propriedades de autenticação na resposta.
 
-Atualmente, os tipos de autenticação Olá só tem suportada estão Olá `ClientCertificate` modelo (para usar certificados de cliente SSL/TLS Olá), Olá `Basic` de modelo (para autenticação básica) e Olá `ActiveDirectoryOAuth` modelo (para o Active Directory OAuth autenticação).
+Atualmente, os únicos tipos de autenticação com suporte são o modelo `ClientCertificate` (para uso dos certificados de cliente SSL/TLS), o modelo `Basic` (para autenticação básica) e o modelo `ActiveDirectoryOAuth` (para autenticação OAuth do Active Directory.)
 
 ## <a name="request-body-for-clientcertificate-authentication"></a>Corpo da solicitação de autenticação ClientCertificate
-Ao adicionar a autenticação usando Olá `ClientCertificate` de modelo, especifique Olá elementos adicionais no corpo da solicitação Olá a seguir.  
+Ao adicionar a autenticação usando o modelo `ClientCertificate` , especifique os seguintes elementos adicionais no corpo da solicitação.  
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar um certificado de cliente SSL. |
-| *tipo* |Obrigatório. Tipo de autenticação. Para certificados de cliente SSL, o valor de saudação deve ser `ClientCertificate`. |
-| *pfx* |Obrigatório. Conteúdo codificado na Base64 do arquivo PFX de saudação. |
-| *password* |Obrigatório. Arquivo PFX do senha tooaccess hello. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| *pfx* |Obrigatório. Conteúdo codificado na Base64 do arquivo PFX. |
+| *password* |Obrigatório. Senha para acessar o arquivo PFX. |
 
 ## <a name="response-body-for-clientcertificate-authentication"></a>Corpo da resposta para autenticação ClientCertificate
-Quando uma solicitação é enviada com informações de autenticação, a resposta de saudação contém Olá elementos de autenticação a seguir.
+Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar um certificado de cliente SSL. |
-| *tipo* |Tipo de autenticação. Para certificados de cliente SSL, o valor de saudação é `ClientCertificate`. |
-| *certificateThumbprint* |impressão digital de saudação do certificado hello. |
-| *certificateSubjectName* |Olá nome diferenciado do assunto do certificado de saudação. |
-| *certificateExpiration* |Data de expiração de saudação do certificado de saudação. |
+| *tipo* |Tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| *certificateThumbprint* |A impressão digital do certificado. |
+| *certificateSubjectName* |O nome distinto da entidade do certificado. |
+| *certificateExpiration* |A data de validade do certificado. |
 
 ## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Exemplo de solicitação REST para autenticação ClientCertificate
 ```
@@ -144,23 +144,23 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 ```
 
 ## <a name="request-body-for-basic-authentication"></a>Corpo da solicitação de autenticação básica
-Ao adicionar a autenticação usando Olá `Basic` de modelo, especifique Olá elementos adicionais no corpo da solicitação Olá a seguir.
+Ao adicionar a autenticação usando o modelo `Basic` , especifique os seguintes elementos adicionais no corpo da solicitação.
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação básica. |
-| *tipo* |Obrigatório. Tipo de autenticação. Para a autenticação básica, o valor de saudação deve ser `Basic`. |
-| *username* |Obrigatório. Nome de usuário tooauthenticate. |
-| *password* |Obrigatório. Senha tooauthenticate. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para a autenticação básica, o valor deve ser `Basic`. |
+| *username* |Obrigatório. Nome de usuário para autenticação. |
+| *password* |Obrigatório. Senha para autenticação. |
 
 ## <a name="response-body-for-basic-authentication"></a>Corpo da resposta de autenticação básica
-Quando uma solicitação é enviada com informações de autenticação, a resposta de saudação contém Olá elementos de autenticação a seguir.
+Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação básica. |
-| *tipo* |Tipo de autenticação. Para a autenticação básica, o valor de saudação é `Basic`. |
-| *username* |Olá autenticado o nome de usuário. |
+| *tipo* |Tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
+| *username* |O nome de usuário autenticado. |
 
 ## <a name="sample-rest-request-for-basic-authentication"></a>Exemplo de solicitação REST para autenticação Básica
 ```
@@ -254,30 +254,30 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 ```
 
 ## <a name="request-body-for-activedirectoryoauth-authentication"></a>Corpo da solicitação de autenticação ActiveDirectoryOAuth
-Ao adicionar a autenticação usando Olá `ActiveDirectoryOAuth` de modelo, especifique Olá elementos adicionais no corpo da solicitação Olá a seguir.
+Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth` , especifique os seguintes elementos adicionais no corpo da solicitação.
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth. |
-| *tipo* |Obrigatório. Tipo de autenticação. Para autenticação do ActiveDirectoryOAuth, o valor de saudação deve ser `ActiveDirectoryOAuth`. |
-| *tenant* |Obrigatório. Identificador do locatário Olá para o locatário de saudação do AD do Azure. |
-| *audience* |Obrigatório. Isso é definido toohttps://management.core.windows.net/. |
-| *clientId* |Obrigatório. Forneça o identificador de saudação do cliente para Olá aplicativo AD do Azure. |
-| *secret* |Obrigatório. Segredo do cliente Olá que está solicitando o token hello. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor deve ser `ActiveDirectoryOAuth`. |
+| *tenant* |Obrigatório. O identificador do locatário para o locatário do Azure AD. |
+| *audience* |Obrigatório. Isso é definido como https://management.core.windows.net/. |
+| *clientId* |Obrigatório. Forneça o identificador de cliente para o aplicativo do AD do Azure. |
+| *secret* |Obrigatório. Segredo do cliente que está solicitando o token. |
 
 ### <a name="determining-your-tenant-identifier"></a>Determinando o identificador do locatário
-Você pode encontrar o identificador do locatário Olá para o locatário de saudação do AD do Azure executando `Get-AzureAccount` no Azure PowerShell.
+Você pode encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell.
 
 ## <a name="response-body-for-activedirectoryoauth-authentication"></a>Corpo da resposta de autenticação ActiveDirectoryOAuth
-Quando uma solicitação é enviada com informações de autenticação, a resposta de saudação contém Olá elementos de autenticação a seguir.
+Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
 | Elemento | Descrição |
 |:--- |:--- |
 | *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth. |
-| *tipo* |Tipo de autenticação. Para autenticação do ActiveDirectoryOAuth, o valor de saudação é `ActiveDirectoryOAuth`. |
-| *tenant* |Identificador do locatário Olá para o locatário de saudação do AD do Azure. |
-| *audience* |Isso é definido toohttps://management.core.windows.net/. |
-| *clientId* |Olá identificador de cliente para o aplicativo hello AD do Azure. |
+| *tipo* |Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
+| *tenant* |O identificador do locatário para o locatário do Azure AD. |
+| *audience* |Isso é definido como https://management.core.windows.net/. |
+| *clientId* |O identificador de cliente para o aplicativo do AD do Azure. |
 
 ## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Exemplo de solicitação REST para autenticação ActiveDirectoryOAuth
 ```
@@ -380,7 +380,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 

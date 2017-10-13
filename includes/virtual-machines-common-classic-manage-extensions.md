@@ -2,14 +2,14 @@
 
 
 ## <a name="using-vm-extensions"></a>Usando extensões de VM
-Extensões de VM do Azure implementam comportamentos ou recursos que o ajudam a outros programas funcionam em máquinas virtuais do Azure (por exemplo, Olá **WebDeployForVSDevTest** extensão permite implantar soluções Visual Studio tooWeb em sua VM do Azure) ou fornecer Olá capacidade para que você toointeract com hello VM toosupport alguns outros comportamentos (por exemplo, você pode usar extensões de acesso da máquina virtual de saudação do PowerShell, Olá CLI do Azure e REST clientes tooreset ou modificar valores de acesso remoto em sua VM do Azure).
+As Extensões de VM do Azure implementam comportamentos ou recursos que ajudam outros programas a funcionar em VMs do Azure (por exemplo, a extensão **WebDeployForVSDevTest** permite o Visual Studio para soluções de implantação da Web em sua VM do Azure) ou fornecem a capacidade de interagir com a máquina virtual para dar suporte a alguns outros comportamentos (por exemplo, você pode usar as extensões de acesso da máquina virtual do Powershell, a CLI do Azure e clientes REST para redefinir ou modificar os valores de acesso remoto na sua VM do Azure).
 
 > [!IMPORTANT]
-> Para obter uma lista completa das extensões pelos recursos de saudação que oferecem suporte, consulte [extensões de VM do Azure e recursos](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Como cada extensão VM oferece suporte a um recurso específico, exatamente o que você pode e não pode fazer com uma extensão depende Olá extensão. Portanto, antes de modificar sua VM, verifique se que você leu documentação Olá Olá extensão de VM que você deseja toouse. Não há suporte para remover algumas extensões de VM; outras têm propriedades que podem ser definidas e que alteram radicalmente o comportamento da VM.
+> Para obter uma lista completa das extensões pelos recursos aos quais elas dão suporte, consulte [Extensões e recursos de VM do Azure](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Como cada extensão de VM dá suporte a um recurso específico, exatamente o que você pode e não pode fazer com uma extensão depende da extensão. Portanto, antes de modificar a sua VM, verifique se que você leu a documentação para a extensão de VM que deseja usar. Não há suporte para remover algumas extensões de VM; outras têm propriedades que podem ser definidas e que alteram radicalmente o comportamento da VM.
 > 
 > 
 
-Olá as tarefas mais comuns são:
+As tarefas mais comuns são:
 
 1. Localizando extensões disponíveis
 2. Atualizando extensões carregadas
@@ -23,15 +23,15 @@ Você pode localizar a extensão e as informações estendidas usando:
 * Interface de linha de comando da plataforma cruzada do Azure (CLI do Azure)
 * API REST de gerenciamento de serviço
 
-### <a name="azure-powershell"></a>Azure PowerShell
-Algumas extensões têm cmdlets do PowerShell que são toothem específico, o que pode facilitar a configuração do PowerShell; mas hello cmdlets a seguir funcionam para todas as extensões VM.
+### <a name="azure-powershell"></a>PowerShell do Azure
+Algumas extensões têm cmdlets do Powershell que são específicos delas, que podem facilitar suas configurações do PowerShell; mas os seguintes cmdlets funcionam para todas as extensões de VM.
 
-Você pode usar o hello seguintes cmdlets tooobtain informações sobre as extensões disponíveis:
+Você pode usar os cmdlets a seguir para obter informações sobre as extensões disponíveis:
 
-* Para instâncias de funções web ou funções de trabalho, você pode usar o hello [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet.
-* Para instâncias de máquinas virtuais, você pode usar o hello [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
+* Para instâncias de funções web ou funções de trabalho, você pode usar o cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) .
+* Para instâncias de máquinas virtuais, você pode usar o cmdlet [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) .
   
-   Por exemplo, Olá mostra exemplo de código a seguir como toolist as informações de saudação **IaaSDiagnostics** extensão usando o PowerShell.
+   Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o PowerShell.
   
       PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
   
@@ -55,11 +55,11 @@ Você pode usar o hello seguintes cmdlets tooobtain informações sobre as exten
       CompanyName                 :
 
 ### <a name="azure-command-line-interface-azure-cli"></a>Interface de Linha de Comando do Azure (CLI do Azure)
-Algumas extensões têm comandos de CLI do Azure que são específico toothem (Olá extensão da VM Docker é um exemplo), que podem facilitar suas configurações; mas a seguir Olá comandos funcionam para todas as extensões VM.
+Algumas extensões têm os comandos da CLI do Azure específicos a elas (a Extensão de VM do Docker é um exemplo), que podem facilitar suas configurações; mas os comandos a seguir funcionam para todas as extensões de VM.
 
-Você pode usar o hello **lista de extensões de vm do azure** tooobtain informações sobre as extensões disponíveis de comando e use Olá **–-json** opção toodisplay todas as informações disponíveis sobre uma ou mais extensões. Se você não usar um nome de extensão, o comando Olá retorna uma descrição de JSON de todas as extensões disponíveis.
+Você pode usar o comando **azure vm extension list** para obter informações sobre as extensões disponíveis e usar a opção **–-json** para exibir todas as informações disponíveis sobre uma ou mais extensões. Se você não usar um nome de extensão, o comando retorna uma descrição JSON de todas as extensões disponíveis.
 
-Por exemplo, Olá exemplo de código a seguir mostra como toolist Olá informações para Olá **IaaSDiagnostics** extensão usando Olá CLI do Azure **lista de extensões de vm do azure** comando e usa Olá **–-json** opção tooreturn obter informações completas.
+Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o comando **azure vm extension list** da CLI do Azure e usa a opção **–-json** para retornar informações completas.
 
     $ azure vm extension list -n IaaSDiagnostics --json
     [
@@ -77,32 +77,32 @@ Por exemplo, Olá exemplo de código a seguir mostra como toolist Olá informaç
 
 
 ### <a name="service-management-rest-apis"></a>APIs REST do Gerenciamento de Serviço
-Você pode usar o hello seguintes APIs REST tooobtain informações sobre as extensões disponíveis:
+Você pode usar as APIs REST a seguir para obter informações sobre as extensões disponíveis:
 
-* Para instâncias de funções web ou funções de trabalho, você pode usar o hello [listar extensões disponíveis](https://msdn.microsoft.com/library/dn169559.aspx) operação. versões de saudação toolist de extensões disponíveis, você pode usar [listar versões da extensão](https://msdn.microsoft.com/library/dn495437.aspx).
-* Para instâncias de máquinas virtuais, você pode usar o hello [listar extensões de recurso](https://msdn.microsoft.com/library/dn495441.aspx) operação. versões de saudação toolist de extensões disponíveis, você pode usar [listar versões da extensão de recurso](https://msdn.microsoft.com/library/dn495440.aspx).
+* Para instâncias de funções web ou funções de trabalho, você pode usar a operação [Listar extensões disponíveis](https://msdn.microsoft.com/library/dn169559.aspx) . Para listar as versões de extensões disponíveis, você pode usar [Listar versões da extensão](https://msdn.microsoft.com/library/dn495437.aspx).
+* Para instâncias de máquinas virtuais, você pode usar a operação [Listar extensões de recurso](https://msdn.microsoft.com/library/dn495441.aspx) . Para listar as versões de extensões disponíveis, você pode usar [Listar versões da extensão de recurso](https://msdn.microsoft.com/library/dn495440.aspx).
 
 ## <a name="add-update-or-disable-extensions"></a>Adicionar, atualizar ou desabilitar extensões
-As extensões podem ser adicionadas quando uma instância for criada ou podem ser adicionadas tooa instância em execução. As Extensões podem ser atualizadas, desabilitadas ou removidas. Você pode executar essas ações usando cmdlets do PowerShell do Azure ou usando operações de API de REST de gerenciamento de serviços de saudação. Parâmetros são necessário tooinstall e configurar algumas extensões. Os parâmetros públicos e privados têm suporte para extensões.
+As extensões podem ser adicionadas quando uma instância for criada ou podem ser adicionadas a uma instância em execução. As Extensões podem ser atualizadas, desabilitadas ou removidas. Você pode executar essas ações usando cmdlets do Azure PowerShell ou usando as operações de API de REST do Gerenciamento de serviço. São necessários parâmetros para instalar e configurar algumas extensões. Os parâmetros públicos e privados têm suporte para extensões.
 
-### <a name="azure-powershell"></a>Azure PowerShell
-Usando cmdlets do PowerShell do Azure é hello mais fácil maneira tooadd e atualizar as extensões. Quando você usar os cmdlets de extensão hello, a maioria da configuração de saudação da extensão de saudação é feito para você. Às vezes, talvez seja necessário tooprogrammatically adicionar uma extensão. Quando você precisar toodo isso, você deve fornecer configuração de saudação da extensão de saudação.
+### <a name="azure-powershell"></a>PowerShell do Azure
+Usar cmdlets do Azure PowerShell é a maneira mais fácil de adicionar e atualizar extensões. Quando você usa os cmdlets de extensão, a maioria da configuração da extensão é feita para você. Às vezes, talvez seja necessário adicionar programaticamente uma extensão. Quando precisar fazer isso, você deverá fornecer a configuração da extensão.
 
-Você pode usar o hello tooknow cmdlets a seguir se uma extensão requer uma configuração de parâmetros públicos e privados:
+Você pode usar os cmdlets a seguir para saber se uma extensão requer uma configuração de parâmetros públicos e privados:
 
-* Para instâncias de funções web ou funções de trabalho, você pode usar o hello **Get-AzureServiceAvailableExtension** cmdlet.
-* Para instâncias de máquinas virtuais, você pode usar o hello **Get-AzureVMAvailableExtension** cmdlet.
+* Para instâncias de funções web ou funções de trabalho, você pode usar o cmdlet **Get-AzureServiceAvailableExtension** .
+* Para instâncias de máquinas virtuais, você pode usar o cmdlet **Get-AzureVMAvailableExtension** .
 
 ### <a name="service-management-rest-apis"></a>APIs REST do Gerenciamento de Serviço
-Quando você recupera uma lista de extensões disponíveis usando Olá APIs REST, você receberá informações sobre como a extensão de saudação é toobe configurado. informações de saudação que são retornadas podem mostrar informações de parâmetro representadas por um esquema público e um esquema privado. Valores de parâmetros públicos são retornados em consultas sobre as instâncias de saudação. Os valores dos parâmetros privados não são retornados.
+Ao recuperar uma lista de extensões disponíveis usando as APIs REST, você receberá informações sobre como a extensão deve ser configurada. As informações retornadas podem mostrar informações de parâmetro representadas por um esquema público e um esquema privado. Os valores de parâmetros públicos são retornados em consultas sobre as instâncias. Os valores dos parâmetros privados não são retornados.
 
-Você pode usar o hello tooknow de APIs REST a seguir se uma extensão requer uma configuração de parâmetros públicos e privados:
+Você pode usar as APIs REST a seguir para saber se uma extensão requer uma configuração de parâmetros públicos e privados:
 
-* Para instâncias de funções web ou funções de trabalho, Olá **PublicConfigurationSchema** e **PrivateConfigurationSchema** elementos contêm informações de saudação na resposta de saudação do hello [lista As extensões disponíveis](https://msdn.microsoft.com/library/dn169559.aspx) operação.
-* Para instâncias de máquinas virtuais, Olá **PublicConfigurationSchema** e **PrivateConfigurationSchema** elementos contêm informações de saudação na resposta de saudação do hello [lista Extensões de recurso](https://msdn.microsoft.com/library/dn495441.aspx) operação.
+* Para instâncias de funções Web ou funções de trabalho, os elementos **PublicConfigurationSchema** e **PrivateConfigurationSchema** contêm as informações na resposta da operação [Listar Extensões Disponíveis](https://msdn.microsoft.com/library/dn169559.aspx).
+* Para instâncias de Máquinas Virtuais, os elementos **PublicConfigurationSchema** e **PrivateConfigurationSchema** contêm as informações na resposta da operação [Listar Extensões de Recurso](https://msdn.microsoft.com/library/dn495441.aspx).
 
 > [!NOTE]
-> As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, somente Olá **SampleConfig** elemento é usado.
+> As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 > 
 > 
 

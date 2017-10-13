@@ -1,6 +1,6 @@
 ---
-title: aaaManage DNS registram conjuntos e registros de DNS do Azure | Microsoft Docs
-description: "DNS do Azure fornece o registro DNS do hello recurso toomanage define e registra ao hospedar seu domínio."
+title: Gerenciar conjuntos de registros DNS e registros com o DNS do Azure | Microsoft Docs
+description: "O DNS do Azure fornece a capacidade de gerenciar registros e conjuntos de registros de DNS ao hospedar seu domínio."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.openlocfilehash: 2e62d017341589eaf8d1f8df2fe5db4b973381d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="manage-dns-records-and-record-sets-by-using-hello-azure-portal"></a>Gerenciar registros de DNS e conjuntos de registros usando Olá portal do Azure
+# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
@@ -29,76 +29,76 @@ ms.lasthandoff: 10/06/2017
 > * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Este artigo mostra como toomanage conjuntos de registros e os registros para a zona DNS usando Olá portal do Azure.
+Este artigo mostra como gerenciar registros e conjuntos de registros da zona DNS usando o portal do Azure.
 
-É importante toounderstand diferença de saudação entre conjuntos de registros de DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona ter Olá mesmo nome e são Olá mesmo tipo. Para obter mais informações, consulte [registros usando e conjuntos de registros de DNS criar hello portal do Azure](dns-getstarted-create-recordset-portal.md).
+É importante compreender a diferença entre os conjuntos de registros DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona que tem o mesmo nome e o mesmo tipo. Para obter mais informações, veja [Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Criar registro e um novo conjunto de registros
 
-toocreate um conjunto de registros em Olá portal do Azure, consulte [Olá de registros de DNS criar usando o portal do Azure](dns-getstarted-create-recordset-portal.md).
+Para criar um conjunto de registros no portal do Azure, veja [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md)(Criar registros DNS usando o Portal do Azure).
 
 ## <a name="view-a-record-set"></a>Exibir um conjunto de registros
 
-1. No portal do Azure de Olá, vá toohello **zona DNS** folha.
-2. Pesquisar o conjunto de registros hello e selecioná-lo. Isso abre as propriedades de conjunto de registros de saudação.
+1. No portal do Azure, vá para a folha **Zona DNS** .
+2. Procure o conjunto de registros e selecione-o. Isso abrirá as propriedades do conjunto de registros.
 
     ![Pesquisar um conjunto de registros](./media/dns-operations-recordsets-portal/searchset500.png)
 
-## <a name="add-a-new-record-tooa-record-set"></a>Adicionar um novo conjunto de registros de registro tooa
+## <a name="add-a-new-record-to-a-record-set"></a>Adicionar um novo registro a um conjunto de registros
 
-Você pode adicionar o conjunto de registros too20 registros tooany. Um conjunto de registros não pode conter dois registros idênticos. Conjuntos de registros vazios (com zero registros) podem ser criados, mas não aparecem nos servidores de nome DNS do Azure hello. Os conjuntos de registros do tipo CNAME podem conter, no máximo, um registro.
+Você pode adicionar até 20 registros em qualquer conjunto de registros. Um conjunto de registros não pode conter dois registros idênticos. Conjuntos de registros vazios (sem nenhum registro) podem ser criados, mas não aparecem nos servidores de nome DNS do Azure. Os conjuntos de registros do tipo CNAME podem conter, no máximo, um registro.
 
-1. Em Olá **propriedades de conjunto de registros** folha para a zona DNS, clique em registro Olá definido que deseja tooadd um registro.
+1. Na folha **Propriedades do conjunto de registros** da zona DNS, clique no conjunto de registros ao qual você quer adicionar um registro.
 
     ![Selecionar um conjunto de registros](./media/dns-operations-recordsets-portal/selectset500.png)
 
-2. Especifica propriedades de conjunto de registros de saudação preenchendo os campos de saudação.
+2. Especifique as configurações do conjunto de registros preenchendo os campos.
 
     ![Adicionar um registro](./media/dns-operations-recordsets-portal/addrecord500.png)
 
-3. Clique em **salvar** em Olá superior da saudação folha toosave suas configurações. Em seguida, feche a folha de saudação.
-4. Canto hello, você verá que está salvando o registro de saudação.
+3. Clique em **Salvar** na parte superior da folha para salvar as configurações. Em seguida, feche a folha.
+4. No canto, você verá que o registro está sendo salvo.
 
     ![Salvando o conjunto de registros](./media/dns-operations-recordsets-portal/saving150.png)
 
-Depois que o registro Olá foi salvo, Olá valores hello **zona DNS** folha refletirá o novo registro de saudação.
+Assim que o registro for salvo, os valores da folha **Zona DNS** refletirão o novo registro.
 
 ## <a name="update-a-record"></a>Atualizar um registro
 
-Quando você atualiza um registro em um conjunto de registros existente, campos de saudação, que você pode atualizar dependem do tipo de saudação do registro que o estiver trabalhando com.
+Ao atualizar um registro em um conjunto de registros existente, os campos disponíveis que poderão ser atualizados dependem do tipo de registro com o qual você está trabalhando.
 
-1. Em Olá **propriedades de conjunto de registros** folha para seu conjunto de registros, pesquise o registro de saudação.
-2. Modificar o registro de saudação. Quando você modifica um registro, você pode alterar configurações disponíveis de saudação para registro de saudação. Em Olá exemplo a seguir, Olá **endereço IP** campo é selecionado, e o endereço IP de saudação está no processo de saudação do que está sendo modificado.
+1. Na folha **Propriedades do conjunto de registros** do conjunto de registros, procure o registro.
+2. Modifique o registro. Quando você modifica um registro, é possível alterar suas configurações disponíveis. No exemplo a seguir, o campo **endereço IP** é selecionado e o endereço IP está sendo modificado.
 
     ![Modificar um registro](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Clique em **salvar** em Olá superior da saudação folha toosave suas configurações. Olá no canto superior direito, você verá a notificação de Olá Olá registro foi salvo.
+3. Clique em **Salvar** na parte superior da folha para salvar as configurações. No canto superior direito, você verá a notificação informando que o registro foi salvo.
 
     ![Conjunto de registros salvo](./media/dns-operations-recordsets-portal/saved150.png)
 
-Olá registro foi salvo, os valores de saudação para registro de saudação definidos em Olá **zona DNS** folha refletirá registro Olá atualizado.
+Assim que o registro for salvo, os valores do conjunto de registros na folha **Zona DNS** refletirão o registro atualizado.
 
 ## <a name="remove-a-record-from-a-record-set"></a>Remover um registro de um conjunto de registros
 
-Você pode usar os registros Olá tooremove portal do Azure de um conjunto de registros. Observe que a remover o último registro de saudação de um conjunto de registros não exclui o conjunto de registros de saudação.
+Você pode usar o Portal do Azure para remover registros de um conjunto de registros. Observe que remover o último registro de um conjunto de registros não exclui o conjunto.
 
-1. Em Olá **propriedades de conjunto de registros** folha para seu conjunto de registros, pesquise o registro de saudação.
-2. Clique em registro Olá que você deseja tooremove. Em seguida, selecione **Remover**.
+1. Na folha **Propriedades do conjunto de registros** do conjunto de registros, procure o registro.
+2. Clique no registro que você quer remover. Em seguida, selecione **Remover**.
 
     ![Remover um registro](./media/dns-operations-recordsets-portal/removerecord500.png)
 
-3. Clique em **salvar** em Olá superior da saudação folha toosave suas configurações.
-4. Após a remoção do registro hello, Olá valores de registro de saudação em Olá **zona DNS** folha refletirá a remoção de saudação.
+3. Clique em **Salvar** na parte superior da folha para salvar as configurações.
+4. Assim que o registro for removido, os valores do registro na folha **Zona DNS** refletirão a remoção.
 
 ## <a name="delete"></a>Excluir um conjunto de registros
 
-1. Em Olá **propriedades de conjunto de registros** folha para seu conjunto de registros, clique em **excluir**.
+1. Na folha **Propriedades do conjunto de registros**do conjunto de registros, clique em **Excluir**.
 
     ![Excluir um conjunto de registros](./media/dns-operations-recordsets-portal/deleterecordset500.png)
 
-2. Uma mensagem aparece perguntando se você quiser que o conjunto de registros toodelete hello.
-3. Verifique se o conjunto de registros de Olá Olá nome corresponde ao que você deseja toodelete e, em seguida, clique em **Sim**.
-4. Em Olá **zona DNS** folha, verifique se que o conjunto de registros Olá não está mais visível.
+2. Será exibida uma mensagem perguntando se você deseja excluir o conjunto de registros.
+3. Verifique se o nome corresponde ao conjunto de registros que você quer excluir e clique em **Sim**.
+4. Na folha **Zona DNS** , você poderá verificar que o conjunto de registros não está mais visível.
 
 ## <a name="work-with-ns-and-soa-records"></a>Trabalhar com registros NS e SOA
 
@@ -106,22 +106,22 @@ Os registros NS e SOA que são criados automaticamente são gerenciados de modo 
 
 ### <a name="modify-soa-records"></a>Modificar registros SOA
 
-Você não pode adicionar ou remover registros da saudação criado automaticamente o registro SOA definido no ápice da zona de saudação (nome = "@"). No entanto, você pode modificar qualquer um dos parâmetros de saudação em Olá registro SOA (exceto "Host") e registro Olá definir o TTL.
+Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "@"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
 
-### <a name="modify-ns-records-at-hello-zone-apex"></a>Modificar os registros no ápice da zona de saudação NS
+### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 
-registro de NS Olá definido no ápice da zona de saudação é criado automaticamente com cada zona DNS. Ela contém nomes de saudação da zona do hello Azure DNS nome servidores toohello atribuído.
+O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-Você pode adicionar nome adicionais servidores toothis NS conjunto de registros, toosupport co-hospedagem domínios com mais de um provedor DNS. Você também pode modificar hello TTL e metadados para esse conjunto de registros. No entanto, você não pode remover ou modificar servidores de nome DNS do Azure preenchidos previamente hello.
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
 
-Observe que isso se aplica apenas toohello NS conjunto de registros no ápice da zona de saudação. Outros conjuntos de registros NS na zona (como zonas de filho usado toodelegate) podem ser modificados sem restrição.
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Excluir conjuntos de registros SOA ou NS
 
-Você não pode excluir Olá SOA e NS conjuntos de registros no ápice da zona de saudação (nome = "@") que são criadas automaticamente quando a zona de saudação é criada. Eles são excluídos automaticamente quando você excluir a zona de saudação.
+Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "@") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre DNS do Azure, consulte Olá [visão geral do DNS do Azure](dns-overview.md).
-* Para obter mais informações sobre como automatizar o DNS, consulte [zonas DNS criando e usando conjuntos de registros Olá .NET SDK](dns-sdk.md).
+* Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
+* Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 * Para saber mais sobre os registros DNS reversos, veja [Visão geral de DNS reverso e suporte no Azure](dns-reverse-dns-overview.md).

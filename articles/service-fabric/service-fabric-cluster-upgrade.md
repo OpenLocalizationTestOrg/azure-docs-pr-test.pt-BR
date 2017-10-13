@@ -1,6 +1,6 @@
 ---
-title: aaaUpgrade um cluster do Azure Service Fabric | Microsoft Docs
-description: "Atualizar o código do Service Fabric hello e/ou configuração que é executado de um cluster do Service Fabric, incluindo a definição do modo de atualização de cluster, atualizar certificados, adicionando portas de aplicativo, fazendo patches do sistema operacional, e assim por diante. O que você pode esperar quando são executadas atualizações Olá?"
+title: Atualizar um cluster do Azure Service Fabric | Microsoft Docs
+description: "Atualize o código e/ou configuração do Service Fabric que executa um cluster do Service Fabric, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas do aplicativo, a aplicação de patches no sistema operacional etc. O que você pode esperar após a execução das atualizações?"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
-ms.openlocfilehash: 94ac3833ec0810f79de06ecb50f254028fa90408
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -27,52 +27,52 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Para qualquer sistema moderno, criar o sistema é sucesso a longo prazo tooachieving chave do produto. Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. Este artigo descreve o que é gerenciado automaticamente e o que você pode configurar por conta própria.
+Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. Este artigo descreve o que é gerenciado automaticamente e o que você pode configurar por conta própria.
 
-## <a name="controlling-hello-fabric-version-that-runs-on-your-cluster"></a>Controle de versão do fabric Olá que é executado em seu Cluster
-Você pode definir sua malha automática do cluster tooreceive atualizações conforme elas são lançadas pela Microsoft ou você pode selecionar uma versão com suporte de malha que quiser toobe seu cluster.
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão do Fabric em execução no Cluster
+Você pode definir o cluster para receber atualizações automáticas do Fabric, assim que elas forem liberadas pela Microsoft ou pode optar por selecionar uma versão com suporte do Fabric na qual deseja que o cluster se encontre.
 
-Você pode fazer isso definindo hello "upgradeMode" cluster a configuração no portal de saudação ou usando o Gerenciador de recursos em tempo de saudação da criação ou posterior em um cluster ao vivo 
+Você pode fazer isso definindo a configuração do cluster "upgradeMode" no portal ou usando o Gerenciador de Recursos no momento da criação ou posteriormente em um cluster ativo 
 
 > [!NOTE]
-> Verifique se tookeep o cluster executando uma versão com suporte de malha sempre. Como e quando é anunciar o lançamento de saudação de uma nova versão da malha do serviço, versão anterior de saudação está marcado para o fim do suporte após um mínimo de 60 dias a partir dessa data. Olá novas versões de saudação são anunciadas [no blog da equipe Olá service fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). nova versão de Hello é toochoose disponível. 
+> Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar seu tempo de vida após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Então, a nova versão está disponível para escolha. 
 > 
 > 
 
-14 dias anteriores toohello expiração da versão de saudação seu cluster está em execução, será gerado um evento de integridade que coloca o cluster em um estado de integridade de aviso. cluster Olá permanece em um estado de aviso até você atualizar a versão de malha com suporte de tooa.
+14 dias antes da expiração da versão do cluster em execução, um evento de integridade é gerado, colocando seu cluster em um estado de integridade de aviso. O cluster permanecerá em um estado de aviso até você atualize para uma versão do Fabric com suporte.
 
-### <a name="setting-hello-upgrade-mode-via-portal"></a>Definir o modo de atualização de saudação por meio do portal
-Quando você estiver criando Olá cluster, você pode definir Olá cluster tooautomatic ou manual.
+### <a name="setting-the-upgrade-mode-via-portal"></a>Definindo o modo de atualização por meio do portal
+Você pode definir o cluster para manual ou automático ao criá-lo.
 
 ![Create_Manualmode][Create_Manualmode]
 
-Você pode definir Olá cluster tooautomatic ou manual quando em um cluster de ao vivo, usando o hello gerenciar a experiência. 
+Você pode definir o cluster como automático ou manual quando estiver em um cluster ativo, usando a experiência de gerenciamento. 
 
-#### <a name="upgrading-tooa-new-version-on-a-cluster-that-is-set-toomanual-mode-via-portal"></a>Atualizando tooa nova versão em um cluster que é definir o modo de tooManual por meio do portal.
-tooupgrade tooa nova versão, você só precisa toodo é selecionem versão disponível Olá Olá suspenso e salvar. atualização do Fabric Olá obtém foi iniciada automaticamente. Olá diretivas de integridade do cluster (uma combinação de integridade do nó e a integridade de saudação todos os aplicativos em execução no cluster de saudação de Olá) sejam atendidas tooduring atualização de saudação.
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Atualizando para uma nova versão em um cluster que está definido para o modo Manual por meio do portal.
+Para atualizar para uma nova versão, tudo o que você precisa fazer é selecionar a versão disponível no menu suspenso e salvar. A atualização do Fabric é inicializada automaticamente. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as diretivas de integridade do cluster Olá não forem atendidas, atualização de saudação é revertida. Role para baixo essa tooread de documento mais informações sobre como tooset as políticas de integridade personalizado. 
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Role para baixo deste documento para ler mais sobre como definir as políticas de integridade personalizadas. 
 
-Depois de corrigir problemas de saudação que resultaram em reversão hello, necessidade atualização de saudação tooinitiate novamente, por seguir Olá mesmo etapas como antes.
+Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas de antes.
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
-### <a name="setting-hello-upgrade-mode-via-a-resource-manager-template"></a>Definir o modo de atualização de saudação por meio de um modelo do Gerenciador de recursos
-Adicione Olá a definição de recurso "upgradeMode" configuração toohello Microsoft.ServiceFabric/clusters e conjunto hello "clusterCodeVersion" tooone de saudação suporte para versões de malha, conforme mostrado abaixo e, em seguida, implante o modelo de saudação. os valores válidos para "upgradeMode" Hello são "Manual" ou "Automático"
+### <a name="setting-the-upgrade-mode-via-a-resource-manager-template"></a>Definindo o modo de atualização por meio de um modelo do Resource Manager
+Adicione a configuração "upgradeMode" à definição de recursos Microsoft.ServiceFabric/clusters e defina "clusterCodeVersion" para uma das versões do Fabric com suporte, conforme mostrado abaixo e, em seguida, implante o modelo. Os valores válidos para "upgradeMode" são "Manual" ou "Automático"
 
 ![ARMUpgradeMode][ARMUpgradeMode]
 
-#### <a name="upgrading-tooa-new-version-on-a-cluster-that-is-set-toomanual-mode-via-a-resource-manager-template"></a>Atualizando tooa nova versão em um cluster que é definir o modo de tooManual por meio de um modelo do Gerenciador de recursos.
-Quando o cluster hello está em modo Manual, tooupgrade tooa nova versão, alterar a versão com suporte do tooa clusterCodeVersion"hello" e implantá-lo. implantação de saudação do modelo Olá, é ativada de atualização do Fabric Olá obtém foi iniciada automaticamente. Olá diretivas de integridade do cluster (uma combinação de integridade do nó e a integridade de saudação todos os aplicativos em execução no cluster de saudação de Olá) sejam atendidas tooduring atualização de saudação.
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Atualizando para uma nova versão em um cluster que está definido para o modo Manual por meio do modelo do Resource Manager.
+Quando o cluster está no modo Manual, para atualizar para uma nova versão, altere "clusterCodeVersion" para uma versão com suporte e implante-o. A implantação do modelo ativa a atualização do Fabric, que é inicializada automaticamente. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as diretivas de integridade do cluster Olá não forem atendidas, atualização de saudação é revertida. Role para baixo essa tooread de documento mais informações sobre como tooset as políticas de integridade personalizado. 
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Role para baixo deste documento para ler mais sobre como definir as políticas de integridade personalizadas. 
 
-Depois de corrigir problemas de saudação que resultaram em reversão hello, necessidade atualização de saudação tooinitiate novamente, por seguir Olá mesmo etapas como antes.
+Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas de antes.
 
 ### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>Obter uma lista de todas as versões disponíveis para todos os ambientes para determinada assinatura
-Executar Olá o comando a seguir, e você deve obter um toothis semelhante de saída.
+Execute o comando a seguir e obtenha uma saída semelhante a esta.
 
-"supportExpiryUtc" informa o quando determinada versão está expirando ou expirou. Olá versão mais recente não tem uma data válida - possui um valor de "9999-12-31T23:59:59.9999999", que significa apenas data de expiração de saudação ainda não está definida.
+"supportExpiryUtc" informa o quando determinada versão está expirando ou expirou. A versão mais recente não tem uma data válida, ela tem um valor de "9999-12-31T23:59:59.9999999", que significa apenas que a data de vencimento ainda não foi definida.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
@@ -118,101 +118,101 @@ Output:
 
 ```
 
-## <a name="fabric-upgrade-behavior-when-hello-cluster-upgrade-mode-is-automatic"></a>Comportamento de atualização do Fabric quando o modo de atualização de cluster Olá é automático
-A Microsoft mantém o código de malha de saudação e de configuração que é executado em um cluster do Azure. Podemos executar o software de toohello monitorado de atualizações automáticas como necessário. Essas atualizações podem ser feitas no código, na configuração ou em ambos. toomake-se de que seu aplicativo não sofre nenhum impacto ou o mínimo de impacto devido a atualizações toothese, podemos realizar atualizações Olá no hello fases a seguir:
+## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>Comportamento de atualização do Fabric quando Modo de Atualização do cluster for Automático
+A Microsoft mantém o código de fábrica e a configuração executada em um cluster do Azure. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo sofra o mínimo ou nenhum impacto por conta dessas atualizações, nos ás executamos nas fases indicadas a seguir:
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: uma atualização é executada usando todas as políticas de integridade do cluster
-Durante essa fase, atualizações Olá continuar um domínio de atualização por vez, e os aplicativos de saudação que estavam em execução no cluster Olá continuam toorun sem qualquer tempo de inatividade. Olá diretivas de integridade do cluster (uma combinação de integridade do nó e a integridade de saudação todos os aplicativos em execução no cluster de saudação de Olá) sejam atendidas tooduring atualização de saudação.
+Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as diretivas de integridade do cluster Olá não forem atendidas, atualização de saudação é revertida. Em seguida, um email é enviado toohello proprietário da assinatura de saudação. email Olá contém Olá informações a seguir:
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
 
-* Notificação de que precisamos fazer tooroll uma atualização de cluster.
+* Uma notificação de que precisamos reverter uma atualização de cluster.
 * Sugestões de ações corretivas, se houver alguma.
-* Olá quantos dias (n) até que executamos fase 2.
+* O número de dias (n) até a execução da Fase 2.
 
-Tentamos Olá tooexecute que mesmo atualizar mais algumas vezes, no caso de falha de todas as atualizações por motivos de infraestrutura. Após a saudação n dias do email de Olá Olá data foi enviado, podemos continuar tooPhase 2.
+Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Após os n dias a partir da data de envio do email, prosseguiremos para a Fase 2.
 
-Se as diretivas de integridade do cluster Olá forem atendidas, atualização de saudação é considerada bem-sucedida e marcadas como concluída. Isso pode ocorrer durante a atualização de saudação inicial ou de qualquer execução repetida de atualização de saudação nesta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso é tooavoid enviando você muitos emails – receber um email deve ser consideradas toonormal uma exceção. Esperamos que a maioria das Olá toosucceed de atualizações de cluster sem afetar a disponibilidade do seu aplicativo.
+Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso serve para evitar o envio de muitos emails. O recebimento de um email deve ser visto como uma exceção. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
 
 ### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: uma atualização é executada usando apenas as políticas de integridade padrão
-políticas de integridade Olá nesta fase são definidas de forma que o número de saudação de aplicativos que foram Íntegro no início de saudação da atualização Olá permanece Olá mesmo para Olá duração do processo de atualização de saudação. Como na fase 1, atualizações Olá fase 2 continuar um domínio de atualização por vez, e os aplicativos de Olá que estavam em execução no cluster Olá continuam toorun sem qualquer tempo de inatividade. diretivas de integridade do cluster Hello (uma combinação de integridade do nó e a integridade de saudação que todos os aplicativos em execução no cluster de saudação de Olá) são toofor sejam seguidos Olá durante atualização de saudação.
+As políticas de integridade desta fase são definidas de forma que o número de aplicativos íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Assim como na Fase 1, na Fase 2 as atualizações ocorrem em um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as diretivas de integridade do cluster Olá em vigor não forem atendidas, atualização de saudação é revertida. Em seguida, um email é enviado toohello proprietário da assinatura de saudação. email Olá contém Olá informações a seguir:
+Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
 
-* Notificação de que precisamos fazer tooroll uma atualização de cluster.
+* Uma notificação de que precisamos reverter uma atualização de cluster.
 * Sugestões de ações corretivas, se houver alguma.
-* Olá quantos dias (n) até que executamos fase 3.
+* O número de dias (n) até a execução da Fase 3.
 
-Tentamos Olá tooexecute que mesmo atualizar mais algumas vezes, no caso de falha de todas as atualizações por motivos de infraestrutura. Um lembrete será enviado por email alguns dias antes do término dos n dias. Após a saudação n dias do email de Olá Olá data foi enviado, podemos continuar tooPhase 3. emails Olá que enviaremos na fase 2 devem ser levadas a sério e ações corretivas devem ser executadas.
+Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Um lembrete será enviado por email alguns dias antes do término dos n dias. Após os n dias a partir da data de envio do email, prosseguiremos para a Fase 3. Os emails que enviamos na Fase 2 devem ser levados a sério e as ações corretivas devem ser realizadas.
 
-Se as diretivas de integridade do cluster Olá forem atendidas, atualização de saudação é considerada bem-sucedida e marcadas como concluída. Isso pode ocorrer durante a atualização de saudação inicial ou de qualquer execução repetida de atualização de saudação nesta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
+Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
 
 ### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: uma atualização é executada usando políticas de integridade agressivas
-Essas políticas de integridade nessa fase se destinam a conclusão da atualização de saudação em vez de integridade de saudação de aplicativos de saudação. Pouquíssimas atualizações de cluster chegam a esta fase. Se o cluster obtém toothis fase, há uma boa chance de que seu aplicativo se tornará não íntegro e/ou perda de disponibilidade.
+Essas políticas de integridade desta fase são destinadas à conclusão da atualização, em vez da integridade dos aplicativos. Pouquíssimas atualizações de cluster chegam a esta fase. Caso seu cluster chegue a esta fase, há uma boa chance de seu aplicativo deixar de ser íntegro e/ou de perder a disponibilidade.
 
-Toohello semelhante outras duas fases, atualizações de fase 3 continuar um domínio de atualização por vez.
+Assim como nas duas outras fases, as atualizações da Fase 3 realizam um domínio de atualização por vez.
 
-Se as diretivas de integridade do cluster Olá não forem atendidas, atualização de saudação é revertida. Tentamos Olá tooexecute que mesmo atualizar mais algumas vezes, no caso de falha de todas as atualizações por motivos de infraestrutura. Depois disso, o cluster de saudação é fixado, para que ele não receberá mais suporte e/ou atualizações.
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Depois disso, o cluster será marcado para que não receba mais suporte e/ou atualizações.
 
-Proprietário da assinatura toohello, junto com as ações corretivas Olá é enviado a um email com essas informações. Não esperamos que qualquer tooget clusters em um estado em que a fase 3 falhou.
+Um email com essas informações é enviado ao proprietário da assinatura, juntamente com as ações corretivas. Não esperamos que qualquer cluster entre em um estado no qual a Fase 3 falhou.
 
-Se as diretivas de integridade do cluster Olá forem atendidas, atualização de saudação é considerada bem-sucedida e marcadas como concluída. Isso pode ocorrer durante a atualização de saudação inicial ou de qualquer execução repetida de atualização de saudação nesta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
+Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
 
 ## <a name="cluster-configurations-that-you-control"></a>Configurações do cluster que você controla
-Além de modo a atualização do cluster de saudação do toohello capacidade tooset, aqui estão configurações de saudação que podem ser alteradas em um cluster ao vivo.
+Além da capacidade de definir o cluster de modo de atualização, aqui estão as configurações que podem ser alteradas em um cluster ativo.
 
 ### <a name="certificates"></a>Certificados
-Você pode adicionar novas ou exclua os certificados de cliente por meio do portal hello e cluster Olá facilmente. Consulte também[neste documento para obter instruções detalhadas](service-fabric-cluster-security-update-certs-azure.md)
+Você pode adicionar ou excluir novos certificados do cluster e do cliente facilmente por meio do portal. Confira [este documento para obter instruções detalhadas](service-fabric-cluster-security-update-certs-azure.md)
 
-![Captura de tela que mostra as impressões digitais de certificado no portal do Azure de saudação.][CertificateUpgrade]
+![Captura de tela que mostra as impressões digitais do certificado no Portal do Azure.][CertificateUpgrade]
 
 ### <a name="application-ports"></a>Portas do aplicativo
-Você pode alterar as portas de aplicativo alterando propriedades de recurso do hello balanceador de carga que estão associadas com o tipo de nó de saudação. Você pode usar o portal de hello, ou você pode usar o Gerenciador de recursos do PowerShell diretamente.
+Você pode alterar as portas do aplicativo alterando as propriedades do recurso de Balanceador de carga associadas ao tipo de nó. Você pode usar o portal ou o PowerShell do Gerenciador de Recursos diretamente.
 
-tooopen uma nova porta em todas as VMs em um tipo de nó, Olá a seguir:
+Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
-1. Adicione um novo balanceador de carga adequado de toohello de teste.
+1. Adicione uma nova investigação ao balanceador de carga apropriado.
    
-    Se você implantou o cluster usando o portal de hello, balanceadores de carga de saudação são nomeados "LB-nome do grupo de recursos de saudação-NodeTypename", uma para cada tipo de nó. Como os nomes de Balanceador de carga de saudação são exclusivos somente dentro de um grupo de recursos, é melhor se você pesquisar por-los em um grupo de recursos específicos.
+    Se você implantou o cluster usando o portal, os balanceadores de carga são nomeados como "LB-nome do grupo de recursos-NodeTypename", um para cada tipo de nó. Como os nomes de balanceador de carga são exclusivos apenas em um grupo de recursos, será melhor pesquisá-los em um grupo de recursos específico.
    
-    ![Captura de tela que mostra a adição de uma investigação tooa balanceador de carga no portal de saudação.][AddingProbes]
-2. Adicione um balanceador de carga de toohello regra nova.
+    ![Captura de tela que mostra a adição de uma investigação a um balanceador de carga no portal.][AddingProbes]
+2. Adicione uma nova regra ao balanceador de carga.
    
-    Adicione um novo toohello de regra mesmo balanceador de carga usando o teste Olá que você criou na etapa anterior hello.
+    Adicione uma nova regra ao mesmo balanceador de carga usando a investigação criada na etapa anterior.
    
-    ![Adicionar um balanceador de carga nova regra tooa no portal de saudação.][AddingLBRules]
+    ![Adicionando uma nova regra a um balanceador de carga no portal.][AddingLBRules]
 
 ### <a name="placement-properties"></a>Propriedades de posicionamento
-Para cada um dos tipos de nós hello, você pode adicionar propriedades de posicionamento personalizado que você deseja toouse em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
+Para cada um dos tipos de nó, é possível adicionar as propriedades de posicionamento personalizadas que você deseja usar em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
 
 > [!NOTE]
-> Para obter detalhes sobre o uso de saudação de restrições de posicionamento, propriedades de nó, e como toodefine-los, consulte toohello seção "Restrições de posicionamento e propriedades de nó" hello documento do Gerenciador de recursos de Cluster do serviço de malha em [descrevendo o Cluster ](service-fabric-cluster-resource-manager-cluster-description.md).
+> Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, confira a seção "Restrições de posicionamento e propriedades de nó" no documento do Gerenciador de Recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 > 
 > 
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
-Para cada um dos tipos de nós hello, você pode adicionar métricas de capacidade personalizadas que você deseja toouse em sua carga de tooreport de aplicativos. Para obter detalhes sobre o uso de saudação de carga de tooreport de métricas de capacidade, consulte toohello documentos do Gerenciador de recursos de Cluster do serviço de malha em [descrevendo seu Cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
+Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, confira os documentos do Gerenciador de Recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [Métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
 
 ### <a name="fabric-upgrade-settings---health-polices"></a>Configurações de atualização do Fabric – Políticas de integridade
-Você pode especificar as políticas de integridade personalizadas para atualização do Fabric. Se você tiver configurado o cluster tooAutomatic atualizações de malha, essas políticas obtém aplicado toohello fase 1 de atualizações de malha automática hello.
-Se você tiver configurado o cluster para a malha Manual atualizações, em seguida, essas políticas são aplicadas a cada vez que você selecionar uma nova versão de disparo Olá sistema tookick desativar a atualização do fabric Olá no cluster. Se você não substituir políticas hello, Olá padrões são usados.
+Você pode especificar as políticas de integridade personalizadas para atualização do Fabric. Se você tiver configurado o cluster para atualizações automáticas do Fabric, essas políticas serão aplicadas à Fase 1 das atualizações automáticas do Fabric.
+Se você tiver configurado o cluster para atualizações manuais do Fabric, essas políticas serão aplicadas cada vez que você selecionar uma nova versão ao disparar o sistema para acionar a atualização do Fabric em seu cluster. Se você não substituir as políticas, os padrões serão usados.
 
-Você pode especificar políticas de integridade personalizado hello ou revisar configurações atuais de saudação com folha de "atualização do fabric" Olá, selecionando Olá atualização configurações avançada. Examine Olá figura abaixo sobre como. 
+Você pode especificar as políticas de integridade personalizados ou examinar as configurações atuais na folha de "atualização de malha", selecionando as configurações avançadas de atualização. Examine a imagem a seguir com detalhes. 
 
 ![Gerenciar políticas de integridade personalizadas][HealthPolices]
 
 ### <a name="customize-fabric-settings-for-your-cluster"></a>Personalizar as configurações do Fabric para seu cluster
-Consulte também[configurações de malha de cluster de malha do serviço](service-fabric-cluster-fabric-settings.md) sobre o que e como você pode personalizá-los.
+Consulte [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md) para saber o que e como você pode personalizá-lo.
 
-### <a name="os-patches-on-hello-vms-that-make-up-hello-cluster"></a>Patches do sistema operacional em Olá máquinas virtuais que compõem o cluster Olá
-Consulte também[Patch orquestração de aplicativo](service-fabric-patch-orchestration-application.md) que pode ser implantado em seu patches tooinstall de cluster do Windows Update de uma maneira orquestrada, manter os serviços de saudação disponíveis todo o tempo de saudação. 
+### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patches do sistema operacional nas VMs que fazem parte do cluster
+Consulte o [Aplicativo de orquestração de patch](service-fabric-patch-orchestration-application.md) que pode ser implantado em seu cluster para instalar patches do Windows Update de maneira orquestrada, mantendo os serviços sempre disponíveis. 
 
-### <a name="os-upgrades-on-hello-vms-that-make-up-hello-cluster"></a>Atualizações de sistema operacional em Olá máquinas virtuais que compõem o cluster Olá
-Se você deve atualizar a imagem do sistema operacional Olá em máquinas virtuais de saudação do cluster hello, você deve fazê-lo uma VM por vez. Você é responsável por esta atualização. Atualmente não há nenhuma automação para isso.
+### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Atualizações do sistema operacional nas VMs que fazem parte do cluster
+Se for necessário atualizar a imagem do sistema operacional nas máquinas virtuais do cluster, faça isso uma VM por vez. Você é responsável por esta atualização. Atualmente não há nenhuma automação para isso.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como toocustomize alguns Olá [configurações de malha de cluster de malha do serviço](service-fabric-cluster-fabric-settings.md)
-* Saiba como muito[dimensionar o cluster e sair](service-fabric-cluster-scale-up-down.md)
+* Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
+* Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md)
 
 <!--Image references-->

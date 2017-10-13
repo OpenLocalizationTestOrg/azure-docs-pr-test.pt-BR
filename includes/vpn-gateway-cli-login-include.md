@@ -1,16 +1,16 @@
-Fazer logon no tooyour assinatura do Azure com hello [logon az](/cli/azure/#login) de comando e siga o hello instruções na tela. Para obter mais informações sobre registro em log, consulte [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli).
+Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela. Para obter mais informações sobre registro em log, consulte [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli).
 
 ```azurecli
 az login
 ```
 
-Se você tiver mais de uma assinatura do Azure, liste as assinaturas Olá conta hello.
+Se tiver mais de uma assinatura do Azure, liste as assinaturas para a conta.
 
 ```azurecli
 az account list --all
 ```
 
-Especifique que você deseja toouse de assinatura de saudação.
+Especifique a assinatura que você quer usar.
 
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>

@@ -1,6 +1,6 @@
 ---
-title: "aaaSQL VM conexão tooAzure pesquisa | Microsoft Docs"
-description: "Habilitar conexões criptografadas e configurar Olá firewall tooallow conexões tooSQL Server em uma máquina virtual (VM) do Azure de um indexador na pesquisa do Azure."
+title: "Conexão da VM do SQL para o Azure Search | Microsoft Docs"
+description: "Habilite conexões criptografadas e configure o firewall para permitir conexões com o SQL Server em uma VM (máquina virtual) do Azure de um indexador no Azure Search."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,77 +14,77 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 1f0db8a2812b0a7d012e58bb873c4b2b29fa1338
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-toosql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador de pesquisa do Azure tooSQL Server em uma VM do Azure
-Conforme observado na [tooAzure conectando o Azure SQL Database pesquisar usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), criando indexadores contra **do SQL Server em máquinas virtuais do Azure** (ou **VMs do SQL Azure** abreviada) é com suporte de pesquisa do Azure, mas há alguns tootake pré-requisitos relacionados à segurança respeito primeiro. 
+# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
+Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 
 
-**Duração da tarefa:** cerca de 30 minutos, supondo que você já instalou um certificado em Olá VM.
+**Duração da tarefa:** Cerca de 30 minutos, supondo que você já instalou um certificado na VM.
 
 ## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
-O Azure Search requer um canal criptografado para todas as solicitações de indexador em uma conexão de Internet pública. Esta seção lista Olá etapas toomake esse trabalho.
+O Azure Search requer um canal criptografado para todas as solicitações de indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer isso funcionar.
 
-1. Verifique as propriedades de saudação do nome da entidade Olá Olá certificado tooverify nome de domínio totalmente qualificado (FQDN) Olá de saudação VM do Azure. Você pode usar uma ferramenta como CertUtils ou Olá certificados snap-in tooview Olá propriedades. Você pode obter Olá FQDN de Essentials seção da folha de serviço para a VM Olá, Olá **rótulo de nome de DNS/endereço IP público** campo, Olá [portal do Azure](https://portal.azure.com/).
+1. Verifique as propriedades do certificado para verificar se o nome da entidade é o nome de domínio totalmente qualificado (FQDN) da VM do Azure. Você pode usar uma ferramenta como CertUtils ou o snap-in de certificados para exibir as propriedades. Você pode obter o FQDN na seção Essentials da folha de serviço da VM, no campo **rótulo de nome de DNS/endereço IP público** , no [portal do Azure](https://portal.azure.com/).
    
-   * Para máquinas virtuais criadas usando hello mais recente **Gerenciador de recursos de** modelo, Olá FQDN é formatada como `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Para máquinas virtuais mais antigas criadas como um **clássico** VM, Olá FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`. 
-2. Configure certificado do SQL Server toouse hello usando Olá Editor do registro (regedit). 
+   * Para VMs criadas usando o mais recente modelo do **Resource Manager**, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`. 
+   * Para VMs antigas criadas como uma VM **clássica**, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`. 
+2. Configure o SQL Server para usar o certificado usando o Editor do Registro (regedit). 
    
-    Embora o SQL Server Configuration Manager seja geralmente usado para essa tarefa, você não pode usá-lo para esse cenário. Ele não localizará Olá certificado importado porque Olá FQDN do hello VM no Azure não corresponde a saudação FQDN, conforme determinado pela Olá VM (ele identifica domínio hello como computador local hello ou Olá toowhich de domínio de rede que são Unidos). Quando nomes não corresponderem, use o certificado de saudação do regedit toospecify.
+    Embora o SQL Server Configuration Manager seja geralmente usado para essa tarefa, você não pode usá-lo para esse cenário. Ele não localizará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (ele identifica o domínio como o computador local ou domínio de rede ao qual ele está associado). Quando os nomes não corresponderem, use regedit para especificar o certificado.
    
-   * Regedit, procurar a chave de registro toothis: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+   * No regedit, navegue até esta chave do registro: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
      
-     Olá `[MSSQL13.MSSQLSERVER]` parte varia com base no nome de instância e versão. 
-   * Definir valor Olá Olá **certificado** toohello chave **impressão digital** do certificado SSL Olá importado toohello VM.
+     A parte `[MSSQL13.MSSQLSERVER]` varia conforme o nome de da instância e da versão. 
+   * Defina o valor da chave do **Certificado** para a **impressão digital** do certificado SSL que você importou para a VM.
      
-     Há várias maneiras tooget Olá impressão digital alguns melhor do que outros. Se você o copiar de saudação **certificados** snap-in no MMC, você provavelmente escolherá um caractere à esquerda invisível [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta em um erro durante a tentativa de um conexão. Existem várias soluções alternativas para corrigir esse problema. Olá mais fácil é toobackspace e digite primeiro caractere Olá Olá impressão digital tooremove Olá caractere à esquerda no campo de valor de chave Olá Regedit. Como alternativa, você pode usar uma impressão digital Olá de toocopy ferramenta diferente.
-3. Conceda permissões de conta de serviço toohello. 
+     Há várias maneiras de obter a impressão digital, algumas melhores do que outras. Se você copiá-la a partir do snap-in de **certificados** do MMC, você provavelmente selecionará um caractere à esquerda invisível [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta em um erro quando tentar uma conexão. Existem várias soluções alternativas para corrigir esse problema. A maneira mais fácil é a apagar e digitar novamente o primeiro caractere da impressão digital para remover o caractere à esquerda no campo de valor de chave no regedit. Como alternativa, você pode usar outra ferramenta para copiar a impressão digital.
+3. Conceder permissões à conta de serviço. 
    
-    Certifique-se de Olá conta de serviço do SQL Server é concedido permissão apropriada na chave privada de saudação do certificado SSL da saudação. Se você ignorar essa etapa, o SQL Server não será iniciado. Você pode usar o hello **certificados** snap-in ou **CertUtils** para esta tarefa.
-4. Reinicie o serviço do SQL Server hello.
+    Verifique se a conta de serviço do SQL Server recebeu permissão apropriada na chave privada do certificado SSL. Se você ignorar essa etapa, o SQL Server não será iniciado. Você pode usar o snap-in **Certificados** ou o **CertUtils** para essa tarefa.
+4. Reinicie o serviço SQL Server.
 
-## <a name="configure-sql-server-connectivity-in-hello-vm"></a>Configurar a conectividade do SQL Server na VM de saudação
-Depois de configurar a conexão de saudação criptografada requerido pela pesquisa do Azure, há uma configuração adicional de etapas intrínseco tooSQL Server em VMs do Azure. Se você ainda não tiver feito isso, Olá próxima etapa é toofinish configuração usando um dos seguintes artigos:
+## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM
+Depois de configurar a conexão criptografada exigida pelo Azure Search, existem etapas de configuração adicionais intrínsecas ao SQL Server nas VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando qualquer um destes artigos:
 
-* Para uma **Gerenciador de recursos de** VM, consulte [tooa Máquina Virtual do SQL Server no Azure usando o Gerenciador de recursos de conexão](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* Para uma **clássico** VM, consulte [conectar tooa Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
+* Para uma VM do **Resource Manager** , veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure usando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
 
-Em particular, consulte a seção de saudação cada artigo para "conectar-se via Olá internet".
+Em particular, consulte a seção em cada artigo para "conectando pela internet".
 
-## <a name="configure-hello-network-security-group-nsg"></a>Configurar Olá grupo de segurança de rede (NSG)
-Não é incomum tooconfigure Olá NSG e ponto de extremidade do Azure correspondente ou lista de controle de acesso (ACL) toomake partes de tooother acessível sua VM do Azure. A probabilidade é que fazer isso antes de tooallow sua própria tooyour de tooconnect de lógica de aplicativo VM do SQL Azure. Ele não é diferente para uma conexão de pesquisa do Azure tooyour VM do SQL Azure. 
+## <a name="configure-the-network-security-group-nsg"></a>Configure o Grupo de Segurança de Rede (NSG)
+É comum configurar o NSG e o ponto de extremidade ou a ACL (Lista de Controle de Acesso) do Azure correspondente para dar acesso à sua VM do Azure a outras pessoas. É provável que você já tenha feito isso para permitir que a lógica do seu próprio aplicativo se conecte à VM do SQL Azure. Uma conexão do Azure Search com sua VM do SQL Azure não é diferente. 
 
-Olá links a seguir fornecem instruções sobre configuração de NSG para implantações de VM. Use estas instruções que tooacl um ponto de extremidade de pesquisa do Azure com base em seu endereço IP.
+Os links a seguir fornecem instruções sobre a configuração de NSG para implantações de VM. Use estas instruções para a ACL de um ponto de extremidade do Azure Search com base em seu endereço IP.
 
 > [!NOTE]
 > Para saber mais, consulte [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md)
 > 
 > 
 
-* Para uma **Gerenciador de recursos de** VM, consulte [como toocreate NSGs para implantações de ARM](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
-* Para uma **clássico** VM, consulte [como toocreate NSGs para implantações clássico](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* Para uma VM do **Gerenciador de Recursos** , consulte [Como criar NSGs para implantações de ARM](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* Para uma VM **Clássica** , consulte [Como criar NSGs para implantações Clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
-Endereçamento IP pode representar alguns desafios que são superados facilmente se você está ciente do problema hello e possíveis soluções alternativas. seções restantes Olá fornecem recomendações para lidar com problemas relacionados tooIP endereços Olá ACL.
+O endereçamento IP pode apresentar alguns desafios que são facilmente superados se você estiver ciente do problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados a endereços IP na ACL.
 
-#### <a name="restrict-access-toohello-search-service-ip-address"></a>Restringir o endereço IP do serviço de pesquisa de toohello de acesso
-É altamente recomendável que você restrinja Olá acesso toohello endereço do seu serviço de pesquisa no hello ACL em vez de fazer suas VMs do SQL Azure totalmente aberta tooany solicitações de conexão. Você pode facilmente descobrir Olá IP endereço usando o comando ping Olá FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
+#### <a name="restrict-access-to-the-search-service-ip-address"></a>Restringir o acesso ao endereço IP do serviço de pesquisa
+É altamente recomendável restringir o acesso ao endereço IP do seu serviço de pesquisa na ACL, em vez de abrir totalmente as VMs do SQL Azure para todas as solicitações de conexão. Você pode descobrir facilmente o endereço IP fazendo ping do FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
 
 #### <a name="managing-ip-address-fluctuations"></a>Gerenciando flutuações de endereço IP
-Se o serviço de pesquisa tem apenas uma unidade de pesquisa (ou seja, uma réplica e uma partição), o endereço IP de saudação será alterado durante a manutenção de rotina for reiniciado, invalidando a uma ACL existente com o endereço IP do seu serviço de pesquisa.
+Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma partição), o endereço IP poderá mudar durante a reinicialização do serviço de rotina, invalidando uma ACL existente com o endereço IP do seu serviço de pesquisa.
 
-Erro na conectividade subsequentes Olá tooavoid unidirecional é toouse mais de uma réplica e uma partição na pesquisa do Azure. Isso aumenta o custo de hello, mas ele também resolve o problema de saudação de endereço IP. No Azure Search, os endereços IP não são alterados quando você tiver mais de uma unidade de pesquisa.
+Uma maneira de evitar o erro de conectividade subsequente é usar mais de uma réplica e uma partição no Azure Search. Isso aumenta o custo, mas também resolve o problema de endereço IP. No Azure Search, os endereços IP não são alterados quando você tiver mais de uma unidade de pesquisa.
 
-Uma segunda abordagem é tooallow Olá conexão toofail e, em seguida, reconfigurar Olá ACLs em Olá NSG. Em média, você pode esperar toochange de endereços IP em algumas semanas. Para clientes que fazem a indexação controlada raramente, essa abordagem pode ser viável.
+Uma segunda abordagem é permitir que a conexão falhe e, em seguida, reconfigurar as ACLs no NSG. Em média, você pode esperar que os endereços IP sejam alterados todas as semanas. Para clientes que fazem a indexação controlada raramente, essa abordagem pode ser viável.
 
-Uma terceira abordagem viável (mas não muito segura) é o intervalo de endereços IP toospecify Olá de saudação região do Azure em que o serviço de pesquisa é provisionado. saudação de lista de intervalos IP do qual os endereços IP públicos tooAzure os recursos são alocados é publicada na [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+Uma terceira abordagem viável (mas não particularmente segura) é especificar o intervalo de endereços IP da região do Azure em que o serviço de pesquisa é provisionado. A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
-#### <a name="include-hello-azure-search-portal-ip-addresses"></a>Incluir endereços IP portais Olá pesquisa do Azure
-Se você estiver usando Olá toocreate portal do Azure um indexador, lógica de portal de pesquisa do Azure também precisa de acesso tooyour SQL Azure VM durante o tempo de criação. Os endereços IP do portal do Azure Search podem ser encontrados executando ping de `stamp2.search.ext.azure.com`.
+#### <a name="include-the-azure-search-portal-ip-addresses"></a>Incluir endereços IP do portal do Azure Search
+Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal do Azure Search também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal do Azure Search podem ser encontrados executando ping de `stamp2.search.ext.azure.com`.
 
 ## <a name="next-steps"></a>Próximas etapas
-Com a configuração do caminho de saudação, agora você pode especificar um SQL Server na VM do Azure como fonte de dados de saudação para um indexador da pesquisa do Azure. Consulte [tooAzure conectando o Azure SQL Database pesquisar usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
+Com a configuração acima resolvido, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados de um indexador do Azure Search. Confira [Conectando o banco de dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

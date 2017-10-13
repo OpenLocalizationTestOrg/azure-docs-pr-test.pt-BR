@@ -5,7 +5,7 @@
 ## [Introdução ao portal de parceiros de nuvem](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Produtos com suporte](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
 
-# Como tooguides
+# Guias de instruções
 ## Gerenciar Máquinas Virtuais
 ### [Oferta de máquina virtual do autor](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Pré-requisitos](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
@@ -21,7 +21,7 @@
 
 ### [Atualizar oferta existente](./cloud-partner-portal-update-existing-offer.md)
 ### [Excluir uma oferta/SKU de VM](./cloud-partner-portal-delete-an-offer.md)
-### [Migrar o portal de parceiros de toocloud](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+### [Migrar para o portal de parceiros de nuvem](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ## [Guia de vendedor do Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Obter clientes potenciais](./cloud-partner-portal-get-customer-leads.md)

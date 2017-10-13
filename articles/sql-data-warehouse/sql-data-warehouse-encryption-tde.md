@@ -1,5 +1,5 @@
 ---
-title: aaaTransparent a criptografia de dados no Data Warehouse do SQL (Portal) | Microsoft Docs
+title: Transparent Data Encryption no SQL Data Warehouse (Portal) | Microsoft Docs
 description: TDE (Transparent Data Encryption) no SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 8233886ecf170844104e0d1459e2a829cafa9b8d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -31,30 +31,30 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="required-permssions"></a>Permissões necessárias
-tooenable criptografia de dados transparente (TDE), você deve ser um administrador ou um membro da função dbmanager de saudação.
+Para habilitar a TDE (Transparent Data Encryption), você deve ser um administrador ou um membro da função dbmanager.
 
 ## <a name="enabling-encryption"></a>Habilitando a criptografia
-tooenable TDE para um SQL Data Warehouse, siga as etapas de saudação abaixo:
+Para habilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 
-1. Banco de dados aberto Olá no hello [portal do Azure](https://portal.azure.com)
-2. Na folha de banco de dados de saudação, clique em Olá **configurações** botão
-3. Selecione Olá **criptografia transparente de dados** opção![][1]
-4. Selecione Olá **em** configuração![][2]
+1. Abra o banco de dados no [portal do Azure](https://portal.azure.com)
+2. Na folha do banco de dados, clique no botão **Configurações**
+3. Selecione a opção **Transparent Data Encryption**![][1]
+4. Selecione a configuração **Ativado** ![][2]
 5. Selecione **Salvar**
    ![][3]  
 
 ## <a name="disabling-encryption"></a>Desabilitando a criptografia
-toodisable TDE para um SQL Data Warehouse, siga as etapas de saudação abaixo:
+Para desabilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 
-1. Banco de dados aberto Olá no hello [portal do Azure](https://portal.azure.com)
-2. Na folha de banco de dados de saudação, clique em Olá **configurações** botão
-3. Selecione Olá **criptografia transparente de dados** opção![][1]
-4. Selecione Olá **Off** configuração![][4]
+1. Abra o banco de dados no [portal do Azure](https://portal.azure.com)
+2. Na folha do banco de dados, clique no botão **Configurações**
+3. Selecione a opção **Transparent Data Encryption**![][1]
+4. Selecione a configuração **Desativado** ![][4]
 5. Selecione **Salvar**
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>DMVs de criptografia
-A criptografia pode ser confirmada com hello DMVs a seguir:
+A criptografia pode ser confirmada com as DMVs a seguir:
 
 * [sys.databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]

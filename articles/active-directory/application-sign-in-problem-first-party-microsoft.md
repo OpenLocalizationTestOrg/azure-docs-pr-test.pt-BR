@@ -1,6 +1,6 @@
 ---
-title: aaaProblems entrar tooa aplicativo Microsoft | Microsoft Docs
-description: Solucionar problemas enfrentados ao entrar toofirst terceiros Microsoft Applications usando o Azure AD (como o Office 365)
+title: Problemas ao entrar em um aplicativo Microsoft | Microsoft Docs
+description: "Solucionar problemas comuns enfrentados ao entrar em aplicativos primários da Microsoft usando o Azure AD (como o Office 365)"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 35849ca8dbaa909d17b6d0da572f5c11041a8559
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-## <a name="problems-signing-in-tooa-microsoft-application"></a>Problemas para entrar no tooa aplicativos Microsoft
+## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
 Os aplicativos Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídos e gerenciados de forma um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para o logon único.
 
-Há três maneiras principais que um usuário pode obter acesso tooa Microsoft publicou o aplicativo.
+Há três principais maneiras que um usuário pode obter acesso a um aplicativo publicado Microsoft.
 
--   Para aplicativos em Olá Office 365 ou outros pacotes pagas, os usuários terão acesso por meio de **atribuição de licença** ou diretamente tootheir conta de usuário, ou por meio de um grupo usando nosso recurso de atribuição de licença baseada em grupo.
+-   Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
 
--   Para aplicativos que Microsoft ou uma terceira parte confiável publica livremente para qualquer pessoa toouse, os usuários podem receber acesso por meio de **consentimento do usuário**. This0 significa que eles entrar no aplicativo toohello com sua conta do Azure AD ou de estudante e permitir que ele toohave acesso toosome limitada de conjunto de dados em sua conta.
+-   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que o usuário se conecte ao aplicativo usando a conta de Estudante ou do Azure AD Work e permite acesso a um conjunto limitado de dados em sua conta.
 
--   Para aplicativos que Microsoft ou uma parte do 3º publica livremente para qualquer pessoa toouse, os usuários também podem ser concedidos acesso por meio de **consentimento do administrador**. Isso significa que um administrador determinou aplicativo hello pode ser usado por todas as pessoas na organização hello, para que poderem entrar no aplicativo de toohello com uma conta de Administrador Global e conceder acesso tooeveryone na organização hello.
+-   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários também podem ter o acesso concedido através do **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
-tootroubleshoot seu problema, começam com hello [áreas de problemas gerais com acesso de aplicativo tooconsider](#general-problem-areas-with-application-access-to-consider) e, em seguida, ler Olá [passo a passo: etapas tootroubleshoot access do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) tooget detalhes hello.
+Para solucionar o problema, inicie com as [Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar](#general-problem-areas-with-application-access-to-consider) e leia o [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para obter mais detalhes.
 
-## <a name="general-problem-areas-with-application-access-tooconsider"></a>Áreas de problemas gerais com tooconsider de acesso do aplicativo
+## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar
 
-Abaixo está uma lista de saudação áreas de problema geral que você pode analisar se você tiver uma ideia de onde toostart, mas é recomendável que você leia Olá passo a passo tooget ir rapidamente: [passo a passo: etapas tootroubleshoot access do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Abaixo segue uma lista das áreas com problemas gerais que você pode analisar se tiver uma ideia de onde iniciar, mas é recomendável que leia o passo a passo para começar rapidamente: [Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
--   [Problemas com a conta do usuário Olá](#problems-with-the-users-account)
+-   [Problemas com a conta do usuário](#problems-with-the-users-account)
 
 -   [Problemas com grupos](#problems-with-groups)
 
@@ -45,51 +45,51 @@ Abaixo está uma lista de saudação áreas de problema geral que você pode ana
 
 -   [Problemas com consentimento do aplicativo](#problems-with-application-consent)
 
-## <a name="steps-tootroubleshoot-microsoft-application-access"></a>Etapas tootroubleshoot access do Microsoft Application
+## <a name="steps-to-troubleshoot-microsoft-application-access"></a>Solucionar problemas de acesso do aplicativo Microsoft
 
-Abaixo estão algumas pessoas problemas comuns encontrar quando os usuários não podem entrar no tooa aplicativos Microsoft.
+A seguir, são apresentados alguns problemas comuns que as pessoas se deparam quando seus usuários não podem entram em um aplicativo Microsoft.
 
--   Geral emite toocheck primeiro
+-   Problemas gerais a serem primeiramente verificados
 
-  * Verifique se o usuário hello está entrando toohello **corrigir URL** e não é uma URL de aplicativo local.
+  * Certifique-se de que o usuário está entrando na **URL correta** e não em uma URL de aplicativo local.
 
-  * Certifique-se de conta de usuário Olá **não bloqueada.**
+  * Certifique-se de que a conta do usuário **não está bloqueada.**
 
-  * Verifique se Olá **conta de usuário existe** no Active Directory do Azure. [Verificar se existe uma conta de usuário no Azure Active Directory](#problems-with-the-users-account)
+  * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se uma conta de usuário existe no Azure Active Directory](#problems-with-the-users-account)
 
-  * Certifique-se de conta de usuário Olá **habilitado** para entradas. [Verificar o status da conta do usuário](#problems-with-the-users-account)
+  * Certifique-se de que a conta do usuário está **habilitada** para entrar. [Verificar o status da conta do usuário](#problems-with-the-users-account)
 
-  * Tornar-se de que usuário Olá **senha não está expirada ou esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Certifique-se de que a **senha do usuário não está expirada ou esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
    * Certifique-se de que a **Autenticação Multifator** não está bloqueando o acesso do usuário. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
    * Certifique-se de que uma **Política de Acesso Condicional** ou política de **Proteção de Identidade** não está bloqueando o acesso do usuário. [Verificar uma política específica de acesso condicional ](#problems-with-conditional-access-policies) ou [Verificar uma política específica de acesso condicional do aplicativo](#check-a-specific-applications-conditional-access-policy) ou [Desabilitar uma política específica de acesso condicional ](#disable-a-specific-conditional-access-policy)
 
-   * Certifique-se de que um usuário **informações de contato de autenticação** está ativo toodate tooallow autenticação multifator ou o acesso condicional políticas toobe imposta. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
+   * Certifique-se de que as **informações de contato de autenticação** de um usuário estão atualizadas para permitir que as políticas de Acesso Condicional ou Autenticação Multifator sejam impostas. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
--   Para **Microsoft** **aplicativos que exigem uma licença** (como o Office365), aqui estão alguns problemas específicos toocheck depois de verificar problemas gerais de saudação acima:
+-   Para aplicativos **Microsoft** **que exigem uma licença** (como o Office365), aqui estão alguns problemas específicos para verificar após ter excluído os problemas gerais acima:
 
-   * Verifique se o usuário hello ou tem um **licença atribuída.** [Verificar as licenças atribuídas de um usuário](#check-a-users-assigned-licenses) ou [Verificar licenças atribuídas de um grupo](#check-a-groups-assigned-licenses)
+   * Verifique se o usuário ou tem um **licença atribuída.** [Verificar as licenças atribuídas de um usuário](#check-a-users-assigned-licenses) ou [Verificar licenças atribuídas de um grupo](#check-a-groups-assigned-licenses)
 
-   * Se a licença de saudação é **atribuído tooa** **grupo estático**, certifique-se de que Olá **usuário é um membro** desse grupo. [Verificar as associações de grupo de um usuário](#check-a-users-group-memberships)
+   * Se a licença estiver **atribuída a um** **grupo estático**, certifique-se de que o **usuário é um membro** desse grupo. [Verificar as associações de grupo de um usuário](#check-a-users-group-memberships)
 
-   * Se a licença de saudação é **atribuído tooa** **grupo dinâmico**, certifique-se de que Olá **regra dinâmica de grupo está definida corretamente**. [Verificar os critérios de associação do grupo dinâmico](#check-a-dynamic-groups-membership-criteria)
+   * Se a licença estiver **atribuída a um** **grupo dinâmico**, certifique-se de que o **regra de grupo dinâmico está definida corretamente**. [Verificar os critérios de associação do grupo dinâmico](#check-a-dynamic-groups-membership-criteria)
 
-   * Se a licença de saudação é **atribuído tooa** **grupo dinâmico**, certifique-se de que esse grupo dinâmico Olá tem **concluir o processamento** sua associação e que hello **usuário é um membro** (Isso pode levar algum tempo). [Verificar as associações de grupo de um usuário](#check-a-users-group-memberships)
+   * Se a licença estiver **atribuída a um** **grupo dinâmico**, verifique se o grupo dinâmico **terminou de processar** sua associação e se o **usuário é um membro** (isso pode demorar algum tempo). [Verificar as associações de grupo de um usuário](#check-a-users-group-memberships)
 
-   *  Depois que você certifique-se de saudação licença será atribuída, certifique-se de licença Olá é **não expirado**.
+   *  Após certificar-se de que a licença está atribuída, certifique-se de que a licença **não expirou**.
 
-   *  Certifique-se de licença Olá é **para o aplicativo hello** estão acessando.
+   *  Certifique-se de que a licença é **para o aplicativo** que será acessado.
 
--   Para **Microsoft** **aplicativos que não requerem uma licença**, aqui estão algumas outra coisas toocheck:
+-   Para aplicativos **Microsoft** **que não exigem uma licença**, a seguir são apresentadas algumas outras opções a verificar:
 
-   * Se o aplicativo hello está solicitando **permissões em nível de usuário** (por exemplo "acesso a caixa de correio do usuário"), certifique-se de que o usuário Olá entrou no aplicativo toohello e executou um **operação consentimento de nível de usuário**  toolet Olá aplicativo acessar seus dados.
+   * Se o aplicativo estiver solicitando **permissões em nível de usuário** (por exemplo "Acesso à caixa de correio do usuário"), certifique-se de que o usuário entrou no aplicativo e executou uma **operação de consentimento de nível de usuário** para permitir que o aplicativo acesse seus dados.
 
-   * Se o aplicativo hello está solicitando **permissões de administrador** (por exemplo "acesso a caixas de correio de todos os usuários"), certifique-se de que um Administrador Global executou um **operação consentimento de nível de administrador nome de todos os usuários** na organização hello.
+   * Se o aplicativo estriver solicitando **permissões de administrador** (por exemplo "Acesso a caixas de correio de todos os usuários"), certifique-se de que um Administrador Global executou uma **operação de consentimento de nível de administrador em nome de todos os usuários** na organização.
 
-## <a name="problems-with-hello-users-account"></a>Problemas com a conta do usuário Olá
+## <a name="problems-with-the-users-account"></a>Problemas com a conta do usuário
 
-Acesso de aplicativo pode ser bloqueado devido a problema tooa com um usuário que é atribuído o aplicativo toohello. Veja abaixo algumas maneiras de solucionar problemas dos usuários e suas configurações de conta:
+O acesso do aplicativo pode ser bloqueado devido a um problema com um usuário atribuído ao aplicativo. Abaixo são apresentadas algumas maneiras para solucionar problemas e resolver problemas com usuários e suas configurações de conta:
 
 -   [Verificar se existe uma conta de usuário no Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -111,185 +111,185 @@ Acesso de aplicativo pode ser bloqueado devido a problema tooa com um usuário q
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Verificar se existe uma conta de usuário no Azure Active Directory
 
-toocheck se uma conta de usuário estiver presente, siga as etapas de saudação abaixo:
+Para verificar se há uma conta de usuário presente, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Verifique as propriedades de saudação do hello usuário objeto toobe-se de que elas são conforme o esperado e nenhum dado está ausente.
+7.  Verifique as propriedades do objeto do usuário para ter certeza de que elas estejam definidas conforme o esperado e de que nenhum dado esteja faltando.
 
 ### <a name="check-a-users-account-status"></a>Verificar o status da conta do usuário
 
-toocheck um usuário status da conta, siga as etapas de saudação abaixo:
+Para verificar o status da conta de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
 7.  Clique em **Perfil**.
 
-8.  Em **configurações** Certifique-se de que **bloco entrar** está definido muito**não**.
+8.  Em **Configurações** verifique se **Bloquear entrada** está definido como **Não**.
 
 ### <a name="reset-a-users-password"></a>Redefinir a senha de um usuário
 
-tooreset a senha do usuário, siga Olá etapas abaixo:
+Para redefinir a senha de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em Olá **Redefinir senha** botão na parte superior de saudação da folha de usuário hello.
+7.  Clique no botão **Redefinir senha** na parte superior da folha do usuário.
 
-8.  Clique em hello **Redefinir senha** botão Olá **Redefinir senha** folha que aparece.
+8.  Clique no botão **Redefinir senha** na folha **Redefinir senha** que aparece.
 
-9.  Saudação de cópia **senha temporária** ou **insira uma nova senha** para usuário hello.
+9.  Copie a **senha temporária** ou **insira uma nova senha** para o usuário.
 
-10. Se comunicar esse novo usuário toohello senha, eles toochange necessária essa senha durante o próximo entrar tooAzure do Active Directory.
+10. Informe essa nova senha para o usuário, e que ele precisa alterar essa senha durante o próximo logon no Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
-senha de autoatendimento tooenable redefinir, execute as etapas de implantação de saudação abaixo:
+Para habilitar a redefinição de senhas por autoatendimento, execute as etapas de implantação abaixo:
 
--   [Habilitar os usuários tooreset suas senhas do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
--   [Habilitar os usuários tooreset ou alterar suas senhas do Active Directory local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o status da Autenticação Multifator de um usuário
 
-toocheck um usuário do multi-factor status de autenticação seguem Olá etapas abaixo:
+Para verificar o status da Autenticação Multifator de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  Clique em Olá **multi-Factor Authentication** botão na parte superior de saudação da folha de saudação.
+6.  Clique no botão **Autenticação Multifator** na parte inferior da folha.
 
-7.  Uma vez Olá **Portal de administração do multi-Factor Authentication** cargas, certifique-se você estiver usando Olá **usuários** guia.
+7.  Após o carregamento do **Portal de Administração da Autenticação Multifator**, verifique se você está na guia **Usuários**.
 
-8.  Localize usuário Olá Olá lista de usuários por pesquisa, filtragem ou classificação.
+8.  Encontre o usuário na lista de usuários pesquisando, filtrando ou classificando.
 
-9.  Usuário Olá selecione da lista de saudação de usuários e **habilitar**, **desabilitar**, ou **impor** autenticação multifator conforme desejado.
+9.  Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
 
-  * **Observação**: se um usuário estiver em um **imposto** de estado, você pode defini-las muito**desabilitado** temporariamente toolet-los de volta para sua conta. Quando eles forem novamente, você pode alterar seu estado muito**habilitado** novamente toorequire-los entre suas informações de contato durante o próximo registro de toore. Como alternativa, você pode seguir etapas Olá Olá [Verifique informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) tooverify ou defina esses dados para eles.
+  * **Observação**: Se um usuário estiver em estado **Imposto** defina-o temporariamente como **Desabilitado** para permitir que volte à sua conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante o próximo logon. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verificar as informações de contato de autenticação de um usuário
 
-toocheck autenticação do usuário entre em contato com informações usadas para autenticação multifator, acesso condicional, proteção de identidade e de redefinição de senha, siga as etapas de saudação abaixo:
+Para verificar as informações de contato de autenticação do usuário usadas para Autenticação Multifator, Acesso Condicional, Proteção de Identidade e Redefinição de Senha, execute as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
 7.  Clique em **Perfil**.
 
-8.  Role para baixo demais**informações de contato de autenticação**.
+8.  Role a tela para baixo até **Informações de contato de autenticação**.
 
-9.  **Revisão** dados saudação registrado para o usuário hello e atualização conforme necessário.
+9.  **Revise** os dados registrados para o usuário e a atualização conforme o necessário.
 
 ### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
 
-toocheck um usuário as associações de grupo, execute as etapas de saudação abaixo:
+Para verificar as associações de grupo de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **grupos** toosee que agrupa usuário Olá é membro.
+7.  Clique em **Grupos** para ver de quais grupos o usuário é membro.
 
 ### <a name="check-a-users-assigned-licenses"></a>Verificar as licenças atribuídas de um usuário
 
-toocheck um usuário atribuído licenças, siga Olá etapas abaixo:
+Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **licenças** toosee quais licenças Olá atualmente atribuída ao usuário.
+7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
 ### <a name="assign-a-user-a-license"></a>Atribuir uma licença a um usuário 
 
-tooassign um usuário de tooa de licença, siga as etapas de saudação abaixo:
+Para atribuir uma licença a um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Todos os usuários**.
 
-6.  **Pesquisa** para usuário Olá que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **licenças** toosee quais licenças Olá atualmente atribuída ao usuário.
+7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
-8.  Clique em Olá **atribuir** botão.
+8.  clique no botão **Atribuir**.
 
-9.  Selecione **um ou mais produtos** da lista de saudação de produtos disponíveis.
+9.  Selecione **um ou mais produtos** da lista de produtos disponíveis.
 
-10. **Opcional** clique Olá **opções atribuição** item toogranularly atribuir produtos. Clique em **OK** quando isso for concluído.
+10. **Opcional** clique no item **opções de atribuição** para atribuir produtos granularmente. Clique em **OK** quando isso for concluído.
 
-11. Clique em Olá **atribuir** botão tooassign usuário de toothis essas licenças.
+11. Clique no botão **Atribuir** para atribuir essas licenças para esse usuário.
 
 ## <a name="problems-with-groups"></a>Problemas com grupos
 
-Acesso de aplicativo pode ser bloqueado devido a problema tooa com um grupo que é atribuído o aplicativo toohello. Abaixo são apresentadas algumas maneiras para solucionar problemas com grupos e associações de grupo:
+O acesso a aplicativos pode ser bloqueado devido a um problema com um grupo atribuído ao aplicativo. Abaixo são apresentadas algumas maneiras para solucionar problemas com grupos e associações de grupo:
 
 -   [Verificar associações de um grupo](#check-a-groups-membership)
 
@@ -303,113 +303,113 @@ Acesso de aplicativo pode ser bloqueado devido a problema tooa com um grupo que 
 
 ### <a name="check-a-groups-membership"></a>Verificar associações de um grupo
 
-toocheck a associação do grupo, siga Olá etapas abaixo:
+Para verificar as associações de um grupo, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
-6.  **Pesquisa** para grupo de saudação que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo grupo no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **membros** tooreview lista de saudação de usuários atribuídos toothis grupo.
+7.  clique em **Membros** para examinar a lista de usuários atribuídos a esse grupo.
 
 ### <a name="check-a-dynamic-groups-membership-criteria"></a>Verificar os critérios de associação do grupo dinâmico 
 
-toocheck critérios de associação do grupo dinâmico, siga as etapas de saudação abaixo:
+Para verificar as associações de grupo dinâmico, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
-6.  **Pesquisa** para grupo de saudação que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo grupo no qual você está interessado e **clique na linha** para selecionar.
 
 7.  clique em **Regras de associação dinâmica.**
 
-8.  Saudação de revisão **simples** ou **avançados** definida para esse grupo de regras e certifique-se de que esse usuário Olá deseja toobe um membro desse grupo atenda a esses critérios.
+8.  Analise a regra **simples** ou **avançada** definida para esse grupo e certifique-se de que o usuário que pretende ser membro deste grupo atende as esses critérios.
 
 ### <a name="check-a-groups-assigned-licenses"></a>Verificar as licenças atribuídas de um usuário
 
-toocheck um grupo atribuído licenças, siga Olá etapas abaixo:
+Para verificar as licenças atribuídas de um usuário, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
-6.  **Pesquisa** para grupo de saudação que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo grupo no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **licenças** toosee qual grupo de licenças Olá atualmente tem atribuída.
+7.  clique em **Licenças** para ver quais licenças o grupo atribuiu atualmente.
 
 ### <a name="reprocess-a-groups-licenses"></a>Reprocessar licenças do um grupo
 
-tooreprocess um grupo atribuído licenças, siga Olá etapas abaixo:
+Para reprocessar as licenças atribuídas de um usuário, execute as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
-6.  **Pesquisa** para grupo de saudação que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo grupo no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **licenças** toosee qual grupo de licenças Olá atualmente tem atribuída.
+7.  clique em **Licenças** para ver quais licenças o grupo atribuiu atualmente.
 
-8.  Clique em Olá **reprocessar** tooensure botão que Olá membros do grupo de toothis licenças atribuídas estão atualizados. Isso pode levar algum tempo, dependendo do tamanho de saudação e a complexidade do grupo de saudação.
+8.  clique no botão **Reprocessar** para garantir que as licenças atribuídas a membros desse grupo sejam atualizadas. Isso pode levar algum tempo, dependendo do tamanho e da complexidade do grupo.
 
    >[!NOTE]
-   >toodo isso mais rapidamente, considere temporariamente atribuir uma licença toohello usuário diretamente. [Atribua uma licença a um usuário](#problems-with-application-consent).
+   >Para fazer isso mais rápido, considere atribuir temporariamente uma licença diretamente ao usuário. [Atribua uma licença a um usuário](#problems-with-application-consent).
    >
    >
 
 ### <a name="assign-a-group-a-license"></a>Atribuir uma licença a um grupo
 
-tooassign um grupo de tooa de licença, siga as etapas de saudação abaixo:
+Para atribuir uma licença a um grupo, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
-6.  **Pesquisa** para grupo de saudação que lhe interessam e **clique linha hello** tooselect.
+6.  **Pesquise** pelo grupo no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **licenças** toosee qual grupo de licenças Olá atualmente tem atribuída.
+7.  clique em **Licenças** para ver quais licenças o grupo atribuiu atualmente.
 
-8.  Clique em Olá **atribuir** botão.
+8.  clique no botão **Atribuir**.
 
-9.  Selecione **um ou mais produtos** da lista de saudação de produtos disponíveis.
+9.  Selecione **um ou mais produtos** da lista de produtos disponíveis.
 
-10. **Opcional** clique Olá **opções atribuição** item toogranularly atribuir produtos. Clique em **OK** quando isso for concluído.
+10. **Opcional** clique no item **opções de atribuição** para atribuir produtos granularmente. Clique em **OK** quando isso for concluído.
 
-11. Clique em Olá **atribuir** botão tooassign grupo de toothis essas licenças. Isso pode levar algum tempo, dependendo do tamanho de saudação e a complexidade do grupo de saudação.
+11. Clique no botão **Atribuir** para atribuir essas licenças para esse grupo. Isso pode levar algum tempo, dependendo do tamanho e da complexidade do grupo.
 
    >[!NOTE]
-   >toodo isso mais rapidamente, considere temporariamente atribuir uma licença toohello usuário diretamente. [Atribua uma licença a um usuário](#problems-with-application-consent).
+   >Para fazer isso mais rápido, considere atribuir temporariamente uma licença diretamente ao usuário. [Atribua uma licença a um usuário](#problems-with-application-consent).
    > 
    >
 
@@ -417,80 +417,80 @@ tooassign um grupo de tooa de licença, siga as etapas de saudação abaixo:
 
 ### <a name="check-a-specific-conditional-access-policy"></a>Verificar uma política específica de acesso condicional
 
-toocheck ou validar uma política de acesso condicional:
+Para verificar ou validar uma política de acesso condicional única:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação hello.
+4.  clique em **Aplicativos empresariais** no menu de navegação.
 
-5.  Clique em Olá **acesso condicional** item de navegação.
+5.  clique no item de navegação **Acesso condicional**.
 
-6.  Clique em diretiva de saudação que lhe interessam inspecionar.
+6.  clique na política que você pretende inspecionar.
 
 7.  Analise se não há condições, atribuições ou outras configurações específicas que podem estar bloqueando o acesso do usuário.
 
    >[!NOTE]
-   >Você poderá desabilitar tootemporarily este tooensure de política está afetando sinal ins toodo não hello, conjunto **habilitar política** alternar muito**não** e clique em Olá **salvar** botão .
+   >Talvez você queira desabilitar temporariamente essa política para garantir que ela não está afetando entradas. Para fazer isso, defina a alternância **Habilitar política** para **Não** e clique no botão **Salvar**.
    >
    >
 
 ### <a name="check-a-specific-applications-conditional-access-policy"></a>Verificar uma política específica de acesso condicional do aplicativo
 
-toocheck ou validar a política de acesso condicional configurada atualmente de um único aplicativo:
+Para verificar ou validar uma política de acesso condicional configurada atualmente de aplicativo único:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação hello.
+4.  clique em **Aplicativos empresariais** no menu de navegação.
 
 5.  clique em **Todos os aplicativos**.
 
-6.  Pesquisa para o aplicativo hello está interessado, ou Olá usuário está tentando toosign no aplicativo tooby exibir a id de aplicativo ou nome.
+6.  Procure o aplicativo de seu interesse, o usuário que está tentando entrar pelo nome de exibição do aplicativo ou ID do aplicativo.
 
      >[!NOTE]
-     >Se você não vir o aplicativo hello que você está procurando, clique em Olá **filtro** botão e expandir o escopo de saudação da lista de saudação muito**todos os aplicativos**. Se você quiser toosee mais colunas, clique em Olá **colunas** botão detalhes adicionais de tooadd para seus aplicativos.
+     >Se você não encontrar o aplicativo que está procurando, clique no botão **Filtrar** e expanda o escopo da lista para **Todos os aplicativos**. Se você quiser ver mais colunas, clique no botão **Colunas** para adicionar detalhes complementares a seus aplicativos.
      >
      >
 
-7.  Clique em Olá **acesso condicional** item de navegação.
+7.  clique no item de navegação **Acesso condicional**.
 
-8.  Clique em diretiva de saudação que lhe interessam inspecionar.
+8.  clique na política que você pretende inspecionar.
 
 9.  Analise se não há condições, atribuições ou outras configurações específicas que podem estar bloqueando o acesso do usuário.
 
      >[!NOTE]
-     >Você poderá desabilitar tootemporarily este tooensure de política está afetando sinal ins toodo não hello, conjunto **habilitar política** alternar muito**não** e clique em Olá **salvar** botão .
+     >Talvez você queira desabilitar temporariamente essa política para garantir que ela não está afetando entradas. Para fazer isso, defina a alternância **Habilitar política** para **Não** e clique no botão **Salvar**.
      >
      >
 
 ### <a name="disable-a-specific-conditional-access-policy"></a>Desabilitar uma política específica de acesso condicional
 
-toocheck ou validar uma política de acesso condicional:
+Para verificar ou validar uma política de acesso condicional única:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação hello.
+4.  clique em **Aplicativos empresariais** no menu de navegação.
 
-5.  Clique em Olá **acesso condicional** item de navegação.
+5.  clique no item de navegação **Acesso condicional**.
 
-6.  Clique em diretiva de saudação que lhe interessam inspecionar.
+6.  clique na política que você pretende inspecionar.
 
-7.  Desabilitar política Olá por configuração Olá **habilitar política** alternar muito**não** e clique em Olá **salvar** botão.
+7.  Desabilite a política, configurando a alternância **Habilitar política** para **Não** e clique no botão **Salvar**.
 
 ## <a name="problems-with-application-consent"></a>Problemas com consentimento do aplicativo
 
-Acesso de aplicativo pode ser bloqueado porque não houve Olá permissões adequadas consentimento operação. Abaixo, são apresentadas algumas maneiras de solucionar problemas e resolver questões relacionados ao consentimento do aplicativo:
+O acesso do aplicativo pode ser bloqueado porque a operação de consentimento de permissões apropriadas não ocorreu. Abaixo, são apresentadas algumas maneiras de solucionar problemas e resolver questões relacionados ao consentimento do aplicativo:
 
 -   [Executar uma operação de consentimento de nível de usuário](#perform-a-user-level-consent-operation)
 
@@ -502,28 +502,28 @@ Acesso de aplicativo pode ser bloqueado porque não houve Olá permissões adequ
 
 ### <a name="perform-a-user-level-consent-operation"></a>Executar uma operação de consentimento de nível de usuário
 
--   Para qualquer aplicativo habilitado para abrir conexão de ID que solicita permissões, navegar a tela de entrada do aplicativo toohello executa um aplicativo de toohello de nível de consentimento do usuário para o usuário conectado hello.
+-   Para qualquer aplicativo habilitado para Open ID Connect que solicita permissões, navegar até a tela de entrada do aplicativo executa um consentimento de nível de usuário para o aplicativo do usuário conectado.
 
--   Se você desejar toodo isso programaticamente, consulte [solicita o consentimento do usuário individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Se você quiser fazer isso programaticamente, consulte [Solicitando consentimento do usuário individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Executar operação de consentimento de nível de administrador para qualquer aplicativo
 
--   Para **somente os aplicativos desenvolvidos usando o modelo de aplicativo hello V1**, você pode forçar essa toooccur de nível de consentimento do administrador adicionando "**? prompt = admin\_consentimento**" toohello final de um entrada do aplicativo na URL.
+-   Somente **para aplicativos desenvolvidos usando o modelo de aplicativo V1**, você pode forçar que esse consentimento de nível de administrador ocorra, adicionando “**?prompt=admin\_consent**” ao final da URL de entrada do aplicativo.
 
--   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo hello V2**, você pode impor esse toooccur consentimento de nível de administrador, seguindo as instruções de saudação em Olá **solicitar permissões de saudação de um diretório administrador** seção [usando o ponto de extremidade de autorização do Olá administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Executar consentimento de nível de administrador para um aplicativo de locatário único
 
--   Para **único locatário aplicativos** que solicitar permissões (como aqueles que você está desenvolvendo ou possuir em sua organização), você pode executar uma **consentimento de nível administrativo** operação em nome de todos os os usuários fazer logon como um Administrador Global e clicando em Olá **conceder permissões** botão na parte superior de saudação do hello **registro de aplicativos -&gt; todos os aplicativos -&gt; selecionar um aplicativo - &gt; Permissões necessárias** folha.
+-   Para **aplicativos de locatário único** que solicitam permissões (como os em desenvolvimento ou próprios da organização), é possível executar uma operação de **consentimento de nível administrativo** em nome de todos os usuários, entrando como um Administrador Global e clicando no botão **Conceder permissões** na parte superior da folha **Registro de Aplicativo -&gt; Todos os Aplicativos -&gt; Selecionar um Aplicativo -&gt; Permissões Necessárias**.
 
--   Para **qualquer aplicativo desenvolvido usando Olá V1 ou V2 modelo de aplicativo**, você pode impor esse toooccur consentimento de nível de administrador, seguindo as instruções de saudação em Olá **solicitar permissões de saudação de um administrador de diretório** seção [usando o ponto de extremidade de autorização do Olá administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicativo desenvolvido usando o modelo de aplicativo V1 ou V2**, você pode impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Executar consentimento de nível de administrador para um aplicativo multilocatário
 
--   Para **Aplicativos de multilocatário** que solicitar permissões (como um aplicativo de terceiros ou desenvolvido pela Microsoft), você pode executar uma operação de **consentimento de nível administrativo**. Entrar como um Administrador Global e clicando em Olá **conceder permissões** botão sob Olá **aplicativos corporativos -&gt; todos os aplicativos -&gt; selecionar um aplicativo -&gt; Permissões** folha (disponível em breve).
+-   Para **Aplicativos de multilocatário** que solicitar permissões (como um aplicativo de terceiros ou desenvolvido pela Microsoft), você pode executar uma operação de **consentimento de nível administrativo**. Entre como um Administrador Global e clique no botão **Conceder permissões** na folha **Aplicativos Empresariais -&gt; Todos os Aplicativos -&gt; Selecionar um Aplicativo -&gt; Permissões** (disponível em breve).
 
--   Você também pode impor esse toooccur consentimento de nível de administrador seguindo as instruções de saudação em hello **solicitar permissões de saudação de um administrador de diretório** seção [usando o ponto de extremidade de autorização do Olá administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   É possível impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrado](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Usando o ponto de extremidade de autorização do Olá administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
+[Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

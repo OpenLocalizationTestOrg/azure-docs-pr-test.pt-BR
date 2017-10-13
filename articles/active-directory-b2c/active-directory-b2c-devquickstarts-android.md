@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Como adquirir um token usando um aplicativo do Android | Microsoft Docs'
-description: "Este artigo mostra como toocreate um aplicativo do Android que usa AppAuth com identidades de usuário do Azure Active Directory B2C toomanage e autenticar usuários."
+description: "Este artigo mostra como criar um aplicativo do Android que usa AppAuth com o Azure Active Directory B2C para autenticar e gerenciar identidades de usuários."
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
@@ -14,22 +14,22 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 0236398673115a34951f035cb1e73e89417abf86
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: entrar usando um aplicativo Android
 
-plataforma de identidade do Microsoft Hello usa padrões abertos como OAuth2 e OpenID Connect. Isso permite que desenvolvedores tooleverage qualquer biblioteca desejarem toointegrate com nossos serviços. os desenvolvedores de tooaid usando nossa plataforma com outras bibliotecas, escrevemos algumas instruções passo a passo como esse um toodemonstrate como tooconfigure 3ª parte bibliotecas tooconnect toohello Microsoft plataforma de identidade. A maioria das bibliotecas que implementam [especificação Olá RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) será capaz de tooconnect toohello Microsoft Identity plataforma.
+A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Isso permite aos desenvolvedores aproveitar qualquer biblioteca que queiram integrar aos nossos serviços. Para auxiliar os desenvolvedores que usam a nossa plataforma com outras bibliotecas, escrevemos alguns tutoriais como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) poderá conectar-se à Plataforma de Identidade da Microsoft.
 
 > [!WARNING]
-> A Microsoft não fornece correções nem análises para bibliotecas de terceiros. Este exemplo está usando uma biblioteca de terceiros 3º chamada AppAuth foi testada para compatibilidade em cenários básicos com hello Azure AD B2C. Problemas e solicitações de recursos devem ser o projeto de código-fonte aberto da biblioteca toohello direcionado. Para saber mais, confira [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
+> A Microsoft não fornece correções nem análises para bibliotecas de terceiros. Esse exemplo usa uma biblioteca de terceiros, AppAuth, que foi testada com relação à compatibilidade em cenários básicos com o Azure AD B2C. Os problemas e solicitações de recursos devem ser direcionados ao projeto de software livre da biblioteca. Para saber mais, confira [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
 >
 >
 
-Se você for novo tooOAuth2 ou OpenID Connect muito nesta configuração de exemplo pode não ter tooyou muito sentido. Recomendamos que você examinar um breve [visão geral do protocolo de saudação já tenha sido documentadas aqui](active-directory-b2c-reference-protocols.md).
+Se você ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo poderá não fazer muito sentido para você. Recomendamos que você examine uma breve [visão geral do protocolo que documentamos aqui](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
 
@@ -37,33 +37,33 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
-Em seguida, você precisa toocreate um aplicativo no seu diretório do B2C. Isso fornece informações do AD do Azure que precisa toocommunicate com segurança com seu aplicativo. toocreate um aplicativo móvel, siga [estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
+Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo móvel, siga [estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
-* Incluir um **Native Client** no aplicativo hello.
-* Saudação de cópia **ID do aplicativo** que é atribuído tooyour aplicativo. Você precisará dessas informações posteriormente.
+* Inclua um **cliente nativo** no aplicativo.
+* Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisará dessas informações posteriormente.
 * Configure um **URI de redirecionamento** de cliente nativo (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você também precisará dela mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar suas políticas
 
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você precisa toocreate essa política, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar política hello, certifique-se para:
+No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você deve criar esta política seguindo as instruções de [Artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
 
-* Escolha Olá **nome de exibição** como um atributo de inscrição em sua política.
-* Escolha Olá **nome de exibição** e **ID de objeto** declarações de aplicativo em cada política. Você pode escolher outras declarações também.
-* Saudação de cópia **nome** de cada política depois de criá-lo. Ele deve ter o prefixo Olá `b2c_1_`.  Você precisará nome da política hello mais tarde.
+* Escolha o **Nome de exibição** e os atributos de inscrição em sua política.
+* Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
+* Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`.  Posteriormente, você precisará do nome da política.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois que você criou as políticas, você está pronto toobuild seu aplicativo.
+Depois de criar as políticas, você estará pronto para compilar o aplicativo.
 
-## <a name="download-hello-sample-code"></a>Baixar o código de exemplo hello
+## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 
-Nós fornecemos um exemplo funcional que usa o AppAuth com o Azure AD B2C [no GitHub](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Você pode baixar o código de saudação e executá-lo. Você pode começar rapidamente com seu próprio aplicativo usando sua própria configuração do Azure AD B2C seguindo instruções Olá Olá [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md).
+Nós fornecemos um exemplo funcional que usa o AppAuth com o Azure AD B2C [no GitHub](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Você pode baixar o código e executá-lo. Você pode começar rapidamente com seu próprio aplicativo usando uma configuração personalizada do Azure AD B2C, para isso, basta seguir as instruções de [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md).
 
-exemplo Hello é uma modificação do exemplo hello fornecido pelo [AppAuth](https://openid.github.io/AppAuth-Android/). Visite sua toolearn página mais sobre AppAuth e seus recursos.
+O exemplo é uma modificação de exemplo fornecido pelo [AppAuth](https://openid.github.io/AppAuth-Android/). Acesse a página para saber mais sobre o AppAuth e seus recursos.
 
-## <a name="modifying-your-app-toouse-azure-ad-b2c-with-appauth"></a>Modificando o toouse de aplicativo do Azure AD B2C com AppAuth
+## <a name="modifying-your-app-to-use-azure-ad-b2c-with-appauth"></a>Modificando seu aplicativo para usar o Azure AD B2C com AppAuth
 
 > [!NOTE]
 > O AppAuth oferece suporte à API Android 16 (Jellybean) e versões superiores. Recomendamos usar a API 23 ou superior.
@@ -71,18 +71,18 @@ exemplo Hello é uma modificação do exemplo hello fornecido pelo [AppAuth](htt
 
 ### <a name="configuration"></a>Configuração
 
-Você pode configurar a comunicação com o Azure AD B2C descobrir Olá especificando URI ou especificando o ponto de extremidade de autorização hello e URIs de ponto de extremidade token. Em ambos os casos, você precisará Olá informações a seguir:
+Você pode configurar a comunicação com o Azure AD B2C especificando o URI de descoberta, ou especificando o ponto de extremidade de autorização e os URIs de ponto de extremidade de token. Em ambos os casos, você precisará das informações a seguir:
 
 * ID do locatário (por exemplo, contoso.onmicrosoft.com)
 * Nome da política (por exemplo, B2C\_1\_SignUpIn)
 
-Se você escolher tooautomatically descobrir Olá autorização e token de ponto de extremidade URIs, você precisará toofetch informações de descoberta de saudação URI. descoberta de saudação URI pode ser gerado, substituindo Olá locatário\_ID e hello política\_nome no hello URL a seguir:
+Se optar por descobrir automaticamente a autorização e os URIs de ponto de extremidade de token, você terá que buscar informações do URI de descoberta. O URI de descoberta pode ser gerado ao substituir o Tenant\_ID e o Policy\_Name na seguinte URL:
 
 ```java
 String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
-Você pode adquirir autorização hello e URIs de ponto de extremidade token e criar um objeto AuthorizationServiceConfiguration executando Olá seguinte:
+Para adquirir a autorização e os URIs de ponto de extremidade de token e criar um objeto AuthorizationServiceConfiguration, execute:
 
 ```java
 final Uri issuerUri = Uri.parse(mDiscoveryURI);
@@ -95,15 +95,15 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
           @Nullable AuthorizationServiceConfiguration serviceConfiguration,
           @Nullable AuthorizationException ex) {
         if (ex != null) {
-            Log.w(TAG, "Failed tooretrieve configuration for " + issuerUri, ex);
+            Log.w(TAG, "Failed to retrieve configuration for " + issuerUri, ex);
         } else {
-            // service configuration retrieved, proceed tooauthorization...
+            // service configuration retrieved, proceed to authorization...
         }
       }
   });
 ```
 
-Em vez de usar autorização de saudação do tooobtain de descoberta e o ponto de extremidade token URIs, você também pode especificá-los explicitamente, substituindo Olá locatário\_ID e hello política\_nome na URL de saudação abaixo:
+Em vez de usar a descoberta para obter a autorização e os URIs de ponto de extremidade de token, você também pode especificá-los explicitamente, substituindo o Tenant\_ID e o Policy\_Name na URL a seguir:
 
 ```java
 String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
@@ -111,18 +111,18 @@ String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.
 String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
-Execute seu objeto AuthorizationServiceConfiguration de saudação toocreate de código a seguir:
+Execute o seguinte código para criar o objeto AuthorizationServiceConfiguration:
 
 ```java
 AuthorizationServiceConfiguration config =
         new AuthorizationServiceConfiguration(name, mAuthEndpoint, mTokenEndpoint);
 
-// perform hello auth request...
+// perform the auth request...
 ```
 
 ### <a name="authorizing"></a>Autorizando
 
-Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser criada. Olá toocreate solicitar, você precisará Olá informações a seguir:
+Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser criada. Para criar a solicitação, você precisará das informações a seguir:
 
 * ID do cliente (por exemplo, 00000000-0000-0000-0000-000000000000)
 * URI de redirecionamento com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect)
@@ -138,7 +138,7 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
     .build();
 ```
 
-Consulte toohello [AppAuth guia](https://openid.github.io/AppAuth-Android/) em como toocomplete Olá restante do processo de saudação. Se você precisar tooquickly começar com um aplicativo de trabalho, check-out [nosso exemplo](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Siga as etapas de Olá Olá [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) tooenter sua configuração do Azure AD B2C.
+Consulte o [guia AppAuth](https://openid.github.io/AppAuth-Android/) para concluir o processo. Se quiser trabalhar logo com o seu aplicativo, veja o [nosso exemplo](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Siga as etapas em [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) para inserir sua própria configuração do Azure AD B2C.
 
-Estamos sempre abrir toofeedback e sugestões! Se você tiver dificuldade com este tópico ou ter recomendações para melhorar este conteúdo, Apreciamos seus comentários na parte inferior da saudação da página de saudação. Para solicitações de recurso, adicioná-los muito[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este tópico ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

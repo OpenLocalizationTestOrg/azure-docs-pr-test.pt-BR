@@ -1,23 +1,23 @@
-### <a name="determine-hello-dns-name-of-hello-virtual-machine"></a>Determinar nome DNS de saudação da máquina virtual de saudação
-tooconnect toohello do mecanismo de banco de dados do SQL Server de outro computador, você deve saber Olá sistema de nome de domínio (DNS) nome da máquina virtual de saudação. (Isso é Olá nome hello internet usa tooidentify Olá máquina virtual. Você pode usar o endereço IP hello, mas o endereço IP hello pode mudar quando o Azure move recursos de redundância ou manutenção. nome DNS de saudação será estável porque ele pode ser redirecionado tooa novo endereço IP.)  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determinar o nome DNS da máquina virtual
+Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computador, você deve saber o nome DNS (Sistema de Nome de Domínio) da máquina virtual. (Esse é o nome que a Internet usa para identificar a máquina virtual. Você pode usar o endereço IP, mas o endereço IP pode ser alterado quando o Azure mover os recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)  
 
-1. Olá Portal do Azure (ou da etapa anterior Olá), selecione **máquinas virtuais (clássicas)**.
+1. No Portal do Azure (ou na etapa anterior), selecione **Máquinas virtuais (clássico)**.
 2. Selecione sua VM do SQL.
-3. Em Olá **Máquina Virtual** folha, Olá cópia **nome DNS** para a máquina virtual de saudação.
+3. Na folha **Máquina Virtual**, copie o **Nome DNS** para a máquina virtual.
    
     ![Nome DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-toohello-database-engine-from-another-computer"></a>Conectar toohello mecanismo de banco de dados de outro computador
-1. Em um computador conectado toohello internet, abra o SQL Server Management Studio.
-2. Em Olá **conectar tooServer** ou **conectar tooDatabase mecanismo** caixa de diálogo Olá **nome do servidor** , digite o nome DNS de saudação da máquina virtual de saudação (determinada na Olá tarefa anterior) e um número de porta do ponto de extremidade público no formato de saudação do *DNSName, portnumber* como **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
+1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
+2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número de porta pública de ponto de extremidade no formato *NomeDNS, númerodaporta*, como **mysqlvm.cloudapp.net,57500**.
    
     ![Conectar-se usando SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Se você não lembrar o número da porta do ponto de extremidade público Olá criado anteriormente, você pode encontrar no hello **pontos de extremidade** área da saudação **Máquina Virtual** folha.
+    Se não lembrar o número da porta do ponto de extremidade público criado anteriormente, você pode encontrá-lo na área **Pontos de extremidade** da folha **Máquina Virtual**.
    
     ![Porta pública](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. Em Olá **autenticação** selecione **autenticação do SQL Server**.
-4. Em Olá **Login** caixa, digite o nome de saudação de um logon que você criou em uma tarefa anterior.
-5. Em Olá **senha** caixa, digite a senha de saudação do logon de saudação que você cria em uma tarefa anterior.
+3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
+4. Na caixa **Logon** , digite o nome de um logon que você criou em uma tarefa anterior.
+5. Na caixa **Senha** , digite a senha do logon que você criou em uma tarefa anterior.
 6. Clique em **Conectar**.
 

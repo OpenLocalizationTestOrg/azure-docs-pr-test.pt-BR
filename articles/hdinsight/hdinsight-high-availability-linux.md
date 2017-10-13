@@ -1,6 +1,6 @@
 ---
-title: disponibilidade de aaaHigh para Hadoop - HDInsight do Azure | Microsoft Docs
-description: "Saiba como clusters HDInsight melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços Hadoop, como Ambari e Hive, bem como tooindividually conectar tooeach nó principal usando o SSH."
+title: "Alta disponibilidade para Hadoop – Azure HDInsight | Microsoft Docs"
+description: "Saiba como clusters HDInsight melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -17,136 +17,136 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ff62afe6b63b241cb984225233157219f8d7411
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e66ba67a36fc48d1762ba302d708e060489fdc71
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
 
-Clusters HDInsight fornecem duas disponibilidade de saudação tooincrease nós de cabeçalho e a confiabilidade dos serviços Hadoop e trabalhos em execução.
+Os clusters HDInsight fornecem dois nós de cabeçalho para aumentar a disponibilidade e a confiabilidade dos serviços e trabalhos do Hadoop em execução.
 
-O Hadoop atinge a alta disponibilidade e confiabilidade replicando serviços e dados em múltiplos nós em um cluster. No entanto, em geral, as distribuições padrão do Hadoop têm apenas um único nó de cabeçalho. Qualquer interrupção do nó de cabeçalho único Olá pode fazer com que o trabalho de toostop cluster hello. HDInsight fornece disponibilidade e a confiabilidade do duas headnodes tooimprove Hadoop.
+O Hadoop atinge a alta disponibilidade e confiabilidade replicando serviços e dados em múltiplos nós em um cluster. No entanto, em geral, as distribuições padrão do Hadoop têm apenas um único nó de cabeçalho. Qualquer falha do único nó de cabeçalho poderá fazer com que o cluster pare de funcionar. O HDInsight fornece dois nós principais para melhorar a disponibilidade e a confiabilidade do Hadoop.
 
 > [!IMPORTANT]
-> Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilidade e confiabilidade dos nós
 
-Os nós em um cluster HDInsight são implementados com o uso de Máquinas Virtuais do Azure. Olá seções a seguir discutem os tipos de nós individuais Olá usados com HDInsight. 
+Os nós em um cluster HDInsight são implementados com o uso de Máquinas Virtuais do Azure. As seções a seguir abordam os tipos de nós individuais usados com o HDInsight. 
 
 > [!NOTE]
-> Nem todos os tipos de nó são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre nós usado pelos tipos de cluster HDInsight, consulte a seção de tipos de Cluster de saudação do hello [Hadoop baseado em Linux criar clusters de HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) documento.
+> Nem todos os tipos de nó são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós usados pelos tipos de cluster HDInsight, veja a seção “Tipos de cluster” do documento [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Nós de cabeçalho
 
-a alta disponibilidade de serviços Hadoop tooensure, HDInsight fornece dois nós de cabeçalho. Ambos os nós de cabeçalho estão ativo e em execução no cluster do HDInsight Olá simultaneamente. Alguns serviços, como HDFS ou YARN, só estão “ativos” em um nó de cabeçalho a qualquer momento. Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós principal no hello simultaneamente.
+Para garantir a alta disponibilidade dos serviços do Hadoop, o HDInsight oferece dois nós principais. Ambos os nós de cabeçalho estão ativos e em execução no cluster HDInsight simultaneamente. Alguns serviços, como HDFS ou YARN, só estão “ativos” em um nó de cabeçalho a qualquer momento. Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
-Nós de cabeçalho (e outros nós no HDInsight) tem um valor numérico como parte do nome de host de saudação do nó de saudação. Por exemplo, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
+Os nós de cabeçalho (e outros nós no HDInsight) tem um valor numérico como parte do nome do host do nó. Por exemplo, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]
-> Não associe valor numérico Olá se um nó é primário ou secundário. valor numérico de saudação é tooprovide presente apenas um nome exclusivo para cada nó.
+> Não associa o valor numérico com a possibilidade de um nó ser primário ou secundário. O valor numérico está presente apenas para fornecer um nome exclusivo para cada nó.
 
 ### <a name="nimbus-nodes"></a>Nós Nimbus
 
-Nós Nimbus estão disponíveis nos clusters Storm. nós de Nimbus Olá fornecem semelhante funcionalidade toohello Hadoop JobTracker por distribuição e monitoramento de processamento entre nós de trabalho. O HDInsight oferece dois nós Nimbus para clusters Storm
+Nós Nimbus estão disponíveis nos clusters Storm. Os nós Nimbus fornecem funcionalidade semelhante ao JobTracker do Hadoop, distribuindo e monitorando o processamento nos nós de trabalho. O HDInsight oferece dois nós Nimbus para clusters Storm
 
 ### <a name="zookeeper-nodes"></a>Nós do Zookeeper
 
-Os nós [ZooKeeper](http://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós principais. Eles também são usada tooinsure que serviços, nós de dados (trabalho) e gateways sabem qual nó principal mestra do serviço está ativa no. Por padrão, o HDInsight fornece três nós do ZooKeeper.
+Os nós [ZooKeeper](http://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós principais. Eles também são usados para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó principal um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós do ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nós de trabalho
 
-Nós de trabalho executam análise de dados reais de saudação quando um trabalho é enviado toohello cluster. Se um nó de trabalho falhar, a tarefa de saudação que estava executando é nó de trabalho tooanother enviados. Por padrão, o HDInsight cria quatro nós de trabalho. Você pode alterar esse número toosuit suas necessidades durante e após a criação do cluster.
+Os nós de trabalho executam a análise de dados real quando um trabalho é enviado para o cluster. Se um nó de trabalho falhar, a tarefa que ele estava executando será enviada para outro nó de trabalho. Por padrão, o HDInsight cria quatro nós de trabalho. Você pode alterar esse número para atender às suas necessidades, durante e após a criação do cluster.
 
 ### <a name="edge-node"></a>Nó de borda
 
-Um nó de borda não participará na análise de dados em cluster Olá ativamente. Ele é usado por desenvolvedores ou cientistas de dados ao trabalhar com o Hadoop. Olá borda nó vidas em Olá mesma rede Virtual do Azure Olá outros nós no cluster hello e podem acessar diretamente a todos os outros nós. nó de borda Olá pode ser usado sem colocar recursos longe serviços críticos do Hadoop ou trabalhos de análise.
+Um nó de borda não participa ativamente na análise de dados dentro do cluster. Ele é usado por desenvolvedores ou cientistas de dados ao trabalhar com o Hadoop. O nó de borda reside na mesma Rede Virtual do Azure que os outros nós no cluster e pode acessar diretamente todos os outros nós. O nó de borda pode ser usado sem retirar recursos dos serviços críticos do Hadoop ou de trabalhos de análise.
 
-No momento, o servidor de R no HDInsight é Olá somente tipo de cluster que fornece um nó de borda padrão. Para o servidor do R no HDInsight, o nó de borda de saudação é usado o código de teste R localmente no nó de saudação antes do envio cluster toohello para processamento distribuído.
+Atualmente, o Servidor R no HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para o Servidor R no HDInsight, o nó de borda é usado para testar o código R localmente no nó antes de enviá-lo ao cluster para o processamento distribuído.
 
-Para obter informações sobre o uso de um nó de borda com tipos de cluster que não seja o servidor de R, consulte Olá [usar nós de borda em HDInsight](hdinsight-apps-use-edge-node.md) documento.
+Para saber mais sobre como usar um nó de borda com tipos de cluster diferentes do Servidor de R, consulte o documento [Usar nós de borda no HDInsight](hdinsight-apps-use-edge-node.md).
 
-## <a name="accessing-hello-nodes"></a>Acessar nós Olá
+## <a name="accessing-the-nodes"></a>Acessando os nós
 
-Cluster de toohello de acesso sobre Olá internet é fornecido por meio de um gateway público. O acesso é limitado tooconnecting toohello nós de cabeçalho e (se houver) Olá nó de borda. Acesso tooservices em execução em nós de cabeça Olá não é afetado por ter vários nós de cabeçalho. Olá gateway pública rotas solicitações toohello nó principal que hospeda Olá serviço solicitado. Por exemplo, se Ambari está hospedado no momento no nó de cabeçalho secundário hello, gateway Olá roteia solicitações de entrada para o nó de toothat Ambari.
+O acesso ao cluster pela internet é fornecido por meio de um gateway público. O acesso é limitado à conexão com os nós principais e (se houver) do nó de borda. O acesso aos serviços em execução em nós principais não é afetado por ter vários nós de cabeça. O gateway público encaminha solicitações ao nó principal que hospeda o serviço solicitado. Por exemplo, se, no momento, o Ambari estiver hospedado no nó de cabeçalho secundário, o gateway encaminhará solicitações de entrada para o Ambari nesse nó.
 
-O acesso por gateway pública Olá é limitado tooport 443 (HTTPS), 22 e 23.
+O acesso por meio do gateway público é limitado à porta 443 (HTTPS), 22 e 23.
 
-* Porta __443__ é usado tooaccess Ambari e outros web interface do usuário ou APIs REST hospedadas em nós de cabeça hello.
+* A porta __443__ é usada para acessar a interface do usuário do Ambari ou de outras interfaces da Web ou APIs REST hospedadas em nós de cabeça.
 
-* Porta __22__ é nó de cabeçalho principal usado tooaccess hello ou nó de borda com o SSH.
+* A porta __22__ é usada para acessar o nó principal primária ou o nó de borda com o SSH.
 
-* Porta __23__ é usado tooaccess Olá secundário nó principal com SSH. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` conecta toohello nó primário de principal do cluster Olá denominado **mycluster**.
+* A porta __23__ é usada para acessar o nó principal secundário com SSH. Por exemplo, o `ssh username@mycluster-ssh.azurehdinsight.net` se conectará ao nó principal de cabeçalho do cluster chamado **mycluster**.
 
-Para obter mais informações sobre como usar SSH, consulte Olá [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) documento.
+Para saber mais sobre como usar SSH, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="internal-fully-qualified-domain-names-fqdn"></a>Nomes internos de domínio totalmente qualificado (FQDN)
 
-Nós em um cluster HDInsight tem um endereço IP e o FQDN que só pode ser acessado do cluster Olá interno. Ao acessar serviços em cluster hello usando o endereço IP ou FQDN interno do hello, você deve usar o Ambari tooverify Olá IP ou FQDN toouse ao acessar o serviço de saudação.
+Os nós em um cluster HDInsight possuem um endereço IP interno e o FQDN que só pode ser acessado do cluster. Ao acessar serviços em cluster usando o endereço IP ou FQDN interno, você deve usar Ambari para verificar o IP ou FQDN para usar quando acessar o serviço.
 
-Por exemplo, Olá Oozie serviço só pode ser executado em um nó principal e usando Olá `oozie` comando de uma sessão SSH requer o serviço de toohello Olá URL. Essa URL pode ser recuperado do Ambari usando Olá comando a seguir:
+Por exemplo, o serviço de Oozie pode ser executado somente em um nó de cabeçalho e usar o comando `oozie` de uma sessão SSH requer a URL para o serviço. Essa URL pode ser recuperada do Ambari usando o seguinte comando:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
-Esse comando retorna um toohello semelhante de valor a seguir de comando, que contém a saudação toouse interno de URL com hello `oozie` comando:
+Esse comando retorna um valor semelhante ao seguinte comando, que contém a URL interna para usar com o comando `oozie`:
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Para obter mais informações sobre como trabalhar com hello Ambari REST API, consulte [monitorar e gerenciar o HDInsight usando Olá API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para saber mais sobre como trabalhar com a API REST do Ambari, consulte [Monitorar e gerenciar o HDInsight usando a API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Acessando outros tipos de nó
 
-Você pode conectar toonodes que são não diretamente acessível via Olá internet usando Olá métodos a seguir:
+Você pode se conectar a nós que não estão diretamente acessíveis pela Internet usando os métodos a seguir:
 
-* **SSH**: uma vez conectado tooa nó principal usando SSH, em seguida, você pode usar SSH de saudação nó principal tooconnect tooother nós Olá cluster. Para obter mais informações, consulte Olá [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) documento.
+* **SSH**: assim que estiver conectado a um nó de cabeçalho usando o SSH, você poderá usar o SSH por meio do nó de cabeçalho para se conectar aos outros nós no cluster. Para saber mais, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Túnel SSH**: se você precisar tooaccess um serviço web hospedado em um de nós de saudação que não seja exposto toohello internet, você deve usar um túnel SSH. Para obter mais informações, consulte Olá [usar um túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) documento.
+* **Túnel SSH**: caso precise acessar um serviço Web hospedado em um dos nós que não esteja exposto à Internet, será necessário usar um túnel SSH. Para saber mais, consulte o documento [Usar túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Rede Virtual do Azure**: se o HDInsight cluster faz parte de uma rede Virtual do Azure, qualquer recurso em Olá mesmo rede Virtual pode acessar todos os nós no cluster de saudação diretamente. Para obter mais informações, consulte Olá [HDInsight estender usando a rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md) documento.
+* **Rede Virtual do Azure**: caso o cluster HDInsight faça parte de uma Rede Virtual do Azure, qualquer recurso contido na mesma Rede Virtual poderá acessar diretamente todos os nós no cluster. Para saber mais, confira o documento [Estender o HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="how-toocheck-on-a-service-status"></a>Como toocheck em um status de serviço
+## <a name="how-to-check-on-a-service-status"></a>Como verificar o status do serviço
 
-status de saudação toocheck de serviços que são executados em nós de cabeçalho Olá, use Olá Ambari Web UI ou Olá Ambari REST API.
+A interface do usuário da Web do Ambari ou a API REST do Ambari pode ser usada para verificar o status dos serviços executados nos nós de cabeçalho.
 
 ### <a name="ambari-web-ui"></a>Interface do usuário da Ambari Web
 
-Olá Ambari Web UI é visível em https://CLUSTERNAME.azurehdinsight.net. Substituir **CLUSTERNAME** com nome de saudação do cluster. Quando solicitado, insira as credenciais do usuário Olá HTTP para o cluster. nome de usuário saudação padrão HTTP é **admin** e a senha de saudação é Olá senha ao criar o cluster de saudação.
+Abra a interface do usuário da Web do Ambari em https://CLUSTERNAME.azurehdinsight.net. Substitua **CLUSTERNAME** pelo nome do cluster. Se solicitado, insira as credenciais do usuário HTTP para o cluster. O nome de usuário padrão HTTP é **admin** e a senha é a senha que você digitou ao criar o cluster.
 
-Ao chegar na página de Ambari hello, serviços Olá instalado estão listados Olá esquerda da página de saudação.
+Ao chegar na página Ambari, os serviços instalados serão listados à esquerda da página.
 
 ![Serviços instalados](./media/hdinsight-high-availability-linux/services.png)
 
-Há uma série de ícones que podem aparecer próximo status de tooindicate do serviço tooa. Todos os alertas relacionados ao serviço tooa pode ser exibido usando Olá **alertas** link na parte superior de saudação da página de saudação. Você pode selecionar cada tooview de serviço para obter mais informações sobre ele.
+Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Todos os alertas relacionados a um serviço podem ser visualizados usando o link **Alertas** na parte superior da página. Você pode selecionar cada serviço para exibir mais informações sobre ele.
 
-Enquanto a página de serviço Olá fornece informações sobre o status de saudação e a configuração de cada serviço, ele não fornece informações em que está sendo executado no serviço de saudação do nó principal. tooview essa informações, use Olá **Hosts** link na parte superior de saudação da página de saudação. Esta página exibe os hosts no cluster hello, incluindo nós de cabeçalho hello.
+A página de serviço fornece informações sobre o status e a configuração de cada serviço, mas não fornece informações sobre o nó de cabeçalho no qual o serviço está em execução. Para exibir essas informações, use o link **Hosts** na parte superior da página. Isso exibe os hosts do cluster, incluindo os nós de cabeçalho.
 
 ![lista de hosts](./media/hdinsight-high-availability-linux/hosts.png)
 
-Link de Olá selecionando para um de nós de cabeçalho de saudação exibe serviços hello e componentes em execução nesse nó.
+Selecionar o link para um dos nós de cabeçalho exibirá os serviços e componentes em execução nesse nó.
 
 ![Status do componente](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Para obter mais informações sobre como usar o Ambari, consulte [monitorar e gerenciar o HDInsight usando Olá da interface do usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
+Para saber mais sobre como usar o Ambari, confira [Monitorar e gerenciar o HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>API REST do Ambari
 
-Olá Ambari REST API está disponível por Olá internet. gateway público do HDInsight Olá manipula roteamento solicitações toohello nó principal que está hospedando Olá API REST.
+A API REST do Ambari está disponível pela internet. O gateway público HDInsight manipula as solicitações de roteamento para o nó de cabeçalho que hospeda a API REST.
 
-Você pode usar o hello estado de saudação do comando toocheck de um serviço por meio de saudação Ambari API de REST a seguir:
+Você pode usar o seguinte comando para verificar o estado de um serviço por meio da API de REST do Ambari:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Substituir **senha** com a senha da conta de usuário (admin) Olá HTTP.
-* Substituir **CLUSTERNAME** com o nome de saudação do cluster hello.
-* Substituir **SERVICENAME** com o nome de saudação do serviço de saudação você deseja toocheck status de saudação do.
+* Substitua a **SENHA** pela senha da conta do usuário HTTP (administrador).
+* Substitua **CLUSTERNAME** pelo nome do cluster.
+* Substitua o **SERVICENAME** pelo nome do serviço desejado para verificar o status.
 
-Por exemplo, o status de saudação toocheck de saudação **HDFS** serviço em um cluster denominado **mycluster**, com uma senha de **senha**, você usaria Olá comando a seguir:
+Por exemplo, para verificar o status do serviço **HDFS** em um cluster chamado **mycluster**, por uma senha de **senha**, você usaria o seguinte comando:
 
     curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
-resposta de saudação é semelhante toohello JSON a seguir:
+A resposta é semelhante ao JSON a seguir:
 
     {
       "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
@@ -157,79 +157,79 @@ resposta de saudação é semelhante toohello JSON a seguir:
       }
     }
 
-Olá URL informa que o serviço hello está sendo executado em um nó de cabeçalho chamado **hn0 CLUSTERNAME**.
+A URL indica que o serviço está sendo executado no **hn0-CLUSTERNAME**.
 
-Olá estado informa que o serviço hello está sendo executado, ou **iniciado**.
+O estado indica que o serviço está sendo executado ou **INICIADO**.
 
-Se você não souber quais serviços estão instalados no cluster hello, você pode usar o hello tooretrieve comando uma lista a seguir:
+Se você não souber quais serviços estão instalados no cluster, use o seguinte comando para recuperar uma lista:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Para obter mais informações sobre como trabalhar com hello Ambari REST API, consulte [monitorar e gerenciar o HDInsight usando Olá API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Para saber mais sobre como trabalhar com a API REST do Ambari, consulte [Monitorar e gerenciar o HDInsight usando a API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Componentes do serviço
 
-Serviços podem conter componentes que você deseja status Olá toocheck individualmente. Por exemplo, HDFS contém componente de NameNode de saudação. tooview informações em um componente, comando Olá seria:
+Serviços podem conter componentes os quais você deseja verificar o status de individualmente. Por exemplo, o HDFS contém o componente NameNode. Para exibir informações sobre um componente, o comando seria:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-Se você não souber quais componentes são fornecidos por um serviço, você pode usar o hello tooretrieve comando uma lista a seguir:
+Se você não souber quais componentes estão instalados no cluster, você pode usar o seguinte comando para recuperar uma lista:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-## <a name="how-tooaccess-log-files-on-hello-head-nodes"></a>Como tooaccess arquivos de log em nós de cabeçalho Olá
+## <a name="how-to-access-log-files-on-the-head-nodes"></a>Como acessar arquivos de log nos nós de cabeçalho
 
 ### <a name="ssh"></a>SSH
 
-Ao nó de cabeçalho tooa conectados por meio do SSH, os arquivos de log podem ser encontrados em **/var/log**. Por exemplo, **/var/log/hadoop-yarn/yarn** contêm logs para YARN.
+Enquanto estiver conectado a um nó de cabeçalho por meio do SSH, os arquivos de log podem ser encontrados em **/var/log**. Por exemplo, **/var/log/hadoop-yarn/yarn** contêm logs para YARN.
 
-Cada nó de cabeçalho pode ter entradas de log exclusivo, por isso, você deve verificar Olá logs em ambos os.
+Cada nó de cabeçalho pode ter entradas de log exclusivo, portanto você deve verificar os logs em ambos.
 
 ### <a name="sftp"></a>SFTP
 
-Você também pode conectar toohello nó principal usando Olá SSH File Transfer Protocol ou proteger arquivos Transfer Protocol (SFTP) e baixar os arquivos de log Olá diretamente.
+Também é possível se conectar ao nó de cabeçalho usando o Protocolo FTP do SSH ou SFTP e baixar os arquivos de log diretamente.
 
-Toousing semelhante um cliente SSH, ao se conectar a cluster toohello forneça Olá SSH usuário conta nome e Olá SSH o endereço de cluster hello. Por exemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Fornecer a senha de saudação conta hello quando solicitado, ou forneça uma chave pública usando Olá `-i` parâmetro.
+Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessário fornecer o nome de conta de usuário SSH e o endereço SSH do cluster. Por exemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a senha da conta quando solicitado ou uma chave pública usando o parâmetro `-i`.
 
-Depois de conectado, você verá um prompt `sftp>` . Neste prompt, é possível alterar os diretórios, além de carregar e baixar arquivos. Por exemplo, a saudação comandos a seguir alterar diretórios toohello **/var/log/hadoop/hdfs** diretório e, em seguida, baixar todos os arquivos no diretório de saudação.
+Depois de conectado, você verá um prompt `sftp>` . Neste prompt, é possível alterar os diretórios, além de carregar e baixar arquivos. Por exemplo, os seguintes comandos alteram os diretórios para o diretório **/var/log/hadoop/hdfs** e baixam todos os arquivos no diretório em seguida.
 
     cd /var/log/hadoop/hdfs
     get *
 
-Para obter uma lista de comandos disponíveis, digite `help` em Olá `sftp>` prompt.
+Para obter uma lista dos comandos disponíveis, insira `help` no prompt `sftp>`.
 
 > [!NOTE]
-> Também há interfaces gráficas que permitem que você toovisualize sistema de arquivos hello quando conectado usando SFTP. Por exemplo, [MobaXTerm](http://mobaxterm.mobatek.net/) permite sistema de arquivos de saudação toobrowse usando um tooWindows semelhantes da interface Explorer.
+> Há também interfaces gráficas que permitem visualizar o sistema de arquivos quando você estiver conectado usando SFTP. Por exemplo, [MobaXTerm](http://mobaxterm.mobatek.net/) permite que você procure o sistema de arquivos usando uma interface semelhante à do Windows Explorer.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> usando o Ambari de arquivos de log de tooaccess, você deve usar um túnel SSH. interfaces de web Olá para serviços individuais Olá não são expostas publicamente Olá da Internet. Para obter informações sobre o uso de um túnel SSH, consulte Olá [Use SSH túnel](hdinsight-linux-ambari-ssh-tunnel.md) documento.
+> Para acessar os arquivos de log usando o Ambari, use um túnel SSH. As interfaces da web para os serviços individuais não são expostas publicamente na Internet. Para saber mais sobre como usar um túnel SSH, veja o documento [Usar túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-De saudação da interface do usuário do Ambari Web, selecione Serviço de saudação que deseja tooview logs (por exemplo, YARN). Em seguida, use **Links rápidos** tooselect registra quais Olá tooview de nó principal para.
+Na interface de usuário da Web do Ambari, selecione o serviço do qual você deseja exibir os logs (por exemplo, YARN). Em seguida, use os **Links Rápidos** a fim de selecionar para qual nó de cabeçalho exibir os logs.
 
-![Usar rápida links tooview logs](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Usando links rápidos para exibir logs](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## <a name="how-tooconfigure-hello-node-size"></a>Como tooconfigure Olá tamanho de nó
+## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
-tamanho de saudação de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de saudação diferentes tamanhos VM disponíveis para HDInsight no hello [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, você pode especificar o tamanho de saudação de nós de saudação. Olá informações a seguir fornecem orientação sobre como toospecify Olá tamanho usando Olá [portal do Azure][preview-portal], [Azure PowerShell][azure-powershell], e hello [CLI do Azure][azure-cli]:
+Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]:
 
-* **Portal do Azure**: ao criar um cluster, você pode definir o tamanho de saudação de nós Olá usados pelo cluster hello:
+* **Portal do Azure**: ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 
     ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **CLI do Azure**: ao usar o hello `azure hdinsight cluster create` de comando, você pode definir o tamanho de saudação do cabeçalho hello, trabalho e nós ZooKeeper usando Olá `--headNodeSize`, `--workerNodeSize`, e `--zookeeperNodeSize` parâmetros.
+* **CLI do Azure**: ao usar o comando `azure hdinsight cluster create`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
 
-* **O Azure PowerShell**: ao usar o hello `New-AzureRmHDInsightCluster` cmdlet, você pode definir o tamanho de saudação do cabeçalho hello, trabalho e nós ZooKeeper usando Olá `-HeadNodeVMSize`, `-WorkerNodeSize`, e `-ZookeeperNodeSize` parâmetros.
+* **Azure PowerShell**: ao usar o `New-AzureRmHDInsightCluster` cmdlet , é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `-HeadNodeVMSize`, `-WorkerNodeSize` e `-ZookeeperNodeSize`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use Olá seguindo os links toolearn mais coisas mencionados neste documento.
+Use os links a seguir para saber mais sobre os tópicos mencionados neste documento.
 
 * [Referência REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md)
+* [Instalar e configurar a CLI do Azure.](../cli-install-nodejs.md)
 * [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 * [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provisionar os clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

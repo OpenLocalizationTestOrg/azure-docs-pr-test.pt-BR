@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao SuccessFactors | Microsoft Docs"
-description: "Saiba como toouse SuccessFactors com o Active Directory do Azure tooenable única de logon, o provisionamento automatizado e muito mais!"
+description: "Saiba como usar o SuccessFactors com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,103 +14,103 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 3f7895d7d5e26fda27f555ae2f14a1645b50dcba
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com o SuccessFactors
-Olá objetivo deste tutorial é tooshow você como toointegrate SuccessFactors com o Azure Active Directory (AD do Azure).
+O objetivo desse tutorial é mostrar como integrar o SuccessFactors ao Azure AD (Azure Active Directory).
 
-Integrando o SuccessFactors com o AD do Azure fornece Olá benefícios a seguir:
+A integração do SuccessFactors ao Azure AD oferece os seguintes benefícios:
 
-* Você pode controlar no AD do Azure que tenha acesso tooSuccessFactors
-* Você pode habilitar seus usuários tooautomatically get conectado tooSuccessFactors (logon único) com suas contas do AD do Azure
-* Você pode gerenciar suas contas em um local central - Olá portal clássico do Azure
+* No Azure AD, você pode controlar quem tem acesso ao SuccessFactors
+* Você pode habilitar seus usuários a fazerem logon automaticamente no SuccessFactors (Logon Único) com suas contas do Azure AD
+* Gerenciar suas contas em um único local: o Portal clássico do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-tooconfigure integração do AD do Azure com o SuccessFactors, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao SuccessFactors, você precisará dos seguintes itens:
 
 * Uma assinatura válida do Azure
 * Um locatário no SuccessFactors
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 > 
 > 
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
 * Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Olá objetivo deste tutorial é tooenable tootest logon único do AD do Azure em um ambiente de teste.
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
 
-cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando SuccessFactors da Galeria de saudação
+1. Adição do SuccessFactors da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-successfactors-from-hello-gallery"></a>Adicionando SuccessFactors da Galeria de saudação
-integração de saudação tooconfigure do SuccessFactors no AD do Azure, você precisa tooadd SuccessFactors da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-successfactors-from-the-gallery"></a>Adição do SuccessFactors da galeria
+Para configurar a integração do SuccessFactors ao Azure AD, você precisará adicionar o SuccessFactors da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd SuccessFactors da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o SuccessFactors da galeria, execute as seguintes etapas:**
 
-1. No hello portal clássico do Azure, no painel de navegação esquerdo hello, clique em **do Active Directory**.
+1. No portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Configurando o logon único][1]
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
-3. Clique em exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, **aplicativos** no menu superior hello.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Configurando o logon único][2]
-4. Clique em **adicionar** final Olá Olá página.
+4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
-5. Em Olá **o que fazer você deseja toodo** caixa de diálogo, clique em **adicionar um aplicativo da Galeria Olá**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Configurando o logon único][4]
-6. Em Olá **caixa de pesquisa**, tipo **SuccessFactors**.
+6. Na **caixa de pesquisa**, digite **SuccessFactors**.
    
     ![Configurando o logon único][5]
-7. No painel de resultados de saudação, selecione **SuccessFactors**e, em seguida, clique em **concluir** aplicativo hello de tooadd.
+7. No painel de resultados, selecione **SuccessFactors** e clique em **Concluir** para adicionar o aplicativo.
    
     ![Configurando o logon único][6]
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Olá o objetivo desta seção é tooshow como tooconfigure e teste de logon único do AD do Azure com o SuccessFactors com base em um usuário de teste chamado "Britta Simon".
+O objetivo desta seção é mostrar como configurar e testar logon único do Azure AD com o SuccessFactors, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no SuccessFactors tooan usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no SuccessFactors precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do SuccessFactors é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SuccessFactors.
 
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no SuccessFactors.
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD ao valor do **Nome de Usuário** no SuccessFactors.
 
-tooconfigure e teste de logon único do AD do Azure com o SuccessFactors, você precisa Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o SuccessFactors, é preciso concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do SuccessFactors](#creating-a-successfactors-test-user)**  -toohave um equivalente do Britta Simon no SuccessFactors é a representação toohello vinculado do Azure AD dela.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do SuccessFactors](#creating-a-successfactors-test-user)** : para ter um equivalente de Brenda Fernandes no SuccessFactors que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
-Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello e configurar o logon único em seu aplicativo SuccessFactors.
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo SuccessFactors.
 
-**tooconfigure AD do Azure-logon único com o SuccessFactors, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o SuccessFactors, execute as seguintes etapas:**
 
-1. Em Olá portal clássico do Azure, em Olá **SuccessFactors** página de integração de aplicativos, clique em **configurar logon único** tooopen Olá **configurar logon único** caixa de diálogo.
+1. No portal clássico do Azure, na página de integração do aplicativo **SuccessFactors**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
     ![Configurando o logon único][7]
-2. Em Olá **como você gostaria usuários toosign em tooSuccessFactors** página, selecione **AD do Microsoft Azure Single Sign-On**e, em seguida, clique em **próximo**.
+2. Na página **Como você deseja que os usuários façam logon no SuccessFactors**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
     ![Configurando o logon único][8]
-3. Em Olá **configurar URL do aplicativo** página executar Olá etapas a seguir e, em seguida, clique em **próximo**.
+3. Na página **Configurar URL do Aplicativo**, realize as etapas a seguir e clique em **Avançar**.
    
     ![Configurando o logon único][9]
    
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando uma saudação padrões a seguir: 
+    a. Na caixa de texto **URL de Entrada** , digite uma URL usando os seguintes padrões: 
    
     |  |
     | --- |
@@ -119,7 +119,7 @@ Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello
     | `https://<company name>.successfactors.eu/<company name>` |
     | `https://<company name>.sapsf.eu` |
    
-    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando uma saudação padrões a seguir: 
+    b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões: 
    
     |  |
     | --- |
@@ -132,32 +132,32 @@ Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello
     c. Clique em **Avançar**. 
 
     > [!NOTE]
-    > Observe que esses não são valores reais de saudação. Você tem tooupdate esses valores com a URL real Olá URL de logon e de resposta. entre em contato com tooget esses valores, [equipe de suporte do SuccessFactors](https://www.successfactors.com/en_us/support.html).
+    > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada e a URL de Resposta reais. Para obter esses valores, entre em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-1. Em Olá **configurar logon único no SuccessFactors** , clique em **Download certificado**e, em seguida, salve o arquivo de certificado de saudação localmente no seu computador.
+1. Na página **Configurar logon único no SuccessFactors**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
    
     ![Configurando o logon único][10]
 
 2. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do **portal de administração do SuccessFactors** como administrador.
 
-3. Visite **segurança do aplicativo** e nativo muito**logon único no recurso**. 
+3. Visite **Segurança de Aplicativo** e nativo do **Recurso Logon Único**. 
 
-4. Inserir qualquer valor na Olá **redefinir Token** e clique em **salvar Token** tooenable SSO do SAML.
+4. Coloque qualquer valor em **Redefinir Token** e clique em **Salvar Token** para habilitar SSO do SAML.
    
     ![Configurar o logon único no lado do aplicativo][11]
 
     > [!NOTE] 
-    > Esse valor é usado apenas como Olá interruptor. Se nenhum valor for salvo, Olá SSO do SAML é ON. Se um valor em branco é salvo Olá SSO do SAML é OFF.
+    > Esse valor é usado apenas como chave liga/desliga. Se nenhum valor for salvo, o SSO do SAML será ATIVADO. Se um valor em branco for salvo, o SSO do SAML será DESATIVADO.
 
-1. Captura de tela de toobelow nativos e executar Olá ações a seguir.
+1. Nativo da captura de tela abaixo e execute as ações a seguir.
    
     ![Configurar o logon único no lado do aplicativo][12]
    
-    a. Selecione Olá **SSO do SAML v2** botão de opção
+    a. Selecione o botão de opção **SSO do SAML v2**
    
-    b. Defina Olá SAML declarar parte Name(e.g. SAml issuer + company name).
+    b. Defina o Nome da Parte de Declaração SAML (por exemplo, emissor SAml + nome da empresa).
    
-    c. Em Olá **emissor SAML** caixa de texto colocar o valor de saudação de **URL do emissor** do Assistente de configuração de aplicativo do AD do Azure.
+    c. Na caixa de texto **Emissor SAML**, coloque o valor de **URL do Emissor** do assistente de configuração de aplicativo do Azure AD.
    
     d. Selecione **Resposta(Gerada pelo Cliente/IdP/AP)** como **Exigir Assinatura Obrigatória**.
    
@@ -169,18 +169,18 @@ Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello
    
     h. Selecione **Não** como **Impor Período de Certificado Válido**.
    
-    i. Copiar conteúdo Olá Olá baixado do arquivo de certificado e, em seguida, cole-Olá **SAML verificando certificado** caixa de texto.
+    i. Copie o conteúdo do arquivo do certificado baixado e, então, cole-o na caixa de texto **Certificado de Verificação SAML** .
 
     > [!NOTE] 
-    > conteúdo do certificado Olá deve ter começar marcas de certificado do certificado e de fim.
+    > O conteúdo do certificado deve ter começar marcas de certificado do certificado e de fim.
 
-1. Navegar tooSAML V2 e, em seguida, executar Olá etapas a seguir:
+1. Navegue até SAML V2 e então execute as seguintes etapas:
    
     ![Configurar o logon único no lado do aplicativo][13]
    
     a. Selecione **Sim** como **Logoff Global iniciado por SP de suporte**.
    
-    b. Em Olá **URL do serviço Global Logout (destino LogoutRequest)** caixa de texto colocar o valor de saudação de **URL de Logout remoto** do Assistente de configuração de aplicativo do AD do Azure.
+    b. Na caixa de texto **URL de Serviço Logoff Global (destino de LogoutRequest)**, coloque o valor de **URL de Logoff Remoto** do assistente de configuração de aplicativo do Azure AD.
    
     c. Selecione **Não** como **Exigir que sp criptografe todos os elementos NameID**.
    
@@ -188,111 +188,111 @@ Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello
    
     e. Selecione **Sim** como **Habilitar logon iniciado por sp (AuthnRequest)**.
    
-    f. Em Olá **solicitação de envio como o emissor de toda a empresa** caixa de texto colocar o valor de saudação de **URL de logon remoto** do Assistente de configuração de aplicativo do AD do Azure.
-2. Execute estas etapas se desejar que os nomes de usuário de logon de saudação toomake não diferencia maiusculas de minúsculas.
+    f. Na caixa de texto **Enviar solicitação como emissor para Toda a Empresa**, insira o valor de **URL de Logon Remoto** do assistente de configuração de aplicativo do Azure AD.
+2. Execute estas etapas se quiser fazer com os nomes de usuário de logon diferenciem maiúsculas de minúsculas.
    
-    a. Visite **configurações da empresa**(parte inferior Olá).
+    a. Visite **Configurações da Empresa**(próximo à parte inferior).
    
     b. marque a caixa de seleção ao lado de **Habilitar Nome de Usuário que Não Diferencia Maiúsculas de Minúsculas**.
    
     c.Clique em **Salvar**.
    
-    ![Configurar Logon Único][29]
+    ![Configurar o logon único][29]
 
     > [!NOTE] 
-    > Se você tentar tooenable isso, o sistema de saudação verifica se ele criará um nome de logon do SAML duplicado. Por exemplo, se o cliente Olá tem nomes de usuário Usuário1 e user1. Parar de diferenciar maiúsculas e minúsculas cria essas duplicatas. sistema de saudação dará a você uma mensagem de erro e não habilitará o recurso de saudação. Olá cliente precisará toochange um dos nomes de usuário Olá para ele, na verdade, está escrito diferentes. 
+    > Se você tentar habilitar essa opção, o sistema verificará se ele criará um nome de logon SAML duplicado. Por exemplo, se o cliente tiver os nomes de usuário Usuário1 e usuário1. Parar de diferenciar maiúsculas e minúsculas cria essas duplicatas. O sistema fornecerá a você uma mensagem de erro e não habilitará o recurso. O cliente precisará alterar um dos nomes de usuário para que ele realmente sela digitado diferentes. 
 
-1. Em Olá portal clássico do Azure, selecione a confirmação de configuração de logon único do hello e, em seguida, clique em **concluir** tooclose Olá **configurar logon único** caixa de diálogo.
+1. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
     ![Aplicativos][14]
-2. Em Olá **único logon confirmação** , clique em **concluir**.
+2. Na página **Confirmação de logon único**, clique em **Concluir**.
    
     ![Aplicativos][15]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no portal clássico do hello chamado Britta Simon.
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][16]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **Portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure][17]
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
-3. lista de saudação toodisplay de usuários, no menu de saudação na parte superior do hello, clique em **usuários**.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure][18]
-4. Olá tooopen **adicionar usuário** caixa de diálogo, na barra de ferramentas Olá inferior hello, clique em **adicionar usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure][19]
-5. Em Olá **Conte-nos sobre este usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure][20]
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
-    b. Em nome de usuário de saudação **textbox**, tipo **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Avançar**.
-6. Em Olá **perfil de usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure][21]
    
-    a. Em Olá **nome** caixa de texto, tipo **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-    b. Em Olá **Sobrenome** caixa de texto, tipo, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-    c. Em Olá **nome de exibição** caixa de texto, tipo **Britta Simon**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-    d. Em Olá **função** lista, selecione **usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
     e. Clique em **Avançar**.
-7. Em Olá **obter senha temporária** página da caixa de diálogo, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure][22]
-8. Em Olá **obter senha temporária** caixa de diálogo de página, execute Olá etapas a seguir:
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure][23]
    
-    a. Anote o valor Olá Olá **nova senha**.
+    a. Anote o valor da **Nova Senha**.
    
     b. Clique em **Concluído**.  
 
 ### <a name="creating-a-successfactors-test-user"></a>Criação de um usuário de teste do SuccessFactors
-Ordem tooenable AD do Azure usuários toolog no SuccessFactors, eles devem ser provisionados no SuccessFactors.  
-No caso de saudação do SuccessFactors, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors.  
+No caso do SuccessFactors, o provisionamento será uma tarefa manual.
 
-usuários tooget criados no SuccessFactors, você precisa Olá toocontact [equipe de suporte do SuccessFactors](https://www.successfactors.com/en_us/support.html).
+Para obter os usuários criados no SuccessFactors, você precisará entrar em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
-Olá objetivo desta seção é tooenabling Britta Simon toouse logon único do Azure concedendo tooSuccessFactors seu acesso.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao SuccessFactors.
 
 ![Atribuir usuário][24]
 
-**tooassign Britta Simon tooSuccessFactors, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao SuccessFactors, execute as seguintes etapas:**
 
-1. No portal clássico do hello, exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, clique em **aplicativos** no menu superior hello.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][25]
-2. Na lista de aplicativos hello, selecione **SuccessFactors**.
+2. Na lista de aplicativos, selecione **SuccessFactors**.
    
-    ![Configurar Logon Único][26]
-3. No menu de saudação na parte superior de saudação, clique em **usuários**.
+    ![Configurar o logon único][26]
+3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][27]
-4. Na lista de usuários hello, selecione **Britta Simon**.
-5. Na barra de ferramentas de saudação na parte inferior do hello, clique em **atribuir**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][28]
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
-Olá o objetivo desta seção é tootest sua configuração de logon único do AD do Azure usando Olá painel de acesso.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em Olá SuccessFactors bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo SuccessFactors.
+Quando você clicar no bloco SuccessFactors no Painel de Acesso, deverá fazer logon automaticamente no seu aplicativo SuccessFactors.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

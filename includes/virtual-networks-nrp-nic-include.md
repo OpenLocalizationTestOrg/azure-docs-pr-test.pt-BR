@@ -1,30 +1,30 @@
 ## <a name="nic"></a>NIC
-Um recurso de placa de interface de rede fornece conectividade tooan existente sub-rede em um recurso de rede virtual. Embora você possa criar uma NIC como um objeto autônomo, você precisa tooassociate-tooanother objeto tooactually fornecer conectividade. Uma NIC pode ser usado tooconnect tooa uma subrede VM, um endereço IP público ou um balanceador de carga.  
+Um recurso de placa de interface de rede (NIC) fornece conectividade de rede com uma sub-rede existente em um recurso de VNet. Embora você possa criar uma NIC como um objeto autônomo, você precisa associá-la a outro objeto para fornecer a conectividade. Uma NIC pode ser usada para conectar uma VM a uma sub-rede, um endereço IP público ou um balanceador de carga.  
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **virtualMachine** |Saudação VM NIC está associada. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |Endereço MAC para Olá NIC |qualquer valor entre 4 e 30 |
-| **networkSecurityGroup** |NSG associado toohello NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |Configurações de DNS para Olá NIC |veja [PIP](#Public-IP-address) |
+| **virtualMachine** |A VM à qual a NIC está associada. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
+| **macAddress** |Endereço MAC da NIC |qualquer valor entre 4 e 30 |
+| **networkSecurityGroup** |NSG associado à NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |Configurações de DNS para a NIC |veja [PIP](#Public-IP-address) |
 
-Uma placa de Interface de rede ou NIC, representa uma interface de rede que pode ser associado tooa VM (máquina virtual). Uma VM pode ter uma ou mais NICs.
+Uma Placa de Interface de rede ou NIC representa uma interface de rede que pode ser associada a uma VM (máquina virtual). Uma VM pode ter uma ou mais NICs.
 
 ![NICs em uma única VM](./media/resource-groups-networking/Figure3.png)
 
 ### <a name="ip-configurations"></a>Configurações de IP
-NICs têm um objeto filho chamado **ipConfigurations** contendo Olá propriedades a seguir:
+NICs têm um objeto filho chamado **ipConfigurations** que contém as seguintes propriedades:
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **subnet** |Olá sub-rede NIC está conectado ao. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |Endereço IP para Olá NIC na sub-rede Olá |10.0.0.8 |
+| **subnet** |A sub-rede à qual a NIC está conectada. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
+| **privateIPAddress** |Endereço IP da NIC na sub-rede |10.0.0.8 |
 | **privateIPAllocationMethod** |Método de alocação de IP |Dinâmico ou estático |
-| **enableIPForwarding** |Se Olá NIC pode ser usado para roteamento |true ou false |
-| **primary** |Se Olá NIC é Olá NIC primário para Olá VM |true ou false |
-| **publicIPAddress** |PIP associado Olá NIC |consulte [Configurações DNS](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Faça a saudação de pools de endereço final que NIC está associada | |
-| **loadBalancerInboundNatRules** |NIC está associada a saudação de regras carga balanceador NAT de entrada | |
+| **enableIPForwarding** |Se a NIC pode ser usada para roteamento |true ou false |
+| **primary** |Se a NIC é a NIC primária para a VM |true ou false |
+| **publicIPAddress** |PIP associado à NIC |consulte [Configurações DNS](#DNS-settings) |
+| **loadBalancerBackendAddressPools** |Pools de endereços de back-end aos quais a NIC está associada | |
+| **loadBalancerInboundNatRules** |Regras de NAT do balanceador de carga às quais a NIC está associada | |
 
 Endereço IP de público exemplo, no formato JSON:
 
@@ -73,5 +73,5 @@ Endereço IP de público exemplo, no formato JSON:
     }
 
 ### <a name="additional-resources"></a>Recursos adicionais
-* Saudação de leitura [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) para as NICs.
+* Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) para obter NICs.
 

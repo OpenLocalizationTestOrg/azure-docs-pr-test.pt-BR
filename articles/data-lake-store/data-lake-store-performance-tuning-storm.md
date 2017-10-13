@@ -1,5 +1,5 @@
 ---
-title: "diretrizes de ajuste de desempenho de Data Lake repositório profusão de aaaAzure | Microsoft Docs"
+title: Diretrizes de ajuste de desempenho para Storm do Azure Data Lake Store | Microsoft Docs
 description: Diretrizes de ajuste de desempenho para Storm do Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
@@ -14,129 +14,129 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 5412fd46cf2373f5877030913df4fe1fc6f5473a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para Storm no HDInsight e Azure Data Lake Store
 
-Entenda os fatores de saudação que devem ser considerados ao ajustar o desempenho de saudação de uma topologia de profusão do Azure. Por exemplo, é importante toounderstand características de saudação do trabalho Olá Olá spouts e parafusos hello (se o trabalho de saudação é intensivo de memória ou e/s). Este artigo abrange uma gama de diretrizes de ajuste de desempenho, incluindo a solução de problemas comuns.
+Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia Storm do Azure. Por exemplo, é importante compreender as características do trabalho feito pelos spouts e bolts (se o trabalho está com uso intensivo de memória ou de E/S). Este artigo abrange uma gama de diretrizes de ajuste de desempenho, incluindo a solução de problemas comuns.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como um, ver toocreate [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md).
-* **Um cluster Azure HDInsight** com acesso tooa conta do repositório Data Lake. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Verifique se que você habilitar a área de trabalho remota para o cluster de saudação.
+* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Um cluster HDInsight do Azure** com acesso a uma conta do Data Lake Store. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Executando um cluster Storm no Data Lake Store**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
 * **Diretrizes de ajuste de desempenho do Data Lake Store**.  Para ver conceitos gerais de desempenho, consulte [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
-## <a name="tune-hello-parallelism-of-hello-topology"></a>Ajustar o paralelismo de saudação da topologia de saudação
+## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste do paralelismo da topologia
 
-Você pode ser capaz de tooimprove desempenho por cada vez maior simultaneidade de saudação de tooand de e/s de saudação do repositório Data Lake. Uma topologia Storm tem um conjunto de configurações que determinam o paralelismo hello:
-* Número de processos do operador (trabalhadores Olá são distribuídos uniformemente por Olá VMs).
+Você pode conseguir um melhor desempenho ao aumentar a simultaneidade de E/S de e para o Data Lake Store. Uma topologia Storm tem um conjunto de configurações que determinam o paralelismo:
+* Número de processos de trabalho (os trabalhos são distribuídos uniformemente entre as VMs).
 * Número de instâncias de executor de spout.
 * Número de instâncias de bolt executor.
 * Número de tarefas de spout.
 * Número de tarefas de bolt.
 
-Por exemplo, em um cluster com 4 VMs e 4 processos de trabalho, 32 spout executores e 32 spout tarefas e 256 executores de raio e tarefas de raio 512, considere o seguinte de saudação:
+Por exemplo, em um cluster com 4 VMs e 4 processos de trabalho, 32 executores de spout e 32 tarefas de spout, 256 executores de bolt e 512 tarefas de bolt, considere o seguinte:
 
-Cada supervisor, que é um nó de trabalho, tem um único processo de trabalho de máquina virtual Java (JVM). Esse processo JVM gerencia 4 threads de spout e 64 threads de bolt. Em cada thread, as tarefas são executadas sequencialmente. Com hello anterior de configuração, cada thread spout tem 1 tarefa e cada thread de raio tem 2 tarefas.
+Cada supervisor, que é um nó de trabalho, tem um único processo de trabalho de máquina virtual Java (JVM). Esse processo JVM gerencia 4 threads de spout e 64 threads de bolt. Em cada thread, as tarefas são executadas sequencialmente. Com a configuração anterior, cada thread de spout tem 1 tarefa, e cada thread de bolt tem 2 tarefas.
 
-No Storm, aqui está Olá vários componentes envolvidos e como eles afetam o nível de saudação de paralelismo, que você tem:
-* nó principal da saudação (chamado Nimbus no Storm) é usado toosubmit e gerenciar trabalhos. Esses nós não têm impacto sobre o grau de paralelismo hello.
-* nós de supervisor Hello. Em HDInsight, isso corresponde nó de trabalho tooa VM do Azure.
-* tarefas do trabalhador Olá são processos de Storm Olá VMs que executam. Cada tarefa de trabalho corresponde a instância do tooa da JVM. Tempestade distribui o número de saudação de processos de trabalho você especificar nós de trabalho toohello maneira mais uniforme possível.
-* Instâncias de executores de bolt e spout. Cada instância do executor corresponde tooa thread em execução dentro de trabalhadores hello (JVMs).
-* Tarefas do Storm. Essas são tarefas lógicas que cada um desses threads executa. Isso não altera o nível de saudação de paralelismo, portanto você deve avaliar se precisar de várias tarefas por executor ou não.
+No Storm, aqui estão os diversos componentes envolvidos e como eles afetam o nível de paralelismo que você tem:
+* O nó principal (chamado Nimbus no Storm) é usado para enviar e gerenciar trabalhos. Esses nós não têm impacto sobre o grau de paralelismo.
+* Nós de supervisor. No HDInsight, isso corresponde a uma VM do Azure de nó de trabalho.
+* As tarefas de trabalho são processos Storm em execução nas VMs. Cada tarefa de trabalho corresponde a uma instância da JVM. O Storm distribui o número de processos de trabalho que você especificar para os nós de trabalho tão uniformemente quanto possível.
+* Instâncias de executores de bolt e spout. Cada instância de executor corresponde a um thread em execução dentro dos trabalhos (JVMs).
+* Tarefas do Storm. Essas são tarefas lógicas que cada um desses threads executa. Isso não altera o nível de paralelismo, então você deve avaliar se precisa de várias tarefas por executor ou não.
 
-### <a name="get-hello-best-performance-from-data-lake-store"></a>Obter um melhor desempenho de saudação do repositório Data Lake
+### <a name="get-the-best-performance-from-data-lake-store"></a>Obter o melhor desempenho do Data Lake Store
 
-Ao trabalhar com o repositório Data Lake, você obter Olá melhor desempenho se você Olá a seguir:
+Ao trabalhar com o Data Lake Store, você obtém o melhor desempenho se fizer o seguinte:
 * Una seus pequenos acréscimos em tamanhos maiores (o ideal é 4 MB).
-* Faça o máximo possível de solicitações simultâneas. Como cada thread de raio está fazendo o bloqueio de leituras, convém toohave em algum lugar no intervalo de saudação de 8 a 12 threads por núcleo. Isso mantém a CPU NIC e Olá Olá utilizada. Uma VM maior permite mais solicitações simultâneas.  
+* Faça o máximo possível de solicitações simultâneas. Como cada thread de bolt está fazendo leituras de bloqueio, é recomendável ter entre 8 e 12 threads por núcleo. Isso mantém o NIC e a CPU bem utilizados. Uma VM maior permite mais solicitações simultâneas.  
 
 ### <a name="example-topology"></a>Exemplo de topologia
 
-Suponhamos que você tenha um cluster de 8 nós de trabalho com a VM D13v2 do Azure. Essa VM tenha 8 núcleos, portanto entre Olá 8 nós de trabalho, você tem 64 núcleos total.
+Suponhamos que você tenha um cluster de 8 nós de trabalho com a VM D13v2 do Azure. Uma VM tem 8 núcleos, portanto, entre os 8 nós de trabalho, você tem 64 núcleos no total.
 
-Digamos que façamos oito threads de bolt por núcleo. Dados 64 núcleos, isso significa que desejamos um total de 512 instâncias de executor de bolt (ou seja, threads). Nesse caso, digamos que podemos começar com uma JVM por VM e use principalmente a simultaneidade de thread hello dentro de simultaneidade de tooachieve JVM hello. Isso significa que precisamos de oito tarefas de trabalho (uma por VM do Azure) e 512 executores de bolt. Dada essa configuração, tempestade tenta trabalhadores de saudação toodistribute uniformemente entre nós de trabalho (também conhecidos como nós de supervisor), dando a cada nó de trabalho 1 JVM. Agora dentro de supervisores hello, tempestade tenta toodistribute executores de saudação uniformemente entre os supervisores, dando a cada supervisor (ou seja, JVM) 8 threads de cada.
+Digamos que façamos oito threads de bolt por núcleo. Dados 64 núcleos, isso significa que desejamos um total de 512 instâncias de executor de bolt (ou seja, threads). Nesse caso, digamos que podemos começar com uma JVM por VM e usar principalmente a simultaneidade de threads na JVM para obter a simultaneidade. Isso significa que precisamos de oito tarefas de trabalho (uma por VM do Azure) e 512 executores de bolt. Dada essa configuração, o Storm tenta distribuir os trabalhos uniformemente entre os nós de trabalho (também conhecidos como nós de supervisor), dando a cada nó de trabalho 1 JVM. Dentro dos supervisores, o Storm tenta distribuir os executores uniformemente entre supervisores, dando a cada supervisor (ou seja, JVM) 8 threads.
 
 ## <a name="tune-additional-parameters"></a>Ajuste de parâmetros adicionais
-Depois de ter topologia básica hello, você pode considerar se deseja tootweak qualquer um dos parâmetros de saudação:
-* **Número de JVMs por nó de trabalho.** Se você tiver uma grande estrutura de dados (por exemplo, uma tabela de pesquisa) hospedada na memória, cada JVM vai precisar de uma cópia separada. Como alternativa, você pode usar estrutura de dados de saudação entre vários threads se você tiver menos JVMs. Para e/s do raio hello, Olá número de JVMs não faz muito de uma diferença como número de saudação de threads adicionado entre esses JVMs. Para simplificar, é toohave uma boa ideia uma JVM por trabalho. Dependendo de qual aplicativo de processamento ou de que está fazendo o raio requer, no entanto, talvez seja necessário toochange esse número.
-* **Número de executores de spout.** Como hello exemplo anterior usa parafusos para gravar o repositório de Lake tooData, número de saudação de spouts não é desempenho de raio toohello diretamente relevantes. No entanto, dependendo da quantidade de saudação de processamento ou e/s ocorrendo no spout Olá, é uma boa ideia Olá tootune spouts para melhor desempenho. Certifique-se de que você tem suficiente spouts toobe tookeep capaz de saudação parafusos ocupado. Olá taxas de saída de hello spouts devem corresponder a taxa de transferência de saudação do hello parafusos. configuração real Olá depende spout hello.
-* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. Olá único momento em que eles sejam do benefício é se o processo de confirmar Olá tupla terá uma grande proporção de seu tempo de execução de raio. É um toogroup boa ideia que muitos tuplas em um maior acrescentar antes de enviar uma confirmação de rolo hello. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
-* **Agrupamento local ou aleatório.** Quando essa configuração é habilitada, tuplas são enviadas toobolts dentro Olá mesmo processo de trabalho. Isso reduz as chamadas de rede e comunicação entre processos. Isso é recomendado para a maioria das topologias.
+Depois que tiver a topologia básica, você pode considerar se deseja ajustar qualquer um dos parâmetros:
+* **Número de JVMs por nó de trabalho.** Se você tiver uma grande estrutura de dados (por exemplo, uma tabela de pesquisa) hospedada na memória, cada JVM vai precisar de uma cópia separada. Como alternativa, você pode usar a estrutura de dados em vários threads, se tiver menos JVMs. Para E/S do bolt, o número de JVMs não faz tanta diferença quanto o número de threads adicionados entre essas JVMs. Para simplificar, é uma boa ideia ter uma JVM por trabalho. No entanto, dependendo do que o bolt esteja fazendo ou de que processamento de aplicativo você esteja precisando, talvez seja necessário alterar esse número.
+* **Número de executores de spout.** Como o exemplo anterior usa bolts para gravar no Data Lake Store, o número de spouts não é diretamente relevante para o desempenho do bolt. No entanto, dependendo do volume de processamento ou de E/S ocorrendo no spout, é recomendável ajustar os spouts para melhor desempenho. Você precisa ter spouts suficientes para conseguir manter os bolts trabalhando. As taxas de saída dos spouts devem coincidir com a taxa de transferência dos bolts. A configuração real depende do spout.
+* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. A situação em que elas são benéficas é se o processo de confirmação da tupla utilizar uma grande proporção de seu tempo de execução de bolt. É recomendável agrupar muitas tuplas em um acréscimo maior antes de enviar uma confirmação do bolt. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
+* **Agrupamento local ou aleatório.** Quando essa configuração é habilitada, tuplas são enviadas a bolts dentro do mesmo processo de trabalho. Isso reduz as chamadas de rede e comunicação entre processos. Isso é recomendado para a maioria das topologias.
 
-Esse cenário básico é um bom ponto de partida. Teste com seu próprios Olá de tootweak dados precede o desempenho ideal de tooachieve de parâmetros.
+Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados para ajustar os parâmetros anteriores para obter o desempenho ideal.
 
-## <a name="tune-hello-spout"></a>Ajustar spout Olá
+## <a name="tune-the-spout"></a>Ajustar o spout
 
-Você pode modificar Olá configurações tootune Olá spout a seguir.
+Você pode modificar as seguintes configurações para ajustar o spout.
 
-- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina a quantidade de saudação de tempo uma mensagem toocomplete e receber a confirmação, antes que ela seja considerada falha.
+- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina quanto tempo uma mensagem leva para ser concluída e receber a confirmação antes de ser considerada com falha.
 
-- **Memória máxima por processo de trabalho: worker.childopts**. Essa configuração permite que você especifique trabalhadores de Java toohello parâmetros de linha de comando adicionais. Olá usado mais comumente configuração aqui é XmX, que determina o heap da JVM do tooa Olá máximo da memória alocada.
+- **Memória máxima por processo de trabalho: worker.childopts**. Essa configuração permite especificar parâmetros de linha de comando adicionais para os trabalhos Java. A configuração mais comumente usada aqui é XmX, que determina o máximo de memória alocado para o heap de uma JVM.
 
-- **Máx. de spouts pendentes: topology.max.spout.pending**. Essa configuração determina o número de saudação de tuplas no podem ser voo (ainda não confirmado em todos os nós na topologia Olá) por thread spout a qualquer momento.
+- **Máx. de spouts pendentes: topology.max.spout.pending**. Essa configuração determina o número de tuplas que podem estar em voo (ainda não confirmadas em todos os nós na topologia) por thread de spout em qualquer tempo.
 
- Toodo um cálculo BOM é o tamanho de saudação do tooestimate de cada um dos seus tuplas. Em seguida, calcule quanta memória um thread de spout tem. Olá memória total alocada tooa thread, dividido por esse valor, deverá lhe fornecer Olá limite superior spout máximo de saudação pendentes parâmetro.
+ Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
 
-## <a name="tune-hello-bolt"></a>Ajustar a isoladas Olá
-Quando você está escrevendo o repositório de Lake tooData, definir uma política de sincronização de tamanho (buffer no lado do cliente Olá) too4 MB. Uma liberação ou hsync() é executada somente quando o tamanho do buffer de saudação é hello nesse valor. driver de repositório Data Lake Olá Worker Olá VM automaticamente faz esse buffer, a menos que você executa uma hsync() explicitamente.
+## <a name="tune-the-bolt"></a>Ajustar o bolt
+Ao gravar para o Data Lake Store, defina a política de sincronização de tamanho (buffer no lado do cliente) para 4 MB. Uma liberação ou hsync() será executada somente quando o tamanho do buffer tiver esse valor. O driver do Data Lake Store na VM de trabalho faz esse buffer automaticamente, a menos que você execute explicitamente um hsync().
 
-parafuso de profusão de repositório do Data Lake saudação padrão tem um parâmetro de política do sincronização tamanho (fileBufferSize) pode ser usado tootune esse parâmetro.
+O bolt do Storm do Data Lake Store padrão tem um parâmetro de política de sincronização de tamanho (fileBufferSize) que pode ser usado para ajustar esse parâmetro.
 
-Em topologias com alto e/S, é uma boa ideia toohave cada thread de raio gravar arquivo próprio tooits e tooset uma política de rotação de arquivo (fileRotationSize). Quando o arquivo hello atinge um determinado tamanho, fluxo Olá automaticamente é liberado e um novo arquivo é gravado. Olá tamanho de arquivo para rotação recomendado é de 1 GB.
+Em topologias com uso intensivo de E/S, é recomendável fazer com que cada thread de bolt grave seu próprio arquivo e definir uma política de rotação de arquivo (fileRotationSize). Quando o arquivo atingir um determinado tamanho, o fluxo será automaticamente liberado e a gravação ocorrerá em um novo arquivo. O tamanho do arquivo recomendado para a rotação é de 1 GB.
 
 ### <a name="handle-tuple-data"></a>Manipulação de dados de tupla
 
-No Storm, um spout mantém na tupla tooa até que ele seja confirmado explicitamente pelo raio hello. Se uma tupla foi lida pelo raio hello, mas ainda não foram confirmada, spout Olá pode não ter persistido no back-end do repositório Data Lake. Depois de uma tupla é confirmada, spout Olá pode ser garantida persistência pelo raio hello e pode excluir dados de origem de saudação de qualquer fonte que ela está lendo de.  
+No Storm, um spout permanece com uma tupla até que ela seja explicitamente confirmada pelo bolt. Se uma tupla foi lida pelo bolt, mas ainda não foi confirmada, o spout pode não ter persistido no back-end Data Lake Store. Após a confirmação da tupla, o spout pode ter sua persistência garantida pelo bolt e, em seguida, pode excluir os dados de origem de qualquer fonte da qual esteja lendo.  
 
-Para melhor desempenho em repositório Data Lake, ter raio de saudação de buffer de dados de tupla de 4 MB. Em seguida, escreva toohello repositório Data Lake volta terminar como uma gravação de 4 MB. Depois que dados saudação foi gravado com êxito toohello repositório (por chamada hflush()), raio Olá pode confirmar Olá dados toohello back spout. Este é o exemplo hello parafuso fornecido não aqui. Também é aceitável toohold um número maior de tuplas antes Olá hflush() chamada é feita e hello tuplas confirmadas. No entanto, isso aumenta o número de saudação de tuplas em trânsito que spout Olá precisa toohold e, portanto, aumenta Olá a quantidade de memória exigida por JVM.
+Para melhor desempenho no Data Lake Store, faça com que 4 MB de dados de tupla sejam armazenados em buffer. Em seguida, grave no back-end do Data Lake Store como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
 
 > [!NOTE]
-Aplicativos podem ter uma tuplas de tooacknowledge requisito com mais frequência (em tamanhos de dados menor que 4 MB) por outros motivos de desempenho não. No entanto, que pode afetar hello e/s taxa de transferência toohello armazenamento back-end. Avalie cuidadosamente essa compensação em relação ao desempenho de e/s do raio da saudação.
+Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.
 
-Se taxa de entrada hello de tuplas for não alta, para que o buffer de 4 MB de saudação leva um tempo longo toofill, considere reduzir isso por:
-* Reduzindo o número de saudação de parafusos, portanto, há menos toofill de buffers.
-* Ter uma política com base em contagem ou tempo, onde um hflush() é disparado cada x liberações ou cada milissegundos y e tuplas Olá acumuladas até o momento reconhecidas novamente.
+Se a taxa de entrada de tuplas não for alta, fazendo com que o buffer de 4 MB demore muito para ser preenchido, é recomendável mitigar isso:
+* Reduzindo o número de bolts, de modo que haja menos buffers a preencher.
+* Adotando uma política baseada em tempo ou em contagem, na qual um hflush() é disparado a cada x liberações ou a cada y milissegundos e as tuplas acumuladas até esse ponto são confirmadas de volta.
 
-Observe que a taxa de transferência Olá nesse caso é menor, mas com uma taxa baixa de eventos, taxa de transferência máxima não é objetivo maior Olá mesmo assim. Essas reduções ajudar a reduzir o tempo total de saudação que leva para um tooflow tupla toohello armazenam. Isso pode ser relevante se você quiser um pipeline em tempo real, mesmo com uma taxa baixa de evento. Observe também que se a taxa de entrada de tupla for baixa, você deve ajustar parâmetro topology.message.timeout_secs Olá para Olá tuplas não atingir o tempo limite enquanto eles estão obtendo em buffer ou processado.
+Observe que neste caso a taxa de transferência é menor, mas de todo modo, com uma taxa de eventos baixa, a taxa de transferência máxima não é o objetivo principal. Essas reduções ajudam a reduzir o tempo total necessário para o fluxo de uma tupla até o repositório. Isso pode ser relevante se você quiser um pipeline em tempo real, mesmo com uma taxa baixa de evento. Observe também que, se a taxa de entrada de tuplas for baixa, você precisará ajustar o parâmetro topology.message.timeout_secs para que as tuplas não atinjam o tempo limite enquanto estiverem sendo armazenadas em buffer ou processadas.
 
 ## <a name="monitor-your-topology-in-storm"></a>Monitorar a topologia no Storm  
-Durante a execução de sua topologia, você pode monitorá-lo na interface do usuário Storm hello. Aqui estão Olá parâmetros principais toolook em:
+Enquanto a topologia estiver em execução, você pode monitorá-la na interface do usuário do Storm. Aqui estão os principais parâmetros examinar:
 
-* **Latência total de execução do processo.** Este é o tempo médio de saudação uma tupla leva toobe emitidos pelo spout hello, processados pelo raio hello e confirmado.
+* **Latência total de execução do processo.** Tempo médio que uma tupla leva para ser emitida pelo spout, processada pelo bolt e confirmada.
 
-* **Latência total de processo do bolt.** Este é o tempo médio de saudação gasto pela tupla Olá a isoladas Olá até receber uma confirmação.
+* **Latência total de processo do bolt.** Tempo médio gasto pela tupla no bolt até receber uma confirmação.
 
-* **Latência total de execute do bolt.** Isso é a média de saudação tempo gasto pelo raio Olá no hello executar o método.
+* **Latência total de execute do bolt.** Tempo médio gasto pelo bolt no método execute.
 
-* **Número de falhas.** Isso se refere a toohello número de tuplas que toobe totalmente processado antes que eles atingiu o tempo limite de falha.
+* **Número de falhas.** Refere-se ao número de tuplas que deixaram de ser completamente processadas antes que atingissem o tempo limite.
 
-* **Capacidade.** Medida da ocupação do sistema. Se esse número é 1, os bolts estão trabalhando tão rápido quanto possível. Se for menor que 1, aumente o paralelismo de saudação. Se for maior que 1, reduza o paralelismo de saudação.
+* **Capacidade.** Medida da ocupação do sistema. Se esse número é 1, os bolts estão trabalhando tão rápido quanto possível. Se for menor que 1, aumente o paralelismo. Se for maior que 1, reduza o paralelismo.
 
 ## <a name="troubleshoot-common-problems"></a>Solução de problemas comuns
 Eis alguns cenários comuns de solução de problemas.
-* **Grande número de tuplas atingindo o tempo limite.** Pesquisar em cada nó na Olá topologia toodetermine onde é o afunilamento hello. Olá mais comuns motivo para isso é que Olá parafusos não tookeep capaz de backup com spouts hello. Isso leva tootuples sobrecarregando os buffers internos de saudação enquanto espera toobe processados. Considere aumentar o valor de tempo limite de saudação ou diminuindo spout máximo de saudação pendente.
+* **Grande número de tuplas atingindo o tempo limite.** Procure em cada nó na topologia para determinar onde está o afunilamento. O motivo mais comum para isso é que os bolts não estão conseguindo acompanhar os spouts. Isso faz com que as tuplas congestionem os buffers internos que estão aguardando para ser processados. Considere aumentar o valor de tempo limite ou diminuir o máx. de spouts pendentes.
 
-* **Há uma latência alta de execução do processo total, mas uma latência baixa de processo do bolt.** Nesse caso, é possível que Olá tuplas não são sejam confirmadas rápido o suficiente. Verifique se há um número suficiente de confirmadores. Outra possibilidade é que estão aguardando na fila de saudação por muito tempo antes de saudação bolts início processá-las. Diminua spout máximo de saudação pendente.
+* **Há uma latência alta de execução do processo total, mas uma latência baixa de processo do bolt.** Nesse caso, é possível que as tuplas não estejam sendo reconhecidas rápido o suficiente. Verifique se há um número suficiente de confirmadores. Outra possibilidade é que estejam aguardando na fila por tempo demais antes que os bolts comecem a processá-las. Diminua o máx. de spouts pendentes.
 
-* **Latência de execute do bolt elevada.** Isso significa que o método Execute () Olá a isoladas está demorando muito. Otimizar código hello, ou examinar os tamanhos de gravação e comportamento de liberação.
+* **Latência de execute do bolt elevada.** Isso significa que o método execute() do seu bolt está demorando muito. Otimize o código ou examine os tamanhos de gravação e o comportamento de liberação.
 
 ### <a name="data-lake-store-throttling"></a>Limitação do Data Lake Store
-Se você atingir os limites de largura de banda fornecida pelo repositório Data Lake hello, você poderá ver falhas de tarefas. Verifique os logs de tarefa para erros de limitação. Você pode diminuir o paralelismo Olá aumentando o tamanho do contêiner.    
+Se atingir os limites de largura de banda fornecidos pelo Data Lake Store, você pode ver falhas de tarefa. Verifique os logs de tarefa para erros de limitação. Você pode diminuir o paralelismo aumentando o tamanho do contêiner.    
 
-toocheck se você estiver obtendo limitada, habilitar Olá log de depuração no lado do cliente hello:
+Para verificar se há problemas de limitação, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari** > **Storm** > **Config** > **avançado profusão de trabalhador de log4j**, alterar  **&lt;raiz nível = "info"&gt;**  muito**&lt;raiz nível = "depuração"&gt;**. Reinicie todos os nós/serviço Olá para efeito de tootake configuração hello.
-2. Topologia de profusão de saudação do Monitor registra em nós de trabalho (em /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para o repositório Data Lake exceções de limitação.
+1. Em **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, altere **&lt;root level="info"&gt;** para **&lt;root level=”debug”&gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
+2. Monitore os logs de topologia Storm em nós de trabalho (em /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log) para exceções de limitação do Data Lake Store.
 
 ## <a name="next-steps"></a>Próximas etapas
 Ajuste de desempenho adicional para o Storm pode ser referenciado [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
-Para um toorun exemplo adicionais, consulte [la no GitHub](https://github.com/hdinsight/storm-performance-automation).
+Para obter um exemplo adicional de execução, consulte [esse aqui no GitHub](https://github.com/hdinsight/storm-performance-automation).

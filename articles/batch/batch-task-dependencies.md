@@ -1,6 +1,6 @@
 ---
-title: "toorun aaaUse tarefas de dependências baseiam na conclusão de saudação de outras tarefas - lote do Azure | Microsoft Docs"
-description: "Criar tarefas que dependem de conclusão de saudação de outras tarefas de processamento de estilo de MapReduce e grandes de dados semelhantes cargas de trabalho em lote do Azure."
+title: "Usar dependências de tarefas para executar tarefas com base na conclusão de outras tarefas - Lote do Azure | Microsoft Docs"
+description: "Crie tarefas que dependem da conclusão de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,32 +15,32 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: faf08ec38cb30b1f66acd51e256c31aea6215c62
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="create-task-dependencies-toorun-tasks-that-depend-on-other-tasks"></a>Criar dependências toorun tarefas que dependem de outras tarefas
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 
-Você pode definir tarefa dependências toorun uma tarefa ou um conjunto de tarefas somente depois que uma tarefa pai foi concluída. Alguns cenários em que as dependências entre tarefas são úteis incluem:
+É possível definir dependências entre tarefas para executar uma tarefa ou um conjunto de tarefas somente após a conclusão de uma tarefa pai. Alguns cenários em que as dependências entre tarefas são úteis incluem:
 
-* Cargas de trabalho de estilo de MapReduce na nuvem hello.
+* Cargas de trabalho de estilo MapReduce na nuvem.
 * Trabalhos cujas tarefas de processamento de dados podem ser expressas como um DAG (gráfico acíclico dirigido).
-* Processos de renderização pré e pós-processamento, onde cada tarefa deve concluir antes de começar a próxima tarefa de saudação.
-* Qualquer outro trabalho que tarefas de downstream dependem saída Olá das tarefas de upstream.
+* Processos de pré-renderização e pós-renderização, em que cada tarefa deve ser concluída antes do início da próxima.
+* Qualquer outro trabalho no qual tarefas downstream dependem da saída das tarefas upstream.
 
-Dependências de tarefa em lotes, você pode criar tarefas que estão agendadas para execução em nós de computação após a conclusão de saudação de uma ou mais tarefas de pai. Por exemplo, você pode criar um trabalho que processa cada quadro de um filme 3D com tarefas paralelas separadas. tarefa final do Hello – hello "tarefa de mesclagem –" hello renderizado quadros em filme completo Olá somente depois que todos os quadros de mesclagens tenham sido com êxito gerados.
+Com dependências entre tarefas do Lote, é possível criar tarefas que estão agendadas para execução em nós de computação após a conclusão de uma ou mais tarefas pai. Por exemplo, você pode criar um trabalho que processa cada quadro de um filme 3D com tarefas paralelas separadas. A tarefa final, a "tarefa de mesclagem", mescla os quadros renderizados no filme completo somente depois que todos os quadros são gerados com êxito.
 
-Por padrão, tarefas dependentes agendadas para execução após a tarefa pai de saudação foi concluída com êxito. Você pode especificar um comportamento padrão da dependência ação toooverride hello e executar tarefas quando ocorre falha na tarefa pai de saudação. Consulte Olá [ações de dependência](#dependency-actions) seção para obter detalhes.  
+Por padrão, as tarefas dependentes estão agendadas para execução somente após a conclusão bem-sucedida da tarefa pai. É possível especificar uma ação de dependência para substituir o comportamento padrão e executar tarefas quando a tarefa pai falha. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.  
 
-Você pode criar tarefas que dependem de outras tarefas em uma relação um para um ou um para muitos. Você também pode criar uma dependência de intervalo em que uma tarefa depende de conclusão de saudação de um grupo de tarefas dentro de um intervalo especificado de IDs de tarefas. Você pode combinar essas relações de muitos-para-muitos três cenários básicos toocreate.
+Você pode criar tarefas que dependem de outras tarefas em uma relação um para um ou um para muitos. Também é possível criar uma dependência entre intervalos, em que uma tarefa depende da conclusão de um grupo de tarefas em um intervalo especificado de identificações da tarefa. Você pode combinar esses três cenários básicos para criar relações muitos-para-muitos.
 
 ## <a name="task-dependencies-with-batch-net"></a>Dependências de tarefas com o .NET do Lote
-Neste artigo, discutiremos como dependências tooconfigure usando Olá [Batch .NET] [ net_msdn] biblioteca. Primeiro mostraremos como muito[ativar a dependência de tarefa](#enable-task-dependencies) em seus trabalhos e, em seguida, demonstre como muito[configurar uma tarefa com dependências](#create-dependent-tasks). Podemos também descrevem como toospecify uma dependência ação toorun tarefas dependentes se pai Olá falhar. Por fim, discutiremos Olá [situações de dependência](#dependency-scenarios) que dá suporte ao lote.
+Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Também descrevemos como especificar uma ação de dependência para executar tarefas dependentes em caso de falha do pai. Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
 
 ## <a name="enable-task-dependencies"></a>Habilitar dependências de tarefas
-dependências de tarefa toouse em seu aplicativo de lote, você deve primeiro configurar Olá trabalho toouse dependências. No .NET em lotes, habilitá-lo no seu [CloudJob] [ net_cloudjob] definindo seu [UsesTaskDependencies] [ net_usestaskdependencies] propriedade muito`true`:
+Para usar dependências entre tarefas no aplicativo do Lote, é necessário primeiro configurar o trabalho para usar dependências entre tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] configurando a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -50,10 +50,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-Olá precede o trecho de código, "batchClient" é uma instância de saudação [BatchClient] [ net_batchclient] classe.
+No trecho de código anterior, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Criar tarefas dependentes
-toocreate uma tarefa que depende de conclusão de saudação de uma ou mais tarefas de pai, você pode especificar que Olá tarefa "depende" Olá, outras tarefas. No .NET de lote configurar Olá [CloudTask][net_cloudtask].[ DependsOn] [ net_dependson] propriedade com uma instância do hello [TaskDependencies] [ net_taskdependencies] classe:
+Para criar uma tarefa que depende da conclusão de uma ou mais tarefas pai, é possível especificar que a tarefa “depende” das outras tarefas. No .NET do Lote, configure a propriedade [CloudTask][net_cloudtask].[DependsOn][net_dependson] com uma instância da classe [TaskDependencies][net_taskdependencies]:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -64,29 +64,29 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-Este trecho de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. Olá tarefa "Flores" depende das tarefas "Chuva" e "Sun". A tarefa "Flores" será toorun agendado em um nó de computação somente após tarefas "Chuva" e "Sun" foram concluídos com êxito.
+Este trecho de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. A tarefa “Flowers” depende das tarefas “Rain” e “Sun”. A tarefa “Flowers” será agendada para execução em um nó de computação somente após a conclusão bem-sucedida das tarefas “Rain” e “Sun”.
 
 > [!NOTE]
-> Uma tarefa é considerada toobe foi concluída com êxito quando ele está em Olá **concluída** estado e seu **código de saída** é `0`. No .NET em lotes, isso significa um [CloudTask][net_cloudtask].[ Estado] [ net_taskstate] valor da propriedade `Completed` e Olá do CloudTask [TaskExecutionInformation][net_taskexecutioninformation].[ ExitCode] [ net_exitcode] é o valor da propriedade `0`.
+> Uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`.
 > 
 > 
 
 ## <a name="dependency-scenarios"></a>Cenários de dependência
-Há três cenários de dependência de tarefas básicos que você pode usar no Lote do Azure: um-para-um, um-para-muitos e dependência de intervalo de IDs de tarefas. Eles podem ser combinados tooprovide um quarto cenário, muitos-para-muitos.
+Há três cenários de dependência de tarefas básicos que você pode usar no Lote do Azure: um-para-um, um-para-muitos e dependência de intervalo de IDs de tarefas. Eles podem ser combinados para fornecer um quarto cenário, muitos-para-muitos.
 
 | Cenário&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemplo |  |
 |:---:| --- | --- |
 |  [Um-para-um](#one-to-one) |*tarefaB* depende de *tarefaA* <p/> A *tarefaB* não será agendada para execução até que a *tarefaA* seja concluída com êxito |![Diagrama: dependência de tarefa de um para um][1] |
 |  [Um-para-muitos](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> A *tarefaC* não será agendada para execução até que a *tarefaA* e a *tarefaB* sejam concluídas com êxito |![Diagrama: dependência de tarefa de um para muitos][2] |
-|  [Intervalo de IDs de tarefa](#task-id-range) |A *taskD* depende de diversas tarefas <p/> *taskD* não será agendado para execução até que as tarefas de saudação com IDs *1* por meio de *10* foram concluídos com êxito |![Diagrama: dependência de intervalo de ids de tarefas][3] |
+|  [Intervalo de IDs de tarefa](#task-id-range) |A *taskD* depende de diversas tarefas <p/> A *tarefaD* não será agendada para execução até que as tarefas com as IDs *1* a *10* sejam concluídas com êxito |![Diagrama: dependência de intervalo de ids de tarefas][3] |
 
 > [!TIP]
-> Você pode criar **muitos-para-muitos** relações, como onde tarefas C, D, E e F cada dependem das tarefas A e B. Isso é útil, por exemplo, em cenários de pré-processamento em paralelo, em que as tarefas de downstream dependem de saída Olá de várias tarefas de upstream.
+> Você pode criar relações **muitos para muitos**, como uma em que as tarefas C, D, E e F dependem das tarefas A e B. Isso é útil, por exemplo, em cenários de pré-processamento em paralelo em que as tarefas downstream dependem da saída de várias tarefas upstream.
 > 
-> Olá exemplos nesta seção, uma tarefa dependente é executada somente depois que tarefas de pai Olá concluída com êxito. Esse comportamento é o comportamento padrão de saudação para uma tarefa dependente. Depois que uma tarefa pai falha, especificando um comportamento padrão da dependência ação toooverride hello, você pode executar uma tarefa dependente. Consulte Olá [ações de dependência](#dependency-actions) seção para obter detalhes.
+> Nos exemplos desta seção, uma tarefa dependente é executada somente após a conclusão bem-sucedida das tarefas pai. Esse comportamento é o comportamento padrão de uma tarefa dependente. É possível executar uma tarefa dependente após uma falha da tarefa pai especificando uma ação de dependência para substituir o comportamento padrão. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.
 
 ### <a name="one-to-one"></a>Um-para-um
-Em uma relação um para um, uma tarefa depende após a conclusão bem-sucedida da tarefa pai de uma saudação. toocreate Olá dependência, forneça um toohello de ID única tarefa [TaskDependencies][net_taskdependencies].[ OnId] [ net_onid] método estático ao preencher Olá [DependsOn] [ net_dependson] propriedade [CloudTask] [ net_cloudtask].
+Em uma relação um-para-um, uma tarefa depende da conclusão bem-sucedida de uma tarefa pai. Para criar a dependência, forneça uma única identificação da tarefa para o método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -100,7 +100,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Um-para-muitos
-Em uma relação um-para-muitos, uma tarefa depende da conclusão de saudação de várias tarefas de pai. toocreate Olá dependência, fornecer um conjunto de tarefas IDs toohello [TaskDependencies][net_taskdependencies].[ OnIds] [ net_onids] método estático ao preencher Olá [DependsOn] [ net_dependson] propriedade [CloudTask] [ net_cloudtask].
+Em uma relação um-para-muitos, uma tarefa depende da conclusão de várias tarefas pai. Para criar a dependência, forneça uma coleção de identificações da tarefa para o método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -116,13 +116,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Intervalo de IDs de tarefa
-Em uma dependência em uma variedade de tarefas de pai, uma tarefa depende da conclusão de Olá Olá cujos IDs residem dentro de um intervalo de tarefas.
-dependência de saudação toocreate, forneça Olá primeiro e última tarefa IDs no hello intervalo toohello [TaskDependencies][net_taskdependencies].[ OnIdRange] [ net_onidrange] método estático ao preencher Olá [DependsOn] [ net_dependson] propriedade [CloudTask] [net_cloudtask].
+Em uma dependência em um intervalo de tarefas pai, uma tarefa depende da conclusão de tarefas cujas IDs estão em um intervalo.
+Para criar a dependência, forneça a primeira e a última identificação da tarefa no intervalo para o método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Quando você usa os intervalos de ID de tarefa para as suas dependências, Olá IDs de tarefa no intervalo de saudação *deve* ser representações de cadeia de caracteres de valores inteiros.
+> Quando você usa intervalos de IDs de tarefas para dependências, as IDs de tarefas no intervalo *devem* ser representações de cadeia de caracteres de valores inteiros.
 > 
-> Todas as tarefas no intervalo de saudação devem satisfazer a dependência hello, concluindo com êxito ou executando com uma falha de ação de dependência tooa mapeado definida muito**satisfação**. Consulte Olá [ações de dependência](#dependency-actions) seção para obter detalhes.
+> Cada tarefa no intervalo deve atender à dependência, concluindo com êxito ou concluindo com uma falha que é mapeada para uma ação de dependência definida como **Atender**. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.
 >
 >
 
@@ -137,38 +137,38 @@ new CloudTask("3", "cmd.exe /c echo 3"),
 // Task 4 depends on a range of tasks, 1 through 3
 new CloudTask("4", "cmd.exe /c echo 4")
 {
-    // toouse a range of tasks, their ids must be integer values.
-    // Note that we pass integers as parameters tooTaskIdRange,
-    // but their ids (above) are string representations of hello ids.
+    // To use a range of tasks, their ids must be integer values.
+    // Note that we pass integers as parameters to TaskIdRange,
+    // but their ids (above) are string representations of the ids.
     DependsOn = TaskDependencies.OnIdRange(1, 3)
 },
 ```
 
 ## <a name="dependency-actions"></a>Ações de dependência
 
-Por padrão, uma tarefa dependente ou um conjunto de tarefas é executado somente após a conclusão bem-sucedida de uma tarefa pai. Em alguns cenários, convém tarefas dependentes toorun mesmo se a tarefa pai de saudação falha. Você pode substituir o comportamento padrão de saudação especificando uma ação de dependência. Uma ação de dependência Especifica se uma tarefa dependente toorun qualificado, com base no sucesso de saudação ou a falha da tarefa pai de saudação. 
+Por padrão, uma tarefa dependente ou um conjunto de tarefas é executado somente após a conclusão bem-sucedida de uma tarefa pai. Em alguns cenários, talvez você deseje executar tarefas dependentes mesmo se houver uma falha da tarefa pai. É possível substituir o comportamento padrão especificando uma ação de dependência. Uma ação de dependência especifica se uma tarefa dependente é qualificada para execução, de acordo com o sucesso ou a falha da tarefa pai. 
 
-Por exemplo, suponha que uma tarefa dependente está aguardando a data de conclusão de saudação da tarefa de upstream hello. Se a tarefa de upstream Olá falhar, tarefa dependente Olá ainda pode ser capaz de toorun usando os dados mais antigos. Nesse caso, uma ação de dependência pode especificar a que tarefa dependente Olá é elegível toorun apesar da falha de saudação da tarefa pai de saudação.
+Por exemplo, suponha que uma tarefa dependente está aguardando dados da conclusão da tarefa upstream. Se a tarefa upstream falhar, a tarefa dependente ainda poderá ser executada usando dados mais antigos. Nesse caso, uma ação de dependência pode especificar que a tarefa dependente é qualificada para execução, apesar da falha da tarefa pai.
 
-Uma ação de dependência baseia-se em uma condição de saída para a tarefa pai de saudação. Você pode especificar uma ação de dependência para qualquer Olá seguintes condições de saída; para .NET, consulte Olá [ExitConditions] [ net_exitconditions] classe para obter detalhes:
+Uma ação de dependência baseia-se em uma condição de saída da tarefa pai. É possível especificar uma ação de dependência para qualquer uma das condições de saída a seguir; para o .NET, consulte a classe [ExitConditions][net_exitconditions] para obter detalhes:
 
 - Quando ocorre um erro de pré-processamento.
-- Quando ocorre um erro de carregamento de arquivo. Se a tarefa de saudação for encerrada com um código de saída foi especificado por meio de **exitCodes** ou **exitCodeRanges**e, em seguida, encontra um erro de carregamento de arquivo, a ação de saudação especificado pelo Olá saída código terá precedência.
-- Quando a tarefa de saudação encerrada com um código de saída definido pelo Olá **ExitCodes** propriedade.
-- Quando a tarefa de saudação encerrada com um código de saída que está em um intervalo especificado por Olá **ExitCodeRanges** propriedade.
-- Olá caso padrão, se Olá tarefa é encerrada com um código de saída não está definido por **ExitCodes** ou **ExitCodeRanges**, ou se Olá tarefa é encerrada com um erro de pré-processamento e Olá **PreProcessingError**  propriedade não está definida ou se hello falha de tarefa com um arquivo carregar erro e hello **FileUploadError** propriedade não está definida. 
+- Quando ocorre um erro de carregamento de arquivo. Se a tarefa é encerrada com um código de saída especificado por meio de **exitCodes** ou **exitCodeRanges**, e, em seguida, encontra erro de carregamento de arquivo, a ação especificada pelo código de saída tem precedência.
+- Quando a tarefa é encerrada com um código de saída definido pela propriedade **ExitCodes**.
+- Quando a tarefa é encerrada com um código de saída que está dentro de um intervalo especificado pela propriedade **ExitCodeRanges**.
+- No caso padrão, se a tarefa for encerrada com um código de saída não definido por **ExitCodes** ou **ExitCodeRanges**, ou se a tarefa for encerrada com um erro de pré-processamento e a propriedade **PreProcessingError** não for definida, ou se houver erro de carregamento de arquivo e a propriedade **FileUploadError** não estiver definida. 
 
-toospecify uma ação de dependência no .NET, Olá conjunto [ExitOptions][net_exitoptions].[ DependencyAction] [ net_dependencyaction] propriedade para a condição de saída de hello. Olá **DependencyAction** propriedade tem um dos dois valores:
+Para especificar uma ação de dependência no .NET, defina a propriedade [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] da condição de saída. A propriedade **DependencyAction** usa um dos dois valores:
 
-- Saudação de configuração **DependencyAction** propriedade muito**satisfação** indica que tarefas dependentes estão qualificado toorun se a tarefa pai de saudação for encerrada com um erro especificado.
-- Saudação de configuração **DependencyAction** propriedade muito**bloco** indica que as tarefas dependentes não são qualificado toorun.
+- A configuração da propriedade **DependencyAction** como **Atender** indica que as tarefas dependentes estão qualificadas para execução se a tarefa pai é encerrada com um erro especificado.
+- A configuração da propriedade **DependencyAction** como **Bloquear** indica que as tarefas dependentes não estão qualificadas para execução.
 
-Olá a configuração padrão para Olá **DependencyAction** é de propriedade **satisfação** para o código de saída 0, e **bloco** para todas as outras condições de saída.
+A configuração padrão da propriedade **DependencyAction** é **Atender** para o código de saída 0 e **Bloquear** para todas as outras condições de saída.
 
-trecho de código a seguir Hello define Olá **DependencyAction** propriedade para uma tarefa pai. Se tarefa pai de saudação for encerrada com um erro de pré-processamento, ou com Olá Olá dependentes a códigos de erro especificada, a tarefa é bloqueada. Se a tarefa pai de saudação for encerrada com qualquer outro erro diferente de zero, tarefa dependente Olá é toorun qualificado.
+O trecho de código a seguir define a propriedade **DependencyAction** de uma tarefa pai. Se a tarefa pai é encerrada com um erro de pré-processamento ou com os códigos de erro especificados, a tarefa dependente é bloqueada. Se a tarefa pai é encerrada com qualquer outro erro diferente de zero, a tarefa dependente é qualificada para execução.
 
 ```csharp
-// Task A is hello parent task.
+// Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
@@ -179,13 +179,13 @@ new CloudTask("A", "cmd.exe /c echo A")
         {
             DependencyAction = DependencyAction.Block
         },
-        // If task A exits with hello specified error codes, block any downstream tasks (in this example, task B).
+        // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
         ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
-        // If task A succeeds or fails with any other error, any downstream tasks become eligible toorun 
+        // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
         Default = new ExitOptions
         {
@@ -193,7 +193,7 @@ new CloudTask("A", "cmd.exe /c echo A")
         }
     }
 },
-// Task B depends on task A. Whether it becomes eligible toorun depends on how task A exits.
+// Task B depends on task A. Whether it becomes eligible to run depends on how task A exits.
 new CloudTask("B", "cmd.exe /c echo B")
 {
     DependsOn = TaskDependencies.OnId("A")
@@ -201,18 +201,18 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Exemplo de código
-Olá [TaskDependencies] [ github_taskdependencies] projeto de exemplo é uma saudação [exemplos de código do Azure Batch] [ github_samples] no GitHub. Esta solução do Visual Studio demonstra:
+O projeto de exemplo [TaskDependencies][github_taskdependencies] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Esta solução do Visual Studio demonstra:
 
-- Como tooenable dependência em um trabalho de tarefas
-- Como toocreate tarefas que dependem de outras tarefas
-- Como tooexecute as tarefas em um conjunto de nós de computação.
+- Como habilitar a dependência entre tarefas em um trabalho
+- Como criar tarefas que dependem de outras tarefas
+- Como executar essas tarefas em um pool de nós de computação.
 
 ## <a name="next-steps"></a>Próximas etapas
 ### <a name="application-deployment"></a>Implantação do aplicativo
-Olá [pacotes de aplicativos](batch-application-packages.md) recurso de lote fornece um modo fácil de implantar tooboth e versão aplicativos Olá as tarefas executadas em nós de computação.
+O recurso de [pacotes de aplicativos](batch-application-packages.md) do lote fornece uma maneira fácil de implantar e controlar a versão dos aplicativos que as tarefas executam em nós de computação.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalação de aplicativos e preparação de dados
-Consulte [nós de computação de instalação de aplicativos e dados em lotes de preparo] [ forum_post] no Fórum do lote do Azure Olá para uma visão geral dos métodos para preparar seus nós toorun tarefas. Gravado por um dos membros da equipe do Azure Batch Olá, que esta postagem é um bom primer em aplicativos de toocopy de maneiras diferentes de hello, dados de entrada de tarefa e outros arquivos tooyour nós de computação.
+Consulte [Instalando aplicativos e preparando dados em nós de computação do Lote][forum_post] no fórum do Lote do Azure para obter uma visão geral de métodos para preparar os nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, essa postagem é um bom guia sobre as diferentes maneiras de copiar aplicativos, dados de entrada de tarefa e outros arquivos nos nós de computação.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

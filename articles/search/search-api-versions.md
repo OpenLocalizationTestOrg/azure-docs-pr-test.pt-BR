@@ -1,6 +1,6 @@
 ---
-title: "versões de aaaAPI da pesquisa do Azure | Microsoft Docs"
-description: "Política de versão para a biblioteca de cliente de APIs de REST de pesquisa do Azure e hello no hello .NET SDK."
+title: "Versões de API do Azure Search | Microsoft Docs"
+description: "Política de versão para APIs REST da Pesquisa do Azure e a biblioteca de cliente no SDK do .NET."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-ms.openlocfilehash: 4fa722fad5577c6b254be7fa673eb240fff316a2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API na Pesquisa do Azure
-O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem toopublish uma nova versão do nosso compatibilidade com versões anteriores do API toopreserve. Publicar uma nova versão permite toocontrol quando e como integrar atualizações de serviço de pesquisa no seu código.
+O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem que publiquemos uma nova versão de nossa API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.
 
-Como regra, tentamos toopublish novas versões somente quando necessário, pois ele pode envolver alguma tooupgrade esforço sua versão de toouse uma nova API de código. Somente, publicaremos uma nova versão se precisamos toochange algum aspecto da saudação API de forma que quebras de compatibilidade com versões anteriores. Isso pode acontecer devido a recursos de tooexisting correções ou devido a novos recursos que alterar a área de superfície de API existente.
+Como regra, tentamos publicar novas versões somente quando necessário, pois isso pode envolver esforços para atualizar seu código, a fim de usar uma nova versão de API. Apenas publicaremos uma nova versão se for necessário alterar alguns aspectos da API de uma forma que interrompe a compatibilidade com versões anteriores. Isso pode ocorrer devido a correções a recursos existentes ou devido a recursos novos que alteram a área da superfície da API existente.
 
-Seguimos Olá mesma regra para atualizações SDK. Olá SDK pesquisa do Azure segue Olá [controle de versão semântico](http://semver.org/) regras, que significa que sua versão tem três partes: major, minor e criar número (por exemplo, 1.1.0). Podemos lançará uma nova versão principal do hello SDK somente no caso de alterações que interromper a compatibilidade com versões anteriores. Para atualizações do recurso incondicional, iremos incrementar a versão secundária hello e para correções de bugs é apenas aumentará versão hello.
+Seguimos a mesma regra para atualizações do SDK. O SDK da Pesquisa do Azure segue as regras do [controle de versão semântico](http://semver.org/) , o que significa que sua versão tem três partes: principal, secundária e número de build (por exemplo, 1.1.0). Liberaremos uma nova versão principal do SDK somente no caso de alterações que interrompem a compatibilidade com versões anteriores. Para atualizações de recursos contínuas, incrementaremos a versão secundária, e para correções de bug, só aumentaremos a versão de build.
 
 > [!NOTE]
-> Sua instância de serviço de pesquisa do Azure oferece suporte a várias versões da API REST, incluindo hello mais recente. Você pode continuar toouse uma versão quando ela não é mais hello mais recente, mas é recomendável que você migre a sua versão mais recente do código toouse hello. Ao usar o hello API REST, você deve especificar a versão de API de Olá em cada solicitação feita por meio do parâmetro de versão de api de saudação. Ao usar o SDK .NET de saudação, versão de saudação do Olá SDK que você está usando determina versão correspondente de saudação do hello API REST. Se você estiver usando um SDK anterior, você pode continuar toorun que o código sem alterações mesmo se o serviço Olá é atualizado toosupport uma API mais recente versão.
+> Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
 
 ## <a name="snapshot-of-current-versions"></a>Instantâneo das versões atuais
-Abaixo está um instantâneo de saudação versões atuais do tooAzure de interfaces de programação todos os pesquisa.
+Veja abaixo um instantâneo das versões atuais de todas as interfaces de programação da Pesquisa do Azure.
 
 | Interfaces | Versão principal mais recente | Status |
 | --- | --- | --- |
@@ -42,24 +42,24 @@ Abaixo está um instantâneo de saudação versões atuais do tooAzure de interf
 | [SDK do Gerenciamento do .NET](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Disponível |
 | [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponível |
 
-Para Olá APIs REST, incluindo Olá `api-version` em cada chamada é necessária. Isso torna fácil tootarget uma versão específica, como uma visualização da API. Olá exemplo a seguir ilustra como Olá `api-version` parâmetro for especificado:
+Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso facilita direcionar uma versão específica, como uma API de preview. O seguinte exemplo ilustra como o parâmetro `api-version` é especificado:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
 
 > [!NOTE]
-> Embora cada solicitação tem um `api-version`, recomendamos que você use Olá mesma versão para todas as solicitações de API. Isso ocorre especificamente quando novas versões de API introduzem atributos ou operações que não são reconhecidos por versões anteriores. A combinação de versões de API pode trazer consequências indesejadas e deve ser evitada.
+> Embora cada solicitação tenha uma `api-version`, recomendamos que você use a mesma versão para todas as solicitações de API. Isso ocorre especificamente quando novas versões de API introduzem atributos ou operações que não são reconhecidos por versões anteriores. A combinação de versões de API pode trazer consequências indesejadas e deve ser evitada.
 >
-> Olá API REST do serviço e a API REST de gerenciamento têm controle de versão independentemente um do outro. Qualquer semelhança nos números de versão é uma coincidência.
+> A API REST do Serviço e a API REST de Gerenciamento têm controle de versão que não dependem entre si. Qualquer semelhança nos números de versão é uma coincidência.
 
-Disponível (ou GA) APIs podem ser usados em produção e são o assunto tooAzure contratos de nível de serviço. Versões de visualização têm recursos experimentais que nem sempre são migrados tooa GA versão. **É altamente recomendável não usar APIs de preview em aplicativos de produção.**
+APIs GA (ou Disponíveis) podem ser usadas na produção e estão sujeitas aos SLAs do Azure. Versões prévias têm recursos experimentais que nem sempre são migrados para uma versão GA. **É altamente recomendável não usar APIs de preview em aplicativos de produção.**
 
 ## <a name="about-preview-and-generally-available-versions"></a>Sobre versões Prévias e Disponíveis para o Público em Geral
-Pesquisa do Azure sempre previamente libera recursos experimentais por meio da API REST de saudação primeiro, em seguida, por meio de versões de pré-lançamento do SDK .NET de saudação.
+A Pesquisa do Azure sempre faz o pré-lançamento de recursos experimentais por meio da API REST primeiro, e, então, por meio de versões de pré-lançamento do SDK do .NET.
 
-Não há garantia de recursos de visualização toobe migrados versão tooa GA. Enquanto os recursos em uma versão de GA são considerados estável e improvável toochange com exceção de saudação de pequenas correções de compatibilidade retroativa e aprimoramentos, recursos de visualização estão disponíveis para teste e experimentação, com objetivo de saudação de coletar comentários sobre o design de recurso e a implementação.
+Não há nenhuma garantia de que os recursos de visualização serão migrados para uma versão GA. Enquanto os recursos em uma versão GA são considerados estáveis e não têm a probabilidade de ser alterados, com a exceção de pequenas melhorias e correções de compatibilidade com versões anteriores, os recursos de visualização estão disponíveis para teste e experimento, com o objetivo de coletar comentários sobre o design e a implementação do recurso.
 
-No entanto, como recursos de visualização são toochange de assunto, é recomendável em relação a escrever código de produção que leva uma dependência em versões de visualização. Se você estiver usando uma versão mais antiga de visualização, é recomendável migrar versão do toohello disponibilidade geral (GA).
+No entanto, como os recursos de visualização estão sujeitos a alterações, não recomendamos escrever um código de produção que dependa de versões prévias. Caso esteja usando uma versão prévia mais antiga, é recomendável migrar para a versão GA (disponível).
 
-Para Olá SDK .NET: orientação para a migração de código pode ser encontrada em [atualização Olá .NET SDK](search-dotnet-sdk-migration.md).
+Para o SDK do .NET: diretrizes para a migração de código podem ser encontradas em [Atualizar o SDK do .NET](search-dotnet-sdk-migration.md).
 
-Disponibilidade geral significa a pesquisa do Azure agora está sob um contrato de nível de serviço (SLA) do hello. Olá SLA pode ser encontrado em [contratos de nível de serviço de pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada aos termos do Contrato de Nível de Serviço (SLA). O SLA pode ser encontrado em [Contratos de Nível de Serviço da Pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

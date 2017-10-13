@@ -1,6 +1,6 @@
 ---
-title: tempos de vida de token de aaaConfigurable no Active Directory do Azure | Microsoft Docs
-description: Saiba como tooset tempos de vida para tokens emitidos pelo AD do Azure.
+title: "Tempos de vida de token configuráveis no Azure Active Directory | Microsoft Docs"
+description: Saiba como definir tempos de vida dos tokens emitidos pelo Azure AD.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -16,23 +16,23 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 0d4c8545981c5463cc7c95f669167bbc38230123
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
-Você pode especificar o tempo de vida de saudação de um token emitido pelo Azure Active Directory (AD do Azure). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
+Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!NOTE]
-> Esse recurso está atualmente em Visualização Pública. Prepare-se toorevert ou remova as alterações. recurso de saudação está disponível em qualquer assinatura do Azure Active Directory durante a visualização pública. No entanto, quando o recurso de saudação se torna disponível, alguns aspectos do recurso de saudação podem exigir um [Azure Active Directory Premium](active-directory-get-started-premium.md) assinatura.
+> Esse recurso está atualmente em Visualização Pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure Active Directory durante a Visualização Pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do [Azure Active Directory Premium](active-directory-get-started-premium.md).
 >
 >
 
-No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são aplicadas tooobjects toowhich que são atribuídos.
+No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura exclusiva com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
 
-Você pode designar uma política como política padrão de saudação para sua organização. política de saudação é aplicativo tooany aplicada na organização hello, desde que ele não é substituído por uma política com uma prioridade mais alta. Você também pode atribuir uma política toospecific aplicativos. ordem de saudação de prioridade varia de acordo com o tipo de política.
+Designe uma política como a padrão para sua organização. Essa política é aplicada a qualquer aplicativo na organização, desde que não seja substituída por uma política com uma prioridade mais alta. Você também pode atribuir uma política para aplicativos específicos. A ordem de prioridade varia por tipo de política.
 
 
 ## <a name="token-types"></a>Tipos de token
@@ -40,34 +40,34 @@ Você pode designar uma política como política padrão de saudação para sua 
 Configure as políticas de tempo de vida de token para tokens de atualização, tokens de acesso, tokens de sessão e tokens de ID.
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Tooaccess um recurso protegido de tokens de acesso de uso de clientes. Um token de acesso só pode ser usado para uma combinação específica de usuário, cliente e recurso. Tokens de acesso não podem ser revogados e são válidos até sua expiração. Um ator mal-intencionado que tenha obtido um token de acesso pode usá-lo pela extensão do tempo de vida. Ajustando o tempo de vida de saudação de um acesso de token é uma compensação entre o aprimoramento de desempenho do sistema e crescentes Olá tempo total que Olá cliente mantém acesso depois de desabilitar a conta de usuário de saudação. Melhor desempenho do sistema é obtido reduzindo Olá número de vezes que um cliente precisa tooacquire um token de acesso de novo.
+Os clientes usam tokens de acesso para acessar um recurso protegido. Um token de acesso só pode ser usado para uma combinação específica de usuário, cliente e recurso. Tokens de acesso não podem ser revogados e são válidos até sua expiração. Um ator mal-intencionado que tenha obtido um token de acesso pode usá-lo pela extensão do tempo de vida. Ajustar o tempo de vida do token de acesso é uma compensação entre a melhorar o desempenho do sistema e aumentar o tempo pelo qual o cliente retém acesso depois que a conta do usuário é desabilitada. Um melhor desempenho do sistema é obtido, reduzindo o número de vezes que um cliente precisa adquirir um novo token de acesso.
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
-Quando um cliente adquire um tooaccess de token de acesso um recurso protegido, o cliente Olá recebe um token de atualização e um token de acesso. token de atualização de saudação é novos pares de token de acesso/atualização tooobtain usado quando Olá token de acesso atual expirar. Um token de atualização é a combinação de tooa associada do usuário e do cliente. Um token de atualização pode ser revogado e validade do token de saudação é verificada sempre Olá token é usado.
+Quando um cliente adquire um token de acesso para acessar um recurso protegido, ele recebe um token de atualização e um token de acesso. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Um token de atualização é associado a uma combinação de cliente e usuário. Um token de atualização pode ser revogado, e validade do token é verificada sempre que ele é usado.
 
-É importante toomake uma distinção entre os clientes confidenciais e público. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+É importante fazer uma distinção entre clientes públicos e clientes confidenciais. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidencial
-Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes de aplicativo de cliente hello e não de um ator mal-intencionado. Por exemplo, um aplicativo web é um cliente confidencial porque ele pode armazenar um segredo do cliente no servidor de web hello. Ele não fica exposto. Como esses fluxos são mais seguros, Olá tempos de vida padrão dos tokens de atualização é emitido toothese fluxos `until-revoked`, não pode ser alterado usando a política e não será revogada em redefinições de senha voluntária.
+Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes do aplicativo cliente, e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois pode armazenar um segredo do cliente no servidor Web. Ele não fica exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando uma política e não serão revogados em redefinições de senha voluntárias.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
 
-Clientes públicos não são capazes de armazenar com segurança a senha (segredo) de um cliente. Por exemplo, um aplicativo do iOS/Android não pode ofuscar um segredo do proprietário do recurso hello, para que ele seja considerado um cliente público. Você pode definir o políticas em recursos tooprevent tokens de atualização de público com mais de um período especificado, obtenha um novo par de tokens de atualização do acesso de clientes. (toodo hello, use propriedade atualizar Token inativo tempo máx.) Você também pode usar políticas tooset um ponto além dos tokens de atualização que Olá não são aceitas. (toodo hello, use propriedade atualizar Token Max Age.) Você pode ajustar o tempo de vida de saudação de um toocontrol de token de atualização e a frequência hello usuário é credenciais de tooreenter necessário, em vez de silenciosamente sendo reautenticado, ao usar um aplicativo de cliente público.
+Clientes públicos não são capazes de armazenar com segurança a senha (segredo) de um cliente. Por exemplo, um aplicativo iOS/Android não pode ocultar um segredo do proprietário do recurso e, portanto, é considerado um cliente público. Defina políticas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade Tempo Máximo Inativo do Token de Atualização.) Use também políticas para definir um período além do qual os tokens de atualização não serão mais aceitos. (Para fazer isso, use a propriedade Idade Máxima do Token de Atualização.) Ajuste o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
-Tokens de ID são passadas toowebsites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é uma combinação específica de tooa associada do usuário e do cliente. Os tokens de ID são considerados válidos até a expiração. Normalmente, um aplicativo web corresponde a um usuário do tempo de vida de sessão no tempo de vida de toohello aplicativo de saudação do token de ID de saudação emitido para usuário hello. Você pode ajustar o tempo de vida de saudação de uma ID token toocontrol frequência aplicativo da web hello expira a sessão do aplicativo hello e frequência requer Olá toobe de usuário autenticado novamente com o Azure AD (silenciosamente ou interativamente).
+Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Os tokens de ID são considerados válidos até a expiração. Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário. Ajuste o tempo de vida de um token de ID para controlar com que frequência o aplicativo Web expira a sessão do aplicativo, com que frequência exige que o usuário seja autenticado novamente no Azure AD (de forma silenciosa ou interativa).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sessão de logon único
-Quando um usuário se autentica com o Azure AD e selecionará Olá **Mantenha-me conectado** caixa de seleção, é estabelecida uma sessão de logon único (SSO) com o navegador do usuário hello e o Azure AD. token SSO Hello, na forma de saudação de um cookie representa esta sessão. Observe que esse token de sessão SSO Olá não é aplicativo de recurso/cliente específico de tooa associada. Tokens de sessão de SSO podem ser revogados, e sua validade é verificada sempre que eles são usados.
+Quando um usuário autentica no Azure AD e marca a caixa de seleção **Manter-me conectado**, uma sessão de SSO (logon único) é estabelecida com o navegador do usuário e o Azure AD. O Token de SSO, na forma de um cookie, representa essa sessão. Observe que o token de sessão de SSO não está associado a um aplicativo cliente/recurso específico. Tokens de sessão de SSO podem ser revogados, e sua validade é verificada sempre que eles são usados.
 
-O Azure AD usa dois tipos de tokens de sessão de SSO: persistente e não persistente. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador hello. Tokens de sessão não persistentes são armazenados como cookies de sessão. (Cookies de sessão são destruídos quando Olá navegador for fechado).
+O Azure AD usa dois tipos de tokens de sessão de SSO: persistente e não persistente. Tokens de sessão persistentes são armazenadas como cookies persistentes pelo navegador. Tokens de sessão não persistentes são armazenados como cookies de sessão. (Cookies de sessão são destruídos quando o navegador é fechado).
 
-Tokens de sessão não persistentes têm uma vida útil de 24 horas. Tokens persistentes têm um tempo de vida de 180 dias. Sempre que um token de sessão SSO é usado dentro do período de validade, o período de validade de saudação é estendido outro 24 horas ou 180 dias, dependendo do tipo de token hello. Se o token de sessão de SSO não for usado dentro do período de validade, ele será considerado expirado e não será mais aceito.
+Tokens de sessão não persistentes têm uma vida útil de 24 horas. Tokens persistentes têm um tempo de vida de 180 dias. Sempre que um token de sessão de SSO for usado dentro do período de validade, o período de validade será estendido por mais 24 horas ou 180 dias, dependendo do tipo de token. Se o token de sessão de SSO não for usado dentro do período de validade, ele será considerado expirado e não será mais aceito.
 
-Você pode usar um tempo de saudação política tooset após o primeiro token de sessão Olá foi emitido além do qual Olá token de sessão não é aceito. (toodo Olá, use propriedades de sessão Token Max Age.) Você pode ajustar o tempo de vida de saudação de um toocontrol de token de sessão quando e como um usuário é tooreenter necessário credenciais, em vez de sendo autenticado silenciosamente, ao usar um aplicativo web.
+Use uma política para definir o tempo limite após a emissão do primeiro token de sessão além do qual o token de sessão não será mais aceito. (Para fazer isso, use a propriedade Idade Máxima de Token de Sessão.) Ajuste o tempo de vida de um token de sessão para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser autenticado de forma silenciosa, ao usar um aplicativo Web.
 
 ### <a name="token-lifetime-policy-properties"></a>Propriedades da política de tempo de vida de token
-Uma política de tempo de vida do token é um tipo de objeto de política que contém regras de tempo de vida do token. Use propriedades de saudação do hello política toocontrol especificado tempos de vida de token. Se nenhuma diretiva for definida, o sistema de saudação impõe valor de tempo de vida padrão hello.
+Uma política de tempo de vida do token é um tipo de objeto de política que contém regras de tempo de vida do token. Use as propriedades da política para controlar tempos de vida de tokens especificados. Se nenhuma política for definida, o sistema aplicará o valor de tempo de vida padrão.
 
 ### <a name="configurable-token-lifetime-properties"></a>Propriedades de tempo de vida de token configurável
 | Propriedade | Cadeia de caracteres de propriedade de política | Afeta | Padrão | Mínimo | Máximo |
@@ -79,9 +79,9 @@ Uma política de tempo de vida do token é um tipo de objeto de política que co
 | Idade Máxima de Token de Sessão de Fator Único |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sessão (persistentes e não persistentes) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 | Idade Máxima de Token de Sessão Multifator |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e não persistentes) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 
-* <sup>1</sup>é de 365 dias Olá explícita comprimento máximo que pode ser definido para esses atributos.
-* <sup>2</sup>se **MaxAgeSessionSingleFactor** não está definida, esse valor tem Olá **MaxAgeSingleFactor** valor. Se nenhum parâmetro for definido, a propriedade de saudação tem valor padrão de saudação (até revogado).
-* <sup>3</sup>se **MaxAgeSessionMultiFactor** não está definida, esse valor tem Olá **MaxAgeMultiFactor** valor. Se nenhum parâmetro for definido, a propriedade de saudação tem valor padrão de saudação (até revogado).
+* <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para esses atributos.
+* <sup>2</sup>Se **MaxAgeSessionSingleFactor** não for definido, esse valor usará o valor de **MaxAgeSingleFactor**. Se nenhum parâmetro for definido, a propriedade usará o valor padrão (until-revoked).
+* <sup>3</sup>Se **MaxAgeSessionMultiFactor**, não for definido, esse valor usará o valor de **MaxAgeMultiFactor**. Se nenhum parâmetro for definido, a propriedade usará o valor padrão (until-revoked).
 
 ### <a name="exceptions"></a>Exceções
 | Propriedade | Afeta | Padrão |
@@ -90,38 +90,38 @@ Uma política de tempo de vida do token é um tipo de objeto de política que co
 | Tempo Máximo Inativo do Token de Atualização (emitido para clientes confidenciais) |Tokens de atualização (emitido para clientes confidenciais) |90 dias |
 | Idade Máxima do Token de Atualização (emitido para clientes confidenciais) |Tokens de atualização (emitido para clientes confidenciais) |Until-revoked |
 
-* <sup>1</sup>usuários federados que têm informações de revogação insuficiente incluem todos os usuários que não possuem hello "LastPasswordChangeTimestamp" atributo sincronizado. Esses usuários recebem esse breve Max Age como AAD é tooverify não é possível quando toorevoke tokens que são vinculados tooan antiga de credenciais (como uma senha que foi alterada) e deve verifique novamente em tooensure com mais frequência do que o usuário hello e tokens associados ainda são válidas. tooimprove essa experiência, locatário administradores devem garantir que eles estão sincronizando Olá atributo "LastPasswordChangeTimestamp" (Isso pode ser definido no objeto de usuário hello usando o Powershell ou por meio do AADSync).
+* <sup>1</sup>Os usuários federados com informações de revogação insuficientes incluem todos os usuários que não têm o atributo "LastPasswordChangeTimestamp" sincronizado. Esses usuários recebem essa breve Idade Máxima porque o AAD não é capaz de verificar quando revogar tokens vinculados a uma credencial antiga (como uma senha que foi alterada) e devem verificar novamente, com mais frequência, para garantir que o usuário e tokens associados estejam válidos ainda. Para melhorar essa experiência, os administradores de locatário devem garantir que estejam sincronizando o atributo "LastPasswordChangeTimestamp" (isso pode ser definido no objeto do usuário usando o Powershell ou por meio do AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Avaliação e priorização de política
-Você pode criar e atribuir um aplicativo específico do política tooa de vida útil do token, organização tooyour e tooservice entidades. Várias políticas podem ser aplicadas tooa determinado aplicativo. política de vida útil do token de saudação que entra em vigor segue estas regras:
+Crie e atribua uma política de tempo de vida de token para um aplicativo específico, para sua organização e para entidades de serviço. Várias políticas podem se aplicar a um aplicativo específico. A política de tempo de vida do token que entra em vigor segue estas regras:
 
-* Se uma política seja atribuída explicitamente a entidade de serviço toohello, ela será aplicada.
-* Se nenhuma política de entidade de serviço toohello atribuído explicitamente uma diretiva atribuídas explicitamente a organização de pai toohello da entidade de serviço Olá é aplicada.
-* Se nenhuma política foi atribuída explicitamente toohello entidade de serviço ou organização toohello, política de saudação toohello aplicativo atribuída é aplicada.
-* Se nenhuma política foi atribuída toohello principal, Olá organização ou objeto de aplicativo hello, Olá valores padrão do serviço é imposta. (Consulte tabela Olá [propriedades configuráveis vida útil do token](#configurable-token-lifetime-properties).)
+* Se uma política for atribuída explicitamente à entidade de serviço, ela será imposta.
+* Se nenhuma política for explicitamente atribuída à entidade de serviço, uma política explicitamente atribuída à organização pai da entidade de serviço será imposta.
+* Se nenhuma política foi atribuída explicitamente à entidade de serviço ou à organização, a política atribuída ao aplicativo será imposta.
+* Se nenhuma política tiver sido atribuída à entidade de serviço, à organização ou ao objeto de aplicativo, os valores padrão serão aplicados. (Consulte a tabela em [Propriedades configuráveis de tempo de vida de token](#configurable-token-lifetime-properties).)
 
-Para obter mais informações sobre a relação Olá entre objetos application e service principal, consulte [objetos de aplicativo e serviço principal no Azure Active Directory](active-directory-application-objects.md).
+Para saber mais sobre a relação entre objetos de aplicativo e de entidade de serviço, confira [Objetos de aplicativos e entidade de serviço no Azure Active Directory](active-directory-application-objects.md).
 
-Validade do token é avaliada em tempo de Olá Olá token é usado. política de saudação com prioridade mais alta de saudação no aplicativo hello que está sendo acessado entra em vigor.
+A validade do token é avaliada no momento em que ele é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
 
 > [!NOTE]
 > Veja um exemplo de cenários.
 >
-> Um usuário deseja tooaccess dois aplicativos de web: aplicativo Web A e B. do aplicativo Web
+> Um usuário deseja acessar dois aplicativos Web: Aplicativo Web A e Aplicativo Web B.
 > 
 > Fatores:
-> * Ambos os aplicativos web estão em Olá mesmo pai de organização.
-> * 1 de diretiva de tempo de vida do token com uma sessão Token Max Age de oito horas é definido como padrão da organização do hello pai.
-> * Um aplicativo é um aplicativo web de uso normal e não é vinculado tooany políticas.
-> * O Aplicativo Web B é usado para processos altamente confidenciais. Essa entidade de serviço é vinculado tooToken 2 de tempo de vida de política, que tem uma sessão Token Max Age de 30 minutos.
+> * Os dois aplicativos Web estão na mesma organização pai.
+> * Política de tempo de vida de token 1 com uma Idade Máxima do Token de Sessão de oito horas é definida como o padrão da organização pai.
+> * O Aplicativo Web A é um aplicativo de uso normal e não está vinculado a políticas.
+> * O Aplicativo Web B é usado para processos altamente confidenciais. Essa entidade de serviço é vinculada à Política de tempo de vida de token 2, que tem uma Idade Máxima de Token de Sessão de 30 minutos.
 >
-> Às 12:00, usuário Olá inicia uma nova sessão do navegador e tentativas tooaccess A. do aplicativo Web hello usuário é redirecionado tooAzure AD e será solicitado a toosign no. Isso cria um cookie que tem um token de sessão no navegador de saudação. usuário de saudação é tooWeb redirecionado back um aplicativo com um token de ID que permite Olá usuário tooaccess aplicativo hello.
+> Às 12h, o usuário inicia uma nova sessão do navegador e tenta acessar o Aplicativo Web A. O usuário é redirecionado para o Azure AD e recebe uma solicitação para entrar. Isso crie um cookie com um token de sessão no navegador. O usuário é redirecionado ao Aplicativo Web A com um token de ID que permite e ele acessar o aplicativo.
 >
-> Às 12:15:00, o usuário de saudação tenta tooaccess B. do aplicativo Web hello navegador redirecionamentos tooAzure AD, que detecta o cookie de sessão hello. Entidade de serviço da Web aplicativo B é vinculado tooToken 2 de tempo de vida de política, mas ele também faz parte da organização do pai hello, com padrão de 1 de diretiva de tempo de vida do Token. 2 de política de tempo de vida do token entra em vigor porque políticas tooservice vinculado entidades têm uma prioridade mais alta que as políticas padrão de organização. o token de sessão Olá foi originalmente lançado em Olá últimos 30 minutos, para que ele seja considerado válido. usuário de saudação é tooWeb redirecionado back aplicativo B com um token de ID que concede acesso eles.
+> Às 12h15, o usuário tentar acessar o Aplicativo Web B. O navegador é redirecionado para o Azure AD, que detecta o cookie de sessão. A entidade de serviço do Aplicativo Web B está vinculada à Política de tempo de vida de token 2, mas também faz parte da organização pai, com a Política de tempo de vida de token 1 padrão. A Política de tempo de vida de token 2 entra em vigor, pois as políticas vinculadas a entidades de serviço têm uma prioridade maior do que as políticas padrão de organização. O token de sessão foi originalmente emitido nos últimos 30 minutos. Portanto, ele é considerado válido. O usuário é redirecionado para o Aplicativo Web B com um token de ID que lhe concede acesso.
 >
-> Às 13:00, Olá tentativas tooaccess A. do aplicativo Web hello usuário é redirecionado tooAzure AD. Um aplicativo da Web não está vinculado tooany políticas, mas porque ele está em uma organização com um padrão 1 de diretiva de tempo de vida do Token, essa política entra em vigor. cookie de sessão Olá que foi originalmente lançado em Olá últimas oito horas é detectado. usuário de saudação é tooWeb silenciosamente redirecionado back um aplicativo com um novo token de ID. usuário de saudação não é necessário tooauthenticate.
+> Às 13h, o usuário tenta acessar o Aplicativo Web B. O usuário é redirecionado ao Azure AD. O Aplicativo Web A não está vinculado a qualquer política, mas como está em uma organização com a Política de tempo de vida de token 1 padrão, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detectado. O usuário é redirecionado silenciosamente de volta ao Aplicativo Web A com um novo token de ID. O usuário não precisa autenticar.
 >
-> Imediatamente depois disso, o usuário Olá tenta usuário de saudação do tooaccess B. do aplicativo Web é redirecionado tooAzure AD. Como antes, a Política de tempo de vida de token 2 entra em vigor. Token Olá foi emitido há mais de 30 minutos, o usuário de Olá é tooreenter solicitada suas credenciais de logon. Um token de sessão e um token de ID totalmente novos são emitidos. Olá usuário poderá acessar B. do aplicativo Web
+> Imediatamente após isso, o usuário tenta acessar o Aplicativo Web B. O usuário é redirecionado ao Azure AD. Como antes, a Política de tempo de vida de token 2 entra em vigor. Como o token foi emitido há mais de 30 minutos, o usuário recebe uma solicitação para reinserir suas credenciais de logon. Um token de sessão e um token de ID totalmente novos são emitidos. Assim, o usuário pode acessar o Aplicativo Web B.
 >
 >
 
@@ -131,54 +131,54 @@ Validade do token é avaliada em tempo de Olá Olá token é usado. política de
 
 **Afeta:** tokens de acesso, tokens de ID
 
-**Resumo:** essa política controla por quanto tempo tokens de acesso e ID para esse recurso são considerados válidos. Reduzindo a propriedade de vida útil do Token acesso Olá reduz o risco de saudação de um token de acesso ou o token de ID que está sendo usado por um ator mal-intencionado por um longo período de tempo. (Esses tokens não podem ser revogados.) compensação de saudação é que o desempenho é afetado negativamente, como tokens de saudação têm toobe substituída com mais frequência.
+**Resumo:** essa política controla por quanto tempo tokens de acesso e ID para esse recurso são considerados válidos. A redução da propriedade de Tempo de vida útil do token acesso minimiza o risco de uso de um token de acesso ou de ID por um ator mal-intencionado durante um longo período. (Esses tokens não podem ser revogados.) A desvantagem é que o desempenho é afetado negativamente, pois os tokens precisam ser substituído com mais frequência.
 
 ### <a name="refresh-token-max-inactive-time"></a>Tempo Máximo Inativo de Token de Atualização
 **Cadeia de caracteres:** MaxInactiveTime
 
 **Afeta:** tokens de atualização
 
-**Resumo:** esta política controla quanto tempo um token de atualização pode ser antes que um cliente não poderá mais usá-lo tooretrieve um novo par de tokens de atualização do acesso ao tentar tooaccess esse recurso. Porque um novo token de atualização normalmente é retornado quando um token de atualização é usado, esta política impede o acesso se o cliente Olá tenta tooaccess qualquer recurso usando o token de atualização atual Olá durante a saudação especificado o período de tempo.
+**Resumo:** essa política controla a idade que um token de atualização pode ter antes que um cliente não possa mais usá-lo para recuperar um novo par de tokens de atualização/acesso ao tentar acessar esse recurso. Como um novo token de atualização normalmente retorna quando um token de atualização é usado, essa política impede o acesso se o cliente tentar acessar qualquer recurso usando o token de atualização atual durante o período especificado de tempo.
 
-Essa política força os usuários que não estão ativos em seu tooretrieve tooreauthenticate do cliente um novo token de atualização.
+Essa política força os usuários que não estão ativos no cliente a se autenticarem novamente para recuperar um novo token de atualização.
 
-Olá propriedade atualizar Token inativo tempo máximo deve ser definido tooa menor valor de fator único Token Max Age de saudação Olá multifator atualizar Token Max Age propriedades e.
+A propriedade Tempo Máximo Inativo do Token de Atualização deve ser definida como um valor menor do que as propriedades Idade Máxima do Token de Fator Único e Idade Máxima de Token de Atualização multifator.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Idade Máxima de Token de Atualização de Fator Único
 **Cadeia de caracteres:** MaxAgeSingleFactor
 
 **Afeta:** tokens de atualização
 
-**Resumo:** essa política controla como longa um usuário pode usar um tooget de token de atualização de um novo acesso/atualização par de tokens após eles última autenticados com êxito usando apenas um único fator. Depois que um usuário se autentica e recebe um novo token de atualização, o usuário de Olá pode usar o fluxo do token de atualização Olá para Olá especificado período de tempo. (Isso é verdadeiro contanto que o token de atualização atual Olá não for revogado e ele não estiver em uso por mais de tempo de inatividade hello.) Nesse ponto, o usuário de saudação é forçado tooreauthenticate tooreceive um novo token de atualização.
+**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, o usuário é forçado a se autenticar novamente para receber um novo token de atualização.
 
-Reduzindo a idade máxima Olá força tooauthenticate de usuários com mais frequência. Como autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina o valor da propriedade tooa que é igual tooor anterior de saudação propriedade multifator atualizar Token Max Age.
+Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou menor do que a propriedade Idade Máxima de Token de Atualização Multifator.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Idade Máxima de Token de Atualização Multifator
 **Cadeia de caracteres:** MaxAgeMultiFactor
 
 **Afeta:** tokens de atualização
 
-**Resumo:** essa política controla como longa um usuário pode usar um tooget de token de atualização de um novo acesso/atualização par de tokens após eles última autenticados com êxito por meio de vários fatores. Depois que um usuário se autentica e recebe um novo token de atualização, o usuário de Olá pode usar o fluxo do token de atualização Olá para Olá especificado período de tempo. (Isso é verdadeiro contanto que o token de atualização atual Olá não foi revogado e não é não utilizado por mais de tempo de inatividade hello.) Nesse ponto, os usuários são forçados tooreauthenticate tooreceive um novo token de atualização.
+**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida múltiplos fatores. Depois que um usuário autenticar e receber um novo token de atualização, ele poderá usar o fluxo do token de atualização para o período especificado. (Isso será verdadeiro desde que o token de atualização atual não seja revogado, e não fique sem uso por mais tempo do que o tempo de inatividade.) Nesse ponto, os usuários são forçados a autenticar novamente para receber um novo token de atualização.
 
-Reduzindo a idade máxima Olá força tooauthenticate de usuários com mais frequência. Como autenticação de fator único é considerada menos segura do que a autenticação multifator, é recomendável que você defina este valor da propriedade tooa que é maior do que a propriedade de fator único atualizar Token Max Age Olá de tooor igual.
+Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou maior do que a propriedade Idade Máxima de Token de Atualização de Fator Único.
 
 ### <a name="single-factor-session-token-max-age"></a>Idade Máxima de Token de Sessão de Fator Único
 **Cadeia de caracteres:** MaxAgeSessionSingleFactor
 
 **Afeta:** tokens de sessão (persistentes e não persistentes)
 
-**Resumo:** essa política controla quanto tempo um usuário pode usar um tooget de token de sessão uma ID e uma nova sessão de token após eles última autenticados com êxito usando apenas um único fator. Depois que um usuário se autentica e recebe um token de nova sessão, o usuário de saudação pode usar o fluxo do token de sessão Olá para Olá especificado período de tempo. (Isso é verdadeiro, desde que o token da sessão atual Olá não foi revogado e não expirou.) Depois de saudação especificado um período de tempo, usuário Olá é forçado tooreauthenticate tooreceive um token de nova sessão.
+**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e token de sessão após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
 
-Reduzindo a idade máxima Olá força tooauthenticate de usuários com mais frequência. Como autenticação de fator único é considerada menos segura do que a autenticação multifator, é recomendável que você defina este valor da propriedade tooa que é propriedade de sessão Token Max Age multifator tooor menor que Olá igual.
+Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou menor do que a propriedade Idade Máxima de Token de Sessão Multifator.
 
 ### <a name="multi-factor-session-token-max-age"></a>Idade Máxima de Token de Sessão Multifator
 **Cadeia de caracteres:** MaxAgeSessionMultiFactor
 
 **Afeta:** tokens de sessão (persistentes e não persistentes)
 
-**Resumo:** essa política controla quanto tempo um usuário pode usar um tooget de token de sessão uma ID e uma nova sessão de token após Olá a última vez em que eles autenticados com êxito por meio de vários fatores. Depois que um usuário se autentica e recebe um token de nova sessão, o usuário de saudação pode usar o fluxo do token de sessão Olá para Olá especificado período de tempo. (Isso é verdadeiro, desde que o token da sessão atual Olá não foi revogado e não expirou.) Depois de saudação especificado um período de tempo, usuário Olá é forçado tooreauthenticate tooreceive um token de nova sessão.
+**Resumo:** essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e token de sessão após a última autenticação bem-sucedida usando apenas múltiplos fatores. Depois que um usuário autenticar e receber um novo token de sessão o, ele poderá usar o fluxo do token de sessão para o período especificado. (Isso será verdadeiro desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período especificado, o usuário será forçado a autenticar novamente para receber um novo token de sessão.
 
-Reduzindo a idade máxima Olá força tooauthenticate de usuários com mais frequência. Como autenticação de fator único é considerada menos segura do que a autenticação multifator, é recomendável que você defina este valor da propriedade tooa que é maior do que a propriedade de fator único sessão Token Max Age Olá de tooor igual.
+Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos a definição dessa propriedade com um valor igual ou maior do que a propriedade Idade Máxima de Token de Sessão de Fator Único.
 
 ## <a name="example-token-lifetime-policies"></a>Exemplo de políticas de tempo de vida do token
 Muitos cenários são possíveis no Azure AD quando você cria e gerencia tempos de vida de token para aplicativos, entidades de serviço e sua organização geral. Nesta seção, examinaremos alguns cenários comuns de políticas que ajudarão você a impor novas regras para:
@@ -187,7 +187,7 @@ Muitos cenários são possíveis no Azure AD quando você cria e gerencia tempos
 * Tempo Máximo Inativos de Token
 * Idade Máxima de Token
 
-Exemplos de saudação, você pode aprender como:
+Nos exemplos, você poderá aprender a:
 
 * Gerenciar a política padrão de uma organização
 * Criar uma política para entrada na Web
@@ -195,29 +195,29 @@ Exemplos de saudação, você pode aprender como:
 * Gerenciar uma política avançada
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Em Olá exemplos a seguir, você cria, atualizar, vincula e excluir as políticas de aplicativos, as entidades de serviço e sua organização. Se você for novo tooAzure AD, é recomendável que você conheça [como tooget um AD do Azure locatário](active-directory-howto-tenant.md) antes de prosseguir com esses exemplos.  
+Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de aplicativos, entidades de serviço e sua organização em geral. Se você for um novo usuário do Azure AD, recomendamos que aprenda sobre [como obter um locatário do Azure AD](active-directory-howto-tenant.md) antes de prosseguir com estes exemplos.  
 
-tooget iniciado, Olá etapas a seguir:
+Para começar, execute uma destas etapas:
 
-1. Baixar hello mais recente [versão de visualização do Azure AD PowerShell módulo público](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Executar Olá `Connect` comando toosign em tooyour conta de administrador do AD do Azure. Execute esse comando sempre que você iniciar uma nova sessão.
+1. Baixe a versão mais recente do [Azure AD PowerShell Visualização Pública](https://www.powershellgallery.com/packages/AzureADPreview).
+2. Execute o comando `Connect` para entrar em sua conta do administrador do Azure AD. Execute esse comando sempre que você iniciar uma nova sessão.
 
     ```PowerShell
     Connect-AzureAD -Confirm
     ```
 
-3. toosee todas as políticas que foram criadas em sua organização, Olá execução após o comando. Execute este comando após a maioria das operações no hello cenários a seguir. Executando o comando Olá também ajuda você a obter hello * * * * de suas políticas.
+3. Para ver todas as políticas criadas em sua organização, execute o comando a seguir. Execute esse comando após a maioria das operações nos cenários a seguir. A execução do comando também ajuda você a obter a ** ** de suas políticas.
 
     ```PowerShell
     Get-AzureADPolicy
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Exemplo: Gerenciar a política padrão de uma organização
-Neste exemplo, crie uma política que permita aos usuários fazerem logon com menos frequência em toda sua organização. toodo, criar uma política de vida útil do token de fator único atualizar Tokens, que é aplicado em sua organização. política de saudação é aplicado tooevery aplicativo em sua organização e a entidade de serviço tooeach que ainda não tiver uma política definida.
+Neste exemplo, crie uma política que permita aos usuários fazerem logon com menos frequência em toda sua organização. Para fazer isso, crie uma política de tempo de vida de token para Tokens de Atualização de Fator Único que é aplicada em toda sua organização. Essa política será aplicada a todos os aplicativos no a organização e a cada entidade de serviço que ainda não tenha uma política definida para ela.
 
 1. Crie uma política de tempo de vida de token.
 
-    1.  Saudação de conjunto de fator único Token de atualização muito "até revogados." token de saudação não expira até que o acesso é revogado. Crie hello após a definição de política:
+    1.  Defina o Token de Atualização de Fator Único como "until-revoked". O token não expira até que o acesso seja revogado. Crie a seguinte definição de política:
 
         ```PowerShell
         @('{
@@ -229,21 +229,21 @@ Neste exemplo, crie uma política que permita aos usuários fazerem logon com me
         }')
         ```
 
-    2.  diretiva toocreate hello, executar Olá comando a seguir:
+    2.  Para criar a política, execute o seguinte comando:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  toosee sua nova política e da política de saudação tooget **ObjectId**, execute hello seguinte comando:
+    3.  Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```PowerShell
         Get-AzureADPolicy
         ```
 
-2. Atualize a política de saudação.
+2. Atualizar a política.
 
-    Você pode decidir que a política de primeiro do hello definido neste exemplo não é como estrita como seu serviço exigir. tooset seu Token de atualização de fator único tooexpire em dois dias, executar Olá seguinte comando:
+    Talvez você decida que a primeira política definida neste exemplo não é tão estrita quanto seu serviço exige. Para definir a expiração do Token de Atualização de Fator Único para dois dias, execute o seguinte comando:
 
     ```PowerShell
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
@@ -251,91 +251,91 @@ Neste exemplo, crie uma política que permita aos usuários fazerem logon com me
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exemplo: Criar uma política para entrada na Web
 
-Neste exemplo, você deve criar uma política que exige que os usuários tooauthenticate com mais frequência em seu aplicativo web. Essa política define o tempo de vida de saudação de tokens de acesso/ID hello e idade máxima de saudação da entidade de serviço de token toohello sessão de vários fatores de seu aplicativo web.
+Neste exemplo, crie uma política que exige dos usuários a autenticação mais frequente no aplicativo Web. Essa política define o tempo de vida dos tokens de acesso/Id e a idade máxima de um token de sessão multifator para a entidade de serviço do aplicativo Web.
 
 1. Crie uma política de tempo de vida de token.
 
-    Essa política, para entrar no web, define a vida útil do token acesso ID hello e horas de tootwo Olá máximo de sessões de fator único token de idade.
+    Essa política, para entrada na Web, define o tempo de vida do token de acesso/ID e a idade máxima do Token de sessão de fator único como duas horas.
 
-    1.  diretiva toocreate hello, execute este comando:
+    1.  Para criar a política, execute este comando:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  toosee sua nova política e política de saudação tooget **ObjectId**, execute hello seguinte comando:
+    2.  Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```PowerShell
         Get-AzureADPolicy
         ```
 
-2.  Atribua a entidade de serviço Olá política tooyour. Você também precisa tooget Olá **ObjectId** sua entidade de serviço. 
+2.  Atribuir a política à entidade de serviço. Você também precisará da **ObjectId** de sua entidade de serviço. 
 
-    1.  toosee entidades de serviço de todas as da sua organização, você pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [do Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), entrar tooyour conta AD do Azure.
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Graph Explorer do Azure AD](https://graphexplorer.cloudapp.net/), entre em sua conta do Azure AD.
 
-    2.  Quando você tiver Olá **ObjectId** sua entidade de serviço, execute Olá comando a seguir:
+    2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exemplo: Criar uma política para um aplicativo nativo que chama uma API da Web
-Neste exemplo, você deve criar uma política que exige que os usuários tooauthenticate menos frequentemente. política de saudação também aumenta a quantidade de saudação de tempo que um usuário pode ficar inativo antes que o usuário Olá deve autenticar novamente. política de saudação é aplicado toohello web API. Quando o aplicativo nativo Olá solicita Olá web API como um recurso, essa política é aplicada.
+Neste exemplo, crie uma política que exige dos usuários a autenticação menos frequente. A política também aumenta a quantidade de tempo que um usuário pode ficar inativo antes que precise autenticar novamente. A política é aplicada à API da web. Quando o aplicativo nativo solicita a API da Web como um recurso, essa política é aplicada.
 
 1. Crie uma política de tempo de vida de token.
 
-    1.  toocreate uma política estrita para uma API da web, execute Olá comando a seguir:
+    1.  Para criar uma política estrita para uma API da Web, execute este comando:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  toosee sua nova política e política de saudação tooget **ObjectId**, execute hello seguinte comando:
+    2.  Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```PowerShell
         Get-AzureADPolicy
         ```
 
-2. Atribua Olá política tooyour web API. Você também precisa tooget Olá **ObjectId** do seu aplicativo. Olá toofind de maneira melhor seu aplicativo **ObjectId** é hello toouse [portal do Azure](https://portal.azure.com/).
+2. Atribua a política à sua API da Web. Você também precisará da **ObjectId** de seu aplicativo. A melhor maneira de localizar o aplicativo **ObjectId** é usar o [Portal do Azure](https://portal.azure.com/).
 
-   Quando você tiver Olá **ObjectId** do seu aplicativo, executar Olá comando a seguir:
+   Quando você tiver a **ObjectId** de seu aplicativo, execute o seguinte comando:
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -Id <ObjectId of hello Application> -RefObjectId <ObjectId of hello Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
 ### <a name="example-manage-an-advanced-policy"></a>Exemplo: Gerenciar uma política avançada
-Neste exemplo, você deve criar políticas de alguns, toolearn como funciona o sistema de prioridade de saudação. Você também pode aprender como toomanage várias políticas são aplicadas tooseveral objetos.
+Nesse exemplo, crie algumas políticas para saber como funciona o sistema de prioridade. Você também pode aprender a gerenciar várias políticas que são aplicadas a vários objetos.
 
 1. Crie uma política de tempo de vida de token.
 
-    1.  toocreate uma política padrão de organização que define os dias Olá too30 de tempo de vida de Token de atualização de fator único, executados Olá comando a seguir:
+    1.  Para criar uma política padrão de organização que define o tempo de vida do Token de Atualização de Fator Único como 30 dias, execute este comando:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  toosee sua nova política e da política de saudação tooget **ObjectId**, execute hello seguinte comando:
+    2.  Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```PowerShell
         Get-AzureADPolicy
         ```
 
-2. Atribua a entidade de serviço Olá política tooa.
+2. Atribuir a política a uma entidade de serviço.
 
-    Agora, você tem uma política que se aplica a toda a organização toohello. Você pode deseja toopreserve essa política de 30 dias para uma entidade de serviço específico, mas alterar Olá organização padrão política toohello limite superior de "até revogados."
+    Agora, você tem uma política que se aplica a toda a organização. Convém preservar essa política de 30 dias para uma entidade de serviço específica, mas altere a política padrão de organização para o limite superior de "until-revoked".
 
-    1.  toosee entidades de serviço de todas as da sua organização, você pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Graph Explorer do Azure AD](https://graphexplorer.cloudapp.net/), entre usando sua conta do Azure AD.
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Graph Explorer do Azure AD](https://graphexplorer.cloudapp.net/), entre usando sua conta do Azure AD.
 
-    2.  Quando você tiver Olá **ObjectId** sua entidade de serviço, execute Olá comando a seguir:
+    2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
-3. Saudação de conjunto `IsOrganizationDefault` sinalizador toofalse:
+3. Defina o sinalizador `IsOrganizationDefault` como false:
 
     ```PowerShell
     Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
@@ -347,13 +347,13 @@ Neste exemplo, você deve criar políticas de alguns, toolearn como funciona o s
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
     ```
 
-    Você agora tem a entidade de serviço para Olá original política tooyour vinculado e nova política de saudação é definida como a diretiva de sua organização. É importante tooremember que políticas aplicadas tooservice entidades têm prioridade sobre políticas de padrão da organização.
+    Agora você tem a política original vinculada à entidade de serviço, e a nova política definida como a política padrão de organização. É importante lembrar que as políticas aplicadas a entidades de serviço têm prioridade sobre as políticas padrão de organização.
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlet
 
 ### <a name="manage-policies"></a>Gerenciar políticas
 
-Você pode usar o hello cmdlets toomanage políticas a seguir.
+Use estes cmdlets para gerenciar as políticas.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
@@ -365,11 +365,11 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Definition</code> |Matriz de stringified JSON que contém regras da política de saudação todas as. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política hello. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |Se true, define a política de saudação como política de padrão da organização hello. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Definition</code> |Matriz de JSON em representação textual que contém todas as regras da política. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Se for true, define a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |O tipo da política. Para os tempos de vida de token, sempre use "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma ID alternativa para política de saudação. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,12 +382,12 @@ Get-AzureADPolicy
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Opcional] |**ObjectId (Id)** da política de saudação desejado. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Obtém todos os aplicativos e entidades de serviço que são vinculados tooa política.
+Obtém todos os aplicativos e entidades de serviço vinculados a uma política.
 
 ```PowerShell
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
@@ -395,7 +395,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** da política de saudação desejado. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -408,17 +408,17 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** da política de saudação desejado. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política hello. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> [Opcional] |Matriz de stringified JSON que contém regras da política de saudação todas as. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se true, define a política de saudação como política de padrão da organização hello. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Opcional] |Matriz de JSON em representação textual que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for true, define a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> [Opcional] |O tipo da política. Para os tempos de vida de token, sempre use "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma ID alternativa para política de saudação. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Olá exclusões especificado política.
+Exclui a política especificada.
 
 ```PowerShell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
@@ -426,15 +426,15 @@ Olá exclusões especificado política.
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** da política de saudação desejado. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** da política desejada. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
 ### <a name="application-policies"></a>Políticas de aplicativo
-Você pode usar o hello cmdlets para políticas de aplicativos a seguir.</br></br>
+Use os cmdlets a seguir para políticas de aplicativos.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Saudação de links especificado tooan aplicação da política.
+Vincula a política especificada a um aplicativo.
 
 ```PowerShell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
@@ -442,13 +442,13 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** da política de saudação. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Obtém a política de saudação tooan aplicativo atribuído.
+Obtém a política atribuída a um aplicativo.
 
 ```PowerShell
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
@@ -456,7 +456,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -469,16 +469,16 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** da política de saudação. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
 ### <a name="service-principal-policies"></a>Políticas de entidade de serviço
-Você pode usar o hello cmdlets para políticas de entidade de serviço a seguir.
+Use os cmdlets a seguir para políticas de entidade de serviço.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Links Olá entidade de serviço tooa política especificada.
+Vincula a política especificada a uma entidade de serviço.
 
 ```PowerShell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
@@ -486,13 +486,13 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** da política de saudação. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Obtém a qualquer entidade de serviço especificado política toohello vinculado.
+Obtém qualquer política vinculada à entidade de serviço especificada.
 
 ```PowerShell
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
@@ -500,12 +500,12 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Remove a política de saudação da entidade de serviço especificado do hello.
+Remove a política da entidade da entidade de serviço especificada.
 
 ```PowerShell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
@@ -513,5 +513,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ID (Id) do objeto** do aplicativo hello. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** da política de saudação. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |

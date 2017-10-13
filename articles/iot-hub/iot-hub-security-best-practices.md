@@ -1,5 +1,5 @@
 ---
-title: "práticas recomendadas de segurança do IoT aaaAzure | Microsoft Docs"
+title: "Práticas recomendadas de segurança IoT do Azure | Microsoft Docs"
 description: "Práticas recomendadas de segurança IoT para proteger sua infraestrutura IoT. Inclui recomendações para desenvolvedores, implantadores e operadores de solução."
 services: iot-hub
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 5c71affbf861882e655b824ae7d3bd23f3421d3d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d922cd972528882a921c8b5a4c5af251fd3e61a4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## <a name="see-also"></a>Consulte também
-toolearn mais sobre como proteger sua solução de IoT, consulte:
+Para saber mais sobre como proteger sua solução IoT, confira:
 
 * [Arquitetura de segurança IoT][lnk-security-architecture]
 * [Proteger sua implantação IoT][lnk-security-deployment]
 
-toofurther explorar recursos de saudação do IoT Hub, consulte:
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 

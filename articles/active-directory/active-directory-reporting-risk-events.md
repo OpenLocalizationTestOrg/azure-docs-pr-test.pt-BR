@@ -1,5 +1,5 @@
 ---
-title: eventos de risco do Active Directory aaaAzure | Microsoft Docs
+title: Eventos de risco do Azure Active Directory | Microsoft Docs
 description: "Este tópico fornece uma visão geral detalhada do que são os eventos de risco."
 services: active-directory
 keywords: "proteção de identidade do azure active directory, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d771c1f43707744aac728c4f72000d855cbd6e1d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
-maioria de saudação de levar violações de segurança colocar quando os invasores obterem o ambiente de tooan acesso pelo roubo de identidade do usuário. Descobrir identidades comprometidas não é uma tarefa fácil. Active Directory do Azure usa algoritmos e heurística toodetect suspeitas ações relacionadas tooyour contas de usuário de aprendizado de máquina adaptável. Cada ação suspeita detectada é armazenada em um registro chamado *evento de risco*.
+A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado *evento de risco*.
 
 Atualmente, o Azure Active Directory detecta seis tipos de eventos de risco:
 
 - [Usuários com credenciais vazadas](#leaked-credentials) 
 - [Entradas de endereços de IP anônimos](#sign-ins-from-anonymous-ip-addresses) 
-- [Viagem impossível tooatypical locais](#impossible-travel-to-atypical-locations) 
+- [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) 
 - [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations)
 - [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) 
 - [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) 
@@ -36,71 +36,71 @@ Atualmente, o Azure Active Directory detecta seis tipos de eventos de risco:
 
 ![Evento de risco](./media/active-directory-reporting-risk-events/91.png)
 
-Este tópico fornece a você uma visão geral detalhada de quais eventos de risco e como você pode usá-los tooprotect suas identidades do AD do Azure.
+Este tópico fornece a você uma visão detalhada de o que são eventos de risco e como usá-los para proteger suas identidades do Azure AD.
 
 
 ## <a name="risk-event-types"></a>Tipos de evento de risco
 
-propriedade de tipo de evento de risco Olá é que foi criado para um identificador para a ação de suspeita Olá um registro de evento de risco.  
-Investimentos contínuos da Microsoft para o processo de detecção de saudação conduzir a:
+A propriedade de tipo de evento de risco é um identificador de ação suspeita que gerou a criação de um registro de evento de risco.  
+Os investimentos contínuos da Microsoft no processo de detecção levaram a:
 
-- Precisão da detecção toohello aprimoramentos de eventos de risco existentes 
-- Novos tipos de eventos de risco que serão adicionados em Olá futuras
+- Aprimoramento na precisão da detecção de eventos de risco existentes 
+- Novos tipos de evento de risco que serão adicionados no futuro
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 
-Quando cibercriminosos comprometem válidas senhas de usuários legítimos, criminosos Olá geralmente compartilham essas credenciais. Geralmente, isso é feito por meio de postagem publicamente em sites da web ou colar escuros hello ou comerciais ou credenciais Olá Olá preto mercado de venda. Microsoft Hello vazadas credenciais de serviço adquire o nome de usuário / senha pares pelo monitoramento de sites da web público e escuro e trabalhando com:
+Quando cibercriminosos comprometem senhas válidas de usuários legítimos, os criminosos muitas vezes compartilham essas credenciais. Geralmente, isso é feito postando-as publicamente na dark Web ou em paste sites, ou então permutando-as ou vendendo-as no mercado negro. O serviço de credenciais vazadas da Microsoft adquire pares de nome de usuário / senha pelo monitoramento de sites públicos e da dark Web, e também trabalhando com:
 
 - Pesquisadores
 - Representantes legais
 - Equipes de segurança da Microsoft
 - Outras fontes confiáveis 
 
-Quando o serviço de saudação adquire o nome de usuário / pares de senha, eles são verificados em relação a credenciais válidas atual de usuários do AAD. Quando uma correspondência é encontrada, isso significa que a senha do usuário foi comprometida e um *evento de risco de credenciais vazadas* é criado.
+Quando o serviço obtém pares de nome de usuário / senha, eles são verificados em relação a credenciais válidas atuais de usuários do AAD. Quando uma correspondência é encontrada, isso significa que a senha do usuário foi comprometida e um *evento de risco de credenciais vazadas* é criado.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 
-Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies são usados por pessoas que desejam toohide endereço IP do seu dispositivo e podem ser usadas com objetivos mal-intencionados.
+Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
 
-### <a name="impossible-travel-tooatypical-locations"></a>Viagem impossível tooatypical locais
+### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a locais atípicos
 
-Esse tipo de evento de risco identifica duas entradas provenientes de locais geograficamente distantes, onde pelo menos um dos locais de saudação também pode ser atípico para usuário hello, fornecido ao comportamento anterior. Além disso, o tempo de saudação entre Olá duas entradas é menor do que o tempo de saudação que teria levado Olá usuário tootravel de saudação primeiro local toohello segundo, que indica que um usuário diferente está usando Olá mesmo credenciais. 
+Esse tipo de evento de risco identifica duas entradas provenientes de locais geograficamente distantes, onde pelo menos um deles também pode ser atípico para o usuário, considerando seu comportamento anterior. Além disso, o tempo entre as duas entradas é menor que o tempo necessário para o trajeto do primeiro local até o segundo, o que indica que um usuário diferente está usando as mesmas credenciais. 
 
-Esse algoritmo de aprendizado de máquina que ignora óbvio "*falsos positivos*" toohello viagem impossível condição, como locais regularmente usadas por outros usuários na organização hello e VPNs de contribuição.  sistema de saudação tem um período inicial de assimilação de 14 dias, durante o qual ele aprende o comportamento de logon do novo usuário.
+Esse algoritmo de aprendizado de máquina ignora “*falsos positivos*” óbvios que contribuem para a condição de viagem impossível, como VPNs e locais regularmente usados por outros usuários na organização.  O sistema tem um período inicial de aprendizado de 14 dias, durante o qual ele assimila o comportamento de entrada do novo usuário.
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Entrada de locais desconhecidos
 
-Esse tipo de evento de risco considera após entrar locais (IP, Latitude / Longitude e ASN) toodetermine locais de novo / desconhecidos. sistema de saudação armazena informações sobre locais anteriores, usados por um usuário e considera esses locais "familiares". eventos de risco Olá é disparado quando entrar Olá ocorre de um local que não esteja na lista de saudação locais familiares. sistema de saudação tem um período inicial de assimilação de 30 dias, durante o qual ele não sinalizador quaisquer novos locais de locais desconhecidos. sistema Olá também ignora entradas de dispositivos conhecidos e locais geograficamente fechar local familiar tooa. 
+Esse tipo de evento de risco considera locais de entrada (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena informações sobre locais anteriores usados por um usuário e considera esses locais "familiares". O evento de risco é disparado quando a entrada ocorre em uma localização que ainda não está na lista de localizações conhecidas. O sistema tem um período inicial de aprendizado de 30 dias, durante o qual não sinaliza nenhuma nova localização como desconhecida. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. 
 
 ### <a name="sign-ins-from-infected-devices"></a>Entradas de dispositivos infectados
 
-Esse tipo de evento de risco identifica as entradas de dispositivos infectados com malware, que são conhecidos tooactively se comunicar com um servidor de bot. Isso é determinado correlacionando os endereços IP do dispositivo do usuário Olá endereços IP que estiveram em contato de um servidor de bot. 
+Esse tipo de evento de risco identifica as entradas de dispositivos infectados com malware, que são conhecidos por comunicar-se ativamente com um servidor de bot. Isso é determinado ao correlacionar os endereços IP do dispositivo do usuário com os endereços IP que estavam em contato com um servidor de bot. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Entradas de endereços IP com atividade suspeita
-Esse tipo de evento de risco identifica os endereços IP dos quais um grande número de tentativas de entrada com falha foram observadas, de várias contas de usuário e em um curto período de tempo. Isso faz a correspondência de padrões de tráfego de endereços IP usados por invasores e é um forte indicador contas ou já ou sobre toobe comprometida. Este é um algoritmo de aprendizado de máquina que ignora óbvio "*falsos positivos*", como endereços IP que são regularmente usadas por outros usuários na organização hello.  sistema Olá tem um período inicial de assimilação de 14 dias em que ele aprende comportamento entrada hello de um novo usuário e um novo locatário.
+Esse tipo de evento de risco identifica os endereços IP dos quais um grande número de tentativas de entrada com falha foram observadas, de várias contas de usuário e em um curto período de tempo. Isso corresponde aos padrões de tráfego de endereços IP usados por invasores e é um forte indicador de que contas já se encontram comprometidas ou estão prestes a ser. Esse é um algoritmo de aprendizado de máquina que ignora “*falsos positivos*” óbvios, como endereços IP que são regularmente usados por outros usuários na organização.  O sistema tem um período inicial de aprendizado de 14 dias, no qual ele assimila o comportamento de entrada do novo usuário e do novo locatário.
 
 
 ## <a name="detection-type"></a>Tipo de detecção
 
-propriedade de tipo de detecção de saudação é um indicador (em tempo real ou Offline) para o período de detecção de saudação de um evento de risco.  
-Atualmente, a maioria dos eventos de risco forem detectados como offline em uma operação de pós-processamento após a ocorrência de evento de risco de saudação.
+A propriedade de tipo de detecção é um indicador (Tempo Real ou Offline) do período de tempo de detecção de um evento de risco.  
+Atualmente, a maioria dos eventos de risco é detectada offline em uma operação de pós-processamento depois que o evento ocorreu.
 
-Olá, a tabela a seguir lista a quantidade de saudação de tempo que leva para um tooshow de tipo de detecção para cima em um relatório relacionado:
+A tabela a seguir lista a quantidade de tempo que leva para um tipo de detecção aparecer em um relatório relacionado:
 
-| Tipo de Detecção | Relatório de latência |
+| Tipo de detecção | Relatório de latência |
 | --- | --- |
-| Tempo real | too10 5 minutos |
-| Off-line | too4 2 horas |
+| Tempo real | De 5 a 10 minutos |
+| Off-line | De 2 a 4 horas |
 
 
-Para tipos de eventos de risco Olá que detecta do Active Directory do Azure, os tipos de detecção de saudação são:
+Para os tipos de evento de risco que o Azure Active Directory detecta, os tipos de detecção são:
 
 | Tipo de evento de risco | Tipo de detecção |
 | :-- | --- | 
 | [Usuários com credenciais vazadas](#leaked-credentials) | Off-line |
 | [Entradas de endereços de IP anônimos](#sign-ins-from-anonymous-ip-addresses) | Tempo real |
-| [Viagem impossível tooatypical locais](#impossible-travel-to-atypical-locations) | Off-line |
+| [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) | Off-line |
 | [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations) | Tempo real |
 | [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) | Off-line |
 | [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Off-line|
@@ -108,78 +108,78 @@ Para tipos de eventos de risco Olá que detecta do Active Directory do Azure, os
 
 ## <a name="risk-level"></a>Nível de risco
 
-propriedade de nível de risco de saudação de um evento de risco é um indicador (alto, médio ou baixo) para severidade hello e confiança Olá de um evento de risco. Essa propriedade ajuda ações Olá tooprioritize a que serem executadas. 
+A propriedade de nível de risco de um evento de risco é um indicador (Alta, Média ou Baixa) da gravidade e confiança desse evento. Essa propriedade ajuda você a priorizar as ações que deve executar. 
 
-severidade de saudação do evento de risco Olá representa a força de saudação do sinal de saudação como um indicador de comprometimento de identidade.  
-confiança Olá é um indicador para a possibilidade de saudação de falsos positivos. 
+A gravidade do evento de risco representa a intensidade do sinal como um indicador de comprometimento de identidade.  
+A confiança é um indicador para a possibilidade de falsos positivos. 
 
 Por exemplo, 
 
-* **Alta**: alta confiabilidade e evento de risco de alta severidade. Esses eventos são indicadores de alta seguras que Olá a identidade de usuário tiver sido comprometida, e as contas de usuário afetadas devem ser corrigidas imediatamente.
+* **Alta**: alta confiabilidade e evento de risco de alta severidade. Esses eventos são fortes indicadores de que a identidade do usuário foi comprometida e as contas de usuário afetadas devem ser corrigidas imediatamente.
 
 * **Média**: severidade alta, porém com evento de risco de baixa confiabilidade ou vice-versa. Esses eventos são potencialmente arriscados e quaisquer contas de usuário afetadas devem ser corrigidas.
 
-* **Baixa**: baixa confiabilidade e evento de risco de baixa severidade. Esse evento não exigir uma ação imediata, mas quando combinado com outros eventos de risco, pode fornecer uma indicação de que Olá identidade for comprometida.
+* **Baixa**: baixa confiabilidade e evento de risco de baixa severidade. Esse evento pode não exigir uma ação imediata, porém quando combinado com outros eventos de risco, pode fornecer uma forte indicação de que a identidade está comprometida.
 
 ![Nível de risco](./media/active-directory-reporting-risk-events/01.png)
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 
-Vazamento credenciais eventos de risco são classificados como um **alta**, pois eles fornecem uma indicação clara que Olá nome de usuário e senha são invasor tooan disponíveis.
+Eventos de risco de credenciais vazadas recebem uma classificação **Alta**, pois fornecem uma clara indicação de que o nome de usuário e senha estão à disposição de invasores.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 
-nível de risco de Olá para esse tipo de evento de risco é **médio** porque um endereço IP anônimo não é uma forte indicação de um comprometimento de conta.  
-É recomendável que você contate imediatamente Olá usuário tooverify se estivessem usando endereços IP anônimos.
+O nível de risco desse tipo de evento de risco é **Médio** porque um endereço IP anônimo não é por si só uma indicação forte de um comprometimento de conta.  
+Recomendamos contatar o usuário imediatamente para verificar se ele estava usando endereços IP anônimos.
 
 
-### <a name="impossible-travel-tooatypical-locations"></a>Viagem impossível tooatypical locais
+### <a name="impossible-travel-to-atypical-locations"></a>Viagem impossível a locais atípicos
 
-Viagem impossível geralmente é um bom indicador que um hacker foi toosuccessfully capaz de entrar. No entanto, falsos positivos podem ocorrer quando um usuário está viajando usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros usuários na organização hello. Outra fonte de falsos positivos é aplicativos que passam incorretamente servidor IPs como IPs, o que pode dar a aparência de saudação do cliente de logons que ocorrem do Centro de dados Olá onde o aplicativo do back-end está hospedado (geralmente, essas são data centers da Microsoft, que pode dar a aparência de saudação de logons ocorrendo da Microsoft propriedade endereços IP). Como resultado desses falsos positivos, nível de risco Olá para este evento de risco é **médio**.
+Uma viagem impossível geralmente é um bom indicador de que um hacker conseguiu entrar com êxito. No entanto, podem ocorrer falsos positivos quando um usuário estiver viajando usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros usuários na organização. Outra fonte de falsos positivos são os aplicativos que transmitem IPs de servidor incorretamente como IPs de cliente, o que pode dar a entender que as entradas estão ocorrendo do datacenter em que o aplicativo de back-end está hospedado (geralmente são datacenters Microsoft, o que dá a entender que as entradas estão ocorrendo de endereços IP de propriedade da Microsoft). Como resultado desses falsos positivos, o nível de risco desse evento de risco é **Médio**.
 
 > [!TIP]
-> Você pode reduzir a quantidade de saudação de falso-positves relatados para esse tipo de evento de risco configurando [chamado locais](active-directory-named-locations.md). 
+> Reduza a quantidade de falsos positivos relatados para esse tipo de evento de risco configurando [localizações nomeadas](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Entrada de locais desconhecidos
 
-Locais desconhecidos podem fornecer uma indicação de que um invasor for capaz de toouse uma identidade roubada. Falsos positivos podem ocorrer quando um usuário está viajando, experimentando um novo dispositivo ou usando uma nova VPN. Como resultado desses falsos positivos, nível de risco Olá para esse tipo de evento é **médio**.
+Locais desconhecidos podem fornecer uma forte indicação de que um invasor é capaz de usar uma identidade roubada. Falsos positivos podem ocorrer quando um usuário está viajando, experimentando um novo dispositivo ou usando uma nova VPN. Como resultado desses falsos positivos, o nível de risco desse tipo de evento é **Médio**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Entradas de dispositivos infectados
 
-Esse evento de risco identifica os endereços IP, não os dispositivos de usuário. Se vários dispositivos são atrás de um único endereço IP, e apenas alguns são controladas por uma rede de bot, entradas de outros dispositivos meu gatilho esse evento desnecessariamente, que é o motivo de saudação para classificar este evento de risco como **baixa**.  
+Esse evento de risco identifica os endereços IP, não os dispositivos de usuário. Se vários dispositivos estiverem atrás de um único endereço IP e apenas alguns forem controlados por uma rede de bot, entradas de outros dispositivos poderão disparar esse evento desnecessariamente, que é o motivo para classificar esse evento de risco como **Baixo**.  
 
-É recomendável que você entre em contato com o usuário hello e verificar dispositivos do usuário Olá todos os. Também é possível que o dispositivo pessoal do usuário está infectado, ou como mencionado anteriormente, que outra pessoa estava usando um dispositivo infectado do hello mesmo endereço IP como usuário hello. Dispositivos infectados geralmente estão infectados por malware que ainda não foram identificados pelo software antivírus e também pode indicar como hábitos incorreto de usuário que podem ter causado Olá dispositivo toobecome infectado.
+Recomendamos entrar em contato com o usuário e verificar todos os seus dispositivos. Também é possível que o dispositivo pessoal de um usuário esteja infectado ou então, como mencionado anteriormente, que outra pessoa estava usando um dispositivo infectado do mesmo endereço IP como se fosse o usuário. Dispositivos infectados geralmente estão infectados por malware ainda não identificado pelo software antivírus, também podendo indicar como maus hábitos do usuário que podem ter causado a infecção do dispositivo.
 
-Para obter mais informações sobre como tooaddress infecções de malware, consulte Olá [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Para obter mais informações sobre como abordar infecções por malware, consulte o [Centro de Proteção contra Malware](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Entradas de endereços IP com atividade suspeita
 
-É recomendável que você entre em contato com hello usuário tooverify se eles realmente entrou usando um endereço IP que foi marcado como suspeito. nível de risco de Olá para esse tipo de evento é "**médio**" porque vários dispositivos podem estar por trás de saudação mesmo endereço IP, enquanto somente alguns podem ser responsável pela atividade suspeita hello. 
+Recomendamos contatar o usuário para verificar se ele realmente entrou de um endereço IP que foi marcado como suspeito. O nível de risco desse tipo de evento é “**Médio**”, pois vários dispositivos podem estar atrás do mesmo endereço IP, enquanto apenas alguns podem ser responsáveis pela atividade suspeita. 
 
 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-Eventos de risco são a base de saudação para proteger as identidades do AD do Azure. O Azure AD pode detectar seis eventos de risco atualmente: 
+Eventos de risco são a base para proteger as identidades do Azure AD. O Azure AD pode detectar seis eventos de risco atualmente: 
 
 
 | Tipo de evento de risco | Nível de risco | Tipo de Detecção |
 | :-- | --- | --- |
 | [Usuários com credenciais vazadas](#leaked-credentials) | Alto | Off-line |
 | [Entradas de endereços de IP anônimos](#sign-ins-from-anonymous-ip-addresses) | Média | Tempo real |
-| [Viagem impossível tooatypical locais](#impossible-travel-to-atypical-locations) | Média | Off-line |
+| [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) | Média | Off-line |
 | [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations) | Média | Tempo real |
 | [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) | Baixo | Off-line |
 | [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Média | Off-line|
 
-Onde você pode encontrar hello eventos de risco que foram detectados em seu ambiente?
+Onde você pode encontrar os eventos de risco que foram detectados em seu ambiente?
 Há dois locais em que você examinar os eventos de risco relatados:
 
- - **Relatórios do Azure AD** – eventos de risco são parte dos relatórios de segurança do Azure AD. Para obter mais detalhes, consulte Olá [usuários no relatório de riscos de segurança](active-directory-reporting-security-user-at-risk.md) e hello [relatório de segurança de logons arriscados](active-directory-reporting-security-risky-sign-ins.md).
+ - **Relatórios do Azure AD** – eventos de risco são parte dos relatórios de segurança do Azure AD. Para obter mais detalhes, consulte os [relatório de segurança de usuários em risco](active-directory-reporting-security-user-at-risk.md) e [relatório de segurança de entradas arriscadas](active-directory-reporting-security-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** – eventos de risco também são parte das funcionalidades de relatório da [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
     
 
-Enquanto o hello detecção de eventos de risco já representa um aspecto importante da proteção de suas identidades, você também tem Olá opção tooeither solucioná-los manualmente ou até mesmo implementar respostas automatizadas configurando políticas de acesso condicional. Para obter mais detalhes, confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Embora a detecção de eventos de risco já represente um aspecto importante da proteção de suas identidades, você também tem a opção de solucioná-los manualmente ou até mesmo implementar respostas automatizadas por meio da configuração de políticas de acesso condicional. Para obter mais detalhes, confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  

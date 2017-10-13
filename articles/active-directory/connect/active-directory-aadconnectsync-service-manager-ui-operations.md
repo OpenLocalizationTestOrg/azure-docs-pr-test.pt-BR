@@ -1,6 +1,6 @@
 ---
 title: "Operações do Synchronization Service Manager do Azure AD Connect | Microsoft Docs"
-description: "Entenda o guia de operações Olá Olá Synchronization Service Manager para conexão do AD do Azure."
+description: "Entenda como usar a guia Operações no Synchronization Service Manager para o Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -15,36 +15,36 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: decbc53613d456a71cd116c40c5e1fd761efd4af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a1475e4fcd11eb008badba49665f4af6029a1697
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="using-hello-sync-service-manager-operations-tab"></a>Usando Olá guia de operações do Gerenciador de serviço de sincronização
+# <a name="using-the-sync-service-manager-operations-tab"></a>Usando a guia Operações do Synchronization Service Manager
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
-Guia de operações de saudação mostra os resultados de saudação de operações mais recentes hello. Essa guia é chave toounderstand e solucionar problemas.
+A guia Operações mostra os resultados das operações mais recentes. Essa guia é o segredo para entender e solucionar problemas.
 
-## <a name="understand-hello-information-visible-in-hello-operations-tab"></a>Compreender as informações de saudação visíveis no guia de operações de saudação
-metade superior Olá mostra todas as execuções em ordem cronológica. Por padrão, o log de operações Olá mantém informações sobre Olá últimos sete dias, mas essa configuração pode ser alterada com hello [Agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja toolook para qualquer execução que não mostra um status de êxito. Você pode alterar Olá classificação clicando em cabeçalhos de saudação.
+## <a name="understand-the-information-visible-in-the-operations-tab"></a>Entender as informações visíveis na guia Operações
+A metade superior mostra todas as execuções em ordem cronológica. Por padrão, as operações de log mantêm informações sobre os últimos sete dias, mas essa configuração pode ser alterada com o [agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja procurar qualquer execução que não mostre um status bem-sucedido. É possível alterar a classificação clicando nos cabeçalhos.
 
-Olá **Status** coluna informações mais importantes hello e mostra Olá problema mais sério para uma execução. Aqui está um resumo de status mais comuns de saudação em ordem de prioridade tooinvestigate (onde * indicar várias cadeias de caracteres de erro possível).
+A coluna **Status** traz as informações mais importantes e mostra o problema mais grave de uma execução. Aqui está um resumo rápido dos status mais comuns em ordem de prioridade para investigação (em que * indica várias cadeias de caracteres de erro possíveis).
 
 | Status | Comentário |
 | --- | --- |
-| stopped-* |não foi possível concluir a saudação executar. Por exemplo, se hello sistema remoto está inoperante e não pode ser contatado. |
-| stopped-error-limit |Há mais de 5.000 erros. Olá executar automaticamente foi interrompido devido a toohello grande número de erros. |
-| completed-\*-errors |Olá execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
-| completed-\*-warnings |Olá executar concluída, mas alguns dados não estão em estado de saudação esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
+| stopped-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
+| stopped-error-limit |Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
+| completed-\*-errors |A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
+| completed-\*-warnings |A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
 | sucesso |Nenhum problema. |
 
-Quando você seleciona uma linha, inferior Olá atualiza tooshow detalhes de saudação do que executar. toohello à extrema esquerda da parte inferior da saudação, talvez seja necessário dizer uma lista **etapa #**. Essa lista só será exibida se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. o nome de domínio Olá pode ser encontrado sob o título de saudação **partição**. Em **estatísticas de sincronização**, você pode encontrar mais informações sobre o número de saudação de alterações que foram processadas. Você pode clicar em Olá links tooget uma lista de objetos de saudação alterado. Se você tiver objetos com erros, eles aparecerão em **erros de sincronização**.
+Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os detalhes dessa execução. À extrema esquerda da parte inferior, talvez você veja uma lista indicando **Etapa nº**. Essa lista só será exibida se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. Em **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. É possível clicar nos links para obter uma lista dos objetos alterados. Se você tiver objetos com erros, eles aparecerão em **erros de sincronização**.
 
 Para obter mais informações, consulte [Solução de problemas de um objeto que não está sincronizando](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre Olá [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

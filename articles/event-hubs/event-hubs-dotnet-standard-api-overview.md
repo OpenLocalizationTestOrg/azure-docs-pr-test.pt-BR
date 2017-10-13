@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview de saudação APIs padrão do .NET do Azure evento Hubs | Microsoft Docs"
+title: "Visão geral das APIs do .NET Standard dos Hubs de Eventos do Azure | Microsoft Docs"
 description: "Visão geral da API do .NET Standard"
 services: event-hubs
 documentationcenter: na
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: c97acecb35b69039e06ded7203c75fca41ce98f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Visão geral de API do .NET Standard de Hubs de Eventos
-Este artigo resume algumas das APIs de cliente .NET Standard dos Hubs de eventos de chave de saudação. Atualmente, há duas bibliotecas de cliente do .NET Standard:
+Este artigo resume algumas das principais APIs de cliente .NET Standard de Hubs de Eventos. Atualmente, há duas bibliotecas de cliente do .NET Standard:
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
   *  Esta biblioteca fornece todas as operações básicas de tempo de execução.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * Esta biblioteca adiciona funcionalidade adicional que permite manter o controle de eventos processados e é Olá tooread de maneira mais fácil de um hub de eventos.
+  * Esta biblioteca adiciona outra funcionalidade que permite manter o controle de eventos processados e é a maneira mais fácil de ler em um hub de eventos.
 
 ## <a name="event-hubs-client"></a>Cliente dos Hubs de Eventos
-[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é hello objeto primário que você usar eventos toosend, criar receptores e tooget informações de tempo de execução. Esse cliente é vinculado tooa hub de evento específico e cria um ponto de extremidade de Hubs de eventos de toohello conexão nova.
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é o objeto principal que você usa para enviar eventos, criar receptores e obter informações de tempo de execução. Esse cliente está vinculado a um hub de eventos específico e cria uma nova conexão para o ponto de extremidade de Hubs de Eventos.
 
 ### <a name="create-an-event-hubs-client"></a>Criar um cliente de Hubs de Eventos
-Um objeto [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é criado de uma cadeia de conexão. tooinstantiate de maneira mais simples de saudação um novo cliente é mostrado no exemplo a seguir de saudação:
+Um objeto [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é criado de uma cadeia de conexão. A maneira mais simples para instanciar um novo cliente é mostrada no exemplo a seguir:
 
 ```csharp
 var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
-tooprogrammatically Editar cadeia de caracteres de conexão hello, você pode usar o hello [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) classe e passar a cadeia de caracteres de conexão hello como um parâmetro muito[EventHubClient.CreateFromConnectionString ](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Para editar a cadeia de conexão programaticamente, você pode usar a classe [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) e passar a cadeia de conexão como um parâmetro para [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
@@ -49,7 +49,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>Enviar eventos
-hub de eventos do toosend eventos tooan, use Olá [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) classe. Olá corpo deve ser um `byte` matriz, ou um `byte` segmento da matriz.
+Para enviar eventos a um hub de eventos, use a classe [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata). O corpo deve ser uma matriz `byte` ou um segmento de matriz `byte`.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -61,32 +61,32 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>Receber eventos
-Olá recomendado eventos de tooreceive de maneira dos Hubs de eventos está usando Olá [Host de processador de evento](#event-processor-host-apis), que fornece funcionalidade tooautomatically manter o controle de deslocamento e informações de partição. No entanto, há certas situações em que pode ser toouse flexibilidade de saudação de eventos de tooreceive de biblioteca do hello core Hubs de eventos.
+A maneira recomendada de receber eventos dos Hubs de Eventos é usar o [Host do Processador de Eventos](#event-processor-host-apis), que fornece funcionalidade para controlar automaticamente o deslocamento e as informações de partição. No entanto, há algumas situações em que você talvez queira usar a flexibilidade da biblioteca principal do Hubs de Eventos para receber eventos.
 
 #### <a name="create-a-receiver"></a>Criar um receptor
-Receptores são toospecific empatados partições, portanto em ordem tooreceive todos os eventos em um hub de eventos, você precisará toocreate várias instâncias. Em geral, é uma informações de partição boa prática tooget Olá programaticamente, em vez de embutir em código ids de partição de saudação. Em ordem toodo, portanto, você pode usar o hello [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) método.
+Os destinatários estão vinculados a partições específicas, então, para receber todos os eventos em um hub de eventos, você precisará criar várias instâncias. Em geral, é uma boa prática para obter as informações de partição de forma programática, em vez de embutir a ID de partição. Para fazer isso, você pode usar o método [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
 
 ```csharp
-// Create a list tookeep track of hello receivers
+// Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
-// Use hello eventHubClient created above tooget hello runtime information
+// Use the eventHubClient created above to get the runtime information
 var runTimeInformation = await eventHubClient.GetRuntimeInformationAsync();
-// Loop over hello resulting partition ids
+// Loop over the resulting partition ids
 foreach (var partitionId in runTimeInformation.PartitionIds)
 {
-    // Create hello receiver
+    // Create the receiver
     var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
-    // Add hello receiver toohello list
+    // Add the receiver to the list
     receivers.Add(receiver);
 }
 ```
 
-Como os eventos nunca são removidos de um hub de eventos (e apenas expirarem), é necessário ponto de partida correta toospecify hello. Olá, exemplo a seguir mostra as combinações possíveis.
+Como os eventos nunca são removidos de um hub de eventos (e apenas expiram), é preciso especificar o ponto de partida adequado. O exemplo a seguir mostra as combinações possíveis.
 
 ```csharp
-// partitionId is assumed toocome from GetRuntimeInformationAsync()
+// partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Using hello constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
+// Using the constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
 // All messages available
@@ -98,17 +98,17 @@ var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGr
 
 #### <a name="consume-an-event"></a>Consumir um evento
 ```csharp
-// Receive a maximum of 100 messages in this call tooReceiveAsync
+// Receive a maximum of 100 messages in this call to ReceiveAsync
 var ehEvents = await receiver.ReceiveAsync(100);
 // ReceiveAsync can return null if there are no messages
 if (ehEvents != null)
 {
-    // Since ReceiveAsync can return more than a single event you will need a loop tooprocess
+    // Since ReceiveAsync can return more than a single event you will need a loop to process
     foreach (var ehEvent in ehEvents)
     {
-        // Decode hello byte array segment
+        // Decode the byte array segment
         var message = UnicodeEncoding.UTF8.GetString(ehEvent.Body.Array);
-        // Load hello custom property that we set in hello send example
+        // Load the custom property that we set in the send example
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
@@ -116,10 +116,10 @@ if (ehEvents != null)
 ```
 
 ## <a name="event-processor-host-apis"></a>APIs de host do processador de eventos
-Essas APIs fornecem processos tooworker de resiliência que podem se tornar indisponíveis, distribuindo partições entre os trabalhadores disponíveis.
+Essas APIs fornecem resiliência aos processos de trabalho que podem se tornar indisponíveis, distribuindo partições entre os trabalhadores disponíveis.
 
 ```csharp
-// Checkpointing is done within hello SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
+// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
@@ -137,11 +137,11 @@ var eventProcessorHost = new EventProcessorHost(
 // Start/register an EventProcessorHost
 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// Disposes of hello Event Processor Host
+// Disposes of the Event Processor Host
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-Olá, a seguir é um exemplo da implementação de saudação [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
+A seguir é uma implementação de exemplo de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -178,12 +178,12 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-toolearn mais informações sobre cenários de Hubs de eventos, consulte estes links:
+Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 
 * [O que é Hub de Eventos do Azure?](event-hubs-what-is-event-hubs.md)
 * [Apis de Hubs de Eventos disponíveis](event-hubs-api-overview.md)
 
-referências de API .NET Olá são aqui:
+As referências de API .NET estão aqui:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)

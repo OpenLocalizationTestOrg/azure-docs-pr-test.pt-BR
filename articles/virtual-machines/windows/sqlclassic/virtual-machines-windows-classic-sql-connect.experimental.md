@@ -1,6 +1,6 @@
 ---
-title: "aaaConnect tooa Máquina Virtual do SQL Server no Azure (clássica) | Microsoft Docs"
-description: "Saiba como tooconnect tooSQL Server em execução em uma máquina Virtual no Azure. Este tópico usa o modelo de implantação clássico hello. cenários de saudação diferem dependendo da configuração de rede hello e local de saudação do cliente de saudação."
+title: "Conectar-se a uma máquina virtual do SQL Server no Azure (clássico) | Microsoft Docs"
+description: "Saiba como se conectar ao SQL Server em execução em uma Máquina Virtual no Azure. Este tópico usa o modelo de implantação clássica. Os cenários diferem dependendo da configuração da rede e do local do cliente."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 9577e4bdad79435e34a64fc669ec4848649fc945
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="connect-tooa-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conecte-se tooa Máquina Virtual do SQL Server no Azure (implantação clássico)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](../sql/virtual-machines-windows-sql-connect.md)
 > * [Clássico](../classic/sql-connect.md)
@@ -29,84 +29,84 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-Este tópico descreve como tooconnect tooyour do SQL Server da instância em execução em uma máquina virtual do Azure. Ele aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+Este tópico descreve como se conectar à instância do SQL Server em execução em uma máquina virtual do Azure. Ele aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Se você estiver usando máquinas virtuais do Gerenciador de recursos, consulte [tooa Máquina Virtual do SQL Server no Azure usando o Gerenciador de recursos de conexão](../sql/virtual-machines-windows-sql-connect.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Se você estiver usando VMs do Resource Manager, veja [Conectar-se a uma máquina virtual do SQL Server no Azure usando o Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Cenários de conexão
-forma de saudação um cliente se conecta tooSQL Server em execução em uma máquina Virtual é diferente dependendo do local de saudação do cliente hello e configuração de rede de máquina/hello. Esses cenários incluem:
+A maneira como um cliente se conecta ao SQL Server em execução em uma máquina virtual varia dependendo do local do cliente e da configuração da máquina/rede. Esses cenários incluem:
 
-* [Conecte-se tooSQL Server no hello mesmo serviço de nuvem](#connect-to-sql-server-in-the-same-cloud-service)
-* [Conectar tooSQL Server sobre Olá internet](#connect-to-sql-server-over-the-internet)
-* [Conectar tooSQL Server no hello mesma rede virtual](#connect-to-sql-server-in-the-same-virtual-network)
+* [Conectar-se ao SQL Server no mesmo serviço de nuvem](#connect-to-sql-server-in-the-same-cloud-service)
+* [Conectar-se ao SQL Server pela Internet](#connect-to-sql-server-over-the-internet)
+* [Conectar-se ao SQL Server na mesma rede virtual](#connect-to-sql-server-in-the-same-virtual-network)
 
 > [!NOTE]
-> Antes de se conectar com qualquer um desses métodos, você deve seguir Olá [as etapas na conectividade de tooconfigure artigo](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+> Antes de se conectar usando um desses métodos, é necessário seguir [as etapas descritas neste artigo para configurar a conectividade](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 > 
 > 
 
-### <a name="connect-toosql-server-in-hello-same-cloud-service"></a>Conecte-se tooSQL Server no hello mesmo serviço de nuvem
-Várias máquinas virtuais podem ser criadas em Olá mesmo serviço de nuvem. máquinas de toounderstand virtual nesse cenário, consulte [como máquinas virtuais de tooconnect com um serviço de nuvem ou rede virtual](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Nesse cenário, um cliente em uma máquina virtual tenta tooconnect tooSQL Server em execução em outra máquina virtual no hello mesmo serviço de nuvem.
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Conectar-se ao SQL Server no mesmo serviço de nuvem
+Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para compreender este cenário com máquinas virtuais, consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Nesse cenário, um cliente em uma máquina virtual tenta se conectar ao SQL Server em execução em outra máquina virtual no mesmo serviço de nuvem.
 
-Nesse cenário, você pode se conectar usando Olá VM **nome** (também mostrado como **nome do computador** ou **hostname** no portal de saudação). Este é o nome de saudação fornecida para a VM de saudação durante a criação. Por exemplo, se você nomeou a VM do SQL **mysqlvm**, uma VM cliente em Olá mesmo serviço de nuvem pode usar Olá tooconnect de cadeia de caracteres de conexão a seguir:
+Nesse cenário, você pode se conectar usando o **Nome** da VM (também mostrado como **Nome do Computador** ou **hostname** no portal). Esse é o nome fornecido para a VM durante a criação. Por exemplo, se você nomeou a VM do SQL **mysqlvm**, uma VM cliente no mesmo serviço de nuvem pode usar a seguinte cadeia de conexão para se conectar:
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-### <a name="connect-toosql-server-over-hello-internet"></a>Conecte-se tooSQL Server pela Internet da saudação
-Se você quiser tooconnect tooyour mecanismo de banco de dados do SQL Server de saudação à Internet, você deve criar um ponto de extremidade de máquina virtual para comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona a entrada TCP porta tráfego tooa pela porta TCP que é a máquina virtual de toohello acessível.
+### <a name="connect-to-sql-server-over-the-internet"></a>Conectar-se ao SQL Server pela Internet
+Se quiser se conectar ao seu mecanismo de banco de dados do SQL Server pela Internet, você deve criar um ponto de extremidade de máquina virtual para a comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
 
-Olá de tooconnect pela internet, você deve usar DNS nome e hello VM ponto de extremidade número da porta da VM Olá (configurado neste artigo). Olá toofind nome DNS, navegue toohello Azure portal e selecione **máquinas virtuais (clássicas)**. Em seguida, selecione sua máquina virtual. Olá **nome DNS** é mostrado no hello **visão geral** seção.
+Para se conectar pela Internet, é necessário usar o nome DNS da VM e o número da porta do ponto de extremidade da VM (configurado adiante neste artigo). Para encontrar o Nome DNS, navegue até o Portal do Azure e selecione **Máquinas virtuais (clássicas)**. Em seguida, selecione sua máquina virtual. O **Nome DNS** é mostrado na seção **Visão geral**.
 
-Por exemplo, considere uma máquina virtual clássica chamada **mysqlvm** com o nome DNS **mysqlvm7777.cloudapp.net** e um ponto de extremidade da VM de **57500**. Supondo que a conectividade configurada adequadamente, Olá cadeia de caracteres de conexão a seguir pode ser máquina de virtual Olá tooaccess usado em qualquer lugar em Olá internet:
+Por exemplo, considere uma máquina virtual clássica chamada **mysqlvm** com o nome DNS **mysqlvm7777.cloudapp.net** e um ponto de extremidade da VM de **57500**. Supondo uma conectividade configurada corretamente, a seguinte cadeia de conexão poderia ser usada para acessar a máquina virtual em qualquer lugar na Internet:
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Embora essa cadeia de caracteres de conexão habilita a conectividade de clientes sobre Olá da internet, isso não significa que qualquer pessoa pode se conectar a tooyour do SQL Server. Clientes fora tem correto toohello de nome de usuário e senha. Para obter segurança adicional, não use porta bem conhecidos de saudação 1433 para ponto de extremidade de máquina virtual público hello. E, se possível, considere adicionar uma ACL no ponto de extremidade toorestrict tráfego toohello somente clientes que permite que você. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [gerenciar Olá ACL em um ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Embora essa cadeia de conexão habilite a conectividade para clientes pela Internet, isso não significa que qualquer pessoa possa se conectar ao SQL Server. Clientes externos precisam ter o nome de usuário e a senha corretos. Para aumentar a segurança, não use a conhecida porta 1433 para o ponto de extremidade de máquina virtual público. Se possível, considere a ideia de adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
-> Quando você usa essa técnica toocommunicate com o SQL Server, todos os dados de saída de hello datacenter do Azure é o assunto toonormal [de preço em transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Quando você usa essa técnica para se comunicar com o SQL Server, todos os dados de saída do data center do Azure estão sujeitos a [preços de transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) normais.
 > 
 > 
 
-### <a name="connect-toosql-server-in-hello-same-virtual-network"></a>Conectar tooSQL Server no hello mesma rede virtual
-[Rede Virtual](../../../virtual-network/virtual-networks-overview.md) permite cenários adicionais. Você pode se conectar a máquinas virtuais na mesma rede virtual, mesmo se essas VMs existe nos serviços de nuvem diferente de saudação. E com um [VPN site a site](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), você pode criar uma arquitetura híbrida que conecta as VMs a computadores e redes locais.
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Conectar-se ao SQL Server na mesma rede virtual
+[Rede Virtual](../../../virtual-network/virtual-networks-overview.md) permite cenários adicionais. Você pode conectar VMS na mesma rede virtual, ainda que essas VMs existam em serviços de nuvem diferentes. E com um [VPN site a site](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), você pode criar uma arquitetura híbrida que conecta as VMs a computadores e redes locais.
 
-Redes virtuais também permitem que você toojoin seu domínio de tooa VMs do Azure. Unindo tooa domínio é toouse de maneira Olá somente autenticação do Windows com o SQL Server. Olá outros cenários de conexão requerem autenticação do SQL com nomes de usuário e senhas.
+As redes virtuais também permitem que você ingresse suas VMs do Azure a um domínio. Ingressar em um domínio é a única maneira de usar a Autenticação do Windows para o SQL Server. Outros cenários de conexão requerem autenticação SQL com nomes de usuário e senhas.
 
-Se você planejar tooconfigure um ambiente de domínio e a autenticação do Windows, não é necessário o ponto de extremidade público tooconfigure hello ou hello autenticação do SQL e logons. Nesse cenário, você pode se conectar a instância do SQL Server tooyour, especificando o nome de VM do SQL Server de saudação na cadeia de caracteres de conexão de saudação. Olá exemplo a seguir pressupõe que a autenticação do Windows foi configurada e que o usuário Olá foi concedido a instância do SQL Server toohello acesso.
+Se você pretende configurar um ambiente de domínio e a Autenticação do Windows, não é necessário configurar o ponto de extremidade público ou a Autenticação e os logons do SQL. Nesse cenário, você pode se conectar à instância do SQL Server especificando o nome da VM do SQL Server na cadeia de conexão. O exemplo a seguir pressupõe que a Autenticação do Windows também foi configurada e que o usuário recebeu acesso à instância do SQL Server.
 
     "Server=mysqlvm;Integrated Security=true"
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Etapas para configurar a conectividade com o SQL Server em uma VM do Azure
-Olá, as etapas a seguir demonstram como tooconnect toohello a instância do SQL Server sobre Olá internet usando o SQL Server Management Studio (SSMS). No entanto, hello mesmas etapas se aplicam toomaking sua máquina de virtual do SQL Server acessível para seus aplicativos em execução no local e no Azure.
+As etapas a seguir demonstram como se conectar à instância do SQL Server pela Internet usando o SSMS (SQL Server Management Studio). No entanto, as mesmas etapas se aplicam para tornar sua máquina virtual de SQL Server acessível para seu aplicativos, em execução local e no Azure.
 
-Antes de se conectar toohello instância do SQL Server de outra VM ou Olá da internet, você deve concluir Olá tarefas a seguir:
+Para poder se conectar à instância do SQL Server na Internet ou em outra VM, você deve concluir as seguintes tarefas:
 
-* [Criar um ponto de extremidade TCP para a máquina virtual de saudação](#create-a-tcp-endpoint-for-the-virtual-machine)
-* [Abra as portas TCP no firewall do Windows hello](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [Configurar toolisten do SQL Server em Olá protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [Criar um ponto de extremidade TCP para a máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
+* [Abrir portas TCP no firewall do Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+* [Configurar o SQL Server para escutar no protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
 * [Configurar o SQL Server para autenticação do modo misto](#configure-sql-server-for-mixed-mode-authentication)
 * [Criar logons de autenticação do SQL Server](#create-sql-server-authentication-logins)
-* [Determinar nome DNS de saudação da máquina virtual de saudação](#determine-the-dns-name-of-the-virtual-machine)
-* [Conectar toohello mecanismo de banco de dados de outro computador](#connect-to-the-database-engine-from-another-computer)
+* [Determinar o nome DNS da máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
+* [Conectar-se ao Mecanismo de Banco de Dados de outro computador](#connect-to-the-database-engine-from-another-computer)
 
-caminho de conexão de saudação é resumido por Olá diagrama a seguir:
+O caminho de conexão é resumido pelo diagrama a seguir:
 
-![Conectando a máquina de virtual do SQL Server tooa](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+![Conectando-se a uma máquina virtual do SQL Server](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
-[!INCLUDE [Connect tooSQL Server in a VM Classic TCP Endpoint](../../../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+[!INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 
-[!INCLUDE [Connect tooSQL Server in a VM](../../../../includes/virtual-machines-sql-server-connection-steps.md)]
+[!INCLUDE [Connect to SQL Server in a VM](../../../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-[!INCLUDE [Connect tooSQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
+[!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você também estiver planejando grupos de disponibilidade do AlwaysOn toouse para alta disponibilidade e recuperação de desastres, considere implementar um ouvinte. Clientes de banco de dados se conectar toohello ouvinte em vez de diretamente tooone Olá instâncias do SQL Server. Olá ouvinte rotas clientes toohello réplica primária do grupo de disponibilidade de saudação. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
+Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade e recuperação de desastres, você deve considerar implementar um ouvinte. Clientes do banco de dados se conectam ao ouvinte e não diretamente a uma das instâncias do SQL Server. O ouvinte direciona os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
 
-É importante tooreview que todos hello práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-security.md).
+É importante examinar todas as práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-security.md).
 
-[Explorar Olá aprendizado](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) para o SQL Server em máquinas virtuais do Azure. 
+[Explore o Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure. 
 
-Para outros tópicos relacionados toorunning do SQL Server em VMs do Azure, consulte [do SQL Server em máquinas virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

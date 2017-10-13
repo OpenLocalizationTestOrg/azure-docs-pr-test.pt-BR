@@ -1,6 +1,6 @@
 ---
-title: "Começar a se conectar a dispositivos físicos tooAzure IoT Hub | Microsoft Docs"
-description: "Saiba como tooconnect físico dispositivos e quadros tooAzure IoT Hub. Seus dispositivos podem enviar telemetria tooIoT Hub e IoT Hub podem monitorar e gerenciar seus dispositivos."
+title: "Introdução à conexão de dispositivos físicos ao Hub IoT do Azure | Microsoft Docs"
+description: "Saiba como conectar dispositivos físicos e placas ao Hub IoT do Azure. Seus dispositivos podem enviar telemetria ao Hub IoT e o Hub IoT pode monitorar e gerenciar seus dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 47ce289c438b2f495d499d724c38ddc4b3307425
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f4128b6b049aa876e170c56dcf2e40720644dc3d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Tutoriais de introdução aos dispositivos físicos no Hub IoT do Azure
 
-Estes tutoriais apresentam tooAzure IoT Hub e o dispositivo Olá SDKs. tutoriais de saudação abordam recursos comuns de IoT cenários toodemonstrate saudação do IoT Hub. Olá tutoriais também ilustram como toocombine IoT Hub com outros Azure serviços e as ferramentas toobuild mais poderosas soluções de IoT. Olá tutoriais listados no hello tabela mostram a seguir você como dispositivos físicos de IoT toocreate.
+Estes tutoriais apresentam a você o Hub IoT do Azure e os SDKs do dispositivo. Os tutoriais abordam os cenários comuns de IoT para demonstrar os recursos do Hub IoT. Os tutoriais também ilustram como combinar o Hub IoT com outros serviços e ferramentas do Azure para criar soluções de IoT mais eficazes. Os tutoriais listados na tabela a seguir mostram como criar dispositivos IoT físicos.
 
 | Dispositivo IoT                       | Linguagem de programação |
 |---------------------------------|----------------------|
@@ -33,7 +33,7 @@ Estes tutoriais apresentam tooAzure IoT Hub e o dispositivo Olá SDKs. tutoriais
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 
-Além disso, você pode usar um hub IoT borda gateway tooenable dispositivos tooconnect tooyour IoT.
+Além disso, você pode usar um gateway IoT Edge para habilitar os dispositivos a conectarem-se ao seu Hub IoT.
 
 | Dispositivos de gateway               | Linguagem de programação | Plataforma         |
 |------------------------------|----------------------|------------------|

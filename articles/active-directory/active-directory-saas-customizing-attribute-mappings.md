@@ -1,6 +1,6 @@
 ---
-title: aaaCustomizing mapeamentos de atributos do AD do Azure | Microsoft Docs
-description: "Saiba quais mapeamentos de atributo para aplicativos SaaS no Azure Active Directory são como você pode modificá-las tooaddress sua empresa precisa."
+title: Personalizar mapeamentos de atributo do Azure AD | Microsoft Docs
+description: "Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14db5303f06fc8df3b07a0a8b75713312e71bbfd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
-AD do Microsoft Azure oferece suporte para aplicativos SaaS de terceiros toothird, como Salesforce, Google Apps e outros usuários de provisionamento do usuário. Se você tiver o provisionamento de um aplicativo SaaS de terceiros habilitado do usuário, Olá Portal de gerenciamento do Azure controla seus valores de atributo na forma de uma configuração chamada "mapeamento de atributo".
+O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiro habilitado, o Portal de Gerenciamento controlará seus valores de atributo na forma de uma configuração chamada "mapeamento de atributo".
 
 Há um conjunto predefinido de mapeamentos de atributo entre objetos de usuário do AD do Azure e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. <br> 
- Você pode personalizar mapeamentos de atributos padrão de saudação de acordo com as necessidades de negócios de tooyour. Isso significa que você pode alterar ou excluir mapeamentos de atributo existentes ou criar novos mapeamentos de atributo.
+ Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Isso significa que você pode alterar ou excluir mapeamentos de atributo existentes ou criar novos mapeamentos de atributo.
 
-No portal de saudação do AD do Azure, você pode acessar esse recurso clicando em um **mapeamentos** configuração em **provisionamento** em Olá **gerenciar** seção de um  **Aplicativo corporativo**.
+No portal do Azure AD, você pode acessar esse recurso clicando em uma configuração de **Mapeamentos** em **Provisionamento** na seção **Gerenciar** de um **Aplicativo Enterprise**.
 
 
 ![Salesforce][5] 
 
-Clicar em um **mapeamentos** configuração, abre Olá relacionada **mapeamento de atributo** folha.  
-Não há mapeamentos de atributos que são exigidos por um toofunction de aplicativos SaaS corretamente. Para atributos obrigatórios, Olá **excluir** recurso não está disponível.
+Clicar em uma configuração de **Mapeamentos** abre a folha **Mapeamento de Atributo** relacionada.  
+Há mapeamentos de atributo que são exigidos por um aplicativo SaaS para funcionar corretamente. Para os atributos necessários, o recurso **Excluir** não está disponível.
 
 
 ![Salesforce][6]  
 
-O exemplo hello acima, você pode ver que Olá **Username** atributo de um objeto gerenciado no Salesforce é preenchido com hello **userPrincipalName** valor da saudação vinculado objeto do Active Directory do Azure.
+No exemplo acima, você pode ver que o atributo **Username** de um objeto gerenciado no Salesforce é preenchido com o valor **userPrincipalName** do Objeto do Azure Active Directory vinculado.
 
-Você pode personalizar os **Mapeamentos de Atributo** existentes clicando em um mapeamento. Isso abre o hello **Editar atributo** folha.
+Você pode personalizar os **Mapeamentos de Atributo** existentes clicando em um mapeamento. Isso abre a folha **Editar Atributo**.
 
 ![Salesforce][7]  
 
@@ -50,24 +50,24 @@ Você pode personalizar os **Mapeamentos de Atributo** existentes clicando em um
 ## <a name="understanding-attribute-mapping-types"></a>Noções básicas sobre tipos de mapeamento de atributo
 Com mapeamentos de atributo, você controla como os atributos são preenchidos em um aplicativo SaaS de terceiro. Há quatro tipos diferentes de mapeamento com suporte:
 
-* **Direto** – o atributo de destino Olá é populado com valor de saudação de um atributo do objeto vinculado Olá no AD do Azure.
-* **Constante** – o atributo de destino Olá é preenchido com uma cadeia de caracteres específica que você especificou.
-* **Expressão** -atributo de destino de saudação é preenchido com base no resultado de saudação de uma expressão como script. 
+* **Direto** – o atributo de destino é preenchido com o valor de um atributo do objeto vinculado no AD do Azure.
+* **Constante** – o atributo de destino é preenchido com uma cadeia de caracteres especificada por você.
+* **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. 
   Para saber mais, consulte [Escrever expressões para mapeamentos de atributo no Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Nenhum** -Olá atributo de destino é deixado sem modificações. No entanto, se o atributo de destino Olá estiver vazio, ele é preenchido com o valor de padrão de saudação que você especificar.
+* **Nenhum** – o atributo de destino é deixado inalterado. No entanto, se o atributo de destino estiver vazio, ele será preenchido com o valor padrão que você especificar.
 
-Em tipos de mapeamento de atributo básico de toothese quatro adição, mapeamentos de atributos personalizados suportam o conceito de saudação do opcional **padrão** atribuição de valor. atribuição de valor saudação padrão garante que um atributo de destino é preenchido com um valor se não houver nenhum valor no AD do Azure nem no objeto de destino de saudação. Olá a configuração mais comum é tooleave em branco.
+Além desses quatro tipos de mapeamentos de atributo básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** opcional. A atribuição do valor padrão assegura que um atributo de destino seja preenchido com um valor, se não houver um valor no AD do Azure nem no objeto de destino. A configuração mais comum é deixar isso em branco.
 
 
 ## <a name="understanding-attribute-mapping-properties"></a>Noções básicas de propriedades de mapeamento de atributo
 
-Na seção anterior do hello, você já foram introduzidas toohello propriedade de tipo de mapeamento de atributo.
-Na propriedade de toothis adição, mapeamentos de atributo também dão suporte a saudação seguintes atributos:
+Na seção anterior, você já foi apresentado à propriedade de tipo de mapeamento de atributo.
+Além dessa propriedade, mapeamentos de atributo também dão suporte aos seguintes atributos:
 
-- **Atributo de origem** -atributo de usuário de saudação do sistema de origem da saudação (por exemplo: Active Directory do Azure).
-- **Atributo de destino** – atributo de usuário Olá no sistema de destino da saudação (por exemplo: ServiceNow).
-- **Correspondem a objetos que usam esse atributo** – se este mapeamento deve ser usado ou não toouniquely identificar usuários entre sistemas de origem e destino hello. Isso normalmente é definido em Olá userPrincipalName ou atributo de email no AD do Azure, que geralmente é mapeada tooa campo de nome de usuário em um aplicativo de destino.
-- **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver vários, elas são avaliadas na ordem Olá definido por este campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
+- **Atributo de origem** – o atributo de usuário do sistema de origem (por exemplo, Azure Active Directory).
+- **Atributo de destino** – o atributo do usuário no sistema de destino (por exemplo: ServiceNow).
+- **Combinar objetos utilizando esse atributo** – se esse mapeamento deve ou não ser utilizado para identificar com exclusividade usuários entre os sistemas de origem e destino. Normalmente, isso é definido no atributo userPrincipalName ou email no Azure AD, que costuma ser mapeado para um campo de nome de usuário em um aplicativo de destino.
+- **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
 - **Aplicar esse mapeamento**
     - **Sempre** – aplicar esse mapeamento nas ações de criação e atualização do usuário
     - **Somente durante a criação** – aplicar esse mapeamento somente nas ações de criação de usuário
@@ -75,17 +75,17 @@ Na propriedade de toothis adição, mapeamentos de atributo também dão suporte
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-O Microsoft Azure AD fornece uma implementação muito eficiente de um processo de sincronização. Em um ambiente inicializado, apenas os objetos que precisam de atualização são processados durante um ciclo de sincronização. Atualizar mapeamentos de atributo tem um impacto no desempenho de saudação de um ciclo de sincronização. Uma configuração de mapeamento de atributo de toohello de atualização requer que todos os toobe de objetos gerenciados reavaliadas. É um melhor prática tookeep Olá número recomendado de mapeamentos de atributo tooyour alterações consecutivas no mínimo.
+O Microsoft Azure AD fornece uma implementação muito eficiente de um processo de sincronização. Em um ambiente inicializado, apenas os objetos que precisam de atualização são processados durante um ciclo de sincronização. A atualização de mapeamentos de atributo tem impacto no desempenho de um ciclo de sincronização. Uma atualização a uma configuração de mapeamento de atributo exige que todos os objetos gerenciados sejam reavaliados. É uma prática recomendada manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Automatizar o provisionamento de usuário/desprovisionamento tooSaaS aplicativos](active-directory-saas-app-provisioning.md)
+* [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
 * [Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
-* [Usando SCIM o provisionamento automático tooenable de usuários e grupos do Active Directory do Azure tooapplications](active-directory-scim-provisioning.md)
+* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png

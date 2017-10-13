@@ -1,6 +1,6 @@
 ---
-title: "roteiro do aaaCloud serviços de função config XPath | Microsoft Docs"
-description: "Olá várias configurações de XPath, que você poderá usar as configurações de tooexpose de configuração de função serviço de nuvem hello como uma variável de ambiente."
+title: "Folha de consulta do XPath da configuração da Função dos Serviços de Nuvem | Microsoft Docs"
+description: "As várias configurações do XPath que podem ser usadas na configuração da função do serviço de nuvem para expor as configurações como uma variável de ambiente."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 27f98f956a1c790c9bb30f9fefe1ab1736b2b150
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expor as definições de configuração da função como uma variável de ambiente com o XPath
-No trabalho de serviço de nuvem hello ou arquivo de definição de serviço de função da web, você pode expor os valores de configuração de tempo de execução como variáveis de ambiente. Olá valores de XPath a seguir têm suporte (que correspondem a valores de tooAPI).
+No arquivo de definição de serviço de função web ou do trabalho do serviço de nuvem, é possível expor os valores de configuração do tempo de execução como variáveis de ambiente. Há suporte para os valores do XPath a seguir (que correspondem aos valores da API).
 
-Esses valores de XPath também estão disponíveis por meio de saudação [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) biblioteca. 
+Esses valores do XPath também estão disponíveis por meio da biblioteca [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) . 
 
 ## <a name="app-running-in-emulator"></a>Aplicativo em execução no emulador
-Indica que o aplicativo hello está sendo executado no emulador de saudação.
+Indica que o aplicativo está em execução no emulador.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -34,7 +34,7 @@ Indica que o aplicativo hello está sendo executado no emulador de saudação.
 | Código |var x = RoleEnvironment.IsEmulated; |
 
 ## <a name="deployment-id"></a>ID de Implantação
-Recupera a ID de implantação de saudação para instância de saudação.
+Recupera a ID de implantação da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -42,7 +42,7 @@ Recupera a ID de implantação de saudação para instância de saudação.
 | Código |var deploymentId = RoleEnvironment.DeploymentId; |
 
 ## <a name="role-id"></a>ID de Função
-Recupera Olá ID da função atual para a instância de saudação.
+Recupera a ID de função atual da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -50,7 +50,7 @@ Recupera Olá ID da função atual para a instância de saudação.
 | Código |var id = RoleEnvironment.CurrentRoleInstance.Id; |
 
 ## <a name="update-domain"></a>Domínio de atualização
-Recupera o domínio de atualização de saudação da instância de saudação.
+Recupera o domínio de atualização da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -58,7 +58,7 @@ Recupera o domínio de atualização de saudação da instância de saudação.
 | Código |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
 
 ## <a name="fault-domain"></a>Domínios de falha
-Recupera o domínio de falha de saudação da instância de saudação.
+Recupera o domínio de falha da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -66,7 +66,7 @@ Recupera o domínio de falha de saudação da instância de saudação.
 | Código |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
 ## <a name="role-name"></a>Nome da função
-Recupera o nome da função hello de instâncias de saudação.
+Recupera o nome da função das instâncias.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -74,7 +74,7 @@ Recupera o nome da função hello de instâncias de saudação.
 | Código |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>Definição de configuração
-Recupera valor Olá Olá especificado de configuração.
+Recupera o valor da definição de configuração especificada.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -82,7 +82,7 @@ Recupera valor Olá Olá especificado de configuração.
 | Código |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
 ## <a name="local-storage-path"></a>Caminho do armazenamento local
-Recupera o caminho de armazenamento local de saudação da instância de saudação.
+Recupera o caminho do armazenamento local da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -90,7 +90,7 @@ Recupera o caminho de armazenamento local de saudação da instância de saudaç
 | Código |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
 
 ## <a name="local-storage-size"></a>Tamanho do armazenamento local
-Recupera o tamanho de saudação do armazenamento local Olá instância de saudação.
+Recupera o tamanho do armazenamento local da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -98,7 +98,7 @@ Recupera o tamanho de saudação do armazenamento local Olá instância de sauda
 | Código |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
 
 ## <a name="endpoint-protocol"></a>Protocolo do ponto de extremidade
-Recupera o protocolo de ponto de extremidade de saudação para instância de saudação.
+Recupera o protocolo do ponto de extremidade da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -106,7 +106,7 @@ Recupera o protocolo de ponto de extremidade de saudação para instância de sa
 | Código |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
 
 ## <a name="endpoint-ip"></a>IP do ponto de extremidade
-Obtém Olá especificado o endereço IP do ponto de extremidade.
+Obtém o endereço IP do ponto de extremidade especificado.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -114,7 +114,7 @@ Obtém Olá especificado o endereço IP do ponto de extremidade.
 | Código |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
 
 ## <a name="endpoint-port"></a>Porta do ponto de extremidade
-Recupera a porta do ponto de extremidade Olá para instância de saudação.
+Recupera a porta do ponto de extremidade da instância.
 
 | Tipo | Exemplo |
 | --- | --- |
@@ -122,7 +122,7 @@ Recupera a porta do ponto de extremidade Olá para instância de saudação.
 | Código |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
 ## <a name="example"></a>Exemplo
-Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicialização com uma variável de ambiente denominada `TestIsEmulated` definir toohello [ @emulated valor xpath](#app-running-in-emulator). 
+Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicialização com uma variável de ambiente chamada `TestIsEmulated` definida como o [valor @emulated xpath](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -162,7 +162,7 @@ Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicial
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre Olá [ServiceConfiguration](cloud-services-model-and-package.md#serviceconfigurationcscfg) arquivo.
+Saiba mais sobre o arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) .
 
 Crie um pacote [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 

@@ -1,6 +1,6 @@
 ---
-title: dados de sensor aaaAnalyze usando Hive e Hadoop - HDInsight do Azure | Microsoft Docs
-description: "Saiba como dados de sensor tooanalyze usando Olá Console de consulta de Hive com HDInsight (Hadoop), e visualizar dados Olá no Microsoft Excel com PowerView."
+title: "Analisar dados de sensor usando Hive e Hadoop – HDInsight do Azure | Microsoft Docs"
+description: Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o PowerView.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70e595705c33d9835dc9809161f79c3ac5ece870
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3abb71c12b4769bebd808276f8bdd832aad22d7a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="analyze-sensor-data-using-hello-hive-query-console-on-hadoop-in-hdinsight"></a>Analisar dados de sensor usando Olá Console de consulta de Hive no Hadoop no HDInsight
+# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
 
-Saiba como os dados do sensor tooanalyze usando Olá Console de consulta de Hive com HDInsight (Hadoop), em seguida, visualize os dados de saudação no Microsoft Excel usando o Power View.
+Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o Power View.
 
 > [!IMPORTANT]
-> Olá etapas para esse documento só funciona com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> As etapas neste documento só funcionam com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-Neste exemplo, você usa dados históricos do Hive tooprocess e identificar problemas com sistemas de aquecimento e ar-condicionado. Especificamente, você pode identificar sistemas são tooreliably não é possível manter um conjunto de temperatura executando Olá tarefas a seguir:
+Neste exemplo, usamos o Hive para processar dados históricos e identificar problemas com sistemas de aquecimento e refrigeração. Especificamente, você pode identificar sistemas não conseguem manter uma temperatura definida de maneira confiável executando as seguintes tarefas:
 
-* Criar tabelas de HIVE tooquery dados armazenados em arquivos de valores separados por vírgulas (CSV).
-* Crie consultas de HIVE tooanalyze dados de saudação.
-* Olá analisado de tooretrieve dados, usar o Microsoft Excel tooconnect tooHDInsight.
-* dados de saudação toovisualize, use o Power View.
+* Crie tabelas do HIVE para consultar dados armazenados em arquivos com valores separados por vírgulas (CSV).
+* Criar consultas do HIVE para analisar os dados.
+* Para recuperar os dados analisados, use o Microsoft Excel para conectar-se ao HDInsight.
+* Use o Power View para visualizar os dados.
 
-![Um diagrama de arquitetura da solução Olá](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
+![Um diagrama da arquitetura da solução](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,18 +49,18 @@ Neste exemplo, você usa dados históricos do Hive tooprocess e identificar prob
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
-## <a name="toorun-hello-sample"></a>exemplo de hello toorun
+## <a name="to-run-the-sample"></a>Para executar a amostra
 
-1. A partir do navegador da web, navegar toohello URL a seguir: 
+1. No seu navegador da Web, navegue até a URL a seguir: 
 
          https://<clustername>.azurehdinsight.net
 
-    Substituir `<clustername>` com nome de saudação do cluster HDInsight.
+    Substitua `<clustername>` pelo nome do cluster HDInsight.
 
-    Quando solicitado, autentica usando o nome de usuário de administrador hello e a senha que você usou ao provisionar este cluster.
+    Quando solicitado, faça a autenticação usando o nome de usuário e senha do administrador usados ao provisionar esse cluster.
 
-2. De saudação página da web que é aberta, clique em hello **Galeria de Introdução** guia e, em seguida, em hello **soluções com dados de exemplo** categoria, clique em hello **análise de dados do Sensor** exemplo.
+2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Soluções com dados de amostra**, clique na amostra **Análise de dados do sensor**.
 
     ![Imagem da galeria de Introdução](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
-3. Siga as instruções de saudação fornecidas no exemplo de saudação de toofinish hello página da web.
+3. Siga as instruções fornecidas na página da Web para concluir a amostra.

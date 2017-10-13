@@ -1,6 +1,6 @@
 ---
-title: "aaaManage suas políticas de backup StorSimple | Microsoft Docs"
-description: "Explica como você pode usar toocreate de serviço do StorSimple Manager hello e gerenciar backups manuais, agendas de backup e retenção de backup."
+title: "Gerenciar as políticas de backup do StorSimple | Microsoft Docs"
+description: "Explica como você pode usar o serviço StorSimple Manager para criar e gerenciar backups manuais, agendas de backup e retenção de backup."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
-ms.openlocfilehash: 7b01f29a8d8a096d9890c8406557021317b9baff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5448247428ab96887470c6b53f7a9b3dcd9238f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomanage-backup-policies-update-2"></a>Usar políticas de backup toomanage (atualização 2) de serviço de Gerenciador de StorSimple Olá
+# <a name="use-the-storsimple-manager-service-to-manage-backup-policies-update-2"></a>Usar o serviço StorSimple Manager para gerenciar políticas de backup (Atualização 2)
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## <a name="overview"></a>Visão geral
-Este tutorial explica como toouse Olá serviço StorSimple Manager **políticas de Backup** página toocontrol processos de backup e retenção de backup para os volumes do StorSimple. Ele também descreve como toocomplete um backup manual.
+Este tutorial explica como usar a página **Políticas de Backup** do serviço Gerenciador do StorSimple para controlar os processos e a retenção de backup dos volumes do StorSimple. Ele também descreve como concluir um backup manual.
 
-Quando você faz backup de um volume, você pode escolher toocreate um instantâneo local ou um instantâneo na nuvem. Se você estiver fazendo backup de um volume fixado localmente, é recomendável que você especifique um instantâneo de nuvem. Gravar um grande número de instantâneos locais de um volume fixado localmente juntamente com um conjunto de dados que tem muita variação resultará em uma situação em que você pode, rapidamente, ficar sem espaço local. Se você escolher tootake instantâneos locais, é recomendável levar menos tooback instantâneos diários estado mais recente Olá mantê-los por dia e, em seguida, excluí-los.
+Quando você faz backup de um volume, você pode escolher criar um instantâneo local ou um instantâneo de nuvem. Se você estiver fazendo backup de um volume fixado localmente, é recomendável que você especifique um instantâneo de nuvem. Gravar um grande número de instantâneos locais de um volume fixado localmente juntamente com um conjunto de dados que tem muita variação resultará em uma situação em que você pode, rapidamente, ficar sem espaço local. Se você optar por tirar instantâneos locais, recomendamos que você menos instantâneos diários para fazer backup do estado mais recente, mantê-los por um dia e, em seguida, excluí-los.
 
-Quando você usa um instantâneo de nuvem de um volume localmente afixado, você copiar somente Olá alterado dados toohello na nuvem, onde é eliminação de duplicação e compactado. 
+Quando você tira um instantâneo de nuvem de um volume fixado localmente, você copiar apenas os dados alterados para a nuvem, em que ocorrem sua eliminação de duplicação e sua compactação. 
 
-## <a name="hello-backup-policies-page"></a>página de políticas de Backup Olá
-Olá **políticas de Backup** página permite que você toomanage as políticas de backup e agendamento locais e instantâneos em nuvem. (As políticas de backup são usados tooconfigure agendas de backup e retenção de backup para um conjunto de volumes). Políticas de backup permitem que você tootake um instantâneo de vários volumes simultaneamente. Isso significa que os backups de saudação criados por uma política de backup será cópias consistente. Olá **políticas de Backup** página lista as políticas de backup hello, seus tipos, volumes Olá associado, número de Olá de backups retidos e Olá opção tooenable essas políticas.
+## <a name="the-backup-policies-page"></a>Página Políticas de Backup
+A página **Políticas de Backup** permite gerenciar políticas de backup e agendar instantâneos de nuvem e local. (As políticas de backup são usadas para configurar agendamentos e retenção de backup para um conjunto de volumes). Políticas de backup permitem tirar um instantâneo de vários volumes ao mesmo tempo. Isso significa que os backups criados por uma política de backup serão cópias consistentes com falhas. A página **Políticas de Backup** lista as políticas de backup, seus tipos, os volumes associados, o número de backups retidos e a opção para habilitar essas políticas.
 
-Olá **políticas de Backup** página também permite que você toofilter Olá políticas de backup existentes por uma ou mais Olá campos a seguir:
+A página **Políticas de Backup** também permite filtrar as políticas de backup existentes por um ou mais dos seguintes campos:
 
-* **Nome da política** – hello nome associado à política de saudação. Olá os tipos diferentes de políticas incluem:
+* **Nome da política** – o nome associado à política. Os diferentes tipos de políticas incluem:
   
-  * Políticas agendadas, que são criadas explicitamente pelo usuário hello.
-  * Políticas automáticas, que são criadas quando o backup do saudação padrão para essa opção de volume foi habilitado no momento de saudação da criação de volume. Essas políticas são denominadas *VolumeName*default onde *VolumeName* refere-se o nome de toohello de saudação volume StorSimple configurado pelo usuário Olá Olá portal clássico do Azure. políticas automáticas Olá resultam em instantâneos de nuvem diários, começando na hora do dispositivo 22:30.
-  * Políticas importadas, que foram criadas no hello StorSimple Snapshot Manager. Elas têm uma marca que descreve o host StorSimple Snapshot Manager Olá Olá políticas foram importadas do.
-* **Volumes** – Olá volumes associados à política de saudação. Todos os volumes de saudação associados a uma política de backup são agrupados durante os backups são criados.
-* **Último backup bem-sucedido** – Olá data e hora do hello último backup bem-sucedido que foi feito com esta política.
-* **Próximo backup** – Olá data e hora do hello próximo backup agendado que será iniciado por essa política.
-* **Agendas** – Olá número de agendamentos associados à política de backup hello.
+  * Políticas agendadas, que são criadas explicitamente pelo usuário.
+  * Políticas automáticas, que são criadas quando o backup padrão para essa opção de volume foi habilitado no momento da criação do volume. Essas políticas são nomeadas como *VolumeName*_Default, em que *VolumeName* refere-se ao nome do volume StorSimple configurado pelo usuário no Portal Clássico do Azure. As políticas automáticas resultam em instantâneos diários de nuvem, começando na hora do dispositivo 22:30.
+  * Políticas importadas, que foram originalmente criadas no Gerenciador de Instantâneos do StorSimple. Elas têm uma marca que descreve o host do Gerenciador de Instantâneos do StorSimple do qual as políticas foram importadas.
+* **Volumes** – os volumes associados à política. Todos os volumes associados a uma política de backup são agrupados quando os backups são criados.
+* **Último backup bem-sucedido** – a data e hora do último backup bem-sucedido realizado com essa política.
+* **Próximo backup** – a data e hora do próximo backup agendado que será iniciado por essa política.
+* **Agendas** – o número de agendamentos associados à política de backup.
 
-operações de saudação usada com frequência que você pode executar nessa página são:
+As operações usadas com frequência que podem ser executadas nessa página são:
 
 * Adicionar uma política de backup 
 * Adicionar ou modificar um agendamento 
@@ -54,34 +54,34 @@ operações de saudação usada com frequência que você pode executar nessa p�
 * Criar uma política de backup personalizada com vários volumes e agendamentos 
 
 ## <a name="add-a-backup-policy"></a>Adicionar uma política de backup
-Adicione uma agenda de tooautomatically de política de backup de seus backups. Execute Olá etapas Olá tooadd portal clássico do Azure uma política de backup para seu dispositivo StorSimple. Depois de adicionar política hello, você pode definir uma agenda (consulte [adicionar ou modificar uma agenda](#add-or-modify-a-schedule)).
+Adicione uma política de backup para agendar automaticamente seus backups. Execute as etapas a seguir no Portal clássico do Azure para adicionar uma política de backup ao seu dispositivo StorSimple. Depois de adicionar a política, você poderá definir um agendamento (confira [Adicionar ou modificar um agendamento](#add-or-modify-a-schedule)).
 
 [!INCLUDE [storsimple-add-backup-policy-u2](../../includes/storsimple-add-backup-policy-u2.md)]
 
 ![Vídeo disponível](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Vídeo disponível**
 
-toowatch um vídeo que demonstra como toocreate local ou na nuvem de política de backup, clique em [aqui](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Para assistir a um vídeo que demonstra como criar um local ou a política de backup na nuvem, clique [aqui](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 ## <a name="add-or-modify-a-schedule"></a>Adicionar ou modificar um agendamento
-Você pode adicionar ou modificar uma agenda que é anexado tooan política de backup existente em seu dispositivo StorSimple. Execute Olá etapas Olá tooadd de portal clássico do Azure ou modificar uma agenda.
+É possível adicionar ou modificar um agendamento que esteja anexado a uma política de backup existente no dispositivo StorSimple. Execute as etapas a seguir no Portal clássico do Azure para adicionar ou modificar um agendamento.
 
 [!INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule-u2.md)]
 
 ## <a name="delete-a-backup-policy"></a>Excluir uma política de backup
-Execute Olá seguindo as etapas em Olá toodelete portal clássico do Azure uma política de backup no dispositivo StorSimple.
+Execute as etapas a seguir no Portal clássico do Azure para excluir uma política de backup do seu dispositivo StorSimple.
 
 [!INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 ## <a name="take-a-manual-backup"></a>Fazer um backup manual
-Execute Olá seguindo as etapas no hello toocreate portal clássico do Azure uma demanda (manual) backup para um único volume.
+Execute as etapas a seguir no Portal clássico do Azure para criar um backup sob demanda (manual) para um único volume.
 
 [!INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
 ## <a name="create-a-custom-backup-policy-with-multiple-volumes-and-schedules"></a>Criar uma política de backup personalizada com vários volumes e agendamentos
-Execute Olá etapas Olá toocreate portal clássico do Azure uma política de backup personalizada que tem vários volumes e agendas.
+Execute as etapas a seguir no Portal clássico do Azure para criar uma política de backup personalizada que tenha vários volumes e agendamentos.
 
 [!INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy-u2.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador do StorSimple em seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

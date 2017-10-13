@@ -1,43 +1,59 @@
 ---
-título: aaa "Tutorial: criar seu primeiro índice de pesquisa do Azure no portal de saudação | Descrição de Microsoft Docs": em Olá portal do Azure, use predefinidos toogenerate de dados de exemplo um índice. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais.
-serviços: Pesquisar documentationcenter: ' autor: manager HeidiSteen: jhubbard editor: ' marcas: portal do azure
-
-MS. AssetID: 21adc351-69bb-4a39-bc59-598c60c8f958 MS. Service: Pesquisar MS. devlang: na Workload: Pesquisar MS. Topic: artigo herói tgt_pltfrm: MS. Date na: 26/06/2017 Author: heidist
-
+title: "Tutorial: Criar seu primeiro índice do Azure Search no portal | Microsoft Docs"
+description: "No portal do Azure, use dados de exemplo predefinidos para gerar um índice. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais."
+services: search
+documentationcenter: 
+author: HeidiSteen
+manager: jhubbard
+editor: 
+tags: azure-portal
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.date: 06/26/2017
+ms.author: heidist
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-hello-portal"></a>Tutorial: Criar seu primeiro índice de pesquisa do Azure no portal de saudação
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial: Criar seu primeiro índice do Azure Search no portal
 
-Em Olá portal do Azure, comece com um tooquickly de conjunto de dados de exemplo predefinidos gerar um índice usando Olá **importar dados** assistente. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa e pesquisa geográfica com o **Search Explorer**.  
+No portal do Azure, comece com um conjunto de dados de exemplo predefinido para gerar um índice rapidamente usando o assistente **Importar dados**. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa e pesquisa geográfica com o **Search Explorer**.  
 
 Esta introdução sem código apresenta dados predefinidos para que você possa escrever consultas interessantes imediatamente. Embora as ferramentas de portal não sejam um bom substituto para o código, elas são úteis para essas tarefas:
 
 + Aprendizado prático com curva de aprendizagem mínima
 + Crie um protótipo de índice antes de escrever código em **Importar dados**
 + Teste consultas e sintaxe de analisador no **Search Explorer**
-+ Exibir um existente publicado tooyour serviço de índice e consultar seus atributos
++ Exiba um índice existente publicado no serviço e verifique os atributos
 
 **Tempo estimado:** cerca de 15 minutos, mas poderá ser maior se houver a necessidade de fazer inscrição na conta ou no serviço. 
 
-Como alternativa, a entender o uso de um [tooprogramming de Introdução com base em código de pesquisa do Azure no .NET](search-howto-dotnet-sdk.md).
+Como alternativa, incremente usando uma [introdução baseada em código sobre a programação do Azure Search no .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial assume que você tem uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e [o serviço Azure Search](search-create-service-portal.md). 
 
-Se você não quiser tooprovision um serviço imediatamente, você pode assistir a uma demonstração de 6 minutos de saudação as etapas neste tutorial, começando em cerca de três minutos a esta [vídeo de visão geral da pesquisa do Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+Se não quiser provisionar um serviço imediatamente, você pode assistir a uma demonstração de 6 minutos com as etapas neste tutorial que começa em aproximadamente três minutos neste [Vídeo de visão geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Localizar o serviço
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. Abra o painel de serviço de saudação do seu serviço de pesquisa do Azure. Se você não fixar um painel de tooyour Olá serviço lado a lado, você pode encontrar o serviço dessa forma: 
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Se você não fixar o bloco do serviço ao seu painel, poderá encontrar o serviço desta maneira: 
    
-   * No hello Jumpbar, clique em **mais serviços** na parte inferior de Olá Olá esquerdo do painel de navegação.
-   * Na caixa de pesquisa hello, digite *pesquisa* tooget uma lista de pesquisa de serviços para sua assinatura. O serviço deve aparecer na lista de saudação. 
+   * Na Barra de Navegação, clique em **Mais serviços** na parte inferior do painel de navegação à esquerda.
+   * Na caixa de pesquisa, digite *pesquisa* para obter uma lista de serviços de pesquisa da sua assinatura. Seu serviço deve aparecer na lista. 
 
 ## <a name="check-for-space"></a>Verificar o espaço
-Muitos clientes começam com o serviço gratuito hello. Esta versão é limitado toothree índices, três fontes de dados e três indexadores. Verifique se há espaço para itens extras antes de começar. Este tutorial cria uma unidade de cada objeto. 
+Muitos clientes começam com o serviço gratuito. Essa versão é limitada a três índices, três fontes de dados e três indexadores. Verifique se há espaço para itens extras antes de começar. Este tutorial cria uma unidade de cada objeto. 
 
 > [!TIP] 
-> Blocos no painel de serviço Olá mostram quantos índices, indexadores e fontes de dados já tiver. bloco de indexador Olá mostra indicadores de êxito e falha. Olá bloco tooview Olá indexador contagem de clique. 
+> Os blocos no painel de serviço mostram quantos índices, indexadores e fontes de dados você já tem. O bloco Indexador mostra indicadores de sucesso e falha. Clique no bloco para exibir a contagem do indexador. 
 >
 > ![Blocos de indexadores e fontes de dados][1]
 >
@@ -45,151 +61,151 @@ Muitos clientes começam com o serviço gratuito hello. Esta versão é limitado
 ## <a name="create-index"></a> Criar um índice e carregar dados
 Consultas de pesquisa são iteradas em um *índice* que contém os dados pesquisáveis, metadados e construções usados para otimizar certos comportamentos de pesquisa.
 
-tookeep esta tarefa baseado no portal, usamos um conjunto de dados de exemplo interno que pode ser rastreado um indexador via Olá **importar dados** assistente. 
+Para mantermos essa tarefa baseada no portal, utilizamos um conjunto de dados interno de exemplo que pode ser rastreado com um indexador via assistente **Importar dados**. 
 
-#### <a name="step-1-start-hello-import-data-wizard"></a>Etapa 1: Iniciar o Assistente de importação de dados de saudação
-1. No painel de serviço de pesquisa do Azure, clique em **importar dados** em toostart de barra de comando Olá um assistente que cria e preenche um índice.
+#### <a name="step-1-start-the-import-data-wizard"></a>Etapa 1: Iniciar o assistente Importar dados
+1. No painel de serviço de Pesquisa do Azure, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e preenche um índice.
    
     ![Comando Importar de dados][2]
 
-2. No Assistente de saudação, clique em **fonte de dados** > **exemplos** > **realestate us-exemplo**. Essa fonte de dados é pré-configurada com um nome, um tipo e as informações de conexão. Depois de criada, ela se torna uma "fonte de dados existente" que pode ser reutilizada em outras operações de importação.
+2. No assistente, clique em **Fonte de Dados** > **Exemplos** > **realestate-us-sample**. Essa fonte de dados é pré-configurada com um nome, um tipo e as informações de conexão. Depois de criada, ela se torna uma "fonte de dados existente" que pode ser reutilizada em outras operações de importação.
 
     ![Selecionar o conjunto de dados de exemplo][9]
 
-3. Clique em **Okey** toouse-lo.
+3. Clique em **OK** para usá-lo.
 
-#### <a name="step-2-define-hello-index"></a>Etapa 2: Definir índice Olá
-Criando um índice é geralmente manual e baseada em código, mas o assistente Olá pode gerar um índice para qualquer fonte de dados pode rastrear. No mínimo, um índice exige um nome e uma coleção de campos, com um campo marcado como Olá toouniquely chave do documento identificam cada documento.
+#### <a name="step-2-define-the-index"></a>Etapa 2: definir o índice
+A criação de um índice é geralmente manual e baseada em código, mas o assistente pode gerar um índice para qualquer fonte de dados que ele possa rastrear. No mínimo, um índice requer um nome e uma coleção de campos, com um campo marcado como a chave do documento para identificar cada documento de forma exclusiva.
 
-Campos têm atributos e tipos de dados. saudação de caixas de seleção na parte superior da saudação são *indexar atributos* controlando como Olá campo é usado. 
+Campos têm atributos e tipos de dados. As caixas de seleção na parte superior são *atributos de índice* que controlam como o campo é usado. 
 
 * **Recuperável** significa que ele aparece na lista de resultados da pesquisa. Você pode marcar campos individuais como fora dos limites para os resultados de pesquisa ao desmarcar essa caixa de seleção, por exemplo, quando os campos forem usados somente em expressões de filtro. 
 * **Filtrável**, **Classificável** e **Com faceta** determinam se um campo pode ser usado em um filtro, em uma classificação ou em uma estrutura de navegação com facetas. 
 * **Pesquisável** significa que um campo é incluído na pesquisa de texto completo. As cadeias de caracteres são pesquisáveis. Campos numéricos e boolianos geralmente são marcados como não pesquisáveis. 
 
-Por padrão, o Assistente de saudação examina fonte de dados Olá identificadores exclusivos como base Olá para o campo de chave hello. As cadeias de caracteres são atribuídas como recuperáveis e pesquisáveis. Os números inteiros são atribuídos como recuperáveis, pesquisáveis, classificáveis e facetáveis.
+Por padrão, o assistente procura na fonte de dados identificadores exclusivos como base para o campo de chave. As cadeias de caracteres são atribuídas como recuperáveis e pesquisáveis. Os números inteiros são atribuídos como recuperáveis, pesquisáveis, classificáveis e facetáveis.
 
   ![Índice realestate gerado][3]
 
-Clique em **Okey** toocreate índice de saudação.
+Clique em **OK** para criar o índice.
 
-#### <a name="step-3-define-hello-indexer"></a>Etapa 3: Definir indexador Olá
-Ainda no hello **importar dados** assistente, clique em **indexador** > **nome**e digite um nome para o indexador hello. 
+#### <a name="step-3-define-the-indexer"></a>Etapa 3: definir o indexador
+Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**e digite um nome para o indexador. 
 
-Esse objeto define um processo executável. Você pode colocá-lo em agendamento recorrente, mas para o indexador de saudação agora use saudação padrão opção toorun uma vez, imediatamente, quando você clica em **Okey**.  
+Esse objeto define um processo executável. Você poderá colocá-lo na agenda de recorrência, mas, por enquanto, use a opção padrão para executar o indexador imediatamente logo que clicar em **OK**.  
 
   ![indexador realestate][8]
 
 ## <a name="check-progress"></a>Verificar o andamento
-toomonitor dados importar, volte toohello painel de serviço, role para baixo e clique duas vezes em Olá **indexadores** bloco tooopen Olá indexadores lista. Você deve ver o indexador Olá recém-criado na lista hello, com status indicando "em andamento" ou o êxito, juntamente com o número de saudação de documentos indexados.
+Para monitorar a importação dos dados, volte para o painel do serviço, role para baixo e clique duas vezes no bloco **Indexadores** para abrir a lista de indexadores. Você deve ver o indexador recém-criado na lista, com status indicando "em andamento" ou sucesso, juntamente com o número de documentos indexados.
 
    ![Mensagem de andamento do indexador][4]
 
-## <a name="query-index"></a>Índice de saudação de consulta
-Agora você tem um índice de pesquisa é tooquery pronto. **Pesquisar no Explorador de** é uma ferramenta de consulta incorporada ao portal de saudação. Ele fornece uma caixa de pesquisa para que você possa verificar se os resultados da pesquisa são os esperados. 
+## <a name="query-index"></a> Consultar o índice
+Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenciador de pesquisa** é uma ferramenta de consulta interna do portal. Ele fornece uma caixa de pesquisa para que você possa verificar se os resultados da pesquisa são os esperados. 
 
 > [!TIP]
-> Em Olá [vídeo de visão geral da pesquisa do Azure](https://channel9.msdn.com/Events/Connect/2016/138), Olá etapas a seguir é demonstrada no 6m08s do vídeo hello.
+> No [vídeo Visão geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138), as etapas a seguir são demonstradas em 6m08s no vídeo.
 >
 
-1. Clique em **pesquisar no Explorador de** na barra de comandos de saudação.
+1. Clique em **Gerenciador de pesquisa** na barra de comandos.
 
    ![Comando Search Explorer][5]
 
-2. Clique em **índice de alteração** em Olá da barra de comandos tooswitch muito*realestate us-exemplo*.
+2. Clique em **Alterar índice** na barra de comando para alternar para *realestate-us-sample*.
 
    ![Comandos de índice e API][6]
 
-3. Clique em **versão da API definir** em toosee Olá de barra de comando que APIs REST estão disponíveis. Visualize fornecem APIs que acesso toonew recursos geralmente ainda não liberados. Para consultas de saudação abaixo, use versão disponível da saudação (2016-09-01) ser quando direcionado. 
+3. Clique em **Definir versão de API** na barra de comandos para ver quais APIs REST estão disponíveis. As APIs de Visualização dão acesso aos novos recursos que ainda não foram lançados de maneira geral. Para as consultas abaixo, use a versão disponível (2016-09-01), a menos que haja indicação em contrário. 
 
     > [!NOTE]
-    > [API de REST de pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice/search-documents) e hello [biblioteca .NET](search-howto-dotnet-sdk.md#core-scenarios) são totalmente equivalentes, mas **pesquisar no Explorador de** é somente as chamadas REST toohandle equipado. Ele aceita a sintaxe para ambos [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completo analisador de consulta do Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os Olá parâmetros de pesquisa disponíveis no [pesquisar documento](https://docs.microsoft.com/rest/api/searchservice/search-documents) operações.
+    > A [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) e a [biblioteca .NET](search-howto-dotnet-sdk.md#core-scenarios) são totalmente equivalentes, mas o **Search Explorer** só é capaz de lidar com chamadas REST. Ele aceita a sintaxe para a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e para o [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações [Pesquisar Documento](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
 
-4. Na barra de pesquisa hello, insira cadeias de caracteres de consulta do hello abaixo e clique em **pesquisa**.
+4. Na barra de pesquisa, insira as cadeias de caracteres de consulta abaixo e clique em **Pesquisar**.
 
   ![Exemplo de consulta de pesquisa][7]
 
 **`search=seattle`**
 
-+ Olá `search` parâmetro é usado tooinput uma pesquisa de palavra-chave de pesquisa de texto completo, nesse caso, retornando listagens em estado de King County, Washington, que contém *Seattle* em qualquer campo pesquisável no documento de saudação. 
++ O parâmetro `search` é usado para inserir uma palavra-chave de pesquisa de texto completo, neste caso, retornando listagens no estado de King County, estado de Washington, contendo *Seattle* em qualquer campo pesquisável no documento. 
 
-+ **Pesquisar no Explorador de** retorna resultados em JSON, que é detalhado e é difícil tooread se documentos têm uma estrutura densa. Dependendo de seus documentos, talvez seja necessário código toowrite identificadores pesquisar elementos importantes de tooextract de resultados. 
++ O **Search Explorer** retorna os resultados em JSON, que é detalhado e difícil de ler quando os documentos têm uma estrutura densa. Dependendo de seus documentos, você precisará escrever código que lide com os resultados da para extrair elementos importantes. 
 
-+ Documentos são compostos de todos os campos marcados como recuperáveis no índice de saudação. atributos de índice tooview no portal de saudação, clique em *realestate us-exemplo* em Olá **índices** lado a lado.
++ Os documentos são compostos de todos os campos marcados como recuperáveis no índice. Para exibir os atributos de índice no portal, clique em *realestate-us-sample* no bloco **Índices**.
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Olá `&` símbolo é tooappend usados parâmetros de pesquisa, que podem ser especificados em qualquer ordem. 
++ O símbolo `&` é usado para acrescentar os parâmetros de pesquisa, que podem ser especificados em qualquer ordem. 
 
-+  Olá `$count=true` parâmetro retorna uma contagem de soma de saudação de todos os documentos retornados. Você pode verificar consultas de filtro monitorando alterações relatadas por `$count=true`. 
++  O parâmetro `$count=true` retorna uma contagem da soma de todos os documentos retornados. Você pode verificar consultas de filtro monitorando alterações relatadas por `$count=true`. 
 
-+ Olá `$top=100` retorna hello mais alto classificados 100 documentos fora Olá total. Por padrão, a pesquisa do Azure retorna Olá primeiros 50 melhores correspondências. Você pode aumentar ou diminuir a quantidade Olá via `$top`.
++ O `$top=100` retorna o 100 documentos com maior classificação do total. Por padrão, o Azure Search retorna as primeiras 50 melhores correspondências. Você pode aumentar ou diminuir a quantidade via `$top`.
 
 **`search=*&facet=city&$top=2`**
 
-+ `search=*` é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo para enviar uma consulta vazia é muito filtrar ou faceta em um conjunto completo de Olá de documentos. Por exemplo, você deseja tooconsist de estrutura de navegação uma faceta de todas as cidades em índice hello.
++ `search=*` é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todas as cidades no índice.
 
-+  `facet`Retorna uma navegação de estrutura que você pode passar tooa controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, categorias são com base no número de saudação de cidades. Não há nenhuma agregação no Azure Search, mas você pode aproximar agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
++  `facet` retorna uma estrutura de navegação que você pode passar para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, categorias se baseiam na quantidade de cidades. Não há nenhuma agregação no Azure Search, mas você pode aproximar agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
 
-+ `$top=2`recupera dois documentos, que ilustra que você pode usar `top` tooboth reduzir ou aumentar os resultados.
++ `$top=2` recupera dois documentos, ilustrando a que você pode usar `top` para reduzir ou aumentar os resultados.
 
 **`search=seattle&facet=beds`**
 
-+ Essa consulta é faceta para camas em uma pesquisa de texto para *Seattle*. `"beds"`pode ser especificado como uma faceta como campo hello está marcado como recuperáveis, podem ser filtrados e facetable no índice hello e hello valores que ele contém (numérico, 1 a 5), são adequadas para categorizar listagens em grupos (listagens com 3 quartos, 4 quartos). 
++ Essa consulta é faceta para camas em uma pesquisa de texto para *Seattle*. `"beds"` pode ser especificado como uma faceta porque o campo é marcado como recuperável, filtrável e facetável no índice e valores que ele contém (numérico, 1 a 5) são adequados para categorizar as listagens em grupos (listagens com 3 quartos, 4 quartos). 
 
-+ Somente campos filtráveis podem ser facetados. Somente campos recuperáveis podem ser retornados nos resultados da saudação.
++ Somente campos filtráveis podem ser facetados. Somente os campos recuperáveis podem ser retornados nos resultados.
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Olá `filter` parâmetro retorna resultados que coincidem Olá critérios fornecidos. Nesse caso, quartos maiores que 3. 
++ O parâmetro `filter` retorna resultados que correspondem aos critérios fornecidos. Nesse caso, quartos maiores que 3. 
 
 + A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 **`search=granite countertops&highlight=description`**
 
-+ Realce de ocorrências refere-se tooformatting no texto correspondência de palavra-chave hello, considerando correspondências são encontrados em um campo específico. Se o termo de pesquisa profundamente é inserido em uma descrição, você pode adicionar toomake realce de ocorrência-toospot mais fácil. Nesse caso, a saudação formatada frase `"granite countertops"` é mais fácil toosee no campo de descrição de saudação.
++ Realce de ocorrências refere-se à formatação de texto correspondentes à palavra-chave, considerando que existam correspondências em um campo específico. Se o termo de pesquisa estiver escondido em uma descrição, você poderá adicionar o realce de ocorrências para facilitar a localização. Nesse caso, a frase formatada `"granite countertops"` é mais fácil de se ver no campo de descrição.
 
 **`search=mice&highlight=description`**
 
-+ A pesquisa de texto completo localiza formas com semântica semelhante. Nesse caso, os resultados da pesquisa contêm texto realçado para "mouse", para residências com infestação do mouse na pesquisa de palavra-chave tooa resposta em "mouse". Diferentes formas de saudação mesma palavra pode aparecer nos resultados devido a análise linguística. 
++ A pesquisa de texto completo localiza formas com semântica semelhante. Nesse caso, os resultados da pesquisa contêm texto realçado para "rato", para residências que têm a infestação de ratos, em resposta a uma pesquisa de palavra-chave "ratos". Formas diferentes da mesma palavra podem aparecer nos resultados devido a análise linguística. 
 
-+ O Azure Search dá suporte a 56 analisadores da Lucene e da Microsoft. padrão de saudação usado pela pesquisa do Azure é analisador Lucene padrão de saudação. 
++ O Azure Search dá suporte a 56 analisadores da Lucene e da Microsoft. O padrão usado pelo Azure Search é o analisador Lucene standard. 
 
 **`search=samamish`**
 
-+ Palavras incorretas, como 'samamish' para o limite de Samammish Olá no hello área de Seattle, falharem tooreturn correspondências no comuns de pesquisa. erros de ortografia toohandle, você pode usar a pesquisa difusa, descrita no exemplo a seguir hello.
++ Palavras com grafia incorreta, como 'samamish' para o planalto Sammamish na área de Seattle, não retornam correspondências em uma pesquisa típica. Para lidar com erros de ortografia, você pode usar a pesquisa difusa, descrita no exemplo a seguir.
 
 **`search=samamish~&queryType=full`**
 
-+ Pesquisa difusa é habilitada quando você especificar Olá `~` de símbolo e usar o analisador de consulta completa hello, que interpreta e analise corretamente Olá `~` sintaxe. 
++ A pesquisa difusa é habilitada quando você especifica o símbolo `~` e usa o analisador de consulta completo, que interpreta e analisa corretamente a sintaxe `~`. 
 
-+ A pesquisa difusa está disponível quando você escolher analisador de consulta completa hello, que ocorre quando você configura `queryType=full`. Para obter mais informações sobre cenários de consulta habilitados pelo analisador de consulta completa hello, consulte [Lucene sintaxe de consulta na pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ A pesquisa difusa está disponível quando você escolhe o analisador de consulta completo, que ocorrerá ao definir `queryType=full`. Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Quando `queryType` é não for especificado, o analisador de consulta simples saudação padrão é usado. Analisador de consulta simples Olá é mais rápido, mas se você precisar de pesquisa difusa, expressões regulares, pesquisa por proximidade ou outros tipos de consulta avançada, você precisará sintaxe completa da saudação. 
++ Quando `queryType` for especificado, o analisador de consulta simples padrão será usado. O analisador de consulta simples é mais rápido, mas se você precisar de pesquisa difusa, expressões regulares, pesquisa por proximidade ou outros tipos de consulta avançada, será necessário obter a sintaxe completa. 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ A pesquisa geoespacial tem suporte por meio de saudação [edm. Tipo de dados GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém as coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-+ consulta de exemplo Hello filtra todos os resultados para dados posicionais, onde os resultados são menos de 5 quilômetros de um determinado ponto (especificado como coordenadas de latitude e longitude). Adicionando `$count`, você pode ver quantos resultados é retornado quando você alterar a distância hello ou coordenadas de saudação. 
++ O exemplo de consulta filtra os dados posicionais de todos os resultados e os resultados ficam a menos de 5 km de um determinado ponto (especificado como coordenadas de latitude e longitude). Ao adicionar `$count`, você poderá ver quantos resultados são retornados quando se altera a distância ou as coordenadas. 
 
-+ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de “Encontrar nas proximidades” ou usa a navegação de mapa. Entretanto, ela não é uma pesquisa de texto completo. Se você tiver requisitos de usuário para pesquisa em uma cidade ou país por nome, adicione campos que contêm nomes de cidade ou o país, nos toocoordinates de adição.
++ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de “Encontrar nas proximidades” ou usa a navegação de mapa. Entretanto, ela não é uma pesquisa de texto completo. Se você tiver requisitos de usuário para pesquisar em uma cidade ou país por nome, adicione campos que contêm nomes de cidade ou países, além de coordenadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-+ Modifique qualquer um dos objetos de saudação que você acabou de criar. Depois de executar o Assistente de saudação uma vez, você pode voltar e exibir ou modificar os componentes individuais: fonte de dados, indexador ou índice. Algumas edições, como Olá alterando o tipo de dados do campo Olá, não são permitidas no índice hello, mas a maioria das propriedades e configurações são modificáveis.
++ Modificar um objeto que você acabou de criar. Depois de executar o assistente uma vez, você pode voltar e exibir ou modificar componentes individuais: índice, indexador ou fonte de dados. Algumas edições, como a alteração do tipo de dados do campo, não são permitidas no índice, mas a maioria das propriedades e configurações pode ser modificada.
 
-  componentes individuais do tooview, clique em Olá **índice**, **indexador**, ou **fontes de dados** blocos no seu painel toodisplay uma lista de objetos existentes. toolearn mais sobre as edições de índice que não exigem uma reconstrução, consulte [Atualizar índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
+  Para exibir os componentes individuais, clique no bloco **Índice**, **Indexador** ou **Fontes de Dados** no painel para exibir uma lista dos objetos existentes. Para saber mais sobre as edições do índice que não exigem recriação, confira [Atualizar índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Tente ferramentas hello e etapas com outras fontes de dados. Olá conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode rastrear a pesquisa do Azure. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no Azure Cosmos DB. Todas essas fontes de dados têm suporte no Assistente de saudação. No código, você pode preencher um índice facilmente usando um *indexador*.
++ Experimente as ferramentas e etapas com outras fontes de dados. O conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode ser rastreado pelo Azure Search. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no Azure Cosmos DB. Todas essas fontes de dados têm suporte no assistente. No código, você pode preencher um índice facilmente usando um *indexador*.
 
-+ Todas as outras fontes de dados do indexador não têm suporte por meio de um modelo de push, onde seu código envia novos e alterados conjuntos de linhas no índice de tooyour JSON. Para saber mais, confira [Adicionar, atualizar ou excluir documentos no Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ Todas as outras fontes de dados que não são do indexador têm suporte por meio de um modelo push, em que seu código envia conjuntos de linhas novos e alterados em JSON para seu índice. Para saber mais, confira [Adicionar, atualizar ou excluir documentos no Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Para saber mais sobre outros recursos mencionados neste artigo, acesse estes links:
 
 * [Visão geral dos indexadores](search-indexer-overview.md)
-* [Criar índice (inclui uma explicação detalhada de atributos de índice Olá)](https://docs.microsoft.com/rest/api/searchservice/create-index)
+* [Criar índice (inclui uma explicação detalhada sobre os atributos de índice)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * [Gerenciador de Pesquisa](search-explorer.md)
 * [Pesquisar documentos (inclui exemplos de sintaxe de consulta)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

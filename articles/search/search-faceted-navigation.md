@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooimplement a navegação facetada na pesquisa do Azure | Microsoft Docs"
-description: "Adicione a navegação facetada tooapplications que se integram a pesquisa do Azure, um serviço de pesquisa de nuvem hospedado no Microsoft Azure."
+title: "Como implementar a navegação facetada no Azure Search | Microsoft Docs"
+description: "Navegação facetada adicionada aos aplicativos que são integrados à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,108 +14,108 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: c1e6bf9dc55d0044525db79e37d35a50ded5a736
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooimplement-faceted-navigation-in-azure-search"></a>Como a navegação facetada tooimplement na pesquisa do Azure
-A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. termo de saudação 'Navegação facetada' pode não ser familiares, mas você provavelmente usou antes. Como Olá mostrado no exemplo a seguir, a navegação facetada é nada mais que Olá categorias usadas toofilter resultados.
+# <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada na Pesquisa do Azure
+A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
 
  ![Demonstração de Portal de Trabalho do Azure Search][1]
 
-A navegação facetada é um toosearch de ponto de entrada alternativa. Oferece um conveniente tootyping alternativo expressões complexas pesquisa manualmente. As facetas podem ajudar a encontrar o que você está procurando, garantindo que você não obterá zero resultados. Como desenvolvedor, facetas permitem que você exponha os critérios de pesquisa mais úteis Olá para navegar em seu corpo de pesquisa. Em aplicativos de varejo online, a navegação facetada geralmente é criada sobre marcas, departamentos (sapatos infantis), tamanho, preço, popularidade e classificações. 
+A navegação facetada é um ponto de entrada alternativo para a pesquisa. Ela oferece uma alternativa conveniente para digitar expressões de pesquisa complexas manualmente. As facetas podem ajudar a encontrar o que você está procurando, garantindo que você não obterá zero resultados. Como desenvolvedor, facetas permitem que você exponha os critérios de pesquisa mais úteis para navegar pelo seu corpo de busca. Em aplicativos de varejo online, a navegação facetada geralmente é criada sobre marcas, departamentos (sapatos infantis), tamanho, preço, popularidade e classificações. 
 
 A implementação da navegação facetada varia entre diferentes tecnologias de pesquisa. No Azure Search, a navegação facetada baseia-se no tempo da consulta, usando os campos atribuídos especificados anteriormente no seu esquema.
 
--   Em consultas de saudação que seu aplicativo cria, uma consulta deve enviar *parâmetros de consulta de faceta* conjunto de resultados de valores de filtro tooget Olá faceta disponíveis para esse documento.
+-   Nas consultas compiladas pelo seu aplicativo, uma consulta deve enviar *parâmetros de faceta de consulta* para obter os valores de filtro de faceta disponíveis para esse conjunto de resultados do documento.
 
--   tooactually trim Olá conjunto de resultados de documento, o aplicativo hello também deve aplicar um `$filter` expressão.
+-   Para realmente recortar o conjunto de resultados do documento, o aplicativo também deve aplicar uma expressão `$filter`.
 
-Desenvolvimento de seu aplicativo, escrevendo código que cria consultas constitui em massa de saudação do trabalho de saudação. Muitos dos comportamentos de aplicativo hello que você esperaria de navegação facetada são fornecidos pelo serviço hello, incluindo suporte interno para intervalos de definir e obter contagens de resultados da faceta. serviço Olá também inclui padrões sensíveis que ajudarão-lo a evitar estruturas de navegação complicada. 
+No desenvolvimento do aplicativo, escrever um código que construa consultas constitui a maior parte do trabalho. Muitos dos comportamentos de aplicativo que você esperaria da navegação facetada são fornecidos pelo serviço, incluindo suporte integrado para configuração de intervalos e obtenção de contagens de resultados de uma determinada faceta. O serviço também inclui padrões pertinentes, que o ajudarão a evitar estruturas de navegação complicadas. 
 
 ## <a name="sample-code-and-demo"></a>Demonstração e código de exemplo
-Este artigo usa um portal de pesquisa de trabalhos como um exemplo. exemplo Hello é implementado como um aplicativo ASP.NET MVC.
+Este artigo usa um portal de pesquisa de trabalhos como um exemplo. O exemplo é implementado como um aplicativo ASP.NET MVC.
 
--   Ver e demonstração de trabalho do hello online de teste [demonstração de Portal de trabalho de pesquisa do Azure](http://azjobsdemo.azurewebsites.net/).
+-   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](http://azjobsdemo.azurewebsites.net/).
 
--   Baixar o código de saudação do hello [repositório de exemplos do Azure no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+-   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
 ## <a name="get-started"></a>Introdução
-Se você for novo desenvolvimento toosearch, Olá melhor maneira toothink de navegação facetada é que ela mostra as possibilidades de saudação de pesquisa alternativas. É um tipo de experiência de busca detalhada, com base em filtros predefinidos usados para restringir os resultados da pesquisa rapidamente por meio de ações de apontar e clicar. 
+Se você é novo no desenvolvimento de pesquisa, a melhor maneira de pensar em navegação facetada é que ela mostra as possibilidades de pesquisa autodirigida. É um tipo de experiência de busca detalhada, com base em filtros predefinidos usados para restringir os resultados da pesquisa rapidamente por meio de ações de apontar e clicar. 
 
 ### <a name="interaction-model"></a>Modelo de interação
 
-Olá a experiência de pesquisa para a navegação facetada é iterativa, então vamos começar com noções básicas sobre como uma sequência de consultas Desdobrar em ações de resposta de toouser.
+A experiência de pesquisa para navegação facetada é iterativa, então vamos começar entendê-la como uma sequência de consultas que se desenrolam em resposta às ações do usuário.
 
-Olá ponto de partida é uma página de aplicativo que fornece navegação facetada, normalmente colocada em periferia hello. A navegação facetada costuma ser uma estrutura de árvore, com caixas de seleção para cada valor ou texto que pode ser clicado. 
+O ponto de partida é uma página de aplicativo que oferece navegação facetada, normalmente posicionada na periferia. A navegação facetada costuma ser uma estrutura de árvore, com caixas de seleção para cada valor ou texto que pode ser clicado. 
 
-1. Uma consulta enviada tooAzure pesquisa especifica a estrutura de navegação facetada Olá por meio de um ou mais parâmetros de consulta de faceta. Por exemplo, Olá consulta inclua `facet=Rating`, talvez com um `:values` ou `:sort` toofurther opção refinar apresentação hello.
-2. camada de apresentação Olá renderiza uma página de pesquisa que fornece navegação de faceta, usando as facetas Olá especificadas na solicitação de saudação.
-3. Dada uma estrutura de navegação facetada que inclui a classificação, clique em "4" tooindicate que devem ser mostrados somente os produtos com uma classificação de 4 ou superior. 
-4. Em resposta, o aplicativo hello envia uma consulta que inclui`$filter=Rating ge 4` 
-5. página Olá apresentação camada atualizações hello, mostrando um conjunto de resultados menor, que contém apenas os itens que atendam aos critérios de novo hello (nesse caso, os produtos classificados como 4 e superior).
+1. Uma consulta enviada para a Pesquisa do Azure especifica a estrutura de navegação facetada por meio de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta pode incluir `facet=Rating`, talvez com uma opção `:values` ou `:sort` para refinar ainda mais a apresentação.
+2. A camada de apresentação renderiza uma página de pesquisa que oferece navegação facetada, usando as facetas especificadas na solicitação.
+3. Dada uma estrutura de navegação facetada que inclui classificação, você clica em "4" para indicar que somente os produtos com uma classificação 4 ou superior devem ser mostrados. 
+4. Em resposta, o aplicativo envia uma consulta que inclui `$filter=Rating ge 4` 
+5. A camada de apresentação atualiza a página, mostrando um conjunto de resultados reduzido apenas com os itens que atendem aos novos critérios (nesse caso, os produtos classificados como 4 e superior).
 
-Uma faceta é um parâmetro de consulta, mas não a confunda com uma entrada de consulta. Ela nunca é usada como critério de seleção em uma consulta. Em vez disso, considere parâmetros de consulta de faceta como estrutura de navegação de toohello entradas que vem em resposta hello. Para cada parâmetro de consulta de faceta que você fornecer, pesquisa do Azure avalia quantos documentos estão no resultados parciais de saudação para cada valor da faceta.
+Uma faceta é um parâmetro de consulta, mas não a confunda com uma entrada de consulta. Ela nunca é usada como critério de seleção em uma consulta. Em vez disso, pense em facetas usadas como parâmetros de consulta como entradas para a estrutura de navegação que retorna como resposta. Para cada parâmetro de consulta de faceta que você fornecer, o Azure Search avaliará quantos documentos estão nos resultados parciais para cada valor de faceta.
 
-Saudação de aviso `$filter` na etapa 4. filtro de saudação é um aspecto importante da navegação facetada. Embora facetas e filtros são independentes no hello API, você precisa de ambos os experiência de saudação toodeliver você pretendia. 
+Observe o `$filter` na etapa 4. O filtro é um aspecto importante da navegação facetada. Embora facetas e filtros sejam independentes na API, você precisará de ambos para fornecer a experiência que pretende. 
 
 ### <a name="app-design-pattern"></a>Padrão de design do aplicativo
 
-No código do aplicativo, padrão Olá é toouse faceta consulta parâmetros tooreturn Olá navegação facetada estrutura junto com os resultados da faceta, além de uma expressão de $filter.  Olá Olá de identificadores de expressão de filtro de evento no valor da faceta Olá de clique. Pense Olá `$filter` expressão como código Olá corte real Olá dos resultados da pesquisa retornados toohello camada de apresentação. Dada uma faceta de cores, clicando em Olá cor vermelha é implementado através de um `$filter` expressão que seleciona somente os itens que têm uma cor vermelha. 
+No código do aplicativo, o padrão é usar parâmetros de consulta de faceta para retornar a estrutura de navegação facetada juntamente com os resultados da faceta, mais de uma expressão $filter.  A expressão de filtro manipula o evento de clique no valor da faceta. Imagine a expressão `$filter` como o código por trás do verdadeiro recorte dos resultados da pesquisa retornados para a camada de apresentação. Dada uma faceta de cores, clicar na cor Vermelho é implementado através de uma expressão `$filter` que seleciona somente os itens que têm cor vermelha. 
 
 ### <a name="query-basics"></a>Noções básicas sobre consulta
 
-Na pesquisa do Azure, uma solicitação é especificada por meio de um ou mais parâmetros de consulta (consulte [Procurar documentos](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter uma descrição de cada um deles). Nenhum dos parâmetros de consulta Olá são necessárias, mas você deve ter pelo menos uma na ordem para um toobe de consulta válida.
+Na pesquisa do Azure, uma solicitação é especificada por meio de um ou mais parâmetros de consulta (consulte [Procurar documentos](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter uma descrição de cada um deles). Nenhum dos parâmetros de consulta é necessário, mas você deve ter pelo menos um para que uma consulta seja válida.
 
-Precisão, entendido como hello capacidade toofilter out acertos irrelevantes, é obtida por meio de uma ou ambas essas expressões:
+A precisão, entendida como a capacidade de filtrar correspondências irrelevantes, é obtida por meio de uma ou de ambas as expressões:
 
 -   **search=**  
-    valor desse parâmetro Hello constitui a expressão de pesquisa de saudação. Pode ser uma única parte de texto ou uma expressão de pesquisa complexa que inclua vários termos e operadores. No servidor de saudação, uma expressão de pesquisa é usada para pesquisa de texto completo, consultar campos de pesquisa no índice de saudação para correspondência de termos, retornando resultados em ordem de classificação. Se você definir `search` toonull, a execução da consulta está sobre o índice inteiro da saudação (ou seja, `search=*`). In this case, outros elementos de saudação de consulta, tais como um `$filter` ou perfil de pontuação, Olá principais fatores que afetam quais documentos são retornados `($filter`) e em qual ordem (`scoringProfile` ou `$orderby`).
+    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única parte de texto ou uma expressão de pesquisa complexa que inclua vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando os campos de pesquisa no índice para correspondência de termos, retornando resultados em ordem de classificação. Se você definir `search` como nulo, a consulta é executada sobre todo o índice (ou seja, `search=*`). Nesse caso, outros elementos da consulta, como um `$filter` ou perfil de pontuação, são os principais fatores que afetam quais documentos são retornados `($filter`) e em qual ordem (`scoringProfile` ou `$orderby`).
 
 -   **$filter=**  
-    Um filtro é um mecanismo eficiente para limitar o tamanho de saudação dos resultados da pesquisa com base nos valores de saudação de atributos de documento específico. Um `$filter` é avaliado primeiro, seguido pela lógica de facetas que gera valores disponíveis hello e contagens correspondentes para cada valor
+    Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados da pesquisa com base nos valores de atributos específicos do documento. Um `$filter` é avaliado primeiro, seguido pela lógica de facetagem que gera os valores disponíveis e as contagens correspondentes para cada valor
 
-Expressões de pesquisa complexa diminuir o desempenho de saudação de consulta de saudação. Sempre que possível, use a precisão de tooincrease de expressões de filtro bem construído e melhorar o desempenho da consulta.
+As expressões de pesquisa complexas diminuem o desempenho da consulta. Sempre que possível, utilize expressões de filtro bem construídas para aumentar a precisão e melhorar o desempenho da consulta.
 
-toobetter entender como um filtro adiciona mais precisão, comparar uma tooone de expressão de pesquisa complexa que inclui uma expressão de filtro:
+Para entender melhor como um filtro adiciona mais precisão, compare uma expressão de pesquisa complexa a uma que inclui uma expressão de filtro:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
 -   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
 
-Ambas as consultas são válidas, mas Olá segundo é superior se você está procurando não motéis com estacionamento em Seattle.
--   primeira consulta de saudação depende dessas palavras específicas está sendo mencionado ou não mencionadas nos campos de cadeia de caracteres como nome, descrição e qualquer outro campo que contém dados pesquisáveis.
--   consulta segundo Olá procura correspondências precisas em dados estruturados e é provável toobe muito mais preciso.
+Embora ambas as consultas sejam válidas, a segunda é melhor se você está procurando estabelecimentos que não sejam motéis com estacionamento em Seattle.
+-   A primeira consulta depende dessas palavras específicas serem mencionadas ou não nos campos de cadeia de caracteres como Nome, Descrição e qualquer outro campo que contenha dados pesquisáveis.
+-   A segunda consulta procura correspondências precisas em dados estruturados, e provavelmente será muito mais precisa.
 
-Em aplicativos que incluam navegação facetada, garanta que cada ação do usuário em uma estrutura de navegação facetada seja acompanhada de uma redução dos resultados da pesquisa. toonarrow resultados, use uma expressão de filtro.
+Em aplicativos que incluam navegação facetada, garanta que cada ação do usuário em uma estrutura de navegação facetada seja acompanhada de uma redução dos resultados da pesquisa. Para restringir os resultados, use uma expressão de filtro.
 
 <a name="howtobuildit"></a>
 
 ## <a name="build-a-faceted-navigation-app"></a>Criar um aplicativo de navegação facetada
-Você implementar a navegação facetada à pesquisa do Azure no seu código de aplicativo que cria a solicitação de pesquisa de saudação. a navegação facetada Olá depende de elementos no esquema que você definiu anteriormente.
+Você pode implementar a navegação facetada com o Azure Search em seu código de aplicativo que cria a solicitação de pesquisa. A navegação facetada se baseia em elementos no esquema que você definiu anteriormente.
 
-Predefinidas no seu índice de pesquisa é hello `Facetable [true|false]` atributo de índice, definido em campos selecionados tooenable ou desabilitar seu uso em uma estrutura de navegação facetada. Sem `"Facetable" = true`, um campo não pode ser usado na navegação facetada.
+Predefinido em sua pesquisa de índice está o atributo de índice `Facetable [true|false]` , definido nos campos selecionados para habilitar ou desabilitar seu uso em uma estrutura de navegação facetada. Sem `"Facetable" = true`, um campo não pode ser usado na navegação facetada.
 
-camada de apresentação de saudação em seu código fornece a experiência do usuário hello. Essa lista deve partes constituintes de saudação de navegação facetada Olá, como rótulo hello, valores, caixas de seleção e contagem de saudação. Olá API de REST de pesquisa do Azure é independente de plataforma, portanto, use qualquer idioma e a plataforma desejada. Olá importante é tooinclude elementos de interface do usuário que oferecem suporte a incremental refresh, com o estado da interface do usuário atualizado como cada faceta adicional está selecionada. 
+A camada de apresentação em seu código fornece a experiência do usuário. Ele deve listar as partes constituintes da navegação facetada, como o rótulo, valores, caixas de seleção e a contagem. A API REST de Pesquisa do Azure é independente de plataforma, portanto, use qualquer idioma e plataforma que desejar. O importante é incluir elementos de interface do usuário que deem suporte a atualização incremental, com estado da interface do usuário sendo atualizado quando cada faceta adicional é selecionada. 
 
-No momento da consulta, o código do aplicativo cria uma solicitação que inclui `facet=[string]`, um parâmetro de solicitação que fornece Olá campo toofacet por. Uma consulta pode ter múltiplas facetas, como `&facet=color&facet=category&facet=rating`, cada uma separada por um caractere “e” comercial (&).
+No momento da consulta, o código do aplicativo cria uma solicitação que inclui `facet=[string]`, um parâmetro de solicitação que fornece o campo pelo qual facetar. Uma consulta pode ter múltiplas facetas, como `&facet=color&facet=category&facet=rating`, cada uma separada por um caractere “e” comercial (&).
 
-Código do aplicativo também deve construir uma `$filter` saudação do expressão toohandle clique em eventos na navegação facetada. Um `$filter` reduz os resultados da pesquisa hello, usando o valor da faceta hello como critérios de filtro.
+O código do aplicativo também deve construir uma expressão `$filter` para manipular os eventos de clique na navegação facetada. Um `$filter` reduz os resultados da pesquisa, usando o valor da faceta como critério de filtro.
 
-A pesquisa do Azure retorna resultados hello, com base em um ou mais termos que você inserir, juntamente com a estrutura de navegação facetada toohello atualizações. Na Pesquisa do Azure, a navegação facetada é uma construção de nível único, com valores de facetas e contagens de quantos resultados são encontrados para cada uma delas.
+O Azure Search retorna os resultados da pesquisa com base em um ou mais termos que você insere, junto com as atualizações para a estrutura de navegação facetada. Na Pesquisa do Azure, a navegação facetada é uma construção de nível único, com valores de facetas e contagens de quantos resultados são encontrados para cada uma delas.
 
-Na Olá seções a seguir, vamos dar uma Visão aprofundada de como toobuild cada parte.
+Nas seções a seguir, examinaremos mais detalhadamente como criar cada parte.
 
 <a name="buildindex"></a>
 
-## <a name="build-hello-index"></a>Criar índice Olá
-Facetas está habilitada em uma base por um campo no índice hello, por meio desse atributo de índice: `"Facetable": true`.  
-Todos os tipos de campo que poderiam ser usados na navegação facetada são `Facetable` por padrão. Esses tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset`, e todos os tipos de campo numérico de hello (essencialmente, todos os tipos de campo são facetable exceto `Edm.GeographyPoint`, que não pode ser usado na navegação facetada). 
+## <a name="build-the-index"></a>Compilar o índice
+A facetagem está habilitada no índice de campo por campo, por meio desse atributo de índice: `"Facetable": true`.  
+Todos os tipos de campo que poderiam ser usados na navegação facetada são `Facetable` por padrão. Esses tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset` e todos os tipos de campo numérico (basicamente, todos os tipos de campo são facetáveis exceto `Edm.GeographyPoint`, que não pode ser usado na navegação facetada). 
 
-Ao criar um índice, uma prática recomendada para a navegação facetada é tooexplicitly ativar facetas desativado para os campos que nunca devem ser usados como uma faceta.  Em particular, os campos de cadeia de caracteres para valores de singleton, como um ID ou nome do produto, devem ser definidos muito`"Facetable": false` tooprevent seus acidental (e ineficazes) usar na navegação facetada. Facetas onde você não começa a ativação ajuda a manter o tamanho de saudação do índice de saudação pequeno e normalmente melhora o desempenho.
+Ao criar um índice, uma prática recomendada para navegação facetada é desativar explicitamente a facetagem para os campos que nunca devem ser usados como uma faceta.  Em particular, os campos de cadeia de caracteres para valores únicos, como uma ID ou nome de produto, devem ser definidos como `"Facetable": false` para evitar seu uso acidental (e ineficaz) na navegação facetada. Desligar a facetagem onde você não precisa dela ajuda a manter o tamanho do índice pequeno e geralmente melhora o desempenho.
 
-A seguir faz parte do esquema de Olá para o aplicativo de exemplo de demonstração do Portal de trabalho hello, cortado de tamanho de saudação de tooreduce alguns atributos:
+A seguir, parte do esquema para o aplicativo de exemplo de Demonstração do Portal de Trabalho, sem alguns atributos para reduzir o tamanho:
 
 ```json
 {
@@ -143,38 +143,38 @@ A seguir faz parte do esquema de Olá para o aplicativo de exemplo de demonstra�
 }
 ```
 
-Como você pode ver no esquema de exemplo hello, `Facetable` está desativado para os campos de cadeia de caracteres que não devem ser usados como facetas, como valores de ID. Facetas onde você não começa a ativação ajuda a manter o tamanho de saudação do índice de saudação pequeno e normalmente melhora o desempenho.
+Como você pode ver no esquema de exemplo, `Facetable` é desativado para os campos de cadeia de caracteres que não devem ser usados como facetas, como os valores de ID. Desligar a facetagem onde você não precisa dela ajuda a manter o tamanho do índice pequeno e geralmente melhora o desempenho.
 
 > [!TIP]
-> Como uma prática recomendada, incluem o conjunto completo de saudação de atributos de índice para cada campo. Embora `Facetable` é ativado por padrão para quase todos os campos, propositadamente definindo cada atributo pode ajudá-lo a considerar as implicações de saudação de cada decisão de esquema. 
+> Como prática recomendada, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` seja ativado por padrão para quase todos os campos, definir propositadamente cada atributo pode ajudá-lo a considerar as implicações de cada decisão do esquema. 
 
 <a name="checkdata"></a>
 
-## <a name="check-hello-data"></a>Verificar dados Olá
-qualidade de saudação de dados tem um efeito direto sobre se a estrutura de navegação facetada Olá materializa conforme o esperado. Isso também afeta a facilidade de saudação de construção de conjunto de resultados de saudação de tooreduce filtros.
+## <a name="check-the-data"></a>Verificar os dados
+A qualidade dos seus dados tem um impacto direto sobre se a estrutura de navegação facetada se materializa como esperado. Ela também afeta a facilidade de criação de filtros para reduzir o conjunto de resultados.
 
-Se você quiser toofacet por marca ou preço, cada documento deve conter valores para *nome da marca* e *ProductPrice* que são válidos, consistente e produtiva como uma opção de filtro.
+Se você quiser realizar a facetagem por Marca ou Preço, cada documento deverá conter valores para *BrandName* e *ProductPrice* que sejam válidos, consistentes e produtivos como uma opção de filtragem.
 
-Aqui estão alguns lembretes de quais tooscrub para:
+Veja alguns lembretes sobre o que se deve procurar:
 
-* Para cada campo que você deseja toofacet por, pergunte-se se ele contém valores que são adequados como filtros na pesquisa direcionada automaticamente. valores Hello devem ser suficientemente diferente curto e descritivo toooffer uma opção entre as opções concorrentes.
-* Erros de ortografia ou valores quase correspondentes. Se você faceta na cor e valores de campo incluem laranja e Ornage (erro), uma faceta com base no campo de cor Olá escolheria a ambos.
+* Pergunte-se, para cada campo segundo o qual você deseja realizar a facetagem, se ele contém valores que são adequados como filtros na pesquisa autodirigida. Os valores devem ser curtos, descritivos e suficientemente diferentes para oferecer uma escolha clara entre as opções de concorrentes.
+* Erros de ortografia ou valores quase correspondentes. Se você realiza a facetagem por Cor e os valores de campo incluem Laranja e Laranja (erro), uma facetagem baseada no campo Cor utilizaria ambos.
 * Texto composto
 de caracteres maiúsculos e minúsculos também pode causar estragos na navegação facetada, com laranja e Laranja aparecendo como dois valores diferentes. 
-* Versões de único e plurais de Olá mesmo valor pode resultar em uma faceta separada para cada.
+* Versões do mesmo valor no singular e no plural podem resultar em uma faceta separada para cada uma.
 
-Como você pode imaginar, auditoria na preparação de dados de saudação é um aspecto essencial de navegação facetada efetivo.
+Como você pode imaginar, a auditoria na preparação dos dados é um aspecto essencial para uma navegação facetada eficiente.
 
 <a name="presentationlayer"></a>
 
-## <a name="build-hello-ui"></a>Criar hello da interface do usuário
-Trabalhando da camada de apresentação Olá pode ajuda a descobrir os requisitos que poderá ser perdidos, caso contrário e entender quais recursos estão toohello essencial experiência de pesquisa.
+## <a name="build-the-ui"></a>Criar a interface do usuário
+Trabalhar na camada de apresentação pode ajudá-lo a descobrir requisitos que de outro modo poderiam ter sido ignorados, além de entender quais recursos são essenciais para a experiência de pesquisa.
 
-Em termos de faceta de navegação, sua página da web ou aplicativo exibe a estrutura de navegação facetada hello, detecta a entrada do usuário na página hello e insere elementos Olá alterado. 
+Em termos de navegação facetada, sua página ou aplicativo da Web exibe a estrutura de navegação facetada, detecta a entrada do usuário na página e insere os elementos alterados. 
 
-Para aplicativos web, AJAX normalmente é usado na camada de apresentação Olá porque permite alterações incrementais toorefresh. Você também pode usar o ASP.NET MVC ou qualquer outra plataforma de visualização que tooan o serviço de pesquisa do Azure pode se conectar por HTTP. aplicativo de exemplo Hello referenciado neste artigo - Olá **demonstração de Portal de trabalho de pesquisa do Azure** – acontece toobe um aplicativo ASP.NET MVC.
+Para aplicativos da Web, o AJAX normalmente é usado na camada de apresentação porque ele permite que você atualize as alterações incrementais. Você também pode usar o MVC ASP.NET ou qualquer outra plataforma de visualização que possa se conectar a um serviço de pesquisa do Azure via HTTP. O aplicativo de exemplo referenciado neste artigo – a **Demonstração do Portal de Trabalho do Azure Search** – trata-se de um aplicativo ASP.NET MVC.
 
-No exemplo hello, navegação facetada é embutida no hello página resultados da pesquisa. Olá seguinte exemplo, retirado de saudação `index.cshtml` página de resultados do arquivo do aplicativo de exemplo hello, mostra Olá HTML estrutura estática para exibir a navegação facetada na pesquisa de saudação. lista de saudação facetas é criada ou reconstruída dinamicamente quando você enviar um termo de pesquisa, ou marcar ou desmarcar uma faceta.
+No exemplo, a navegação facetada baseia-se na página de resultados da pesquisa. O exemplo a seguir, extraído do arquivo `index.cshtml` do aplicativo de exemplo, mostra a estrutura HTML estática para exibir a navegação facetada em sua página de resultados da pesquisa. A lista de facetas é criada ou recriada dinamicamente quando você envia um termo de pesquisa ou marca ou desmarca uma faceta.
 
 ```html
 <div class="widget sidebar-widget jobs-filter-widget">
@@ -201,7 +201,7 @@ No exemplo hello, navegação facetada é embutida no hello página resultados d
 </div>
 ```
 
-Olá seguinte trecho de código do hello `index.cshtml` página cria dinamicamente a faceta de primeiro de saudação de toodisplay do hello HTML, cargo. Funções semelhantes criar dinamicamente hello HTML para Olá outras facetas. Cada faceta tem um rótulo e uma contagem, que exibe o número de saudação de itens encontrados para o resultado dessa faceta.
+O trecho de código a seguir da página `index.cshtml` cria dinamicamente o HTML para exibir a primeira faceta, Cargo. Funções semelhantes criam dinamicamente o HTML para as outras facetas. Cada faceta tem um rótulo e uma contagem, que exibe o número de itens encontrados para o resultado dessa faceta.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -215,16 +215,16 @@ function UpdateBusinessTitleFacets(data) {
 ```
 
 > [!TIP]
-> Quando você criar a página de resultados da pesquisa de saudação, lembre-se tooadd um mecanismo para limpar facetas. Se você adicionar caixas de seleção, você pode ver facilmente como os filtros de tooclear hello. Para outros layouts, talvez seja necessário um padrão de navegação estrutural ou outra abordagem criativa. Por exemplo, em Olá aplicativo de exemplo do Portal de pesquisa de trabalho, você pode clicar Olá `[X]` após uma faceta de saudação tooclear faceta selecionada.
+> Ao criar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se você adicionar caixas de seleção, poderá ver com facilidade como limpar os filtros. Para outros layouts, talvez seja necessário um padrão de navegação estrutural ou outra abordagem criativa. Por exemplo, no aplicativo de exemplo do Portal de Pesquisa de Trabalho, você pode clicar no `[X]` após uma faceta selecionada para limpar a faceta.
 
 <a name="buildquery"></a>
 
-## <a name="build-hello-query"></a>Criar consulta de saudação
-código de saudação que você escreve para a criação de consultas deve especificar todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas e filtros, pontuação perfis – nada usadas tooformulate uma solicitação. Nesta seção, exploraremos onde facetas cabem em uma consulta, e como os filtros são usados com facetas toodeliver um menor conjunto de resultados.
+## <a name="build-the-query"></a>Compilar a consulta
+O código que você escreve para a compilação de consultas deve especificar todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas, filtros, perfis de pontuação – tudo o que for usado para formular uma solicitação. Nesta seção, exploramos onde as facetas se encaixam em uma consulta e como os filtros são usados com facetas para fornecer um conjunto de resultados reduzido.
 
-Observe que as facetas são integrais nesse aplicativo de exemplo. Olá a experiência de pesquisa no hello demonstração do Portal de trabalho é criada em filtros e navegação facetada. posicionamento de saudação proeminentes de navegação facetada na página de saudação demonstra sua importância. 
+Observe que as facetas são integrais nesse aplicativo de exemplo. A experiência de pesquisa na Demonstração do Portal de Trabalho foi criada em torno de filtros e navegação facetada. O posicionamento proeminente de navegação facetada na página demonstra sua importância. 
 
-Um exemplo geralmente é um bom lugar toobegin. Olá seguinte exemplo, retirado de saudação `JobsSearch.cs` arquivo, compilações que uma solicitação que cria a navegação de faceta com base no cargo, local, o tipo de lançamento e salário mínimo. 
+Um exemplo é geralmente um bom lugar para começar. O exemplo a seguir, extraído do arquivo `JobsSearch.cs`, compila uma solicitação que cria a navegação facetada com base no Cargo, no Local, no Tipo de Lançamento e no Salário Mínimo. 
 
 ```cs
 SearchParameters sp = new SearchParameters()
@@ -235,11 +235,11 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Um parâmetro de consulta de faceta é definir o campo tooa e dependendo do tipo de dados hello, podem ser parametrizado adicional por lista delimitada por vírgulas que inclui `count:<integer>`, `sort:<>`, `interval:<integer>`, e `values:<list>`. Há suporte para dados numéricos em uma lista de valores ao configurar intervalos. Consulte [Pesquisar documentos (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes de utilização.
+Um parâmetro de faceta para consulta é definido como um campo e, dependendo do tipo de dados, pode ser ainda mais parametrizado por uma lista delimitada por vírgulas que inclua `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Há suporte para dados numéricos em uma lista de valores ao configurar intervalos. Consulte [Pesquisar documentos (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes de utilização.
 
-Juntamente com as facetas, solicitação Olá formulada pelo seu aplicativo também deve criar filtros toonarrow para baixo do conjunto de saudação de documentos de candidato com base em uma seleção de valor da faceta. Para um repositório de bicicleta, navegação facetada fornece dicas tooquestions como *que cores, os fabricantes e os tipos de bicicletas estão disponíveis?*. A filtragem de respostas a perguntas como *Quais bicicletas exatamente são vermelhas, mountain bikes e estão neste intervalo de preços?*. Quando você clicar em "Vermelho" tooindicate que devem ser mostrados somente os produtos vermelhos, Olá próxima consulta Olá aplicativo envia os inclui `$filter=Color eq ‘Red’`.
+Além de facetas, a solicitação formulada pelo seu aplicativo também deve criar filtros para restringir o conjunto de documentos candidatos com base em uma seleção de valor da faceta. Para uma loja de bicicletas, a navegação facetada oferece dicas para perguntas como *Quais cores, fabricantes e tipos de bicicletas estão disponíveis?*. A filtragem de respostas a perguntas como *Quais bicicletas exatamente são vermelhas, mountain bikes e estão neste intervalo de preços?*. Quando você clica em "Vermelho" para indicar que somente os produtos vermelhos devem ser mostrados, a próxima consulta enviada pelo aplicativo inclui `$filter=Color eq ‘Red’`.
 
-Olá seguinte trecho de código do hello `JobsSearch.cs` página adiciona Olá selecionado cargo toohello filtro se você selecionar um valor de faceta de cargo hello.
+O seguinte trecho de código da página `JobsSearch.cs` adiciona o Cargo selecionado de negócios ao filtro se você selecionar um valor na faceta Cargo.
 
 ```cs
 if (businessTitleFacet != "")
@@ -253,169 +253,169 @@ if (businessTitleFacet != "")
 ### <a name="indexing-tips"></a>Dicas de indexação
 **Melhorar a eficiência de índice se você não usar uma caixa de Pesquisa**
 
-Se seu aplicativo usa a navegação facetada exclusivamente (ou seja, nenhuma caixa de pesquisa), você pode marcar um campo hello como `searchable=false`, `facetable=true` tooproduce um índice mais compacto. Além disso, a indexação ocorre somente em valores de inteiro de faceta, com nenhuma quebra de palavras ou indexação de partes do componente de saudação de um valor de várias palavra.
+Se seu aplicativo usa a navegação facetada exclusivamente (ou seja, sem nenhuma caixa de pesquisa), marque o campo como `searchable=false`, `facetable=true` para produzir um índice mais compacto. Além disso, a indexação ocorre somente em valores de faceta inteiros, sem nenhuma quebra de palavra nem indexação das partes componentes de um valor com várias palavras.
 
 **Definir quais campos podem ser usados como facetas**
 
-Lembre-se de que Olá esquema de índice Olá determina quais campos são toouse disponível como uma faceta. Supondo que um campo facetable, consulta Olá Especifica quais toofacet campos por. campo de saudação pelo qual você está facetas fornece valores hello aparecem abaixo do rótulo de saudação. 
+Lembre-se que o esquema de índice determina quais campos estão disponíveis para uso como uma faceta. Supondo que um campo seja passível de facetagem, a consulta especifica por quais campos realizar essa facetagem. O campo pelo qual você está realizando a facetagem fornece os valores que aparecem abaixo do rótulo. 
 
-valores de saudação que aparecem em cada rótulo são recuperados do índice de saudação. Por exemplo, se hello faceta campo é *cor*, Olá valores disponíveis para filtragem adicional são os valores de saudação para esse campo - vermelho, preto e assim por diante.
+Os valores que aparecem em cada rótulo são recuperados do índice. Por exemplo, se o campo da faceta for *Cor*, os valores disponíveis para filtragem adicional serão os valores para esse campo - Vermelho, Preto e assim por diante.
 
-Para valores numéricos e de data e hora somente, você pode definir explicitamente os valores no campo de faceta hello (por exemplo, `facet=Rating,values:1|2|3|4|5`). Uma lista de valores é permitida para esses campos tipos toosimplify Olá separação dos resultados da faceta em intervalos de contíguas (qualquer um dos intervalos com base em valores numéricos ou períodos de tempo). 
+Apenas para valores dos campos Numérico e DataHora, você pode definir explicitamente os valores no campo da faceta (por exemplo, `facet=Rating,values:1|2|3|4|5`). Uma lista de valores é permitida para esses tipos de campo para simplificar a separação dos resultados da faceta em intervalos contíguos (qualquer um dos intervalos com base em valores numéricos ou períodos de tempo). 
 
 **Por padrão, você só pode ter um nível de navegação facetada** 
 
-Como observado, não há nenhum suporte direto para aninhamento de facetas em uma hierarquia. Por padrão, a navegação facetada no Azure Search dá suporte a apenas um nível de filtros. No entanto, existem soluções alternativas. Você pode codificar uma estrutura hierárquica de facetas em um `Collection(Edm.String)` com um ponto de entrada por hierarquia. Implementação dessa solução alternativa é além do escopo deste artigo hello. 
+Como observado, não há nenhum suporte direto para aninhamento de facetas em uma hierarquia. Por padrão, a navegação facetada no Azure Search dá suporte a apenas um nível de filtros. No entanto, existem soluções alternativas. Você pode codificar uma estrutura hierárquica de facetas em um `Collection(Edm.String)` com um ponto de entrada por hierarquia. Implementar essa solução alternativa está além do escopo deste artigo. 
 
 ### <a name="querying-tips"></a>Dicas de consulta
 **Validar campos**
 
-Se você criar lista de saudação de facetas dinamicamente com base na entrada do usuário não confiável, valide que Olá nomes de campos de faceta Olá são válidos. Ou, retire nomes Olá ao criar URLs usando `Uri.EscapeDataString()` em .NET ou Olá equivalente em sua plataforma de escolha.
+Se você criar a lista de facetas dinamicamente com base na entrada do usuário não confiável, valide se os nomes dos campos facetados são válidos. Ou escape os nomes ao criar URLs usando `Uri.EscapeDataString()` no .NET ou o equivalente em sua plataforma de preferência.
 
 ### <a name="filtering-tips"></a>Dicas de filtragem
 **Aumentar a precisão da pesquisa com filtros**
 
-Utilize filtros. Se você confiar em expressões de pesquisa apenas sozinha, lematização pode fazer com que um documento toobe retornado que não tem o valor da faceta precisão hello em qualquer um de seus campos.
+Utilize filtros. Se você depender apenas de expressões de pesquisa, a lematização pode fazer com que seja retornado um documento que não tenha o valor preciso da faceta em nenhum de seus campos.
 
 **Aumentar o desempenho da pesquisa com filtros**
 
-Os filtros restringem o conjunto de saudação de documentos de candidato para pesquisa e excluí-los da classificação. Se você tiver um grande conjunto de documentos, usar uma busca detalhada de faceta seletiva geralmente proporciona melhor desempenho.
+Filtros restringem o conjunto de documentos candidatos para pesquisa e exclui-los da classificação. Se você tiver um grande conjunto de documentos, usar uma busca detalhada de faceta seletiva geralmente proporciona melhor desempenho.
   
-**Filtrar apenas campos de faceta Olá**
+**Filtrar somente os campos facetados**
 
-No Facetado drill-down, você normalmente deseja tooonly incluem documentos que têm o valor da faceta Olá em um campo específico (Facetado), não em qualquer lugar em todos os campos pesquisáveis. Adicionar um filtro reforça o campo de destino Olá direcionando Olá serviço toosearch somente no campo de faceta Olá para um valor correspondente.
+Em uma busca detalhada facetada, você geralmente deseja incluir apenas os documentos que tenham o valor da faceta em um campo específico (facetado), não em qualquer lugar por todos os campos de pesquisa pesquisáveis. A adição de um filtro reforça o campo alvo, direcionando o serviço para pesquisar somente no campo facetado por um valor correspondente.
 
 **Recortar resultados da faceta com mais filtros**
 
-Resultados da faceta são documentos encontrados nos resultados da pesquisa Olá que correspondem a um termo da faceta. Em Olá seguinte exemplo, nos resultados da pesquisa para *de computação em nuvem*, 254 itens também possuem *especificação interna* como um tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item atende aos critérios de saudação de ambos os filtros, ele será contado em cada uma. Essa duplicação é possível quando facetas em `Collection(Edm.String)` tooimplement documento marcação os campos, que geralmente são usados.
+Resultados da faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo usado como faceta. No exemplo a seguir, nos resultados da pesquisa para *computação em nuvem*, 254 itens também têm *especificação interna* como um tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item atende aos critérios de ambos os filtros, ele será contado em cada um deles. Essa duplicação é possível ao realizar a facetagem em campos `Collection(Edm.String)`, que geralmente são usados para implementar a marcação do documento.
 
         Search term: "cloud computing"
         Content type
            Internal specification (254)
            Video (10) 
 
-Em geral, se você descobrir que resultados da faceta consistentemente são muito grandes, recomendamos que você adicione mais filtros toogive usuários mais opções para restringir a pesquisa de saudação.
+Em geral, se você descobrir que os resultados da faceta costumam ser muito grandes, é recomendável adicionar mais filtros para fornecer aos usuários mais opções para limitar a pesquisa.
 
 ### <a name="tips-about-result-count"></a>Dicas sobre contagem de resultados
 
-**Olá limitar o número de itens na navegação de faceta Olá**
+**Limitar o número de itens na navegação facetada**
 
-Para cada campo Facetado na árvore de navegação hello, há um limite padrão de 10 valores. Esse padrão faz sentido para estruturas de navegação porque ele mantém valores hello tamanho gerenciável tooa na lista. Você pode substituir o padrão de saudação atribuindo um valor toocount.
+Para cada campo facetado na árvore de navegação, há um limite padrão de 10 valores. Esse padrão faz sentido para estruturas de navegação porque mantém a lista de valores de um tamanho gerenciável. Você pode substituir o padrão, atribuindo um valor para a contagem.
 
-* `&facet=city,count:5`Especifica que somente Olá cinco primeiras cidades encontradas na parte superior de saudação classificado os resultados são retornadas como um resultado da faceta. Considere um exemplo de consulta com um termo de pesquisa "aeroporto" e 32 correspondências. Se a consulta de saudação especifica `&facet=city,count:5`somente Olá primeiro cinco exclusivo cidades com hello a maioria dos documentos nos resultados da pesquisa Olá são incluídos no hello resultados da faceta.
+* `&facet=city,count:5` especifica que apenas as cinco primeiras cidades localizadas nos resultados com a melhor classificação são retornadas como um resultado da faceta. Considere um exemplo de consulta com um termo de pesquisa "aeroporto" e 32 correspondências. Se a consulta especificar `&facet=city,count:5`, somente as cinco primeiras cidades únicas com a maioria dos documentos nos resultados da pesquisa serão incluídas nos resultados da faceta.
 
-Distinção de saudação do aviso entre os resultados da pesquisa e os resultados de faceta. Resultados da pesquisa são todos os documentos de saudação que corresponde à consulta de saudação. Resultados da faceta são Olá correspondências para cada valor da faceta. No exemplo hello, resultados da pesquisa incluem nomes de cidades que não estão na lista de classificação de faceta hello (5 em nosso exemplo). Os resultados que são filtrados por meio de navegação facetada se tornam visíveis quando você limpa facetas ou escolhe outras facetas além de Cidade. 
+Observe a diferença entre os resultados da pesquisa e os resultados da faceta. Os resultados da pesquisa são todos os documentos que correspondem à consulta. Os resultados da faceta são as correspondências para cada valor da faceta. No exemplo, os resultados da pesquisa incluem nomes de cidades que não estão na lista de classificação da faceta (5 em nosso exemplo). Os resultados que são filtrados por meio de navegação facetada se tornam visíveis quando você limpa facetas ou escolhe outras facetas além de Cidade. 
 
 > [!NOTE]
-> Discutir `count` quando há mais de um tipo pode ser confuso. Olá tabela a seguir oferece um resumo de como o termo Olá é usado na API de pesquisa do Azure, o código de exemplo e documentação. 
+> Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API de Pesquisa do Azure, um código de exemplo e a documentação. 
 
 * `@colorFacet.count`<br/>
-  Código de apresentação, você verá um parâmetro de contagem na faceta hello, toodisplay usado Olá número de resultados da faceta. Nos resultados da faceta, contagem indica o número Olá de documentos que correspondem em termos de faceta de saudação ou intervalo.
+  No código de apresentação, você deverá ver um parâmetro de contagem na faceta, usada para exibir o número de resultados da faceta. Nos resultados da faceta, a contagem indica o número de documentos que correspondam ao intervalo ou termo da faceta em questão.
 * `&facet=City,count:12`<br/>
-  Em uma consulta de faceta, você pode definir o valor da contagem de tooa.  saudação padrão é 10, mas você pode defini-lo superior ou inferior. Configuração `count:12` obtém Olá primeiras 12 correspondências nos resultados da faceta por contagem de documentos.
+  Em uma consulta de faceta, você pode definir a contagem para um determinado valor.  O padrão é 10, mas você pode defini-lo com um valor maior ou menor. Definir `count:12` retorna as 12 correspondências melhor classificadas nos resultados da faceta pela contagem de documento.
 * "`@odata.count`"<br/>
-  Na resposta de consulta hello, esse valor indica número de saudação de itens correspondentes nos resultados da pesquisa hello. Em média, é maior do que a soma de saudação de todos os resultados da faceta combinados devido toohello presença de itens que correspondem Olá termo de pesquisa, mas sem correspondência de valor da faceta.
+  Na resposta da consulta, esse valor indica o número de itens correspondentes nos resultados da pesquisa. Em média, ele é maior que a soma de todos os resultados de faceta combinados, devido à presença de itens que correspondem ao termo de pesquisa, mas não tem correspondências com o valor da faceta.
 
 **Obter contagens dos resultados da faceta**
 
-Quando você adicionar uma consulta de faceta tooa filtro, convém declaração de faceta Olá tooretain (por exemplo, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, a faceta = classificação não é necessária, mas mantê-lo retorna contagens de saudação de valores de faceta para classificações 4 e superior. Por exemplo, se você clicar em "4" e Olá consulta inclui um filtro para o maior ou igual muito "4", contagens são retornadas para cada classificação é 4 e superior.  
+Ao adicionar um filtro a uma consulta facetada, talvez você queira manter a instrução da faceta (por exemplo, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, facet=Rating não é necessária, mas mantê-la retorna as contagens de valores de faceta para classificações iguais ou superiores a 4. Por exemplo, se você clica em "4" e a consulta inclui um filtro para maior ou igual a "4", as contagens são retornadas para cada classificação igual ou superior a 4.  
 
 **Certifique-se de obter contagens de facetas precisas**
 
-Em determinadas circunstâncias, você pode achar que as contagens de faceta não coincidem Olá conjuntos de resultados (consulte [navegação facetada na pesquisa do Azure (postagem no fórum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Em determinadas circunstâncias, você pode achar que as contagens de faceta não coincidem com os conjuntos de resultados (consulte [Navegação facetada na Pesquisa do Azure (postagem no fórum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
-As contagens de faceta podem ser imprecisas devido toohello arquitetura de fragmentação. Cada índice de pesquisa tem vários fragmentos, e cada fragmento relatórios facetas de N maiores Olá por contagem de documentos, que é, em seguida, combinada em um único resultado. Se alguns fragmentos têm muitos valores correspondentes, enquanto outros têm menos, você pode achar que alguns valores de faceta estão ausentes ou em contado nos resultados da saudação.
+As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentação. Cada índice de pesquisa tem vários fragmentos, e cada um deles relata as N facetas com maior classificação por contagem de documento, que em seguida são combinadas em um único resultado. Se alguns fragmentos têm muitos valores correspondentes enquanto outros têm menos, você poderá descobrir que alguns valores de faceta estão faltando ou com contagem reduzida nos resultados.
 
-Embora esse comportamento pode mudar a qualquer momento, se você encontrar esse comportamento hoje, você pode contornar ele artificialmente aumentando a contagem de saudação:<number> tooa grande número tooenforce total de relatórios a partir de cada fragmento. Se Olá valor de contagem: é maior que ou igual toohello número de valores exclusivos no campo hello, você terá garantia resultados precisos. No entanto, quando as contagens de documento são altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
+Embora esse comportamento possa mudar a qualquer momento, se você encontrar esse problema hoje, você pode contorná-lo artificialmente aumentando a contagem:<number> para um número grande para impor a emissão de relatórios completos de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
 
 ### <a name="user-interface-tips"></a>Dicas da interface do usuário
 **Adicionar rótulos para cada campo na navegação facetada**
 
-Rótulos são normalmente definidos no hello HTML ou no formato (`index.cshtml` no aplicativo de exemplo hello). Não há API no Azure Search para rótulos de navegação facetada ou qualquer outro metadado.
+Os rótulos geralmente são definidos no HTML ou no formulário (`index.cshtml` no aplicativo de exemplo). Não há API no Azure Search para rótulos de navegação facetada ou qualquer outro metadado.
 
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrar com base em um intervalo
 A facetagem em intervalos de valores é um requisito comum de aplicativo de pesquisa. Intervalos têm suporte para dados numéricos e valores de DataHora. Você pode ler mais sobre cada abordagem em [Procurar documentos (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-A Pesquisa do Azure simplifica a construção do intervalo, fornecendo duas abordagens para a computação de um intervalo. Para ambas as abordagens, pesquisa do Azure cria Olá Olá entrados que você forneceu os intervalos adequados. Por exemplo, se você especificar valores de intervalo de 10|20|30, ele criará automaticamente intervalos de 0-10, 10-20, 20-30 -10, 10-20 e 20-30. Seu aplicativo pode, opcionalmente, remover quaisquer intervalos que estejam vazios. 
+A Pesquisa do Azure simplifica a construção do intervalo, fornecendo duas abordagens para a computação de um intervalo. Para ambas as abordagens, a Pesquisa do Azure cria os intervalos apropriados, considerando as entradas que você forneceu. Por exemplo, se você especificar valores de intervalo de 10|20|30, ele criará automaticamente intervalos de 0-10, 10-20, 20-30 -10, 10-20 e 20-30. Seu aplicativo pode, opcionalmente, remover quaisquer intervalos que estejam vazios. 
 
-**Método 1: Usar o parâmetro de intervalo de saudação**  
-facetas de preço tooset em incrementos de US $10, você deve especificar:`&facet=price,interval:10`
+**Abordagem 1: usar o parâmetro de intervalo**  
+Para definir facetas de preço em incrementos de US$ 10, você deve especificar: `&facet=price,interval:10`
 
 **Abordagem 2: usar uma lista de valores**  
-Para dados numéricos, você pode usar uma lista de valores.  Considere o intervalo de faceta Olá para um `listPrice` campo, renderizado da seguinte maneira:
+Para dados numéricos, você pode usar uma lista de valores.  Considere o intervalo da faceta para um campo `listPrice`, renderizado como a seguir:
 
   ![Lista de valores de exemplo][5]
 
-toospecify, como um intervalo de faceta Olá um Olá anterior a captura de tela, use uma lista de valores:
+Para especificar um intervalo da faceta como a mostrada na captura de tela a anterior, use uma lista de valores:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Cada intervalo é criado usando 0 como ponto de partida, um valor da lista de saudação como um ponto de extremidade e, em seguida, são cortados de saudação anterior toocreate discretos intervalos. O Azure Search faz essas coisas como parte da navegação facetada. Você não tem código toowrite para estruturar a cada intervalo.
+Cada intervalo é criado usando 0 como ponto de partida, um valor da lista como um ponto de extremidade e então recortado do intervalo anterior para criar intervalos discretos. O Azure Search faz essas coisas como parte da navegação facetada. Você não precisa escrever código para estruturar cada intervalo.
 
 ### <a name="build-a-filter-for-a-range"></a>Criar um filtro para um intervalo
-documentos de toofilter com base em um intervalo que você selecionar, você pode usar o hello `"ge"` e `"lt"` operadores em uma expressão de duas partes que define os pontos de extremidade de saudação do intervalo de saudação de filtro. Por exemplo, se você escolher Olá intervalo de 10 a 25 para um `listPrice` campo, o filtro de saudação seria `$filter=listPrice ge 10 and listPrice lt 25`. No código de exemplo hello, expressão de filtro Olá usa **priceFrom** e **priceTo** parâmetros tooset Olá os pontos de extremidade. 
+Para filtrar os documentos com base em um intervalo selecionado por você, será possível usar os operadores de filtragem `"ge"` e `"lt"` em uma expressão de duas partes que defina os pontos de extremidade do intervalo. Por exemplo, se você escolher o intervalo 10-25 para uma `listPrice` campo, o filtro será `$filter=listPrice ge 10 and listPrice lt 25`. No código de exemplo, a expressão de filtro usa os parâmetros **priceFrom** e **priceTo** para definir os pontos de extremidade. 
 
   ![Consultar um intervalo de valores][6]
 
 <a name="geofacets"></a> 
 
 ## <a name="filter-based-on-distance"></a>Filtrar com base na distância
-É comum toosee filtros que ajudam você a escolher uma loja, restaurante ou destino com base em seu local atual do tooyour de proximidade. Embora esse tipo de filtro possa parecer com a navegação facetada, trata-se apenas de um filtro. Mencionamos isso aqui para aqueles que estão procurando especificamente conselhos de implementação para um problema de design específico.
+É comum ver filtros que ajudam você a escolher uma loja, restaurante ou destino com base na proximidade desse local com relação ao local onde você está atualmente. Embora esse tipo de filtro possa parecer com a navegação facetada, trata-se apenas de um filtro. Mencionamos isso aqui para aqueles que estão procurando especificamente conselhos de implementação para um problema de design específico.
 
 Há duas funções geoespaciais no Azure Search, **geo.distance** e **geo.intersects**.
 
-* Olá **Geo** função retorna a distância de saudação em quilômetros entre dois pontos. Um ponto é um campo e a outra é uma constante passada como parte do filtro de saudação. 
-* Olá **geo.intersects** função retornará true se um determinado ponto estiver dentro de um polígono determinado. Olá ponto é um campo e polígono Olá é especificado como uma lista de constante de coordenadas passada como parte do filtro de saudação.
+* A função **geo.distance** retorna a distância em quilômetros entre dois pontos. Um ponto é um campo e o outro é uma constante passada como parte do filtro. 
+* A função **geo.intersects** retornará true se um determinado ponto estiver dentro de um polígono determinado. O ponto é um campo e o polígono é especificado como uma lista constante de coordenadas passadas como parte do filtro.
 
 Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 <a name="tryitout"></a>
 
-## <a name="try-hello-demo"></a>Experimente Olá demonstração
-Olá demonstração de Portal de trabalho de pesquisa do Azure contém exemplos de saudação mencionados neste artigo.
+## <a name="try-the-demo"></a>Experimente a demonstração
+A Demonstração do Portal de Trabalho do Azure Search contém os exemplos mencionados neste artigo.
 
--   Ver e demonstração de trabalho do hello online de teste [demonstração de Portal de trabalho de pesquisa do Azure](http://azjobsdemo.azurewebsites.net/).
+-   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](http://azjobsdemo.azurewebsites.net/).
 
--   Baixar o código de saudação do hello [repositório de exemplos do Azure no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+-   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-Como trabalhar com os resultados da pesquisa, assista a URL Olá para alterações na construção de consulta. Este aplicativo acontece tooappend facetas toohello URI que você selecionar cada um.
+Ao trabalhar com os resultados da pesquisa, monitore a URL quanto a alterações na construção de consulta. Esse aplicativo acrescenta facetas ao URI conforme você seleciona cada uma.
 
-1. funcionalidade de mapeamento de saudação toouse do aplicativo de demonstração de Olá, obter uma chave do Bing Maps do hello [Centro de desenvolvimento do Bing Maps](https://www.bingmapsportal.com/). Cole-a chave existente Olá no hello `index.cshtml` página. Olá `BingApiKey` definindo no hello `Web.config` arquivo não é usado. 
+1. Para usar a funcionalidade de mapeamento do aplicativo de demonstração, obtém uma chave do Bing Mapas no [Centro de Desenvolvimento do Bing Mapas](https://www.bingmapsportal.com/). Cole-a sobre a chave existente na página `index.cshtml`. A configuração `BingApiKey` no arquivo `Web.config` não é usada. 
 
-2. Execute o aplicativo hello. Faça tour opcional hello, ou ignorar a caixa de diálogo de saudação.
+2. Execute o aplicativo. Faça o tour opcional ou ignore a caixa de diálogo.
    
-3. Insira um termo de pesquisa, como "analista" e clique no ícone de pesquisa hello. Olá consulta é executada rapidamente.
+3. Insira um termo de pesquisa, como "analista" e clique no ícone de pesquisa. A consulta é executada rapidamente.
    
-   Uma estrutura de navegação facetada também é retornada com os resultados da pesquisa hello. Na página de resultados de pesquisa hello, estrutura de navegação facetada Olá inclui contagens de cada resultado da faceta. Nenhuma faceta está selecionada, todos os resultados correspondentes são retornados.
+   Uma estrutura de navegação facetada também é retornada com os resultados da pesquisa. Na página de resultados de pesquisa, a estrutura de navegação facetada inclui contagens para cada resultado da faceta. Nenhuma faceta está selecionada, todos os resultados correspondentes são retornados.
    
    ![Resultados da pesquisa antes de selecionar facetas][11]
 
-4. Clique em um Cargo, Local ou Salário Mínimo. Facetas eram nulas na pesquisa inicial hello, mas que levem em valores, os resultados da pesquisa Olá são cortados de itens que não correspondem.
+4. Clique em um Cargo, Local ou Salário Mínimo. As facetas eram nulas na pesquisa inicial, mas já que elas recebem valores, os resultados da pesquisa são recortados eliminando-se os itens que não correspondem mais.
    
    ![Resultados da pesquisa após a seleção de facetas][12]
 
-5. consulta de faceta tooclear Olá para que você possa tentar comportamentos de consulta diferentes, clique em Olá `[X]` depois Olá selecionado facetas de saudação tooclear facetas.
+5. Para limpar a consulta facetada para que você possa tentar comportamentos de consulta diferentes, clique o `[X]` após as facetas selecionadas para limpar as facetas.
    
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Saiba mais
-Assista [Aprofundamento no Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). 45:25, não há uma demonstração sobre como tooimplement facetas.
+Assista [Aprofundamento no Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Em 45:25, há uma demonstração de como implementar facetas.
 
-Para mais informações sobre os princípios de design para a navegação facetada, recomendamos Olá links a seguir:
+Para obter mais informações sobre princípios de design para navegação facetada, recomendamos os seguintes links:
 
 * [Design para pesquisa facetada](http://www.uie.com/articles/faceted_search/)
 * [Padrões de design: navegação facetada](http://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
-[How toobuild it]: #howtobuildit
-[Build hello presentation layer]: #presentationlayer
-[Build hello index]: #buildindex
+[How to build it]: #howtobuildit
+[Build the presentation layer]: #presentationlayer
+[Build the index]: #buildindex
 [Check for data quality]: #checkdata
-[Build hello query]: #buildquery
-[Tips on how toocontrol faceted navigation]: #tips
+[Build the query]: #buildquery
+[Tips on how to control faceted navigation]: #tips
 [Faceted navigation based on range values]: #rangefacets
 [Faceted navigation based on GeoPoints]: #geofacets
 [Try it out]: #tryitout

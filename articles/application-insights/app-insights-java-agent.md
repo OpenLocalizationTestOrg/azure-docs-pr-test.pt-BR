@@ -1,5 +1,5 @@
 ---
-title: aaaPerformance monitoramento para aplicativos da web de Java no Azure Application Insights | Microsoft Docs
+title: Monitoramento de desempenho de aplicativos Web de Java no Azure Application Insights | Microsoft Docs
 description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
 services: application-insights
 documentationcenter: java
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: bf3983e3b4a16e72bc606b6468a757288d05ebaa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 
-Se você tiver [instrumentado seu aplicativo da web de Java com o Application Insights][java], você pode usar o hello agente Java tooget profundo, sem qualquer alteração de código:
+Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
-* **Dependências:** dados sobre as chamadas que seu aplicativo fizer tooother componentes, incluindo:
+* **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
   * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
-  * **Redis** chamadas feitas pelo cliente de Jedis hello. Se a chamada de saudação demora mais do que por 10, agente de saudação também busca argumentos de chamada de saudação.
-  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada de saudação demora mais do que, por 10 Olá agente se reporta o plano de consulta hello.
+  * **Redis** feitas por meio do cliente Jedis. Se a chamada demorar mais de 10 segundos, o agente também buscará os argumentos da chamada.
+  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
 * **Exceções capturadas:** dados sobre exceções que são manipuladas pelo código.
-* **Tempo de execução do método:** dados sobre Olá tempo métodos específicos de tooexecute usa.
+* **Tempo de execução do método:** dados sobre o tempo necessário para executar métodos específicos.
 
-Agente de Java Olá toouse, você instalá-lo em seu servidor. Seus aplicativos web devem ser instrumentados com hello [Java SDK do Application Insights][java]. 
+Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
-## <a name="install-hello-application-insights-agent-for-java"></a>Instalar o agente do hello Application Insights para Java
-1. Na máquina de saudação executando o servidor de Java, [baixar agente Olá](https://aka.ms/aijavasdk).
-2. Editar script de inicialização de servidor de aplicativo hello e, em seguida, adicione Olá JVM a seguir:
+## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
+1. No computador que está executando o servidor Java, [baixe o agente](https://aka.ms/aijavasdk).
+2. Edite o script de inicialização do servidor de aplicativos e adicione a seguinte JVM:
    
-    `javaagent:`*arquivo JAR do caminho completo toohello agent*
+    `javaagent:`*caminho completo para o arquivo JAR do agente*
    
     Por exemplo, no Tomcat em um computador Linux:
    
-    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path tooagent JAR file>"`
+    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Reinicie o servidor de aplicativos.
 
-## <a name="configure-hello-agent"></a>Configurar o agente de saudação
-Crie um arquivo chamado `AI-Agent.xml` e colocá-lo em Olá mesma pasta que o arquivo JAR do hello agente.
+## <a name="configure-the-agent"></a>Configurar o agente
+Crie um arquivo chamado `AI-Agent.xml` e coloque-o na mesma pasta que o arquivo JAR do agente.
 
-Definir o conteúdo de saudação do arquivo xml de saudação. Editar saudação tooinclude de exemplo a seguir ou omita recursos Olá desejado.
+Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omitir os recursos desejados.
 
 ```XML
 
@@ -74,7 +74,7 @@ Definir o conteúdo de saudação do arquivo xml de saudação. Editar saudaçã
                reportExecutionTime="true"
                />
 
-           <!-- Report on hello particular signature
+           <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
@@ -86,14 +86,14 @@ Definir o conteúdo de saudação do arquivo xml de saudação. Editar saudaçã
 
 ```
 
-Você tem a exceção de relatórios tooenable e o intervalo de método para métodos individuais.
+Você precisa habilitar a exceção de relatórios e o tempo de método para métodos individuais.
 
 Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
-## <a name="view-hello-data"></a>Dados de saudação do modo de exibição
-Em Olá recurso do Application Insights, agregados tempos de execução dependência e o método remotos aparece [em Olá desempenho bloco][metrics].
+## <a name="view-the-data"></a>Exibir os dados
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][metrics].
 
-toosearch para instâncias individuais de dependência, a exceção e o método de relatórios, abra [pesquisa][diagnostic].
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
 
 [Diagnosticando problemas de dependência – Saiba mais](app-insights-asp-net-dependencies.md#diagnosis).
 

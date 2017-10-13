@@ -1,6 +1,6 @@
 ---
-title: toochoose aaaHow qual aplicativo digite toouse ao adicionar um aplicativo | Microsoft Docs
-description: "Entender os tipos de saudação com suporte de aplicativos, você pode integrar com o AD do Azure e suas opções de configuração relacionados"
+title: Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo | Microsoft Docs
+description: "Entenda os tipos de aplicativos com suporte que você pode integrar ao Azure AD e suas opções de configuração relacionadas"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,92 +13,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 46e3672e7f5048b0fa54171f0fc169362c9d5ac6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toochoose-which-application-type-toouse-when-adding-an-application"></a>Como toochoose qual aplicativo digite toouse ao adicionar um aplicativo
+# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo
 
-Este artigo ajuda toounderstand Olá quatro tipos principais de aplicativos, você pode integrar com o Azure AD:
+Este artigo o ajuda você a entender os quatro tipos principais de aplicativos que você pode integrar ao Azure AD:
 
 * O que tem suporte em cada um deles
 * Por que você escolheria cada aplicativo
-* Como tooconfigure propriedades de núcleo do aplicativo desses, como usuários **provisionado**, ou o que **o logon único** toouse de tecnologia.
+* Como configurar propriedades principais desses aplicativos, como quantos usuários são **provisionados** ou qual tecnologia de **logon único** usar.
 
 ## <a name="supported-application-types-in-azure-ad"></a>Tipos de aplicativos com suporte no Azure AD
 
-Olá do Azure AD oferece suporte a quatro principais tipos de aplicativos que você pode adicionar usando **adicionar** recurso encontrado em **aplicativos empresariais**. Estão incluídos:
+O Azure AD oferece suporte a quatro tipos de aplicativos principais que você pode adicionar usando o recurso **Adicionar** encontrado em **Aplicativos Empresariais**. Estão incluídos:
 
--   **Aplicativos da Galeria do Azure AD** – um aplicativo que foi integrado previamente para logon único com o Azure AD.
+-   **Aplicativos da galeria do Azure AD** – Um aplicativo que foi previamente integrado para logon único com o Azure AD.
 
--   **Aplicativos de Proxy de aplicativo** – um aplicativo em execução no seu ambiente local que você deseja tooprovide segura de logon único tooexternally.
+-   **Aplicativos do Proxy de Aplicativo** – um aplicativo em execução em seu ambiente local para o qual você deseja fornecer logon único seguro externamente.
 
--   **Aplicativos personalizado** – Olá de um aplicativo que sua organização deseja toodevelop na plataforma de desenvolvimento de aplicativo do Azure AD, mas que talvez ainda não existir.
+-   **Aplicativos desenvolvidos de forma personalizada** – um aplicativo que sua organização deseja desenvolver na Plataforma de Desenvolvimento de Aplicativos do Azure AD, mas que talvez ainda não exista.
 
--   **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da web que você deseja, qualquer aplicativo que processa um campo de nome de usuário e senha, oferece suporte a protocolos SAML ou OpenID Connect ou oferece suporte a SCIM que você deseja toointegrate para logon único com o Azure AD.
+-   **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da Web desejado, ou qualquer aplicativo que processa um campo de nome de usuário e senha, dá suporte aos protocolos SAML ou OpenID Connect, ou dá suporte ao SCIM que você deseja integrar para logon único com o Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-hello-above-application-types"></a>Recursos e recursos com suporte de todos os Olá acima tipos de aplicativos
+## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Recursos compatíveis com todos os tipos de aplicativo mencionados acima
 
-Olá recursos a seguir têm suporte por qualquer Olá acima 4 tipos de aplicativo no AD do Azure:
+Os recursos a seguir têm suporte de qualquer um dos quatro tipos de aplicativos mencionados acima no Azure AD:
 
 -   **Início rápido** – familiarize-se rapidamente com um aplicativo executando [etapas simples de implantação](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
--   **Gerenciamento de propriedades gerais** – obter um [deeplink direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) tooan aplicativo, [personalizar identidade visual Olá](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo, ou [desativar aplicativo hello](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os usuários.
+-   **Gerenciamento de propriedades gerais** – obtenha um [deeplink direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) para um aplicativo, [personalize a marca](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo ou [desabilite o aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os usuários.
 
--   **Gerenciamento de usuário e grupo** – [atribuir](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) ou [remover](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) aplicativo tooan de usuários e grupos e, opcionalmente, atribua funções de aplicativo específicas de saudação esses usuários e grupos têm acesso ao
+-   **Gerenciamento de usuário e grupo** – [atribua](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) ou [remova](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) usuários e grupos de um aplicativo e, como opção, atribua as funções específicas de aplicativo as quais esses usuários e grupos têm acesso
 
--   **Acesso de aplicativo de autoatendimento** – habilitar seu usuários toorequest [acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) tooan aplicativo de seu aplicativo acesso painéis adicionando um aplicativo diretamente ou [ ingressando em um grupo habilitado autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), opcionalmente, exigir a aprovação de negócios ao longo de saudação maneira
+-   **Acesso de autoatendimento ao aplicativo** – permita que os usuários solicitem o [acesso de autoatendimento ao aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) de seus Painéis de acesso do aplicativo por meio da adição direta de um aplicativo ou [ingressando em um grupo habilitado para autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), podendo exigir a aprovação comercial durante o processo
 
--   **Logs de logon** – consulte [todos Olá aplicativo de tooan entradas](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), ou todos os seus aplicativos
+-   **Logs de entrada** – confira [todas as entradas em um aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), ou em todos os seus aplicativos
 
--   **Logs de auditoria** – consulte [logs de auditoria sobre o aplicativo de tooan modificações detalhados](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), ou tooall seus aplicativos
+-   **Logs de auditoria** – confira [logs detalhados de auditoria sobre modificações feitas em um aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), ou em todos os seus aplicativos
 
--   **Acesso condicional baseado em risco e** – defina poderosa [regras de acesso com base em condição](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) que são aplicadas quando os usuários tentam toosign no aplicativo específico tooa
+-   **Acesso condicional e com base em risco** – defina [regras avançadas de acesso com base em condição](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) que são aplicadas quando os usuários tentam entrar em um aplicativo específico
 
--   **Permissões de exibição** – exibir qualquer Olá [OAuth2 permissões](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) um aplicativo tem acesso tooin seu diretório de um único local
+-   **Exibição de permissões** – veja qualquer uma das [permissões de OAuth2](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) as quais um aplicativo tem acesso em seu diretório de um único local
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Modos de logon único e provisionamento com suporte de tipos específicos de aplicativos
 
-Olá tabela a seguir descreve Olá diferentes logon único e provisionamento modos suportados por cada Olá acima tipos de aplicativos. Você pode usar essa tabela toohelp toounderstand qual aplicativo precisar tooadd toosupport uma meta específica.
+A tabela a seguir descreve os diferente modos de logon único e provisionamento com suporte de cada um dos tipos de aplicativos mencionados acima. Use essa tabela como uma ajuda para entender quais aplicativos você precisa adicionar a fim de dar suporte a um objetivo específico.
 
   ![Tabela de tipos de aplicativo](./media/application-tables/table1.png)
 
-## <a name="how-toochoose-a-single-sign-on-mode"></a>Como toochoose um modo de logon único
+## <a name="how-to-choose-a-single-sign-on-mode"></a>Como escolher um modo de logon único
 
-Olá suportada **o logon único** modos para aplicativos do Azure AD estão listados abaixo.
+Os modos de **logon único** com suporte para aplicativos do Azure AD estão listados abaixo.
 
--   **Azure AD SSO desabilitado** – escolha AD do Azure SSO desabilitado **modo de logon único** se você ainda não está pronto toointegrate este aplicativo com logon único com o Azure AD ou são simplesmente experimentá-lo
+-   **Logon único do Azure AD desabilitado** – escolha o **modo de logon único** desabilitado do Azure AD se você ainda não estiver pronto para integrar esse aplicativo com logon único ao Azure AD ou se apenas o estiver testando
 
--   **Vinculado logon** – escolha Olá [logon vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de logon único** se você tiver um aplicativo que já está conectado com uma único logon solução existente, ou se você quiser apenas toopublish simples de link para os usuários em seus [painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador do aplicativo Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Logon vinculado** – escolha o **modo de logon único** [Logon vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) se você tiver um aplicativo que já está conectado a uma solução de logon único existente, ou se quiser apenas publicar um link simples para seus usuários no [Painel de Acesso do Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou no [Inicializador de aplicativos do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Com base em senha de logon** – escolha Olá [baseada em senha logon](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de logon único** se seu aplicativo processa um campo de nome de usuário e senha do HTML e você desejar toostore que nome de usuário e senha repetido de toobe com segurança toohello aplicativo mais tarde
+-   **Logon baseado em senha** – Escolha o **modo de logon único** [Logon baseado em senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) se seu aplicativo renderizar um campo de nome de usuário e senha em HTML e você quiser armazenar esse nome de usuário e senha com segurança para reprodução no aplicativo mais tarde
 
--   **Baseado no SAML logon** – escolha Olá [baseado no SAML logon](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) toospecific funções de aplicativo de logon único no modo se seu aplicativo dá suporte a protocolos SAML ou OpenID Connect hello, ou toobe toomap capaz de usuários com base em regras que você definir no seu SAML declarações *
-
-   >[!NOTE]
-   >Essa opção não está disponível quando o proxy de aplicativo hello está configurado para um aplicativo.
-   >
-   >
-
--   **Com base no cabeçalho de logon** – Escolha esta opção [com base no cabeçalho de logon](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) autenticação que você deseja tooperform de logon único no muito baseada em único modo de logon se você tiver um aplicativo usando PingAccess que dá suporte ao cabeçalho HTTP
+-   **Logon baseado em SAML** – Escolha o modo de logon único [Logon baseado em SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) se o seu aplicativo der suporte aos protocolos SAML ou OpenID Connect, ou se você quiser mapear usuários a funções de aplicativo específicas com base em regras que você define em suas declarações SAML *
 
    >[!NOTE]
-   >Essa opção só está disponível quando o proxy de aplicativo hello e PingAccess está configurado para um aplicativo.
+   >Essa opção não está disponível quando o proxy de aplicativo está configurado para um aplicativo.
    >
    >
 
--   **Autenticação integrada do Windows** – escolha Olá [autenticação integrada do Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) em modo ao expor um aplicativo WIA local que você deseja tooperform de logon único no muito do logon único
+-   **logon baseado em cabeçalho** – Escolha este modo de logon único [Logon baseado em cabeçalho](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) se você tiver um aplicativo usando PingAccess que oferece suporte à autenticação baseada em cabeçalho HTTP no qual deseja realizar logon único 
 
    >[!NOTE]
-   >Essa opção só está disponível quando o proxy de aplicativo hello está configurado para um aplicativo.
+   >Essa opção está disponível apenas quando o proxy de aplicativo e o PingAccess estiverem configurados para um aplicativo.
    >
    >
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de logon único para aplicativos personalizados
+-   **Autenticação integrada do Windows** – Escolha o modo de logon único [Autenticação integrada do Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) ao expor um aplicativo WIA local no qual você deseja realizar o logon único 
 
-Aplicativos que você tiver personalizado desenvolvido por meio de saudação [aplicativo personalizado](#_Custom-Developed_Applications) experiência também oferece suporte para único logon modos adicionais não listados acima. Estão incluídos:
+   >[!NOTE]
+   >Essa opção só está disponível quando o proxy de aplicativo estiver configurado para um aplicativo.
+   >
+   >
+
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de logon únicos para aplicativos desenvolvidos de forma personalizada
+
+Aplicativos desenvolvidos de forma personalizada por meio da experiência [Aplicativo desenvolvido de forma personalizada](#_Custom-Developed_Applications) também dão suporte a modos de logon único adicionais não listados acima. Estão incluídos:
 
 -   Logon baseado em [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
 
@@ -108,67 +108,67 @@ Aplicativos que você tiver personalizado desenvolvido por meio de saudação [a
 
 -   Logon baseado em [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
 
-Saudação de leitura [guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) toolearn mais informações sobre como o aplicativo toocreate um personalizado que dá suporte a esses único modos de logon.
+Leia o [Guia do Desenvolvedor do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) para saber mais sobre como criar um aplicativo desenvolvido de forma personalizada que dá suporte a esses modos de logon único.
 
-## <a name="how-tooset-an-applications-single-sign-on-mode"></a>Como um aplicativo de tooset do único modo de logon
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Como definir o modo de logon único de um aplicativo
 
-tooset um aplicativo **o logon único** modo, siga Olá instruções abaixo:
+Para definir o modo de **logon único** de um aplicativo, siga as instruções abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
+  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione aplicativo hello para o qual você deseja tooconfigure-logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Depois que o aplicativo hello carrega, clique em **o logon único** no menu de navegação à esquerda do aplicativo hello.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-## <a name="how-toochoose-a-provisioning-mode"></a>Como toochoose um modo de provisionamento
+## <a name="how-to-choose-a-provisioning-mode"></a>Como escolher um modo de provisionamento
 
--   **Provisionamento manual** – escolha Olá [Manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) modo de provisionamento se você tem contas existentes ou deseja toomanage contas para este aplicativo fora do Azure AD.
+-   **Provisionamento Manual** – Escolha o modo de provisionamento [Manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) se você tiver contas ou se quiser gerenciar as contas desse aplicativo fora do Azure AD.
 
--   **O provisionamento automático** – escolha Olá [automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **modo de provisionamento** se você quiser tooenable baseada em API o provisionamento automático e/ou cancelamento de provisionamento de contas de usuário toothis aplicativo 
+-   **Provisionamento Automático** – Escolha o **modo de provisionamento** [Automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) se você quiser habilitar o provisionamento automático baseado em API e/ou o desprovisionamento de contas de usuário para esse aplicativo 
 
    >[!NOTE]
-   >Essa opção só está disponível para aplicativos em Olá **em destaque** categoria de saudação [Galeria de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
+   >Essa opção está disponível somente para aplicativos dentro da categoria **em destaque** da [Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
    >
    >
 
--   **Provisionamento automático baseado em SCIM** – use [provisionamento automático baseado em SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se o seu aplicativo oferece suporte ao protocolo SCIM Olá para detectar alterações toousers e grupos, que são emitidos automaticamente para as alterações tooany aplicativo integrado ao AD do Azure 
+-   **Provisionamento Automático baseado em SCIM** – Use o [Provisionamento Automático baseado em SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se o seu aplicativo der suporte ao protocolo SCIM para detecção de alterações em usuários e grupos, que são emitidas automaticamente para alterações em qualquer aplicativo integrado ao Azure AD 
 
    >[!NOTE]
    >Essa opção não está listada como um modo de provisionamento específico, mas está habilitada por padrão para todos os aplicativos integradas ao Azure AD.
    >
    >
 
-## <a name="how-tooset-an-applications-provisioning-mode"></a>Como tooset um aplicativo do modo de provisionamento
+## <a name="how-to-set-an-applications-provisioning-mode"></a>Como configurar o modo de provisionamento de um aplicativo
 
-tooset um aplicativo **provisionamento** modo, siga Olá instruções abaixo:
+Para definir o modo de **provisionando** de um aplicativo, siga as instruções abaixo:
 
-tooset um aplicativo **o logon único** modo, siga Olá instruções abaixo:
+Para definir o modo de **logon único** de um aplicativo, siga as instruções abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
+  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo hello para o qual você deseja tooconfigure provisionamento.
+6.  Selecione o aplicativo para o qual você deseja configurar o provisionamento.
 
-7.  Depois que o aplicativo hello carrega, clique em **provisionamento** no menu de navegação à esquerda do aplicativo hello.
+7.  Após o carregamento do aplicativo, clique em **Provisionamento** no menu de navegação à esquerda do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)

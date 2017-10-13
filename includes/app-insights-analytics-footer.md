@@ -2,13 +2,13 @@
 ## <a name="analytics"></a>Análise
 * [Visão geral](../articles/application-insights/app-insights-analytics.md)
 * [Tour da Análise](../articles/application-insights/app-insights-analytics-tour.md)
-  * Comece por aqui. Um tutorial que abrangem os principais recursos de saudação.
+  * Comece por aqui. Um tutorial que abrange os principais recursos.
 * [Consultas](../articles/application-insights/app-insights-analytics-reference.md)
-  * Use operadores como `where` e `count` toobuild consultas.
+  * Usam operadores como `where` e `count` para compilar consultas.
 * [Agregação](../articles/application-insights/app-insights-analytics-reference.md)
-  * Usada toocompute estatísticas sobre grupos de registros
+  * Usada para calcular estatísticas sobre grupos de registros
 * [Escalares](../articles/application-insights/app-insights-analytics-reference.md)
-  * Outras expressões, cadeias de caracteres e números usada tooform parâmetros de consulta.
+  * Números, cadeias de caracteres e outras expressões usadas para formar parâmetros de consulta.
 * [Usando a Análise](../articles/application-insights/app-insights-analytics-using.md)
   * Usando a Análise.
 * [Referência da linguagem](../articles/application-insights/app-insights-analytics-reference.md)

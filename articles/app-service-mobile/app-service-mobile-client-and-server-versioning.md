@@ -1,5 +1,5 @@
 ---
-title: "aaaClient e o servidor de controle de versão SDK de aplicativos móveis e serviços móveis | Microsoft Docs"
+title: "Controle de versão de cliente e servidor SDK em Aplicativos Móveis e Serviços Móveis | Microsoft Docs"
 description: "Lista dos SDKs clientes e compatibilidade com versões do SDK do servidor para os Serviços Móveis e Aplicativos Móveis do Azure"
 services: app-service\mobile
 documentationcenter: 
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5874b7455ea407ca8c77fb1bd03d97d0767ebb47
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
-a versão mais recente Olá de serviços móveis do Azure é hello **aplicativos móveis** recurso de serviço de aplicativo do Azure.
+A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
 
-Olá cliente de aplicativos móveis e SDKs de servidor originalmente são baseadas nos serviços móveis, mas são *não* compatíveis entre si.
-Ou seja, você deve usar um SDK de cliente de *Aplicativos Móveis* com SDK de servidor de *Aplicativos Móveis* e da mesma forma para *Serviços Móveis*. Este contrato é imposto por meio de um valor de cabeçalho especial usado pelo cliente hello e servidor SDKs, `ZUMO-API-VERSION`.
+Os SDKs de cliente e servidor de Aplicativos Móveis são baseados originalmente nos Serviços Móveis, mas *não* são compatíveis entre si.
+Ou seja, você deve usar um SDK de cliente de *Aplicativos Móveis* com SDK de servidor de *Aplicativos Móveis* e da mesma forma para *Serviços Móveis*. Esse contrato é imposto por meio de um valor de cabeçalho especial usado pelos SDKs de cliente e servidor, `ZUMO-API-VERSION`.
 
-Observação: sempre que este documento se refere tooa *serviços móveis* back-end, ele não necessariamente precisa toobe hospedado em serviços móveis. Agora é possível toomigrate um toorun de serviço móvel no serviço de aplicativo sem alterações de código, mas o serviço de saudação ainda usa *serviços móveis* versões do SDK.
+Observação: sempre que este documento se refere a um back-end de *Serviços Móveis* , ele não necessariamente precisa estar hospedados nos Serviços Móveis. Agora é possível migrar um serviço móvel para ser executado em um Serviço de Aplicativo sem qualquer alteração de código, mas o serviço ainda estaria usando versões de SDK de *Serviços Móveis*.
 
-toolearn mais sobre migração tooApp serviço sem quaisquer alterações de código, consulte o artigo de saudação [migrar tooAzure um serviço móvel do serviço de aplicativo].
+Para saber mais sobre a migração para o Serviço de Aplicativo sem qualquer alteração de código, consulte o artigo [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure].
 
 ## <a name="header-specification"></a>Especificação de cabeçalho
-chave de saudação `ZUMO-API-VERSION` pode ser especificado no cabeçalho HTTP de saudação ou cadeia de caracteres de consulta de saudação. valor de saudação é uma cadeia de caracteres de versão no formulário Olá **x.y.z**.
+A chave `ZUMO-API-VERSION` pode ser especificada no cabeçalho HTTP ou na cadeia de consulta. O valor é uma cadeia de caracteres de versão no formulário **x.y.z**.
 
 Por exemplo:
 
@@ -42,15 +42,15 @@ CABEÇALHOS: ZUMO-API-VERSION: 2.0.0
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="opting-out-of-version-checking"></a>Recusando a verificação de versão
-Você pode recusar a verificação, definindo um valor de versão **true** para configuração de aplicativo hello **MS_SkipVersionCheck**. Especifique isso na Web. config ou em Olá seção configurações do aplicativo de saudação portal do Azure.
+Você pode recusar a verificação de versão definindo um valor **verdadeiro** para a configuração do aplicativo **MS_SkipVersionCheck**. Especifique isso no seu web.config ou na seção Configurações do Aplicativo do Portal do Azure.
 
 > [!NOTE]
-> Há um número de alterações de comportamento entre serviços móveis e aplicativos móveis, especialmente nas áreas de saudação da sincronização offline, autenticação e notificações por push. Você só deve recusar versão verificação após a conclusão tooensure teste que essas alterações de comportamento não prejudicam a funcionalidade do aplicativo.
+> Há algumas alterações de comportamento entre os Serviços Móveis e os Aplicativos Móveis, especialmente nas áreas de sincronização offline, autenticação e notificações por push. Você deve recusar verificação somente após o teste completo para garantir que essas alterações de comportamento não interrompam a funcionalidade do aplicativo.
 >
 >
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Resumo de compatibilidade para todas as versões
-Olá gráfico a seguir mostra a compatibilidade de saudação entre todos os tipos de cliente e servidor. Um back-end é classificado como qualquer Mobile **serviços** ou Mobile **aplicativos** com base no servidor de saudação SDK que ele usa.
+A tabela abaixo mostra a compatibilidade entre todos os tipos de cliente e de servidor. Um back-end é classificado como **Serviços** Móveis ou **Aplicativos** Móveis com base no SDK de servidor que ele usa.
 
 |  | **Serviços Móveis**  | **Aplicativos Móveis**  |
 | --- | --- | --- |
@@ -59,14 +59,14 @@ Olá gráfico a seguir mostra a compatibilidade de saudação entre todos os tip
 
 \*Isso pode ser controlado especificando**MS_SkipVersionCheck**.
 
-<!-- IMPORTANT!  hello anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
+<!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
-<!-- NOTE: hello fwlink toothis document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
+<!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
 ## <a name="1.0.0"></a>Servidor e cliente de Serviços Móveis
-cliente Olá SDKs na tabela de saudação abaixo são compatíveis com **serviços móveis**.
+Os SDKs de cliente na tabela a seguir são compatíveis com **Serviços Móveis**.
 
-Observação: Olá SDKs de cliente de serviços móveis *não* enviar um valor de cabeçalho `ZUMO-API-VERSION`. Se o serviço de saudação receber este cabeçalho ou o valor de cadeia de caracteres de consulta, um erro será retornado, a menos que explicitamente incluído como descrito acima.
+Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de cabeçalho para `ZUMO-API-VERSION`. Se o serviço receber esse cabeçalho ou o valor de cadeia de consulta, um erro será retornado, a menos que você tenha recusado expressamente conforme descrito acima.
 
 ### <a name="MobileServicesClients"></a> SDKs de clientes de *Serviços* Móveis
 | Plataforma cliente | Versão | Valor de cabeçalho de versão |
@@ -93,7 +93,7 @@ Observação: Olá SDKs de cliente de serviços móveis *não* enviar um valor d
 
 ## <a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
 ### <a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
-A verificação de versão foi introduzida Olá seguintes versões do SDK do cliente Olá para **aplicativos móveis do Azure**:
+A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
 | Plataforma cliente | Versão | Valor de cabeçalho de versão |
 | --- | --- | --- |
@@ -121,11 +121,11 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 | 3.0.0-3.x.y |Falso/não especificado |400 - solicitação inválida |
 
 ## <a name="next-steps"></a>Próximas etapas
-* [migrar tooAzure um serviço móvel do serviço de aplicativo]
+* [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]
 
 [Clientes de Serviços Móveis]: #MobileServicesClients
 [Clientes de Aplicativos Móveis]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[migrar tooAzure um serviço móvel do serviço de aplicativo]: app-service-mobile-migrating-from-mobile-services.md
+[Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md

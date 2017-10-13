@@ -1,6 +1,6 @@
 ---
-title: "toofill aaaHow os campos específicos para um aplicativo personalizado | Microsoft Docs"
-description: "Orientação sobre como campos toofill out específicas quando você está registrando um aplicativo desenvolvido personalizado com o Azure AD"
+title: "Como preencher campos específicos para um aplicativo personalizado | Microsoft Docs"
+description: "Orientações sobre como preencher campos específicos ao registrar um aplicativo personalizado com o Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 7e07bc45c58542edb3863db5aad7c845f1a1772e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toofill-out-specific-fields-for-a-custom-developed-application"></a>Como toofill os campos específicos para um aplicativo personalizado
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 
-Este artigo fornecerá uma breve descrição de todos os campos disponíveis do hello no formulário de registro de aplicativo hello em Olá [portal do Azure](https://portal.azure.com).
+Este artigo oferece uma breve descrição de todos os campos disponíveis no formulário de registro do aplicativo no [portal do Azure](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Registrar um novo aplicativo
 
--   tooregister um novo aplicativo, navegar toohello [portal do Azure](https://portal.azure.com).
+-   Para registrar um novo aplicativo, navegue até o [portal do Azure](https://portal.azure.com).
 
--   Olá à esquerda no painel de navegação, clique em **do Active Directory do Azure.**
+-   No painel de navegação esquerdo, clique em **Azure Active Directory.**
 
 -   Escolha **Registros do aplicativo** e clique em **Adicionar**.
 
--   Abra esse formulário de registro de aplicativo hello.
+-   Isso abre o formulário de registro do aplicativo.
 
-## <a name="fields-in-hello-application-registration-form"></a>Campos no formulário de registro de aplicativo hello
+## <a name="fields-in-the-application-registration-form"></a>Campos do formulário de registro do aplicativo
 
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | nome de saudação do aplicativo hello. Ele deve ter um mínimo de quatro caracteres.                |
+| Nome             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
 | Tipo de aplicativo | **Aplicativo Web/API Web**: um aplicativo que representa um aplicativo Web, uma API Web ou ambos 
 | |**Nativo**: um aplicativo que pode ser instalado no dispositivo ou no computador de um usuário           |
-| URL de logon      | Olá URL onde os usuários possam entrar toouse seu aplicativo                                  |
+| URL de logon      | A URL em que os usuários podem entrar para usar o aplicativo                                  |
 
-Depois de preencher Olá acima campos, aplicativo hello ser registrado no portal do Azure de saudação e redirecionado toohello página de aplicativo. Olá **configurações** botão no painel de aplicativo hello abre a página de configurações de saudação, que tem mais campos para você toocustomize seu aplicativo. Olá tabela a seguir descreve todos os campos de saudação na página de configurações de saudação. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.
+Após você preencher os campos acima, o aplicativo será registrado no portal do Azure e você será redirecionado para a página do aplicativo. O botão **Configurações** no painel do aplicativo abre a página Configurações, que tem mais campos para você personalizar seu aplicativo. A tabela a seguir descreve todos os campos na página Configurações. Observe que você verá apenas um subconjunto desses campos, dependendo tipo de aplicativo que você criou, um aplicativo Web ou um aplicativo nativo.
 
 | Campo           | Descrição                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID do aplicativo  | Quando você registra um aplicativo, o Azure AD atribui a seu aplicativo uma ID de aplicativo. ID do aplicativo Hello pode ser usado toouniquely identificar seu aplicativo em tooAzure de solicitações de autenticação AD, bem como recursos de tooaccess como Olá API do Graph.                                                          |
-| URI de ID do aplicativo      | Isso deve ser um URI exclusivo, normalmente de forma Olá **https://&lt;locatário\_nome&gt;/&lt;aplicativo\_nome&gt;.** Isso é usado durante o fluxo de concessão de autorização hello, como um recurso de saudação do identificador exclusivo toospecify qual token Olá deve ser emitido para. Ele também se torna Olá 'aud' declaração no token de acesso de saudação emitida. |
-| Carregar novo logotipo | Você pode usar este tooupload um logotipo para seu aplicativo. logotipo de saudação deve estar no formato. bmp,. jpg ou. PNG e tamanho do arquivo hello deve ser menor que 100KB. dimensões de saudação para imagem Olá deverão ser 215 x 215 pixels, com as dimensões da imagem central de 94 x 94 pixels.                                                       |
-| URL da home page   | Isso é Olá URL de logon especificado durante o registro do aplicativo.                                                                                                                                                                                                                                              |
-| URL de logoff      | Essa URL de logout de logout único hello. AD do Azure envia uma solicitação de logout toothis URL quando o usuário Olá limpa toda a sessão com o Azure AD usando qualquer outro aplicativo registrado.                                                                                                                                       |
-| Multilocatário  | Essa opção especifica se o aplicativo hello pode ser usado por vários locatários. Normalmente, isso significa que organizações externas podem usar seu aplicativo registrando-o em seu locatário e conceder acesso tootheir dados de organização.                                                                   |
-| URLs de resposta      | Olá URLs de resposta são pontos de extremidade de saudação onde o AD do Azure retornam todos os tokens que solicita a seu aplicativo.                                                                                                                                                                                                          |
-| URIs de redirecionamento   | Para aplicativos nativos, isso é onde o usuário Olá ser autorização bem-sucedida toofollowing enviados. Verificação AD do Azure que Olá redirecione o URI de solicitação fontes seu aplicativo no hello OAuth 2.0 corresponde a um dos valores de saudação registrado no portal de saudação.                                                            |
-| simétricas            | Você pode criar APIs protegido pelo AD do Azure sem qualquer interação do usuário da web do acesso chaves tooprogrammatically. De saudação \* \*chaves\* \* página, insira uma data de expiração de descrição e hello chave e salvar toogenerate Olá chave. Não se toosave em algum lugar seguro, pois não será capaz de tooaccess-lo mais tarde.             |
+| ID do aplicativo  | Quando você registra um aplicativo, o Azure AD atribui a seu aplicativo uma ID de aplicativo. A ID do aplicativo pode ser usada para identificar exclusivamente o aplicativo nas solicitações de autenticação no Azure AD, além de acessar recursos, como a API do Graph.                                                          |
+| URI de ID do aplicativo      | Deve ser um URI exclusivo, geralmente com o formato **https://&lt;locatário\_nome&gt;/&lt;aplicativo\_nome&gt;.** Ele é usado durante o fluxo de concessão de autorização como um identificador exclusivo para especificar o recurso para o qual o token deve ser emitido. Ele também se torna a declaração "aud" no token de acesso emitido. |
+| Carregar novo logotipo | Pode ser usado para carregar um logotipo para seu aplicativo. O logotipo deve estar no formato .bmp, .jpg ou .png e o tamanho do arquivo deve ser inferior a 100 KB. As dimensões da imagem devem ser 215x215 pixels, com as dimensões da imagem central de 94x94 pixels.                                                       |
+| URL da home page   | É a URL de logon especificada durante o registro do aplicativo.                                                                                                                                                                                                                                              |
+| URL de logoff      | É a URL de logoff único. O Azure AD envia uma solicitação de logoff para essa URL quando o usuário limpa a sessão com o Azure AD usando qualquer outro aplicativo registrado.                                                                                                                                       |
+| Multilocatário  | Esta opção especifica se o aplicativo pode ser usado por vários locatários. Normalmente, isso significa que organizações externas podem usar seu aplicativo registrando-o em seu locatário e concedendo acesso aos dados da organização.                                                                   |
+| URLs de resposta      | As URLs de resposta são pontos de extremidade em que o Azure AD retorna tokens que seu aplicativo solicita.                                                                                                                                                                                                          |
+| URIs de redirecionamento   | Para aplicativos nativos, é para onde o usuário é enviado após uma autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece na solicitação OAuth 2.0 corresponde a um dos valores registrados no portal.                                                            |
+| simétricas            | Você pode criar chaves para acessar programaticamente APIs Web protegidas pelo Azure AD sem interação do usuário. Na página \*\*Chaves\*\*, insira uma descrição da chave e a data de validade e salve para gerar a chave. Certifique-se de salvá-la em algum lugar seguro, pois você não poderá acessá-la depois.             |
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)

@@ -1,6 +1,6 @@
 ---
-title: aaaCreate uma imagem personalizada do Azure DevTest Labs de um arquivo VHD | Microsoft Docs
-description: "Saiba como toocreate uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando Olá portal do Azure"
+title: Criar uma imagem personalizada do Azure DevTest Labs de um arquivo VHD | Microsoft Docs
+description: Saiba como criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o Portal do Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 80af8ea1cb72380f868df0a76c4a0dcd92e63cf5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
 
@@ -30,41 +30,41 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-Olá etapas a seguir orientam você durante a criação de uma imagem personalizada de um arquivo VHD usando Olá portal do Azure:
+As seguintes etapas orientam você durante a criação de uma imagem personalizada de um arquivo VHD usando o Portal do Azure:
 
-1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
+1. Selecione **Mais serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
-1. Saudação de laboratórios, selecione lista laboratório desejado hello.  
+1. Na lista de laboratórios, selecione o laboratório desejado.  
 
-1. Na folha do laboratório hello, selecione **configuração**. 
+1. Na folha do laboratório, selecione **Configuração**. 
 
-1. Laboratório Olá **configuração** folha, selecione **imagens personalizadas (VHDs)**.
+1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)**.
 
-1. Em Olá **imagens personalizadas** folha, selecione **+ adicionar**.
+1. Na folha **Imagens personalizadas**, selecione **+Adicionar**.
 
     ![Imagem de Adicionar Personalizado](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Insira o nome de saudação da imagem personalizada do hello. Esse nome é exibido na lista de saudação de imagens de base ao criar uma VM.
+1. Insira o nome da imagem personalizada. Esse nome é exibido na lista de imagens base durante a criação de uma VM.
 
-1. Insira a descrição de saudação da imagem personalizada do hello. Essa descrição é exibida na lista de saudação de imagens de base ao criar uma VM.
+1. Insira a descrição da imagem personalizada. Essa descrição é exibida na lista de imagens base durante a criação de uma VM.
 
 1. Selecione **VHD**.
 
-1. De saudação **VHD** folha, arquivo VHD selecione Olá desejado.
+1. Na folha **VHD**, selecione o arquivo VHD desejado.
 
-1. Selecione **Okey** tooclose Olá **VHD** folha.
+1. Selecione **OK** para fechar a folha **VHD**.
 
 1. Selecione **Configuração do SO**.
 
-1. Em Olá **configuração do sistema operacional** guia, selecione **Windows** ou **Linux**.
+1. Na guia **Configuração do SO**, selecione **Windows** ou **Linux**.
 
-1. Se **Windows** é selecionada, especifique por meio da caixa de seleção de saudação se *Sysprep* foi executado na máquina de saudação. 
+1. Se **Windows** for selecionado, especifique por meio da caixa de seleção se o *Sysprep* foi executado na máquina. 
 
-1. Selecione **Okey** tooclose Olá **configuração do sistema operacional** folha.
+1. Selecione **OK** para fechar a folha **Configuração do SO**.
 
-1. Selecione **Okey** imagem personalizada do toocreate hello.
+1. Selecione **OK** para criar a imagem personalizada.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -75,4 +75,4 @@ Olá etapas a seguir orientam você durante a criação de uma imagem personaliz
 
 ##<a name="next-steps"></a>Próximas etapas
 
-- [Adicionar um laboratório de tooyour VM](./devtest-lab-add-vm-with-artifacts.md)
+- [Adicionar uma VM ao laboratório](./devtest-lab-add-vm-with-artifacts.md)

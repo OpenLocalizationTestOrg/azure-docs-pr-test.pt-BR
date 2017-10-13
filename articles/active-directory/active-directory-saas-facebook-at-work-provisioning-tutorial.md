@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: configurar o Workplace by Facebook para provisionamento de usuário | Microsoft Docs"
-description: "Saiba como contas de usuário de provisionar e provisionar eliminação de tooautomatically do AD do Azure tooWorkplace pelo Facebook."
+description: "Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o Workplace by Facebook."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,78 +13,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 33d294dbc8f441b29138408b3c9ca41f2141f8af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a347eedbf5511dc83e1bc7721667441cfb87cb59
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento de usuário
 
-Este tutorial mostra Olá tooautomatically necessárias etapas provisionar e desprovisionar contas de usuário do Azure Active Directory (AD do Azure) tooWorkplace pelo Facebook.
+Este tutorial mostra as etapas necessárias para provisionar e cancelar o provisionamento de contas de usuário automaticamente do Azure AD (Azure Active Directory) para o Workplace by Facebook.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o local de trabalho pelo Facebook, você precisa seguir hello:
+Para configurar a integração do Azure AD com o Workplace by Facebook, são necessários os seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Workplace by Facebook habilitada para SSO (logon único)
 
-etapas de saudação tootest neste tutorial, siga estas recomendações:
+Para testar as etapas neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma [oferta de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="assign-users-tooworkplace-by-facebook"></a>Atribuir usuários tooWorkplace pelo Facebook
+## <a name="assign-users-to-workplace-by-facebook"></a>Atribuir usuários ao Workplace by Facebook
 
-O AD do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, são sincronizados apenas Olá usuários e grupos que receberam tooan aplicativo no AD do Azure.
+O Azure AD usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de decidir Configurando e habilitando o Olá provisionamento de serviço, quais usuários e grupos no AD do Azure representam usuários de saudação que precisam acessar tooyour no local de trabalho pelo aplicativo do Facebook. Você pode atribuir essas tooyour de usuários local de trabalho pelo aplicativo do Facebook seguindo Olá instruções [atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar e habilitar o serviço de provisionamento, decida quais usuários e grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo Workplace by Facebook. Depois disso, você pode atribuir esses usuários ao aplicativo Workplace by Facebook seguindo a instruções em [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 >[!IMPORTANT]
->*   Saudação de teste, configuração de provisionamento, atribuindo um único tooWorkplace de usuário do AD do Azure pelo Facebook. Atribua usuários e grupos adicionais mais tarde.
->*   Quando você atribui um tooWorkplace usuário pelo Facebook, você deve selecionar uma função de usuário válido. função de acesso padrão de saudação não funciona para o provisionamento.
+>*   Teste a configuração de provisionamento atribuindo um único usuário do Azure AD ao Workplace by Facebook. Atribua usuários e grupos adicionais mais tarde.
+>*   Ao atribuir um usuário ao Workplace by Facebook, você deve selecionar uma função de usuário válida. A função de Acesso Padrão não funciona para provisionamento.
 
 ## <a name="enable-automated-user-provisioning"></a>Habilitar o provisionamento automatizado de usuários
 
-Esta seção orienta você por meio de conectar sua conta de usuário do AD do Azure toohello provisionamento API do local de trabalho pelo Facebook. Você também aprenderá como tooconfigure Olá provisionamento serviço toocreate, atualizar e desativar contas de usuário atribuído no local de trabalho pelo Facebook. Isso se baseia na atribuição de usuários e grupos no Azure AD.
+Esta seção orienta você sobre como conectar o Azure AD à API de provisionamento de conta de usuário do Workplace by Facebook. Você também aprenderá a configurar o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Workplace by Facebook. Isso se baseia na atribuição de usuários e grupos no Azure AD.
 
 >[!Tip]
->Você também pode escolher tooenabled SSO baseado em SAML para o local de trabalho pelo Facebook, por seguindo as instruções de saudação fornecidas no hello [portal do Azure](https://portal.azure.com). O SSO pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+>Você também pode optar por habilitar o SSO baseado em SAML para o Workplace by Facebook, seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O SSO pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="configure-user-account-provisioning-tooworkplace-by-facebook-in-azure-ad"></a>Configurar a conta de usuário provisionamento tooWorkplace pelo Facebook no AD do Azure
+### <a name="configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Configurar o provisionamento de conta de usuário para o Workplace by Facebook no Azure AD
 
-Azure AD oferece suporte a saudação capacidade tooautomatically sincronizar detalhes da conta de saudação atribuído tooWorkplace usuários pelo Facebook. A sincronização automática habilita o local de trabalho por precisa tooauthorize usuários para acessar, antes dos dados do Facebook tooget Olá-los de tentativa de toosign em para Olá primeira vez. Ele também desprovisiona os usuários do Workplace by Facebook quando o acesso tiver sido revogado no Azure AD.
+O Azure AD dá suporte à capacidade de sincronizar automaticamente os detalhes da conta de usuários atribuídos ao Workplace by Facebook. Essa sincronização automática permite que o Workplace by Facebook obtenha os dados necessários para autorizar o acesso aos usuários, antes que eles tentem se conectar pela primeira vez. Ele também desprovisiona os usuários do Workplace by Facebook quando o acesso tiver sido revogado no Azure AD.
 
-1. Em Olá [portal do Azure](https://portal.azure.com), selecione **Active Directory do Azure** > **aplicativos corporativos** > **todos os aplicativos**.
+1. No [Portal do Azure](https://portal.azure.com), selecione **Azure Active Directory** > **Aplicativos Empresariais** > **Todos os aplicativos**.
 
-2. Se você já tiver configurado o local de trabalho pelo Facebook para SSO, procure sua instância do local de trabalho pelo Facebook usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **no local de trabalho pelo Facebook** na Galeria de aplicativo hello. Selecione **no local de trabalho pelo Facebook** de saudação resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
+2. Se você já tiver configurado o Workplace by Facebook para SSO, pesquise a instância do Workplace by Facebook usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Workplace by Facebook** na galeria de aplicativos. Selecione o **Workplace by Facebook** nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância do local de trabalho pelo Facebook e, em seguida, selecione Olá **provisionamento** guia.
+3. Selecione a instância do Workplace by Facebook e, depois, a guia **Provisionamento**.
 
-4. Definir **modo de provisionamento** muito**automática**. 
+4. Defina o **Modo de Provisionamento** como **Automático**. 
 
     ![Captura de tela das opções de provisionamento do Workplace by Facebook](./media/active-directory-saas-facebook-at-work-provisioning-tutorial/provisioning.png)
 
-5. Em Olá **credenciais de administrador** seção, digite Olá **segredo do Token** e hello **URL do locatário** do local de trabalho pelo administrador do Facebook.
+5. Na seção **Credenciais de Administrador**, insira o **Token Secreto** e a **URL de Locatário** do administrador do Workplace by Facebook.
 
-6. No portal do Azure de Olá, selecione **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour no local de trabalho pelo aplicativo do Facebook. Se conexão Olá falhar, certifique-se de que o seu local de trabalho por conta do Facebook tem permissões de administrador de equipe.
+6. No Portal do Azure, selecione **Testar conexão** para garantir que o Azure AD possa se conectar ao aplicativo Workplace by Facebook. Se a conexão falhar, verifique se sua conta do Workplace by Facebook tem permissões de Administrador de Equipe.
 
-7. Digite hello endereço de email de uma pessoa ou grupo que deve receber notificações de erros de provisionamento no hello **Email de notificação** campo e marque a caixa de seleção de saudação.
+7. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
 8. Selecione **Salvar**.
 
-9. Em Olá mapeamentos, selecione **tooWorkplace sincronizar do Azure Active Directory Users pelo Facebook**.
+9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Workplace by Facebook**.
 
-10. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do AD do Azure tooWorkplace pelo Facebook. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usada na área de trabalho pelo Facebook para operações de atualização. Selecione de todas as alterações, toocommit **salvar**.
+10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o Workplace by Facebook. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Workplace by Facebook em operações de atualização. Para confirmar as alterações, selecione **Salvar**.
 
-11. tooenable Olá serviço de provisionamento do Azure AD para o local de trabalho pelo Facebook, no hello **configurações** seção, altere Olá **Status de provisionamento** muito**em**.
+11. Para habilitar o serviço de provisionamento do Azure AD no Workplace by Facebook, na seção **Configurações,** altere o **Status de provisionamento** para **Ativado**.
 
 12. Selecione **Salvar**.
 
-Para obter mais informações sobre como tooconfigure automático de provisionamento, consulte [Olá Facebook documentação](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
+Para obter mais informações sobre como configurar o provisionamento automático, consulte [a documentação do Facebook](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
 
-Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada tooWorkplace pelo Facebook.
+Agora você pode criar uma conta de teste. Aguarde até 20 minutos para verificar se a conta foi sincronizada com o Workplace by Facebook.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

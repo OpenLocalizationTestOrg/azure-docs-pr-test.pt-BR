@@ -1,6 +1,6 @@
 ---
-title: "aaaManage análise Azure Data Lake usando o SDK .NET do Azure | Microsoft Docs"
-description: "Saiba como toomanage análise Data Lake trabalhos, fontes de dados, os usuários. "
+title: Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure | Microsoft Docs
+description: "Saiba como gerenciar trabalhos, fontes de dados e usuários da Análise Data Lake. "
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.openlocfilehash: 98630ba411823644a8bce1f1b0c1331f689cbb0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como contas de análise do Azure Data Lake toomanage, fontes de dados, os usuários e trabalhos usando Olá SDK .NET do Azure. 
+Saiba como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando o SDK do .NET do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado**.
-* **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**.  Instale-o usando Olá [instalador de plataforma da Web](http://www.microsoft.com/web/downloads/platform.aspx).
+* **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**.  Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Pacotes NuGet necessários**
 
 ### <a name="install-nuget-packages"></a>Instalar os pacotes NuGet
@@ -41,7 +41,7 @@ Saiba como contas de análise do Azure Data Lake toomanage, fontes de dados, os 
 |[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0 – versão prévia|
 |[Microsoft.Azure.Graph.RBAC](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|3.4.0 – versão prévia|
 
-Você pode instalar esses pacotes por meio da linha de comando do NuGet Olá com hello comandos a seguir:
+Você pode instalar esses pacotes por meio da linha de comando do NuGet com os seguintes comandos:
 
 ```
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
@@ -62,7 +62,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 ## <a name="authentication"></a>Autenticação
 
-Você tem várias opções para o logon tooAzure análise Data Lake. Olá trecho a seguir mostra um exemplo de autenticação com a autenticação de usuário interativa com um pop-up.
+Você tem várias opções para fazer logon no Azure Data Lake Analytics. O trecho a seguir mostra um exemplo de autenticação usando a autenticação de usuário interativo com um pop-up.
 
 ``` csharp
 using System;
@@ -100,10 +100,10 @@ public static Program
 }
 ```
 
-Olá código-fonte para **GetCreds_User_Popup** e Olá código para outras opções de autenticação são abordadas em [opções de autenticação do .NET de análise do Data Lake](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)
+O código-fonte para **GetCreds_User_Popup** e o código para outras opções de autenticação são abordados em [Data Lake Analytics .NET authentication options](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options) (Opções de autenticação .NET do Data Lake Analytics)
 
 
-## <a name="create-hello-client-management-objects"></a>Criar objetos de gerenciamento de cliente de saudação
+## <a name="create-the-client-management-objects"></a>Criar objetos de gerenciamento do cliente
 
 ``` csharp
 var resourceManagementClient = new ResourceManagementClient(armCreds) { SubscriptionId = subid };
@@ -128,7 +128,7 @@ graphClient.TenantID = domain;
 
 ### <a name="create-an-azure-resource-group"></a>Criar um grupo de recursos do Azure
 
-Se você já não tiver criado uma, você deve ter toocreate um grupo de recursos do Azure os componentes da análise Data Lake. Você precisa das suas credenciais de autenticação, da ID de assinatura e de um local. Olá mostrado no código a seguir como toocreate um grupo de recursos:
+Se você ainda não criou um, deve ter um Grupo de Recursos do Azure para criar os componentes do Data Lake Analytics. Você precisa das suas credenciais de autenticação, da ID de assinatura e de um local. O código abaixo mostra como criar um grupo de recursos:
 
 ``` csharp
 var resourceGroup = new ResourceGroup { Location = location };
@@ -138,7 +138,7 @@ Para obter mais informações, consulte [Grupos de Recursos do Azure e Data Lake
 
 ### <a name="create-a-data-lake-store-account"></a>Criar uma conta do Repositório Data Lake
 
-Cada conta do ADLA exige uma conta do ADLS. Se você ainda não tiver um toouse, você pode criar uma com hello código a seguir:
+Cada conta do ADLA exige uma conta do ADLS. Se ainda não tiver uma para usar, você poderá criar uma com o código a seguir:
 
 ``` csharp
 var new_adls_params = new DataLakeStoreAccount(location: _location);
@@ -147,7 +147,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 ### <a name="create-a-data-lake-analytics-account"></a>Criar uma conta da Análise Data Lake
 
-saudação de código a seguir cria uma conta ADLS
+O código a seguir cria uma conta do ADLS
 
 ``` csharp
 var new_adla_params = new DataLakeAnalyticsAccount()
@@ -205,9 +205,9 @@ if (adlaClient.Account.Exists(rg, adla))
 }
 ```
 
-### <a name="get-hello-default-data-lake-store-account"></a>Obter a conta de repositório Data Lake saudação padrão
+### <a name="get-the-default-data-lake-store-account"></a>Obter a conta padrão do Data Lake Store
 
-Toda conta do Data Lake Analytics requer uma conta padrão do Data Lake Store. Use essa conta de armazenamento do código toodetermine saudação padrão para uma conta da análise.
+Toda conta do Data Lake Analytics requer uma conta padrão do Data Lake Store. Use este código para determinar a conta de Armazenamento padrão para uma conta do Analytics.
 
 ``` csharp
 if (adlaClient.Account.Exists(rg, adla))
@@ -219,14 +219,14 @@ if (adlaClient.Account.Exists(rg, adla))
 
 ## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
 
-Análise data Lake atualmente suporta Olá fontes de dados a seguir:
+No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
 * [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md)
 
-### <a name="link-tooan-azure-storage-account"></a>Vincular conta de armazenamento do Azure tooan
+### <a name="link-to-an-azure-storage-account"></a>Vincular a uma conta de armazenamento do Azure
 
-Você pode criar links tooAzure contas de armazenamento.
+Você pode criar links para as contas de Armazenamento do Azure.
 
 ``` csharp
 string storage_key = "xxxxxxxxxxxxxxxxxxxx";
@@ -264,16 +264,16 @@ if (adls_accounts != null)
 ```
 
 ### <a name="upload-and-download-folders-and-files"></a>Carregar e baixar arquivos e pastas
-Você pode usar tooupload de objeto do hello repositório Data Lake arquivo sistema cliente gerenciamento e baixar arquivos ou pastas individuais do Azure tooyour computador local, usando Olá métodos a seguir:
+Você pode usar o objeto de gerenciamento de cliente do sistema de arquivos do Data Lake Store para carregar e baixar arquivos ou pastas individuais do Azure para seu computador local, usando os seguintes métodos:
 
 - UploadFolder
 - UploadFile
 - DownloadFolder
 - DownloadFile
 
-primeiro parâmetro Hello desses métodos é o nome de saudação do Olá conta do repositório Data Lake, seguido por parâmetros de caminho de origem hello e caminho de destino de saudação.
+O primeiro parâmetro para esses métodos é o nome da conta de armazenamento do Data Lake Store, seguido de parâmetros para o caminho de origem e o caminho de destino.
 
-saudação de exemplo a seguir mostra como toodownload uma pasta no hello repositório Data Lake.
+O exemplo a seguir mostra como baixar uma pasta no Data Lake Store.
 
 ``` csharp
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
@@ -295,7 +295,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### <a name="verify-azure-storage-account-paths"></a>Verificar os caminhos da conta de Armazenamento do Azure
-Hello código a seguir verifica se existe uma conta de armazenamento do Azure (storageAccntName) em uma conta da análise Data Lake (analyticsAccountName), e se existe um contêiner (containerName) na conta de armazenamento do Azure hello.
+O código a seguir verifica se existe uma conta de Armazenamento do Azure (storageAccntName) em uma conta do Data Lake Analytics (analyticsAccountName) e se existe um contêiner (containerName) na conta de Armazenamento do Azure.
 
 ``` csharp
 string storage_account = "mystorageaccount";
@@ -305,10 +305,10 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## <a name="manage-catalog-and-jobs"></a>Gerenciar catálogo e trabalhos
-Olá DataLakeAnalyticsCatalogManagementClient fornece métodos para gerenciar o banco de dados do SQL Olá fornecido para cada conta da análise Azure Data Lake. Olá DataLakeAnalyticsJobManagementClient fornece métodos toosubmit e gerenciar os trabalhos são executados no banco de dados de saudação com scripts U-SQL.
+O objeto DataLakeAnalyticsCatalogManagementClient fornece métodos para gerenciar o banco de dados SQL fornecido para cada conta do Azure Data Lake Analytics. O DataLakeAnalyticsJobManagementClient fornece métodos para enviar e gerenciar os trabalhos executados no banco de dados com os scripts U-SQL.
 
 ### <a name="list-databases-and-schemas"></a>Listar bancos de dados e esquemas
-Entre Olá várias coisas que você pode listar, hello mais comuns são bancos de dados e seu esquema. Olá código a seguir obtém uma coleção de bancos de dados e, em seguida, enumera esquema Olá para cada banco de dados.
+Entre as várias coisas que você pode listar, as mais comuns são os bancos de dados e seu esquema. O código a seguir obtém uma coleção de bancos de dados, em seguida, enumera o esquema de cada banco de dados.
 
 ``` csharp
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
@@ -325,7 +325,7 @@ foreach (var db in databases)
 ```
 
 ### <a name="list-table-columns"></a>Listar colunas da tabela
-Olá código a seguir mostra como tooaccess Olá banco de dados com um colunas Data Lake análise Catalog gerenciamento cliente toolist Olá em uma tabela especificada.
+O código a seguir mostra como acessar o banco de dados com um cliente de gerenciamento de Catálogo do Data Lake Analytics para listar as colunas em uma tabela especificada.
 
 ``` csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
@@ -352,7 +352,7 @@ foreach (USqlTableColumn utc in columns)
 ```
 
 ### <a name="list-failed-jobs"></a>Listar trabalhos com falha
-Olá código a seguir lista informações sobre trabalhos que falharam.
+O código a seguir lista informações sobre os trabalhos que falharam.
 
 ``` csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
@@ -364,7 +364,7 @@ foreach (var j in jobs)
 ```
 
 ### <a name="list-pipelines"></a>Listar pipelines
-Olá código a seguir lista informações sobre cada pipeline de trabalhos enviados toohello conta.
+O código a seguir lista informações sobre cada pipeline de trabalhos enviados para a conta.
 
 ``` csharp
 var pipelines = adlaJobClient.Pipeline.List(adla);
@@ -375,7 +375,7 @@ foreach (var p in pipelines)
 ```
 
 ### <a name="list-recurrences"></a>Listar recorrências
-Olá código a seguir lista informações sobre cada recorrência de trabalhos enviados toohello conta.
+O código a seguir lista informações sobre cada recorrência de trabalhos enviados para a conta.
 
 ``` csharp
 var recurrences = adlaJobClient.Recurrence.List(adla);
@@ -387,13 +387,13 @@ foreach (var r in recurrences)
 
 ## <a name="common-graph-scenarios"></a>Cenários comuns de gráfico
 
-### <a name="look-up-user-in-hello-aad-directory"></a>Pesquisar o usuário no diretório de saudação do AAD
+### <a name="look-up-user-in-the-aad-directory"></a>Pesquisar o usuário no diretório do AAD
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
-### <a name="get-hello-objectid-of-a-user-in-hello-aad-directory"></a>Obter Olá ObjectId do usuário no diretório de saudação do AAD
+### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>Obter o ObjectId de um usuário no diretório do AAD
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
@@ -401,10 +401,10 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## <a name="manage-compute-policies"></a>Gerenciar políticas de computação
-Olá DataLakeAnalyticsAccountManagementClient fornece métodos para gerenciar Olá computação políticas para uma conta da análise Data Lake.
+O objeto DataLakeAnalyticsAccountManagementClient fornece métodos para gerenciar as políticas de computação para uma conta do Data Lake Analytics.
 
 ### <a name="list-compute-policies"></a>Listar políticas de computação
-saudação de código a seguir recupera uma lista de políticas de computação para uma conta da análise Data Lake.
+O código a seguir recupera uma lista de políticas de computação para uma conta do Data Lake Analytics.
 
 ``` csharp
 var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
@@ -415,7 +415,7 @@ foreach (var p in policies)
 ```
 
 ### <a name="create-a-new-compute-policy"></a>Criar uma nova política de computação
-saudação de código a seguir cria uma nova política de computação para uma conta da análise Data Lake, configuração Olá máximo Austrália disponível toohello especificado too50 de usuário e too250 de prioridade do trabalho mínimo hello.
+O código a seguir cria uma nova política de computação para uma conta do Data Lake Analytics, definindo a quantidade máxima de AUs disponíveis para o usuário especificado como 50 e a prioridade mínima de trabalho como 250.
 
 ``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";

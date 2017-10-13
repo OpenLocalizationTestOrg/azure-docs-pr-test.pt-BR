@@ -1,6 +1,6 @@
 ---
-title: "referência de aaaTile do Designer de exibição na análise de logs do OMS | Microsoft Docs"
-description: "Designer de exibição na análise de Log permite que você toocreate personalizado modos de exibição no console do OMS Olá que contêm diferentes visualizações de dados no repositório do OMS hello. Este artigo fornece uma referência de configurações de saudação para cada um dos blocos de saudação toouse disponíveis em exibições personalizadas."
+title: "Referência de bloco do Criador de Modos de Exibição no OMS Log Analytics | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,168 +14,168 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.openlocfilehash: 4706abb16b8a3719f5dbe8c89cd61739391ab8f7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do Criador de Modos de Exibição do Log Analytics
-Olá Designer de exibição de análise de Log permite que você toocreate personalizado modos de exibição no console do OMS Olá que contêm diferentes visualizações de dados no repositório do OMS hello. Este artigo fornece uma referência de configurações de saudação para cada um dos blocos de saudação toouse disponíveis em exibições personalizadas.
+O Designer de Modos de Exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas.
 
-Outros artigos disponíveis para o Designer de modo de exibição:
+Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
-* [Exibir Designer](log-analytics-view-designer.md) -visão geral da saudação Designer de exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de parte da visualização](log-analytics-view-designer-parts.md) -referência de configurações de saudação de cada Olá blocos toouse disponível em exibições personalizadas.
+* [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
+* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas.
 
 >[!NOTE]
-> Se o seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), consultas em todos os modos de exibição devem ser gravada em Olá [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho de saudação será automtically convertido.
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
-Olá, tabela a seguir lista tipos diferentes de saudação de blocos disponíveis no hello Designer de exibição.  Olá seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
+A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de Modos de Exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 
 | Bloco | Descrição |
 |:--- |:--- |
 | [Número](#number-tile) |Número único mostrando a contagem de registros de uma consulta. |
 | [Dois números](#two-numbers-tile) |Dois números únicos mostrando contagens de registros de duas consultas diferentes. |
-| [Rosca](#donut-tile) |Gráfico de rosca com base em uma consulta com um valor resumido na Central de saudação. |
+| [Rosca](#donut-tile) |Gráfico de rosca com base em uma consulta com um valor de resumo no centro. |
 | [Gráfico de linhas e balão](#line-chart-amp-callout-tile) |Gráfico de linhas com base em uma consulta e um balão com um valor de resumo. |
 | [Gráfico de linhas](#line-chart-tile) |Gráfico de linhas com base em uma consulta. |
 | [Duas linhas do tempo](#two-timelines-tile) |Gráfico de colunas com duas séries, cada uma com base em uma consulta separada. |
 
 ## <a name="number-tile"></a>Bloco Número
-Olá **número** lado a lado exibe um único número mostrando a contagem de saudação de registros de uma consulta de log e um rótulo.
+O bloco **Número** exibe um único número mostrando a contagem de registros de uma consulta de log e um rótulo.
 
 ![Bloco Número](media/log-analytics-view-designer/tile-number.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | **Bloco** | |
-| Legenda |Toodisplay de texto em valor hello. |
-| Consultar |Toorun de consulta.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
+| Legenda |Texto a exibir abaixo do valor. |
+| Consultar |Consulta a executar.  A contagem do número de registros retornados pela consulta será exibida. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="two-numbers-tile"></a>Bloco Dois Números
-Olá **número dois** lado a lado exibe dois números mostrando a contagem de saudação registros das duas consultas de log diferente e um rótulo para cada um.
+Bloco **Dois Números** exibe dois números mostrando a contagem de registros de um rótulo e duas consultas de log diferentes para cada um.
 
 ![Bloco Dois Números](media/log-analytics-view-designer/tile-two-numbers.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | **Primeiro Bloco** | |
-| Legenda |Toodisplay de texto em valor hello. |
-| Consultar |Toorun de consulta.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
+| Legenda |Texto a exibir abaixo do valor. |
+| Consultar |Consulta a executar.  A contagem do número de registros retornados pela consulta será exibida. |
 | **Segundo Bloco** | |
-| Legenda |Toodisplay de texto em valor hello. |
-| Consultar |Toorun de consulta.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
+| Legenda |Texto a exibir abaixo do valor. |
+| Consultar |Consulta a executar.  A contagem do número de registros retornados pela consulta será exibida. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="donut-tile"></a>Bloco Rosca
-Olá **rosca** lado a lado exibe um único número resumido de uma coluna de valor em uma consulta de log.  rosca Olá exibe graficamente os resultados de registros de três principais hello.
+O bloco **Rosca** exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais.
 
 ![Bloco Rosca](media/log-analytics-view-designer/tile-donut.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | **Rosca** | |
-| Consultar |Consulta toorun para rosca hello.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave. |
+| Consultar |Consulta a executar para a rosca.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados. |
 | **Rosca** |**> Centro** |
-| Texto |Toodisplay de texto em valor hello dentro Olá rosca. |
-| Operação |Olá tooperform operação em Olá propriedade toosummarize tooa único valor.<br><br>-Soma: Adicione valores de saudação de todos os registros com o valor da propriedade hello.<br>-Percentual: A porcentagem de valores hello somado de registros com hello propriedade valor comparado toohello somado valores de todos os registros. |
-| Valores de resultado usados na operação do centro |Opcionalmente, clique em Olá tooadd de sinal de mais um ou mais valores.  resultados de saudação de consulta hello serão toorecords limitado com valores de propriedade Olá que você especificar.  Se nenhum valor for adicionado, que todos os registros são incluídos na consulta de saudação. |
+| Texto |Texto a exibir abaixo do valor dentro da rosca. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<br><br>– Soma: adicione os valores de todos os registros com o valor da propriedade.<br>– Percentual: o percentual dos valores somados de registros com o valor da propriedade em comparação com os valores somados de todos os registros. |
+| Valores de resultado usados na operação do centro |Opcionalmente, clique no sinal de adição para adicionar um ou mais valores.  Os resultados da consulta serão limitados aos registros com os valores de propriedade que você especificar.  Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Rosca** |**> Opções adicionais** |
-| Cores |Olá toodisplay de cor para cada uma das três propriedades principais de saudação.  Se você quiser cores alternativas toospecify para valores de propriedade específicos, use avançadas de mapeamento de cores. |
-| Mapeamento de Cores Avançado |Exibe uma cor para valores de propriedade específicos.  Se valor Olá especificado está em Olá três principais, cor alternativa Olá é exibido em vez de cores padrão hello.  Se Olá propriedade não está no hello três principais, cor da saudação não é exibida. |
+| Cores |A cor a ser exibida para cada uma das três propriedades principais.  Se você quiser especificar cores alternativas para valores de propriedade específicos, use o Mapeamento de Cores Avançado. |
+| Mapeamento de Cores Avançado |Exibe uma cor para valores de propriedade específicos.  Se o valor especificado estiver entre os três principais, a cor alternativa será exibida em vez da cor padrão.  Se a propriedade não estiver entre as três principais, a cor não será exibida. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="line-chart-tile"></a>Bloco Gráfico de linhas
-Olá **gráfico de linhas** lado a lado exibe um gráfico de linha com várias séries de uma consulta de log ao longo do tempo.  
+O bloco **Gráfico de linhas** exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  
 
 ![Bloco Gráfico de Linhas e Balão](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | **Gráfico de Linhas** | |
-| Consultar |Toorun de consulta para o gráfico de linha de saudação.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave.  Se a consulta Olá usa Olá **intervalo** palavra-chave e Olá eixo x do gráfico de saudação usará esse intervalo de tempo.  Se a consulta Olá não incluir Olá **intervalo** intervalos de palavra-chave e por hora são usados para Olá eixo x. |
+| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione toouse uma escala logarítmica de saudação eixo y. |
-| Unidades |Especifique unidades Olá Olá valores retornados pela consulta hello.  Essas informações são rótulos toodisplay usadas no gráfico de saudação que indica os tipos de valor hello e, opcionalmente, para converter valores hello.  Olá **tipo de unidade** Especifica a categoria de saudação da unidade de saudação e define Olá **tipo de unidade atual** valores que estão disponíveis.  Se você selecionar um valor em **converter** valores numéricos Olá são convertidos de saudação **unidade atual** digite toohello **converter** tipo. |
-| Rótulo Personalizado |Texto toodisplay Olá eixo Y próxima toohello rótulo para o tipo de unidade de saudação.  Se nenhum nome for especificado, somente o tipo de unidade de saudação é exibido. |
+| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** Especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
+| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="line-chart--callout-tile"></a>Bloco Gráfico de linhas e balão
-Olá **texto explicativo & gráfico de linha** lado a lado exibe um gráfico de linha com várias séries de uma consulta de log com o tempo e um texto explicativo com um valor resumido.  
+O bloco **Gráfico de linhas e balão** exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  
 
 ![Bloco Gráfico de Linhas e Balão](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | **Gráfico de Linhas** | |
-| Consultar |Toorun de consulta para o gráfico de linha de saudação.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave.  Se a consulta Olá usa Olá **intervalo** palavra-chave e Olá eixo x do gráfico de saudação usará esse intervalo de tempo.  Se a consulta Olá não incluir Olá **intervalo** intervalos de palavra-chave e por hora são usados para Olá eixo x. |
+| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Balão** |
-| Balão |Toodisplay de texto do título acima do valor de texto explicativo hello. |
-| Nome da Série |Valor da propriedade de saudação série toouse para o valor de texto explicativo hello.  Se nenhuma série for fornecido, todos os registros da consulta hello são usados. |
-| Operação |Olá tooperform operação Olá valor toosummarize tooa único valor da propriedade de texto explicativo de saudação.<br>-Média: Média do valor de saudação de todos os registros.<br><br>-Contagem: Contagem de todos os registros retornados pela consulta hello.<br>-Último exemplo: O valor do último intervalo de saudação incluído no gráfico de saudação.<br>-Max: O valor de máximo de intervalos de saudação incluídos no gráfico de saudação.<br>-Mín: O valor de mínimo de intervalos de saudação incluídos no gráfico de saudação.<br>-Soma: A soma do valor de saudação de todos os registros. |
+| Balão |Título    Texto a ser exibido acima do valor do balão. |
+| Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão.  Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br>– Média: média do valor de todos os registros.<br><br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico.<br>– Mín.: o valor mínimo dos intervalos incluídos no gráfico.<br>– Soma: soma dos valores de todos os registros. |
 | **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione toouse uma escala logarítmica de saudação eixo y. |
-| Unidades |Especifique unidades Olá Olá valores retornados pela consulta hello.  Essas informações são rótulos toodisplay usadas no gráfico de saudação que indica os tipos de valor hello e, opcionalmente, para converter valores hello.  Olá **tipo de unidade** Especifica a categoria de saudação da unidade de saudação e define Olá **tipo de unidade atual** valores que estão disponíveis.  Se você selecionar um valor em **converter** valores numéricos Olá são convertidos de saudação **unidade atual** digite toohello **converter** tipo. |
-| Rótulo Personalizado |Texto toodisplay Olá eixo Y próxima toohello rótulo para o tipo de unidade de saudação.  Se nenhum nome for especificado, somente o tipo de unidade de saudação é exibido. |
+| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** Especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
+| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="two-timelines-tile"></a>Bloco Duas linhas do tempo
-Olá **dois cronogramas** lado a lado exibe os resultados de saudação de duas consultas de log ao longo do tempo, como gráficos de colunas.  Um balão é exibido para cada série.  
+O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log ao longo do tempo como gráficos de colunas.  Um balão é exibido para cada série.  
 
 ![Bloco Duas linhas do tempo](media/log-analytics-view-designer/tile-two-timelines.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Descrição |Texto toodisplay em nome do bloco hello. |
+| Nome |Texto a exibir na parte superior do bloco. |
+| Descrição |Texto exibido abaixo do nome do bloco. |
 | Primeiro Gráfico | |
-| Legenda |Toodisplay de texto em texto explicativo de saudação primeira série de saudação. |
-| Cor |Cor toouse para colunas de saudação na primeira série do hello. |
-| Consulta de Gráfico |Consulta toorun primeira série de saudação.  Contagem de saudação do número de saudação de registros em cada intervalo de tempo será representada por colunas de saudação do gráfico. |
-| Operação |Olá tooperform operação Olá valor toosummarize tooa único valor da propriedade de texto explicativo de saudação.<br><br>-Média: Média do valor de saudação de todos os registros.<br>-Contagem: Contagem de todos os registros retornados pela consulta hello.<br>-Último exemplo: O valor do último intervalo de saudação incluído no gráfico de saudação.<br>-Max: O valor de máximo de intervalos de saudação incluídos no gráfico de saudação. |
+| Legenda |Texto exibido sob o balão para a primeira série. |
+| Cor |Cor a usar para as colunas na primeira série. |
+| Consulta de Gráfico |Consulta a executar para a primeira série.  A contagem do número de registros em cada intervalo de tempo será representada pelas colunas do gráfico. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Média: média do valor de todos os registros.<br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico. |
 | **Segundo Gráfico** | |
-| Legenda |Toodisplay de texto em texto explicativo de saudação para a segunda série de saudação. |
-| Cor |Cor toouse para colunas de saudação na segunda série de saudação. |
-| Consulta de Gráfico |Toorun de consulta para a segunda série de saudação.  Contagem de saudação do número de saudação de registros em cada intervalo de tempo será representada por colunas de saudação do gráfico. |
-| Operação |Olá tooperform operação Olá valor toosummarize tooa único valor da propriedade de texto explicativo de saudação.<br><br>-Média: Média do valor de saudação de todos os registros.<br>-Contagem: Contagem de todos os registros retornados pela consulta hello.<br>-Último exemplo: O valor do último intervalo de saudação incluído no gráfico de saudação.<br>-Max: O valor de máximo de intervalos de saudação incluídos no gráfico de saudação. |
+| Legenda |Texto exibido sob o balão para a segunda série. |
+| Cor |Cor a usar para as colunas na segunda série. |
+| Consulta de Gráfico |Consulta a executar para a segunda série.  A contagem do número de registros em cada intervalo de tempo será representada pelas colunas do gráfico. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Média: média do valor de todos os registros.<br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico. |
 | **Avançado** |**> Verificação do fluxo de dados** |
-| habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco de saudação.  Isso fornece uma mensagem alternativa se os dados não estão disponíveis para o bloco de saudação.  Isso está geralmente usado tooprovide uma mensagem período Olá temporária quando exibir hello está instalado e os dados vêm disponíveis. |
-| Consultar |Consulta toorun toocheck se os dados estão disponíveis para exibição de saudação.  Se a consulta de saudação não retorna nenhum resultado, será exibida uma mensagem em vez do valor de saudação da consulta principal hello. |
-| Mensagem |Mensagem toodisplay se a consulta de verificação do fluxo de dados de saudação não retorna nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
+| Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
+| Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
+| Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) toosupport consultas Olá lado a lado.
-* Adicionar [visualização partes](log-analytics-view-designer-parts.md) tooyour modo de exibição personalizado.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas em blocos.
+* Adicione [Componentes de Visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.

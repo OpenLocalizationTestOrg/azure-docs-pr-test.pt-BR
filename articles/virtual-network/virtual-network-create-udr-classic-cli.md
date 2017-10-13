@@ -1,6 +1,6 @@
 ---
-title: "aaaControl roteamento em uma rede Virtual do Azure - CLI - clássico | Microsoft Docs"
-description: "Saiba como toocontrol roteamento em VNets usando Olá CLI do Azure no modelo de implantação clássico Olá"
+title: "Controlar o roteamento em uma rede virtual do Azure - CLI - Clássico | Microsoft Docs"
+description: "Aprenda a controlar o roteamento em VNets usando o Azure CLI no modelo de implantação clássico"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 07dde573f1a605bf280156c261d51e213ede0cdc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-hello-azure-cli"></a>Roteamento de controle e use dispositivos virtuais (clássicos) usando Olá CLI do Azure
+# <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -34,18 +34,18 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artigo aborda o modelo de implantação clássico hello. Você também pode [roteamento de controle e usar dispositivos virtuais no modelo de implantação do Gerenciador de recursos de saudação](virtual-network-create-udr-arm-cli.md).
+Este artigo aborda o modelo de implantação clássico. Você também pode [controlar o roteamento e usar dispositivos virtuais no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-comandos de CLI do Azure de exemplo Hello abaixo esperam um ambiente simples já criado com base no cenário de saudação acima. Comandos de saudação toorun conforme elas são exibidas neste documento, criar ambiente Olá mostrado na [criar uma rede virtual (clássica) usando Olá CLI do Azure](virtual-networks-create-vnet-classic-cli.md).
+Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, crie o ambiente descrito em [criar uma VNet (clássica) usando o Azure CLI](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Criar hello UDR para a sub-rede de front-end Olá
-tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-end de saudação com base no cenário de saudação acima, siga as etapas de saudação abaixo.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Criar o UDR para a sub-rede de front-end
+Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
 
-1. Execute Olá modo de tooclassic de tooswitch de comando a seguir:
+1. Execute o seguinte comando para alternar para o modo clássico:
 
     ```azurecli
     azure config mode asm
@@ -55,7 +55,7 @@ tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-en
 
         info:    New mode is asm
 
-2. Execute Olá toocreate de comando a seguir uma tabela de rotas para sub-rede front-end hello:
+2. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de front-end:
 
     ```azurecli
     azure network route-table create -n UDR-FrontEnd -l uswest
@@ -72,9 +72,9 @@ tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-en
    
     Parâmetros:
    
-   * **-l (ou --location)**. Região do Azure onde hello novo NSG será criado. Para o nosso cenário, *westus*.
-   * **-n (or --name)**. Nome para Olá novo NSG. Para o nosso cenário, *NSG-FrontEnd*.
-3. Executar Olá após o comando toocreate uma rota no toosend de tabela de rota Olá todo o tráfego destinado toohello sub-rede de back-end (192.168.2.0/24) toohello **FW1** VM (192.168.0.4):
+   * **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
+   * **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
+3. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
@@ -89,11 +89,11 @@ tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-en
    
     Parâmetros:
    
-   * **-r (ou --route-table-name)**. Nome da tabela de rota Olá onde rota Olá será adicionada. Para nosso cenário, *UDR-FrontEnd*.
-   * **-a (ou --address-prefix)**. Prefixo de endereço de sub-rede Olá onde os pacotes são destinados a. Para nosso cenário, *192.168.2.0/24*.
+   * **-r (ou --route-table-name)**. Nome da tabela de rotas à qual a rota será adicionada. Para nosso cenário, *UDR-FrontEnd*.
+   * **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para nosso cenário, *192.168.2.0/24*.
    * **-t (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
    * **-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
-4. Tabela de rotas Olá tooassociate criada com hello comando a seguir de execução Olá **front-end** sub-rede:
+4. Execute o comando a seguir para associar a tabela de rotas criada à sub-rede de **FrontEnd**:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
@@ -102,7 +102,7 @@ tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-en
     Saída:
    
         info:    Executing command network vnet subnet route-table add
-        info:    Looking up hello subnet "FrontEnd"
+        info:    Looking up the subnet "FrontEnd"
         info:    Looking up network configuration
         info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
         info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
@@ -114,25 +114,25 @@ tabela de rotas toocreate hello e rotas necessárias para a sub-rede de front-en
    
     Parâmetros:
    
-   * **-t (ou --vnet-name)**. Nome de rede virtual onde está localizada a sub-rede de saudação do hello. Para o nosso cenário, *TestVNet*.
-   * **-n (ou --subnet-name**. Nome da tabela de rotas de Olá Olá sub-rede será adicionado ao. Para o nosso cenário, *FrontEnd*.
+   * **-t (ou --vnet-name)**. Nome da VNet na qual a sub-rede está localizada. Para nosso cenário, *TestVNet*.
+   * **-n (ou --subnet-name**. Nome da sub-rede à qual a tabela de rotas será adicionada. Para o nosso cenário, *FrontEnd*.
 
-## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Criar hello UDR para a sub-rede de back-end Olá
-tabela de rotas toocreate hello e rota necessários para a sub-rede de back-end de saudação com base no cenário de hello, Olá concluir as etapas a seguir:
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar UDR para a sub-rede de back-end
+Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário, siga as seguintes etapas:
 
-1. Execute Olá toocreate de comando a seguir uma tabela de rotas para sub-rede de back-end hello:
+1. Execute o comando a seguir para criar uma tabela de rota para a sub-rede de back-end:
 
     ```azurecli
     azure network route-table create -n UDR-BackEnd -l uswest
     ```
 
-2. Executar Olá após o comando toocreate uma rota no toosend de tabela de rota Olá todo o tráfego destinado toohello sub-rede front-end (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):
+2. Execute o comando a seguir para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para a VM **FW1** (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-3. Execução hello após a tabela de rotas do comando tooassociate Olá com hello **back-end** sub-rede:
+3. Execute o comando a seguir para associar a tabela de rotas à sub-rede de **BackEnd**:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd

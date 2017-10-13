@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Kindling | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Kindling."
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Kindling."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 32ad6116c2690aea2060a2dd56e052f233ad7ae3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Tutorial: integração do Active Directory do Azure com o Kindling
 
-Neste tutorial, você aprenderá como toointegrate Kindling com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprende a integrar o Kindling ao Azure AD (Azure Active Directory).
 
-Integrando Kindling com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Kindling ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooKindling
-- Você pode habilitar seu usuários tooautomatically get conectado tooKindling (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- Você pode controlar no AD do Azure quem tem acesso ao Kindling
+- Você pode permitir que seus usuários façam logon automaticamente no Kindling (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte. [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-integração de tooconfigure AD do Azure com Kindling, você precisa Olá itens a seguir:
+Para configurar a integração do AD do Azure ao Kindling, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Kindling
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Kindling da Galeria de saudação
+1. Adicionando o Kindling da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-kindling-from-hello-gallery"></a>Adicionando Kindling da Galeria de saudação
-integração de saudação do tooconfigure do Kindling no AD do Azure, você precisa tooadd Kindling da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-kindling-from-the-gallery"></a>Adicionando o Kindling da galeria
+Para configurar a integração do Kindling ao AD do Azure, você precisará adicionar o Kidling da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**tooadd Kindling da Galeria hello, executar Olá etapas a seguir:**
+**Para adicionar o Kidling da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **Kindling**.
+4. Na caixa de pesquisa, digite **Kindling**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_search.png)
 
-5. No painel de resultados de saudação, selecione **Kindling**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Kindling** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Kindling, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Kindling é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Kindling necessidades toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Kindling é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Kindling.
 
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **nome de usuário** em Kindling.
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no AD do Azure ao valor do **Nome de Usuário** no Kindling.
 
-tooconfigure e teste de logon único do AD do Azure com Kindling, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do AD do Azur com o Kindling, conclua os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste Kindling](#creating-a-kindling-test-user)**  -toohave um equivalente do Britta Simon em Kindling que é vinculado a representação toohello AD do Azure do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Como criar um usuário de teste do Kindling](#creating-a-kindling-test-user)** – para ter um equivalente de Brenda Fernandes no Kindling vinculado à representação do usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Kindling.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Kindling.
 
-**tooconfigure logon único do AD do Azure com Kindling, execute Olá etapas a seguir:**
+**Para configurar o logon único do AD do Azure AD com o Kindling, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **Kindling** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Kindling**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_samlbase.png)
 
-3. Em Olá **Kindling domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do Kindling**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_url.png)
 
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.kindlingapp.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.kindlingapp.com`
 
-    b.  Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b.  Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE] 
-    > Esses valores não são Olá real. Atualize esses valores com URL de logon real hello e o identificador. Entre em contato com [Kindling a equipe de suporte](mailto:support@kindlingapp.com) tooget esses valores.
+    > Esses não são os valores reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Kindling](mailto:support@kindlingapp.com) para obter esses valores.
  
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_certificate.png) 
 
@@ -125,70 +125,70 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
 
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_general_400.png)
 
-6. Em Olá **Kindling configuração** seção, clique em **configurar Kindling** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do Kindling**, clique em **Configurar Kindling** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_configure.png) 
 
-7. tooconfigure logon único no **Kindling** lado, você precisa toosend Olá baixado **certificado (Base64)**, **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML**muito[a equipe de suporte Kindling](mailto:support@kindlingapp.com).
+7. Para configurar o logon único no lado do **Kindling**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Kindling](mailto:support@kindlingapp.com).
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-kindling-test-user"></a>Criar um usuário de teste Kindling
 
-Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no Kindling. O Kindling dá suporte ao provisionamento just-in-time. Você já habilitou isso em [Configurar o logon único do AD do Azure](#configuring-azure-ad-single-sign-on).
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Kindling. O Kindling dá suporte ao provisionamento just-in-time. Você já habilitou isso em [Configurar o logon único do AD do Azure](#configuring-azure-ad-single-sign-on).
 
 Não há itens de ação para você nesta seção.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooKindling.
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Kindling.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooKindling, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Kindling, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Kindling**.
+2. Na lista de aplicativos, selecione **Kindling**.
 
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -196,7 +196,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -204,13 +204,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Kindling Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Kindling aplicativo. 
+Quando você clica no bloco Kindling no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Kindling. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

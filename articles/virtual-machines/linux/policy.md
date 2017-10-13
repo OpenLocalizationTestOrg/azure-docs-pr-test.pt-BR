@@ -1,6 +1,6 @@
 ---
-title: "segurança de aaaEnforce com as políticas em VMs do Linux no Azure | Microsoft Docs"
-description: "Como tooapply tooan uma diretiva Máquina Virtual do Azure Resource Manager Linux"
+title: "Impor a segurança com políticas em VMs do Linux no Azure | Microsoft Docs"
+description: "Como aplicar uma política a uma Máquina Virtual Windows Linux do Azure Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 5abd0c937578aba7e72b62c65b4eef9a9737aa2a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 58eaab4fa03afc1e6a5e38bef691cce62a921ea9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="apply-policies-toolinux-vms-with-azure-resource-manager"></a>Aplicar políticas tooLinux VMs com o Gerenciador de recursos do Azure
-Usando políticas, uma organização pode aplicar várias convenções e regras em toda a empresa hello. Imposição de comportamento de saudação desejado pode ajudar a reduzir o risco ao toohello sucesso da organização de saudação de contribuição. Neste artigo, descreveremos como você pode usar o comportamento do Gerenciador de recursos do Azure políticas toodefine Olá desejado para as máquinas virtuais de sua organização.
+# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs Linux com o Azure Resource Manager
+Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização. Neste artigo, descrevemos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado das Máquinas Virtuais de sua organização.
 
-Para toopolicies uma introdução, consulte [recursos de toomanage de política de uso e controlar o acesso](../../azure-resource-manager/resource-manager-policy.md).
+Para obter uma introdução às políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](../../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="permitted-virtual-machines"></a>Máquinas virtuais permitidas
-tooensure que máquinas virtuais para a sua organização são compatíveis com um aplicativo, você pode restringir Olá permitido sistemas operacionais. Olá política de exemplo a seguir, você permitir somente Ubuntu 14.04.2-LTS as máquinas virtuais toobe criado.
+Para garantir que as máquinas virtuais de sua organização são compatíveis com um aplicativo, você pode restringir os sistemas operacionais permitidos. No exemplo de política a seguir, você permite que apenas Máquinas Virtuais Ubuntu 14.04.2-LTS sejam criadas.
 
 ```json
 {
@@ -79,7 +79,7 @@ tooensure que máquinas virtuais para a sua organização são compatíveis com 
 }
 ```
 
-Use uma saudação de toomodify curinga anterior política tooallow qualquer imagem Ubuntu LTS: 
+Use um curinga para modificar a política anterior a fim de permitir qualquer imagem do Ubuntu LTS: 
 
 ```json
 {
@@ -92,7 +92,7 @@ Para obter informações sobre campos de política, consulte [Aliases de políti
 
 ## <a name="managed-disks"></a>Discos gerenciados
 
-toorequire Olá uso de discos gerenciados, use Olá diretiva a seguir:
+Para exigir o uso de discos gerenciados, use a seguinte política:
 
 ```json
 {
@@ -140,9 +140,9 @@ toorequire Olá uso de discos gerenciados, use Olá diretiva a seguir:
 
 ## <a name="images-for-virtual-machines"></a>Imagens de máquinas virtuais
 
-Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente. Você pode especificar o grupo de recursos de saudação que contém imagens Olá aprovado ou imagens aprovados específicas de saudação.
+Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente. Você pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
 
-saudação de exemplo a seguir exige imagens de um grupo de recursos aprovado:
+O exemplo a seguir exige imagens de um grupo de recursos aprovado:
 
 ```json
 {
@@ -169,7 +169,7 @@ saudação de exemplo a seguir exige imagens de um grupo de recursos aprovado:
 } 
 ```
 
-Olá exemplo a seguir especifica a imagem de saudação aprovada IDs:
+O exemplo a seguir especifica as IDs de imagem aprovadas:
 
 ```json
 {
@@ -180,7 +180,7 @@ Olá exemplo a seguir especifica a imagem de saudação aprovada IDs:
 
 ## <a name="virtual-machine-extensions"></a>Extensões de Máquina Virtual
 
-Talvez você queira tooforbid o uso de certos tipos de extensões. Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizadas. Olá mostrado no exemplo a seguir como tooblock uma extensão específica. Ele usa o publicador e tipo toodetermine tooblock qual extensão.
+Talvez você queira proibir o uso de determinados tipos de extensões. Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizadas. O exemplo a seguir mostra como bloquear uma extensão específica. Ele usa o publicador e o tipo para determinar qual extensão será bloqueada.
 
 ```json
 {
@@ -209,6 +209,6 @@ Talvez você queira tooforbid o uso de certos tipos de extensões. Por exemplo, 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de definir uma regra de política (conforme mostrado no hello anterior exemplos), você precisa de definição de política de saudação toocreate e atribuí-la tooa escopo. escopo de saudação pode ser uma assinatura, o grupo de recursos ou o recurso. políticas de tooassign por meio do portal hello, consulte [tooassign portal do Azure de uso e gerenciar políticas de recursos](../../azure-resource-manager/resource-manager-policy-portal.md). políticas de tooassign por meio da API REST, PowerShell ou CLI do Azure, consulte [atribuir e gerenciar políticas por meio de script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* Para políticas de tooresource uma introdução, consulte [visão geral do recurso política](../../azure-resource-manager/resource-manager-policy.md).
-* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, grupo de recursos ou recurso. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](../../azure-resource-manager/resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Para ver uma introdução às políticas de recurso, confira [Visão geral da política de recurso](../../azure-resource-manager/resource-manager-policy.md).
+* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](../../azure-resource-manager/resource-manager-subscription-governance.md).

@@ -1,5 +1,5 @@
 ---
-title: "aaaSchema atualizações 1 de agosto de 2015 preview - os aplicativos lógicos do Azure | Microsoft Docs"
+title: "Atualizações de esquema 1 de agosto de 2015 preview - Aplicativo Lógico do Azure | Microsoft Docs"
 description: "Criar definições de JSON para Aplicativos Lógicos do Azure com a versão de esquema 2015-08-01-preview"
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,38 +15,38 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 950cd18a27aa1859c4f0b6116de3fb8699d746c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015
 
-Esse novo esquema e a API de versão para os aplicativos lógicos do Azure inclui aprimoramentos importantes que tornam os aplicativos lógicos mais toouse mais fácil e confiável:
+Esse novo esquema e a versão da API para Aplicativos Lógicos do Azure incluem os principais aprimoramentos que tornam a lógica de aplicativos mais confiável e fácil de usar:
 
-*   Olá **APIApp** tipo de ação é atualizada tooa novo [ **APIConnection** ](#api-connections) tipo de ação.
-*   **Repita** é renomeado muito[**Foreach**](#foreach).
-*   Olá [ **ouvinte HTTP** API App](#http-listener) não é mais necessário.
+*   O tipo de ação **APIApp** é atualizado para um novo tipo de ação [**APIConnection**](#api-connections).
+*   **Repeat** é renomeado para [**Foreach**](#foreach).
+*   O [**aplicativo de API** Ouvinte HTTP](#http-listener) não é mais necessário.
 *   A ação de chamar fluxos de trabalho secundários usa um [novo esquema](#child-workflows).
 
 <a name="api-connections"></a>
-## <a name="move-tooapi-connections"></a>Mover tooAPI conexões
+## <a name="move-to-api-connections"></a>Mover para conexões de API
 
-Olá maior alteração é que você não tem mais toodeploy aplicativos de API em sua assinatura do Azure, você pode usar as APIs. Aqui estão Olá maneiras que você pode usar APIs:
+A maior mudança é que você não precisa mais implantar Aplicativos de API em sua Assinatura do Azure para que você possa usar as APIs. Estas são as maneiras como você pode usar APIs:
 
 * APIs gerenciadas
 * Suas APIs Web personalizadas
 
-Cada modo é tratado de forma ligeiramente diferente, pois seu gerenciamento e modelos de hospedagem são diferentes. Uma vantagem desse modelo é que você não está restrita tooresources que são implantados no seu grupo de recursos do Azure. 
+Cada modo é tratado de forma ligeiramente diferente, pois seu gerenciamento e modelos de hospedagem são diferentes. Uma vantagem desse modelo é que você não fica restrito aos recursos que são implantados em seu grupo de recursos do Azure. 
 
 ### <a name="managed-apis"></a>APIs gerenciadas
 
 A Microsoft gerencia algumas APIs em seu nome, por exemplo o Office 365, Salesforce, Twitter e FTP. Algumas dessas APIs gerenciadas como o Bing Translate podem ser usadas como estão, enquanto outras exigem configuração. Essa configuração é denominada *conexão*.
 
-Por exemplo, quando você usa o Office 365, deve criar uma conexão que contém o token de entrada do Office 365. Esse token é armazenado e atualizado para que seu aplicativo lógico sempre possa chamar hello API do Office 365 com segurança. Como alternativa, se desejar que o servidor SQL ou FTP tooyour tooconnect, você deve criar uma conexão com a cadeia de caracteres de conexão de saudação. 
+Por exemplo, quando você usa o Office 365, deve criar uma conexão que contém o token de entrada do Office 365. Esse token é armazenado e atualizado com segurança para que seu aplicativo lógico sempre possa chamar a API do Office 365. Como alternativa, se você quiser se conectar ao seu servidor SQL ou FTP, será necessário criar uma conexão que tenha cadeia de conexão. 
 
-Nessa definição, essas ações são denominadas `APIConnection`. Aqui está um exemplo de uma conexão que chama o Office 365 toosend um email:
+Nessa definição, essas ações são denominadas `APIConnection`. Veja um exemplo de uma conexão que chama o Office 365 para enviar um email:
 
 ```
 {
@@ -75,17 +75,17 @@ Nessa definição, essas ações são denominadas `APIConnection`. Aqui está um
 }
 ```
 
-Olá `host` objeto é parte de entradas conexões tooAPI exclusivo, e contém dois partes: `api` e `connection`.
+O objeto `host` é uma fração das entradas que é exclusiva para conexões de API e contém duas partes: `api` e `connection`.
 
-Olá `api` tem tempo de execução de saudação URL de onde que API não gerenciada está hospedado. Você pode ver todos os Olá disponíveis APIs gerenciadas chamando `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+`api` tem a URL de execução de onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Quando você usa uma API, Olá API poderá ou não ter qualquer *parâmetros de conexão* definido. Se não Olá API, nenhum *conexão* é necessária. Se Olá API, você deve criar uma conexão. conexão Olá criado tem o nome de saudação que você escolher. Você fazer referência a nome de saudação em hello `connection` objeto dentro de saudação `host` objeto. uma conexão em um grupo de recursos, chamada de toocreate:
+Quando você usa uma API, existe a possibilidade de ela não ter nenhum *parâmetro de conexão* definido ou de ter algum. Se a API não tiver, nenhuma *conexão* será necessária. Se a API tiver, você deverá criar uma conexão. A conexão criada com o nome que você escolher. Você faz então referência ao nome no objeto `connection` dentro do objeto `host`. Para criar uma conexão em um grupo de recursos, chame:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-Com hello corpo a seguir:
+Com o seguinte corpo:
 
 ```
 {
@@ -94,7 +94,7 @@ Com hello corpo a seguir:
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
     "parameterValues": {
-        "accountName": "{hello name of hello storage account -- hello set of parameters is different for each API}"
+        "accountName": "{The name of the storage account -- the set of parameters is different for each API}"
     }
   },
   "location": "{Logic app's location}"
@@ -104,7 +104,7 @@ Com hello corpo a seguir:
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Implantar APIs gerenciadas em um modelo do Azure Resource Manager
 
 Você pode criar um aplicativo completo em um modelo do Azure Resource Manager, desde que ele não exija entrada interativa.
-Se a entrada é necessária, você pode configurar tudo com o modelo do Azure Resource Manager hello, mas você ainda possui toovisit Olá tooauthorize portal Olá conexões. 
+Se for necessário entrar, você poderá configurar tudo com o modelo do Azure Resource Manager, mas ainda precisará visitar o portal a fim de autorizar as conexões. 
 
 ```
     "resources": [{
@@ -194,13 +194,13 @@ Se a entrada é necessária, você pode configurar tudo com o modelo do Azure Re
     }]
 ```
 
-Você pode ver neste exemplo conexões Olá são apenas recursos que moram em seu grupo de recursos. Eles fazem referência tooyou disponível de APIs de Olá gerenciado na sua assinatura.
+Você pode ver neste exemplo que as conexões são apenas recursos que residem em seu grupo de recursos. Elas fazem referência às APIs gerenciadas disponíveis em sua assinatura.
 
 ### <a name="your-custom-web-apis"></a>Suas APIs Web personalizadas
 
-Se você usar suas próprias APIs, aqueles não gerenciados pela Microsoft, use internas Olá **HTTP** ação toocall-los. Para uma experiência ideal, você deve expor um ponto de extremidade do Swagger para sua API. Esse ponto de extremidade permite que entradas de Olá Olá lógica aplicativo Designer toorender e saídas para a sua API. Sem Swagger, designer de saudação só pode mostrar Olá entradas e saídas como objetos JSON opacos.
+Se você usar suas próprias APIs, aqueles não gerenciados pela Microsoft, usar interno **HTTP** ação chamá-los. Para uma experiência ideal, você deve expor um ponto de extremidade do Swagger para sua API. Esse ponto de extremidade permite que o Designer de Aplicativos Lógicos renderize as entradas e saídas de sua API. Sem o Swagger, o designer só poderá mostrar as entradas e saídas como objetos JSON opacos.
 
-Aqui está uma saudação de mostrando exemplo novo `metadata.apiDefinitionUrl` propriedade:
+Veja um exemplo que mostra a nova propriedade `metadata.apiDefinitionUrl` :
 
 ```
 {
@@ -219,13 +219,13 @@ Aqui está uma saudação de mostrando exemplo novo `metadata.apiDefinitionUrl` 
 }
 ```
 
-Se você hospedar sua API da Web no serviço de aplicativo do Azure, a API da Web é automaticamente aparece na lista de saudação de ações disponíveis no designer de saudação. Caso contrário, o que toopaste diretamente na URL de saudação. ponto de extremidade de Swagger Olá deve ser não autenticado toobe utilizável em Olá Designer de lógica do aplicativo, embora você pode proteger a saudação própria API com qualquer métodos que oferece suporte a Swagger.
+Se você hospedar sua API Web no Serviço de Aplicativo do Azure, ela aparecerá automaticamente na lista de ações disponíveis no designer. Caso você não faça isso, será necessário colar a URL diretamente. O ponto de extremidade do Swagger não deve ser autenticado para que possa ser usado dentro do Designer de Aplicativos Lógicos, embora você possa proteger a API com quaisquer métodos com suporte no Swagger.
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Chamar aplicativos de API implantados com 2015-08-01-preview
 
-Se você tiver implantado uma API App, você pode chamar o aplicativo hello com hello **HTTP** ação.
+Se você tiver implantado um Aplicativo de API, chame-o por meio da ação **HTTP** .
 
-Por exemplo, se você usar arquivos de toolist Dropbox, seu **2014-12-01-preview** definição de versão de esquema pode encontrar algo como:
+Por exemplo, se você usar o Dropbox para listar os arquivos, poderá ter algo assim em sua definição da versão do esquema **2014-12-01-preview**:
 
 ```
 {
@@ -266,7 +266,7 @@ Por exemplo, se você usar arquivos de toolist Dropbox, seu **2014-12-01-preview
 }
 ```
 
-Você pode construir a ação de HTTP equivalente hello como neste exemplo, enquanto a seção parâmetros Olá Olá definição de lógica de aplicativo permanece inalterada:
+Você pode construir a ação HTTP como neste exemplo enquanto a seção de parâmetros da definição do Aplicativo lógico permanece inalterada:
 
 ```
 {
@@ -298,18 +298,18 @@ Percorra essas propriedades, uma por vez:
 | Propriedade da ação | Descrição |
 | --- | --- |
 | `type` |`Http` em vez de `APIapp` |
-| `metadata.apiDefinitionUrl` |toouse esta ação na Olá lógica de aplicativo Designer, incluem hello metadados ponto de extremidade, que é construído a partir de:`{api app host.gateway}/api/service/apidef/{last segment of hello api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` |Construído com base em: `{api app host.gateway}/api/service/invoke/{last segment of hello api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `metadata.apiDefinitionUrl` |Para usar essa ação no Designer de Aplicativos Lógicos, inclua o ponto de extremidade de metadados que é construído com base em: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` |Construído com base em: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` |Sempre `POST` |
-| `inputs.body` |Parâmetros do aplicativo toohello idênticos API |
-| `inputs.authentication` |Toohello idêntico autenticação API App |
+| `inputs.body` |Idêntico aos parâmetros do Aplicativo de API |
+| `inputs.authentication` |Idêntico à autenticação do aplicativo de API |
 
-Essa abordagem deve funcionar para todas as ações de Aplicativo de API. No entanto, lembre-se de que esses aplicativos de API anterior não têm mais suporte. Portanto você deve mover tooone de saudação duas outras opções anteriores, uma API gerenciada ou hospedando sua API da Web personalizado.
+Essa abordagem deve funcionar para todas as ações de Aplicativo de API. No entanto, lembre-se de que esses aplicativos de API anterior não têm mais suporte. Portanto, você deve mover para uma das duas outras opções anteriores, uma API gerenciada ou hospedagem sua API da Web personalizado.
 
 <a name="foreach"></a>
-## <a name="renamed-repeat-tooforeach"></a>Renomeado 'Repetir' too'foreach'
+## <a name="renamed-repeat-to-foreach"></a>'repeat' renomeado para 'foreach'
 
-Para a versão de esquema anterior hello, recebemos muito comentários dos clientes que **Repita** foi confuso e não capturar corretamente que **Repita** foi realmente um loop for each. Como resultado, podemos renomeou `repeat` muito`foreach`. Por exemplo, anteriormente você escreveria:
+Recebemos muitos comentários de clientes na versão anterior do esquema informando que **Repeat** era confuso e não capturava corretamente que **Repeat** era, na verdade, um loop for each. Como resultado, nós renomeamos `repeat` como `foreach`. Por exemplo, anteriormente você escreveria:
 
 ```
 {
@@ -343,11 +343,11 @@ Agora você escreveria:
 }
 ```
 
-Olá função `@repeatItem()` foi item atual do hello tooreference usadas anteriormente que está sendo iterado. Essa função foi simplificada muito`@item()`. 
+Anteriormente, a função `@repeatItem()` era usada para fazer referência ao item atual sendo iterado. Essa função foi agora simplificada para `@item()`. 
 
 ### <a name="reference-outputs-from-foreach"></a>Saídas de referência de 'foreach'
 
-Para simplificar, Olá saídas de `foreach` ações não são encapsuladas em um objeto chamado `repeatItems`. Enquanto Olá saídas de saudação anterior `repeat` exemplo foram:
+Para simplificar, as saídas de ações do `foreach` não são encapsuladas em um objeto chamado `repeatItems`. Embora as saídas do exemplo anterior de `repeat` tenham sido:
 
 ```
 {
@@ -387,7 +387,7 @@ Agora, essas saídas são:
 ]
 ```
 
-Anteriormente, tooget toohello corpo de ação de saudação ao fazer referência a essas saídas:
+Anteriormente, para chegar ao corpo da ação ao fazer referência a essas saídas:
 
 ```
 {
@@ -423,19 +423,19 @@ Agora você pode fazer:
 }
 ```
 
-Com essas alterações, Olá funções `@repeatItem()`, `@repeatBody()`, e `@repeatOutputs()` são removidos.
+Com essas alterações, as funções `@repeatItem()`, `@repeatBody()` e `@repeatOutputs()` foram removidas.
 
 <a name="http-listener"></a>
 ## <a name="native-http-listener"></a>Ouvinte HTTP nativo:
 
-Olá ouvinte HTTP recursos agora são incorporados no. Portanto, você não precisa toodeploy um aplicativo de API do ouvinte HTTP. Consulte [Olá detalhes completos sobre como toomake seu aqui pode ser chamado de ponto de extremidade de aplicativo lógica](../logic-apps/logic-apps-http-endpoint.md). 
+Os recursos de Ouvinte HTTP agora são internos. Portanto, você não precisa mais implantar um Aplicativo de API do Ouvinte HTTP. Veja [os detalhes completos de como fazer com que seu ponto de extremidade do aplicativo lógico seja chamado aqui](../logic-apps/logic-apps-http-endpoint.md). 
 
-Com essas alterações, removemos Olá `@accessKeys()` função, que são substituídos pelo Olá `@listCallbackURL()` função para obter o ponto de extremidade hello quando necessário. Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser muito`/run` Olá fluxo de trabalho, você deve ter uma esses disparadores: `manual`, `apiConnectionWebhook`, ou `httpWebhook`.
+Com essas alterações, removemos o `@accessKeys()` função, que são substituídos com o `@listCallbackURL()` função para obter o ponto de extremidade quando necessário. Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser `/run` o fluxo de trabalho, deverá ter um dos gatilhos a seguir: `manual`, `apiConnectionWebhook` ou `httpWebhook`.
 
 <a name="child-workflows"></a>
 ## <a name="call-child-workflows"></a>Chamar fluxos de trabalho secundários
 
-Anteriormente, chamar fluxos de trabalho filho necessário passar o fluxo de trabalho toohello, obter token de acesso de saudação e colando Olá token na definição de aplicativo de lógica de saudação onde você deseja toocall fluxo de trabalho filho. Com o novo esquema de hello, mecanismo gera automaticamente um SAS em tempo de execução para os aplicativos lógicos Olá Olá fluxo de trabalho filho para que você não tem muito colar informações secretas na definição de saudação. Aqui está um exemplo:
+Anteriormente, chamar os fluxos de trabalho secundários exigia ir para esse fluxo de trabalho, obter o token de acesso e colar o token na definição do aplicativo lógico no qual você deseja chamar o fluxo de trabalho secundário. Com o novo esquema, o mecanismo de Aplicativos Lógicos gera automaticamente um SAS em tempo de execução para fluxo de trabalho filho para que você não precise colar informações secretas na definição. Aqui está um exemplo:
 
 ```
 "mynestedwf": {
@@ -461,20 +461,20 @@ Anteriormente, chamar fluxos de trabalho filho necessário passar o fluxo de tra
 }
 ```
 
-Uma melhoria de segundo é que nós estamos fornecendo filho Olá a solicitação de entrada do toohello de acesso total de fluxos de trabalho. Isso significa que você pode passar parâmetros de saudação *consultas* seção e em Olá *cabeçalhos* objeto e que você pode definir totalmente Olá corpo inteiro.
+Um segundo aprimoramento é que demos aos fluxos de trabalho filho acesso completo à solicitação de entrada. Isso significa que você pode passar parâmetros na seção *consultas* e no objeto *cabeçalhos*, e que pode definir completamente o corpo.
 
-Por fim, há as alterações necessárias toohello filho fluxo de trabalho. Enquanto você poderia chamar anteriormente um fluxo de trabalho filho diretamente, agora você deve definir um ponto de extremidade do disparador no fluxo de trabalho Olá para Olá pai toocall. Em geral, você adicionaria um gatilho que tenha `manual` digite e, em seguida, usar esse gatilho na definição do pai de saudação. Saudação de Observação `host` propriedade especificamente tem um `triggerName` porque você sempre deve especificar o gatilho está chamando.
+Por fim, há alterações necessárias no fluxo de trabalho secundário. Enquanto antes você podia chamar um fluxo de trabalho filho diretamente, agora você precisa definir um ponto de extremidade de gatilho no fluxo de trabalho para o pai chamar. Em geral, você adicionaria um disparador que possui `manual` digite e, em seguida, usar esse gatilho na definição do pai. Observe que a propriedade `host`, especificamente, tem um `triggerName`, pois você sempre deve especificar qual gatilho está invocando.
 
 ## <a name="other-changes"></a>Outras alterações
 
 ### <a name="new-queries-property"></a>Nova propriedade ‘queries’
 
-Todos os tipos de ação oferecem suporte a uma nova entrada denominada `queries`. Essa entrada pode ser um objeto estruturado, em vez de ter a cadeia de caracteres de saudação tooassemble manualmente.
+Todos os tipos de ação oferecem suporte a uma nova entrada denominada `queries`. Essa entrada pode ser um objeto estruturado em vez de precisar montar a cadeia de caracteres manualmente.
 
-### <a name="renamed-parse-function-toojson"></a>Renomeado too'json() de função 'Parse' '
+### <a name="renamed-parse-function-to-json"></a>Função 'parse()' renomeada para 'json()'
 
-Estamos adicionando tipos de conteúdo mais rápido, para que tenhamos renomeado Olá `parse()` função muito`json()`.
+Adicionaremos mais tipos de conteúdo em breve e, portanto, renomeamos a função `parse()` para `json()`.
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>Em breve: APIs de Integração Corporativa
 
-Não temos versões gerenciadas ainda do hello APIs de integração do Enterprise, como AS2. Enquanto isso, você pode usar seu APIs existentes do BizTalk implantados por meio de saudação ação HTTP. Para obter detalhes, consulte "Usando seus aplicativos de API já implantados" em Olá [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Não temos versões gerenciadas ainda das APIs de integração do Enterprise, como o AS2. Enquanto isso, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja "Uso dos seus aplicativos de API já implantados" no [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

@@ -1,6 +1,6 @@
 ---
-title: aaaManage baseada em controle de acesso (RBAC) com o Azure PowerShell | Microsoft Docs
-description: "Como toomanage RBAC com o Azure PowerShell, incluindo listando as funções, atribuir funções e excluir atribuições de função."
+title: "Gerenciar o RBAC (Controle de Acesso Baseado em Função) com o Azure PowerShell | Microsoft Docs"
+description: "Como gerenciar o RBAC com o Azure PowerShell, incluindo listagem e atribuição e funções, e exclusão de atribuições de funções."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: fa44991113e75b345177867b0bede38de4373e04
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,16 +26,16 @@ ms.lasthandoff: 10/06/2017
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-Você pode usar o controle de acesso baseado em função (RBAC) na Olá portal do Azure e uma API de gerenciamento de recursos do Azure toomanage acesso tooyour assinatura em um nível granular. Com esse recurso, você pode conceder acesso para usuários, grupos ou entidades de serviço do Active Directory, atribuindo toothem algumas funções em um escopo específico.
+Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azure e na API de Gerenciamento de Recursos do Azure para gerenciar o acesso à sua assinatura em um nível refinado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
-Antes de usar PowerShell toomanage RBAC, você precisa Olá pré-requisitos a seguir:
+Antes de poder usar o PowerShell para gerenciar o RBAC, você precisa dos seguintes pré-requisitos:
 
-* PowerShell do Azure, versão 0.8.8 ou posterior. versão mais recente do tooinstall hello e associe-o com sua assinatura do Azure, consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
-* Cmdlets do Azure Resource Manager. Instalar Olá [cmdlets do Azure Resource Manager](/powershell/azure/overview) no PowerShell.
+* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a última versão e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](/powershell/azure/overview) no PowerShell.
 
 ## <a name="list-roles"></a>Listar funções
 ### <a name="list-all-available-roles"></a>Relacionar todas as funções disponíveis
-funções RBAC toolist que estão disponíveis para atribuição e tooinspect Olá operações toowhich eles conceder acesso, use `Get-AzureRmRoleDefinition`.
+Para listar as funções RBAC disponíveis para a atribuição e inspecionar as operações para as quais elas concedem acesso, use `Get-AzureRmRoleDefinition`.
 
 ```
 Get-AzureRmRoleDefinition | FT Name, Description
@@ -44,7 +44,7 @@ Get-AzureRmRoleDefinition | FT Name, Description
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### <a name="list-actions-of-a-role"></a>Relacionar ações de uma função
-ações de saudação toolist para uma função específica, use `Get-AzureRmRoleDefinition <role name>`.
+Para listar as ações para uma função específica, use `Get-AzureRmRoleDefinition <role name>`.
 
 ```
 Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
@@ -55,10 +55,10 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ![RBAC PowerShell - Get-AzureRmRoleDefinition para uma função específica - captura de tela](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
 ## <a name="see-who-has-access"></a>Veja quem tem acesso
-atribuições de acesso RBAC toolist, use `Get-AzureRmRoleAssignment`.
+Para listar as atribuições de acesso do RBAC, use `Get-AzureRmRoleAssignment`.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Listar as atribuições de função em um escopo específico
-Você pode ver todas as atribuições de acesso de saudação de uma assinatura especificada, o grupo de recursos ou o recurso. Por exemplo, toosee Olá todas as atribuições de saudação ativo para um grupo de recursos, use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
+Você pode ver todas as atribuições de acesso para uma assinatura, grupo de recursos ou recurso especificados. Por exemplo, para ver todas as atribuições ativas para um grupo de recursos, use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
 Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL DisplayName, RoleDefinitionName, Scope
@@ -66,8 +66,8 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 
 ![RBAC PowerShell - Get-AzureRmRoleAssignment para um grupo de recursos - captura de tela](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
-### <a name="list-roles-assigned-tooa-user"></a>Listar funções tooa usuário atribuídas
-toolist todas as funções hello atribuídos tooa especificado usuário e funções de saudação que são atribuídas a grupos de toohello toowhich Olá usuário pertence, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
+### <a name="list-roles-assigned-to-a-user"></a>Listar funções atribuídas a um usuário
+Para listar todas as funções que são atribuídas a um usuário específico e as funções que são atribuídas aos grupos aos quais o usuário pertence, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
@@ -78,68 +78,68 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ![RBAC PowerShell - Get-AzureRmRoleAssignment para um usuário - captura de tela](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
 ### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>Listar atribuições de função de administrador e coadministrador de serviços clássicos
-atribuições de acesso de toolist para o administrador de assinatura clássico hello e coadministrators, use:
+Para listar as atribuições para administrador e coadministradores da assinatura clássica, use:
 
     Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="grant-access"></a>Conceder acesso
 ### <a name="search-for-object-ids"></a>Pesquisar IDs de objeto
-tooassign uma função, você precisa tooidentify objeto hello (usuário, grupo ou aplicativo) e o escopo de saudação.
+Para atribuir uma função, você precisa identificar o objeto (usuário, grupo ou aplicativo) e o escopo.
 
-Se você não souber a ID da assinatura hello, você pode ser encontrado no hello **assinaturas** folha no hello portal do Azure. toolearn como tooquery Olá ID da assinatura, consulte [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) no MSDN.
+Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) no MSDN.
 
-ID de objeto tooget Olá para um grupo do AD do Azure, use:
+Para obter a ID de objeto para um grupo do Azure AD, use:
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
-ID de objeto tooget Olá para uma entidade de serviço do AD do Azure ou o aplicativo, use:
+Para obter a ID de objeto de uma Entidade de Serviço do Azure AD ou um aplicativo, use:
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
-### <a name="assign-a-role-tooan-application-at-hello-subscription-scope"></a>Atribuir um aplicativo de tooan de função no escopo de assinatura Olá
-aplicativo de tooan toogrant acesso no escopo de assinatura hello, use:
+### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Atribuir uma função a um aplicativo no escopo da assinatura
+Para conceder acesso a um aplicativo no escopo da assinatura, use:
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
-### <a name="assign-a-role-tooa-user-at-hello-resource-group-scope"></a>Atribuir um usuário de tooa de função no escopo do grupo de recursos de saudação
-usuário de tooa toogrant acesso no escopo de grupo de recursos do hello, use:
+### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Atribuir uma função ao usuário no escopo do grupo de recursos
+Para conceder acesso a um usuário no escopo do grupo de recursos, use:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
-### <a name="assign-a-role-tooa-group-at-hello-resource-scope"></a>Atribua um grupo de tooa de função no escopo do recurso Olá
-grupo de tooa toogrant acesso no escopo do recurso hello, use:
+### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Atribuir uma função a um grupo no escopo de recursos
+Para conceder acesso a um grupo no escopo de recursos, use:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## <a name="remove-access"></a>Remover acesso
-tooremove acesso para usuários, grupos e aplicativos, use:
+Para remover o acesso a usuários, grupos e aplicativos, use:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
-toocreate uma função personalizada, use Olá ```New-AzureRmRoleDefinition``` comando. Há dois métodos de estruturação função hello, usando PSRoleDefinitionObject ou um modelo JSON. 
+Para criar uma função personalizada, use o comando ```New-AzureRmRoleDefinition``` . Há dois métodos de estruturar a função, usando PSRoleDefinitionObject ou um modelo JSON. 
 
 ## <a name="get-actions-for-a-resource-provider"></a>Obter ações para um provedor de recursos
-Ao criar funções personalizadas do zero, é importante tooknow todos Olá possíveis operações Olá de provedores de recursos.
-Saudação de uso ```Get-AzureRMProviderOperation``` comando tooget essas informações.
-Por exemplo, se você quiser toocheck todas as operações de saudação disponíveis para a máquina virtual usam este comando:
+Quando estiver criando funções personalizadas do zero, é importante conhecer todas as possíveis operações dos provedores de recursos.
+Use o comando ```Get-AzureRMProviderOperation``` para obter essas informações.
+Por exemplo, se desejar verificar todas as operações disponíveis para a máquina virtual, use este comando:
 
 ```
 Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
 ```
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Criar função com PSRoleDefinitionObject
-Quando você usar o PowerShell toocreate uma função personalizada, você pode começar do zero ou usar uma saudação [funções internas](role-based-access-built-in-roles.md) como um ponto de partida. exemplo Hello nesta seção começa com uma função interna e, em seguida, personaliza-lo com mais privilégios. Editar saudação do hello atributos tooadd *ações*, *notActions*, ou *escopos* desejado e, em seguida, salvar alterações de saudação como uma nova função.
+Ao usar o PowerShell para criar uma função personalizada, é possível começar do zero ou usar uma das [funções internas](role-based-access-built-in-roles.md) como ponto de partida. O exemplo nesta seção começa com uma função interna e, em seguida, a personaliza com mais privilégios. Edite os atributos para adicionar *Actions*, *notActions* ou *scopes* desejados e salve as alterações como uma nova função.
 
-Olá exemplo a seguir inicia com hello *colaborador da máquina Virtual* função e usa esse toocreate uma função personalizada chamada *operador de máquina Virtual*. nova função de saudação concede acesso tooall ler as operações de *Microsoft. Compute*, *Microsoft*, e *Network* provedores e concede acesso a recursos toostart, reiniciar e monitorar as máquinas virtuais. função personalizada Olá pode ser usada em duas assinaturas.
+O exemplo a seguir inicia com a função *Colaborador da Máquina Virtual* e utiliza-a para criar uma função personalizada denominada *Operador da Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
@@ -165,14 +165,14 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Criar função com modelo JSON
-Um modelo JSON pode ser usado como definição de fonte de saudação de função personalizada hello. Olá, exemplo a seguir cria uma função personalizada que permite acesso de leitura toostorage e recursos de computação, acessar toosupport e adiciona a função tootwo assinaturas. Criar um novo arquivo `C:\CustomRoles\customrole1.json` com hello exemplo a seguir. Olá Id deve ser definido muito`null` na criação de função inicial como uma nova ID é gerada automaticamente. 
+Um modelo JSON pode ser usado como a definição da fonte para a função personalizada. O exemplo a seguir cria uma função personalizada que permite acesso de leitura ao armazenamento e aos recursos de computação, acesso ao suporte e adiciona essa função a duas assinaturas. Crie um novo arquivo `C:\CustomRoles\customrole1.json` com o exemplo a seguir. A ID deve ser definida como `null` na criação de função inicial, pois uma nova ID é gerada automaticamente. 
 
 ```
 {
   "Name": "Custom Role 1",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read access tooAzure storage and compute resources and access toosupport",
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Storage/*/read",
@@ -186,18 +186,18 @@ Um modelo JSON pode ser usado como definição de fonte de saudação de funçã
   ]
 }
 ```
-tooadd Olá função toohello assinaturas, executadas Olá comando PowerShell a seguir:
+Para adicionar a função às assinaturas, execute o seguinte comando do PowerShell:
 ```
 New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="modify-a-custom-role"></a>Modificar uma função personalizada
-Toocreating semelhante uma função personalizada, você pode modificar uma função personalizada existente usando Olá PSRoleDefinitionObject ou um modelo JSON.
+Assim como na criação de uma função personalizada, você pode modificar uma função personalizada existente usando PSRoleDefinitionObject ou um modelo JSON.
 
 ### <a name="modify-role-with-psroledefinitionobject"></a>Modificar função com PSRoleDefinitionObject
-toomodify uma função personalizada, primeiro, use Olá `Get-AzureRmRoleDefinition` tooretrieve Olá função definição de comando. Em seguida, fazer alterações de saudação desejada toohello definição de função. Por fim, use Olá `Set-AzureRmRoleDefinition` saudação do comando toosave modificou a definição de função.
+Para modificar uma função personalizada, primeiro use o comando `Get-AzureRmRoleDefinition` para recuperar a definição da função. Depois, faça as alterações desejadas na definição da função. Por fim, use o comando `Set-AzureRmRoleDefinition` para salvar a definição da função modificada.
 
-Olá, exemplo a seguir adiciona Olá `Microsoft.Insights/diagnosticSettings/*` operação toohello *operador de máquina Virtual* função personalizada.
+O exemplo a seguir adiciona a operação `Microsoft.Insights/diagnosticSettings/*` à função personalizada *Operador de Máquina Virtual* .
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -207,7 +207,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-Olá, exemplo a seguir adiciona um escopos atribuíveis de toohello de assinatura do Azure de saudação *operador de máquina Virtual* função personalizada.
+O exemplo a seguir adiciona uma assinatura do Azure para os escopos atribuíveis da função personalizada de *Operador da Máquina Virtual* .
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -220,14 +220,14 @@ Set-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ### <a name="modify-role-with-json-template"></a>Modificar função com modelo JSON
-Usando o modelo anterior de JSON Olá, você pode modificar um tooadd de função personalizada existente ou remover facilmente ações. Atualizar o modelo JSON hello e adicionar ação de leitura de saudação de rede, conforme mostrado no exemplo a seguir de saudação. definições de saudação listadas no modelo de saudação não são definição existente de tooan cumulativamente aplicado, que significa que essa função hello aparece exatamente como você especificar no modelo de saudação. Também é necessário o campo de Id de saudação tooupdate com a ID de saudação da função hello. Se você não tiver certeza de que esse valor é, você pode usar o hello `Get-AzureRmRoleDefinition` tooget cmdlet essas informações.
+Usando o modelo JSON anterior, você pode facilmente modificar uma função personalizada existente para adicionar ou remover ações. Atualize o modelo JSON e adicione a ação de leitura para rede, conforme mostrado no exemplo a seguir. As definições listadas no modelo não são aplicadas de forma cumulativa a uma definição existente, o que significa que a função aparece exatamente como especificada no modelo. Você também precisa atualizar o campo de ID com a ID da função. Se não tiver certeza de qual é esse valor, você poderá usar o cmdlet `Get-AzureRmRoleDefinition` para obter essa informação.
 
 ```
 {
   "Name": "Custom Role 1",
   "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
   "IsCustom": true,
-  "Description": "Allows for read access tooAzure storage and compute resources and access toosupport",
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Storage/*/read",
@@ -243,15 +243,15 @@ Usando o modelo anterior de JSON Olá, você pode modificar um tooadd de funçã
 }
 ```
 
-função existente de saudação do tooupdate executar Olá comando PowerShell a seguir:
+Para atualizar a função existente, execute o seguinte comando do PowerShell:
 ```
 Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
-toodelete uma função personalizada, use Olá `Remove-AzureRmRoleDefinition` comando.
+Para excluir uma função personalizada, use o comando `Remove-AzureRmRoleDefinition` .
 
-Olá, exemplo a seguir remove Olá *operador de máquina Virtual* função personalizada.
+O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual* .
 
 ```
 Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -262,9 +262,9 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinit
 ![RBAC PowerShell - Remove-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
-funções de saudação toolist que estão disponíveis para atribuição a um escopo, usar Olá `Get-AzureRmRoleDefinition` comando.
+Para listar as funções disponíveis para atribuição em um escopo, use o comando `Get-AzureRmRoleDefinition` .
 
-saudação de exemplo a seguir lista todas as funções que estão disponíveis para atribuição na assinatura de saudação selecionada.
+O exemplo a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
 
 ```
 Get-AzureRmRoleDefinition | FT Name, IsCustom
@@ -272,7 +272,7 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
 
-Em Olá exemplo a seguir, Olá *operador de máquina Virtual* função personalizada não está disponível no hello *Production4* assinatura porque a assinatura não está em Olá  **AssignableScopes** da função hello.
+No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* não está disponível na assinatura *Production4*, pois essa assinatura não está no **AssignableScopes** da função.
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 

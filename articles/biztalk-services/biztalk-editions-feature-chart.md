@@ -1,6 +1,6 @@
 ---
-title: "aaaLearn sobre os recursos em edições de Serviços BizTalk | Microsoft Docs"
-description: "Comparar recursos Olá das edições de Serviços BizTalk Olá: gratuita, Developer, Basic, Standard e Premium. MABS, WABS."
+title: "Saiba mais sobre recursos das edições dos Serviços BizTalk | Microsoft Docs"
+description: "Compare os recursos das edições dos Serviços BizTalk: Free, Developer, Basic, Standard e Premium. MABS, WABS."
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 81626fa743a7190e7c78a0fd90b3054a08982b02
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-editions-chart"></a>Serviços BizTalk: gráfico de edições
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Os Serviços BizTalk do Azure oferecem várias edições. Use este toodetermine artigo qual edição é adequada para suas necessidades de negócios e cenário.
+Os Serviços BizTalk do Azure oferecem várias edições. Use este tópico para determinar qual edição é adequada para seu cenário e suas necessidades comerciais.
 
-## <a name="compare-hello-editions"></a>Compare as edições do hello
+## <a name="compare-the-editions"></a>Comparar edições
 **Free (Visualização)**
 
-É possível criar e gerenciar Conexões Híbridas. Uma Conexão híbrida é uma maneira fácil de tooconnect tooan um site do Azure de sistema, como o SQL Server no local.
+É possível criar e gerenciar Conexões Híbridas. Uma Conexão Híbrida é uma maneira fácil de conectar um Site do Azure a um sistema local, como o SQL Server.
 
 **Desenvolvedores**
 
-Inclui Conexões Híbridas, processamento de mensagens EAI & EDI com um portal de gerenciamento de parceiro comercial fácil de usar e dá suporte a esquemas EDI comuns e a processamento sofisticado de EDI por x12 e AS2. Pode criar cenários comuns de EAI, conectando a serviços em nuvem Olá com qualquer tooread de protocolos HTTP/S, REST, FTP, SFTP e WCF e gravar mensagens.  Utilize sistemas LOB local tooon conectividade com os adaptadores SAP, Oracle eBusiness, banco de dados Oracle, Siebel e SQL Server prontos para uso. Use um ambiente centralizado no desenvolvedor com ferramentas do Visual Studio para permitir desenvolvimento e implantação fáceis. Limitado toodevelopment fins de teste e somente com nenhum serviço de nível de SLA (contrato).
+Inclui Conexões Híbridas, processamento de mensagens EAI & EDI com um portal de gerenciamento de parceiro comercial fácil de usar e dá suporte a esquemas EDI comuns e a processamento sofisticado de EDI por x12 e AS2. Pode criar cenários EAI comuns conectando serviços na nuvem com qualquer protocolo HTTP/S, REST, FTP, WCF e SFTP para ler e escrever mensagens.  Utilize a conectividade com sistemas LOB locais com adaptadores SAP, Oracle eBusiness, Oracle DB, Siebel e SQL Server prontos para uso. Use um ambiente centralizado no desenvolvedor com ferramentas do Visual Studio para permitir desenvolvimento e implantação fáceis. Limitado para fins de desenvolvimento e teste apenas sem nenhum Contrato de Nível de Serviço (SLA).
 
 **Básico**
 
-Inclui a maioria dos recursos de desenvolvedor Olá com aumentos em conexões de conexões híbridas, pontes EAI, acordos EDI e BizTalk Adapter Pack. Também oferece alta disponibilidade e Olá opção tooscale com um contrato de nível de serviço (SLA).
+Inclui a maioria dos recursos do Developer com aumentos em Conexões Híbridas, pontes EAI, Contratos EDI, e conexões do BizTalk Adapter Pack. Também oferece alta disponibilidade, e a opção de dimensionar com um Contrato de Nível de Serviço (SLA).
 
 **Standard**
 
-Inclui todos os recursos básicos de saudação com aumentos em conexões de conexões híbridas, pontes EAI, acordos EDI e BizTalk Adapter Pack. Também oferece alta disponibilidade e Olá opção tooscale com um contrato de nível de serviço (SLA).
+Inclui todos os recursos do Basic com aumentos em Conexões Híbridas, pontes EAI, Contratos EDI, e conexões do BizTalk Adapter Pack. Também oferece alta disponibilidade, e a opção de dimensionar com um Contrato de Nível de Serviço (SLA).
 
 **Premium**
 
-Inclui todos os recursos padrão do hello com aumentos em conexões de conexões híbridas, pontes EAI, acordos EDI e BizTalk Adapter Pack. Também inclui arquivamento, alta disponibilidade e Olá opção tooscale com um contrato de nível de serviço (SLA).
+Inclui todos os recursos do Standard com aumentos em Conexões Híbridas, pontes EAI, Contratos EDI, e conexões do BizTalk Adapter Pack. Também inclui arquivamento, alta disponibilidade, e a opção de dimensionar com um Contrato de Nível de Serviço (SLA).
 
 ## <a name="editions-chart"></a>Tabela de edições
-Olá tabela a seguir lista as diferenças de saudação.
+A tabela a seguir lista as diferenças.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -84,9 +84,9 @@ Olá tabela a seguir lista as diferenças de saudação.
 <td><strong>Escala máxima permitida</strong></td>
 <td>Sem escala</td>
 <td>Sem escala</td>
-<td>Unidades de too8</td>
-<td>Unidades de too8</td>
-<td>Unidades de too8</td>
+<td>Até 8 unidades</td>
+<td>Até 8 unidades</td>
+<td>Até 8 unidades</td>
 </tr>
 <tr>
 <td><strong>Pontos EAI por unidade</strong></td>
@@ -123,7 +123,7 @@ Inclui Contratos TPM</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>Sistemas LOB de tooon locais de conexões de serviço de adaptador do BizTalk</strong></td>
+<td><strong>Conexões do Serviço do Adaptador do BizTalk para sistemas de LOB locais</strong></td>
 <td>Não incluso</td>
 <td>1 conexão</td>
 <td>2 conexões</td>
@@ -210,48 +210,48 @@ Inclui NRR (não repúdio de recebimento) e o download de mensagens rastreadas</
 
 ## <a name="faqs"></a>Perguntas frequentes
 #### <a name="what-is-a-biztalk-unit"></a>O que é uma Unidade do BizTalk?
-Uma unidade de"" é o nível atômico de saudação de uma implantação de Serviços BizTalk do Azure. Cada edição é fornecida com uma unidade que tem capacidade e memória de computação diferentes. Por exemplo, uma Unidade Básica tem mais computação do que a Developer, a Standard tem mais computação do que a Basic e assim por diante. Quando você dimensiona um Serviço BizTalk, você o faz em termos de Unidades.
+Uma “unidade” é o nível atômico de uma implantação dos Serviços BizTalk do Azure. Cada edição é fornecida com uma unidade que tem capacidade e memória de computação diferentes. Por exemplo, uma Unidade Básica tem mais computação do que a Developer, a Standard tem mais computação do que a Basic e assim por diante. Quando você dimensiona um Serviço BizTalk, você o faz em termos de Unidades.
 
-#### <a name="what-is-hello-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Qual é a diferença de saudação entre os serviços do BizTalk e a VM do Azure BizTalk?
-Os serviços do BizTalk fornece uma arquitetura de plataforma-como-um-serviço (PaaS) verdadeira para criar soluções de integração na nuvem hello. Com o modelo de PaaS hello, você completamente concentrar na lógica do aplicativo hello e deixar todos Olá tooMicrosoft de gerenciamento de infraestrutura, incluindo:
+#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Qual é a diferença entre os Serviços BizTalk e a VM BizTalk do Azure?
+Os Serviços BizTalk fornecem uma arquitetura de PaaS (Plataforma como Serviço) verdadeira para criar soluções de integração na nuvem. Com o modelo de PaaS, você focaliza completamente na lógica do aplicativo e deixa toda a infraestrutura de gerenciamento para a Microsoft, incluindo:
 
-* Não há necessidade toomanage ou patch máquinas virtuais.
+* Sem necessidade de gerenciar ou aplicar patches em máquinas virtuais
 * A Microsoft garante a disponibilidade
-* Você controla a escala sob demanda simplesmente solicitando mais ou menos capacidade por meio de saudação portal do Azure.
+* Você controla a escala sob demanda simplesmente solicitando mais ou menos capacidade por meio do Portal de Gerenciamento do Azure
 
-O BizTalk Server em Máquinas Virtuais do Azure fornece uma arquitetura de IaaS (Infraestrutura como Serviço). Criar máquinas virtuais e configurá-los exatamente como seu ambiente local, tornando mais fácil toorun os aplicativos existentes na nuvem Olá sem alterações de código. Com o IaaS, você ainda é responsáveis por configuração de máquinas virtuais de hello, gerenciamento de máquinas virtuais de saudação (por exemplo, instalar software e patches do sistema operacional) e a arquitetura de aplicativo hello para alta disponibilidade.
+O BizTalk Server em Máquinas Virtuais do Azure fornece uma arquitetura de IaaS (Infraestrutura como Serviço). Você cria máquinas virtuais e as configura exatamente como seu ambiente local, facilitando a execução dos aplicativos existentes na nuvem sem alterações no código. Com a IaaS, você ainda é responsável por configurar as máquinas virtuais, gerenciá-las (por exemplo, instalando software e patches do sistema operacional) e pela criação da arquitetura do aplicativo para alta disponibilidade.
 
-Se você estiver planejando criar novas soluções de integração que minimizem seu esforço de gerenciamento da infraestrutura, use os Serviços BizTalk. Se você estiver procurando tooquickly migrar suas soluções existentes do BizTalk ou procurando um ambiente sob demanda toodevelop e teste do BizTalk Server aplicativos, usar o BizTalk Server em uma máquina Virtual do Azure.
+Se você estiver planejando criar novas soluções de integração que minimizem seu esforço de gerenciamento da infraestrutura, use os Serviços BizTalk. Se estiver planejando migrar rapidamente suas soluções existentes do BizTalk ou procurando um ambiente sob demanda para desenvolver e testar aplicativos do BizTalk Server, use o BizTalk Server em uma Máquina Virtual do Azure.
 
-#### <a name="what-is-hello-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Qual é a diferença Olá entre o serviço de adaptador do BizTalk e conexões híbridas?
-Olá serviço de adaptador BizTalk é usado por um serviço de BizTalk do Azure. Olá serviço de adaptador do BizTalk usa Olá BizTalk Adapter Pack tooconnect tooan no sistema local da linha de negócios (LOB). Uma Conexão híbrida fornece uma maneira fácil e conveniente tooconnect aplicativos do Azure, como recursos de aplicativos Web Olá no serviço de aplicativo do Azure e o Azure Mobile Services tooan recurso local.
+#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Qual é a diferença entre o Serviço do Adaptador do BizTalk e as Conexões Híbridas?
+O Serviço do Adaptador do BizTalk é usado por um Serviço do BizTalk do Azure. O Serviço do Adaptador do BizTalk usa o BizTalk Adapter Pack para conectar-se a um sistema de Linha de Negócios (LOB) local. Uma conexão híbrida permite uma conexão fácil e conveniente de aplicativos do Azure, como os Aplicativos Web no Serviço de Aplicativo do Azure e nos Serviços Móveis do Azure, a um recurso local.
 
-#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-hello-limit-is-reached"></a>O que significa “Transferência de dados por conexões híbridas (GB) por unidade”? Isso é por minuto/hora/dia/semana/mês? O que acontece quando Olá limite é atingido?
-Olá custo da Conexão híbrida por unidade depende da edição de Serviços BizTalk hello. Resumindo, o custo depende de quantos dados você transfere. Por exemplo, a transferência de 10 GB de dados diariamente custa menos do que a transferência de 100 GB diariamente. Saudação de uso [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/?scenario=full) de custos específicos de toodetermine de Serviços BizTalk. Normalmente, os limites de saudação são impostos diariamente. Se você exceder o limite de hello, qualquer excedente é cobrado na taxa de saudação de US $1 por GB.
+#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>O que significa “Transferência de dados por conexões híbridas (GB) por unidade”? Isso é por minuto/hora/dia/semana/mês? O que acontece quando o limite é atingido?
+O custo de Conexão Híbrida por unidade dependerá da edição de Serviços BizTalk. Resumindo, o custo depende de quantos dados você transfere. Por exemplo, a transferência de 10 GB de dados diariamente custa menos do que a transferência de 100 GB diariamente. Use a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/?scenario=full) para os Serviços BizTalk para determinar os custos específicos. Normalmente, os limites são impostos diariamente. Se você exceder o limite, qualquer excedente será cobrado na taxa de US$1 por GB.
 
-#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-hello-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Ao criar um contrato de serviços do BizTalk, por que número Olá de pontes subir por dois, em vez de apenas um?
+#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Quando crio um contrato nos Serviços do BizTalk, por que o número de pontes é aumentado em dois, em vez de apenas um?
 Cada contrato é composto de duas pontes diferentes, uma ponte de comunicação do lado do envio e outra do lado do recebimento.
 
-#### <a name="what-happens-when-i-hit-hello-quota-limit-on-hello-number-of-bridges-or-agreements"></a>O que acontece quando eu atinge o limite de cota de Olá no número de saudação de pontes ou contratos?
-Você não é possível toodeploy qualquer nova pontes ou crie novos contratos. toodeploy mais, você precisa tooscale toomore unidades de serviço do BizTalk Olá ou edição superior tooa atualização.
+#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>O que acontecerá quando eu atingir o limite de cota do número de pontes ou contratos?
+Você não poderá implantar uma ponte nova ou criar novos contratos. Para implantar mais, será necessário escalar verticalmente para mais unidades do Serviço BizTalk ou atualizar para uma Edição superior.
 
-#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-tooanother"></a>Como migrar de uma camada de Serviços BizTalk tooanother?
-edição gratuita Olá não pode ser migrado ou 'expandidos' tooanother camada e não pode ser feita e restaurado tooanother camada. Se você precisar de outra camada, crie um BizTalk Service novo usando a nova camada de saudação. Qualquer artefato criado usando a edição gratuita do hello, incluindo conexões híbridas, toobe necessidade recriada no hello novo BizTalk Service. 
+#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Como faço para migrar de uma camada dos Serviços do BizTalk para outra?
+A edição gratuita não pode ser migrada ou 'expandida' para outra camada e não pode ser submetida a backup e restaurada para outra camada. Se você precisar de outra camada, crie um novo Serviço BizTalk usando a nova camada. Quaisquer artefatos criados usando a edição Gratuita, incluindo conexões híbridas, precisam ser recriados no novo Serviço BizTalk. 
 
-Para edições restantes do hello, use Olá backup e restauração para migrar seus artefatos de tooanother de uma camada. Por exemplo, fazer backup de seus artefatos na camada padrão hello e, em seguida, restaurá-los a camada do toohello Premium. [Serviços BizTalk: Backup e restauração](biztalk-backup-restore.md) descreve Olá suporte para caminhos de migração e lista quais artefatos de backup. Observe que não é feito backup das Conexões Híbridas. Depois de fazer backup e restaurar tooa nova camada, em seguida, recriar as conexões híbridas hello.  
+Para as edições restantes, use o backup e a restauração para migrar os artefatos de uma camada para outra. Por exemplo, faça backup dos artefatos na camada Standard e, em seguida, restaure-os para a camada Premium. [Serviços BizTalk: Backup e Restauração](biztalk-backup-restore.md) descreve os caminhos de migração com suporte e lista de quais artefatos é feito backup. Observe que não é feito backup das Conexões Híbridas. Depois de fazer backup e realizar a restauração em uma nova camada, recrie as conexões híbridas.  
 
-#### <a name="is-hello-biztalk-adapter-service-included-in-hello-service-how-do-i-receive-hello-software"></a>Olá serviço de adaptador BizTalk está incluído no serviço Olá? Como receber o software Olá?
-Sim, Olá serviço de adaptador BizTalk com hello BizTalk Adapter Pack são incluídos com hello SDK dos Serviços BizTalk do Azure [baixar](http://www.microsoft.com/download/details.aspx?id=39087).
+#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>O Serviço do Adaptador do BizTalk está incluído no serviço? Como recebo o software?
+Sim, o Serviço do Adaptador do BizTalk com o BizTalk Adapter Pack são incluídos com o SDK dos Serviços BizTalk do Azure [download](http://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Próximas etapas
-Serviços de BizTalk do Azure toocreate em Olá do Azure, acesse muito[Serviços BizTalk: provisionamento usando o portal do Azure de Olá](biztalk-provision-services.md). toostart criação de aplicativos, vá muito[Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionamento com o Portal do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Serviços BizTalk: Provisionamento usando Olá portal do Azure](biztalk-provision-services.md)<br/>
+* [Serviços BizTalk: provisionamento com o Portal do Azure](biztalk-provision-services.md)<br/>
 * [Serviços BizTalk: gráfico do status do provisionamento](biztalk-service-state-chart.md)<br/>
 * [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 * [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
 * [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
-* [Como posso começar a usar Olá SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

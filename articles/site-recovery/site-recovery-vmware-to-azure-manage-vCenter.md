@@ -14,72 +14,72 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 5be995f137d0c0efaf3050b5366a107098cae15a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Gerenciar um VMware vCenter Server no Azure Site Recovery
-Este artigo aborda Olá várias operações de recuperação de Site que podem ser executadas em um VMware vCenter.
+Este artigo discute as várias operações do Site Recovery que podem ser executadas em um VMware vCenter.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 **Suporte a VMware vCenter e o Host ESX do VMware vSphere** | **Detalhes** |
 |--- | --- |
-|**Servidores VMware locais** | Um ou mais servidores VMware vSphere, executando 6.0, 5.5, 5.1 com as últimas atualizações. Servidores devem estar localizados no hello mesma rede como o servidor de configuração de hello (ou servidor de processo separado).<br/><br/> Recomendamos um vCenter toomanage hosts do servidor de execução 6.0 ou 5.5 com atualizações mais recentes de saudação. Somente recursos que estão disponíveis no 5.5 têm suporte quando você implanta a versão 6.0.|
+|**Servidores VMware locais** | Um ou mais servidores VMware vSphere, executando 6.0, 5.5, 5.1 com as últimas atualizações. Os servidores devem estar localizados na mesma rede que o servidor de configuração (ou servidor de processo separado).<br/><br/> Recomendamos um servidor vCenter para gerenciar hosts, executando 6.0 ou 5.5 com as atualizações mais recentes. Somente recursos que estão disponíveis no 5.5 têm suporte quando você implanta a versão 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a descoberta automática
-Recuperação de site precisa de acesso tooVMware para tooautomatically de servidor de processo Olá descobrir máquinas virtuais e para failover e failback de máquinas virtuais.
+A Site Recovery precisa de acesso ao VMware para que o servidor de processo descubra automaticamente as máquinas virtuais e para failover e failback de máquinas virtuais.
 
-* **Migrar**: se você desejar somente toomigrate tooAzure de máquinas virtuais VMware, sem nunca failback-los, você pode usar uma conta do VMware com uma função somente leitura. Essa função pode executar o failover, mas não pode desligar máquinas de origem protegidas. Isso não é necessário para a migração.
-* **Replicar/recuperar**: se você quiser toodeploy conta de saudação de replicação completo (replicação, failover e failback) deve ser capaz de toorun operações como criar e remover discos, ligar a máquina virtual.
+* **Migrar**: se você quiser migrar máquinas virtuais do VMware para o Azure, sem nunca realizar failback novamente, poderá usar uma conta do VMware com uma função somente leitura. Essa função pode executar o failover, mas não pode desligar máquinas de origem protegidas. Isso não é necessário para a migração.
+* **Replicação/recuperação**: se você desejar implantar a replicação completa (replicar, failover e failback) a conta deverá ser capaz de executar operações como criar e remover discos, ativar máquinas virtuais, etc.
 * **Descoberta automática**: é necessário ter pelo menos uma conta somente leitura.
 
 
 |**Tarefas** | **Conta/função necessária** | **Permissões** | **Detalhes**|
 |--- | --- | --- | ---|
-|**Servidor de processo descobre automaticamente as máquinas virtuais do VMware** | Você precisa de pelo menos um usuário somente leitura | Objeto de Data Center –> Propagate tooChild objeto, função = somente leitura | Usuário atribuídos no nível do datacenter e tem acesso tooall Olá objetos em Olá datacenter.<br/><br/> acesso toorestrict, atribuir Olá **nenhum acesso** função com hello **propagar toochild** objeto, os objetos filho toohello (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
-|**Failover** | Você precisa de pelo menos um usuário somente leitura | Objeto de Data Center –> Propagate tooChild objeto, função = somente leitura | Usuário atribuídos no nível do datacenter e tem acesso tooall Olá objetos em Olá datacenter.<br/><br/> acesso toorestrict, atribuir Olá **nenhum acesso** função com hello **propagar toochild** toohello os objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes) do objeto.<br/><br/> É útil para fins de migração, mas não para replicação completa, failover ou failback.|
-|**Failover e failback** | Sugerimos que você cria uma função (AzureSiteRecoveryRole) com permissões necessárias de saudação e, em seguida, atribuir Olá função tooa VMware usuário ou grupo | Objeto de Data Center –> Propagate tooChild objeto, função = AzureSiteRecoveryRole<br/><br/> Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> pool de tooresource atribuir VM, migrar desligado a VM, migrar ligados a VM<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder à pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registrar, cancelar registro<br/><br/> Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Usuário atribuídos no nível do datacenter e tem acesso tooall Olá objetos em Olá datacenter.<br/><br/> acesso toorestrict, atribuir Olá **nenhum acesso** função com hello **propagar toochild** objeto, os objetos filho toohello (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
+|**Servidor de processo descobre automaticamente as máquinas virtuais do VMware** | Você precisa de pelo menos um usuário somente leitura | Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
+|**Failover** | Você precisa de pelo menos um usuário somente leitura | Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Sem acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).<br/><br/> É útil para fins de migração, mas não para replicação completa, failover ou failback.|
+|**Failover e failback** | Sugerimos que você crie uma função (AzureSiteRecoveryRole) com as permissões necessárias e atribua a função a um usuário ou grupo do VMware | Objeto de Data Center –> Propagar para o Objeto Filho, role=AzureSiteRecoveryRole<br/><br/> Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual<br/><br/> Rede -> Atribuição de rede<br/><br/> Recurso -> Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder à pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registrar, cancelar registro<br/><br/> Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Usuário atribuído ao nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Se desejar restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** aos objetos filho (hosts vSphere, armazenamentos de dados, máquinas virtuais e redes).|
 
-## <a name="create-an-account-tooconnect-toovmware-vcenter-server-vmware-vsphere-exsi-host"></a>Criar um servidor do conta tooconnect tooVMware vCenter / host do VMware vSphere EXSi
-1. Faça logon em Olá configuração server e inicie Olá cspsconfigtool.exe usando o atalho Olá colocado na área de trabalho de saudação.
-2. Clique em **adicionar conta** em Olá **Gerenciar conta** guia.
+## <a name="create-an-account-to-connect-to-vmware-vcenter-server-vmware-vsphere-exsi-host"></a>Criar uma conta para se conectar ao VMware vCenter Server/host EXSi do VMware vSphere
+1. Faça logon no servidor de configuração e inicie o cspsconfigtool.exe usando o atalho colocado na área de trabalho.
+2. Na guia **Gerenciar Conta**, clique em **Adicionar Conta**.
 
   ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
-3. Olá detalhes da conta e clique em tooadd Okey Olá conta. conta Olá deve ter privilégios de saudação listados no hello [preparar uma conta de descoberta automática](#prepare-an-account-for-automatic-discovery) seção.
+3. Forneça os detalhes da conta e clique em OK para adicionar a conta. A conta deve ter os privilégios listados na seção [Preparar uma conta para a descoberta automática](#prepare-an-account-for-automatic-discovery).
 
   >[!NOTE]
-  Demora cerca de 15 minutos para toobe de informações de conta Olá sincronizados backup com o serviço de recuperação de Site hello.
+  Demora cerca de 15 minutos para que as informações de conta sejam sincronizadas com o serviço do Site Recovery.
 
 
 ## <a name="associate-a-vmware-vcenter-vmware-vsphere-esx-host-add-vcenter"></a>Associar um VMware vCenter/host ESX do VMware vSphere (adicionar vCenter)
-* Olá portal do Azure, procurar muito*YourRecoveryServicesVault* > **infra-estrutura de recuperação de Site** > **os servidores de configuração**  >  *ConfigurationServer*
-* Na página de detalhes do servidor de configuração Olá clique Olá + vCenter botão.
+* No Portal do Azure, navegue até *YourRecoveryServicesVault* > **Infraestrutura do Site Recovery** > **Servidores de Configuração** > *ConfigurationServer*
+* Na página de detalhes do servidor de configuração, clique no botão +vCenter.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
-## <a name="modify-credentials-used-tooconnect-toohello-vcenter-server-vsphere-esxi-host"></a>Modificar as credenciais usadas tooconnect toohello-servidor do vCenter / host de ESXi vSphere
+## <a name="modify-credentials-used-to-connect-to-the-vcenter-server-vsphere-esxi-host"></a>Modificar as credenciais usadas para se conectar ao vCenter Server/host ESXi do vSphere
 
-1. Fazer logon no hello configuração server e inicie Olá cspsconfigtool.exe
-2. Clique em **adicionar conta** em Olá **Gerenciar conta** guia.
+1. Fazer logon no servidor de configuração e iniciar o cspsconfigtool.exe
+2. Na guia **Gerenciar Conta**, clique em **Adicionar Conta**.
 
   ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
-3. Forneça detalhes da nova conta hello e clique em tooadd Okey Olá conta. conta Olá deve ter privilégios de saudação listados no hello [preparar uma conta de descoberta automática](#prepare-an-account-for-automatic-discovery) seção.
-4. Olá portal do Azure, procurar muito*YourRecoveryServicesVault* > **infra-estrutura de recuperação de Site** > **os servidores de configuração**  >  *ConfigurationServer*
-5. Na página de detalhes do servidor de configuração Olá clique Olá **atualização do servidor** botão.
-6. Após a conclusão do trabalho de saudação do servidor de atualização, selecione Olá vCenter Server tooopen Olá vCenter página de resumo.
-7. Selecione Olá recém-adicionado conta em Olá **conta de host do vCenter server/vSphere** campo e clique em Olá **salvar** botão.
+3. Forneça os detalhes da nova conta e clique em OK para adicionar a conta. A conta deve ter os privilégios listados na seção [Preparar uma conta para a descoberta automática](#prepare-an-account-for-automatic-discovery).
+4. No Portal do Azure, navegue até *YourRecoveryServicesVault* > **Infraestrutura do Site Recovery** > **Servidores de Configuração** > *ConfigurationServer*
+5. Na página de detalhes do servidor de configuração, clique no botão **Atualizar Servidor**.
+6. Depois de concluído o trabalho de atualização de servidor, selecione o vCenter Server para abrir a página de resumo do vCenter.
+7. Selecione a conta adicionada recentemente no campo **Conta de host do vCenter server/vSphere** e clique no botão **Salvar**.
 
   ![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-in-azure-site-recovery"></a>Excluir um vCenter no Azure Site Recovery
-1. Olá portal do Azure, procurar muito*YourRecoveryServicesVault* > **infra-estrutura de recuperação de Site** > **os servidores de configuração**  >  *ConfigurationServer*
-2. Na página de detalhes do servidor de configuração Olá selecione Olá vCenter Server tooopen Olá vCenter página de resumo.
-3. Clique em Olá **excluir** botão toodelete Olá vCenter
+1. No Portal do Azure, navegue até *YourRecoveryServicesVault* > **Infraestrutura do Site Recovery** > **Servidores de Configuração** > *ConfigurationServer*
+2. Na página de detalhes do servidor de configuração, selecione o vCenter Server para abrir a página Resumo do vCenter.
+3. Clique no botão **Excluir** para excluir o vCenter
 
   ![delete-account](./media/site-recovery-vmware-to-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
-Se você precisar toomodify Olá vCenters endereço IP/FQDN, detalhes de porta, você precisa toodelete Olá vCenter Server e adicione-o novamente novamente.
+Se você precisar modificar o endereço IP/FQDN ou detalhes de porta dos vCenters, você precisará excluir o vCenter Server e adicioná-lo novamente.

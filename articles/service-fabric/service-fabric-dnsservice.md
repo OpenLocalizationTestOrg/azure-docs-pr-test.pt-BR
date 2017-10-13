@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure serviço DNS de malha do serviço | Microsoft Docs"
-description: "Usar serviço de dns do Service Fabric para descobrir microservices de dentro do cluster de saudação."
+title: "Serviço DNS do Azure Service Fabric | Microsoft Docs"
+description: "Use o serviço DNS do Service Fabric para descobrir microsserviços no cluster."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
-ms.openlocfilehash: fa536f0e41f52c4942702d0a1bdcd3ed7d418d6d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
-Olá serviço DNS é um serviço de sistema opcional que você pode habilitar no seu cluster toodiscover outros serviços usando o protocolo DNS hello.
+O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS.
 
-Muitos serviços, especialmente em contêineres services, podem ter um nome de URL existente e ser capaz de tooresolve-los usar o protocolo de DNS padrão da saudação (em vez de protocolo de serviço de nomes de saudação) é desejável, particularmente em cenários de "comparar e deslocar". Olá serviço DNS permite que você toomap DNS nomes tooa nome do serviço e, portanto, resolva endereços IP do ponto de extremidade. 
+Muitos serviços, especialmente serviços em contêineres, podem ter um nome de URL existente e ter a capacidade de resolvê-los usando o protocolo DNS padrão (em vez do protocolo do Serviço de Nomeação) é desejável, especialmente em cenários “lift-and-shift”. O serviço DNS permite mapear nomes DNS para um nome de serviço e, portanto, resolver endereços IP do ponto de extremidade. 
 
-Olá serviço DNS mapeia nomes tooservice nomes DNS, que por sua vez são resolvidos pelo ponto de extremidade do hello Naming Service tooreturn Olá serviço. nome DNS de saudação para serviço de saudação é fornecido no momento de saudação da criação. 
+O serviço DNS mapeia nomes DNS para nomes de serviço, que por sua vez, são resolvidos pelo serviço de nomenclatura para retornar o ponto de extremidade de serviço. O nome DNS do serviço é fornecido no momento da criação. 
 
 ![pontos de extremidade de serviço][0]
 
-## <a name="enabling-hello-dns-service"></a>Habilitar o serviço de DNS Olá
-Primeiro você precisa de serviço DNS de Olá tooenable em seu cluster. Obter modelo Olá cluster Olá que você deseja toodeploy. Pode hello ou use [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou criar um modelo do Gerenciador de recursos. Você pode habilitar o serviço DNS de saudação com hello etapas a seguir:
+## <a name="enabling-the-dns-service"></a>Habilitando o serviço DNS
+Primeiro, você precisa habilitar o serviço DNS no cluster. Obtenha o modelo para o cluster que você deseja implantar. Use os [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou crie um modelo do Resource Manager. Habilite o serviço DNS com as seguintes etapas:
 
-1. Verifique que Olá `apiversion` está definido muito`2017-07-01-preview` para Olá `Microsoft.ServiceFabric/clusters` recursos e se não, atualizá-lo conforme Olá trecho de código a seguir:
+1. Verifique se a `apiversion` está definida como `2017-07-01-preview` para o recurso `Microsoft.ServiceFabric/clusters`, conforme mostrado neste trecho:
 
     ```json
     {
@@ -44,7 +44,7 @@ Primeiro você precisa de serviço DNS de Olá tooenable em seu cluster. Obter m
     }
     ```
 
-2. Agora ativar o serviço DNS de saudação adicionando Olá seguintes `addonFeatures` seção após Olá `fabricSettings` seção conforme Olá trecho de código a seguir: 
+2. Agora, habilite o serviço DNS adicionando a seção `addonFeatures` a seguir após a seção `fabricSettings`, conforme mostrado neste trecho: 
 
     ```json
         "fabricSettings": [
@@ -55,18 +55,18 @@ Primeiro você precisa de serviço DNS de Olá tooenable em seu cluster. Obter m
         ],
     ```
 
-3. Depois de atualizar o modelo de cluster com hello anterior alterações, aplicá-los e permitem Olá atualização concluída. Uma vez concluído, Olá serviço de sistema DNS começa a ser executado no cluster que é chamado `fabric:/System/DnsService` na seção de serviço do sistema no Gerenciador do Service Fabric hello. 
+3. Depois de atualizar o modelo de cluster com as alterações anteriores, aplique-as e permita a conclusão da atualização. Depois de concluído, o serviço do sistema DNS em execução no cluster, que é chamado de `fabric:/System/DnsService` na seção de serviço do sistema no Service Fabric Explorer. 
 
-Como alternativa, você pode habilitar Olá serviço DNS por meio do portal Olá em tempo de saudação da criação do cluster. Olá serviço DNS pode ser habilitado, marcando a caixa de saudação `Include DNS service` em Olá `Cluster configuration` menu conforme Olá captura de tela a seguir:
+Como alternativa, você pode habilitar o serviço do DNS por meio do portal no momento da criação do cluster. O serviço DNS pode ser habilitado pela marcação da caixa de `Include DNS service` no menu `Cluster configuration` conforme mostrado na seguinte captura de tela:
 
-![Habilitar o serviço do DNS por meio do portal Olá][2]
+![Habilitar o serviço DNS por meio do portal][2]
 
 
-## <a name="setting-hello-dns-name-for-your-service"></a>Configurar nome DNS de saudação para seu serviço
-Quando Olá serviço DNS estiver em execução no cluster, você pode definir um nome DNS para seus serviços declarativamente para serviços padrão em Olá `ApplicationManifest.xml` ou por meio de comandos do Powershell.
+## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para o serviço
+Assim que o serviço DNS estiver em execução no cluster, você pode definir um nome DNS para os serviços de forma declarativa para serviços padrão no `ApplicationManifest.xml` ou por meio de comandos do Powershell.
 
-### <a name="setting-hello-dns-name-for-a-default-service-in-hello-applicationmanifestxml"></a>Nome DNS de saudação para um serviço padrão da configuração na Olá ApplicationManifest.xml
-Abra seu projeto no Visual Studio ou seu editor favorito e Olá `ApplicationManifest.xml` arquivo. Vá toohello seção de serviços padrão e para cada saudação de adicionar serviço `ServiceDnsName` atributo. saudação de exemplo a seguir mostra como tooset Olá nome DNS do serviço de saudação muito`service1.application1`
+### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Definindo o nome DNS de um serviço padrão no ApplicationManifest.xml
+Abra o projeto no Visual Studio ou em seu editor favorito e abra o arquivo `ApplicationManifest.xml`. Acesse a seção de serviços padrão e, para cada serviço, adicione o atributo `ServiceDnsName`. O exemplo a seguir mostra como definir o nome DNS do serviço como `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -75,12 +75,12 @@ Abra seu projeto no Visual Studio ou seu editor favorito e Olá `ApplicationMani
     </StatelessService>
     </Service>
 ```
-Depois que o aplicativo hello é implantado, instância de serviço de saudação no hello Service Fabric explorer mostra nome DNS de saudação nessa instância, conforme mostrado na figura a seguir de saudação: 
+Depois que o aplicativo for implantado, a instância de serviço no Service Fabric Explorer mostrará o nome DNS dessa instância, conforme mostrado na figura a seguir: 
 
 ![pontos de extremidade de serviço][1]
 
-### <a name="setting-hello-dns-name-for-a-service-using-powershell"></a>Configurar nome DNS de saudação para um serviço usando o Powershell
-Você pode definir o nome DNS de saudação para um serviço ao criá-la usando Olá `New-ServiceFabricService` Powershell. Olá exemplo a seguir cria um novo serviço sem monitoração de estado com o nome DNS Olá`service1.application1`
+### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Configurando o nome DNS de um serviço usando o PowerShell
+Defina o nome DNS de um serviço ao criá-lo usando o `New-ServiceFabricService` PowerShell. O exemplo a seguir cria um novo serviço sem estado com o nome DNS `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -94,9 +94,9 @@ Você pode definir o nome DNS de saudação para um serviço ao criá-la usando 
 ```
 
 ## <a name="using-dns-in-your-services"></a>Usando o DNS nos serviços
-Se você implantar mais de um serviço, você pode encontrar pontos de extremidade de saudação do toocommunicate outros serviços com usando um nome DNS. Olá serviço DNS só é aplicável toostateless serviços, como Olá protocolo DNS não pode se comunicar com os serviços com monitoração de estado. Para serviços com monitoração de estado, você pode usar o proxy reverso internos de saudação para http chamadas toocall uma partição de serviço específico.
+Se você implantar mais de um serviço, poderá encontrar os pontos de extremidade de outros serviços com os quais se comunicar usando um nome DNS. O serviço DNS só é aplicável aos serviços sem monitoração de estado, já que o protocolo DNS não pode se comunicar com os serviços com monitoração de estado. Para serviços com estado, use o proxy reverso interno para chamadas HTTP para chamar uma partição de serviço específica.
 
-Olá código a seguir mostra como toocall outro serviço, que é simplesmente um http regular chamar onde você pode fornecer a porta de saudação e qualquer caminho opcional como parte da URL de saudação.
+O código a seguir mostra como chamar outro serviço, que é simplesmente uma chamada http regular onde você pode fornecer a porta e qualquer caminho opcional como parte da URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -125,7 +125,7 @@ public class ValuesController : Controller
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a comunicação de serviço em cluster Olá com [se conectar e se comunicar com serviços](service-fabric-connect-and-communicate-with-services.md)
+Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 
 [0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG

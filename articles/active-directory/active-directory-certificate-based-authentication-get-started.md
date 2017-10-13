@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure autenticação baseada em certificado do Active Directory - Introdução | Microsoft Docs"
-description: "Saiba como a autenticação baseada em certificado em seu ambiente tooconfigure"
+title: "Autenticação baseada em certificado do Azure Active Directory - Introdução | Microsoft Docs"
+description: "Aprenda a configurar a autenticação baseada em certificado no seu ambiente"
 author: MarkusVi
 documentationcenter: na
 manager: femila
@@ -13,71 +13,71 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c73bdf56018c0716085c923a61e9560dbe4004c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
-Autenticação baseada em certificado permite que você toobe autenticado pelo Active Directory do Azure com um certificado de cliente em um dispositivo Windows, Android ou iOS ao conectar-se a sua conta do Exchange online para: 
+A autenticação baseada em certificado permite que você seja autenticado pelo Azure Active Directory com um certificado de cliente em um dispositivo Windows, Android ou iOS ao conectar sua conta do Exchange Online com: 
 
 - Aplicativos móveis do Office, como Microsoft Outlook e Microsoft Word   
 
 - Clientes do EAS (Exchange ActiveSync) 
 
-Configurar esse recurso elimina a necessidade de saudação tooenter um nome de usuário e combinação de senha em determinados email e aplicativos do Microsoft Office em seu dispositivo móvel. 
+Configurar esse recurso elimina a necessidade de digitar uma combinação de nome de usuário e senha em determinados emails e aplicativos do Microsoft Office no seu dispositivo móvel. 
 
 Este tópico:
 
-- Fornece Olá tooconfigure as etapas e usar a autenticação baseada em certificado para usuários de locatários no Office 365 Enterprise, Business, educação e governo dos Estados Unidos planos. Esse recurso está disponível na visualização em planos do Office 365 para China, defesa governamental e governo federal. 
+- Este tópico mostra como configurar e utilizar a autenticação baseada em certificado para usuários de locatários nos planos Office 365 corporativo, Business, educacional e governamental. Esse recurso está disponível na visualização em planos do Office 365 para China, defesa governamental e governo federal. 
 
 - Pressupõe que você já tem uma [infraestrutura de chave pública (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [do AD FS](connect/active-directory-aadconnectfed-whatis.md) configurada.    
 
 
 ## <a name="requirements"></a>Requisitos
 
-a autenticação baseada em certificado tooconfigure, Olá deverá ser a seguinte:  
+Para configurar a autenticação baseada em certificado, as seguintes afirmativas devem ser verdadeiras:  
 
-- A CBA (Autenticação Baseada em Certificado) tem suporte apenas em ambientes Federados para aplicativos de navegador ou clientes nativos que usam autenticação moderna (ADAL). Olá uma exceção é Exchange Active Sync (EAS) para EXO que pode ser usado para contas, federadas e gerenciadas. 
+- A CBA (Autenticação Baseada em Certificado) tem suporte apenas em ambientes Federados para aplicativos de navegador ou clientes nativos que usam autenticação moderna (ADAL). A única exceção é o EAS (Exchange Active Sync) para EXO, que pode ser usado para contas federadas e gerenciadas. 
 
-- autoridade de certificação raiz Hello e autoridades de certificação intermediários devem ser configuradas no Active Directory do Azure.  
+- A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.  
 
 - Cada autoridade de certificação deve ter uma CRL (Lista de Certificados Revogados) que pode ser referenciada por meio de uma URL para a Internet.  
 
-- Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas no hello [Configurar autoridades de certificação Olá](#step-2-configure-the-certificate-authorities) seção.  
+- Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas na seção [Configuração de autoridades de certificação](#step-2-configure-the-certificate-authorities).  
 
-- Para clientes do Exchange ActiveSync, o certificado de cliente Olá deve ter Olá roteável email usuário endereço no Exchange online em qualquer nome de entidade hello ou Olá valor RFC822 nome do campo de nome alternativo da entidade de saudação. Active Directory do Azure mapeia o atributo de endereço Proxy Olá RFC822 valor toohello no diretório de saudação.  
+- Para clientes do Exchange ActiveSync, o certificado de cliente deve ter o email roteável do usuário no Exchange Online, seja no valor Nome principal ou Nome RFC822 do campo Nome Alternativo da Entidade. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.  
 
-- O dispositivo de cliente deve ter a autoridade de certificação tooat um mínimo de acesso que emite certificados de cliente.  
+- O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.  
 
-- Um certificado de cliente para autenticação de cliente deve ter sido emitido tooyour cliente.  
+- Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.  
 
 
 
 
 ## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 
-Como a primeira etapa para a plataforma de dispositivo Olá importantes para você, você precisa fazer tooreview Olá seguinte:
+Para a plataforma do dispositivo sob sua responsabilidade, a primeira etapa é examinar o seguinte:
 
-- suporte de aplicativos móveis do Office Olá 
-- requisitos de implementação de saudação  
+- O suporte a aplicativos móveis do Office 
+- Os requisitos específicos de implementação  
 
-Olá relacionados informações existem para Olá plataformas de dispositivo a seguir:
+As informações relacionadas existentes para as seguintes plataformas de dispositivos:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 
-## <a name="step-2-configure-hello-certificate-authorities"></a>Etapa 2: Configurar autoridades de certificação Olá 
+## <a name="step-2-configure-the-certificate-authorities"></a>Etapa 2: Configuração de autoridades de certificação 
 
-tooconfigure as autoridades de certificado no Active Directory do Azure, para cada autoridade de certificação, carregar Olá a seguir: 
+Para configurar as autoridades de certificação no Azure Active Directory, carregue o seguinte para cada autoridade de certificação: 
 
-* Olá parte pública do certificado de saudação em *. cer* formato 
-* Olá para URLs onde hello Internet listas de certificados revogados (CRLs) residem
+* A parte pública do certificado, no formato *.cer* 
+* As URLs para a Internet, em que as CRLs (Listas de Certificados Revogados) residem
 
-esquema de saudação para uma autoridade de certificação será semelhante ao seguinte: 
+Veja abaixo o esquema de uma autoridade de certificação: 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -101,34 +101,34 @@ esquema de saudação para uma autoridade de certificação será semelhante ao 
         IntermediateAuthority = 1 
     } 
 
-Para configuração de saudação, você pode usar o hello [versão 2 do Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0):  
+Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Inicie o Windows PowerShell com os privilégios de administrador. 
-2. Instale o módulo de saudação do AD do Azure. Você precisa tooinstall versão [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.  
+2. Instale o módulo do Azure AD. Você precisa instalar a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.  
    
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 
-Como uma primeira etapa de configuração, você precisa tooestablish uma conexão com seu locatário. Assim que um locatário de tooyour conexão existe, você pode revisar, adicionar, excluir e modificar as autoridades de certificação Olá confiável que são definidas em seu diretório. 
+Como essa é a primeira etapa de configuração, você precisa estabelecer uma conexão com seu locatário. Como existe uma conexão com o seu locatário, você pode revisar, adicionar, excluir e modificar autoridades de certificação confiáveis que são definidas em seu diretório. 
 
 ### <a name="connect"></a>Connect
 
-tooestablish uma conexão com seu locatário, use Olá [AzureAD conectar](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
+Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
     Connect-AzureAD 
 
 
 ### <a name="retrieve"></a>Recuperar 
 
-autoridades de certificação do tooretrieve Olá confiável que são definidas em seu diretório, use Olá [AzureADTrustedCertificateAuthority Get](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet. 
+Para recuperar as autoridades de certificação confiáveis que são definidas em seu diretório, use o cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### <a name="add"></a>Adicionar
 
-toocreate uma autoridade de certificação confiável, use Olá [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet e conjunto hello **crlDistributionPoint** valor correto tooa do atributo: 
+Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e defina o atributo **crlDistributionPoint** para um valor correto: 
    
-    $cert=Get-Content -Encoding byte "[LOCATION OF hello CER FILE]" 
+    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
     $new_ca.AuthorityType=0 
     $new_ca.TrustedCertificate=$cert 
@@ -138,7 +138,7 @@ toocreate uma autoridade de certificação confiável, use Olá [New-AzureADTrus
 
 ### <a name="remove"></a>Remover
 
-tooremove uma autoridade de certificação confiável, use Olá [AzureADTrustedCertificateAuthority remover](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -146,7 +146,7 @@ tooremove uma autoridade de certificação confiável, use Olá [AzureADTrustedC
 
 ### <a name="modfiy"></a>Modificar
 
-toomodify uma autoridade de certificação confiável, use Olá [AzureADTrustedCertificateAuthority conjunto](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
+Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 
@@ -155,71 +155,71 @@ toomodify uma autoridade de certificação confiável, use Olá [AzureADTrustedC
 
 ## <a name="step-3-configure-revocation"></a>Etapa 3: configurar a revogação
 
-toorevoke um certificado de cliente do Active Directory do Azure busca certificado Olá a lista de revogação (CRL) de URLs Olá carregado como parte das informações de autoridade de certificado e armazena em cache. carimbo de hora da última publicação da saudação (**data de efetivação** propriedade) na Olá CRL é usada tooensure Olá CRL ainda é válido. Olá CRL é referenciado periodicamente toorevoke acesso toocertificates que fazem parte da lista de saudação.
+Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade**Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
 
-Se um instantânea mais revogação for necessária (por exemplo, se um usuário perde um dispositivo), token de autorização de saudação do usuário Olá pode ser invalidado. saudação de token, defina de autorização de saudação do tooinvalidate **StsRefreshTokenValidFrom** campo para esse usuário específico usando o Windows PowerShell. Você deve atualizar Olá **StsRefreshTokenValidFrom** campo para cada usuário que você deseja acesso toorevoke.
+Se uma revogação mais imediata for necessária (por exemplo, se um usuário perder um dispositivo), o token de autorização do usuário poderá ser invalidado. Para invalidar o token de autorização, defina o campo **StsRefreshTokenValidFrom** para esse usuário específico usando o Windows PowerShell. Você deve atualizar o campo **StsRefreshTokenValidFrom** para cada usuário do qual deseja revogar o acesso.
 
-tooensure revogação Olá persistente, você deve definir Olá **data de efetivação** da data de tooa CRL Olá após Olá valor definido por **StsRefreshTokenValidFrom** e certifique-se de saudação certificado em questão está no Olá CRL.
+Para garantir que a revogação persista, é preciso definir **Effective Date** da CRL para uma data posterior ao valor definido por **StsRefreshTokenValidFrom** e garantir que o certificado em questão esteja na CRL.
 
-Olá seguindo as etapas da estrutura de tópicos Olá processo de atualização e invalidar o token de autorização Olá por configuração Olá **StsRefreshTokenValidFrom** campo. 
+As etapas a seguir descrevem o processo para atualizar e invalidar o token de autorização pela definição do campo **StsRefreshTokenValidFrom** . 
 
-**revogação de tooconfigure:** 
+**Para configurar a revogação:** 
 
-1. Conecte-se com o serviço de MSOL de toohello de credenciais de administrador: 
+1. Conecte-se com credenciais de administrador ao serviço MSOL: 
    
         $msolcred = get-credential 
         connect-msolservice -credential $msolcred 
 
-2. Recupere o valor atual de StsRefreshTokensValidFrom Olá para um usuário: 
+2. Recupere o valor StsRefreshTokensValidFrom atual para um usuário: 
    
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
         $user.StsRefreshTokensValidFrom 
 
-3. Configure um novo valor de StsRefreshTokensValidFrom para usuário de saudação toohello igual timestamp atual: 
+3. Configure um novo valor StsRefreshTokensValidFrom para o usuário igual ao carimbo de data/hora atual: 
    
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
-Data de saudação definir deve estar no hello futuras. Se Olá data não estiver no hello futuras, Olá **StsRefreshTokensValidFrom** propriedade não está definida. Se for date de hello em Olá futura, **StsRefreshTokensValidFrom** é definido toohello hora atual (não data Olá indicada pelo comando Set-MsolUser). 
+A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser). 
 
 
 ## <a name="step-4-test-your-configuration"></a>Etapa 4: testar a sua configuração
 
 ### <a name="testing-your-certificate"></a>Teste do seu certificado
 
-Como um primeiro teste de configuração, você deve tentar toosign em muito[Outlook Web Access](https://outlook.office365.com) ou [SharePoint Online](https://microsoft.sharepoint.com) usando seu **navegador no dispositivo**.
+Como primeiro teste de configuração, entre no [Outlook Web Access](https://outlook.office365.com) ou no [SharePoint Online](https://microsoft.sharepoint.com) usando seu **navegador no dispositivo**.
 
 Se a entrada for bem-sucedida, você saberá que:
 
-- certificado de usuário Olá foi provisionado tooyour dispositivo de teste
+- O certificado de usuário foi provisionado para o seu dispositivo de teste
 - O AD FS está configurado corretamente  
 
 
 ### <a name="testing-office-mobile-applications"></a>Testando aplicativos móveis do Office
 
-**tootest autenticação baseada em certificado em seu aplicativo móvel do Office:** 
+**Para testar a autenticação baseada em certificado no seu aplicativo móvel do Office:** 
 
 1. No seu dispositivo de teste, instale um aplicativo móvel do Office (por exemplo, OneDrive).
-3. Inicie o aplicativo hello. 
-4. Insira seu nome de usuário e, em seguida, selecione o certificado de usuário de Olá que você deseja que o toouse. 
+3. Inicie o aplicativo. 
+4. Insira seu nome de usuário e escolha o certificado de usuário que deseja usar. 
 
 Você deve se conectar com êxito. 
 
 ### <a name="testing-exchange-activesync-client-applications"></a>Testando aplicativos cliente do Exchange ActiveSync
 
-tooaccess do Exchange ActiveSync (EAS) por meio da autenticação baseada em certificado, um perfil EAS que contém o certificado de cliente Olá deve ser aplicativo toohello disponíveis. 
+Para acessar o Exchange ActiveSync (EAS) por meio da autenticação baseada em certificado, um perfil do EAS que contém o certificado de cliente deve estar disponível para o aplicativo. 
 
-Olá perfil de EAS deve conter Olá informações a seguir:
+O perfil do EAS deve conter as seguintes informações:
 
-- Olá toobe de certificado de usuário usado para autenticação 
+- O certificado do usuário a ser usado para autenticação 
 
-- ponto de extremidade do Hello EAS (por exemplo, outlook.office365.com)
+- O ponto de extremidade do EAS (por exemplo, outlook.office365.com)
 
-Um perfil de EAS pode ser configurado e colocado Olá dispositivo por meio da utilização de saudação do gerenciamento de dispositivo móvel (MDM) como o Intune ou colocando manualmente certificados Olá em Olá perfil de EAS em dispositivo hello.  
+Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da utilização de um gerenciamento de dispositivo móvel (MDM), como o Intune, ou colocando o certificado manualmente no perfil do EAS no dispositivo.  
 
 ### <a name="testing-eas-client-applications-on-android"></a>Testando os aplicativos cliente do EAS no Android
 
-**autenticação de certificado tootest:**  
+**Para testar a autenticação do certificado:**  
 
-1. Configure um perfil EAS em aplicativo hello que satisfaz os requisitos de saudação acima.  
-2. Abra o aplicativo hello e verificar a sincronização de email. 
+1. Configure um perfil do EAS no aplicativo que atenda aos requisitos acima.  
+2. Abra o aplicativo e verifique a sincronização de email. 
 

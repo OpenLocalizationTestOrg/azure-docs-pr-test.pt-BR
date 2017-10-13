@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Interface de usuário do Mobile Engagement - painel de controle"
-description: "Saiba como tooview e gerenciar gráficos de dados sobre seu aplicativo usando o Azure Mobile Engagement"
+title: "Interface do usuário do Azure Mobile Engagement - Painel"
+description: "Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d834c01cb748a962d50006398b75b381fa6d8cef
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooview-and-manage-charts-of-data-about-your-application"></a>Como tooview e gerenciar gráficos de dados sobre o seu aplicativo
-Olá seção do painel de interface do usuário permite que os clientes toocreate personalizado de hello gráficos toomaximize seu tempo fornecendo informações de exato Olá desejados em vez de pesquisa na seção de análise de saudação. Um painel mostra as tendências de saudação do seu aplicativo e Olá conta de usuário ativa para versões diferentes de saudação do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizada). tendências de saudação mostradas se baseiam em Olá últimos 7 dias.
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
+A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
 
 ### <a name="see-also"></a>Consulte também
 * [Guia de solução de problemas — análise][Link 21]
 
 ## <a name="dashboard"></a>Painel
-* Você pode adicionar um painel vazio de tooan gráficos escolhendo ação hello "enviar toodashboard" hello engrenagem menu de qualquer gráfico na seção de análise de saudação da saudação da interface do usuário que deseja toosee em um painel.
+* Você pode adicionar gráficos a um painel vazio escolhendo a ação “Enviar ao painel” no menu de engrenagem de qualquer gráfico na seção Análise da interface do usuário que você gostaria de ver em um painel.
 
 ## <a name="-add-a-dashboard"></a>+ (Adicionar um painel de controle):
-* Você pode usar Olá "+" item de menu toocreate um novo painel será exibido no menu da faixa de opções de saudação de faixa de opções.
+* Você pode usar o item de menu da faixa de opções “+” para criar um novo painel que será exibido no menu da faixa de opções.
 
 ## <a name="gear-menu"></a>Menu de engrenagem
-* Você pode usar o menu de engrenagem de saudação de um painel tooDelete, renomear, compartilhamento ou agenda (receber E-mail) do painel. Você pode usar o hello agenda opção toodefine Olá agenda em que você gostaria que tooreceive seu painel personalizado por email. Você pode agendar tooreceive, diariamente, semanalmente ou mensalmente. Você pode escolher Olá hora Olá e dia Olá Olá semana ou dia do mês hello quando você deseja que o email de saudação tooreceive. Seu endereço de email e o fuso horário baseiam-se nas configurações de saudação configurado no hello seção Minha conta de saudação da interface do usuário.
+* Você pode usar o menu de engrenagem de um painel para Excluir, Renomear, Compartilhar ou o Agendar (recepção de Email) de seu painel. Você pode usar a opção de Agendamento para definir a agenda na qual você gostaria de receber seu painel personalizado por email. Você pode agendar para recebê-lo diária, semanal ou mensalmente. Você pode escolher a hora do dia e o dia da semana ou dia do mês em que você gostaria de receber o email. Seu endereço de email e o fuso horário com base nas configurações que você configurou na seção Minha conta da interface do usuário.
   
   ![dashboard1][34]
 

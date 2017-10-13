@@ -1,6 +1,6 @@
 ---
-title: "aaaSpecifying as configurações de DNS em um arquivo de configuração de rede virtual | Microsoft Docs"
-description: "Como configurações do servidor DNS toochange em uma rede virtual usando uma configuração de rede virtual do arquivo no modelo de implantação clássico Olá"
+title: "Especificando as configurações DNS em um arquivo de configuração de Rede Virtual | Microsoft Docs"
+description: "Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual no modelo de implantação clássica"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: d53a658773e1c930b5a28a701db0be9edd26565e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de rede virtual
-Um arquivo de configuração de rede tem dois elementos que você pode usar as configurações do sistema de nome de domínio (DNS) toospecify: **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazer referência a nomes toohello **DnsServers** elemento. Você pode usar um **DnsServerRef** toospecify elemento quais entradas de elemento DnsServers de saudação do servidor DNS são usadas para sites de rede diferente dentro de sua rede virtual.
+Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar as configurações do Sistema de Nome de Domínio (DNS): **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazendo referência a nomes para o elemento **DnsServers** . Você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento DnsServers serão usadas para sites de rede diferentes dentro da sua rede virtual.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artigo aborda o modelo de implantação clássico hello.
+Este artigo aborda o modelo de implantação clássico.
 
-arquivo de configuração de rede Olá pode conter Olá elementos a seguir. título de saudação de cada elemento é vinculado tooa página que fornece informações adicionais sobre o elemento de saudação configurações do valor.
+O arquivo de configuração de rede pode conter os seguintes elementos. O título de cada elemento é vinculado a uma página que fornece informações adicionais sobre as configurações de valores de elemento.
 
 > [!IMPORTANT]
-> Para obter informações sobre como tooconfigure Olá arquivo de configuração de rede, consulte [configurar uma rede Virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md). Para obter informações sobre cada elemento contido no arquivo de configuração de rede hello, consulte [esquema de configuração de rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+> Para obter informações sobre como configurar o arquivo de configuração de rede, consulte [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md). Para obter informações sobre cada elemento contido no arquivo de configuração de rede, consulte [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 > 
 > 
 
@@ -46,7 +46,7 @@ arquivo de configuração de rede Olá pode conter Olá elementos a seguir. tít
     </Dns>
 
 > [!WARNING]
-> Olá **nome** atributo Olá **DnsServer** elemento é usado apenas como uma referência para Olá **DnsServerRef** elemento. Ele não representa o nome do host de saudação para o servidor DNS de saudação. Cada **DnsServer** o valor do atributo deve ser exclusivo entre a assinatura do Microsoft Azure toda Olá
+> O atributo **nome** no elemento **DnsServer** é usado apenas como uma referência para o elemento**DnsServerRef**. Ele não representa o nome do host para o servidor DNS. Cada valor do atributo **DnsServer** deve ser exclusivo a toda a assinatura do Microsoft Azure
 > 
 > 
 
@@ -59,12 +59,12 @@ arquivo de configuração de rede Olá pode conter Olá elementos a seguir. tít
     </DnsServersRef>
 
 > [!NOTE]
-> Em ordem toospecify essa configuração para o elemento de Sites de rede Virtual hello, ele deverá ser definido anteriormente no elemento DNS hello. Olá DnsServerRef *nome* em Olá Sites de rede Virtual elemento deve se referir a tooa nome valor especificado no elemento DNS Olá para DnsServer *nome*.
+> Para especificar esta configuração para o elemento de Sites de Rede Virtual, ela deve ser anteriormente definida no elemento de DNS. O *nome* DnsServerRef no elemento Sites de Rede Virtual deve se referir a um valor de nome especificado no elemento de DNS para o *nome* DnsServer.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Entender Olá [esquema de configuração de rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
-* Entender Olá [esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+* Entenda o [Esquema de configuração da Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+* Entenda o [Esquema de configuração do Serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configure uma rede virtual usando os arquivos de configuração de Rede](virtual-networks-using-network-configuration-file.md).
 

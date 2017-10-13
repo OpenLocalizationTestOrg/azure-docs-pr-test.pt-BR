@@ -1,12 +1,12 @@
-É importante toorealize que há dois tooconfigure de maneiras um ouvinte de grupo de disponibilidade no Azure. Olá maneiras diferem no tipo de saudação do balanceador de carga do Azure que você usar ao criar o ouvinte de saudação. Olá, a tabela a seguir descreve as diferenças de saudação:
+É importante perceber que há duas maneiras de configurar um ouvinte do grupo de disponibilidade no Azure. Esses métodos são diferentes do tipo de balanceador de carga do Azure que você utiliza ao criar o ouvinte. A tabela a seguir lista as diferenças:
 
 | Tipo de balanceador de carga | Implementação | Use quando: |
 | --- | --- | --- |
-| **Externo** |Olá usa *endereço IP virtual público* saudação do serviço de nuvem que hospeda máquinas virtuais de saudação (VMs). |Você precisa de ouvinte de saudação tooaccess de rede virtual do hello fora, inclusive de saudação à Internet. |
-| **Interna** |Usa um *balanceador de carga interno* com um endereço privado para o ouvinte de saudação. |Você pode acessar o ouvinte Olá somente de dentro de saudação mesma rede virtual. Esse acesso inclui VPN site a site em cenários híbridos. |
+| **Externo** |Usa o *endereço de IP virtual público* do serviço de nuvem que hospeda as máquinas virtuais (VMs). |Você precisa acessar o ouvinte de fora da rede virtual, inclusive da Internet. |
+| **Interna** |Usa um *balanceador de carga interno* com um endereço privado para o ouvinte. |Você pode acessar o ouvinte somente de dentro da mesma rede virtual. Esse acesso inclui VPN site a site em cenários híbridos. |
 
 > [!IMPORTANT]
-> Para um ouvinte que Olá de usos VIP público do serviço de nuvem Olá (balanceador externo de carga), contanto que o cliente hello, ouvinte e bancos de dados estão na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, nenhum dado retornado por meio de saudação ouvinte é considerado a saída, e são cobrados em taxas de transferência de dados normal. 
+> Para um ouvinte que usa o VIP público (balanceador de carga externo) do serviço de nuvem, desde que o cliente, o ouvinte e os bancos de dados estejam na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, os dados retornados através do ouvinte são considerados dados de saída e serão cobradas as taxas de transferência de dados normais. 
 > 
 > 
 

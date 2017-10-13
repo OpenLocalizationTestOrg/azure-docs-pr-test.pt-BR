@@ -1,20 +1,20 @@
 > [!IMPORTANT]
-> tooreceive notificações por Push do Mobile Engagement, você precisa tooenable `Silent Remote Notifications` em seu aplicativo. Você precisa matriz de UIBackgroundModes tooadd Olá remoto notificação valor toohello no seu arquivo Info. plist.
+> Para receber notificações por push do Mobile Engagement, você precisa habilitar `Silent Remote Notifications` em seu aplicativo. Você precisa adicionar o valor remote-notification à matriz UIBackgroundModes no arquivo Info.plist.
 > 
 > 
 
-1. Abra `info.plist` arquivo no projeto Olá
-2. Clique com o botão direito no item de saudação superior na lista de saudação (`Information Property List`) e adicione uma nova linha
+1. Abra o arquivo `info.plist` no projeto
+2. Clique com o botão direito no item superior na lista (`Information Property List`) e adicione uma nova linha
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
-3. Em Olá Inserir nova linha`Required background modes`
+3. Na nova linha, digite `Required background modes`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
-4. Clique em linha de saudação de tooexpand Olá seta para a esquerda
-5. Adicionar Olá após valor toohello item 0`App downloads content in response toopush notifications`
+4. Clique na seta à esquerda para expandir a linha
+5. Adicione o seguinte valor para o item 0 `App downloads content in response to push notifications`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
-6. Depois que você alterar Olá, Olá Info. plist XML deve conter Olá a seguir de chave e valor:
+6. Após a alteração, o XML info.plist deve conter a chave e o valor a seguir:
    
         <key>UIBackgroundModes</key>
         <array>

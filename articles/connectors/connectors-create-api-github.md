@@ -1,6 +1,6 @@
 ---
-title: "conector de aaaGitHub em aplicativos do Azure lógica | Microsoft Docs"
-description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece Olá distribuída revisão origem e controle de código management (SCM) funcionalidade de Git, bem como adicionar seus próprios recursos."
+title: "Conector do GitHub no Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a75070e6371be625e5cf24a8dc0200844b7a6891
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-github-connector"></a>Introdução ao conector do GitHub Olá
-O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece Olá distribuída revisão origem e controle de código management (SCM) funcionalidade de Git, bem como adicionar seus próprios recursos.
+# <a name="get-started-with-the-github-connector"></a>Introdução ao conector do GitHub
+O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos.
 
 É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-toogithub"></a>Criar uma conexão tooGitHub
-aplicativos de lógica de toocreate com GitHub, você deve primeiro criar um **conexão** Forneça detalhes de saudação para Olá propriedades a seguir: 
+## <a name="create-a-connection-to-github"></a>Criar uma conexão com o GitHub
+Para criar Aplicativos lógicos com o GitHub, você deve primeiro criar uma **conexão**, em seguida, fornecer os detalhes para as seguintes propriedades: 
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
 | A criptografia do token |Sim |Fornecer as credenciais do GitHub |
 
-Depois de criar conexão Olá, você pode usá-lo tooexecute ações de saudação e escutar gatilhos Olá descritos neste artigo. 
+Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo. 
 
-> [!INCLUDE [Steps toocreate a connection tooGitHub](../../includes/connectors-create-api-github.md)]
+> [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/github/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/github/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Voltar toohello [lista APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).

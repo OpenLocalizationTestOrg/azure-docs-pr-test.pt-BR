@@ -1,6 +1,6 @@
 ---
-title: "Olá aaaUse modo de execução de vértice no Data Lake Tools para Visual Studio | Microsoft Docs"
-description: "Saiba como toouse Olá trabalhos de análise Data Lake tooexam exibição de execuções de vértice."
+title: "Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio | Microsoft Docs"
+description: "Saiba como usar o Modo de Exibição de Execução de Vértice para examinar trabalhos do Data Lake Analytics."
 services: data-lake-analytics
 documentationcenter: 
 author: mumian
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/13/2016
 ms.author: jgao
-ms.openlocfilehash: fb54d2af8a32aa27a54ff50a73c1b4903677a21e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Olá Use exibição de execuções de vértice no Data Lake Tools para Visual Studio
-Saiba como toouse Olá trabalhos de análise Data Lake tooexam exibição de execuções de vértice.
+# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio
+Saiba como usar o Modo de Exibição de Execução de Vértice para examinar trabalhos do Data Lake Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário um conhecimento básico de como usar Data Lake Tools para o script do Visual Studio toodevelop U-SQL.  Confira [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+Você precisa de conhecimento básico do uso das Ferramentas do Data Lake para Visual Studio para desenvolver scripts U-SQL.  Confira [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="open-hello-vertex-execution-view"></a>Olá abrir modo de execução de vértice
-Abra um trabalho de U-SQL em Ferramentas do Data Lake para Visual Studio. Clique em **exibição de execuções de vértice** no canto do hello inferior esquerdo. Você pode ser perfis tooload solicitada pela primeira vez e pode levar algum tempo dependendo de sua conectividade de rede.
+## <a name="open-the-vertex-execution-view"></a>Abrir o Modo de Exibição de Execução de Vértice
+Abra um trabalho de U-SQL em Ferramentas do Data Lake para Visual Studio. Clique em **Exibição de Execuções de Vértice** no canto inferior esquerdo. Talvez você receba uma solicitação para carregar perfis primeiro e isso pode demorar algum tempo dependendo de sua conectividade de rede.
 
 ![Modo de Exibição de Execução de Vértice das Ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Noções básicas do Modo de Exibição de Execução de Vértice
-Olá vértice execução exibição tem três partes:
+A Exibição de Execuções de Vértice tem três partes:
 
 ![Modo de Exibição de Execução de Vértice das Ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
-Olá **seletor de vértice** permite esquerdo Olá você seleciona vértices pelos recursos (como top 10 dados de leitura, ou optar por estágio). Um dos filtros usados com mais frequência do hello é Olá toosee **vértices no caminho crítico**. Olá **caminho crítico** Olá a cadeia mais longa dos vértices de um trabalho de U-SQL. Caminho crítico de saudação compreensão é útil para otimizar seus trabalhos verificando quais vértice leva tempo mais longo de saudação.
+O **seletor de vértice** à esquerda permite selecionar vértices pelos recursos (como 10 principais dados lidos ou optar por estágio). Um dos filtros mais usados é para ver os **vértices no caminho crítico**. O **Caminho crítico** é a cadeia mais longa de vértices de um trabalho U-SQL. Entender o caminho crítico é útil para otimizar seus trabalhos verificando quais vértice demoram mais.
   
 ![Modo de Exibição de Execução de Vértice das Ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-painel da parte superior central de saudação mostra Olá **executando o status de todos os vértices de saudação**.
+O painel central superior mostra o **status de execução de todos os vértices**.
   
 ![Modo de Exibição de Execução de Vértice das Ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
-Painel de central Olá inferior mostra informações sobre cada vértice:
-* Nome de processo: nome de saudação da instância de vértice hello. Ele é composto por diferentes partes em StageName|VertexName|VertexRunInstance. Por exemplo, vértice de .v1 [62] Olá SV7_Split representa Olá segunda instância em execução (.v1, índice a partir de 0) do número de vértice 62 no estágio SV7_Split.
-* Gravadas/leitura total de dados: dados saudação foram lida/gravada por este vértice.
-* Status de estado/saída: Olá status final quando vértice Olá é finalizada.
-* Tipo de falha do código de saída: erro de saudação ao vértice Olá falha.
-* Motivo da criação: Por que vértice Olá foi criado.
-* Latência de fila do recurso latência/processo latência/NP: Olá tempo para Olá vértice toowait para toostay na fila hello, tooprocess dados e recursos.
-* GUID de processo/criador: GUID vértice de execução atual hello ou seu criador.
-* Versão: instância Olá N-ésimo da saudação executando vértice (o sistema Olá pode agendar novas instâncias de um vértice para muitos motivos, por exemplo, o failover, computação redundância, etc.)
+O painel central inferior mostra informações sobre cada vértice:
+* Nome do Processo: o nome da instância do vértice. Ele é composto por diferentes partes em StageName|VertexName|VertexRunInstance. Por exemplo, o vértice de SV7_Split[62].v1 representa a segunda instância em execução (.v1, índice que começa em 0) do vértice número 62 no estágio SV7_Split.
+* Leitura/Gravação Total de Dados: os dados foram lidos/gravados por esse vértice.
+* Estado/Status de Saída: o status final quando o vértice é encerrado.
+* Código de Saída/Tipo de Falha: o erro no momento da falha do vértice.
+* Motivo da Criação: por que o vértice foi criado.
+* Latência do Recurso/Latência do processo/ Latência da Fila de PN: o tempo necessário para o vértice aguardar recursos, processar dados e permanecer na fila.
+* GUID do Processo/Criador: o GUID do vértice em execução no momento ou de seu criador.
+* Versão: a enésima instância do vértice em execução (o sistema pode agendar novas instâncias de um vértice por vários motivos, por exemplo, para failover, redundância de computação etc.)
 * Hora da Criação da Versão.
-* Processar criar Iniciar processo/tempo na fila tempo/processo Iniciar tempo/processo concluir tempo: criação; iniciado o processo de vértice de saudação Quando o processo de vértice de saudação começa tooqueue; Olá quando determinados início do processo de vértice; Quando hello determinados vértice é concluída.
+* Hora de Início da Criação do Processo/Hora de Enfileiramento do Processo/Hora de Início do processo/Hora de Conclusão do Processo: quando o processo do vértice começa a criação; quando o processo do vértice começa a enfileirar; quando o processo do vértice especificado começa; quando o vértice especificado é concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
-* toolog informações de diagnóstico, consulte [acessar logs de diagnóstico para análise do Azure Data Lake](data-lake-analytics-diagnostic-logs.md)
-* toosee uma consulta mais complexa, consulte [site analisar logs usando a análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-* detalhes do trabalho tooview, consulte [navegador de trabalho de uso e a exibição de trabalho de trabalhos da análise Azure Data lake](data-lake-analytics-data-lake-tools-view-jobs.md)
+* Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+* Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
+* Para ver detalhes do trabalho, confira [Usar o Navegador de Trabalhos e o Modo de Exibição de Trabalho para trabalhos do Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md)

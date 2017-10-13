@@ -1,6 +1,6 @@
 ---
-title: "Instalação de tempo de execução de funções de aaaAzure | Microsoft Docs"
-description: "Como tooInstall Olá tempo de execução de funções do Azure"
+title: "Instalação do Azure Functions Runtime | Microsoft Docs"
+description: Como Instalar o Azure Functions Runtime
 services: functions
 documentationcenter: 
 author: apwestgarth
@@ -14,84 +14,84 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.openlocfilehash: 67c6d10b5c0ac43e880d29cff0ae7b099f82bdb5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="install-hello-azure-functions-runtime-preview"></a>Instalar Olá visualização de tempo de execução de funções do Azure
+# <a name="install-the-azure-functions-runtime-preview"></a>Instalar a visualização do Azure Functions Runtime
 
-Se você quiser visualizar de tempo de execução de funções do Azure Olá tooinstall, você deve seguir estas etapas:
+Se você quiser instalar a visualização do Azure Functions Runtime, execute estas etapas:
 
-1. Certifique-se de que sua máquina passa os requisitos mínimos de saudação
-1. Baixar Olá [instalador de visualização do Azure funções em tempo de execução](https://aka.ms/azafr). 
-1. Instalar visualização de tempo de execução de funções do Azure Olá
-1. Configuração de saudação completa de visualização de tempo de execução de funções do Azure Olá
+1. Certifique-se de que sua máquina atenda aos requisitos mínimos
+1. Baixe o [Instalador da visualização do Azure Functions Runtime](https://aka.ms/azafr). 
+1. Instalar a visualização do Azure Functions Runtime
+1. Concluir a configuração da visualização do Azure Functions Runtime
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar a visualização de tempo de execução de funções do Azure hello, você deve ter o seguinte hello:
+Antes de instalar a visualização do Azure Functions Runtime, você deve ter o seguinte:
 
 1. Um computador executando o Microsoft Windows Server 2016 ou a Atualização do Microsoft Windows 10 para Criadores (Professional ou Enterprise Edition).
 1. Uma instância do SQL Server em execução em sua rede.  O requisito mínimo de edição é o SQL Server Express.
 
-## <a name="install-hello-azure-functions-runtime-preview"></a>Instalar Olá visualização de tempo de execução de funções do Azure
+## <a name="install-the-azure-functions-runtime-preview"></a>Instalar a visualização do Azure Functions Runtime
 
-instalador de visualização de tempo de execução de funções do Azure Olá orientará você durante a instalação de saudação de visualização de tempo de execução de funções do Azure Olá gerenciamento e funções de trabalho.  É possível tooinstall Olá gerenciamento e função de trabalho no hello mesma máquina.  No entanto, à medida que você adiciona mais funções, você deve implantar mais funções de trabalho em máquinas adicionais toobe capaz de tooscale funções em vários trabalhadores.
+O instalador da versão prévia do Azure Functions Runtime orienta você durante a instalação das Funções de Gerenciamento e de Trabalho da versão prévia do Azure Functions Runtime.  É possível instalar as Funções de Gerenciamento e de Trabalho no mesmo computador.  No entanto, à medida que você adiciona mais funções, é necessário implantar mais funções de trabalho em computadores adicionais para poder escalar suas funções para vários trabalhadores.
 
-## <a name="install-hello-management-and-worker-role-on-hello-same-machine"></a>Instalar hello gerenciamento e a função de trabalho em Olá mesmo computador
+## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Instalar as Funções de Gerenciamento e de Trabalho no mesmo computador
 
-1. Execute Olá instalador de visualização do Azure funções em tempo de execução.
+1. Execute o Instalador da visualização do Azure Functions Runtime.
 
     ![Instalador da visualização do Azure Functions Runtime][1]
 
-1. **Clique em Avançar** ampliar após o primeiro estágio de saudação do instalador de saudação
-1. Depois que você leu termos Olá Olá **EULA**, **Olá caixa de seleção** termos de saudação tooaccept e **clique em Avançar** tooadvance.
-1. Agora selecione Olá funções você deseja tooinstall nesta máquina **funções de gerenciamento de função** e/ou **funções de função de trabalho** e **clique em Avançar**
+1. **Clique em Avançar** para passar para o primeiro estágio do instalador
+1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e **clique em Avançar** para avançar.
+1. Agora, selecione as funções que você deseja instalar neste computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e **clique em Avançar**
 
     ![Instalador da visualização do Azure Functions Runtime - Seleção de função][3]
 
     > [!NOTE]
-    > Você pode instalar Olá **funções de função de trabalho** em muitos outros toodo máquinas assim, siga estas instruções e selecionar apenas **função de trabalho de funções** no instalador hello.
+    > Você pode instalar a **Função de Trabalho do Functions** em muitas outras máquinas. Para fazer isso, siga estas instruções e selecione somente a **Função de Trabalho do Functions** no instalador.
 
-1. **Clique em Avançar** toohave Olá **instalador de tempo de execução de funções do Azure** instalar em seu computador.
-1. Depois que o instalador completo Olá iniciará Olá **ferramenta de configuração de tempo de execução de funções do Azure**.
+1. **Clique em Avançar** para instalar o **Instalador do Azure Functions Runtime** em seu computador.
+1. Após a conclusão, o instalador iniciará a **ferramenta de Configuração do Azure Functions Runtime**.
 
     ![Instalador da visualização do Azure Functions Runtime concluída][5]
 
     > [!NOTE]
-    > Se você estiver instalando em **Windows 10** e hello **contêiner** recurso não foi previamente habilitado, hello **tempo de execução de funções do Azure** instalador solicita que você tooreboot saudação de toocomplete sua máquina instalar.
+    > Se você estiver instalando no **Windows 10** e o recurso **Contêiner** não tiver sido habilitado, o instalador do **Azure Functions Runtime** solicitará a reinicialização do computador para concluir a instalação.
 
-## <a name="configure-hello-azure-functions-runtime"></a>Configurar Olá tempo de execução de funções do Azure
+## <a name="configure-the-azure-functions-runtime"></a>Configurar o Azure Functions Runtime
 
-Olá toocomplete instalação de tempo de execução de funções do Azure, você deve concluir a configuração de saudação.
+Para concluir a instalação do Azure Functions Runtime, você deverá concluir a configuração.
 
-1. Olá **ferramenta de configuração de tempo de execução de funções do Azure** mostra quais funções estão instaladas em seu computador.
+1. A **ferramenta de Configuração do Azure Functions Runtime** mostra quais funções estão instaladas em seu computador.
 
     ![Ferramenta de configuração da visualização do Azure Functions Runtime][6]
 
-1. Clique em Olá **banco de dados** , insira Olá **detalhes de conexão para sua instância do SQL Server** e **clique em aplicar**.  Isso é necessário em ordem toohello toocreate de tempo de execução de funções do Azure uma saudação toosupport do banco de dados em tempo de execução.
+1. Clique na guia **Banco de Dados**, insira os **detalhes da conexão de sua instância do SQL Server** e **clique em Aplicar**.  Isso é necessário para que o Azure Functions Runtime crie um banco de dados para dar suporte ao Runtime.
     
     ![Configuração de banco de dados da visualização do Azure Functions Runtime][7]
 
-1. Clique em Olá **credenciais** guia.  Nessa tela, você deve criar duas credenciais novas para uso com um compartilhamento de arquivos para hospedagem de todas as suas Azure Functions.  **Especifique o nome de usuário e senha** combinações para Olá **proprietário do compartilhamento de arquivo** e Olá **usuário do compartilhamento de arquivo** e clique em **aplicar**.
+1. Clique na guia **Credenciais**.  Nessa tela, você deve criar duas credenciais novas para uso com um compartilhamento de arquivos para hospedagem de todas as suas Azure Functions.  **Especifique combinações de nome de usuário e senha** para o **Proprietário do Compartilhamento de Arquivo** e para o **Usuário do Compartilhamento de Arquivo** e clique em **Aplicar**.
 
     ![Credenciais da visualização do Azure Functions Runtime][8]
 
-1. Clique em Olá **compartilhamento de arquivos** guia.  Nessa tela, você deve especificar os detalhes de saudação do hello **local de compartilhamento de arquivo**.  Isso pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de compartilhamento de arquivos, você deve especificar um diretório para uso por Olá tempo de execução de funções do Azure.
+1. Clique na guia **Compartilhamento de Arquivos**.  Nessa tela, você deve especificar os detalhes do **Local do Compartilhamento de Arquivo**.  Isso pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de Compartilhamento de Arquivos, especifique um diretório para ser usado pelo Azure Functions Runtime.
     
     ![Compartilhamento de arquivo da visualização do Azure Functions Runtime][9]
 
-1. Clique em Olá **IIS** guia.  Essa guia mostra detalhes de saudação de Olá sites no IIS que Olá instalação de tempo de execução de funções do Azure criará.  **Clique em aplicar** toocomplete.
+1. Clique na guia **IIS**.  Essa guia mostra os detalhes dos sites no IIS que serão criados pela instalação do Azure Functions Runtime.  **Clique em Aplicar** para concluir.
 
     ![IIS da visualização do Azure Functions Runtime][10]
 
-1. Clique em Olá **serviços** guia.  Essa guia mostra o status de saudação dos serviços de saudação na instalação do tempo de execução de funções do Azure.  Se, depois de saudação da configuração inicial **serviço de ativação de Host de funções do Azure** não está sendo executado clique **iniciar serviço**
+1. Clique na guia **Serviços**.  Essa guia mostra o status dos serviços em sua instalação do Azure Functions Runtime.  Se, após a configuração inicial, o **Serviço de Ativação de Host do Azure Functions** não estiver em execução, clique em **Iniciar Serviço**
 
     ![Configuração da visualização do Azure Functions Runtime completa][11]
 
-1. Por fim, navegue toohello **Portal de tempo de execução de funções** como`https://<machinename>/`
+1. Por fim, navegue até o **Portal do Azure Functions Runtime** como`https://<machinename>/`
 
     ![Portal de visualização do Azure Functions Runtime][12]
 

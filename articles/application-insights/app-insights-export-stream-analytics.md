@@ -1,6 +1,6 @@
 ---
-title: "aaaExport usando a análise de fluxo do Azure Application Insights | Microsoft Docs"
-description: "Análise de fluxo contínuo pode transformar, filtrar e rota Olá você de exportação de dados do Application Insights."
+title: Exportar usando o Stream Analytics no Azure Application Insights | Microsoft Docs
+description: O Stream Analytics pode transformar, filtrar e rotear continuamente os dados exportados do Application Insights.
 services: application-insights
 documentationcenter: 
 author: noamben
@@ -13,138 +13,138 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.openlocfilehash: fda9b64f588c520833b2669eafdf650efc3de6be
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6a84d8ff67c420ce712de905ab1172632502a863
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="use-stream-analytics-tooprocess-exported-data-from-application-insights"></a>Use Stream Analytics tooprocess dados exportados do Application Insights
-[O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é Olá a ferramenta ideal para o processamento de dados [exportados do Application Insights](app-insights-export-telemetry.md). O Stream Analytics pode extrair dados de várias fontes. Ele pode transformar e filtrar dados de saudação e, em seguida, encaminhá-lo tooa vários coletores.
+# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar o Stream Analytics para processar os dados exportados do Application Insights
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processar dados [exportados do Application Insights](app-insights-export-telemetry.md). O Stream Analytics pode extrair dados de várias fontes. Ele pode transformar e filtrar os dados e depois roteá-los a uma variedade de coletores.
 
-Neste exemplo, vamos criar um adaptador que usa dados do Application Insights, renomeia e processa alguns dos campos de saudação e direcioná-lo no Power BI.
+Neste exemplo, vamos criar um adaptador que usa dados do Application Insights, renomeia e processa alguns dos campos e os direciona ao Power BI.
 
 > [!WARNING]
-> Há muito melhor e mais fácil [maneiras recomendadas dados do Application Insights toodisplay no Power BI](app-insights-export-power-bi.md). Olá, caminho ilustrado aqui é apenas um tooillustrate de exemplo como tooprocess de dados exportados.
+> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](app-insights-export-power-bi.md) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para mostrar como processar os dados exportados.
 > 
 > 
 
-![Diagrama de bloco para exportação por meio de SA tooPBI](./media/app-insights-export-stream-analytics/020.png)
+![Diagrama de bloco para exportação por meio do SA para PBI](./media/app-insights-export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Criar armazenamento no Azure
-A exportação contínua sempre gera conta de armazenamento do Azure tooan dados, portanto você precisa de armazenamento de saudação toocreate primeiro.
+Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Criar uma conta de armazenamento "clássico" em sua assinatura no hello [portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [portal do Azure](https://portal.azure.com).
    
    ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-stream-analytics/030.png)
 2. Criar um contêiner
    
-    ![No novo armazenamento de hello, selecionar contêineres, clique em bloco de contêineres hello e, em seguida, adicionar](./media/app-insights-export-stream-analytics/040.png)
-3. Copie a chave de acesso de armazenamento Olá
+    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-export-stream-analytics/040.png)
+3. Copie a chave de acesso de armazenamento
    
-    Você precisará dele em breve tooset o serviço de análise de fluxo de entrada toohello hello.
+    Você precisará dela em breve para configurar a entrada para o serviço do Stream Analytics.
    
-    ![No armazenamento Olá, abra configurações, chaves e faça uma cópia da saudação chave de acesso primária](./media/app-insights-export-stream-analytics/045.png)
+    ![No armazenamento, abra Configurações, Chaves e faça uma cópia da Chave de Acesso Primária](./media/app-insights-export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-tooazure-storage"></a>Iniciar a exportação contínua tooAzure armazenamento
+## <a name="start-continuous-export-to-azure-storage"></a>Iniciar exportação contínua no armazenamento do Azure
 [exportação contínua](app-insights-export-telemetry.md) move os dados do Application Insights para o armazenamento do Azure.
 
-1. Na Olá portal do Azure, procure o recurso do Application Insights toohello criado para o seu aplicativo.
+1. No portal do Azure, navegue até o recurso do Application Insights que você criou para seu aplicativo.
    
     ![Selecione Navegar, Application Insights e o nome do seu projeto.](./media/app-insights-export-stream-analytics/050.png)
 2. Crie uma exportação contínua.
    
     ![Escolha as Configurações, Exportação Contínua e Adicionar](./media/app-insights-export-stream-analytics/060.png)
 
-    Selecione a conta de armazenamento de saudação criado anteriormente:
+    Selecione a conta de armazenamento criada anteriormente:
 
-    ![Definir o destino de exportação de saudação](./media/app-insights-export-stream-analytics/070.png)
+    ![Definir o destino de exportação](./media/app-insights-export-stream-analytics/070.png)
 
-    Defina tipos de evento de saudação desejado toosee:
+    Defina os tipos de eventos que você deseja ver:
 
     ![Escolher os tipos de evento](./media/app-insights-export-stream-analytics/080.png)
 
 1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md). 
    
-    E, além disso, dados de saudação exportará tooyour armazenamento. 
-2. Inspecione dados hello exportada. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, você precisa tooinstall Olá SDK do Azure: Abrir caixa de diálogo de novo projeto hello e abra o Visual C# / nuvem / obter o Microsoft Azure SDK para .NET.)
+    E, além disso, os dados serão exportados para seu armazenamento. 
+2. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
    
     ![](./media/app-insights-export-stream-analytics/04-data.png)
    
-    Anote a parte comum Olá Olá do nome do caminho, que é derivada da chave de nome e a instrumentação do aplicativo hello. 
+    Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação. 
 
-eventos de saudação são gravados tooblob arquivos no formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de dados de evento de saudação tooread e filtrar campos Olá que desejamos. Todos os tipos de coisas que podemos fazer com dados hello, mas nosso plano de hoje é toouse do Stream Analytics toopipe Olá dados tooPower BI.
+Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é usar o Stream Analytics para redirecionar os dados ao Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
-De saudação [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics hello e criar um novo trabalho de análise de fluxo:
+No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
 ![](./media/app-insights-export-stream-analytics/090.png)
 
 ![](./media/app-insights-export-stream-analytics/100.png)
 
-Quando o novo trabalho de saudação é criado, expanda os detalhes:
+Quando o novo trabalho for criado, expanda seus detalhes:
 
 ![](./media/app-insights-export-stream-analytics/110.png)
 
 ### <a name="set-blob-location"></a>Definir local de blob
-Defina-a entrada tootake do seu blob de exportação contínua:
+Defina a entrada do seu blob de Exportação Contínua:
 
 ![](./media/app-insights-export-stream-analytics/120.png)
 
-Agora, você precisará Olá chave de acesso primário da conta de armazenamento, que você anotou anteriormente. Defina como Olá chave da conta de armazenamento.
+Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 
 ![](./media/app-insights-export-stream-analytics/130.png)
 
 ### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 ![](./media/app-insights-export-stream-analytics/140.png)
 
-**Ser se tooset Olá formato de data tooYYYY-MM-DD (com traços).**
+**Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
-saudação padrão de prefixo de caminho Especifica onde o Stream Analytics localiza os arquivos de entrada hello no armazenamento de saudação. Você precisa tooset-toohow toocorrespond exportação contínua armazena dados saudação. Defina-o assim:
+O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 Neste exemplo:
 
-* `webapplication27`é o nome de saudação de saudação recurso do Application Insights **todas as letras minúsculas**.
-* `1234...`é a chave de instrumentação de saudação de saudação recurso do Application Insights, **omitindo traços**. 
-* `PageViews`Olá tipo de dados que você deseja tooanalyze. tipos disponíveis de saudação dependem de filtro Olá definido na exportação contínua. Examinar outros tipos disponíveis de Olá Olá de toosee dados exportados e consulte Olá [exportar modelo de dados](app-insights-export-data-model.md).
+* `webapplication27` é o nome do recurso do Application Insights **todo em minúsculas**.
+* `1234...` é a chave de instrumentação do recurso do Application Insights **sem traços**. 
+* `PageViews` é o tipo de dados que você deseja analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examine os dados exportados para ver os outros tipos disponíveis e veja o [modelo de exportação de dados](app-insights-export-data-model.md).
 * `/{date}/{time}` um padrão escrito literalmente.
 
 > [!NOTE]
-> Inspecione Olá armazenamento toomake-se de que obter o caminho de saudação à direita.
+> Inspecione o armazenamento para garantir que o caminho está certo.
 > 
 > 
 
 ### <a name="finish-initial-setup"></a>Concluir a configuração inicial
-Confirme o formato de serialização hello:
+Confirme o formato de serialização:
 
 ![Confirme e feche o assistente](./media/app-insights-export-stream-analytics/150.png)
 
-Fechar o Assistente de saudação e aguarde Olá toocomplete de instalação.
+Feche o assistente e aguarde até que a instalação seja concluída.
 
 > [!TIP]
-> Use toodownload de comando de exemplo hello alguns dados. Mantê-lo como um toodebug de exemplo de teste de sua consulta.
+> Use o comando Sample para baixar alguns dados. Mantenha-os como exemplo de teste para depurar sua consulta.
 > 
 > 
 
-## <a name="set-hello-output"></a>Saída de saudação do conjunto
-Agora selecione o seu trabalho e definir a saída de hello.
+## <a name="set-the-output"></a>Definir a saída
+Agora, selecione seu trabalho e defina a saída.
 
-![Selecione o novo canal de saudação, clique em saídas, adicionar, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/app-insights-export-stream-analytics/160.png)
 
-Forneça seu **ou de estudante conta** tooauthorize tooaccess do Stream Analytics o recurso do Power BI. Em seguida, crie um nome para a saída de hello e de tabela e conjunto de dados do hello destino Power BI.
+Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analytics a acessar seu recurso do Power BI. Em seguida, crie um nome para a saída, bem como para a tabela e o conjunto de dados do Power BI de destino.
 
 ![Crie três nomes](./media/app-insights-export-stream-analytics/170.png)
 
-## <a name="set-hello-query"></a>Consulta de saudação do conjunto
-consulta Olá rege tradução de saudação do toooutput de entrada.
+## <a name="set-the-query"></a>Definir a consulta
+A consulta controla a conversão de entrada para a saída.
 
-![Selecione hello e clique em consulta. Cole o exemplo hello abaixo.](./media/app-insights-export-stream-analytics/180.png)
+![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-stream-analytics/180.png)
 
-Use Olá toocheck de função de teste que você receberá uma saída de saudação à direita. Dê a ele dados de exemplo hello que você fez na página de entradas de saudação. 
+Use a função Test para verificar se você obteve a saída certa. Atribua a ela os exemplos de dados que você obteve da página de entradas. 
 
-### <a name="query-toodisplay-counts-of-events"></a>Consulta toodisplay contagens de eventos
+### <a name="query-to-display-counts-of-events"></a>Consulta para exibir contagens de eventos
 Cole esta consulta:
 
 ```SQL
@@ -160,11 +160,11 @@ Cole esta consulta:
     GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
-* entrada de exportação é alias Olá apresentamos a entrada de fluxo de toohello
-* saída de pbi é Olá alias de saída foi definido
-* Usamos [GetElements externa aplicar](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento hello está em um arrray aninhada de JSON. Em seguida, escolhe selecione Olá Olá nome do evento, juntamente com uma contagem do número de saudação de instâncias com esse nome no período de tempo de saudação. Olá [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) cláusula agrupa elementos Olá em períodos de tempo de 1 minuto.
+* export-input é o alias que atribuímos à entrada do fluxo
+* pbi-output é o alias de saída que definimos
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Agrupar Por](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de 1 minuto.
 
-### <a name="query-toodisplay-metric-values"></a>Consulta toodisplay valores da métrica
+### <a name="query-to-display-metric-values"></a>Consulta para exibir valores de métricas
 ```SQL
 
     SELECT
@@ -179,9 +179,9 @@ Cole esta consulta:
 
 ``` 
 
-* Essa consulta detalhada na hora do evento Olá métricas da telemetria tooget hello e valor de métrica de saudação. valores da métrica Olá estão dentro de uma matriz, para que possamos usar linhas de Olá Olá externa GetElements aplicar padrão tooextract. "myMetric" é o nome de saudação da métrica Olá nesse caso. 
+* Essa consulta detalha a telemetria de métricas para obter a hora do evento e o valor da métrica. Os valores de métrica estão dentro de uma matriz, por isso usamos o padrão OUTER APPLY GetElements para extrair as linhas. "myMetric" é o nome da métrica nesse caso. 
 
-### <a name="query-tooinclude-values-of-dimension-properties"></a>Consulta tooinclude valores de propriedades de dimensão
+### <a name="query-to-include-values-of-dimension-properties"></a>Consulta para incluir valores das propriedades de dimensão
 ```SQL
 
     WITH flat AS (
@@ -201,22 +201,22 @@ Cole esta consulta:
 
 ```
 
-* Essa consulta inclui valores de propriedades de dimensão Olá sem dependendo de uma dimensão específica que está sendo em um índice fixado na matriz de dimensão de saudação.
+* Essa consulta inclui os valores das propriedades de dimensão sem a necessidade de ter uma determinada dimensão em um índice fixo na matriz de dimensão.
 
-## <a name="run-hello-job"></a>Executar trabalho Olá
-Você pode selecionar uma data no hello após toostart Olá trabalho do. 
+## <a name="run-the-job"></a>Executar o trabalho
+Você pode selecionar uma data no passado a partir da qual iniciar o trabalho. 
 
-![Selecione hello e clique em consulta. Cole o exemplo hello abaixo.](./media/app-insights-export-stream-analytics/190.png)
+![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-stream-analytics/190.png)
 
-Aguarde até que o trabalho hello está sendo executado.
+Aguarde até o trabalho estar Em execução.
 
 ## <a name="see-results-in-power-bi"></a>Ver os resultados no Power BI
 > [!WARNING]
-> Há muito melhor e mais fácil [maneiras recomendadas dados do Application Insights toodisplay no Power BI](app-insights-export-power-bi.md). Olá, caminho ilustrado aqui é apenas um tooillustrate de exemplo como tooprocess de dados exportados.
+> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](app-insights-export-power-bi.md) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para mostrar como processar os dados exportados.
 > 
 > 
 
-Abra o Power BI com seu trabalho ou conta de estudante, Olá selecione conjunto de dados e tabela definida como saída de saudação do trabalho de análise de fluxo de saudação.
+Abra o Power BI com sua conta corporativa ou de estudante e selecione o conjunto de dados e a tabela que você definiu como a saída do trabalho do Stream Analytics.
 
 ![No Power BI, selecione o conjunto de dados e os campos.](./media/app-insights-export-stream-analytics/200.png)
 
@@ -225,10 +225,10 @@ Agora você pode usar esse conjunto de dados em relatórios e painéis no [Power
 ![No Power BI, selecione o conjunto de dados e os campos.](./media/app-insights-export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Não há dados?
-* Verifique que você [formato de data do conjunto Olá](#set-path-prefix-pattern) corretamente tooYYYY-MM-DD (com traços).
+* Verifique se você [definiu o formato de data](#set-path-prefix-pattern) corretamente para AAAA-MM-DD (com traços).
 
 ## <a name="video"></a>Vídeo
-Noam Ben Zeev mostra como tooprocess exportado usando a análise de fluxo de dados.
+Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
@@ -236,6 +236,6 @@ Noam Ben Zeev mostra como tooprocess exportado usando a análise de fluxo de dad
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Exportação contínua](app-insights-export-telemetry.md)
-* [Referência de tipos de propriedade hello e valores do modelo de dados detalhados.](app-insights-export-data-model.md)
+* [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 

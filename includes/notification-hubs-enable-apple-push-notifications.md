@@ -1,118 +1,118 @@
 
 
-## <a name="generate-hello-certificate-signing-request-file"></a>Gerar arquivo de solicitação de assinatura de certificado Olá
-Olá serviço de notificação de envio por Push da Apple (APNS) usa certificados tooauthenticate as notificações por push. Siga estas instruções toocreate Olá necessário push certificado toosend e receber notificações. Para obter mais informações sobre esses conceitos, consulte oficial Olá [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentação.
+## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de Solicitação de Assinatura de Certificado
+O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar suas notificações por push. Siga estas instruções para criar o certificado de push necessário para enviar e receber notificações. Para obter mais informações sobre esses conceitos, consulte a documentação oficial do [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) .
 
-Gerar arquivo de solicitação de assinatura de certificado (CSR) hello, que é usado pelo Apple toogenerate um certificado assinado de envio.
+Gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Apple para gerar um certificado de push assinado.
 
-1. No seu Mac, execute Olá, ferramenta de acesso do conjunto de chaves. Ele pode ser aberto do hello **utilitários** pasta ou hello **outros** pasta no ponto de partida hello.
+1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser aberta da pasta **Utilitários** ou da pasta **Outros** no launch pad.
 2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Selecione seu **endereço de Email do usuário** e **nome comum** , certifique-se de que **salvo toodisk** está selecionado e, em seguida, clique em **continuar**. Deixe Olá **endereço de Email da autoridade de certificação** campo em branco, como não é necessária.
+3. Selecione seu **Endereço de Email de Usuário** e seu **Nome Comum**, verifique se **Salvo em disco** está selecionado e, em seguida, clique em **Continuar**. Deixe o campo **Endereço de Email de CA** em branco, pois ele não é necessário.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
-4. Digite um nome para o arquivo de solicitação de assinatura de certificado (CSR) de saudação em **Salvar como**, selecione Olá local **onde**, em seguida, clique em **salvar**.
+4. Digite um nome para o arquivo CSR (Solicitação de Assinatura de Certificado) em **Salvar como**, selecione o local em **Onde** e, em seguida, clique em **Salvar**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
    
-      Esse arquivo CSR Olá salva no local de saudação selecionado; saudação padrão local é Olá área de trabalho. Lembre-se de local de saudação escolhida para este arquivo.
+      Isso salvará o arquivo CSR no local selecionado; o local padrão está situado na Área de Trabalho. Lembre-se do local escolhido para esse arquivo.
 
-Em seguida, você será registrar seu aplicativo com a Apple, habilitar notificações por push e carregar este toocreate exportado do CSR um certificado de push.
+Em seguida, você registrará seu aplicativo na Apple, habilitará as notificações por push e carregará esse CSR exportado para criar um certificado de push.
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrar seu aplicativo para notificações por push
-toobe toosend capaz de envio notificações tooan aplicativo do iOS, você deve registrar seu aplicativo com o Apple e também se registram para notificações por push.  
+Para poder enviar notificações por push para um aplicativo iOS, você deverá registrar seu aplicativo na Apple e também registrar-se em notificações por push.  
 
-1. Se você já não registrou seu aplicativo, toohello, navegue <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de provisionamento do iOS</a> na Olá Apple Developer Center, faça logon com sua ID da Apple, clique em **identificadores**, em seguida, clique em **IDs de aplicativo** e, finalmente, clique em Olá  **+**  entrar tooregister um novo aplicativo.
+1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, faça logon com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+** para registrar um novo aplicativo.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
-2. Atualizar Olá três campos para seu novo aplicativo a seguir e, em seguida, clique em **continuar**:
+2. Atualize os três campos a seguir para o novo aplicativo e clique em **Continuar**:
    
-   * **Nome**: digite um nome descritivo para o aplicativo hello **nome** campo Olá **descrição de ID de aplicativo** seção.
-   * **Identificador de pacote**: sob Olá **explícita ID do aplicativo** seção, insira um **identificador de pacote** na forma de saudação `<Organization Identifier>.<Product Name>` conforme mencionado em Olá [distribuição de aplicativos Guia](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Olá *identificador de organização* e *nome do produto* usado deve coincidir com o identificador de organização hello e nome de produto que será usado quando você criar seu projeto XCode. Em Olá screeshot abaixo *hubs de notificação* é usado como um identificador de organização e *GetStarted* é usado como nome de produto hello. Assegurar-se de que isso coincide com os valores hello que você usará em seu projeto XCode permitirá que você toouse Olá correto perfil de publicação com o XCode. 
-   * **Notificações por push**: seleção Olá **notificações por Push** opção Olá **serviços de aplicativos** seção.
+   * **Nome**: digite um nome descritivo para o aplicativo no campo **Nome**, na seção **Descrição de ID do Aplicativo**.
+   * **Identificador de Pacote**: na seção **ID do Aplicativo Explícita**, digite um **Identificador de Pacote** no formato `<Organization Identifier>.<Product Name>`, como mencionado no [Guia de Distribuição de Aplicativo](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). O *Identificador de Organização* e *Nome do Produto* usados deverão corresponder ao identificador da organização e o nome do produto usados quando você criar seu projeto XCode. Na captura de tela abaixo, *NotificationHubs* é usado como um identificador de organização e *GetStarted* é usado como o nome do produto. Garantir que isso corresponda aos valores que você usará em seu projeto XCode permitirá que você use o perfil de publicação correto com XCode. 
+   * **Notificações por Push**: marque a opção **Notificações por Push** na seção **Serviços de Aplicativos**.
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
-      Isso gera o ID do aplicativo e solicita a você informações de saudação do tooconfirm. Clique em **registrar** tooconfirm Olá nova ID de aplicativo.
+      Isso gerará sua ID do Aplicativo e solicitará que você confirme as informações. Clique em **Registrar** para confirmar a nova ID do Aplicativo.
      
-      Depois de clicar em **registrar**, você verá Olá **concluir registro** tela, conforme mostrado abaixo. Clique em **Concluído**.
+      Depois de clicar em **Registrar**, você verá a tela **Registro concluído**, conforme mostrado abaixo. Clique em **Concluído**.
       
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-1. No hello Developer Center, em IDs de aplicativo, localize o ID do aplicativo hello que recém-criado e clique em uma linha.
+1. Na Central de Desenvolvedores, em IDs de Aplicativo, localize a ID do aplicativo que você acabou de criar e clique na respectiva linha.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-      Clique na ID de aplicativo hello exibir detalhes do aplicativo hello. Clique em Olá **editar** botão na parte inferior da saudação.
+      Clicar na ID do aplicativo exibirá os detalhes do aplicativo. Clique no botão **Editar** na parte inferior.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
       
-2. Role toohello inferior da tela hello e, em seguida, clique em Olá **Create Certificate...**  botão na seção Olá **desenvolvimento Push certificado de SSL**.
+2. Role até a parte inferior da tela e clique no botão **Criar Certificado...** na seção **Certificado SSL por Push para Desenvolvimento**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-      Isso exibe o Assistente de "Adicionar o certificado do iOS" hello.
+      Isso exibirá o assistente "Adicionar Certificado de iOS".
    
    > [!NOTE]
-   > Este tutorial usa um certificado de desenvolvimento. Olá mesmo processo é usado ao registrar um certificado de produção. Apenas certifique-se de que você use Olá mesmo tipo de certificado ao enviar notificações.
+   > Este tutorial usa um certificado de desenvolvimento. O mesmo processo é usado para registrar um certificado de produção. Use o mesmo tipo de certificado ao enviar notificações.
    > 
    > 
-3. Clique em **Escolher arquivo**, procurar toohello no local onde você salvou o arquivo CSR Olá que você criou na primeira tarefa de saudação e clique em **gerar**.
+3. Clique em **Escolher Arquivo**, navegue até o local em que salvou o arquivo CSR criado na primeira tarefa e clique em **Gerar**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
-4. Depois de saudação certificado é criado pelo portal hello, clique em Olá **baixar** botão e, em seguida, clique em **feito**.
+4. Depois que o certificado for criado pelo portal, clique no botão **Baixar** e, em seguida, clique em **Concluído**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-      Isso faz o download de certificado hello e salva tooyour computador na sua pasta de Downloads.
+      Isso baixará e salvará esse certificado no seu computador na pasta Downloads.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
    > [!NOTE]
-   > Por padrão, o arquivo chamado de um certificado de desenvolvimento baixado Olá **aps_development.cer**.
+   > Por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado **aps_development.cer**.
    > 
    > 
-5. Clique duas vezes no certificado de push baixado Olá **aps_development.cer**.
+5. Clique duas vezes no certificado de push baixado, **aps_development.cer**.
    
-      Isso instala o novo certificado de saudação em Olá conjunto de chaves, conforme mostrado abaixo:
+      Isso instalará o novo certificado no Conjunto de Chaves, conforme mostrado abaixo:
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
-   > Olá nome no certificado pode ser diferente, mas ele será prefixado com **desenvolvimento Apple iOS serviços por Push:**.
+   > O nome em seu certificado pode ser diferente, mas ele será prefixado com **Serviços de Notificação por Push do iOS para Desenvolvimento da Apple:**.
    > 
    > 
-6. No conjunto de chaves de acesso, clique com botão direito Olá novo certificado de push que você criou no hello **certificados** categoria. Clique em **exportar**, nome de arquivo hello, selecione Olá **. p12** Formatar e, em seguida, clique em **salvar**.
+6. No Acesso ao Conjunto de Chaves, clique com o botão direito do mouse no novo certificado push criado na categoria **Certificados** . Clique em **Exportar**, nomeie o arquivo, selecione o formato **.p12** e clique em **Salvar**.
    
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
    
-    Faça uma nota do nome de arquivo hello e o local do certificado do hello. p12 exportado. Ele será uma autenticação tooenable usado com APNS.
+    Anote o nome do arquivo e o local do certificado .p12 exportado. Ele será usado para habilitar a autenticação com APNS.
    
    > [!NOTE]
    > Este tutorial cria um arquivo QuickStart.p12. O nome do arquivo e o local podem ser diferentes.
    > 
    > 
 
-## <a name="create-a-provisioning-profile-for-hello-app"></a>Criar um perfil de provisionamento para o aplicativo hello
-1. Em Olá <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de provisionamento do iOS</a>, selecione **perfis de provisionamento**, selecione **todos os**e, em seguida, clique em Olá  **+**  botão toocreate um novo perfil. Isso inicia o hello **adicionar perfil Provisiong iOS** Assistente
+## <a name="create-a-provisioning-profile-for-the-app"></a>Criar um perfil de provisionamento para o aplicativo
+1. De volta ao <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a>, selecione **Perfis de Provisionamento**, escolha **Tudo** e clique no botão **+** para criar um novo perfil. Isso iniciará o Assistente **Adicionar Perfil de Provisionamento do iOS**
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
-2. Selecione **o desenvolvimento de aplicativos do iOS** em **desenvolvimento** como tipo de perfil provisiong hello e clique em **continuar**. 
-3. Em seguida, selecione a ID do aplicativo hello você acabou de criar na Olá **ID do aplicativo** lista suspensa e clique em **continuar**
+2. Selecione **Desenvolvimento de Aplicativos do iOS** em **Desenvolvimento** como o tipo de perfil de provisionamento e clique em **Continuar**. 
+3. Em seguida, selecione a ID do aplicativo que você acabou de criar da lista suspensa **ID do Aplicativo** e clique em **Continuar**
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
-4. Em Olá **selecionar certificados** tela, selecione o certificado de desenvolvimento comum usado para assinatura de código e clique em **continuar**. Isso não é um certificado de push Olá que você acabou de criar.
+4. Na tela **Selecionar certificados**, selecione seu certificado de desenvolvimento normal usado por assinatura de código e clique em **Continuar**. Esse não é o certificado de push que você acabou de criar.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
-5. Em seguida, selecione Olá **dispositivos** toouse para teste e clique em **continuar**
+5. Em seguida, selecione os **Dispositivos** a serem usados no teste e clique em **Continuar**
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
-6. Por fim, escolha um nome para o perfil de saudação em **nome do perfil**, clique em **gerar**.
+6. Por fim, escolha um nome para o perfil em **Nome do Perfil** e clique em **Gerar**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
-7. Quando Olá novo perfil de provisionamento é criado clique toodownload-lo e instale-o em sua máquina de desenvolvimento do Xcode. Em seguida, clique em **Concluído**.
+7. Quando o novo perfil de provisionamento for criado, clique para baixá-lo e instalá-lo em seu computador de desenvolvimento do Xcode. Em seguida, clique em **Concluído**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)

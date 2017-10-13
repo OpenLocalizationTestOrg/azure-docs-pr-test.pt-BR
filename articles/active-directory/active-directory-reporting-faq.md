@@ -1,5 +1,5 @@
 ---
-title: "Active Directory perguntas Frequentes dos relatórios de aaaAzure | Microsoft Docs"
+title: "Perguntas frequentes sobre relatórios do Azure Active Directory | Microsoft Docs"
 description: "Perguntas frequentes sobre relatórios do Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -14,98 +14,98 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: be65a05574ea3b5b190cd02a96b211c571ba70bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
-Este artigo inclui respostas toofrequently perguntas frequentes (FAQs) sobre os relatórios do Active Directory do Azure.  
+Este artigo inclui respostas para FAQs (perguntas frequentes) sobre os relatórios do Azure Active Directory.  
 Para obter mais detalhes, veja [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md). 
 
-**P: o que é a retenção de dados Olá para logs de atividade (e entradas de auditoria) Olá portal do Azure?** 
+**P: O que é a retenção de dados para logs de atividade (de entradas e de auditoria) no Portal do Azure?** 
 
-**R:** fornecemos sete dias de dados para nossos clientes livres e alternando tooan 1 do Azure AD Premium ou licença Premium 2, você pode acessar os dados de backup too30 dias. Para obter mais detalhes sobre a retenção, consulte [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md)
+**R:** Fornecemos 7 dias de dados para nossos clientes com acesso gratuito e, alternando para uma licença Azure AD Premium 1 ou Premium 2, você pode acessar dados por até 30 dias. Para obter mais detalhes sobre a retenção, consulte [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md)
 
 --- 
 
-**P: quanto tempo leva até podem ver dados de atividade de saudação depois que concluir minha tarefa?**
+**P: Quanto tempo leva até que eu possa ver os dados de atividade depois que concluir minha tarefa?**
 
-**R:** logs de atividade de auditoria tem uma latência de 15 minutos tooan horas. Logs de atividade de entrada tem uma latência de 15 minutos para a maioria dos registros e backup too2 horas para alguns registros.
-
----
-
-**P: é necessário toobe que uma atividade de saudação do administrador global toosee fizer logon Olá Portal do Azure ou tooget dados por meio de saudação API?**
-
-**R:** Não. Você pode ser um **segurança leitor**, um **Admin de segurança** ou um **Administrador Global** toosee dados no Portal do Azure ou acessá-lo por meio da API de saudação do relatório.
+**R:** Logs de atividade de auditoria têm uma latência variando de 15 minutos a uma hora. Logs de atividade de entrada têm uma latência variando de 15 minutos para a maioria dos registros até 2 horas para alguns registros.
 
 ---
 
-**P: posso obter informações de log de atividade do Office 365 por meio de saudação portal do Azure?**
+**P: É necessário ser um administrador global para ver a atividade de logs no Portal do Azure ou para obter dados por meio da API?**
 
-**R:** apesar de atividade do Office 365 e o compartilhamento de logs de atividade do AD do Azure muitos recursos de diretório hello, se você quiser que uma exibição completa de Olá logs de atividade do Office 365, você deve se as informações do log de atividade do Office 365 toohello Centro de administração do Office 365 tooget.
+**R:** Não. Você pode ser um **Leitor de segurança**, um **Administrador de segurança** ou um **Administrador Global** para ver dados de relatório no Portal do Azure ou acessando-os por meio da API.
+
+---
+
+**P: Posso obter informações do log de atividades do Office 365 por meio do Portal do Azure?**
+
+**R:** Embora os logs de atividades do Office 365 e de atividades do Azure AD compartilhem muitos dos recursos de diretório, se você quiser uma exibição completa dos logs de atividades do Office 365, vá para o Centro de administração do Office 365 para obter informações de log de atividades do Office 365.
 
 ---
 
 
-**P: qual pelas APIs uso tooget informações sobre os logs de atividade do Office 365?**
+**P: Quais APIs devo usar para obter informações sobre logs de atividades do Office 365?**
 
-**R:** Use Olá APIs de gerenciamento do Office 365 tooaccess Olá [logs de atividade do Office 365 por meio de uma API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
+**R:** Use as APIs de gerenciamento do Office 365 para acessar os [logs de atividades do Office 365 por meio de uma API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
 
 ---
 
 **P: Quantos registros posso baixar do Portal do Azure?**
 
-**R:** você pode baixar os registros de too120K de saudação portal do Azure. Olá registros são classificados por *mais recente* e por padrão, você obter registros Olá K de 120 mais recente. 
+**R:** Você pode baixar até 120 mil registros do Portal do Azure. Os registros são classificados pelos *mais recentes* e, por padrão, você obterá os 120 mil registros mais recentes. 
 
 ---
 
-**P: o número de registros pode consultar por meio de atividades de saudação API?**
+**P: Quantos registros posso consultar por meio da API de atividades?**
 
-**R:** consultar too1 milhões de registros (se você não usar o operador top hello, que classifica registro Olá por mais recente). Se você usar o operador de "top" Olá, você pode consultar os registros too500K. Você pode encontrar exemplos de consultas em como toouse Olá API aqui [aqui](active-directory-reporting-api-getting-started.md).
+**R:** Você pode consultar até 1 milhão de registros (se você não usar o operador top, que classifica o registro pelo mais recente). Se usar o operador "top", você poderá consultar até 500 mil registros. Você pode encontrar consultas de exemplo sobre como usar a API [aqui](active-directory-reporting-api-getting-started.md).
 
 ---
 
 **P: Como obtenho uma licença premium?**
 
-**R:** consulte [guia de Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para uma pergunta de toothis de resposta.
+**A:** Consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
 
 ---
 
 **P: Em quanto tempo deverei ver dados de atividades depois de obter uma licença premium?**
 
-**R:** se você já tiver dados de atividades como uma licença gratuita, você pode ver Olá os mesmos dados. Se você não tiver nenhum dado, isso levará um ou dois dias.
+**R:** Se você já tiver dados de atividades como uma licença gratuita, você poderá ver os mesmos dados. Se você não tiver nenhum dado, isso levará um ou dois dias.
 
 ---
 
 **P: Eu vejo dados do último mês depois de obter uma licença premium do Azure AD?**
 
-**R:** se você recentemente alternou versão Premium de tooa (incluindo uma versão de avaliação), você pode ver os dados too7 dias inicialmente. Quando se acumulando, você verá too30 dias.
+**R:** Se você mudou recentemente para uma versão Premium (incluindo uma versão de avaliação), você poderá inicialmente ver dados de até 7 dias. Quando os dados acumularem, você verá dados de até 30 dias.
 
 ---
 
-**P: há um evento de risco na proteção de identidade, mas não vejo entrada correspondente no hello todas as entradas. Isso é esperado?**
+**P: Há um evento de risco no Identity Protection, mas não estou vendo a entrada correspondente em todas as entradas. Isso é esperado?**
 
-**R:** Sim, o Identity Protection avalia o risco de todos os fluxos de autenticação, sejam eles interativos ou não. No entanto, todos os relatórios somente de logons mostra somente Olá logons interativos.
-
----
-
-**P: como baixar o relatório de "Usuários sinalizados riscos" hello no portal do Azure?**
-
-**R:** toodownload de opção Olá *usuários sinalizados riscos* relatório será adicionado em breve.
+**R:** Sim, o Identity Protection avalia o risco de todos os fluxos de autenticação, sejam eles interativos ou não. No entanto, o relatório de todas as entradas mostra apenas as entradas interativas.
 
 ---
 
-**P: como saber por que um logon ou um usuário foi sinalizado arriscados em Olá portal do Azure?**
+**P: Como posso baixar o relatório "Usuários sinalizados para risco" no portal do Azure?**
 
-**R:** clientes de edição Premium podem aprender mais sobre Olá subjacente eventos de risco clicando no usuário hello "Usuários sinalizados riscos" ou clicando no hello "Arriscadas entradas". Os clientes da edição gratuita e Basic obtém usuários em risco de saudação toosee e entradas sem Olá subjacente informações de evento de risco.
+**R:**: A opção de baixar o relatório *Usuários sinalizados para risco* será adicionada em breve.
 
 ---
 
-**P: como os endereços IP são calculados em Olá entradas e o relatório de entradas arriscado?**
+**P: Como posso saber o motivo pelo qual uma entrada ou um usuário foi sinalizado como arriscado no Portal do Azure?**
 
-**R:** endereços IP são emitidos de forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador Olá com o endereço estiver localizado fisicamente. Isso é complicado devido a fatores como provedores móveis e VPNs emitir endereços IP de pools centrais geralmente muito distantes de onde o dispositivo de cliente de saudação é realmente usado. Considerando Olá acima, converter o local físico de tooa de endereço IP é um melhor esforço com base em rastreamentos, dados de registro, pesquisa inversa no-break e outras informações. 
+**R:** Clientes do Premium Edition podem saber mais sobre os eventos de risco subjacentes clicando no usuário em "Usuários sinalizados para risco" ou clicando nas "Entradas arriscadas". Clientes das edições Gratuita e Basic podem ver as entradas e os usuários em risco sem as informações de evento de risco subjacente.
+
+---
+
+**P: Como os endereços IP são calculados no relatório de entradas e entradas arriscadas?**
+
+**R:** Os endereços IP são emitidos de uma forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador com esse endereço está localizado fisicamente. Isso é complicado por fatores como provedores móveis e VPNs que emitem endereços IP de pools centrais, frequentemente muito distantes do local no qual o dispositivo do cliente de fato é usado. Devido a esses fatores, a conversão de endereços IP em um local físico é um esforço baseado em rastreamentos, dados de registro, pesquisas inversas e outras informações. 
 
 ---

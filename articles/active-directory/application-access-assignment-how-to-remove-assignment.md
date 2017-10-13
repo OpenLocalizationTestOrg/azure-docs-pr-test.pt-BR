@@ -1,6 +1,6 @@
 ---
-title: "de aaaHow tooremove um usuário acessar o aplicativo tooan | Microsoft Docs"
-description: "Entender como tooremove um usuário acessar o aplicativo tooan"
+title: "Como remover o acesso de um usuário a um aplicativo | Microsoft Docs"
+description: "Compreenda como remover o acesso de um usuário a um aplicativo"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,62 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 17017bddb73aad5a0ef3a411ac91bf0423f0b600
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooremove-a-users-access-tooan-application"></a>Como tooremove um usuário acessar o aplicativo tooan
+# <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
 
-Este artigo ajuda você toounderstand como tooremove um usuário acessar o aplicativo tooan.
+Este artigo o ajudará a compreender como remover o acesso de um usuário a um aplicativo.
 
-## <a name="i-want-tooremove-a-specific-users-or-groups-assignment-tooan-application"></a>Desejo tooremove aplicativos de tooan de atribuição de um usuário específico ou do grupo
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um usuário ou grupo específico a um aplicativo
 
-tooremove um usuário ou grupo atribuição tooan aplicativo, execute as etapas de saudação listadas no hello [remover uma atribuição de usuário ou grupo de um aplicativo de empresa no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artigo.
+Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
-. # # desejo toodisable todos os aplicativos de tooan de acesso para cada usuário
+.## Quero desabilitar todo o acesso a um aplicativo para todos os usuários
 
-toodisable todos os usuário entradas tooan de aplicativos, siga etapas de saudação listadas Olá [desabilitar entradas do usuário para um aplicativo de empresa no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artigo.
+Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-toodelete-an-application-entirely"></a>Desejo toodelete um aplicativo totalmente
+## <a name="i-want-to-delete-an-application-entirely"></a>Quero excluir um aplicativo completamente
 
-muito**excluir um aplicativo**, siga as instruções de saudação abaixo:
+Para **excluir um aplicativo**, siga as instruções abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo hello deseja toodelete.
+6.  Selecione o aplicativo que deseja excluir.
 
-7.  Depois que o aplicativo hello carrega, clique em **excluir** ícone do aplicativo de superior hello **visão geral** folha.
+7.  Após o aplicativo ser carregado, clique no ícone **Excluir** na folha **Visão Geral** superior do aplicativo.
 
-## <a name="i-want-toodisable-all-future-user-consent-operations-tooany-application"></a>Desejo toodisable todos os aplicativos do usuário futuras consentimento operações tooany
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
 
-Desabilitando o consentimento do usuário para seu diretório de todo a impedir que usuários finais de consentimento tooany aplicativo. Os administradores ainda podem consentir em nome dos usuários. toolearn mais sobre o aplicativo de consentimento e por que você pode ou não poderá toodo, leitura [usuário conhecimento e consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desabilitar o consentimento do usuário para todo o seu diretório impede que os usuários finais consintam com qualquer aplicativo. Os administradores ainda podem consentir em nome dos usuários. Para saber mais sobre o consentimento de aplicativos e por que você pode ou não querer fazer isso, leia [Entendendo o consentimento do usuário e do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-muito**desabilitar todas as operações de consentimento do usuário futuras em seu diretório inteiro**, siga as instruções de saudação abaixo:
+Para **desabilitar todas as futuras operações de consentimento do usuário no diretório inteiro**, siga as instruções abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **usuários e grupos** no menu de navegação hello.
+4.  Clique em **Usuários e grupos** no menu de navegação.
 
 5.  Clique em **Configurações de usuário**.
 
-6.  Desabilitar todas as operações de consentimento do usuário futuro por configuração Olá **usuários podem permitir que aplicativos tooaccess seus dados** alternar muito**não** e clique em Olá **salvar** botão.
+6.  Desabilite todas as futuras operações de consentimento do usuário definindo o controle de alternância **Os usuários podem permitir que os aplicativos acessem seus dados** como **Não** e clique no botão **Salvar**.
 
 
 # <a name="next-steps"></a>Próximas etapas
-[Gerenciando acesso tooapps](active-directory-managing-access-to-apps.md)
+[Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md)

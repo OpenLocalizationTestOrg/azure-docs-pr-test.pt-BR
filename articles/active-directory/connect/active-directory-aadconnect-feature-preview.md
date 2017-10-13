@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: bcfc710861b19d8f86f094ced0d1c691e0911f08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
-Este tópico descreve como toouse recursos atualmente na visualização.
+Este tópico descreve como usar recursos presentes atualmente na visualização.
 
 ## <a name="group-writeback"></a>Write-back de grupo
-opção de saudação para write-back de grupo de recursos opcionais permite toowriteback **grupos do Office 365** tooa floresta com o Exchange instalado. Esse é um grupo que é sempre controlado na nuvem hello. Se você tiver o Exchange no local, em seguida, você pode write-back esses grupos tooon local para enviar e receber emails destes grupos de usuários com uma caixa de correio do Exchange no local.
+A opção para write-back do grupo nos recursos opcionais permite que você faça write-back de **Grupos do Office 365** para uma floresta com o Exchange instalado. Esse é um grupo que é sempre controlado na nuvem. Se tiver o Exchange local, você pode gravar novamente esses grupos localmente, assim os usuários com uma caixa de correio do Exchange local podem enviar e receber emails destes grupos.
 
-Para obter mais informações sobre grupos do Office 365 e como toouse-los podem ser encontrados [aqui](http://aka.ms/O365g).
+Mais informações sobre Grupos do Office 365 e como usá-los podem ser encontradas [aqui](http://aka.ms/O365g).
 
-Um grupo do Office 365 é representado como um grupo de distribuição no AD DS local. Seu Exchange server local deve ser no Exchange 2013 atualização cumulativa 8 (lançado em março de 2015) ou Exchange 2016 toorecognize esse novo tipo de grupo.
+Um grupo do Office 365 é representado como um grupo de distribuição no AD DS local. Seu servidor Exchange local deve estar no Exchange 2013 com atualização cumulativa 8 (lançado em março de 2015) ou no Exchange 2016 para reconhecer esse novo tipo de grupo.
 
-**Anotações durante a visualização de saudação**
+**Observações no período de visualização**
 
-* atributo de catálogo de endereço Olá não é populado atualmente na visualização de saudação. Sem esse atributo, o grupo de saudação não está visível no hello GAL. Olá toopopulate de maneira mais fácil esse atributo é um cmdlet de PowerShell do Exchange Olá toouse `update-recipient`.
-* Somente as florestas com o esquema de saudação do Exchange são destinos válidos para grupos. Se nenhum Exchange for detectado, Write-back de grupo não é possível tooenable.
-* Somente implantações de floresta única de organização do Exchange terão suporte atualmente. Se você tiver mais de uma organização de Exchange no local, em seguida, você precisa uma solução GALSync de local para tooappear esses grupos em sua outras florestas.
-* recurso de write-back de grupo Olá não lida com grupos de segurança ou grupos de distribuição.
+* Atualmente, o atributo de catálogo de endereços não é populado na visualização. Sem esse atributo, o grupo não estará visível na GAL. A maneira mais fácil é preencher esse atributo para usar o cmdlet `update-recipient`do PowerShell do Exchange.
+* Somente as florestas com o esquema do Exchange são alvos válidos para grupos. Se nenhum Exchange for detectado, não será possível habilitar o write-back de grupo.
+* Somente implantações de floresta única de organização do Exchange terão suporte atualmente. Se você tiver mais de uma organização de Exchange local, será necessária uma solução de GALSync local para que esses grupos sejam exibidos em suas outras florestas.
+* O recurso de write-back de grupo não lida com grupos de segurança ou grupos de distribuição.
 
 > [!NOTE]
-> TooAzure uma assinatura Premium do AD é necessária para write-back de grupo.
+> Uma assinatura do Azure AD Premium é necessária para write-back do grupo.
 > 
 >
 
 ## <a name="user-writeback"></a>Write-back de usuário
 > [!IMPORTANT]
-> Olá recurso de visualização de write-back de usuário foi removido na tooAzure de atualização de agosto de 2015 Olá AD Connect. Se você tiver habilitado, você deve desabilitar esse recurso.
+> O recurso de visualização de write-back do usuário foi removido na atualização de agosto de 2015 do Azure AD Connect. Se você tiver habilitado, você deve desabilitar esse recurso.
 >
 >
 

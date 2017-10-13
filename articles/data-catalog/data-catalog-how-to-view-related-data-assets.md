@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooview relacionados ativos de dados no catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo explica como tooview relacionados ativos de dados de um ativo de dados selecionada no catálogo de dados do Azure."
+title: "Como exibir ativos de dados relacionados no Catálogo de Dados do Azure | Microsoft Docs"
+description: "Este artigo explica como exibir os ativos de dados relacionados de um ativo de dados selecionado no Catálogo de Dados do Azure."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: maroche
-ms.openlocfilehash: b69686737070ac563a0318f48e693215c605f90b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d45f2cabe712a7982f99a9d280fed4494fc4d377
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-tooview-related-data-assets-in-azure-data-catalog"></a>Como tooview relacionados ativos de dados no catálogo de dados do Azure?
-Catálogo de dados do Azure permite que você tooview dados ativos relacionados tooa selecionado dados ativos e exibir relações entre elas. 
+# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como exibir ativos de dados relacionados no Catálogo de Dados do Azure?
+O Catálogo de Dados do Azure permite que você exiba os ativos de dados relacionados a um ativo de dados selecionado exiba as relações entre eles. 
 
 ## <a name="supported-data-sources"></a>Fontes de dados com suporte 
-Ao registrar os ativos de dados de saudação fontes de dados a seguir, o Data Catalog do Azure registra automaticamente metadados sobre as relações de junção entre os ativos de dados de saudação selecionado. 
+Quando você registra os ativos de dados das fontes de dados a seguir, o Catálogo de Dados do Azure registra automaticamente metadados sobre as relações de união entre os ativos de dados selecionados. 
 
 - SQL Server
 - Banco de Dados SQL do Azure
@@ -32,23 +32,23 @@ Ao registrar os ativos de dados de saudação fontes de dados a seguir, o Data C
 - Oracle
 
 ## <a name="view-related-data-assets"></a>Exibir ativos de dados relacionados
-tooview ativos de dados que são o conjunto de dados relacionados tooa selecionado, use Olá **relações** guia conforme Olá a imagem a seguir: 
+Para exibir os ativos de dados relacionados a um conjunto de dados selecionado, use a guia **Relações** conforme mostrado na imagem a seguir: 
 
 ![Catálogo de Dados do Azure – exibir ativos de dados relacionados](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
 
-Neste exemplo, existem duas relações para Olá selecionado **ProductSubcategory** ativo de dados: 
+Neste exemplo, existem duas relações para o ativo de dados **ProductSubcategory** selecionado: 
 
-- Coluna ProductSubcategoryID da tabela de produto Olá tem uma relação de chave estrangeira com a coluna ProductSubcategoryID da tabela ProductSubcategory de saudação selecionada. 
-- Coluna ProductCategoryID da tabela ProductSubCategory de saudação tem uma relação de chave estrangeira com a coluna ProductCategoryID da tabela de ProductCategory Olá selecionado.
+- A coluna ProductSubcategoryID da tabela Produto tem uma relação de chave estrangeira com a coluna ProductSubcategoryID da tabela ProductSubcategory selecionada. 
+- A coluna ProductCategoryID da tabela ProductSubCategory tem uma relação de chave estrangeira com a coluna ProductCategoryID da tabela ProductCategory selecionada.
 
 > [!NOTE]
-> Observe a direção de saudação de seta Olá Olá relações na exibição em árvore.  
+> Observe a direção da seta na exibição de árvore de relações.  
 
-toosee mais detalhes como o nome totalmente qualificado de saudação da coluna hello, mova mouse Olá sobre e você verá um toohello semelhante pop-up imagem a seguir: 
+Para ver mais detalhes, como o nome totalmente qualificado da coluna, mova o mouse sobre ela e você verá um pop-up semelhante à imagem a seguir: 
 
 ![Catálogo de Dados do Azure – pop-up de relação](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
 
-tooinclude relações entre os ativos que já tem sido registrados, registre novamente esses ativos.
+Para incluir relações entre os ativos que já foram registrados, registre novamente esses ativos.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Como os ativos de dados toomanage](data-catalog-how-to-manage.md)
+- [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)

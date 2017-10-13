@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate de funções personalizadas para o RBAC do Azure | Microsoft Docs"
-description: "Saiba como toodefine funções personalizadas com o controle de acesso para o gerenciamento de identidade mais preciso em sua assinatura do Azure."
+title: "Criar funções personalizadas no RBAC do Azure | Microsoft Docs"
+description: "Saiba como definir funções personalizadas com o Controle de Acesso Baseado em Função para um gerenciamento de identidade mais preciso na sua assinatura do Azure."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -15,18 +15,18 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60df12632ef6c086d5feeb1809196d7c4ee5e021
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
-Crie uma função personalizada no acesso de RBAC (controle) se nenhuma das funções internas Olá atender às suas necessidades de acesso específicas. Funções personalizadas podem ser criadas usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Interface de linha de comando do Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) e hello [API REST](role-based-access-control-manage-access-rest.md). Assim como funções internas, você pode atribuir funções personalizadas toousers, grupos e aplicativos na assinatura, no grupo de recursos e escopos do recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre assinaturas.
+Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre assinaturas.
 
-Cada locatário pode criar funções personalizadas too2000. 
+Cada locatário pode criar até 2000 funções personalizadas. 
 
-Olá, exemplo a seguir mostra uma função personalizada para monitoramento e reiniciar as máquinas virtuais:
+O seguinte exemplo mostra uma função personalizada para monitorar e reiniciar máquinas virtuais:
 
 ```
 {
@@ -57,15 +57,15 @@ Olá, exemplo a seguir mostra uma função personalizada para monitoramento e re
 }
 ```
 ## <a name="actions"></a>Ações
-Olá **ações** propriedade de uma função personalizada especifica hello Azure operações toowhich Olá função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Cadeias de caracteres de operação seguem o formato de saudação do `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Cadeias de caracteres de operação que contêm caracteres curinga (\*) conceder acesso a operações tooall que correspondem a cadeia de caracteres de operação de saudação. Por exemplo:
+A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Cadeias de caracteres de operação seguem o formato de `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
 
-* `*/read`concede acesso a operações tooread para todos os tipos de recursos de todos os provedores de recursos do Azure.
-* `Microsoft.Compute/*`concede acesso a operações de tooall para todos os tipos de recursos no provedor de recursos Microsoft. Compute hello.
-* `Microsoft.Network/*/read`concede acesso a operações de tooread para todos os tipos de recursos no provedor de recursos Microsoft. Network saudação do Azure.
-* `Microsoft.Compute/virtualMachines/*`concede acesso tooall operações de máquinas virtuais e seus tipos de recursos filho.
-* `Microsoft.Web/sites/restart/Action`concede acesso toorestart sites.
+* `*/read` concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.
+* `Microsoft.Compute/*` concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.
+* `Microsoft.Network/*/read` concede acesso a operações de leitura a todos os tipos de recursos no provedor de recursos Microsoft.Network do Azure.
+* `Microsoft.Compute/virtualMachines/*` concede acesso a todas as operações de máquinas virtuais e seus tipos de recursos filhos.
+* `Microsoft.Web/sites/restart/Action` concede acesso para reinicialização de sites.
 
-Use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (no Azure CLI) operações toolist de provedores de recursos do Azure. Você também pode usar esses comandos tooverify que uma cadeia de caracteres de operação é válida e cadeias de caracteres de operação de curinga tooexpand.
+Use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para listar as operações dos provedores de recursos do Azure. Você também pode usar esses comandos para verificar se uma cadeia de operação é válida e para expandir as cadeias de operação curinga.
 
 ```
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
@@ -84,21 +84,21 @@ azure provider operations show "Microsoft.Network/*"
 ![Captura de tela da CLI do Azure – as operações do provedor do Azure mostram "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
 ## <a name="notactions"></a>NotActions
-Saudação de uso **NotActions** propriedade se o conjunto de saudação de operações que você deseja tooallow é definido mais facilmente excluindo operações restritas. Olá acesso concedido por uma função personalizada é calculado pela subtração Olá **NotActions** operações de saudação **ações** operações.
+Use a propriedade **NotActions** se o conjunto de operações que você deseja permitir fica definido mais facilmente pela exclusão das operações restritas. A permissão de acesso concedida por uma função personalizada é computada subtraindo as operações **NotActions** das operações **Actions**.
 
 > [!NOTE]
-> Se um usuário é atribuído a uma função que exclui uma operação em **NotActions**e é atribuído a uma segunda função que concede acesso toohello mesma operação, o usuário Olá é permitido tooperform essa operação. **NotActions** não é uma negação de regra – é simplesmente uma maneira conveniente de toocreate um conjunto de operações permitidas quando precisam de operações específicas toobe excluído.
+> Se um usuário for atribuído a uma função que exclui uma operação em **NotActions** e for atribuído a uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
 >
 >
 
 ## <a name="assignablescopes"></a>AssignableScopes
-Olá **AssignableScopes** propriedade de função personalizada Olá Especifica escopos hello (assinaturas, grupos de recursos ou recursos) no qual Olá função personalizada está disponível para a atribuição. Você pode fazer disponíveis para atribuição de função personalizada Olá em assinaturas de saudação apenas ou grupos de recursos que exigem e não o usuário desordem experiência para o restante de saudação de assinaturas de saudação ou grupos de recursos.
+A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) nos quais a função personalizada ficará disponível para a atribuição. Você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes.
 
 Exemplos de escopos válidos que podem ser atribuídos incluem:
 
-* "assinaturas/c276fc76-9cd4-44c9-99a7-4fd71546436e", "assinaturas/e91d47c4-76f3-4271-a796-21b4ecfe3624" - torna a função hello disponíveis para atribuição em duas assinaturas.
-* "assinaturas/c276fc76-9cd4-44c9-99a7-4fd71546436e" - torna a função hello disponíveis para atribuição em uma única assinatura.
-* "/ assinaturas c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/rede /" - torna Olá função disponível para atribuição apenas no grupo de recursos de rede de saudação.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” – disponibiliza a função para atribuição em duas assinaturas.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” – disponibiliza a função para atribuição em uma única assinatura.
+* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” – disponibiliza a função para atribuição apenas no Grupo de recursos de rede.
 
 > [!NOTE]
 > Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso.
@@ -106,20 +106,20 @@ Exemplos de escopos válidos que podem ser atribuídos incluem:
 >
 
 ## <a name="custom-roles-access-control"></a>Controle de acesso de funções personalizadas
-Olá **AssignableScopes** propriedade de função personalizada Olá também controla quem pode exibir, modificar e excluir a função hello.
+A propriedade **AssignableScopes** da função personalizada também controla quem pode exibir, modificar e excluir a função.
 
 * Quem pode criar uma função personalizada?
     Os Proprietários (e os Administradores de acesso do usuário) de assinaturas, grupos de recursos e recursos podem criar funções personalizadas para uso nesses escopos.
-    Olá, criar função de saudação do usuário precisa tooperform capaz de toobe `Microsoft.Authorization/roleDefinition/write` operação em todos os Olá **AssignableScopes** da função hello.
+    O usuário que está criando a função precisa ser capaz de executar a operação `Microsoft.Authorization/roleDefinition/write` em todos os **AssignableScopes** da função.
 * Quem pode modificar uma função personalizada?
-    Os Proprietários (e os Administradores de acesso do usuário) de assinaturas, grupos de recursos e recursos podem modificar funções personalizadas nesses escopos. Os usuários precisam toobe tooperform capaz de saudação `Microsoft.Authorization/roleDefinition/write` operação em todos os Olá **AssignableScopes** de uma função personalizada.
+    Os Proprietários (e os Administradores de acesso do usuário) de assinaturas, grupos de recursos e recursos podem modificar funções personalizadas nesses escopos. Os usuários precisam poder executar a operação `Microsoft.Authorization/roleDefinition/write` em todos os **AssignableScopes** de uma função personalizada.
 * Quem pode exibir funções personalizadas?
-    Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição. Os usuários que podem executar Olá `Microsoft.Authorization/roleDefinition/read` operação em um escopo pode exibir funções RBAC Olá que estão disponíveis para atribuição nesse escopo.
+    Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição. Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo.
 
-## <a name="see-also"></a>Consulte também
-* [Controle de acesso baseado em função](role-based-access-control-configure.md): Introdução ao RBAC em Olá portal do Azure.
-* Saiba como toomanage acessar com:
+## <a name="see-also"></a>Confira também
+* [Controle de Acesso com Base em Funções](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
+* Saiba como gerenciar o acesso com:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API REST](role-based-access-control-manage-access-rest.md)
-* [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções hello incluídos por padrão em RBAC.
+* [Funções internas](role-based-access-built-in-roles.md): obtenha detalhes sobre as funções que são incluídas por padrão no RBAC.

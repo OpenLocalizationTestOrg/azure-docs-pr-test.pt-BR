@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o DocuSign | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e o DocuSign."
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o DocuSign."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8562a8f9e05fb72d3331507b7da5c6afee38f9b8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Tutorial: Configurando o DocuSign para o provisionamento de usuário
 
-Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform no DocuSign e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooDocuSign.
+O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no DocuSign e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o DocuSign.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory.
 *   Uma assinatura habilitada para logon único do DocuSign.
 *   Uma conta de usuário no DocuSign com permissões de Administrador de Equipe.
 
-## <a name="assigning-users-toodocusign"></a>Atribuir usuários tooDocuSign
+## <a name="assigning-users-to-docusign"></a>Atribuindo usuários ao DocuSign
 
-Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, são sincronizados apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure.
+O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure representam Olá usuários precisam acessar tooyour DocuSign aplicativo. Depois de decidir, você pode atribuir esses aplicativos de DocuSign tooyour usuários, seguindo as instruções de saudação aqui:
+Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo DocuSign. Depois de decidir, atribua esses usuários ao aplicativo DocuSign seguindo estas instruções:
 
-[Atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toodocusign"></a>Dicas importantes para atribuir usuários tooDocuSign
+### <a name="important-tips-for-assigning-users-to-docusign"></a>Dicas importantes para atribuir usuários ao DocuSign
 
-*   É recomendável que um único usuário do AD do Azure é atribuído tooDocuSign tootest Olá configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao DocuSign para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário tooDocuSign, você deve selecionar uma função de usuário válido. função de "Acesso padrão" Hello não funciona para o provisionamento.
+*   Ao atribuir um usuário ao DocuSign, você deve selecionar uma função de usuário válida. A função de "Acesso Padrão" não funciona para provisionamento.
 
 ## <a name="enable-user-provisioning"></a>Habilitar o provisionamento de usuário
 
-Esta seção orienta você conectar-se a API de provisionamento de conta de usuário do tooDocuSign seu AD do Azure e configurar Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído no DocuSign com base na atribuição de usuário e grupo no AD do Azure.
+Esta seção explica como conectar o Azure AD à API de provisionamento de conta de usuário do DocuSign e como configurar o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no DocuSign, com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!Tip]
-> Você também pode escolher tooenabled baseado no SAML SSO para DocuSign, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode optar por habilitar o Logon Único baseado em SAML no DocuSign, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="tooconfigure-user-account-provisioning"></a>provisionamento de conta de usuário de tooconfigure:
+### <a name="to-configure-user-account-provisioning"></a>Para configurar o provisionamento de conta de usuário:
 
-Olá o objetivo desta seção é toooutline como tooenable o provisionamento de usuário do usuário do Active Directory contas tooDocuSign.
+O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no DocuSign.
 
-1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado o DocuSign para logon único, procure sua instância do DocuSign usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **DocuSign** na Galeria de aplicativo hello. Selecione DocuSign Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
+2. Se você já tiver configurado o DocuSign para logon único, pesquise a instância do DocuSign usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **DocuSign** na galeria de aplicativos. Selecione o DocuSign nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância do DocuSign, em seguida Olá **provisionamento** guia.
+3. Selecione a instância do DocuSign e, depois, a guia **Provisionamento**.
 
-4. Saudação de conjunto **modo de provisionamento** muito**automática**. 
+4. Defina o **Modo de Provisionamento** como **Automático**. 
 
     ![provisionamento](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
 
-5. Em Olá **credenciais de administrador** seção, forneça Olá definições de configuração a seguir:
+5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
-    a. Em Olá **nome de usuário administrador** caixa de texto, tipo de um DocuSign nome de conta que tem Olá **administrador do sistema** perfil em DocuSign.com atribuído.
+    a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do DocuSign que tem o perfil **Administrador do Sistema** atribuído no DocuSign.com.
    
-    b. Em Olá **senha do administrador** caixa de texto, digite a senha Olá para esta conta.
+    b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
 
-6. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour DocuSign aplicativo.
+6. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo DocuSign.
 
-7. Em Olá **Email de notificação** , digite o endereço de email de saudação de uma pessoa ou grupo que deve receber notificações de erros de provisionamento e marque caixa de seleção de saudação.
+7. No campo **Email de Notificação**, insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento e marque a caixa de seleção.
 
 8. Clique em **Salvar.**
 
-9. Em Olá mapeamentos, selecione **tooDocuSign sincronizar Azure usuários do Active Directory.**
+9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o DocuSign.**
 
-10. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do tooDocuSign do AD do Azure. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usado no DocuSign para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
+10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o DocuSign. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do DocuSign em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-11. tooenable Olá serviço de provisionamento do AD do Azure para DocuSign, alteração Olá **Status de provisionamento** muito**em** na seção configurações da saudação
+11. Para habilitar o serviço de provisionamento do Azure AD no DocuSign, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
 12. Clique em **Salvar.**
 
-Ele inicia a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooDocuSign em Olá usuários e a seção de grupos. a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo do DocuSign.
+Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao DocuSign na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo DocuSign.
 
-Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada tooDocuSign.
+Agora você pode criar uma conta de teste. Aguarde até 20 minutos para confirmar se a conta foi sincronizada com o DocuSign.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

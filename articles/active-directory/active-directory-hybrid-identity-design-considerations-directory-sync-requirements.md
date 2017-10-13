@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure considerações de design do Active Directory híbrida identidade - determinar requisitos de sincronização de diretório | Microsoft Docs"
-description: "Identificar quais requisitos são necessários para a sincronização de todos os usuários de saudação entre = em locais e na nuvem para a empresa hello."
+title: "Considerações sobre o design da identidade híbrida do Azure Active Directory - determinar os requisitos de sincronização de diretório | Microsoft Docs"
+description: "Identificar quais requisitos são necessários para a sincronização de todos os usuários entre nos locais e nuvem para a empresa."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6646e3792c65f37c3d62eecdb6c6f3bd257f04f1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar os requisitos de sincronização de diretório
-Sincronização é fornecer aos usuários uma identidade em nuvem Olá baseada na respectiva identidade local. Se eles usarão a conta sincronizada para autenticação ou autenticação federada, ou não usuários Olá ainda serão necessário toohave uma identidade em nuvem hello.  Essa identidade precisará toobe mantidos e atualizadas periodicamente.  Olá atualizações podem ter várias formas, de título alterações toopassword alterações.  
+Sincronização é fornecer aos usuários uma identidade na nuvem com base em sua identidade local. Em caso positivo ou negativo, usarão a conta sincronizada para autenticação ou autenticação federada, os usuários ainda precisarão ter uma identidade na nuvem.  Essa identidade precisará ser mantida e atualizada periodicamente.  As atualizações podem ter várias formas, desde alterações de título para alterações de senha.  
 
-Comece a avaliar as organizações a saudação requisitos de usuário e solução de identidade no local. Essa avaliação é importante toodefine requisitos técnicos do Olá para como identidades de usuário serão criadas e mantidas na nuvem hello.  Para a maioria das organizações, o Active Directory é local e serão diretório local Olá que os usuários por sincronizados do, mas em alguns casos não será o caso de saudação.  
+Comece avaliando a solução de identidade local das organizações e requisitos de usuário. Essa avaliação é importante para definir os requisitos técnicos para como as identidades de usuário serão criadas e mantidas na nuvem.  Para a maioria das organizações, o Active Directory está local e será o diretório local que os usuários serão por sincronizado, porém em alguns casos este não será o caso.  
 
-Certifique-se de saudação tooanswer perguntas a seguir:
+Certifique-se de responder às seguintes perguntas:
 
 * Você tem uma floresta do AD, várias ou nenhuma?
   
@@ -36,35 +36,35 @@ Certifique-se de saudação tooanswer perguntas a seguir:
 * Atualmente, você tem uma ferramenta de sincronização local?
   
   * Em caso positivo, os usuários têm um diretório virtual/integração das identidades?
-* Você tem qualquer outro diretório local que você deseja toosynchronize (por exemplo, diretório LDAP, banco de dados de RH, etc)?
-  * Você vai toobe fazer qualquer GALSync?
-  * O que é o estado atual de saudação do UPNs em sua organização? 
+* Você tem qualquer outro diretório local que deseja sincronizar (por exemplo, diretório LDAP, banco de dados de RH, etc)?
+  * Você vai fazer qualquer GALSync?
+  * O que é o estado atual do UPNs na sua organização? 
   * Você tem um diretório diferente que os usuários se autenticam?
   * Sua empresa usa o Microsoft Exchange?
     * Planeja de ter uma implantação híbrida de mudança?
 
-Agora que você tem uma ideia sobre os requisitos de sincronização, é necessário toodetermine qual ferramenta é Olá toomeet correta de um esses requisitos.  A Microsoft fornece várias integração de diretório ferramentas tooaccomplish e sincronização.  Consulte Olá [tabela de comparação de ferramentas de integração do identidade híbrida diretório](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para obter mais informações. 
+Agora que você tem uma ideia sobre os requisitos de sincronização, será necessário determinar qual ferramenta é a correta para atender a esses requisitos.  A Microsoft fornece várias ferramentas para realizar a integração e a sincronização de diretórios.  Consulte [Tabela de comparação das ferramentas de integração de diretórios de Identidade Híbrida](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para saber mais. 
 
-Agora que você tem a seus requisitos de sincronização e a ferramenta Olá realizará essa operação para a sua empresa, você precisa de aplicativos de saudação tooevaluate que utilizem esses serviços de diretório. Essa avaliação é importante toodefine Olá requisitos técnicos toointegrate nuvem de toohello esses aplicativos. Certifique-se de saudação tooanswer perguntas a seguir:
+Agora que você tem uma ideia sobre os requisitos de sincronização para a sua empresa, será necessário avaliar os aplicativos que usam esses serviços de diretório. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos para a nuvem. Certifique-se de responder às seguintes perguntas:
 
-* Esses aplicativos serão movido toohello de nuvem e usar o diretório Olá?
-* Há atributos especiais que precisam toobe sincronizado toohello nuvem esses aplicativos podem usá-los com êxito?
-* Esses aplicativos precisam de toobe reescrito tootake aproveitar autenticação de nuvem?
-* Esses aplicativos continuará toolive local enquanto os usuários acessá-los usando a identidade de nuvem Olá?
+* Esses aplicativos serão movidos para a nuvem e usar o diretório?
+* Há atributos especiais que precisam ser sincronizados na nuvem para que esses aplicativos possam usá-los com sucesso?
+* Esses aplicativos precisarão ser reescritos para tirar proveito da autenticação da nuvem?
+* Esses aplicativos continuarão a permanecer local enquanto os usuários os acessam usando a identidade de nuvem?
 
-Você também precisa toodetermine Olá segurança requisitos e restrições de sincronização de diretório. Essa avaliação é importante tooget uma lista de requisitos de saudação que será necessária em ordem toocreate e manter as identidades do usuário na nuvem hello. Certifique-se de saudação tooanswer perguntas a seguir:
+Você também precisa determinar a sincronização de diretórios de requisitos e restrições de segurança. Essa avaliação é importante para obter uma lista dos requisitos que serão necessários para criar e manter as identidades do usuário na nuvem. Certifique-se de responder às seguintes perguntas:
 
-* Onde o servidor de sincronização de saudação estarão localizado?
+* Onde o servidor de sincronização estará?
 * Será integrado ao domínio?
-* Servidor de saudação esteja localizado em uma rede restrita atrás de um firewall, como uma rede de Perímetro?
-  * Você será a sincronização de toosupport tooopen capaz de saudação necessária firewall portas?
-* Você tem um plano de recuperação de desastres para o servidor de sincronização de Olá?
-* Você tem uma conta com as permissões corretas para todas as florestas que você deseja toosynch com Olá?
-  * Se sua empresa não sabe a resposta Olá para essa pergunta, examine a seção de hello "Permissões para sincronização de senha" no artigo Olá [Olá instalar serviço de sincronização do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e determine se você já tem um conta com essas permissões, ou se você precisa toocreate um.
-* Se você tiver a sincronização de multi-floresta é floresta do hello sincronização servidor capaz de tooget tooeach?
+* O servidor será localizado em uma rede restrita por trás de um firewall, como um DMZ?
+  * Você poderá abrir as portas de firewall necessárias para dar suporte à sincronização?
+* Você tem um plano de recuperação de desastres para o servidor de sincronização?
+* Você tem uma conta com as permissões corretas para todas as florestas que deseja sincronizar?
+  * Se sua empresa não sabe a resposta para essa pergunta, leia a seção "Permissões de sincronização de senha" no artigo [Instalar o serviço de sincronização do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e determine se você já tiver uma conta com essas permissões, ou se você precisar criar uma.
+* Se você tiver sincronização multi-floresta o servidor de sincronização é capaz de obter em cada floresta?
 
 > [!NOTE]
-> Verifique se anotações tootake de cada resposta e entender Olá lógica por trás da resposta de saudação. [Determinar requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções de saudação disponíveis. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+> Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) vai ultrapassar as opções disponíveis. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 > 
 > 
 

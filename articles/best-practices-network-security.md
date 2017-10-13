@@ -1,6 +1,6 @@
 ---
-title: "práticas recomendadas de segurança de rede aaaAzure | Microsoft Docs"
-description: "Aprenda a que saudação principais recursos disponíveis no Azure toohelp criam ambientes de rede segura"
+title: "Práticas recomendadas de segurança de rede do Azure | Microsoft Docs"
+description: "Conheça alguns dos principais recursos disponíveis no Azure para ajudar a criar ambientes de rede segura"
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,302 +14,302 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: b851b2862428a8bd5e7525c85584fc1c14ffcabe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Segurança de rede e serviços em nuvem da Microsoft
-Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem escolher tooaccess esses serviços por meio de saudação da Internet ou com o Azure ExpressRoute, que fornece conectividade de rede privada. plataforma do Microsoft Azure Olá permite aos clientes tooseamlessly estender sua infraestrutura em nuvem hello e compilar arquiteturas de várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através do ExpressRoute. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
+Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem optar por acessar esses serviços através da Internet ou com a Azure ExpressRoute, que fornece conectividade de rede privada. A plataforma Microsoft Azure permite que os clientes estendam facilmente sua infra-estrutura para a nuvem e criem arquiteturas com várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através do ExpressRoute. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
 
 ## <a name="fast-start"></a>Início rápido
-Olá gráfico lógica a seguir pode direcionar você tooa exemplo específico de saudação muitas técnicas de segurança disponíveis com hello plataforma Windows Azure. Para referência rápida, localize o exemplo hello que melhor se encaixa em seu caso. Para obter explicações expandidas, continue lendo papel hello.
+O gráfico lógico a seguir pode direcioná-lo a um exemplo específico das várias técnicas de segurança disponíveis na plataforma Azure. Para referência rápida, encontre o exemplo que melhor se ajusta a seu caso. Para obter explicações mais completas, continue lendo o artigo.
 [![0]][0]
 
-[Exemplo 1: Criar uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada ou sub-rede filtrada) toohelp proteger aplicativos com grupos de segurança de rede (NSGs).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
-[Exemplo 2: Criar um perímetro rede toohelp proteger aplicativos com um firewall e NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
-[Exemplo 3: Criar um perímetro rede toohelp proteger redes com um firewall, a rota definida pelo usuário (UDR) e o NSG.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Exemplo 1: crie uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada ou sub-rede filtrada) para ajudar a proteger aplicativos com NSGs (grupos de segurança de rede).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Exemplo 2: crie uma rede de perímetro para ajudar a proteger aplicativos com um firewall e NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Exemplo 3: crie uma rede de perímetro para ajudar a proteger as redes com um firewall, UDR (rota definida pelo usuário) e NSG.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
 [Exemplo 4: adicione uma conexão híbrida com uma VPN (rede privada virtual) site a site de solução de virtualização.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
 [Exemplo 5: adicione uma conexão híbrida com um gateway de VPN site a site do Azure.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
 [Exemplo 6: adicione uma conexão híbrida com o ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
-Exemplos para adicionar conexões entre redes virtuais, a alta disponibilidade e o encadeamento de serviço serão adicionados toothis documento durante saudação próximos meses.
+Exemplos para adicionar conexões entre redes virtuais, alta disponibilidade e encadeamento de serviços serão adicionados a esse documento durante os próximos meses.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Proteção de infraestrutura e conformidade da Microsoft
-organizações toohelp obedecer nacional, regional, e requisitos específicos do setor que controlam a coleta de saudação e uso de dados de indivíduos, a Microsoft oferece mais de 40 certificações e attestations. Olá mais abrangente conjunto de qualquer provedor de serviços de nuvem.
+Para ajudar as organizações a atender os requisitos regionais, nacionais e específicos do setor que controlam a coleta e o uso de dados de indivíduos, a Microsoft oferece mais de 40 certificações e atestados. O conjunto mais abrangente de qualquer provedor de serviços de nuvem.
 
-Para obter mais informações, consulte as informações de conformidade Olá em Olá [Microsoft Trust Center][TrustCenter].
+Para obter mais informações, consulte as informações de conformidade no [Microsoft Trust Center][TrustCenter].
 
-A Microsoft tem uma abordagem abrangente tooprotect infraestrutura necessária toorun hyper-escala global serviços de nuvem. Infraestrutura de nuvem da Microsoft inclui hardware, software, redes e administrativas e a equipe de operações, além de toohello físico data centers.
+A Microsoft tem uma abordagem abrangente para proteger a infraestrutura de nuvem necessária para executar os serviços globais em larga escala. Além dos datacenters físicos, a infraestrutura de nuvem da Microsoft também inclui hardware, software, redes, administrativas e equipe de operações.
 
 ![2]
 
-Essa abordagem fornece uma base mais segura para os clientes toodeploy seus serviços em nuvem da Microsoft de saudação. Olá próxima etapa é para clientes toodesign e criar um tooprotect de arquitetura de segurança desses serviços.
+A abordagem acima fornece uma base segura para os clientes implantarem seus serviços na Microsoft Cloud. A próxima etapa é o design e a criação de uma arquitetura de segurança pelos clientes para proteger esses serviços.
 
 ## <a name="traditional-security-architectures-and-perimeter-networks"></a>Arquiteturas de segurança tradicionais e redes de perímetro
-Embora a Microsoft faz investimentos consideráveis para proteger a infraestrutura de nuvem Olá, os clientes também devem proteger os serviços de nuvem e grupos de recursos. Uma abordagem de várias camadas toosecurity fornece melhor defesa do hello. Uma zona de segurança de rede de perímetro protege recursos da rede interna de uma rede não confiável. Uma rede de perímetro refere-se toohello bordas ou partes da rede Olá estabelecidos entre hello da Internet e a infra-estrutura de TI da empresa Olá protegido.
+Embora a Microsoft faça investimentos consideráveis para proteger a infraestrutura de nuvem, os clientes também devem proteger os serviços de nuvem e os grupos de recursos. Uma abordagem multicamada para a segurança oferece a melhor defesa. Uma zona de segurança de rede de perímetro protege recursos da rede interna de uma rede não confiável. Uma rede de perímetro refere-se às bordas ou partes da rede que ficam entre a Internet e a infraestrutura de TI da empresa protegida.
 
-Em redes corporativas típicas, infraestrutura básica de saudação muito proteção reforçada no perímetro hello, com várias camadas de dispositivos de segurança. limite de saudação de cada camada consiste em dispositivos e pontos de imposição de política. Cada camada pode incluir uma combinação de saudação dispositivos de segurança de rede a seguir: firewalls, prevenção dos (negação de serviço), a detecção de intrusão ou sistemas de proteção (IDS/IPS) e dispositivos VPN. Imposição de política pode assumir a forma de saudação de roteamento específico, listas de controle de acesso (ACLs) ou políticas de firewall. Olá primeira linha de defesa na rede hello, diretamente aceitar tráfego de entrada de saudação à Internet, é uma combinação desses mecanismos tooblock ataques e tráfego prejudicial permitindo ainda mais a solicitações legítimas em rede hello. Esse tráfego roteia tooresources diretamente na rede de perímetro hello. Esse recurso pode, em seguida, "falar" tooresources em rede hello, transiting limites de Avançar Olá para validação primeiro. camada de externo de saudação é chamada de rede de perímetro Olá porque essa parte da rede Olá toohello exposto à Internet, normalmente com alguma forma de proteção em ambos os lados. Olá figura a seguir mostra um exemplo de uma rede de perímetro de única sub-rede em uma rede corporativa, com dois limites de segurança.
+Em redes empresariais típicas, a infraestrutura básica é reforçada intensamente no perímetro, com várias camadas de dispositivos de segurança. O limite de cada camada consiste em dispositivos e pontos de imposição de políticas. Cada camada pode incluir uma combinação dos seguintes dispositivos de segurança de rede: firewalls, prevenção de DoS (ataque de negação de serviço), IDS/IPS (sistemas de detecção de intrusão ou sistemas de proteção) e dispositivos VPN. A imposição de políticas pode assumir a forma de políticas de firewall, ACLs (listas de controle de acesso) ou roteamento específico. A primeira linha de defesa da rede, que aceita diretamente o tráfego de entrada da Internet, é uma combinação desses mecanismos para bloquear ataques e tráfego perigoso, permitindo que solicitações legítimas adentrem a rede. Esse tráfego é roteado diretamente aos recursos na rede de perímetro. Esse recurso pode "falar" com recursos mais dentro da rede, passando primeiro pelo próximo limite de validação. A camada mais externa é chamada de a rede de perímetro, porque essa parte da rede está exposta à Internet, geralmente com alguma forma de proteção em ambos os lados. A figura a seguir mostra um exemplo de uma rede de perímetro de sub-rede individual em uma rede corporativa, com dois limites de segurança.
 
 ![3]
 
-Há muitos tooimplement de arquiteturas usadas com uma rede de perímetro. Essas arquiteturas podem variar de uma rede de perímetro de várias sub-redes de tooa de Balanceador de carga simples com diferentes mecanismos em tráfego de tooblock cada limite e proteger as camadas de hello mais profundas da rede corporativa hello. Como a rede de perímetro Olá é criada depende necessidades específicas de saudação da organização de saudação e sua tolerância ao risco geral.
+Há muitas arquiteturas usadas para implementar uma rede de perímetro. Essas arquiteturas podem variar de um simples do balanceador de carga até uma rede de perímetro com várias sub-redes e diferentes mecanismos em cada limite para bloquear o tráfego e proteger as camadas mais profundas da rede corporativa. Como a rede de perímetro é criada depende das necessidades específicas da organização e da tolerância a riscos geral.
 
-Como os clientes mudam suas nuvens de toopublic de cargas de trabalho, é toosupport crítico de recursos semelhantes para arquitetura de rede de perímetro no Azure toomeet requisitos de conformidade e segurança. Este documento fornece diretrizes sobre como os clientes podem criar um ambiente de rede segura no Azure. Ele se concentra na rede de perímetro hello, mas também inclui uma discussão abrangente de muitos aspectos de segurança de rede. Esta discussão informá-Olá perguntas a seguir:
+Conforme os clientes vão movendo suas cargas de trabalho para nuvens públicas, é essencial dar suporte a recursos semelhantes de arquitetura de rede de perímetro no Azure para atender aos requisitos de conformidade e de segurança. Este documento fornece diretrizes sobre como os clientes podem criar um ambiente de rede segura no Azure. Ele se concentra na rede de perímetro, mas também inclui uma discussão abrangente sobre muitos aspectos de segurança de rede. As perguntas a seguir informam essa discussão:
 
 * Como é possível criar uma rede de perímetro no Azure?
-* Quais são de rede de perímetro Olá recursos do Azure disponíveis toobuild Olá?
+* Quais são alguns dos recursos do Azure disponíveis para criar a rede de perímetro?
 * Como cargas de trabalho de back-end podem ser protegidas?
-* Como são toohello Internet comunicações controladas cargas de trabalho no Azure?
-* Como as redes locais de saudação podem ser protegidas de implantações no Azure?
+* Como a comunicação com a Internet é controlada para as cargas de trabalho no Azure?
+* Como as redes locais podem ser protegidas contra implantações no Azure?
 * Quando recursos de segurança nativos do Azure devem ser usados em vez de dispositivos ou serviços de terceiros?
 
-Olá diagrama a seguir mostra várias camadas de segurança que Azure fornece toocustomers. Essas camadas são nativo em Olá plataforma do Azure e recursos definidos pelo cliente:
+O diagrama a seguir mostra várias camadas de segurança que Azure fornece aos clientes. Essas camadas são tanto nativas na plataforma Azure em si quanto recursos definidos pelo cliente:
 
 ![4]
 
-Entrada de saudação à Internet, DDoS Azure ajuda a proteger contra ataques em grande escala no Azure. Olá próxima camada é definida pelo cliente endereços IP públicos (pontos de extremidade), que são usado toodetermine tráfego que pode passar por rede virtual do hello nuvem serviço toohello. O isolamento de rede virtual nativa do Azure garante o isolamento completo de todas as outras redes e garante que o tráfego flua somente através de métodos e caminhos configurados pelo usuário. Esses caminhos e os métodos são próxima camada hello, onde os NSGs, UDR e dispositivos de rede virtual podem ser toocreate usada segurança limites tooprotect Olá implantações de aplicativos em rede Olá protegido.
+Vinda da Internet a proteção DDoS do Azure ajuda a proteger contra ataques em grande escala contra o Azure. A próxima camada é de endereços IP públicos definidos pelo cliente (pontos de extremidade), que são usados para determinar qual tráfego pode passar pelo serviço de nuvem para a rede virtual. O isolamento de rede virtual nativa do Azure garante o isolamento completo de todas as outras redes e garante que o tráfego flua somente através de métodos e caminhos configurados pelo usuário. Esses caminhos e métodos são a próxima camada em que NSGs, UDR e soluções de virtualização de rede podem ser usados para criar limites de segurança para proteger as implantações de aplicativo na rede protegida.
 
-Olá próxima seção fornece uma visão geral de redes virtuais do Azure. As redes virtuais do Azure são criadas por clientes e tratam-se daquilo a que as cargas de trabalho implantadas por esses clientes estão conectadas. Redes virtuais são a base de saudação de todos os recursos de segurança de rede Olá necessário tooestablish uma implantações de cliente de tooprotect da rede de perímetro no Azure.
+A próxima seção fornece uma visão geral das redes virtuais do Azure. As redes virtuais do Azure são criadas por clientes e tratam-se daquilo a que as cargas de trabalho implantadas por esses clientes estão conectadas. Redes virtuais são a base de todos os recursos de segurança de rede necessários para estabelecer uma rede de perímetro e proteger as implantações dos clientes no Azure.
 
 ## <a name="overview-of-azure-virtual-networks"></a>Visão geral das redes virtuais do Azure
-Antes do tráfego da Internet pode obter toohello redes virtuais do Azure, há duas camadas de segurança inerentes toohello plataforma Windows Azure:
+Antes que o tráfego da Internet possa acessar as redes virtuais do Azure, há duas camadas de segurança inerentes à plataforma Azure:
 
-1.    **Proteção DDoS**: proteção DDoS é uma camada de saudação do Azure rede física que protege Olá plataforma do Azure em si contra ataques de baseado na Internet em larga escala. Esses ataques usam vários nós de "bot" toooverwhelm uma tentativa de um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção DDoS sem atributos configuráveis do usuário e não é acessível toohello cliente. camada de proteção DDoS Olá protege o Azure como uma plataforma de ataques em grande escala, ele também monitora o tráfego de saída e tráfego de região do Azure entre. Usando dispositivos de rede virtual no hello VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente Olá contra um ataque de escala menor que não trip proteção em nível de plataforma hello. Um exemplo de DDoS em ação; Se um endereço IP de com a internet foi atacados por um ataque de DDoS em larga escala, Azure detecte fontes Olá Olá ataques e limpar Olá afetada tráfego antes de que atingiu seu destino pretendido. Em quase todos os casos, hello atacado do ponto de extremidade não é afetado por ataque hello. Em Olá raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado tooother pontos de extremidade, apenas Olá atacado ponto de extremidade. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É crítico toonote que DDoS Azure só está procurando por ataques em larga escala. É possível que seu serviço específico pode ser sobrecarregado antes Olá plataforma proteção limites são excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
+1.    **Proteção DDoS**: a proteção DDoS é uma camada de rede física do Azure que protege a plataforma do Azure em si contra ataques em larga escala baseados na Internet. Esses ataques usam vários nós de "bot" em uma tentativa de sobrecarregar um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção contra DDoS não tem atributos configuráveis pelo usuário e não é acessível ao cliente. A camada de proteção contra DDoS protege o Azure como uma plataforma de ataques em grande escala, além de monitorar o tráfego de saída e o tráfego entre regiões do Azure. Usando soluções de virtualização de rede na VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente contra um ataque de menor escala que não ative a proteção no nível de plataforma. Um exemplo de DDoS em ação: se um endereço IP voltado para a Internet fosse atacado por um ataque de DDoS em larga escala, o Azure detectaria as origens dos ataques e eliminaria o tráfego ofensivo antes que este atingisse seu destino pretendido. Em quase todos os casos, o ponto de extremidade atacado não é afetado pelo ataque. Nos raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado para outros pontos de extremidade, apenas para o ponto de extremidade atacado. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É fundamental observar que o Azure DDoS está procurando apenas por ataques em grande escala. É possível que seu serviço específico seja sobrecarregado antes que os limites de proteção no nível de plataforma sejam excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
 
-2.  **Endereços IP públicos**: IP público endereços (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Application Gateway e outros recursos do Azure que apresentam um público toohello internet roteadas tooyour recurso de endereço IP) permitem que os serviços de nuvem ou grupos de recurso toohave endereços de IP da Internet públicos e portas expostas. ponto de extremidade de saudação usa a conversão de endereço de rede (NAT) tooroute tráfego toohello interno endereço e porta no hello rede virtual do Azure. Esse caminho é a principal maneira Olá para toopass tráfego externo na rede virtual hello. endereços IP públicos de saudação são configurável toodetermine tráfego que é passado e como e onde ele é convertido em rede virtual toohello.
+2.  **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
 
-Depois que o tráfego chegue a rede virtual hello, há muitos recursos que entram em cena. Redes virtuais do Azure são Olá base para os clientes tooattach suas cargas de trabalho e onde básicos de segurança de nível de rede se aplica. É uma rede privada (uma sobreposição de rede virtual) no Azure para clientes com hello recursos e as características a seguir:
+Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em cena. Redes virtuais do Azure são a base para que clientes possam anexar suas cargas de trabalho e o local em que a segurança no nível da rede básica se aplica. É uma rede privada (uma sobreposição de rede virtual) no Azure para clientes com os seguintes recursos e características:
 
-* **Isolamento de tráfego**: uma rede virtual é o limite de isolamento de tráfego Olá em Olá plataforma Windows Azure. Máquinas virtuais (VMs) em uma rede virtual não pode se comunicar diretamente tooVMs em uma rede virtual diferente, mesmo se as duas redes virtuais são criadas por Olá mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
+* **Isolamento de tráfego**: uma rede virtual é o limite de isolamento de tráfego na plataforma Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
 
 >[!NOTE]
->Isolamento de tráfego refere-se apenas tootraffic *entrada* rede virtual toohello. Pelo tráfego de saída padrão da saudação VNet toohello internet é permitida, mas pode ser evitado se desejado, os NSGs.
+>O isolamento de tráfego refere-se apenas ao tráfego *de entrada* para a rede virtual. Por padrão, o tráfego de saída da VNet para Internet é permitido, mas pode ser evitado se desejado por NSGs.
 >
 >
 
-* **Topologia de multicamadas**: redes virtuais permitem que os clientes toodefine topologia de multicamadas alocando sub-redes e designar espaços de endereço separados para diferentes elementos ou "níveis" de suas cargas de trabalho. Esses agrupamentos lógicos e topologias habilitar política de acesso diferente de toodefine de clientes com base nos tipos de carga de trabalho hello e também controlam os fluxos de tráfego entre os níveis de saudação.
-* **Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. tooconstruct uma conexão, os clientes podem usar o emparelhamento de rede virtual, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou rota expressa. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de ExpressRoute.
-* **NSG** permite que os clientes toocreate regras (ACLs) no nível desejada de saudação de granularidade: subredes virtuais, VMs individuais ou interfaces de rede. Clientes podem controlar o acesso ao permitir ou negar a comunicação entre as cargas de trabalho de saudação em uma rede virtual, de sistemas de redes do cliente por meio da conectividade entre locais, ou direcionar comunicação na Internet.
-* **UDR** e **encaminhamento IP** permitem que os clientes toodefine caminhos de comunicação de saudação entre níveis diferentes em uma rede virtual. Os clientes podem implantar firewall, IDS/IPS e outras soluções de virtualização, além de rotear o tráfego de rede por meio dessas soluções de segurança para a aplicação, auditoria e inspeção das políticas de limites de segurança.
-* **Soluções de virtualização de rede** em hello Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS estão disponíveis em hello Azure Marketplace e Olá Galeria de imagens de VM. Os clientes podem implantar esses aplicativos em suas redes virtuais e, especificamente, no seu ambiente de rede segura do segurança limites (incluindo sub-redes de rede de perímetro Olá) toocomplete um várias camadas.
+* **Topologia multicamada**: as redes virtuais permitem que os clientes definam a topologia multicamada alocando sub-redes e designando os espaços de endereço separados para elementos ou "camadas" diferentes de suas cargas de trabalho. Esses agrupamentos e topologias lógicos permitem que os clientes definam políticas de acesso diferentes baseadas nos tipos de carga de trabalho e também controlam fluxos de tráfego entre as camadas.
+* **Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. Para criar uma conexão, os clientes podem usar o emparelhamento de VNet, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou ExpressRoute. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de ExpressRoute.
+* **NSG** permite que os clientes criem regras (ACLs) no nível desejado de granularidade: sub-redes virtuais, VMs individuais ou interfaces de rede. Os clientes podem controlar o acesso permitindo ou negando a comunicação entre as cargas de trabalho em uma rede virtual, de sistemas nas redes do cliente por meio de conectividade entre locais ou comunicação direta via Internet.
+* **UDR** e **Encaminhamento IP** permitem que os clientes definam os caminhos de comunicação entre camadas diferentes em uma rede virtual. Os clientes podem implantar firewall, IDS/IPS e outras soluções de virtualização, além de rotear o tráfego de rede por meio dessas soluções de segurança para a aplicação, auditoria e inspeção das políticas de limites de segurança.
+* **Soluções de virtualização de rede** no Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS estão disponíveis no Azure Marketplace e na Galeria de Imagens de VM. Os clientes podem implantar essas soluções em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes da rede de perímetro) para completar um ambiente de rede segura com várias camadas.
 
-Com esses recursos e funções, um exemplo de como uma arquitetura de rede de perímetro pode ser criada no Azure é hello diagrama a seguir:
+Com esses recursos e funções, um exemplo de como uma arquitetura de rede de perímetro poderia ser criada no Azure é a mostrada no seguinte diagrama:
 
 ![5]
 
 ## <a name="perimeter-network-characteristics-and-requirements"></a>Requisitos e características da rede de perímetro
-rede de perímetro Olá é Olá front-end da rede hello, comunicação de saudação Internet diretamente em uma interface. pacotes de entrada Hello devem fluir através de dispositivos de segurança hello, como firewall hello, IDS e IPS, antes de alcançar os servidores de back-end de saudação. Pacotes direcionado à Internet de cargas de trabalho Olá também podem fluir através de dispositivos de segurança Olá na rede de perímetro Olá para imposição de política, inspeção e auditoria, antes de sair da rede de saudação. Além disso, a rede de perímetro Olá pode hospedar gateways VPN entre locais entre redes virtuais do cliente e redes locais.
+A rede de perímetro é o front-end da rede, fazendo a interface de comunicação diretamente da Internet. Os pacotes de entrada devem fluir por dispositivos de segurança, como firewall, IDS, IPS e afins, antes de alcançar os servidores back-end. Pacotes das cargas de trabalho associados à Internet também podem fluir pelos dispositivos de segurança na rede de perímetro para fins de auditoria, inspeção e imposição da política antes de sair da rede. Além disso, a rede de perímetro pode hospedar os gateways de VPN entre locais entre redes virtuais de cliente e redes locais.
 
 ### <a name="perimeter-network-characteristics"></a>Características da rede de perímetro
-Algumas das características de saudação de uma rede de perímetro boa referência figura anterior hello, são da seguinte maneira:
+Algumas das características de uma boa rede de perímetro, referenciando a figura anterior, são as seguintes:
 
 * Voltada para a Internet:
-  * sub-rede de rede de perímetro Olá em si é voltado para a Internet, se comunicar diretamente com hello da Internet.
-  * Endereços IP públicos, VIPs e/ou pontos de extremidade de serviço passam dispositivos e a rede front-end de toohello de tráfego de Internet.
-  * O tráfego de entrada da saudação que Internet passa por meio de dispositivos de segurança antes de outros recursos na rede de front-end de saudação.
-  * Se segurança de saída estiver habilitada, o tráfego passa por dispositivos de segurança, como etapa final do hello, antes de passar toohello da Internet.
+  * A sub-rede da rede de perímetro em si é voltada para a Internet, comunicando-se diretamente com ela.
+  * Endereços IP públicos, VIPs e/ou pontos de extremidade de serviço passam tráfego da Internet para a rede e dispositivos de front-end.
+  * O tráfego de entrada da Internet passa por dispositivos de segurança antes de outros recursos na rede de front-end.
+  * Se segurança de saída estiver habilitada, o tráfego passará por dispositivos de segurança, como a etapa final, antes de passar para a Internet.
 * Rede protegida:
-  * Há um caminho direto de infraestrutura básica do hello Internet toohello.
-  * Infraestrutura de núcleo toohello canais deve percorrer dispositivos de segurança, como os NSGs, firewalls ou dispositivos VPN.
-  * Outros dispositivos não devem ligar a infraestrutura básica de Internet e hello.
-  * Dispositivos de segurança nos dois Olá voltado para a Internet e rede protegida hello, voltados para limites de rede de perímetro da saudação (por exemplo, Olá dois firewall ícones mostrados na figura anterior Olá), na verdade, pode ser um único dispositivo virtual com regras diferenciados ou interfaces de cada limite. Por exemplo, um dispositivo físico, separado logicamente, tratamento de carga para os limites de rede de perímetro Olá Olá.
+  * Não há caminho direto da Internet para a infraestrutura básica.
+  * Os canais para a infraestrutura básica devem percorrer dispositivos de segurança, como NSGs, firewalls ou dispositivos VPN.
+  * Outros dispositivos não devem ligar a Internet à infraestrutura básica.
+  * Dispositivos de segurança tanto no limite para a Internet quanto nos limites voltados à rede protegida da rede de perímetro (por exemplo, os dois ícones de firewall mostrados na figura anterior) podem, na verdade, ser uma única solução de virtualização com regras ou interfaces diferenciadas para cada limite. Por exemplo, um dispositivo físico, logicamente separado, lidando com a carga para ambos os limites da rede de perímetro.
 * Outras práticas e restrições comuns:
   * As cargas de trabalho não devem armazenar informações essenciais aos negócios.
-  * Implantações e acesso e atualização de configurações de rede tooperimeter são administradores de tooonly limitada autorizado.
+  * O acesso e as atualizações para configurações e implantações da rede de perímetro são limitados somente aos administradores autorizados.
 
 ### <a name="perimeter-network-requirements"></a>Requisitos de rede de perímetro
-tooenable essas características, siga estas diretrizes sobre requisitos de rede virtual tooimplement uma rede de perímetro com êxito:
+Para habilitar essas características, siga essas diretrizes sobre requisitos de rede virtual para implementar uma rede de perímetro com êxito:
 
-* **Arquitetura de sub-rede:** especifique Olá virtual rede, de modo que uma sub-rede inteira dedicada como rede de perímetro hello, separadas de outras sub-redes em Olá mesmo rede virtual. Essa separação garante que o tráfego entre a rede de perímetro hello e outros fluxos de camadas de sub-rede interna ou privada por meio de um firewall ou dispositivo virtual IDS/IPS hello.  Rotas definidas pelo usuário no limite de saudação sub-redes são necessárias tooforward este dispositivo virtual do toohello de tráfego.
-* **NSG:** sub-rede de rede de perímetro Olá em si deve ser tooallow abrir comunicação com hello da Internet, mas isso não significa que os clientes devem ser ignorando os NSGs. Siga comuns segurança práticas toominimize Olá rede superfícies expostos toohello da Internet. Bloquear intervalos de endereço remoto Olá permitido implantações de saudação tooaccess ou protocolos de aplicativo específico hello e portas que estão abertas. Pode haver circunstâncias, porém, em que um bloqueio total não é possível. Por exemplo, se os clientes têm um site externo no Azure, rede de perímetro Olá deve permitir que as solicitações da web hello de endereços IP públicos, mas só deve abrir portas do aplicativo web hello: TCP na porta 80 e/ou TCP na porta 443.
-* **Tabela de roteamento:** sub-rede de rede de perímetro Olá em si deve ser capaz de toocommunicate toohello Internet diretamente, mas não deve permitir a comunicação direta tooand de redes back Olá final ou no local sem passar por um firewall ou dispositivo de segurança.
-* **Configuração de dispositivo de segurança:** tooroute e inspecionar os pacotes entre rede de perímetro hello e rest Olá de redes Olá protegido, Olá dispositivos de segurança, como firewall, IDS, e dispositivos IPS podem ser multihomed. Eles podem ter NICs separadas para a rede de perímetro hello e sub-redes de back-end de saudação. Olá NICs na rede de perímetro Olá se comuniquem diretamente tooand de saudação da Internet, com hello NSGs correspondentes e perímetro Olá tabela de roteamento de rede. NICs Olá a conexão de sub-redes de back-end toohello mais tem restringido os NSGs e tabelas de roteamento de sub-redes de back-end correspondente hello.
-* **Funcionalidade do dispositivo de segurança:** dispositivos de segurança Olá implantados na rede de perímetro do hello normalmente executam Olá funcionalidade a seguir:
-  * Firewall: Impor regras de firewall ou políticas de controle de acesso para as solicitações de entrada hello.
-  * Detecção e prevenção de ameaças: detectando e reduzindo ataques mal-intencionados de saudação à Internet.
+* **Arquitetura de sub-rede:** especifique a rede virtual de modo que uma sub-rede inteira seja dedicada como a rede de perímetro, separada de outras sub-redes na mesma rede virtual. Essa separação garante o tráfego entre a rede de perímetro e outras camadas de sub-rede internas ou privadas flua por meio de um firewall ou solução de virtualização IDS/IPS.  Rotas definidas pelo usuário nas sub-redes de limite são necessárias para encaminhar esse tráfego para a solução de virtualização.
+* **NSG:** a sub-rede da rede de perímetro em si deve estar aberta para permitir a comunicação com a Internet, mas isso não significa que os clientes devem ignorar os NSGs. Siga as práticas de segurança comuns para minimizar as superfícies de rede expostas à Internet. Bloqueie os intervalos de endereços remotos com permissão para acessar as implantações ou os protocolos de aplicativo específicos e as portas que estão abertas. Pode haver circunstâncias, porém, em que um bloqueio total não é possível. Por exemplo, se os clientes têm um site externo no Azure, a rede de perímetro deve permitir solicitações de entrada da Web de endereços IP públicos, mas só deve abrir as portas do aplicativo Web: TCP na porta 80 e/ou TCP na porta 443.
+* **Tabela de roteamento:** a sub-rede da rede de perímetro em si deve ser capaz de se comunicar diretamente com a Internet, mas não deve permitir a comunicação direta de e para o back-end ou em redes locais sem passar por um dispositivo de firewall ou de segurança.
+* **Configuração de dispositivo de segurança:** para rotear e inspecionar os pacotes entre a rede de perímetro e o restante das redes protegidas, os dispositivos de segurança como dispositivos IPS, IDS e firewall podem ter vários locais de origem. Eles podem ter NICs separadas para a rede de perímetro e as sub-redes de back-end. As NICs na rede de perímetro se comunicarão diretamente de e para a Internet, com os NSGs correspondentes e a tabela de roteamento da rede de perímetro. As NICs conectadas às sub-redes de back-end têm NSGs e tabelas de roteamento mais restritos das sub-redes correspondentes do back-end.
+* **Funcionalidade de dispositivo de segurança:** os dispositivos de segurança implantados na rede de perímetro normalmente executam a seguinte funcionalidade:
+  * Firewall: imposição de regras de firewall ou políticas de controle de acesso para solicitações de entrada.
+  * Detecção e prevenção de ameaças: detecta ameaças e atenua ataques da Internet.
   * Auditoria e registro em log: mantém logs detalhados de auditoria e análise.
-  * Proxy reverso: redirecionamento de entrada hello solicitações toohello correspondente servidores de back-end. Esse redirecionamento envolve o mapeamento e normalmente conversão de endereços de destino de saudação em dispositivos de front-end hello, firewalls, toohello endereços de servidor back-end.
-  * Encaminhar proxy: fornecendo NAT e realizar a auditoria para comunicações iniciada a partir Olá toohello de rede virtual da Internet.
-  * Roteador: Encaminhar o tráfego de entrada e de sub-rede cruzado dentro da rede virtual hello.
-  * Dispositivo VPN: agindo como saudação entre locais gateways VPN para conectividade entre locais VPN entre redes de local de clientes e redes virtuais do Azure.
-  * Servidor VPN: aceitar clientes VPN conectando redes virtuais tooAzure.
+  * Proxy reverso: redireciona as solicitações de entrada para os servidores back-end correspondentes. Esse redirecionamento envolve o mapeamento e conversão de endereços de destino nos dispositivos de front-end, normalmente firewalls, para os endereços de servidores back-end.
+  * Proxy de encaminhamento: fornece NAT e também realiza auditoria para a comunicação iniciada de dentro da rede virtual para a Internet.
+  * Roteador: encaminha tráfego de entrada de sub-rede e entre sub-redes dentro da rede virtual.
+  * Dispositivo VPN: atua como os gateways de VPN entre instalações para conectividade VPN entre instalações entre redes locais do cliente e redes virtuais do Azure.
+  * Servidor VPN: aceita clientes VPN que se conectam a redes virtuais do Azure.
 
 > [!TIP]
-> Lembre-Olá separado de dois grupos a seguir: indivíduos Olá tooaccess Olá perímetro rede segurança engrenagem e hello pessoas autorizadas autorizadas como administradores de aplicativo de desenvolvimento, implantação ou operações. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
+> Mantenha os dois grupos a seguir separados: as pessoas autorizadas a acessar o mecanismo de segurança da rede de perímetro e as pessoas autorizadas como administradores de operações, implantação ou desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
 >
 >
 
-### <a name="questions-toobe-asked-when-building-network-boundaries"></a>Toobe perguntas frequentes ao criar limites de rede
-Nesta seção, a menos que especificamente mencionado, Olá termo "redes" refere-se tooprivate Azure redes virtuais criadas por um administrador de assinatura. termo de saudação não se refere a redes físicas subjacentes de toohello dentro do Azure.
+### <a name="questions-to-be-asked-when-building-network-boundaries"></a>Perguntas a serem feitas durante a criação de limites de rede
+Nesta seção, a menos que especificamente mencionadas, o termo "redes" refere-se a redes virtuais privadas do Azure criadas por um administrador de assinatura. O termo não se refere às redes físicas subjacentes no Azure.
 
-Além disso, redes virtuais do Azure costumam ser usadas tooextend local tradicional redes. É possível tooincorporate site a site ou rota expressa híbrida soluções com arquiteturas de rede de perímetro de rede. Esse link híbrido é uma consideração importante na criação de limites de segurança de rede.
+Além disso, as redes virtuais do Azure geralmente são usadas para estender redes locais tradicionais. É possível incorporar soluções de rede híbridas site a site ou de ExpressRoute com arquiteturas de rede de perímetro. Esse link híbrido é uma consideração importante na criação de limites de segurança de rede.
 
-Olá seguintes três perguntas estão tooanswer crítico quando você estiver criando uma rede com uma rede de perímetro e vários limites de segurança.
+É essencial responder as três perguntas a seguir quando você está criando uma rede com uma rede de perímetro e vários limites de segurança.
 
 #### <a name="1-how-many-boundaries-are-needed"></a>1) Quantos limites são necessários?
-Olá primeiro ponto de decisão é toodecide quantos limites de segurança são necessários em um determinado cenário:
+O primeiro ponto de decisão é decidir quantos limites de segurança são necessários em um determinado cenário:
 
-* Um único limite: uma na rede de perímetro front-end de saudação entre a rede virtual hello e hello Internet.
-* Dois limites: um no hello lado de Internet da rede de perímetro do hello e outro entre sub-redes de rede de perímetro hello e sub-redes de back-end de saudação em Olá redes virtuais do Azure.
-* Limites de três: um no lado de Internet de saudação da rede de perímetro hello, um entre a rede de perímetro hello e sub-redes de back-end e uma entre as sub-redes de back-end de saudação e rede de local de saudação.
-* Limites de N: um número variável. Dependendo dos requisitos de segurança, não há nenhum toohello limitar o número de limites de segurança que podem ser aplicadas em uma determinada rede.
+* Um único limite: um na rede de perímetro de front-end, entre a rede virtual e a Internet.
+* Dois limites: um do lado da Internet da rede de perímetro, outro entre a sub-rede da rede de perímetro e as sub-redes de back-end nas redes virtuais do Azure.
+* Três limites: o primeiro do lado da Internet da rede de perímetro, o segundo entre a sub-rede da rede de perímetro e as sub-redes de back-end e o terceiro entre as sub-redes de back-end e a rede local.
+* Limites de N: um número variável. Dependendo dos requisitos de segurança, pode-se aplicar qualquer número de limites de segurança a uma determinada rede.
 
-Hello número e tipo de limites necessários variam com base em risco tolerância e hello cenário específico uma empresa que está sendo implementado. Geralmente essa é uma decisão conjunta tomada por vários grupos dentro de uma organização, muitas vezes incluindo uma equipe de risco e conformidade, uma equipe de rede e plataforma e uma equipe de desenvolvimento de aplicativos. Pessoas com conhecimento de segurança, Olá dados envolvidos e tecnologias hello está sendo usadas devem ter uma diga nessa postura de segurança apropriadas decisão tooensure Olá para cada implementação.
+O número e tipo dos limites necessários variam dependendo da tolerância a riscos da empresa e do cenário específico que está sendo implementado. Geralmente essa é uma decisão conjunta tomada por vários grupos dentro de uma organização, muitas vezes incluindo uma equipe de risco e conformidade, uma equipe de rede e plataforma e uma equipe de desenvolvimento de aplicativos. As pessoas com conhecimento de segurança, os dados envolvidos e as tecnologias usadas devem pesar na decisão para garantir a postura de segurança apropriada em cada implementação.
 
 > [!TIP]
-> Use o menor número de saudação de limites que atender aos requisitos de segurança Olá uma situação. Com os limites de mais operações e solução de problemas podem ser mais difícil, bem como Olá gerenciamento sobrecarga envolvida ao gerenciamento Olá várias políticas de limites ao longo do tempo. No entanto, os limites insuficientes aumentam o risco. Localizando saldo de saudação é crítico.
+> Use a menor quantidade de limites que satisfaçam os requisitos de segurança em uma determinada situação. Com mais limites, as operações e a solução de problemas podem tornar-se mais difíceis, bem como a sobrecarga do gerenciamento envolvido com a gestão de várias políticas de limites ao longo do tempo. No entanto, os limites insuficientes aumentam o risco. Encontrar o equilíbrio é fundamental.
 >
 >
 
 ![6]
 
-Olá figura anterior mostra uma visão geral de uma rede de limite de segurança de três. limites de saudação são entre Olá perímetro e Olá Internet, hello Azure front-end e back-end subredes privadas e Olá sub-rede de back-end do Azure e rede Olá local corporativa.
+A figura anterior mostra uma visão geral de uma rede de limite com três limites de segurança. Os limites estão entre a rede de perímetro e a Internet, entre as sub-redes privadas de front-end e back-end do Azure e entre a sub-rede de back-end do Azure e rede corporativa local.
 
-#### <a name="2-where-are-hello-boundaries-located"></a>2) onde estão localizados os limites de Olá?
-Depois que o número de saudação de limites é decidir, onde tooimplement-los é Olá próximo ponto de decisão. Geralmente, há três opções:
+#### <a name="2-where-are-the-boundaries-located"></a>2) Onde estão localizados os limites?
+Depois que o número de limites é decidido, onde implementá-los é o próximo ponto a se decidir. Geralmente, há três opções:
 
 * Usar um serviço intermediário baseado na Internet (por exemplo, um firewall do aplicativo Web baseado em nuvem, que não é discutido neste documento)
 * Usar recursos nativos e/ou soluções de virtualização de rede no Azure
-* Usando dispositivos físicos na rede de local de saudação
+* Usar dispositivos físicos na rede local
 
-Em redes puramente do Azure, opções de saudação são recursos nativos do Azure (por exemplo, balanceadores de carga do Azure) ou dispositivos de rede virtual do hello ecossistema de parceiros rico do Azure (por exemplo, firewalls de ponto de verificação).
+Em redes puramente do Azure, as opções são recursos nativos do Azure (por exemplo, Balanceadores de Carga do Azure) ou soluções de virtualização de rede do ecossistema variado de parceiros do Azure (por exemplo, firewalls de Ponto de Verificação).
 
-Se for necessário um limite entre o Azure e uma rede local, dispositivos de segurança Olá podem residir em um dos lados da conexão hello (ou ambos os lados). Assim, uma decisão deve ser feita em equipamentos de segurança de tooplace Olá local.
+Se for necessário um limite entre o Azure e uma rede local, os dispositivos de segurança poderão residir em qualquer um dos lados da conexão (ou em ambos). Assim, uma decisão deve ser tomada sobre o local para colocar o mecanismo de segurança.
 
-Na figura anterior do hello, rede de Internet à perímetro hello e limites de frente para back-end de saudação contidos inteiramente no Azure em devem ser nativo recursos do Azure ou dispositivos de rede virtual. Dispositivos de segurança em Olá limite entre o Azure (sub-rede de back-end) e rede corporativa Olá poderia ser nos saudação do lado do Azure ou no lado do local de saudação ou até mesmo uma combinação de dispositivos em ambos os lados. Pode haver vantagens significativas e opção de tooeither desvantagens que deve ser considerada sério.
+Na figura anterior, os limites Internet para rede de perímetro e front-end para back-end estão totalmente contidos no Azure e devem ser recursos nativos do Azure ou soluções de virtualização de rede. Os dispositivos de segurança no limite entre o Azure (sub-rede de back-end) e a rede corporativa podem estar no lado do Azure ou no lado local, ou até como uma combinação de dispositivos em ambos os lados. Pode haver vantagens e desvantagens relevantes em ambas as opções; portanto, elas devem ser levadas em consideração.
 
-Por exemplo, usando a engrenagem de segurança física existente no hello local lado de rede tem a vantagem de saudação que nenhum novo engrenagem é necessária. Ele precisa apenas de reconfiguração. desvantagem Hello, no entanto, é que todo o tráfego deve volta provenientes do Azure toohello local rede toobe visto pelo mecanismo de segurança de saudação. Assim, o tráfego do Azure para o Azure pode incorrer em latência significativa e afetam a experiência de usuário e o desempenho do aplicativo, se ela foi forçada toohello Voltar no local de rede para a imposição de política de segurança.
+Por exemplo, usar o mecanismo de segurança físico existente no lado da rede local tem a vantagem de não haver necessidade de nenhuma nova engrenagem. Ele precisa apenas de reconfiguração. A desvantagem, no entanto, é que todo o tráfego deve voltar do Azure para a rede local para ser visto pelo mecanismo de segurança. Assim, o tráfego do Azure para o Azure poderia incorrer em latência significativa e afetar a experiência do usuário e o desempenho do aplicativo se ele fosse forçado novamente à rede local para a imposição de política de segurança.
 
-#### <a name="3-how-are-hello-boundaries-implemented"></a>3) como os limites de saudação são implementados?
-Cada limite de segurança provavelmente terão os requisitos de recurso diferente (por exemplo, IDS e regras de firewall no hello lado de Internet da rede de perímetro hello, mas apenas ACLs entre a rede de perímetro hello e sub-rede back-end). Decidir em qual dispositivo (ou quantos dispositivos) toouse depende Olá requisitos do cenário e segurança. Olá seção a seguir, exemplos de 1, 2 e 3 discutem algumas opções que podem ser usadas. Revisar os recursos de rede nativo do Azure hello e dispositivos de saudação disponíveis no Azure do ecossistema de parceiros Olá mostra Olá uma grande variedade de opções disponíveis toosolve praticamente qualquer cenário.
+#### <a name="3-how-are-the-boundaries-implemented"></a>3) Como os limites são implementados?
+Cada limite de segurança provavelmente terá requisitos de capacidade diferentes (por exemplo, IDS e regras de firewall no lado da Internet da rede de perímetro, mas somente ACLs entre a rede de perímetro e a sub-rede de back-end). A decisão de quais (ou quantos) dispositivos usar depende dos requisitos de cenário e de segurança. Na seção a seguir, os exemplos 1, 2 e 3 discutem algumas opções que podem ser usadas. A análise dos recursos de rede nativos do Azure e dos dispositivos disponíveis no Azure do ecossistema de parceiros mostra as inúmeras opções disponíveis para resolver praticamente qualquer cenário.
 
-Outro ponto de decisão de implementação de chave é como tooconnect Olá local rede com o Azure. Você deve usar Olá gateway virtual do Azure ou um dispositivo de rede virtual? Essas opções são discutidas em maiores detalhes hello (exemplos 4, 5 e 6) da seção a seguir.
+Outro ponto-chave de decisão de implementação é como se conectar à rede local com o Azure. Você deveria usar o gateway virtual do Azure ou uma solução de virtualização de rede? Essas opções são discutidas mais detalhadamente na seção a seguir (exemplos 4, 5 e 6).
 
-Além disso, o tráfego entre redes virtuais no Azure pode ser necessário. Esses cenários serão adicionados em Olá futuras.
+Além disso, o tráfego entre redes virtuais no Azure pode ser necessário. Esses cenários serão adicionados posteriormente.
 
-Quando você souber respostas Olá toohello anterior perguntas, Olá [Fast Start](#fast-start) seção pode ajudar a identificar quais exemplos são mais apropriados para um determinado cenário.
+Depois de saber as respostas para as perguntas acima, a seção [Início Rápido](#fast-start) pode ajudá-lo a identificar quais exemplos são mais apropriados para um determinado cenário.
 
 ## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Exemplos: criando limites de segurança com redes virtuais do Azure
-### <a name="example-1-build-a-perimeter-network-toohelp-protect-applications-with-nsgs"></a>Exemplo 1 compilação um toohelp de rede de perímetro proteger aplicativos com os NSGs
-[Fazer início tooFast](#fast-start) | [Detailed compilar instruções para este exemplo][Example1]
+### <a name="example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs"></a>Exemplo 1: crie uma rede de perímetro para ajudar a proteger aplicativos com NSGs
+[Voltar ao Início rápido](#fast-start) | [Instruções detalhadas de build para este exemplo][Example1]
 
 [![7]][7]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Neste exemplo, há uma assinatura que contém Olá recursos a seguir:
+Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 - Um único grupo de recursos
 - Uma rede virtual com duas sub-redes: “FrontEnd” e “BackEnd”
-- Um grupo de segurança de rede que é aplicada tooboth sub-redes
+- Um grupo de segurança de rede que é aplicado a ambas as sub-redes
 - Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
 - Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 - Um servidor Windows que representa um servidor DNS ("DNS01")
-- Um IP público associado Olá aplicativo servidor web
+- Um IP público associado ao servidor Web do aplicativo
 
-Para scripts e um modelo do Gerenciador de recursos do Azure, consulte Olá [compilação instruções detalhadas][Example1].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example1].
 
 #### <a name="nsg-description"></a>Descrição de NSG
 Neste exemplo, um grupo NSG é criado e então carregado com seis regras.
 
 > [!TIP]
-> Em geral, você deve criar suas regras específicas de "Permitir" primeiro, seguido por hello mais genérico "Negar" regras. Olá priorizada determina quais regras são avaliadas primeiro. Depois que o tráfego for encontrado uma regra específica de tooa tooapply, nenhuma regra adicional será avaliada. Regras NSG podem ser aplicados em um Olá direção de entrada ou saída (da perspectiva de saudação da sub-rede Olá).
+> Em geral, você deve criar suas regras específicas "Permitir" primeiro, seguidas pelas regras “Negar” de caráter mais genérico. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
 >
 >
 
-Declarativamente, Olá regras a seguir está sendo compilado para o tráfego de entrada:
+Declarativamente, as regras a seguir estão sendo criadas para tráfego de entrada:
 
 1. O tráfego interno de DNS (porta 53) é permitido.
-2. O tráfego de RDP (porta 3389) do hello Internet tooany Máquina Virtual é permitido.
-3. O tráfego HTTP (porta 80) Olá tooweb do servidor de Internet (IIS01) é permitido.
-4. Qualquer tráfego (todas as portas) do IIS01 tooAppVM1 é permitido.
-5. Qualquer tráfego (todas as portas) do hello Internet toohello toda rede virtual (ambas as sub-redes) foi negado.
-6. Qualquer tráfego (todas as portas) de sub-rede de back-end de toohello Olá sub-rede front-end é negado.
+2. O tráfego de RDP (porta 3389) da Internet para qualquer Máquina Virtual é permitido.
+3. O tráfego HTTP (porta 80) da Internet para o servidor Web (IIS01) é permitido.
+4. Todo o tráfego (todas as portas) de IIS01 para AppVM1 é permitido.
+5. Todo o tráfego (todas as portas) da Internet para a rede virtual inteira (ambas as sub-redes) é negado.
+6. Todo o tráfego (todas as portas) da sub-rede de front-end para a sub-rede de back-end é negado.
 
-A sub-rede de tooeach associada essas regras, se uma solicitação HTTP foi entrada do servidor web do hello Internet toohello, ambos regras 3 (Permitir) e 5 (Negar) seria aplicável. Mas como a regra 3 tem uma prioridade mais alta, apenas ela seria aplicável e a regra 5 não seria entram em cena. Assim você seria permitido a solicitação HTTP Olá toohello servidor de web. Se esse mesmo tráfego foi a tentativa de servidor de saudação DNS01 tooreach, regra 5 (Negar) seria Olá tooapply primeiro e o tráfego de Olá não deve ser permitido toopass toohello server. Regra de 6 (Negar) blocos Olá sub-rede front-end do falando toohello sub-rede de back-end (com exceção de tráfego permitido nas regras 1 e 4). Esse conjunto de regras protege a rede de back-end Olá no caso de um invasor comprometer o aplicativo da web hello no front-end hello. invasor Olá seria limitada acesso toohello back-end "protegido" rede (somente tooresources exposto no servidor de AppVM01 Olá).
+Com essas regras associado a cada sub-rede, se uma solicitação HTTP entrou pela Internet no servidor Web, as duas regras 3 (permitir) e 5 (negar) seriam aplicáveis. Mas como a regra 3 tem uma prioridade mais alta, apenas ela seria aplicável e a regra 5 não seria entram em cena. Portanto, a solicitação HTTP seria permitida para o servidor Web. Se esse mesmo tráfego estivesse tentando acessar o servidor DNS01, a regra 5 (negar) seria a primeira a ser aplicada e o tráfego não teria permissão para passar para o servidor. A regra 6 (negar) bloqueia a comunicação entre a sub-rede de front-end e a sub-rede de back-end (exceto pelo tráfego permitido nas regras 1 e 4). Esse conjunto de regras protege a rede de back-end no caso de um invasor comprometer o aplicativo Web no front-end. O invasor teria acesso limitado à rede back-end "protegida" (apenas para recursos expostos no servidor AppVM01).
 
-Há uma regra de saída padrão que permite que o tráfego de saída toohello da Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. toolock tráfego em ambas as direções, roteamento definida pelo usuário é necessário (consulte o exemplo 3).
+Há uma regra de saída padrão que permite o tráfego de saída para a Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. Para bloquear o tráfego em ambos os trajetos, é necessário o roteamento definido pelo usuário (veja o exemplo 3).
 
 #### <a name="conclusion"></a>Conclusão
-Este exemplo é uma maneira relativamente simple e direta de isolamento de sub-rede de back-end de saudação do tráfego de entrada. Para obter mais informações, consulte Olá [compilação instruções detalhadas][Example1]. Essas instruções incluem:
+Esse exemplo representa uma maneira relativamente simples e direta de isolar a sub-rede de back-end do tráfego de entrada. Para obter mais informações, consulte as [instruções detalhadas de build][Example1]. Essas instruções incluem:
 
-* Como toobuild desse perímetro rede com clássicos scripts do PowerShell.
-* Como toobuild desse perímetro rede com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro com scripts do PowerShell clássico.
+* Como criar essa rede de perímetro com um modelo do Azure Resource Manager.
 * Descrições detalhadas de cada comando NSG.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego é permitido ou negado em cada camada.
 
 
-### <a name="example-2-build-a-perimeter-network-toohelp-protect-applications-with-a-firewall-and-nsgs"></a>Compilação do exemplo 2 um toohelp de rede de perímetro proteger aplicativos com um firewall e NSGs
-[Fazer início tooFast](#fast-start) | [Detailed compilar instruções para este exemplo][Example2]
+### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: crie uma rede de perímetro para ajudar a proteger aplicativos com um firewall e NSGs
+[Voltar ao Início rápido](#fast-start) | [Instruções detalhadas de build para este exemplo][Example2]
 
 [![8]][8]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Neste exemplo, há uma assinatura que contém Olá recursos a seguir:
+Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 * Um único grupo de recursos
 * Uma rede virtual com duas sub-redes: “FrontEnd” e “BackEnd”
-* Um grupo de segurança de rede que é aplicada tooboth sub-redes
-* Um dispositivo virtual de rede, neste caso, um firewall, conectado toohello front-end subrede
+* Um grupo de segurança de rede que é aplicado a ambas as sub-redes
+* Uma solução de virtualização de rede, neste caso um firewall, conectada à sub-rede de front-end
 * Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 * Um servidor Windows que representa um servidor DNS ("DNS01")
 
-Para scripts e um modelo do Gerenciador de recursos do Azure, consulte Olá [compilação instruções detalhadas][Example2].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example2].
 
 #### <a name="nsg-description"></a>Descrição de NSG
 Neste exemplo, um grupo NSG é criado e então carregado com seis regras.
 
 > [!TIP]
-> Em geral, você deve criar suas regras específicas de "Permitir" primeiro, seguido por hello mais genérico "Negar" regras. Olá priorizada determina quais regras são avaliadas primeiro. Depois que o tráfego for encontrado uma regra específica de tooa tooapply, nenhuma regra adicional será avaliada. Regras NSG podem ser aplicados em um Olá direção de entrada ou saída (da perspectiva de saudação da sub-rede Olá).
+> Em geral, você deve criar suas regras específicas "Permitir" primeiro, seguidas pelas regras “Negar” de caráter mais genérico. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
 >
 >
 
-Declarativamente, Olá regras a seguir está sendo compilado para o tráfego de entrada:
+Declarativamente, as regras a seguir estão sendo criadas para tráfego de entrada:
 
 1. O tráfego interno de DNS (porta 53) é permitido.
-2. O tráfego de RDP (porta 3389) do hello Internet tooany Máquina Virtual é permitido.
-3. Qualquer tráfego (todas as portas) toohello rede virtual appliance de Internet (firewall) é permitido.
-4. Qualquer tráfego (todas as portas) do IIS01 tooAppVM1 é permitido.
-5. Qualquer tráfego (todas as portas) do hello Internet toohello toda rede virtual (ambas as sub-redes) foi negado.
-6. Qualquer tráfego (todas as portas) de sub-rede de back-end de toohello Olá sub-rede front-end é negado.
+2. O tráfego de RDP (porta 3389) da Internet para qualquer Máquina Virtual é permitido.
+3. Todo tráfego da Internet (todas as portas) para a solução de virtualização de rede (firewall) é permitido.
+4. Todo o tráfego (todas as portas) de IIS01 para AppVM1 é permitido.
+5. Todo o tráfego (todas as portas) da Internet para a rede virtual inteira (ambas as sub-redes) é negado.
+6. Todo o tráfego (todas as portas) da sub-rede de front-end para a sub-rede de back-end é negado.
 
-A sub-rede de tooeach associada essas regras, se uma solicitação HTTP foi entrada de firewall de toohello de saudação, ambos regras 3 (Permitir) e 5 (Negar) seria aplicável. Mas como a regra 3 tem uma prioridade mais alta, apenas ela seria aplicável e a regra 5 não seria entram em cena. Assim, você seria permitido a solicitação de Olá HTTP toohello firewall. Se esse mesmo tráfego foi a tentativa de servidor de saudação IIS01 tooreach, mesmo que ele está na sub-rede front-end hello, regra 5 (Negar) seria aplicada, e o tráfego de Olá não deve ser permitido toopass toohello server. Regra de 6 (Negar) blocos Olá sub-rede front-end do falando toohello sub-rede de back-end (com exceção de tráfego permitido nas regras 1 e 4). Esse conjunto de regras protege a rede de back-end Olá no caso de um invasor comprometer o aplicativo da web hello no front-end hello. invasor Olá seria limitada acesso toohello back-end "protegido" rede (somente tooresources exposto no servidor de AppVM01 Olá).
+Com essas regras associadas a cada sub-rede, se uma solicitação HTTP entrasse da Internet para firewall, as duas regras 3 (permitir) e 5 (negar) seriam aplicáveis. Mas como a regra 3 tem uma prioridade mais alta, apenas ela seria aplicável e a regra 5 não seria entram em cena. Assim, a solicitação HTTP seria permitida ao firewall. Se esse mesmo tráfego estava tentando alcançar o servidor IIS01, mesmo que ele estivesse na sub-rede de front-end, a regra 5 (negar) seria aplicável e o tráfego não teria permissão para passar para o servidor. A regra 6 (negar) bloqueia a comunicação entre a sub-rede de front-end e a sub-rede de back-end (exceto pelo tráfego permitido nas regras 1 e 4). Esse conjunto de regras protege a rede de back-end no caso de um invasor comprometer o aplicativo Web no front-end. O invasor teria acesso limitado à rede back-end "protegida" (apenas para recursos expostos no servidor AppVM01).
 
-Há uma regra de saída padrão que permite que o tráfego de saída toohello da Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. toolock tráfego em ambas as direções, roteamento definida pelo usuário é necessário (consulte o exemplo 3).
+Há uma regra de saída padrão que permite o tráfego de saída para a Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. Para bloquear o tráfego em ambos os trajetos, é necessário o roteamento definido pelo usuário (veja o exemplo 3).
 
 #### <a name="firewall-rule-description"></a>Descrição da regra de firewall
-No firewall hello, regras de encaminhamento devem ser criada. Como este exemplo somente o tráfego de Internet de entrada de rotas toohello firewall e, em seguida, toohello da web, apenas um servidor de encaminhamento de rede (NAT) de conversão de endereço regra é necessário.
+No firewall, será necessário criar regras de encaminhamento. Como este exemplo só roteia o tráfego de Internet de entrada para o firewall e, em seguida, para o servidor Web, somente uma regra de NAT (conversão de endereços de rede) de encaminhamento é necessária.
 
-regra de encaminhamento de saudação aceita qualquer endereço de origem de entrada que chega firewall Olá tentar tooreach HTTP (porta 80 ou 443 para HTTPS). Ela tem enviadas fora da interface local do firewall hello e redirecionado toohello web server com hello endereço IP do 10.0.1.5.
+A regra de encaminhamento aceita qualquer endereço de origem de entrada que acesse o firewall tentando alcançar HTTP (porta 80 ou 443 para HTTPS). Ela sai da interface local do firewall e é redirecionada para o servidor Web com o Endereço IP 10.0.1.5.
 
 #### <a name="conclusion"></a>Conclusão
-Este exemplo é uma maneira relativamente simples de proteger seu aplicativo com um firewall e o isolamento de sub-rede de back-end de saudação do tráfego de entrada. Para obter mais informações, consulte Olá [compilação instruções detalhadas][Example2]. Essas instruções incluem:
+Este exemplo é uma maneira relativamente simples de proteger seu aplicativo com um firewall e isolar a sub-rede de back-end do tráfego de entrada. Para obter mais informações, consulte as [instruções detalhadas de build][Example2]. Essas instruções incluem:
 
-* Como toobuild desse perímetro rede com clássicos scripts do PowerShell.
-* Como toobuild esse exemplo com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro com scripts do PowerShell clássico.
+* Como criar esse exemplo com um modelo do Azure Resource Manager.
 * Descrições detalhadas de cada comando NSG e regra de firewall.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego é permitido ou negado em cada camada.
 
-### <a name="example-3-build-a-perimeter-network-toohelp-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Exemplo 3 compilação um toohelp de rede de perímetro proteger redes com um firewall e UDR e NSG
-[Fazer início tooFast](#fast-start) | [Detailed compilar instruções para este exemplo][Example3]
+### <a name="example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Exemplo 3: crie uma rede de perímetro para ajudar a proteger as redes com um firewall, UDR e NSG
+[Voltar ao Início rápido](#fast-start) | [Instruções detalhadas de build para este exemplo][Example3]
 
 [![9]][9]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Neste exemplo, há uma assinatura que contém Olá recursos a seguir:
+Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 * Um único grupo de recursos
 * Uma rede virtual com três sub-redes; “SecNet”, “FrontEnd” e “BackEnd”
-* Um dispositivo virtual de rede, neste caso, um firewall, conectado toohello SecNet sub-rede
+* Uma solução de virtualização de rede, neste caso um firewall, conectada à sub-rede SecNet
 * Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 * Um servidor Windows que representa um servidor DNS ("DNS01")
 
-Para scripts e um modelo do Gerenciador de recursos do Azure, consulte Olá [compilação instruções detalhadas][Example3].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example3].
 
 #### <a name="udr-description"></a>Descrição de UDR
-Por padrão, a saudação rotas de sistema a seguir é definida como:
+Por padrão, as rotas do sistema a seguir são definidas como:
 
         Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -321,23 +321,23 @@ Por padrão, a saudação rotas de sistema a seguir é definida como:
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-Olá VNETLocal é sempre um ou mais prefixos de endereço definida que compõem a rede virtual Olá para essa rede específico (ou seja, ele muda de rede de toovirtual de rede virtual, dependendo de como cada rede virtual específico é definida). rotas de sistema restantes Olá são estáticas e padrão como indicado na tabela de saudação.
+O VNETLocal é sempre um ou mais prefixos de endereço definidos que compõem a rede virtual para essa rede específica (ou seja, ele muda de rede virtual para rede virtual, dependendo de como cada rede virtual específica é definida). As rotas do sistema restantes são estáticas e padrão conforme indicado na tabela.
 
-Neste exemplo, duas tabelas de roteamento são criados, um para as sub-redes de front-end e back-end de saudação. Cada tabela é carregada com rotas estáticas apropriadas para Olá recebe sub-rede. Neste exemplo, cada tabela tem três rotas que direcionam todo o tráfego (0.0.0.0/0) através do firewall da saudação (próximo salto = endereço IP do dispositivo Virtual):
+Neste exemplo, duas tabelas de roteamento são criadas, uma para a sub-rede de front-end e a outra para a sub-rede de back-end. Cada tabela é carregada com as rotas estáticas apropriadas para determinada sub-rede. Nesse exemplo, cada tabela tem três rotas que direcionam todo o tráfego (0.0.0.0/0) através do firewall (Próximo salto = endereço IP da Solução de Virtualização):
 
-1. O tráfego de sub-rede local com não próximo salto definido tooallow sub-rede local o tráfego toobypass Olá firewall.
-2. Tráfego de rede virtual com um Próximo Salto definido como firewall. Este próximo salto substituições Olá regra padrão que permite tooroute de tráfego de rede virtual local diretamente.
-3. Todos os tráfego restante (0/0) com o próximo nó definido como Olá firewall.
+1. O tráfego de sub-rede local sem Próximo Salto definido para permitir que o tráfego de sub-rede local ignore o firewall.
+2. Tráfego de rede virtual com um Próximo Salto definido como firewall. Esse próximo salto substitui a regra padrão que permite que o tráfego de Rede Virtual local seja roteado diretamente.
+3. Todo o tráfego restante (0/0) com um Próximo Salto definido como o firewall.
 
 > [!TIP]
-> Sem entrada de sub-rede local Olá no hello UDR quebras sub-rede local comunicações.
+> A falta da entrada de sub-rede local no UDR interrompe as comunicações na sub-rede local.
 >
-> * Em nosso exemplo, é essencial 10.0.1.0/24 apontando tooVNETLocal! Sem ele, deixando Olá Web Server (10.0.1.4) destinado tooanother local server 10.0.1.25 (por exemplo) do pacote falhará, pois eles serão enviados toohello NVA. Olá NVA será enviado toohello subrede e sub-rede Olá vai reenviar toohello NVA em um loop infinito.
-> * a probabilidade de saudação de um loop de roteamento é normalmente mais alta em dispositivos com várias placas de rede que estão conectados tooseparate sub-redes, que é geralmente de dispositivos de local tradicional.
+> * No nosso exemplo, 10.0.1.0/24 apontando para VNETLocal é fundamental! Sem ele, o pacote deixando o servidor Web (10.0.1.4) destinado a outro servidor local (por exemplo) 10.0.1.25 falhará, pois eles serão enviados para a NVA. A NVA o enviará para a sub-rede e a sub-rede o reenviará para a NVA em um loop infinito.
+> * As chances de um loop de roteamento são geralmente maiores em dispositivos de várias NICs conectados a sub-redes separadas, o que é normalmente o caso de dispositivos locais tradicionais.
 >
 >
 
-Após a criação de tabelas de roteamento hello, eles devem ser associadas tootheir sub-redes. Olá sub-rede front-end, tabela de roteamento, uma vez criado e associado a sub-rede toohello, seria semelhante esta saída:
+Depois que as tabelas de roteamento forem criadas, elas deverão ser associadas às respectivas sub-redes. A tabela de roteamento da sub-rede de front-end, uma vez criada e associada à sub-rede, teria esta aparência:
 
         Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -347,167 +347,167 @@ Após a criação de tabelas de roteamento hello, eles devem ser associadas toot
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 > [!NOTE]
-> UDR agora podem ser toohello aplicados sub-rede do gateway no qual Olá rota expressa o circuito está conectado.
+> O UDR agora pode ser aplicado à sub-rede de gateway a qual o circuito de ExpressRoute está conectado.
 >
-> Exemplos de como tooenable o perímetro da rede com a rede de site a site ou rota expressa são mostrados nos exemplos 3 e 4.
+> Exemplos de como habilitar a rede de perímetro com a rede site a site ou de ExpressRoute são mostrados nos exemplos 3 e 4.
 >
 >
 
 #### <a name="ip-forwarding-description"></a>Descrição de Encaminhamento IP
-Encaminhamento de IP é um tooUDR de recurso complementar. Encaminhamento de IP é uma configuração em um dispositivo virtual que permite que ele tooreceive o tráfego endereçado não especificamente toohello dispositivo e, em seguida, encaminhe destino tráfego tooits ultimate.
+O Encaminhamento IP é um recurso complementar para o UDR. O Encaminhamento de IP é uma configuração em uma solução de virtualização que permite receber o tráfego endereçado não especificamente para a solução e, em seguida, encaminhar esse tráfego para seu destino final.
 
-Por exemplo, se AppVM01 faz uma solicitação ao servidor toohello DNS01, UDR seria rotear esse tráfego toohello firewall. Com o encaminhamento IP habilitado, tráfego Olá para o destino de DNS01 hello (10.0.2.4) é aceito pelo dispositivo hello (10.0.0.4) e, em seguida, encaminhado destino final de tooits (10.0.2.4). Sem o encaminhamento IP habilitada no firewall hello, tráfego seria não aceito pelo dispositivo Olá, embora a tabela de rotas Olá firewall hello como o próximo salto de saudação. toouse um dispositivo virtual, é crítico tooremember tooenable IP juntamente com UDR de encaminhamento.
+Por exemplo, se AppVM01 fizesse uma solicitação para o servidor DNS01, o UDR rotearia esse tráfego para o firewall. Com o Encaminhamento IP habilitado, o tráfego para o destino DNS01 (10.0.2.4) será aceito pelo dispositivo (10.0.0.4) e então encaminhado para seu destino final (10.0.2.4). Sem o Encaminhamento IP habilitado no firewall, o tráfego não seria aceito pela solução, embora a tabela de rota tenha o firewall como o próximo salto. Para usar uma solução de virtualização, é essencial lembrar-se de habilitar o Encaminhamento IP em conjunto com o UDR.
 
 #### <a name="nsg-description"></a>Descrição de NSG
-Neste exemplo, um grupo NSG é criado e então carregado com uma única regra. Esse grupo, em seguida, é associado somente toohello front-end e back-end sub-redes (não Olá SecNet). Declarativamente Olá regra a seguir está sendo compilado:
+Neste exemplo, um grupo NSG é criado e então carregado com uma única regra. Esse grupo é então associado somente às sub-redes de front-end e back-end (e não a SecNet). Declarativamente, a seguinte regra está sendo criada:
 
-* Qualquer tráfego (todas as portas) do hello Internet toohello toda rede virtual (todas as sub-redes) foi negado.
+* Todo o tráfego (todas as portas) da Internet para a rede virtual inteira (todas as sub-redes) é negado.
 
-Embora NSGs sejam usados neste exemplo, seu principal objetivo será ser como uma segunda camada de defesa contra erros de configuração manual. Olá meta é tooblock todo o tráfego de entrada hello Internet tooeither Olá sub-redes de front-end ou back-end. Tráfego só deve fluir através do firewall do hello SecNet sub-rede toohello (e, se apropriado, em sub-redes toohello de front-end ou back-end). Além disso, com as regras UDR Olá em vigor, qualquer tráfego torná-lo em Olá front-end ou back-end subredes seria direcionado out toohello firewall (Obrigado tooUDR). firewall Olá veria esse tráfego como um fluxo assimétrico e ficaria o tráfego de saída hello. Assim, há três camadas de segurança protegendo sub-redes hello:
+Embora NSGs sejam usados neste exemplo, seu principal objetivo será ser como uma segunda camada de defesa contra erros de configuração manual. A meta é bloquear todo o tráfego de entrada da Internet para as sub-redes de front-end ou back-end. O tráfego deve fluir somente pela sub-rede SecNet para o firewall (e, se apropriado, continuar para as sub-redes de front-end ou back-end). Além disso, com as regras UDR em vigor, qualquer tráfego que tenha conseguido passar para as sub-redes de front-end ou de back-end seria direcionado para o firewall (graças ao UDR). O firewall veria esse tráfego como um fluxo assimétrico e descartaria o tráfego de saída. Assim, há três camadas de segurança protegendo as sub-redes:
 
 * Não há endereços IP públicos em nenhuma NIC de front-end ou back-end.
-* NSGs negar o tráfego de saudação à Internet.
-* Olá soltar assimétricas o tráfego de firewall.
+* NSGs negando o tráfego da Internet.
+* O firewall soltando tráfego assimétrico.
 
-Um ponto interessante sobre Olá NSG neste exemplo é que ele contém apenas uma regra, que é toodeny Internet tráfego toohello toda rede virtual, inclusive Olá segurança sub-rede. No entanto, como Olá que NSG só é associado toohello front-end e back-end sub-redes, a regra de saudação não são processadas no tráfego de entrada toohello sub-rede de segurança. Como resultado, o tráfego passa toohello sub-rede de segurança.
+Um ponto interessante sobre o NSG neste exemplo é que ele contém apenas uma regra, que é negar o tráfego da Internet para toda a rede virtual, incluindo a sub-rede de Segurança. No entanto, como o NSG está associado apenas às sub-redes de front-end e de back-end, a regra não é processada em tráfego de entrada para a sub-rede de Segurança. Como resultado, o tráfego flui para a sub-rede de segurança.
 
 #### <a name="firewall-rules"></a>Regras de firewall
-No firewall hello, regras de encaminhamento devem ser criada. Como bloqueio ou o encaminhamento de todas as entrada, saído e o tráfego de rede virtual entre firewall hello, várias regras de firewall são necessárias. Além disso, todo o tráfego de entrada atinge o endereço IP público de serviço de segurança hello (em portas diferentes), toobe processadas pelo firewall hello. Uma prática recomendada é fluxos de lógica de Olá toodiagram antes de configurar sub-redes hello e regras de firewall, tooavoid retrabalho mais tarde. Olá figura a seguir é uma exibição lógica de regras de firewall Olá para este exemplo:
+No firewall, será necessário criar regras de encaminhamento. Uma vez que o firewall está bloqueando ou encaminhando todos os tráfegos de entrada, de saída e entre redes virtuais, serão necessárias muitas regras de firewall. Além disso, todo o tráfego de entrada atinge o endereço IP público do Serviço de Segurança (em portas diferentes) para ser processado pelo firewall. Uma prática recomendada é criar um diagrama dos fluxos lógicos antes de configurar as sub-redes e as regras de firewall, para evitar uma reformulação posterior. A figura a seguir é uma exibição lógica das regras de firewall para este exemplo:
 
 ![10]
 
 > [!NOTE]
-> Portas de gerenciamento de saudação com base na Olá usado do dispositivo de rede Virtual, variam. Neste exemplo, um Firewall NextGen Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte Olá appliance fornecedor documentação toofind Olá exata portas usadas para o gerenciamento de dispositivo hello está sendo usado.
+> Com base na Solução de Virtualização de Rede usada, as portas de gerenciamento variam. Neste exemplo, um Firewall NextGen Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
 >
 >
 
 #### <a name="firewall-rules-description"></a>Descrição das regras de firewall
-Olá anterior diagrama lógico, sub-rede de segurança Olá não é mostrado como o firewall Olá único recurso Olá nessa sub-rede. diagrama de saudação está mostrando as regras de firewall hello e como eles logicamente permitem ou negar fluxos de tráfego, não Olá roteados caminho real. Além disso, dois octetos do endereço IP local do Olá para facilitar a leitura mais fácil da última portas externas de saudação selecionadas para Olá tráfego RDP são portas intervalos superior (8014 – 8026) e foram selecionado tooloosely alinhada hello (por exemplo, o endereço do servidor local 10.0.1.4 está associado com a porta externa 8014). No entanto, todas as portas não conflitantes acima disso poderiam ser usadas.
+No diagrama lógico anterior, a sub-rede de segurança não é mostrada porque o firewall é o único recurso nessa sub-rede. O diagrama mostra as regras de firewall e como elas permitem ou negam logicamente os fluxos de tráfego, mas não o caminho roteado real. Além disso, as portas externas selecionadas para o tráfego RDP são portas com um intervalo maior (8014 – 8026) e foram selecionadas para alinhar um pouco com os dois últimos octetos do endereço IP local para facilitar a leitura (por exemplo, o endereço do servidor local 10.0.1.4 está associado à porta externa 8014). No entanto, todas as portas não conflitantes acima disso poderiam ser usadas.
 
 Para este exemplo, precisamos de sete tipos de regras:
 
 * Regras externas (para o tráfego de entrada):
-  1. Regra de firewall de gerenciamento: uma regra de redirecionamento deste aplicativo permite tráfego toopass toohello as portas de gerenciamento do dispositivo virtual de rede hello.
-  2. Regras RDP (para cada servidor do Windows): essas quatro regras (uma para cada servidor) permitem o gerenciamento de saudação servidores individuais via RDP. quatro regras RDP Olá também podem ser recolhidas em uma regra, dependendo de recursos Olá Olá rede da solução de virtualização que está sendo usado.
-  3. Regras de tráfego do aplicativo: há dois essas regras, Olá primeiro para o tráfego da web front-end de hello e Olá segundo para o tráfego de back-end da saudação (por exemplo, servidor toodata camada da web). configuração de saudação dessas regras depende de arquitetura de rede de saudação (em que os servidores são colocados) e fluxos de tráfego (fluxos de tráfego que Olá direção e quais portas são usadas).
-     * primeira regra de saudação permite que o servidor de aplicativos do hello aplicativo real tráfego tooreach hello. Enquanto hello outras regras permitirem gerenciamento e segurança, regras de tráfego do aplicativo são o que permitem que os tooaccess usuários ou serviços externos Olá aplicativos. Neste exemplo, há um único servidor Web na porta 80. Portanto, uma regra de firewall único de aplicativo redireciona IP externo do tráfego de entrada toohello, toohello web interno endereço IP de servidores. sessão de tráfego Olá redirecionado deve ser convertida por meio do servidor interno do NAT toohello.
-     * segunda regra de saudação é Olá regra de back-end tooallow Olá servidor tootalk toohello AppVM01 servidor web (mas não AppVM02) por meio de qualquer porta.
+  1. Regra de gerenciamento de firewall: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento da solução de virtualização de rede.
+  2. Regras de RDP (para cada servidor Windows): essas quatro regras (uma para cada servidor) permitem o gerenciamento dos servidores individuais via RDP. As quatro regras de RDP também poderiam ser recolhidas em uma regra, dependendo dos recursos da solução de virtualização de rede usada.
+  3. Regras de tráfego do aplicativo: há duas regras desse tipo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). A configuração dessas regras depende da arquitetura de rede (na qual os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
+     * A primeira regra permite que o tráfego de aplicativo real alcance o servidor de aplicativos. Embora as outras regras permitam segurança e gerenciamento, as regras de aplicativo são as que permitem que usuários ou serviços externos acessem os aplicativos. Neste exemplo, há um único servidor Web na porta 80. Assim, uma única regra de aplicativo de firewall redireciona o tráfego de entrada para o IP externo, para o endereço IP interno dos servidores Web. A sessão de tráfego redirecionado seria movida por meio de NAT para o servidor interno.
+     * A segunda regra de tráfego é a regra de back-end que permite que o servidor Web converse com o servidor AppVM01 (mas não com AppVM02) por meio de qualquer porta.
 * Regras internas (para tráfego entre redes virtuais)
-  1. Regra de saída tooInternet: esta regra permitir o tráfego de qualquer rede toopass toohello selecionado redes. Geralmente, essa regra é uma regra padrão já está no firewall hello, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
-  2. Regra DNS: essa regra permite que somente o DNS (porta 53) tráfego toopass toohello servidor DNS. Para esse ambiente, a maior parte do tráfego de saudação front-end toohello back-end está bloqueada. Essa regra permite especificamente DNS de qualquer sub-rede local.
-  3. Regra de toosubnet de sub-rede: esta regra é tooallow qualquer servidor no servidor do hello sub-rede back-end tooconnect tooany na sub-rede front-end da saudação (mas não Olá inversa).
-* Regra à prova de falhas (para o tráfego que não atende a qualquer um de saudação anterior):
-  1. Negar todas as regras de tráfego: essa regra de negação sempre deve ter a regra final hello (em termos de prioridade), e como tal, se um fluxo de tráfego falhar toomatch qualquer Olá anterior regras serão descartados por essa regra. Essa regra é uma regra padrão e geralmente in-loco e ativa. Nenhuma modificação é geralmente necessários toothis regra.
+  1. Regra de saída para Internet: essa regra permite que o tráfego de qualquer rede passe para as redes selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
+  2. Regra DNS: essa regra permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para esse ambiente, a maior parte do tráfego do front-end para o back-end está bloqueado. Essa regra permite especificamente DNS de qualquer sub-rede local.
+  3. Regra sub-rede para sub-rede: essa regra permite que qualquer servidor na rede de back-end se conecte a qualquer servidor na rede de front-end (mas não o contrário).
+* Regra à prova de falhas (para tráfego que não atenda a nenhum dos itens acima):
+  1. Regra negar todo o tráfego: essa deverá ser sempre a última regra (em termos de prioridade) e, como tal, se um fluxo de tráfego falhar na correspondência a todas as regras anteriores, ele será removido por essa regra. Essa regra é uma regra padrão e geralmente in-loco e ativa. Geralmente, nenhuma modificação é necessária para essa regra.
 
 > [!TIP]
-> Em Olá qualquer porta segundo aplicativo tráfego regra, toosimplify neste exemplo, é permitida. Em um cenário real, intervalos de porta e endereço de mais específicos de Olá devem ser superfície de ataque de saudação tooreduce usada dessa regra.
+> Na segunda regra de tráfego de aplicativo, para simplificar este exemplo, qualquer porta é permitida. Em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque desta regra.
 >
 >
 
-Após a criação de regras anteriores Olá, é importante tooreview prioridade de saudação do tráfego de tooensure cada regra é permitida ou negada conforme desejado. Neste exemplo, as regras de saudação são em ordem de prioridade.
+Depois que as regras anteriores forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado conforme desejado. Neste exemplo, as regras estão em ordem de prioridade.
 
 #### <a name="conclusion"></a>Conclusão
-Este exemplo é um mais complexo, porém concluída de maneira de proteger e isolar a rede Olá de Olá exemplos anteriores. (Exemplo 2 protege apenas o aplicativo hello e exemplo 1 apenas isola sub-redes). Esse design permite monitorar o tráfego em ambas as direções e protege não apenas os servidores de aplicativo de entrada hello mas impõe a política de segurança de rede para todos os servidores na rede. Além disso, dependendo do dispositivo Olá usado, reconhecimento e o tráfego total de auditoria podem ser obtidos. Para obter mais informações, consulte Olá [compilação instruções detalhadas][Example3]. Essas instruções incluem:
+Esse exemplo é uma maneira mais complexa, porém mais completa de proteger e isolar a rede do que as vistas nos exemplos anteriores. (o Exemplo 2 protege apenas o aplicativo e o Exemplo 1 isola apenas sub-redes). Esse design permite monitorar o tráfego em ambos os trajetos e protege não apenas o servidor de aplicativos de entrada, mas impõe políticas de segurança de rede para todos os servidores nessa rede. Além disso, dependendo do dispositivo usado, pode-se conseguir auditoria e reconhecimento total de tráfego. Para obter mais informações, consulte as [instruções detalhadas de build][Example3]. Essas instruções incluem:
 
-* Como toobuild desse perímetro exemplo rede com clássicos scripts do PowerShell.
-* Como toobuild esse exemplo com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro de exemplo com scripts clássicos do PowerShell.
+* Como criar esse exemplo com um modelo do Azure Resource Manager.
 * As descrições detalhadas de cada comando NSG, UDR e regra de firewall.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego é permitido ou negado em cada camada.
 
 ### <a name="example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn"></a>Exemplo 4: adicionar uma conexão híbrida com uma VPN de solução de virtualização site a site
-[Fazer início tooFast](#fast-start) | Obter instruções de compilação disponível em breve
+[Voltar ao Início rápido](#fast-start) | Instruções detalhadas de build estarão disponíveis em breve
 
 [![11]][11]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Rede híbrida usando um dispositivo de rede virtual (NVA) pode ser adicionado tooany dos tipos de rede de perímetro Olá descritos nos exemplos 1, 2 ou 3.
+Uma rede híbrida usando um NVA (solução de virtualização de rede) pode ser adicionada a qualquer um dos tipos de rede de perímetro descritas no exemplo 1, 2 ou 3.
 
-Conforme mostrado na figura anterior hello, uma conexão VPN sobre Olá Internet (site a site) é usado tooconnect um tooan de rede local a rede virtual do Azure por meio de uma NVA.
+Conforme mostrado na figura anterior, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um NVA.
 
 > [!NOTE]
-> Se você usar o ExpressRoute com opção de emparelhamento público do Azure Olá habilitada, uma rota estática deve ser criada. Essa rota estática deve encaminhar toohello endereço de IP de VPN de NVA seu corporativo na Internet e não por meio de saudação conexão de rota expressa. Olá NAT necessário em Olá opção emparelhamento público de rota expressa do Azure pode interromper a sessão VPN hello.
+> Se você usar o ExpressRoute com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da conexão do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de ExpressRoute do Azure pode interromper a sessão de VPN.
 >
 >
 
-Após a saudação VPN está em vigor, Olá NVA é hub central de saudação para todas as redes e sub-redes. regras de encaminhamento de firewall Olá determinam qual fluxos são permitidos, o tráfego são convertidas por meio de NAT, serão redirecionadas ou são descartados (mesmo para fluxos de tráfego entre a rede de local de saudação e Azure).
+Depois que a VPN estiver no local, o NVA torna-se o hub central para todas as redes e sub-redes. As regras de encaminhamento de firewall determinam quais fluxos de tráfego são permitidos, convertidos via NAT, redirecionados ou removidos (mesmo para fluxos de tráfego entre a rede local e o Azure).
 
-Fluxos de tráfego devem ser considerados com cuidado, como eles podem ser otimizados ou degradado, o padrão de design, dependendo da saudação específica caso de uso.
+Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-Usando o ambiente de saudação criado no exemplo 3 e, em seguida, adicionar uma conexão de rede do site a site VPN híbrida, produz Olá design a seguir:
+Usar o ambiente criado no exemplo 3 e então adicionar uma conexão de rede híbrida VPN site a site gera o design a seguir:
 
 [![12]][12]
 
-Olá local roteador ou outro dispositivo de rede que é compatível com sua NVA para VPN, seria do cliente VPN hello. Esse dispositivo físico seria responsável por iniciar e manter a conexão de VPN Olá com seu NVA.
+O roteador local, ou outro dispositivo de rede que seja compatível com seu NVA para VPN, seria o cliente VPN. Este dispositivo físico seria responsável por iniciar e manter a conexão VPN com seu NVA.
 
-Logicamente toohello NVA, rede Olá parece quatro separado "zonas de segurança", com as regras de saudação na Olá NVA sendo Diretor de saudação primário do tráfego entre essas regiões:
+Logicamente para o NVA, a rede é igual a quatro "zonas de segurança" separadas com as regras sobre o NVA sendo as principais orientadoras do tráfego entre essas zonas:
 
 ![13]
 
 #### <a name="conclusion"></a>Conclusão
-adição de saudação de uma conexão de rede de híbrida VPN site a site tooan rede virtual do Azure pode estender a rede de local de saudação no Azure de forma segura. Usando uma conexão VPN, o tráfego é criptografado e roteia via Olá da Internet. Olá NVA neste exemplo fornece um local central tooenforce e gerenciar a política de segurança de saudação. Para obter mais informações, consulte Olá detalhada compilar instruções (em breve). Essas instruções incluem:
+A adição de uma conexão de rede híbrida VPN site a site para uma rede virtual do Azure pode estender a rede local no Azure de maneira segura. Ao usar uma conexão VPN, o tráfego é criptografado e roteado pela Internet. O NVA neste exemplo fornece um local central para aplicar e gerenciar a política de segurança. Para obter mais informações, consulte as instruções detalhadas de build (próximo). Essas instruções incluem:
 
-* Como toobuild desse perímetro exemplo rede com scripts do PowerShell.
-* Como toobuild esse exemplo com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro de exemplo com scripts do PowerShell.
+* Como criar esse exemplo com um modelo do Azure Resource Manager.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego flui através desse design.
 
 ### <a name="example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway"></a>Exemplo 5: adicionar uma conexão híbrida com um gateway de VPN site a site do Azure
-[Fazer início tooFast](#fast-start) | Obter instruções de compilação disponível em breve
+[Voltar ao Início rápido](#fast-start) | Instruções detalhadas de build estarão disponíveis em breve
 
 [![14]][14]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Tipo de rede de perímetro tooeither descrito nos exemplos 1 ou 2 pode ser adicionado a rede híbrida usando um gateway de VPN do Azure.
+Uma rede híbrida usando um gateway de VPN do Azure pode ser adicionada a qualquer tipo de rede de perímetro descrito nos exemplos 1 ou 2.
 
-Conforme mostrado na saudação anterior figura, uma conexão VPN sobre Olá Internet (site a site) é usado tooconnect um tooan de rede local a rede virtual do Azure por meio de um gateway VPN do Azure.
+Conforme mostrado na figura anterior, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um gateway de VPN do Azure.
 
 > [!NOTE]
-> Se você usar o ExpressRoute com opção de emparelhamento público do Azure Olá habilitada, uma rota estática deve ser criada. Essa rota estática deve encaminhar toohello endereço de IP de VPN de NVA seu corporativo na Internet e não por meio de saudação WAN de rota expressa. Olá NAT necessário em Olá opção emparelhamento público de rota expressa do Azure pode interromper a sessão VPN hello.
+> Se você usar o ExpressRoute com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da WAN do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de ExpressRoute do Azure pode interromper a sessão de VPN.
 >
 >
 
-Olá seguinte figura mostra Olá duas bordas de rede neste exemplo. Na borda da primeira hello, Olá NVA e NSGs controlam fluxos de tráfego para redes do Azure entre e entre o Azure e Olá da Internet. borda segundo Olá é o gateway de VPN do Azure hello, que é uma borda da rede isolada e separados entre local e o Azure.
+A figura a seguir mostra as duas bordas de rede nesse exemplo. Na primeira borda, o NVA e os NSGs controlam os fluxos de tráfego entre redes do Azure e entre o Azure e a Internet. A segunda borda é o gateway de VPN do Azure, que é uma borda de rede separada e isolada entre local e o Azure.
 
-Fluxos de tráfego devem ser considerados com cuidado, como eles podem ser otimizados ou degradado, o padrão de design, dependendo da saudação específica caso de uso.
+Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-Usando o ambiente de saudação criado no exemplo 1 e, em seguida, adicionar uma conexão de rede do site a site VPN híbrida, produz Olá design a seguir:
+Usar o ambiente criado no exemplo 1 e então adicionar uma conexão de rede híbrida VPN site a site gera o design a seguir:
 
 [![15]][15]
 
 #### <a name="conclusion"></a>Conclusão
-adição de saudação de uma conexão de rede de híbrida VPN site a site tooan rede virtual do Azure pode estender a rede de local de saudação no Azure de forma segura. Usando o gateway de VPN do Azure nativo Olá, o tráfego é criptografado IPSec e roteia via Olá da Internet. Além disso, usar o gateway de VPN do Azure Olá pode fornecer uma opção de baixo custo (nenhuma licença adicional de custo como com terceiros NVAs). Essa opção é mais econômica no exemplo 1, em que nenhuma NVA é usada. Para obter mais informações, consulte Olá detalhada compilar instruções (em breve). Essas instruções incluem:
+A adição de uma conexão de rede híbrida VPN site a site para uma rede virtual do Azure pode estender a rede local no Azure de maneira segura. Usando o gateway de VPN do Azure nativo, o tráfego é criptografado com IPsec e roteado via Internet. Além disso, o uso de gateway de VPN do Azure pode oferecer uma opção de menor custo (sem custos com licença adicional ou NVAs de terceiros). Essa opção é mais econômica no exemplo 1, em que nenhuma NVA é usada. Para obter mais informações, consulte as instruções detalhadas de build (próximo). Essas instruções incluem:
 
-* Como toobuild desse perímetro exemplo rede com scripts do PowerShell.
-* Como toobuild esse exemplo com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro de exemplo com scripts do PowerShell.
+* Como criar esse exemplo com um modelo do Azure Resource Manager.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego flui através desse design.
 
 ### <a name="example-6-add-a-hybrid-connection-with-expressroute"></a>Exemplo 6: adicione uma conexão híbrida com o ExpressRoute
-[Fazer início tooFast](#fast-start) | Obter instruções de compilação disponível em breve
+[Voltar ao Início rápido](#fast-start) | Instruções detalhadas de build estarão disponíveis em breve
 
 [![16]][16]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Rede híbrida usando uma rota expressa conexão emparelhamento particular pode ser adicionado o tipo de rede de perímetro tooeither descrito nos exemplos 1 ou 2.
+Uma rede híbrida usando uma conexão de emparelhamento privado de ExpressRoute pode ser adicionada a qualquer tipo de rede de perímetro descrita nos exemplos 1 ou 2.
 
-Conforme mostrado na saudação anterior figura, emparelhamento privado da rota expressa fornece uma conexão direta entre sua rede local e hello rede virtual do Azure. Tráfego de trânsito somente rede de provedor de serviços de saudação e de rede do Microsoft Azure hello, nunca tocar saudação da Internet.
+Conforme mostrado na figura anterior, o emparelhamento privado de ExpressRoute fornece uma conexão direta entre sua rede local e de rede virtual do Azure. O tráfego transmite apenas a rede do provedor de serviços e a rede do Microsoft Azure, nunca em contato com a Internet.
 
 > [!TIP]
-> Usando o ExpressRoute mantém o tráfego de rede corporativa desligada Olá da Internet. Ele também permite SLAs do seu provedor do ExpressRoute. Olá Gateway Azure pode passar o too10 Gbps com o ExpressRoute, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway Azure Olá é 200 Mbps.
+> Usar o ExpressRoute mantém o tráfego de rede corporativa fora da Internet. Ele também permite SLAs do seu provedor do ExpressRoute. O Gateway do Azure pode passar até 10 Gbps com o ExpressRoute, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway do Azure é de 200 Mbps.
 >
 >
 
-Conforme visto no diagrama a seguir de saudação, com hello essa opção ambiente agora tem duas bordas de rede. Olá NVA e NSG controle fluxos de tráfego para redes do Azure entre e entre o Azure e Olá Internet, enquanto o gateway de saudação é uma borda da rede isolada e separados entre local e o Azure.
+Conforme mostrado no diagrama abaixo, com essa opção, o ambiente agora tem duas bordas de rede. A NVA e NSG controlam fluxos de tráfego para redes internas do Azure e entre o Azure e a Internet, enquanto o gateway é uma borda de rede separada e isolada entre locais e o Azure.
 
-Fluxos de tráfego devem ser considerados com cuidado, como eles podem ser otimizados ou degradado, o padrão de design, dependendo da saudação específica caso de uso.
+Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-Usando o ambiente de saudação criado no exemplo 1 e, em seguida, adicionar uma conexão de rede do ExpressRoute híbrida, produz Olá design a seguir:
+Usar o ambiente criado no exemplo 1 e então adicionar uma conexão de rede híbrida de ExpressRoute gera o design a seguir:
 
 [![17]][17]
 
 #### <a name="conclusion"></a>Conclusão
-adição de saudação de uma conexão de rede privada de rota expressa de emparelhamento pode estender a rede de local de saudação no Azure em uma latência de segura, inferior, superior executar de maneira. Além disso, o Gateway nativo do Azure, como neste exemplo, usando Olá oferece uma opção de baixo custo (não de licenciamento adicional como com terceiros NVAs). Para obter mais informações, consulte Olá detalhada compilar instruções (em breve). Essas instruções incluem:
+A adição de uma conexão de rede de emparelhamento privado de ExpressRoute pode estender a rede local para o Azure de forma segura, com baixa latência e alto desempenho. Além disso, o uso de Gateway do Azure nativo, como visto neste exemplo, fornece uma opção de menor custo (sem licenciamento adicional nem NVAs de terceiros). Para obter mais informações, consulte as instruções detalhadas de build (próximo). Essas instruções incluem:
 
-* Como toobuild desse perímetro exemplo rede com scripts do PowerShell.
-* Como toobuild esse exemplo com um modelo do Gerenciador de recursos do Azure.
+* Como criar essa rede de perímetro de exemplo com scripts do PowerShell.
+* Como criar esse exemplo com um modelo do Azure Resource Manager.
 * Cenários de fluxo de tráfego detalhados mostrando como o tráfego flui através desse design.
 
 ## <a name="references"></a>Referências
@@ -519,7 +519,7 @@ adição de saudação de uma conexão de rede privada de rota expressa de empar
 * Documentação do roteamento definido pelo usuário: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Gateways virtuais do Azure: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * VPNs Site a Site: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* Documentação de rota expressa (ser toocheck-se de seções de "Introdução" e "como" hello): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* Documentação da ExpressRoute (não deixe de conferir as seções "Introdução" e "Tutoriais"): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Fluxograma de opções de segurança"
@@ -531,7 +531,7 @@ adição de saudação de uma conexão de rede privada de rota expressa de empar
 [7]: ./media/best-practices-network-security/example1design.png "DMZ de entrada com NSG"
 [8]: ./media/best-practices-network-security/example2design.png "DMZ de entrada com NVA e NSG"
 [9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
-[10]: ./media/best-practices-network-security/example3firewalllogical.png "exibição lógica de saudação regras de Firewall"
+[10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [11]: ./media/best-practices-network-security/example3designoptions.png "DMZ com rede híbrida conectada com NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando VPN site a site"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rede lógica da perspectiva de NVA"

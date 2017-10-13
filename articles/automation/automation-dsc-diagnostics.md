@@ -1,6 +1,6 @@
 ---
-title: "aaaForward tooOMS de dados relatório DSC de automação do Azure Log Analytics | Microsoft Docs"
-description: "Este artigo demonstra como toosend desejado DSC (configuração) relatar dados tooMicrosoft análise de Log do Operations Management Suite toodeliver obter mais informações e gerenciamento de estado."
+title: "Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics | Microsoft Docs"
+description: "Este artigo demonstra como enviar dados de relatório de DSC (Configuração de Estado Desejado) para Gerenciamento e Log Analytics do Microsoft Operations Management Suite para fornecer informações adicionais."
 services: automation
 documentationcenter: 
 author: eslesar
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.openlocfilehash: 21f78d5549d53ba3d7e237f55d9086f380cf3351
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-toooms-log-analytics"></a>Encaminhar relatórios dados tooOMS análise de Log de DSC de automação do Azure
+# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics
 
-Automação pode enviar o espaço de análise de logs do Microsoft Operations Management Suite (OMS) tooyour do dados de status de nó DSC.  
-Status de conformidade é visível no portal do Azure de saudação ou com o PowerShell, para nós e recursos DSC individuais nos configurações do nó. Com o Log Analytics, você pode:
+A Automação pode enviar os dados do status do nó DSC para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS).  
+O status de conformidade é visível no Portal do Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
 
 * Obter informações de conformidade para nós gerenciados e recursos individuais
 * Disparar um email ou alerta com base no status de conformidade
@@ -32,88 +32,88 @@ Status de conformidade é visível no portal do Azure de saudação ou com o Pow
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-toostart enviando o DSC de automação relatórios tooLog análise, você precisa:
+Para começar a enviar seus relatórios de DSC de Automação para Log Analytics, você precisará do seguinte:
 
-* Olá novembro de 2016 ou versão posterior do [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
+* Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) ( versão 2.3.0).
 * Uma conta de Automação do Azure. Para saber mais, veja [Introdução à Automação do Azure](automation-offering-get-started.md)
 * Um espaço de trabalho de Log Analytics com uma oferta de serviço **Automação e Controle**. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md).
 * Pelo menos um nó DSC de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md) 
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
 
-toobegin importar dados do DSC de automação do Azure para análise de logs, Olá concluir as etapas a seguir:
+Para começar a importar dados do DSC de Automação do Azure para Log Analytics, conclua as seguintes etapas:
 
-1. Faça logon no tooyour conta do Azure no PowerShell. Veja [Fazer logon com o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
-1. Obter Olá _ResourceId_ de sua conta de automação executando Olá comando PowerShell a seguir: (se você tiver mais de uma conta de automação, escolha Olá _ResourceID_ conta Olá desejado tooconfigure).
+1. Faça logon em sua conta do Azure no PowerShell. Veja [Fazer logon com o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Obtenha o _ResourceId_ de sua conta de automação executando o seguinte comando do PowerShell: (se você tiver mais de uma conta de automação, escolha o _ResourceID_ para a que deseja configurar).
 
   ```powershell
-  # Find hello ResourceId for hello Automation Account
+  # Find the ResourceId for the Automation Account
   Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
   ```
-1. Obter Olá _ResourceId_ de seu espaço de trabalho de análise de Log executando Olá comando PowerShell a seguir: (se você tiver mais de um espaço de trabalho, escolha Olá _ResourceID_ de espaço de trabalho de saudação desejado tooconfigure).
+1. Obtenha o _ResourceId_ de seu espaço de trabalho do Log Analytics executando o seguinte comando do PowerShell: (se você tiver mais de um espaço de trabalho, escolha o _ResourceID_ para o que deseja configurar).
 
   ```powershell
-  # Find hello ResourceId for hello Log Analytics workspace
+  # Find the ResourceId for the Log Analytics workspace
   Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
   ```
-1. Olá executar comandos do PowerShell a seguir, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` com hello _ResourceId_ valores de cada uma das etapas anteriores hello:
+1. Execute o seguinte comando do PowerShell, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` pelos valores de _ResourceId_ de cada uma das etapas anteriores:
 
   ```powershell
   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
   ```
 
-Se você quiser toostop importar dados do DSC de automação do Azure para análise de logs, execute Olá comando PowerShell a seguir.
+Se você quiser parar de importar dados do DSC de Automação do Azure para o Log Analytics, execute o seguinte comando do PowerShell.
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories "DscNodeStatus"
 ```
 
-## <a name="view-hello-dsc-logs"></a>Exibir logs de saudação DSC
+## <a name="view-the-dsc-logs"></a>Exibir os logs de DSC
 
-Depois de configurar a integração com a análise de Log para os seus dados de DSC de automação, um **pesquisa de Log** botão aparecerá em Olá **nós DSC** folha da sua conta de automação. Clique em Olá **pesquisa de Log** botão logs de saudação tooview para dados do nó DSC.
+Depois de configurar a integração com o Log Analytics para os seus dados de DSC de Automação, um botão **Pesquisa de log** aparecerá na folha **Nós DSC** de sua conta de automação. Clique no botão **Pesquisa de Log** para exibir os logs para dados do nó DSC.
 
 ![Botão Pesquisar Log](media/automation-dsc-diagnostics/log-search-button.png)
 
-Olá **pesquisa de Log** folha é aberto e você verá um **DscNodeStatusData** operação para cada nó do DSC e um **DscResourceStatusData** operação para cada [DSC recurso](https://msdn.microsoft.com/powershell/dsc/resources) chamada em Olá configuração aplicada toothat nós.
+A folha **Pesquisa de Log** é aberta e você verá uma operação **DscNodeStatusData** para cada nó DSC e uma operação **DscResourceStatusData** para cada [Recurso DSC](https://msdn.microsoft.com/powershell/dsc/resources) chamado na configuração do nó aplicada a esse nó.
 
-Olá **DscResourceStatusData** operação contém informações de erro para qualquer recurso de DSC que falhou.
+A operação **DscResourceStatusData** contém informações de erro para todos os recursos DSC que falharam.
 
-Clique em cada operação em dados de saudação do hello lista toosee para essa operação.
+Clique em cada operação na lista para ver os dados para essa operação.
 
-Você também pode exibir os logs de saudação [pesquisa na análise de Log. Veja [Localizar dados usando pesquisas de logs](../log-analytics/log-analytics-log-searches.md).
-Digite o seguinte Olá consulta toofind seu DSC logs:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Você também pode exibir os logs [pesquisando no Log Analytics. Veja [Localizar dados usando pesquisas de logs](../log-analytics/log-analytics-log-searches.md).
+Digite a consulta a seguir para localizar os logs DSC: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
-Você também pode limitar a consulta Olá pelo nome da operação hello. Por exemplo: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus" OperationName = "DscNodeStatusData"
+Você também pode restringir a consulta pelo nome da operação. Por exemplo: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus" OperationName = "DscNodeStatusData"
 
 ### <a name="send-an-email-when-a-dsc-compliance-check-fails"></a>Enviar um email quando uma verificação de conformidade do DSC falhar
 
-Uma de nossas principais solicitações dos clientes é Olá capacidade toosend um email ou um texto quando algo dá errado com uma configuração DSC.   
+Uma das principais solicitações de nossos clientes é a capacidade de enviar um email ou uma mensagem de texto quando algo dá errado com uma configuração de DSC.   
 
-a regra toocreate um alerta, comece criando uma pesquisa de log para registros de relatório de DSC Olá que deve chamar o alerta de saudação.  Clique em Olá **alerta** botão toocreate e configurar a regra de alerta de saudação.
+Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros do relatório DSC que devem invocar o alerta.  Clique no botão **Alerta** para criar e configurar a regra de alerta.
 
-1. Na página de visão geral de análise de Log de Olá, clique em **pesquisa de Log**.
-1. Crie uma consulta de pesquisa de log para o alerta, digitando Olá a seguir pesquisa no campo de consulta hello:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
+1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
-  Se você configurar logs de mais de uma automação conta ou assinatura tooyour espaço de trabalho, você pode agrupar alertas por assinatura e conta de automação.  
-  Nome da conta de automação pode ser derivada de campo de recurso Olá na pesquisa de saudação do DscNodeStatusData.  
-1. Olá tooopen **Adicionar regra de alerta** tela, clique em **alerta** na parte superior de saudação da página de saudação. Para obter mais informações sobre o alerta de Olá Olá opções tooconfigure, consulte [alertas na análise de Log](../log-analytics/log-analytics-alerts.md#alert-rules).
+  Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  
+  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de DscNodeStatusData.  
+1. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para saber mais sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Encontrar recursos DSC com falha em todos os nós
 
 Uma vantagem de usar o Log Analytics é que você pode pesquisar falhas de verificações em nós.
-toofind todas as instâncias dos recursos de DSC que falhou.
+Para localizar todas as instâncias de recursos DSC que falharam.
 
-1. Na página de visão geral de análise de Log de Olá, clique em **pesquisa de Log**.
-1. Crie uma consulta de pesquisa de log para o alerta, digitando Olá a seguir pesquisa no campo de consulta hello:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
+1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Exibir status do nó DSC histórico
 
-Por fim, talvez você queira toovisualize seu histórico de status do nó DSC ao longo do tempo.  
-Você pode usar essa consulta toosearch para status de saudação do status do nó DSC ao longo do tempo.
+Finalmente, talvez você queira visualizar o histórico de status do nó DSC ao longo do tempo.  
+Você pode usar essa consulta para pesquisar o status do nó DSC ao longo do tempo.
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
 
-Isso exibirá um gráfico de status do nó Olá ao longo do tempo.
+Isso exibirá um gráfico do status do nó ao longo do tempo.
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
@@ -123,76 +123,76 @@ O diagnóstico da Automação do Azure cria duas categorias de registros no Log 
 
 | Propriedade | Descrição |
 | --- | --- |
-| TimeGenerated |Data e hora quando a verificação de conformidade de saudação foi executada. |
+| TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscNodeStatusData |
-| ResultType |Se o nó hello está em conformidade. |
-| NodeName_s |nome de saudação do nó gerenciado hello. |
-| NodeComplianceStatus_s |Se o nó hello está em conformidade. |
-| DscReportStatus |Verificação de conformidade de saudação foi executada com êxito. |
-| ConfigurationMode | Como a configuração de saudação é nó toohello aplicado. Os valores possíveis são __"ApplyOnly"__,__"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC aplica-se a configuração de saudação e não faz nada além disso, a menos que uma nova configuração seja enviada por push toohello nó de destino ou quando uma nova configuração é extraída de um servidor. Depois da aplicação inicial de uma nova configuração, o DSC não procura descompasso de um estado previamente configurado. DSC tentativas de configuração de saudação tooapply até que seja bem-sucedida antes __ApplyOnly__ entra em vigor. </li><li> __ApplyAndMonitor__: Este é o valor padrão de saudação. Olá LCM aplica as novas configurações. Após a aplicação inicial de uma nova configuração, se o nó de destino Olá estiver dessincronizada do estado de saudação desejado, a DSC relatará discrepância Olá nos logs. DSC tentativas de configuração de saudação tooapply até que seja bem-sucedida antes __ApplyAndMonitor__ entra em vigor.</li><li>__ApplyAndAutoCorrect__: o DSC aplica as novas configurações. Após a aplicação inicial de uma nova configuração, se o nó de destino Olá estiver dessincronizada do estado de saudação desejado, DSC relatará a discrepância Olá nos logs e reaplica a configuração atual de saudação.</li></ul> |
-| HostName_s | nome de saudação do nó gerenciado hello. |
-| IPAddress | endereço IPv4 Olá Olá gerenciados nó. |
+| ResultType |Se o nó está em conformidade. |
+| NodeName_s |O nome do nó gerenciado. |
+| NodeComplianceStatus_s |Se o nó está em conformidade. |
+| DscReportStatus |Se a verificação de conformidade foi executada com êxito. |
+| ConfigurationMode | Como a configuração é aplicada ao nó. Os valores possíveis são __"ApplyOnly"__,__"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: o DSC aplica-se à configuração e não faz nada além disso, a menos que uma nova configuração seja enviada para o nó de destino ou quando é efetuado pull de uma nova configuração de um servidor. Depois da aplicação inicial de uma nova configuração, o DSC não procura descompasso de um estado previamente configurado. O DSC tenta aplicar a configuração até que seja bem-sucedida antes __ApplyOnly__ entrar em vigor. </li><li> __ApplyAndMonitor__: é o valor padrão. O LCM aplica as novas configurações. Depois da aplicação inicial de uma nova configuração, se o nó de destino tiver um descompasso do estado desejado, o DSC relatará a discrepância nos logs. O DSC tenta aplicar a configuração até que seja bem-sucedida antes __ApplyAndMonitor__ entrar em vigor.</li><li>__ApplyAndAutoCorrect__: o DSC aplica as novas configurações. Depois da aplicação inicial de uma nova configuração, se o nó de destino tiver um descompasso do estado desejado, o DSC relatará a discrepância nos logs e, em seguida, reaplicará a configuração atual.</li></ul> |
+| HostName_s | O nome do nó gerenciado. |
+| IPAddress | O endereço IPv4 do nó gerenciado. |
 | Categoria | DscNodeStatus |
-| Recurso | nome de saudação do hello conta de automação do Azure. |
-| Tenant_g | GUID que identifica o locatário Olá para Olá chamador. |
-| NodeId_g |GUID que identifica o nó gerenciado hello. |
-| DscReportId_g |GUID que identifica o relatório de saudação. |
-| LastSeenTime_t |Data e hora quando o relatório de saudação última foi exibido. |
-| ReportStartTime_t |Data e hora em que o relatório de saudação foi iniciado. |
-| ReportEndTime_t |Data e hora em que o relatório de saudação concluído. |
-| NumberOfResources_d |número de saudação de recursos DSC chamado hello configuração aplicada toohello nó. |
-| SourceSystem | Como a análise de Log coletados dados saudação. Sempre *Azure* para o Diagnóstico do Azure. |
-| ResourceId |Especifica a conta de automação do Azure hello. |
-| ResultDescription | Descrição de saudação para esta operação. |
-| SubscriptionId | Olá Id (GUID) de assinatura do Azure para Olá conta de automação. |
-| ResourceGroup | Nome do grupo de recursos Olá Olá conta de automação. |
+| Recurso | O nome da conta de Automação do Azure. |
+| Tenant_g | GUID que identifica o locatário para o Chamador. |
+| NodeId_g |A GUID que identifica o nó gerenciado. |
+| DscReportId_g |A GUID que identifica o relatório. |
+| LastSeenTime_t |Data e hora em que o relatório foi exibido pela última vez. |
+| ReportStartTime_t |Data e hora em que o relatório foi iniciado. |
+| ReportEndTime_t |Data e hora em que o relatório foi concluído. |
+| NumberOfResources_d |O número de recursos de DSC chamado na configuração aplicada ao nó. |
+| SourceSystem | Como o Log Analytics coletou os dados. Sempre *Azure* para o Diagnóstico do Azure. |
+| ResourceId |Especifica a conta de Automação do Azure. |
+| ResultDescription | A descrição para esta operação. |
+| SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
+| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID que é a Id de correlação de relatório de conformidade de saudação do hello. |
+| CorrelationId |O GUID que é a Id de correlação do relatório de conformidade. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Propriedade | Descrição |
 | --- | --- |
-| TimeGenerated |Data e hora quando a verificação de conformidade de saudação foi executada. |
+| TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscResourceStatusData|
-| ResultType |Se o recurso de saudação está em conformidade. |
-| NodeName_s |nome de saudação do nó gerenciado hello. |
+| ResultType |Se o recurso está em conformidade. |
+| NodeName_s |O nome do nó gerenciado. |
 | Categoria | DscNodeStatus |
-| Recurso | nome de saudação do hello conta de automação do Azure. |
-| Tenant_g | GUID que identifica o locatário Olá para Olá chamador. |
-| NodeId_g |GUID que identifica o nó gerenciado hello. |
-| DscReportId_g |GUID que identifica o relatório de saudação. |
-| DscResourceId_s |nome de saudação da instância do recurso de saudação DSC. |
-| DscResourceName_s |nome de saudação do recurso de saudação DSC. |
-| DscResourceStatus_s |Se Olá recurso DSC está em conformidade. |
-| DscModuleName_s |nome de saudação do módulo do PowerShell Olá que contém o recurso de DSC hello. |
-| DscModuleVersion_s |versão de saudação do módulo do PowerShell Olá que contém o recurso de DSC hello. |
-| DscConfigurationName_s |nome de saudação da configuração de saudação aplicado toohello nó. |
-| ErrorCode_s | código de erro de saudação se Olá recurso falhou. |
-| ErrorMessage_s |mensagem de erro de saudação se Olá recurso falhou. |
-| DscResourceDuration_d |tempo de saudação, em segundos, que Olá recurso DSC executado. |
-| SourceSystem | Como a análise de Log coletados dados saudação. Sempre *Azure* para o Diagnóstico do Azure. |
-| ResourceId |Especifica a conta de automação do Azure hello. |
-| ResultDescription | Descrição de saudação para esta operação. |
-| SubscriptionId | Olá Id (GUID) de assinatura do Azure para Olá conta de automação. |
-| ResourceGroup | Nome do grupo de recursos Olá Olá conta de automação. |
+| Recurso | O nome da conta de Automação do Azure. |
+| Tenant_g | GUID que identifica o locatário para o Chamador. |
+| NodeId_g |A GUID que identifica o nó gerenciado. |
+| DscReportId_g |A GUID que identifica o relatório. |
+| DscResourceId_s |O nome da instância do recurso de DSC. |
+| DscResourceName_s |O nome do recurso de DSC. |
+| DscResourceStatus_s |Se o recurso de DSC está em conformidade. |
+| DscModuleName_s |O nome do módulo do PowerShell que contém o recurso de DSC. |
+| DscModuleVersion_s |A versão do módulo do PowerShell que contém o recurso de DSC. |
+| DscConfigurationName_s |O nome da configuração aplicada ao nó. |
+| ErrorCode_s | O código de erro se o recurso tiver falhado. |
+| ErrorMessage_s |A mensagem de erro se o recurso tiver falhado. |
+| DscResourceDuration_d |O tempo, em segundos, em que o recurso de DSC foi executado. |
+| SourceSystem | Como o Log Analytics coletou os dados. Sempre *Azure* para o Diagnóstico do Azure. |
+| ResourceId |Especifica a conta de Automação do Azure. |
+| ResultDescription | A descrição para esta operação. |
+| SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
+| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID que é a Id de correlação de relatório de conformidade de saudação do hello. |
+| CorrelationId |O GUID que é a Id de correlação do relatório de conformidade. |
 
 ## <a name="summary"></a>Resumo
 
-Enviando seu dados de DSC de automação tooLog análise, você pode obter uma noção melhor sobre status de saudação de seus nós de DSC de automação por:
+Ao enviar seus dados do DSC de Automação para o Log Analytics, você poderá ter mais informações sobre o status de seus nós DSC:
 
-* Configurar alertas toonotify você quando há um problema
-* Usando modos de exibição personalizados e toovisualize de consultas de pesquisa seus resultados de runbook, o status do trabalho de runbook e outros relacionam principais indicadores ou métricas.  
+* Configurando alertas para notificá-lo quando houver um problema
+* Usando exibições personalizadas e consultas de pesquisa para visualizar os resultados de runbook, o status do trabalho de runbook e outros principais indicadores ou métricas relacionadas.  
 
-Análise de log fornece maior visibilidade operacionais tooyour DSC de automação dados e pode ajudar a incidentes de endereço mais rapidamente.  
+O Log Analytics oferece maior visibilidade operacional para os dados do DSC de Automação e pode ajudar a tratar de incidentes mais rapidamente.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* toolearn mais sobre como revisão e consultas de pesquisa diferentes tooconstruct Olá DSC de automação registra em log com a análise de Log, consulte [pesquisas de Log na análise de Log](../log-analytics/log-analytics-log-searches.md)
-* toolearn mais sobre como usar o DSC de automação do Azure, consulte [guia de Introdução ao DSC de automação do Azure](automation-dsc-getting-started.md)
-* toolearn mais sobre análise de logs do OMS e fontes de coleta de dados, consulte [dados de armazenamento do Azure coleta na visão geral da análise de Log](../log-analytics/log-analytics-azure-storage.md)
+* Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de DSC de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
+* Para saber mais sobre como usar a DSC de Automação do Azure, veja [Introdução à DSC de Automação do Azure](automation-dsc-getting-started.md)
+* Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

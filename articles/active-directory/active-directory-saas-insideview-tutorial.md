@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory om o InsideView | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e o InsideView."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o InsideView."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 979c0c24f3a18a193616061b8c2e78292233a56d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f2b0a1d4bc44f8d0cd57c61e2d78950cb6a99854
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Active Directory do Azure com o InsideView
 
-Neste tutorial, você aprenderá como toointegrate InsideView com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá como integrar o InsideView ao Azure AD (Azure Active Directory).
 
-Integrando o InsideView com o AD do Azure fornece Olá benefícios a seguir:
+A integração do InsideView ao Azure AD proporciona os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooInsideView
-- Você pode habilitar seu usuários tooautomatically get conectado tooInsideView (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No Azure AD, você pode controlar quem terá acesso ao InsideView
+- Você pode permitir que seus usuários façam logon automaticamente no InsideView (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o InsideView, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao InsideView, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do InsideView
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando InsideView da Galeria de saudação
+1. Como adicionar o InsideView por meio da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-insideview-from-hello-gallery"></a>Adicionando InsideView da Galeria de saudação
-tooconfigure Olá integração da InsideView tooAzure AD, é necessário tooadd InsideView da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-insideview-from-the-gallery"></a>Como adicionar o InsideView por meio da galeria
+Para configurar a integração do InsideView com o Azure AD, você precisará adicionar o InsideView por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd InsideView da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o InsideView por meio da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **InsideView**.
+4. Na caixa de pesquisa, digite **InsideView**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_search.png)
 
-5. No painel de resultados de saudação, selecione **InsideView**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **InsideView** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o InsideView, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no InsideView é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no InsideView precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisará saber qual usuário do InsideView é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do InsideView.
 
-No InsideView, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No InsideView, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com o InsideView, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o InsideView, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do InsideView](#creating-a-insideview-test-user)**  -toohave um equivalente do Britta Simon no InsideView é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do InsideView](#creating-a-insideview-test-user)**: para ter um equivalente de Brenda Fernandes no InsideView que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo InsideView.
+Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo InsideView.
 
-**tooconfigure AD do Azure-logon único com o InsideView, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o InsideView, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **InsideView** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **InsideView**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_samlbase.png)
 
-3. Em Olá **InsideView domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do InsideView**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_url.png)
     
-    Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://my.insideview.com/iv/<STS Name>/login.iv`
+    Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com hello URL de resposta real. Entre em contato com [InsideView a equipe de suporte ](mailto:support@insideview.com) tooget esse valor.
+    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Entre em contato com a [equipe de suporte do InsideView ](mailto:support@insideview.com) para obter este valor.
  
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Raw)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Bruto)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_certificate.png) 
 
@@ -123,97 +123,97 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
 
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_general_400.png)
 
-6. Em Olá **InsideView configuração** seção, clique em **configurar InsideView** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do InsideView**, clique em **Configurar o InsideView** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_configure.png) 
 
-7. Em uma janela de navegador web diferente, faça logon no site da empresa InsideView tooyour como um administrador.
+7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do InsideView como administrador.
 
-8. Na barra de ferramentas de saudação na parte superior do hello, clique em **Admin**, **configurações de logon único**e, em seguida, clique em **adicionar SAML**.
+8. Na barra de ferramentas na parte superior, clique em **Administrador**, **Configurações de Logon Único** e em **Adicionar SAML**.
    
    ![Configurações de Logon Único do SAML](./media/active-directory-saas-insideview-tutorial/ic794135.png "Configurações de Logon Único do SAML")
 
-9. Em Olá **adicionar um novo SAML** , execute Olá etapas a seguir:
+9. Na seção **Adicionar um Novo SAML** , realize as seguintes etapas:
 
     ![Adicionar um Novo SAML](./media/active-directory-saas-insideview-tutorial/ic794136.png "Adicionar um Novo SAML")
    
-    a. Em Olá **STS Name** caixa de texto, digite um nome para a sua configuração.
+    a. Na caixa de texto **Nome STS** , digite um nome para a sua configuração.
 
-    b. Em **SamlP/WS-Fed ponto de extremidade não solicitadas** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML**, que você copiou do portal do Azure.
+    b. Na caixa de texto **Ponto de Extremidade Não Solicitado de SamlP/WS-Fed**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
     
-    c. Abra seu certificado codificado em base 64, que você baixou do Azure portal, Olá de copiar conteúdo dele para sua área de transferência, e, em seguida, cole-o toohello **Certificate STS** caixa de texto.
+    c. Abra seu certificado codificado em Base 64, que você baixou do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado STS**.
 
-    d. Em Olá **mapeamento de Id de usuário do Crm** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Na caixa de texto **Mapeamento de ID de usuário do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
         
-    e. Em Olá **Crm Email mapeamento** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Na caixa de texto **Mapeamento de Email do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Em Olá **Crm mapeamento** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. Na caixa de texto **Mapeamento de Nome do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
     
-    g. Em Olá **sobrenome do Crm mapeamento** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. Na caixa de texto **Mapeamento de Sobrenome do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Clique em **Salvar**.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
  
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-insideview-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-insideview-test-user"></a>Criação de um usuário de teste do InsideView
 
-tooenable AD do Azure usuários toolog em tooInsideView, eles devem ser provisionados no tooInsideView. No caso de saudação do InsideView, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no InsideView, eles devem ser provisionados no InsideView. No caso do InsideView, o provisionamento é uma tarefa manual.
 
-tooget usuários ou contatos criados no InsideView, entre em contato com [a equipe de suporte InsideView](mailto:support@insideview.com).
+Para obter os usuários ou contatos criados no InsideView, entre em contato com a [equipe de suporte do InsideView](mailto:support@insideview.com).
 
 >[!NOTE]
->Você pode usar qualquer ferramenta de criação outros InsideView usuário conta ou APIs fornecidas pela InsideView tooprovision contas de usuário do AD do Azure.
+>Você pode usar qualquer outra ferramenta de criação da conta de usuário do InsideView ou APIs fornecidas pelo InsideView para provisionar as contas de usuário do AD do Azure.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooInsideView.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao InsideView.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooInsideView, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao InsideView, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **InsideView**.
+2. Na lista de aplicativos, selecione **InsideView**.
 
     ![Configurar Logon Único](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -221,7 +221,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -229,13 +229,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco InsideView Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour InsideView aplicativo.
+Ao clicar no bloco InsideView no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo InsideView.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: "exibições do sistema do Data Warehouse aaaSQL | Microsoft Docs"
-description: "Links toosystem exibe o conteúdo para o SQL Data Warehouse."
+title: "Exibições do sistema SQL Data Warehouse | Microsoft Docs"
+description: "Os links para o sistema exibem conteúdo para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 07/12/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: bd4d7184f6c95b37fe16b897c44c46000bbb2746
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="system-views"></a>Exibições do sistema
 ## <a name="sql-data-warehouse-catalog-views"></a>Exibições do catálogo SQL Data Warehouse
@@ -61,8 +61,8 @@ ms.lasthandoff: 10/06/2017
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
-## <a name="sql-server-dmvs-applicable-toosql-data-warehouse"></a>SQL Server DMVs aplicável tooSQL Data Warehouse
-Olá DMVs a seguir são aplicável tooSQL Data Warehouse, mas devem ser executados por meio da conexão toohello **mestre** banco de dados.
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMVs do SQL Server aplicáveis ao SQL Data Warehouse
+As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executadas conectando-as ao banco de dados **mestre** .
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -135,18 +135,18 @@ Olá DMVs a seguir são aplicável tooSQL Data Warehouse, mas devem ser executad
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMVs do SQL Server disponíveis no SQL Data Warehouse
-SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server hello (DMVs). Essas exibições, quando consultada no SQL Data Warehouse, estão relatando o estado Olá dos bancos de dados SQL em execução em distribuições de saudação.
+O SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server (DMVs). Essas exibições, quando consultadas no SQL Data Warehouse, estão comunicando o estado dos Bancos de Dados SQL em execução nas distribuições.
 
-Como o SQL Data Warehouse se baseia na tecnologia MPP da Microsoft, o SQL Data Warehouse e do sistema de plataforma de análise de uso do Parallel Data Warehouse (PDW) Olá mesmo exibições do sistema.
+Como o SQL Data Warehouse se baseia na tecnologia do MPP da Microsoft, o SQL Data Warehouse e o Parallel Data Warehouse (PDW do sistema de plataforma de análise) usam as mesmas exibições do sistema.
 
-É por isso cada um desses DMV tem uma coluna específica, chamada pdw_node_id. Isso é Olá Olá identificador do nó de computação hello. PDW do nó de computação Olá é um conceito mais forte para a arquitetura de saudação. No SQL Data Warehouse, Olá arquitetura depende mais intensa distribuições hello.
+É por isso cada um desses DMV tem uma coluna específica, chamada pdw_node_id. Este é o identificador para o Nó de computação. No PDW, o nó Computação é um conceito mais forte para a arquitetura. No SQL Data Warehouse, a arquitetura depende mais intensamente das distribuições.
 
 > [!NOTE]
-> toouse esses Exibir 'pdw_nodes_' Inserir nome hello, conforme mostrado no Olá a tabela a seguir.
+> Para usar esses exibição, insira 'pdw_nodes_' no nome, conforme mostrado na tabela a seguir.
 > 
 > 
 
-| Nome DMV no SQL Data Warehouse | Tópico de Transact-SQL Server tooSQL link no MSDN |
+| Nome DMV no SQL Data Warehouse | Vincular ao tópico do Transact-SQL do SQL Server no MSDN |
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 

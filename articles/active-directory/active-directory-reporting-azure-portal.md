@@ -1,5 +1,5 @@
 ---
-title: "relatório de Active Directory aaaAzure | Microsoft Docs"
+title: "Relatórios do Azure Active Directory | Microsoft Docs"
 description: "Fornece uma visão geral sobre a emissão de relatórios do Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c91813acbdc4b0bfcd164169b0b575accac227d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
 Com os relatórios do Azure Active Directory, você pode ter uma ideia de como o seu ambiente está funcionando.  
-dados saudação fornecido permite que você:
+Os dados fornecidos permitem a você:
 
 - Determinar como os aplicativos e serviços estão sendo utilizados pelos usuários
-- Detectar possíveis riscos que afetam a integridade de saudação do seu ambiente
+- Detectar possíveis riscos que afetem a integridade do seu ambiente
 - Solucionar problemas que impedem a conclusão dos trabalhos pelos usuários  
 
-arquitetura de relatórios Olá se baseia em dois pilares principais:
+A arquitetura de relatório se baseia em dois pilares principais:
 
 - Relatórios de segurança
 - Relatórios de atividades
@@ -41,79 +41,79 @@ arquitetura de relatórios Olá se baseia em dois pilares principais:
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
-Olá relatórios de segurança no Active Directory do Azure ajudam você tooprotect identidades da organização.  
+Os relatórios de segurança no Azure Active Directory o ajudam a proteger as identidades da organização.  
 Há dois tipos de relatórios de segurança no Azure Active Directory:
 
-- **Usuários sinalizados riscos** - da saudação [usuários sinalizados para relatório de risco de segurança](active-directory-reporting-security-user-at-risk.md), obter uma visão geral das contas de usuário que possa ter sido comprometido.
+- **Usuários sinalizados como risco**: no [relatório de usuários sinalizados como risco de segurança](active-directory-reporting-security-user-at-risk.md), obtenha uma visão geral das contas de usuário que podem ter sido comprometidas.
 
-- **Entradas arriscadas** - com hello [relatório de segurança de entrada arriscados](active-directory-reporting-security-risky-sign-ins.md), obterá um indicador para tentativas de logon que podem ter sido realizadas por alguém que é não Olá legítimo proprietário de uma conta de usuário. 
+- **Entradas de risco**: com o [relatório de entradas de risco](active-directory-reporting-security-risky-sign-ins.md), você tem um indicador de tentativas de logon que pode ter sido realizadas por alguém que não é o proprietário legítimo de uma conta de usuário. 
 
-**Qual licença do AD do Azure precisa de um relatório de segurança de tooaccess?**  
+**Qual licença do Azure AD você precisa para acessar a atividade de entrada?**  
 Todas as edições do Azure Active Directory fornecem relatórios de usuários sinalizados como risco e de entradas de risco.  
-No entanto, o nível de saudação de granularidade do relatório varia entre as edições hello: 
+No entanto, o nível de granularidade do relatório varia entre as edições: 
 
-- Em Olá **edições do Azure Active Directory gratuito e Basic**, você já obter uma lista de usuários sinalizados para riscos e entradas arriscadas. 
+- Nas **edições do Azure Active Directory Gratuita e Basic**, você obtém uma lista de usuários sinalizados como risco e de entradas de risco. 
 
-- Olá **do Azure Active Directory Premium 1** edição estende esse modelo, permitindo que você também tooexamine alguns Olá subjacente eventos de risco que foram detectados para cada relatório. 
+- A edição do **Azure Active Directory Premium 1** estende esse modelo, também permitindo que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
 
-- Olá **do Azure Active Directory Premium 2** edition fornece com hello mais informações detalhadas sobre Olá subjacente eventos de risco e ele também permite políticas de segurança tooconfigure respondem automaticamente tooconfigured níveis de risco.
+- A edição do **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre os eventos de risco subjacentes e também permite configurar políticas de segurança que atendem automaticamente a níveis de risco configurados.
 
 
 ## <a name="activity-reports"></a>Relatórios de atividades
 
 Há dois tipos de relatórios de atividade no Azure Active Directory:
 
-- **Logs de auditoria** - Olá [relatório de atividade de logs de auditoria](active-directory-reporting-activity-audit-logs.md) fornece toohello acesse o histórico de todas as tarefas executadas em seu locatário.
+- **Trilhas de auditoria**: o [relatório de atividade das trilhas de auditoria](active-directory-reporting-activity-audit-logs.md) fornece acesso ao histórico de todas as tarefas executadas em seu locatário.
 
-- **Entradas** - com hello [relatório de atividade de entradas](active-directory-reporting-activity-sign-ins.md), você pode determinar, quem executou tarefas Olá relatadas pelo relatório de logs de auditoria de saudação.
-
-
-
-Olá **relatório dos logs de auditoria** fornece registros de atividades de sistema para fins de conformidade.
-Entre outros, Olá fornecidos dados permite que você tooaddress os cenários comuns, como:
-
-- Alguém em meu locatário tem o grupo de administradores de tooan de acesso. Quem deu o acesso? 
-
-- Desejo tooknow lista de saudação de usuários de assinatura em um aplicativo específico desde recentemente incorporada Olá aplicativo e deseja tooknow se ela está bem
-
-- Desejo tooknow senha quantas redefinições estão ocorrendo em meu locatário
-
-
-**Qual licença do AD do Azure precisa de relatório de logs de auditoria do tooaccess Olá?**  
-relatório de logs de auditoria de saudação está disponível para os recursos para os quais você possui licenças. Se você tiver uma licença para um recurso específico, você também tem acesso toohello informações de log para ele de auditoria.
-
-Para obter mais detalhes, consulte **compara recursos disponíveis de edições de gratuito, Basic e Premium Olá** na [recursos do Active Directory do Azure](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+- **Entradas**: com o [relatório de atividades de entradas](active-directory-reporting-activity-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
 
 
 
-Olá **relatório de atividade de entradas** tootoofind habilita responde tooquestions como:
+O **relatório das trilhas de auditoria** fornece registros de atividades de sistema para fins de conformidade.
+Entre outros, os dados fornecidos permitem tratar cenários comuns, como:
 
-- O que é Olá entrar padrão de um usuário?
+- Alguém em meu locatário tem acesso a um grupo de administração. Quem deu o acesso? 
+
+- Quero saber a lista de usuários que estão entrando em um aplicativo específico, já que integrei o aplicativo recentemente e desejo saber se ele está tendo boa recepção
+
+- Quero saber quantas redefinições de senha estão ocorrendo em meu locatário
+
+
+**Qual é a licença do Azure AD necessária para acessar o relatório das trilhas de auditoria?**  
+O relatório das trilhas de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele.
+
+Para obter mais detalhes, confira **Comparando recursos geralmente disponíveis das edições Gratuita, Basic e Premium** em [Recursos do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+
+
+
+O **relatório de atividades de entrada** permite encontrar respostas a perguntas como:
+
+- O que é o padrão de entrada de um usuário?
 - Quantos usuários entraram em uma semana?
-- Qual é o status de saudação destas entradas?
+- Qual é o status dessas entradas?
 
 
-**Qual licença do AD do Azure é que você precisa tooaccess Olá relatório de atividade de entradas?**  
-tooaccess Olá relatório de atividade de entradas, seu locatário deve ter uma licença Azure AD Premium associada a ele.
+**Qual licença do Azure AD você precisa para acessar o relatório de atividades de entrada?**  
+Para acessar o relatório de atividades de entrada, seu locatário deve ter uma licença do Azure AD Premium associada a ele.
 
 
 ## <a name="programmatic-access"></a>Acesso Programático
 
-Na interface do usuário toohello adição, relatórios do Active Directory do Azure também fornece a você [acesso programático](active-directory-reporting-api-getting-started-azure-portal.md) toohello dados de relatório. dados Olá desses relatórios podem ser muito útil tooyour aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. Olá AD do Azure reporting que APIs fornecem dados de toohello acesso programático por meio de um conjunto de APIs com base em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação. 
+Além da interface do usuário, os relatórios do Azure Active Directory também fornecem a você [acesso programático](active-directory-reporting-api-getting-started-azure-portal.md) aos dados de relatórios. Os dados desses relatórios podem ser muito úteis para seus aplicativos, como sistemas SIEM, auditoria e ferramentas de business intelligence. As APIs de relatório do Azure AD fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de várias ferramentas e linguagens de programação. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser tooknow mais sobre Olá vários tipos de relatório no Azure Active Directory, consulte:
+Se você quiser saber mais sobre os vários tipos de relatório no Azure Active Directory, confira:
 
 - [Usuários sinalizados como risco](active-directory-reporting-security-user-at-risk.md)
 - [Relatório de entradas de risco](active-directory-reporting-security-risky-sign-ins.md)
 - [Relatório de trilhas de auditoria](active-directory-reporting-activity-audit-logs.md)
 - [Relatório de logs de entrada](active-directory-reporting-activity-sign-ins.md)
 
-Se você quiser tooknow mais sobre como acessar Olá Olá usando Olá API de relatórios de dados de relatórios, consulte: 
+Se você quiser saber mais sobre como acessar os dados de relatório usando a API de relatório, confira: 
 
-- [Guia de Introdução ao Olá do Active Directory do Azure API de relatório](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
 <!--Image references-->

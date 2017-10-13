@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure perguntas frequentes sobre a integração de Log | Microsoft Docs"
+title: "Perguntas frequentes sobre a Integração de Logs do Azure | Microsoft Docs"
 description: "Este artigo de perguntas frequentes responde às perguntas sobre a Integração de Logs do Azure."
 services: security
 documentationcenter: na
@@ -15,39 +15,39 @@ ms.workload8: na
 ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: e886035c9a180d0cd5fcbe9cc02483782df6dbe4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
 Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs do Azure. 
 
-Integração de Log do Azure é um serviço do sistema operacional Windows que você pode usar logs bruto toointegrate de seus recursos do Azure em seus locais segurança informações e eventos (SIEM) sistemas de gerenciamento. Essa integração oferece um painel unificado para todos os seus ativos, local ou na nuvem hello. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
+A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
-## <a name="is-hello-azure-log-integration-software-free"></a>Software de integração do Azure Log Olá é gratuito?
-Sim. Não há nenhuma taxa para Olá software de integração de Log do Azure.
+## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
+Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
 
 ## <a name="where-is-azure-log-integration-available"></a>Onde a Integração de log do Azure está disponível?
 
 Atualmente, ela está disponível atualmente no Azure Comercial e o Azure Governamental e não está disponível na China nem na Alemanha.
 
-## <a name="how-can-i-see-hello-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver contas de armazenamento de saudação do qual a integração do Azure Log está recebendo logs da VM do Azure?
-Execute o comando Olá **lista de origem azlog**.
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver as contas de armazenamento nas quais a Integração de Logs do Azure está efetuando pull para extrair os logs da VM do Azure?
+Execute o comando **azlog source list**.
 
-## <a name="how-can-i-tell-which-subscription-hello-azure-log-integration-logs-are-from"></a>Como saber quais Olá assinatura são logs de integração do Log do Azure?
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como saber de qual assinatura os logs de Integração de Logs do Azure são provenientes?
 
-No caso de saudação de logs de auditoria que são colocados em Olá **AzureResourcemanagerJson** diretórios, ID de assinatura de saudação é no nome de arquivo de log de saudação. Isso também é verdadeiro para logs no hello **AzureSecurityCenterJson** pasta. Por exemplo:
+No caso de logs de auditoria que são colocados nos diretórios **AzureResourcemanagerJson**, a ID da assinatura está no nome do arquivo de log. Isso também é verdadeiro para logs na pasta **AzureSecurityCenterJson**. Por exemplo:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
-Logs de auditoria do Active Directory do Azure incluem hello ID de locatário como parte do nome de saudação.
+Logs de auditoria do Azure Active Directory incluem a ID do locatário como parte do nome.
 
-Logs de diagnóstico que são lidos a partir de um hub de eventos não incluem hello ID da assinatura como parte do nome de saudação. Em vez disso, eles incluem o nome amigável do hello especificado como parte da criação de saudação da origem de hub de eventos de saudação. 
+Os logs de diagnóstico lidos de um hub de eventos não incluem a ID da assinatura como parte do nome. Em vez disso, eles incluem o nome amigável especificado como parte da criação da origem do hub de eventos. 
 
-## <a name="how-can-i-update-hello-proxy-configuration"></a>Como faço para atualizar a configuração de proxy Olá?
-Se a configuração do proxy não permite acesso de armazenamento do Azure diretamente, abra Olá **AZLOG. EXE. CONFIGURAÇÃO** arquivo **c:\Program Files\Microsoft Azure Log integração**. Atualização Olá arquivo tooinclude Olá **defaultProxy** seção com o endereço de proxy de saudação da sua organização. Após ter feita a atualização Olá, parar e iniciar o serviço de saudação usando comandos Olá **net stop azlog** e **net start-azlog**.
+## <a name="how-can-i-update-the-proxy-configuration"></a>Como atualizo a configuração de proxy?
+Se a configuração de proxy não permitir acesso ao armazenamento do Azure diretamente, abra o arquivo **AZLOG.EXE.CONFIG** em **c:\Arquivos de Programas\Integração de Log do Microsoft Azure**. Atualize o arquivo para incluir a seção **defaultProxy** com o endereço do proxy da sua organização. Depois que a atualização for concluída, pare e inicie o serviço usando os comandos **net stop azlog** e **net start azlog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -65,42 +65,42 @@ Se a configuração do proxy não permite acesso de armazenamento do Azure diret
         <performanceCounters filemappingsize="20971520" />
       </system.diagnostics>   
 
-## <a name="how-can-i-see-hello-subscription-information-in-windows-events"></a>Como posso ver informações de assinatura de saudação eventos do Windows?
-Acrescente o nome amigável da toohello Olá assinatura ID ao adicionar fonte hello:
+## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>Como posso ver as informações de assinatura nos eventos do Windows?
+Acrescente a ID da assinatura ao nome amigável ao adicionar a origem:
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-evento de saudação XML tem Olá metadados, incluindo a ID da assinatura Olá a seguir:
+O evento XML tem os seguintes metadados, incluindo a ID da assinatura:
 
 ![Evento XML][1]
 
 ## <a name="error-messages"></a>Mensagens de erro
-### <a name="when-i-run-hello-command-azlog-createazureid-why-do-i-get-hello-following-error"></a>Ao executar o comando de saudação **azlog createazureid**, por que recebo Olá erro a seguir?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Ao executar o comando **azlog createazureid**, por que obtenho o erro a seguir?
 Erro:
 
-  *Falha toocreate aplicativo AAD - locatário 72f988bf-86f1-41af-91ab-2d7cd011db37 - motivo = 'Proibido' - mensagem = 'privilégios insuficientes toocomplete Olá operação'.*
+  *Falha ao criar aplicativo AAD - Locatário 72f988bf-86f1-41af-91ab-2d7cd011db37 - Motivo = 'Proibido' - Mensagem = 'Privilégios insuficientes para concluir a operação.'*
 
-Olá **azlog createazureid** comando tenta toocreate uma entidade de serviço em todos os locatários de saudação do AD do Azure para assinaturas de Olá Olá logon do Azure tem acesso ao. Se o logon do Azure é apenas um usuário convidado no locatário do AD do Azure, Olá falhará com "privilégios insuficientes toocomplete Olá a operação." Peça ao locatário Olá administrador tooadd sua conta como um usuário no locatário hello.
+O comando **azlog createazureid** tenta criar uma entidade de serviço em todos os locatários do Azure AD para as assinaturas nas quais o logon do Azure tem acesso. Se o logon do Azure for apenas um usuário Convidado nesse locatário do Azure AD, o comando falhará com “Privilégios insuficientes para concluir a operação”. Solicite ao administrador do locatário para adicionar sua conta como um usuário no locatário.
 
-### <a name="when-i-run-hello-command-azlog-authorize-why-do-i-get-hello-following-error"></a>Ao executar o comando de saudação **azlog autorizar**, por que recebo Olá erro a seguir?
+### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Ao executar o comando **azlog authorize**, por que obtenho o erro a seguir?
 Erro:
 
-  *Aviso de criação de atribuição de função - AuthorizationFailed: cliente Olá janedo@microsoft.com' com o objeto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização tooperform ação 'Microsoft.Authorization/roleAssignments/write' no escopo ' / assinaturas / 70d 95299-d689-4c 97 b971 0d8ff0000000'.*
+  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com' com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
-Olá **azlog autorizar** comando atribui Olá função da entidade de serviço do leitor toohello AD do Azure (criado com **azlog createazureid**) assinaturas toohello fornecido. Se Olá logon do Azure não é um coadministrador ou um proprietário de assinatura hello, ele falhará com uma mensagem de erro "Falha de autorização". Azure Role-Based Access RBAC (controle) de coadministrador ou o proprietário é necessário toocomplete esta ação.
+O comando **azlog authorize** tenta criar a função de leitor para a entidade de serviço do Azure AD (criada com **azlog createazureid**) para as assinaturas fornecidas. Se o logon do Azure não for um coadministrador nem um proprietário da assinatura, ele falhará com a mensagem de erro “Falha na Autorização”. O RBAC (Controle de Acesso Baseado em Função) do coadministrador ou proprietário é necessário para concluir essa ação.
 
-## <a name="where-can-i-find-hello-definition-of-hello-properties-in-hello-audit-log"></a>Onde encontrar definição Olá propriedades Olá no log de auditoria Olá?
+## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>Onde posso encontrar a definição das propriedades no log de auditoria?
 Consulte:
 
 * [Operações de auditoria com o Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
-* [Lista de eventos de gerenciamento de saudação em uma assinatura no hello API de REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931934.aspx)
+* [Listar os eventos de gerenciamento em uma assinatura na API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## <a name="where-can-i-find-details-on-azure-security-center-alerts"></a>Onde posso encontrar detalhes sobre alertas da Central de Segurança do Azure?
-Consulte [toosecurity está respondendo e gerenciamento de alertas na Central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md).
+Confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Como posso modificar o que é coletado com o diagnóstico da VM?
-Para obter detalhes sobre como tooget, modificar e definir a configuração de diagnóstico do Azure hello, consulte [tooenable de usar o PowerShell diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Para obter detalhes sobre como obter, modificar e definir a configuração do Diagnóstico do Azure, veja [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-saudação de exemplo a seguir obtém a configuração de diagnóstico do Azure hello:
+O exemplo a seguir obtém a configuração do Diagnóstico do Azure:
 
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
@@ -110,25 +110,25 @@ saudação de exemplo a seguir obtém a configuração de diagnóstico do Azure 
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-saudação de exemplo a seguir modifica a configuração de diagnóstico do Azure hello. Nessa configuração, somente 4624 ID e do evento ID 4625 são coletados do log de eventos de segurança de saudação. O Antimalware da Microsoft para eventos do Azure são coletados do log de eventos do sistema de saudação. Para obter detalhes sobre o uso de saudação de expressões XPath, consulte [consumindo eventos](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
+O exemplo a seguir modifica a configuração do Diagnóstico do Azure. Nessa configuração, somente a ID de evento 4624 e a ID de evento 4625 são coletadas do log de eventos de segurança. Os eventos do Microsoft Antimalware para Azure são coletados no log de eventos do sistema. Para obter detalhes sobre o uso de expressões XPath, veja [Consumo de eventos](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
         <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>
     </WindowsEventLog>
 
-Olá, exemplo a seguir define configuração de diagnóstico do Azure hello:
+O exemplo a seguir define a configuração do Diagnóstico do Azure:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
-Depois de fazer alterações, verifique Olá tooensure de conta de armazenamento que Olá correto de eventos são coletados.
+Depois de fazer alterações, verifique a conta de armazenamento para garantir que os eventos corretos sejam coletados.
 
-Se você tiver problemas durante a saudação de instalação e configuração, abra um [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Selecione **Log integração** como serviço Olá para o qual você está solicitando suporte.
+Se você tiver problemas durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Selecione **Integração de Log** como o serviço para o qual você está solicitando suporte.
 
-## <a name="can-i-use-azure-log-integration-toointegrate-network-watcher-logs-into-my-siem"></a>Pode usar logs do Azure Log integração toointegrate observador de rede em meu SIEM?
+## <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Posso usar a Integração de Logs do Azure para integrar os logs do Observador de Rede em meu SIEM?
 
-O Observador de Rede do Azure gera grandes quantidades de informações de registro em log. Esses logs não são toobe devem enviado tooa SIEM. destino de saudação só tem suportada para logs do observador de rede é uma conta de armazenamento. Integração de Log do Azure não oferece suporte a ler esses logs e tornando-os disponível tooa SIEM.
+O Observador de Rede do Azure gera grandes quantidades de informações de registro em log. Esses logs não devem ser enviadas para um SIEM. O único destino com suporte para logs do Observador de Rede é uma conta de armazenamento. A Integração de Logs do Azure não dá suporte à leitura desses logs e disponibilização deles para um SIEM.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

@@ -1,5 +1,5 @@
 ---
-title: "segurança aaaContainer no serviço de contêiner do Azure | Microsoft Docs"
+title: "Segurança de contêiner no Serviço de Contêiner do Azure | Microsoft Docs"
 description: "Considerações sobre a segurança de contêineres do Docker implantado no Serviço de Contêiner do Azure e nos serviços do Azure relacionados."
 services: container-service
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 1c01559227ac14d2020c9692ef30aa9752f232c8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b1f06528f28272b980a13f278f1d22f20f020f6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 [!INCLUDE [container-service-security.md](../../../includes/container-service-security.md)]

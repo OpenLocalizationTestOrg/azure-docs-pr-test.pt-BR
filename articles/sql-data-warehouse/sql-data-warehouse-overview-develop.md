@@ -1,5 +1,5 @@
 ---
-title: aaaResources para o desenvolvimento de um data warehouse no Azure | Microsoft Docs
+title: Recursos para o desenvolvimento de um data warehouse no Azure | Microsoft Docs
 description: "Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 67e3a6a3e2664919c3445ea5d5eba251054de020
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
-Examine esses artigos de desenvolvimento toobetter entender principais decisões de design, as recomendações e as técnicas de codificação para o SQL Data Warehouse.
+Dê uma olhada nesses artigos sobre desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
-Olá artigos a seguir realçam alguns dos principais conceitos de saudação e decisões de design, que você precisará toounderstand para desenvolvimento de saudação do distributed data warehouse usando o SQL Data Warehouse:
+Os artigos a seguir destacam alguns dos principais conceitos e as decisões de design que você precisará entender para desenvolver seu data warehouse distribuído usando o SQL Data Warehouse:
 
 * [conexões][connections]
 * [simultaneidade][concurrency]
@@ -50,7 +50,7 @@ Esses artigos realçam as técnicas de codificação específicas, dicas e recom
 * [atribuição de variável][variable assignment]
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de você ter sido por meio de artigos de desenvolvimento Olá dê uma olhada Olá [referência Transact-SQL] [ Transact-SQL reference] para obter mais detalhes sobre a sintaxe de saudação com suporte para o SQL Data Warehouse.
+Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][Transact-SQL reference] para obter mais detalhes sobre a sintaxe com suporte para o SQL Data Warehouse.
 
 <!--Image references-->
 

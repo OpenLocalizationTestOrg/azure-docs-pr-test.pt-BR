@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooperform transmissão ao vivo usando fluxos de várias taxas de bits de toocreate de serviços de mídia do Azure com hello portal do Azure | Microsoft Docs"
-description: "Este tutorial aborda você pelas etapas de saudação de criação de um canal recebe uma transmissão ao vivo de taxa de bits única e codifica o fluxo de taxa de bits toomulti usando Olá portal do Azure."
+title: "Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal do Azure | Microsoft Docs"
+description: "Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 963a25b8ba4683a2ce34d9fb0e19499874b4707c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooperform-live-streaming-using-azure-media-services-toocreate-multi-bitrate-streams-with-hello-azure-portal"></a>Como tooperform transmissão ao vivo usando o Azure Media Services toocreate várias taxas de bits fluxos com hello portal do Azure
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -28,173 +28,173 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Este tutorial orienta você pelas etapas de saudação de criação de um **Channel** que recebe uma transmissão ao vivo de taxa de bits única e o codifica fluxo toomulti taxas de bits.
+Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
 > [!NOTE]
-> Para obter mais informações conceituais tooChannels relacionados que são habilitados para codificação ao vivo, consulte [transmissão ao vivo usando fluxos de várias taxas de bits do Azure Media Services toocreate](media-services-manage-live-encoder-enabled-channels.md).
+> Para obter mais informações conceituais relacionadas aos Canais habilitados para a codificação ao vivo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 > 
 > 
 
 ## <a name="common-live-streaming-scenario"></a>Cenário comum de streaming ao vivo
-Olá seguem geral de etapas envolvidas na criação de aplicativos comuns de transmissão ao vivo.
+A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
 > [!NOTE]
-> Atualmente, Olá máximo recomendado de duração de um evento ao vivo é 8 horas. Entre em contato com amslived em Microsoft.com se você precisar toorun um canal para períodos de tempo mais longos.
+> Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
 > 
 > 
 
-1. Conecte um computador de tooa de câmera de vídeo. Inicie e configure um codificador ao vivo no local que pode produzir um fluxo de taxa de bits única em um dos seguintes protocolos de saudação: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Essa etapa também pode ser realizada após a criação do canal.
 2. Crie e inicie um Canal. 
-3. URL de ingestão recuperar Olá canal. 
+3. Recupere a URL de ingestão do canal. 
    
-    URL de ingestão Olá é usado pelo Olá codificador ao vivo toosend Olá fluxo toohello canal.
-4. Recupere a URL de visualização do canal hello. 
+    A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
+4. Recupere a URL de visualização do canal. 
    
-    Use este tooverify URL que o canal está recebendo corretamente transmissão ao vivo hello.
+    Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 5. Crie um evento/programa (que também criará um ativo). 
-6. Publica evento hello (que cria um localizador OnDemand para o ativo associado Olá).    
-7. Inicie o evento hello quando você estiver pronto toostart transmissão e o arquivamento.
-8. Opcionalmente, o codificador ao vivo Olá pode ser sinalizado toostart um anúncio. anúncio de saudação é inserido no fluxo de saída de hello.
-9. Interrompa eventos hello sempre que quiser toostop streaming e arquivamento evento hello.
-10. Excluir o evento de saudação (e opcionalmente exclua o ativo de saudação).   
+6. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).    
+7. Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento.
+8. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
+9. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
+10. Exclua o evento (e, opcionalmente, exclua o ativo).   
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
-Neste tutorial, Olá portal do Azure é usado tooaccomplish Olá tarefas a seguir: 
+Neste tutorial, o portal do Azure é usado para realizar as seguintes tarefas: 
 
-1. Criar um canal que é habilitado tooperform codificação ativa.
-2. Get hello URL de ingestão em ordem toosupply-toolive codificador. codificador ao vivo Olá usará este fluxo de saudação do URL tooingest em Olá canal.
+1. Crie um canal que esteja habilitado para realizar a codificação ao vivo.
+2. Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal.
 3. Criar um evento/programa (e um ativo).
-4. Publicar Olá ativo e obter URLs de streaming.  
+4. Publicar o ativo e obter URLs de streaming.  
 5. Reproduzir o conteúdo.
 6. Limpar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Olá seguem tutorial de saudação toocomplete necessária.
+Os itens a seguir são necessários para concluir o tutorial.
 
-* toocomplete neste tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. 
+* Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. 
   Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. toocreate uma conta de serviços de mídia, consulte [criar conta](media-services-portal-create-account.md).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
 * Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
 
-## <a name="create-a-channel"></a>Criar um canal
-1. Em Olá [portal do Azure](https://portal.azure.com/), selecione os serviços de mídia e, em seguida, clique no nome da sua conta de serviços de mídia.
+## <a name="create-a-channel"></a>Criar um CANAL
+1. No [Portal do Azure](https://portal.azure.com/), selecione Serviços de Mídia e clique no nome da conta dos Serviços de Mídia.
 2. Escolha **Transmissão ao Vivo**.
 3. Escolha **Criação personalizada**. Essa opção permitirá a criação de um canal habilitado para codificação ativa.
    
     ![Criar um CANAL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Clique em **Configurações**.
    
-   1. Escolha Olá **codificação ao vivo** tipo de canal. Esse tipo Especifica que você deseja toocreate um canal que está habilitado para codificação ao vivo. Significa Olá taxa de bits única entrada fluxo é enviado toohello canal e codificado em um fluxo de múltiplas taxas de bits usando configurações do codificador dinâmico especificado. Para obter mais informações, consulte [transmissão ao vivo usando fluxos de várias taxas de bits do Azure Media Services toocreate](media-services-manage-live-encoder-enabled-channels.md). Clique em OK.
+   1. Escolha o tipo de canal **Codificação Ativa** . Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md). Clique em OK.
    2. Especifique o nome do canal.
-   3. Clique em Okey na parte inferior da saudação da tela hello.
-5. Selecione Olá **ingestão** guia.
+   3. Clique em OK na parte inferior da tela.
+5. Selecione a guia **Ingestão** .
    
-   1. Nessa página, você pode selecionar um protocolo de streaming. Para Olá **codificação ao vivo** são do tipo de canal, opções de protocolo válido:
+   1. Nessa página, você pode selecionar um protocolo de streaming. Para o tipo de canal **Codificação Ativa** , as opções de protocolo válidas são:
       
       * MP4 fragmentado de taxa de bits única (Smooth Streaming)
       * RTMP de taxa de bits única
       * RTP (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.
         
-        Para obter uma explicação detalhada sobre cada protocolo, consulte [transmissão ao vivo usando fluxos de várias taxas de bits do Azure Media Services toocreate](media-services-manage-live-encoder-enabled-channels.md).
+        Para obter explicações detalhadas sobre cada protocolo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
         
-        Você não pode alterar a opção de protocolo hello durante a saudação canal ou seus eventos/programas associados são executados. Se você precisar de protocolos diferentes, crie canais separados para cada protocolo de streaming.  
-   2. Você pode aplicar a restrição de IP no hello ingestão. 
+        Você não pode alterar a opção de protocolo enquanto o Canal ou seus eventos/programas associados estão em execução. Se você precisar de protocolos diferentes, crie canais separados para cada protocolo de streaming.  
+   2. Você pode aplicar a restrição de IP na ingestão. 
       
-       Você pode definir Olá IP endereços que são permitidos tooingest um canal de vídeo toothis. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, '10.0.0.1(255.255.252.0)').
+       Você pode definir os endereços IP que têm permissão para ingerir vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, '10.0.0.1(255.255.252.0)').
       
-       Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. tooallow qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
-6. Em Olá **visualização** guia, aplicar a restrição de IP na visualização de saudação.
-7. Em Olá **codificação** especifique predefinição de codificação de saudação. 
+       Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
+6. Na guia **Visualização** , aplique a restrição de IP na visualização.
+7. Na guia **Codificação** , especifique a predefinição de codificação. 
    
-    Olá no momento, somente o sistema é de predefinição, você pode selecionar **padrão 720p**. toospecify um personalizado predefinido, abra um tíquete de suporte da Microsoft. Em seguida, digite o nome de saudação do hello predefinição criada para você. 
+    Atualmente, o único sistema de predefinição que você pode selecionar é **Padrão 720p**. Para especificar uma predefinição personalizada, abra um tíquete de suporte da Microsoft. Em seguida, insira o nome da predefinição criada para você. 
 
 > [!NOTE]
-> Atualmente, Olá canal inicial pode levar até too30 minutos. Redefinição de canal pode demorar até too5 minutos.
+> Atualmente, a inicialização do Canal pode levar até 30 minutos. A redefinição de canal pode levar até 5 minutos.
 > 
 > 
 
-Depois de criado o canal hello, você pode clicar no canal hello e selecione **configurações** onde você pode exibir suas configurações de canais. 
+Após a criação do Canal, clique no canal e selecione **Configurações**. Nesse local você pode exibir as configurações de seus canais. 
 
-Para obter mais informações, consulte [transmissão ao vivo usando fluxos de várias taxas de bits do Azure Media Services toocreate](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
-Depois que o canal de saudação é criado, você pode obter URLs que você fornecerá o codificador ao vivo toohello de ingestão. codificador de saudação usa tooinput essas URLs uma transmissão ao vivo.
+Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerenciar eventos
 ### <a name="overview"></a>Visão geral
-Um canal é associado a eventos/programas que permitem a publicação de saudação toocontrol e armazenamento de segmentos em uma transmissão ao vivo. Os canais gerenciam os eventos/programas. Olá relação de canal e programa é uma mídia tootraditional muito semelhantes em que um canal tem um fluxo constante de conteúdo e um programa está no escopo toosome atingiu o tempo de evento naquele canal.
+Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos/programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 
-Você pode especificar o número de saudação horas deseja tooretain Olá registrada conteúdo para evento Olá por configuração Olá **janela de arquivo** comprimento. Esse valor pode ser definido no mínimo 5 minutos tooa máximo 25 horas. Duração da janela de arquivo também determina o período de tempo que os clientes podem procurar de volta no tempo da posição atual ao vivo da saudação máximo hello. Eventos podem ser executados pelo período de tempo especificado hello, mas o conteúdo que sai da duração da janela de saudação é continuamente descartado. Esse valor dessa propriedade também determina quanto tempo cliente Olá manifestos podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o evento, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os eventos podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada evento está associado um Ativo. evento de saudação do toopublish você deve criar um localizador OnDemand para Olá associados ativo. Ter esse localizador permitirá que você toobuild uma URL de streaming que pode fornecer tooyour clientes.
+Cada evento está associado um Ativo. Para publicar o evento, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
-Um canal dá suporte para até toothree em execução simultaneamente eventos para que você pode criar diversos arquivos de saudação mesmo fluxo de entrada. Isso permite que você toopublish e arquivamento diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é tooarchive 6 horas de um evento, mas toobroadcast apenas últimos 10 minutos. tooaccomplish isso, você precisa toocreate de dois em execução simultaneamente eventos. Um evento é definido tooarchive 6 horas do evento Olá mas Olá programa não será publicado. Olá outro evento é tooarchive conjunto por 10 minutos e esse programa é publicado.
+Um canal dá suporte a até três eventos em execução simultânea para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um evento, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois eventos em execução simultânea. Um evento é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro evento é definido para 10 minutos e esse programa é publicado.
 
 Você não deve reutilizar os programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento.
 
-Inicie um programa do evento/quando estiver pronto toostart transmissão e o arquivamento. Interrompa eventos hello sempre que quiser toostop streaming e arquivamento evento hello. 
+Inicie um evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento. 
 
-conteúdo toodelete arquivado, parar e excluir o evento hello e exclua ativo associado hello. Um ativo não pode ser excluído se ele é usado pelo evento Olá; evento Olá deve ser excluído primeiro. 
+Para excluir o conteúdo arquivado, interrompa e exclua o evento, em seguida, exclua o ativo associado. Não será possível excluir um ativo se este for usado pelo evento; o evento deve ser excluído primeiro. 
 
-Mesmo depois de parar e excluir o evento hello, Olá usuários seria capaz de toostream seu conteúdo arquivado como um vídeo sob demanda, para desde que você não excluir Olá ativo.
+Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo.
 
-Se você deseja tooretain Olá arquivado conteúdo, mas não tem disponível para streaming, exclua Olá localizador de streaming.
+Se desejar manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
 
 ### <a name="createstartstop-events"></a>Criar/iniciar/interromper eventos
-Uma vez que o fluxo de saudação que fluem para o canal de saudação no qual você pode começar Olá streaming de eventos, criando um ativo, o programa e o localizador de Streaming. Isso arquivar fluxo hello e torná-lo tooviewers disponíveis por meio do ponto de extremidade de Streaming de saudação. 
+Uma vez que o fluxo está fluindo para o canal, você pode começar o evento de transmissão criando um ativo, programa e localizador de Streaming. Isso vai arquivar o fluxo e torná-lo disponível para usuários por meio do ponto de extremidade de Streaming. 
 
 >[!NOTE]
->Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado. 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
-Há eventos de toostart duas maneiras: 
+Há duas maneiras de começar o evento: 
 
-1. De saudação **Channel** página, pressione **evento Live** tooadd um novo evento.
+1. Na página **Canal**, pressione **Evento Ativo** para adicionar um novo evento.
    
     Especifique: nome do evento, nome do ativo, janela de arquivo e opção de criptografia.
    
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
    
-    Se você deixou **publicar este evento ao vivo agora** marcada, Olá Olá do evento URLs de publicação será criada.
+    Se você deixou a opção **Publicar este evento ao vivo agora** marcada, o evento PUBLICANDO URLS será criado.
    
-    Você pode pressionar **iniciar**, sempre que são eventos de saudação toostream pronto.
+    Você pode pressionar **Iniciar**sempre que estiver pronto para transmitir o evento.
    
-    Depois de iniciar o evento hello, você pode pressionar **inspecionar** toostart reproduzir conteúdo hello.
-2. Como alternativa, você pode usar um atalho e pressione **Go Live** botão Olá **Channel** página. Isso criará um Ativo, Programa e Localizador de Streaming padrão.
+    Depois de iniciar o evento, você pode pressionar **Assistir** para iniciar a reprodução do conteúdo.
+2. Como alternativa, você pode usar um atalho e pressionar o botão **Ativar** na página **Canal**. Isso criará um Ativo, Programa e Localizador de Streaming padrão.
    
-    saudação de evento é chamada **padrão** e janela de arquivo hello é definida too8 horas.
+    O evento é chamado **default** e a janela de arquivo é definida como oito horas.
 
-Você pode assistir o evento publicado Olá Olá **evento ao vivo** página. 
+Você pode assistir ao evento publicado na página **Evento ativo** . 
 
 Se você clicar em **Fora do ar**, todos os eventos ativos serão interrompidos. 
 
-## <a name="watch-hello-event"></a>Evento de saudação de inspeção
-evento de saudação toowatch, clique em **inspecionar** Olá Olá do Azure do portal ou Copiar URL de streaming e usar um player de sua escolha. 
+## <a name="watch-the-event"></a>Assistir ao evento
+Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha. 
 
 ![Criado](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-Evento ao vivo converte automaticamente o conteúdo de demanda tooon eventos quando estiver parado.
+O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido.
 
 ## <a name="clean-up"></a>Limpar
-Se você tiver concluído o fluxo de eventos e deseja tooclean recursos Olá provisionados anteriormente, execute Olá procedimento a seguir.
+Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisionados anteriormente, siga o procedimento a seguir.
 
-* Pare de enviar por push o fluxo de saudação do codificador hello.
-* Pare o canal de saudação. Depois que o canal de saudação for interrompido, ele não incorrerá em todos os encargos. Quando você precisar toostart-lo novamente, ele terá hello mesma URL de ingestão para que você não precise tooreconfigure seu codificador.
-* Você pode parar o ponto de extremidade de Streaming, a menos que você deseja que o arquivamento de saudação tooprovide toocontinue de evento ao vivo como um fluxo de sob demanda. Se o canal de saudação está no estado interrompido, ele não incorrerá em todos os encargos.
+* Pare de enviar o fluxo por push por meio do codificador.
+* Pare o canal. Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
+* Você pode parar seu ponto de extremidade de Streaming, a menos que você deseje continuar a fornecer o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o canal estiver no estado Parado, ele não incorrerá em nenhum encargo.
 
 ## <a name="view-archived-content"></a>Exibir conteúdo arquivado
-Mesmo depois de parar e excluir o evento hello, Olá usuários seria capaz de toostream seu conteúdo arquivado como um vídeo sob demanda, para desde que você não excluir Olá ativo. Um ativo não pode ser excluído se ele é usado por um evento; evento Olá deve ser excluído primeiro. 
+Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
 
-Selecione de seus ativos, toomanage **configuração** e clique em **ativos**.
+Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 ![Ativos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerações
-* Atualmente, Olá máximo recomendado de duração de um evento ao vivo é 8 horas. Entre em contato com amslived em Microsoft.com se você precisar toorun um canal para períodos de tempo mais longos.
-* Certifique-se de saudação transmitir seu conteúdo de ponto de extremidade do qual você deseja toostream está em hello **executando** estado.
+* Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
+* Verifique se o ponto de extremidade de streaming do qual você deseja transmitir seu conteúdo está no estado **Executando**.
 
 ## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.

@@ -1,6 +1,6 @@
 ---
-title: "predefinições de codificador de mídia padrão aaaCustomizing | Microsoft Docs"
-description: "Este tópico mostra como tooperform avançados de codificação Personalizando o codificador de mídia padrão predefinições de tarefa. tópico de saudação mostra como toouse SDK do Media Services .NET toocreate uma codificação de tarefas e de trabalho. Ele também mostra como toosupply personalizado predefinições toohello trabalho de codificação."
+title: "Personalizando as predefinições do Media Encoder Standard | Microsoft Docs"
+description: "Esse tópico mostra como executar a codificação avançada ao personalizar predefinições de tarefa do Codificador de Mídia Padrão. Esse tópico mostra como usar o SDK do .NET dos Serviços de Mídia para criar um trabalho e uma tarefa de codificação. Ele também mostra como fornecer predefinições personalizadas para o trabalho de codificação."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: fa8c3bef63b0c1ecc88a6b8874ecbff3a8028a57
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard
 
 ## <a name="overview"></a>Visão geral
 
-Este tópico mostra como tooperform avançado de codificação com mídia codificador padrão (MES) usando um personalizado predefinido. tópico de saudação usa .NET toocreate uma tarefa de codificação e um trabalho que executa essa tarefa.  
+Este tópico mostra como executar a codificação avançada com o MES (Media Encoder Standard) usando uma predefinição personalizada. O tópico usa o .NET para criar uma tarefa de codificação e um trabalho que executa essa tarefa.  
 
-Neste tópico você verá como toocustomize uma predefinição colocando Olá [H264 várias taxas de bits 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) número Olá predefinidas e redução de camadas. Olá [predefinições de codificador padrão do personalizando mídia](media-services-advanced-encoding-with-mes.md) tópico demonstra as predefinições personalizadas que podem ser usado tooperform avançado tarefas de codificação.
+Neste tópico, você verá como personalizar uma predefinição usando a predefinição a [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O tópico [Personalizando as predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) demonstra as predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 ## <a id="customizing_presets"></a> Personalizando uma predefinição do MES
 
 ### <a name="original-preset"></a>Predefinição original
 
-Salvar Olá JSON definido no hello [H264 várias taxas de bits 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) tópico em algum arquivo com extensão. JSON. Por exemplo, **CustomPreset_JSON.json**.
+Salve o JSON definido no tópico [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) em algum arquivo com extensão .json. Por exemplo, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Predefinição personalizada
 
-Olá abrir **CustomPreset_JSON.json** de arquivo e remover as três primeiras camadas de **H264Layers** para o arquivo tem esta aparência.
+Abra o arquivo **CustomPreset_JSON.json** e remova as primeiras três camadas de **H264Layers** para que seu arquivo tenha esta aparência.
 
     
     {  
@@ -111,24 +111,24 @@ Olá abrir **CustomPreset_JSON.json** de arquivo e remover as três primeiras ca
 
 ## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
-saudação de exemplo de código a seguir usa saudação do SDK do Media Services .NET tooperform tarefas a seguir:
+O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 - Crie um trabalho de codificação.
-- Obtém um codificador de mídia codificador padrão de toohello de referência.
-- Carregar Olá que JSON personalizado predefinidos que você criou na seção anterior hello. 
+- Obtenha uma referência para o Codificador de Mídia Padrão.
+- Carregue a predefinição JSON personalizada criada na seção anterior. 
   
-        // Load hello JSON from hello local file.
+        // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Adicione um trabalho toohello codificação. 
-- Especifique a entrada hello toobe ativo codificado.
-- Crie um ativo de saída que conterá o ativo de saudação codificado.
-- Adicione o andamento do trabalho um evento manipulador toocheck hello.
-- Envie trabalho de saudação.
+- Adicione uma tarefa de codificação para o trabalho. 
+- Especifique o ativo de entrada a ser codificado.
+- Crie um ativo de saída que conterá o ativo codificado.
+- Adicione um manipulador de eventos para verificar o progresso do trabalho.
+- Enviar o trabalho.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de saudação com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo   
 
@@ -143,7 +143,7 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
     {
         class Program
         {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -168,7 +168,7 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate hello output using custom presets.
+            // Encode and generate the output using custom presets.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -178,11 +178,11 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass tooit hello name of hello 
-            // processor toouse for hello specific task.
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load hello XML (or JSON) from hello local file.
+            // Load the XML (or JSON) from the local file.
             string configuration = File.ReadAllText("CustomPreset_JSON.json");
 
             // Create a task
@@ -191,11 +191,11 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
             configuration,
             TaskOptions.None);
 
-            // Specify hello input asset toobe encoded.
+            // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset toocontain hello results of hello job. 
+            // Add an output asset to contain the results of the job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means hello output asset is not encrypted. 
+            // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
             AssetCreationOptions.None);
 

@@ -1,6 +1,6 @@
 ---
-title: "uma solução de IoT usando a análise de fluxo de aaaBuild | Microsoft Docs"
-description: "Tutorial de Introdução para Olá solução de IoT de análise de fluxo de um cenário de cabina de cobrança"
+title: "Criar uma solução de IoT usando o Stream Analytics | Microsoft Docs"
+description: "Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio"
 keywords: "solução de iot, funções da janela"
 documentationcenter: 
 services: stream-analytics
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: e37fc5b56c4ffc4a2d7b820afe0c17631e577ea0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 ## <a name="introduction"></a>Introdução
-Neste tutorial, você aprenderá como informações em tempo real do toouse Azure Stream Analytics tooget de seus dados. Os desenvolvedores podem facilmente combinar fluxos de dados, como fluxos de clique, logs e eventos gerados pelo dispositivo com registros históricos ou informações de negócios de tooderive de dados de referência. Como um serviço de computação de fluxo em tempo real, totalmente gerenciado que é hospedado no Microsoft Azure, Azure Stream Analytics fornece resiliência interna, baixa latência e escalabilidade tooget preparam em minutos.
+Neste tutorial, você aprenderá a usar o Stream Analytics do Azure para aprofundar-se em seus dados em tempo real. Os desenvolvedores podem facilmente combinar fluxos de dados, como fluxos de cliques, logs e eventos gerados pelo dispositivo, com registros históricos ou dados de referência para gerar insights comerciais. Como um serviço de computação de fluxo em tempo real totalmente gerenciado e hospedado no Microsoft Azure, o Stream Analytics do Azure fornece resiliência interna, baixa latência e escalabilidade para você colocar tudo em funcionamento em minutos.
 
 Depois de concluir este tutorial, você poderá:
 
-* Familiarize-se com o portal do Azure Stream Analytics hello.
+* Familiarizar-se com o portal do Stream Analytics do Azure.
 * Configurar e implantar um trabalho de transmissão.
-* Descrever os problemas do mundo real e resolvê-los usando a linguagem de consulta do Stream Analytics hello.
+* Articular problemas do mundo real e resolvê-los usando a linguagem de consulta do Stream Analytics.
 * Desenvolver com confiança soluções de transmissão para seus clientes usando o Stream Analytics do Azure.
-* Use Olá monitoramento e registro em log experiência tootroubleshoot problemas.
+* Use o monitoramento e experiência de log para solucionar problemas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você será necessário Olá toocomplete pré-requisitos a seguir este tutorial:
+Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* versão mais recente de saudação do [PowerShell do Azure](/powershell/azure/overview)
-* Visual Studio de 2017, 2015 ou hello livre [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+* A versão mais recente do [Azure PowerShell](/powershell/azure/overview)
+* Visual Studio 2017, 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 * Uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
-* Privilégios administrativos no computador de saudação
-* Download de [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) de saudação Microsoft Download Center
-* Opcional: Código gerador de evento Olá TollApp em [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Privilégios administrativos no computador
+* Baixar [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) do Centro de Download da Microsoft
+* Opcional: código-fonte do gerador de evento TollApp no [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: “Olá, pedágio!”
-Uma praça de pedágio é um fenômeno comum. Você encontre-los em várias estradas, pontes e túneis em Olá, mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você pare atendente de tooan toopay Olá pedágio. Em cabines automatizadas, um sensor na parte superior de cada cabine examina um cartão RFID que é afixada toohello para-brisa do seu veículo conforme você passa pedágio hello. É fácil toovisualize passagem de saudação dos veículos por essas estações de pedágio como um fluxo de eventos onde operações interessantes podem ser executadas.
+Uma praça de pedágio é um fenômeno comum. Você se depara com elas em várias estradas, pontes e túneis em todo o mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você para e paga o pedágio para um atendente. Em cabines automatizadas, um sensor sobre cada uma das cabines lê um cartão RFID fixado ao para-brisa do veículo conforme você passa pela cabine. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
 
 ![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
 ## <a name="incoming-data"></a>Dados de entrada
-Este tutorial funciona com dois fluxos de dados. Sensores instalados em entrada hello e saída de estações de pedágio Olá produzir primeiro fluxo de saudação. segundo fluxo de saudação é um conjunto de dados de pesquisa estática que tem dados de registro de veículo.
+Este tutorial funciona com dois fluxos de dados. Sensores instalados na entrada e na saída das praças de pedágio produzem o primeiro fluxo. O segundo fluxo é um conjunto de dados de pesquisa estático que contém dados de registro dos veículos.
 
 ### <a name="entry-data-stream"></a>Fluxo de dados de entrada
-fluxo de dados de entrada Hello contém informações sobre o carro conforme ele entra estações de pedágio.
+O fluxo de dados de entrada contém informações sobre os carros que entram nas praças de pedágio.
 
 | TollID | EntryTime | PlacaDeCarro | Estado | Faça | Modelo | VehicleType | VehicleWeight | Pedágio | Marca |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,23 +63,23 @@ fluxo de dados de entrada Hello contém informações sobre o carro conforme ele
 | 1 |2014-09-10 12:03:00.000 |1007 BNJ |NOVA IORQUE |Honda |CRV |1 |0 |5 |789123456 |
 | 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
-Aqui está uma breve descrição das colunas de saudação:
+Aqui está uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| TollID |ID de cabine do pedágio Olá que identifica exclusivamente um pedágio |
-| EntryTime |Data de saudação e a hora da entrada de saudação veículo toohello pedágio em UTC |
-| PlacaDeCarro |número de placa de saudação do veículo Olá |
+| TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
+| EntryTime |A data e hora da entrada do veículo na cabine de pedágio no horário UTC |
+| PlacaDeCarro |O número da placa de licença do veículo |
 | Estado |Um estado nos Estados Unidos |
-| Faça |fabricante de saudação do automóvel Olá |
-| Modelo |número de modelo de saudação do automóvel Olá |
+| Faça |O fabricante do automóvel |
+| Modelo |O número do modelo do automóvel |
 | VehicleType |1 para veículos de passageiros ou 2 para veículos comerciais |
 | WeightType |Peso do veículo em toneladas; 0 para veículos de passageiros |
-| Pedágio |valor de pedágio Olá em USD |
-| Marca |Olá e-Tag em automóvel Olá que automatiza o pagamento; espaço em branco em que o pagamento Olá foi feito manualmente |
+| Pedágio |Valor do pedágio em dólares americanos |
+| Marca |A e-Tag no automóvel que automatiza o pagamento; deixado em branco quando o pagamento é feito manualmente |
 
 ### <a name="exit-data-stream"></a>Fluxo de dados de saída
-fluxo de dados de saída de Hello contém informações sobre carros deixa a estação de pedágio hello.
+O fluxo de dados de saída contém informações sobre os carros que estão saindo da praça de pedágio.
 
 | **TollId** | **ExitTime** | **PlacaDeCarro** |
 | --- | --- | --- |
@@ -90,16 +90,16 @@ fluxo de dados de saída de Hello contém informações sobre carros deixa a est
 | 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
 | 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
-Aqui está uma breve descrição das colunas de saudação:
+Aqui está uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| TollID |ID de cabine do pedágio Olá que identifica exclusivamente um pedágio |
-| ExitTime |Data de saudação e a hora de saída do veículo de saudação do pedágio em UTC |
-| PlacaDeCarro |número de placa de saudação do veículo Olá |
+| TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
+| ExitTime |A data e hora de saída do veículo da cabine de pedágio no horário UTC |
+| PlacaDeCarro |O número da placa de licença do veículo |
 
 ### <a name="commercial-vehicle-registration-data"></a>Dados de registro de veículo comercial
-tutorial de saudação usa um instantâneo estático de um banco de dados de registro de veículo comercial.
+Este tutorial usa um instantâneo estático de um banco de dados de registro de veículos comerciais.
 
 | PlacaDeCarro | RegistrationId | Expirado |
 | --- | --- | --- |
@@ -110,240 +110,240 @@ tutorial de saudação usa um instantâneo estático de um banco de dados de reg
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
 
-Aqui está uma breve descrição das colunas de saudação:
+Aqui está uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| PlacaDeCarro |número de placa de saudação do veículo Olá |
-| RegistrationId |ID de registro do veículo Olá |
-| Expirado |Olá status de registro de veículo Olá: 0 se o registro de veículo estiver ativo, 1 se o registro está vencido |
+| PlacaDeCarro |O número da placa de licença do veículo |
+| RegistrationId |A ID de registro do veículo |
+| Expirado |O status de registro do veículo: 0 se o registro do veículo estiver ativo, 1 se estiver vencido |
 
-## <a name="set-up-hello-environment-for-azure-stream-analytics"></a>Configurar o ambiente de saudação para análise de fluxo do Azure
-toocomplete neste tutorial, você precisa de uma assinatura Microsoft Azure. A Microsoft oferece uma avaliação gratuita dos serviços do Microsoft Azure.
+## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurar o ambiente para o Stream Analytics do Azure
+Para concluir este tutorial, você precisa de uma assinatura do Microsoft Azure. A Microsoft oferece uma avaliação gratuita dos serviços do Microsoft Azure.
 
 Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 > [!NOTE]
-> toosign para uma avaliação gratuita, você precisa de um dispositivo móvel que pode receber mensagens de texto e um cartão de crédito válido.
+> Para se inscrever para uma avaliação gratuita, você precisará de um dispositivo móvel que possa receber mensagens de texto e de um cartão de crédito válido.
 > 
 > 
 
-Certifique-se de que toofollow Olá as etapas na seção de "Limpar sua conta do Azure" hello final Olá deste artigo para que você possa fazer melhor uso de saudação do seu crédito do Azure.
+Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
-## <a name="provision-azure-resources-required-for-hello-tutorial"></a>Provisionar recursos do Azure necessários para o tutorial Olá
-Este tutorial requer dois tooreceive de hubs de evento *entrada* e *sair* fluxos de dados. Banco de dados SQL do Azure gera resultados de saudação de trabalhos do Stream Analytics hello. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.
+## <a name="provision-azure-resources-required-for-the-tutorial"></a>Provisionar os recursos do Azure necessários para o tutorial
+Este tutorial requer dois hubs de eventos para receber transmissões de dados de *entrada* e de *saída*. O Banco de Dados SQL do Azure gera os resultados dos trabalhos do Stream Analytics. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.
 
-Você pode usar Olá Setup.ps1 script na pasta de TollApp Olá no GitHub toocreate todos os recursos necessários. Interesse Olá de tempo, recomendamos que você executá-lo. Se você quiser toolearn mais informações sobre como tooconfigure desses recursos no hello portal do Azure, consulte o apêndice de "Configurando recursos de tutorial no portal do Azure" toohello.
+Você pode usar o script Setup.ps1 na pasta TollApp no GitHub para criar todos os recursos necessários. Devido ao tempo, recomendamos que você execute-o. Se quiser saber mais sobre como configurar esses recursos no portal do Azure, veja o apêndice “Configurar recursos de tutorial no portal do Azure”.
 
-Baixar e salvar Olá suporte [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) arquivos e pastas.
+Baixe e salve os arquivos e pastas [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) de suporte.
 
-Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções de saudação em [instalar e configurar o Azure PowerShell](/powershell/azure/overview) tooinstall-lo.
+Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo.
 
-Como o Windows bloqueia automaticamente. ps1,. dll e arquivos de .exe, é necessário tooset política de execução de saudação antes de executar o script hello. Verifique se está executando a janela do PowerShell do Azure Olá *como um administrador*. Execute **Set-ExecutionPolicy unrestricted**. Quando solicitado, digite **Y**.
+Como o Windows bloqueia automaticamente arquivos .ps1, .dll e .exe, você precisa definir a política de execução antes de executar o script. Verifique se a janela do Azure PowerShell está em execução *como administrador*. Execute **Set-ExecutionPolicy unrestricted**. Quando solicitado, digite **Y**.
 
 ![Captura de tela de "Set-ExecutionPolicy unrestricted" em execução na janela do Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image2.png)
 
-Executar **Get-ExecutionPolicy** toomake-se de que o comando Olá trabalhou.
+Execute **Get-ExecutionPolicy** para confirmar se o comando funcionou.
 
 ![Captura de tela de "Get-ExecutionPolicy" em execução na janela do Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image3.png)
 
-Acesse o diretório toohello com scripts de saudação e o aplicativo gerador.
+Vá até o diretório que tem os scripts e o aplicativo gerador.
 
-![Captura de tela de "cd .\TollApp\TollApp" em execução na janela do PowerShell do Azure Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)
+![Captura de tela de "cd.\TollApp\TollApp" em execução na janela do Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)
 
-Tipo **.\\ Setup.ps1** tooset a sua conta do Azure, criar e configurar todos os recursos necessários e iniciar toogenerate eventos. script Hello aleatoriamente seleciona uma região toocreate seus recursos. tooexplicitly especificar uma região, você pode passar Olá **-local** parâmetro como Olá exemplo a seguir:
+Digite **.\\Setup.ps1** para configurar sua conta do Azure, crie e configure todos os recursos necessários e comece a gerar eventos. O script seleciona aleatoriamente uma região para criar seus recursos. Para especificar explicitamente uma região, você pode passar o parâmetro **-location** , como no exemplo a seguir:
 
 **.\\Setup.ps1 -location “Central US”**
 
-![Captura de tela da página Olá entrada do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
+![Captura de tela da página de entrada do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
-script Hello abre Olá **entrar** página do Microsoft Azure. Insira suas credenciais de conta.
+O script abre a página **Entrar** do Microsoft Azure. Insira suas credenciais de conta.
 
 > [!NOTE]
-> Se sua conta tiver acesso toomultiple assinaturas, você será o nome da assinatura que você deseja toouse tutorial Olá Olá tooenter frequentes.
+> Se sua conta tiver acesso a várias assinaturas, será solicitado que você insira o nome da assinatura que deseja usar para o tutorial.
 > 
 > 
 
-script Hello pode levar vários toorun de minutos. Depois da conclusão, saída de hello deve ter a aparência Olá captura de tela a seguir.
+O script pode levar vários minutos para ser executado. Após a conclusão, a saída deve ser semelhante à seguinte captura de tela.
 
-![Captura de tela de saída do script hello na janela do PowerShell do Azure Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
+![Captura de tela da saída do script na janela do Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
 
-Você também verá outra janela é semelhante toohello captura de tela a seguir. Este aplicativo está enviando eventos tooAzure Hubs de eventos, que é necessário toorun tutorial de saudação. Assim, não pare o aplicativo hello ou fechar esta janela até que você concluir o tutorial hello.
+Você também verá outra janela semelhante à captura de tela a seguir. Este aplicativo está enviando eventos aos Hubs de Eventos do Azure, que é necessário para executar o tutorial. Sendo assim, não interrompa o aplicativo ou feche a janela até concluir o tutorial.
 
 ![Captura de tela de "Enviando dados de hub de evento"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-Você deve ser capaz de toosee seus recursos no portal do Azure agora. Vá muito<https://portal.azure.com>e entre com suas credenciais de conta. Observe que no momento algumas funcionalidades utiliza o portal clássico do hello. Essas etapas serão indicadas claramente.
+Agora, você deverá ver todos os recursos no portal do Azure. Vá para <https://portal.azure.com> e entre com as credenciais de sua conta. Observe que, no momento, algumas funcionalidades utilizam o portal clássico. Essas etapas serão indicadas claramente.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
-No portal do Azure de Olá, clique em **mais serviços** na parte inferior de saudação do painel de gerenciamento esquerdo hello. Tipo **hubs de eventos** no hello campo fornecido e clique em **hubs de eventos**. Isso inicia uma nova saudação de toodisplay de janela de navegador **SERVICE BUS** área Olá **portal clássico**. Aqui você pode ver Olá Hub de eventos criados pelo Olá Setup.ps1 script.
+No portal do Azure, clique em **Mais serviços** na parte inferior do painel de gerenciamento esquerdo. Digite **Hubs de eventos** no campo fornecido e clique em **Hubs de eventos**. Isso iniciará uma nova janela do navegador para exibir a área **BARRAMENTO DE SERVIÇO** no **portal clássico**. Aqui você pode ver o Hub de Eventos criado pelo script Setup.ps1.
 
 ![Barramento de Serviço](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
-Clique em Olá que inicia com *tolldata*. Clique em Olá **HUBS de eventos** guia. Você verá dois Hubs de Eventos chamados *entry* e *exit* criados nesse namespace.
+Clique naquele que começa com *tolldata*. Clique na guia **HUBS DE EVENTOS** . Você verá dois Hubs de Eventos chamados *entry* e *exit* criados nesse namespace.
 
-![Guia de Hubs de evento no portal clássico Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+![Guia Hubs de Eventos no portal clássico](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
 
 ### <a name="azure-storage-container"></a>Contêiner de armazenamento do Azure
-1. Volte a guia toohello no portal de tooAzure abra seu navegador. Clique em **armazenamento** em Olá lado esquerdo da saudação toosee portal do Azure hello Azure contêiner de armazenamento que é usado no tutorial de saudação.
+1. Volte à guia aberta no navegador para o portal do Azure. Clique em **ARMAZENAMENTO** no lado esquerdo do portal do Azure para ver o contêiner de Armazenamento do Azure usado no tutorial.
    
     ![Item de menu de armazenamento](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Clique em Olá que começam com *tolldata*. Clique em Olá **CONTÊINERES** contêiner do guia toosee Olá criado.
+2. Clique naquele que começa com *tolldata*. Clique na guia **CONTÊINERES** para ver o contêiner criado.
    
-    ![Guia de contêineres no hello portal do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Clique em Olá **tolldata** saudação do contêiner toosee carregado o arquivo JSON que contém dados de registro de veículo.
+    ![Guia Contêineres no portal do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
+3. Clique no contêiner **tolldata** para ver o arquivo JSON carregado com os dados de registro de veículos.
    
-    ![Captura de tela de arquivo de registration.json Olá no contêiner de saudação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+    ![Captura de tela do arquivo registration.json no contêiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
 
 ### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
-1. Volte toohello portal do Azure na guia de primeira Olá que foi aberto no navegador de saudação. Clique em **bancos de dados SQL** em Olá lado esquerdo da saudação toosee portal do Azure Olá banco de dados SQL que será usado no tutorial hello e clique em **tolldatadb**.
+1. Volte ao portal do Azure na primeira guia que foi aberta no navegador. Clique em **BANCOS DE DADOS SQL** no lado esquerdo do portal do Azure para ver o banco de dados SQL que será usado no tutorial e clique em **tolldatadb**.
    
-    ![Captura de tela da saudação criado o banco de dados SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
-2. Nome do servidor de saudação cópia sem número de porta de saudação (*servername*. t, por exemplo).
-    ![Captura de tela da saudação criado o banco de dados de banco de dados SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15a.png)
+    ![Captura de tela do banco de dados SQL criado](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
+2. Copie o nome do servidor sem o número da porta (*servername*.database.windows.net, por exemplo).
+    ![Captura de tela do banco de dados SQL criado](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15a.png)
 
-## <a name="connect-toohello-database-from-visual-studio"></a>Conecte-se o banco de dados toohello do Visual Studio
-Use o Visual Studio tooaccess resultados da consulta no banco de dados de saída de hello.
+## <a name="connect-to-the-database-from-visual-studio"></a>Conectar-se ao banco de dados do Visual Studio
+Use o Visual Studio para acessar os resultados de consultas no banco de dados de saída.
 
-Conecte-se toohello banco de dados do SQL (destino Olá) do Visual Studio:
+Conecte-se ao banco de dados SQL (o destino) do Visual Studio:
 
-1. Abra o Visual Studio e, em seguida, clique em **ferramentas** > **conectar tooDatabase**.
+1. Abra o Visual Studio e clique em **Ferramentas** > **Conectar-se ao banco de dados**.
 2. Se for solicitado, clique em **Microsoft SQL Server** como uma fonte de dados.
    
     ![Caixa de diálogo Alterar Fonte de Dados](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
-3. Em Olá **nome do servidor** campo, cole o nome hello que você copiou na seção anterior de saudação do hello portal do Azure (ou seja, *servername*. t).
+3. No campo **Nome do servidor** , cole o nome copiado na seção anterior do portal do Azure (ou seja, *servername*.database.windows.net).
 4. Clique em **Usar Autenticação do SQL Server**.
-5. Digite **tolladmin** em Olá **nome de usuário** campo e **123toll!** em Olá **senha** campo.
-6. Clique em **selecionar ou digitar um nome de banco de dados**e selecione **TollDataDB** como banco de dados de saudação.
+5. Digite **tolladmin** no campo **Nome de usuário** e **123toll!** in the **Senha** .
+6. Clique em **Selecione ou insira um nome de banco de dados** e selecione **TollDataDB** como o banco de dados.
    
     ![Caixa de diálogo Adicionar Conexão](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
 7. Clique em **OK**.
 8. Abra o Gerenciador de Servidores.
    
     ![Gerenciador de Servidores](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-9. Consulte as quatro tabelas no banco de dados de TollDataDB hello.
+9. Veja quatro tabelas no banco de dados TollDataDB.
    
-    ![Tabelas no banco de dados de TollDataDB Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
+    ![Tabelas no banco de dados TollDataDB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
 
 ## <a name="event-generator-tollapp-sample-project"></a>Gerador de eventos: projeto de exemplo TollApp
-saudação de script do PowerShell é iniciado automaticamente toosend eventos usando o programa de aplicativo de exemplo hello TollApp. Você não precisa tooperform as etapas adicionais.
+O script do PowerShell inicia automaticamente o envio de eventos usando o programa TollApp do aplicativo de exemplo. Você não precisa executar nenhuma etapa adicional.
 
-No entanto, se você estiver interessado nos detalhes de implementação, você pode encontrar código-fonte do hello TollApp aplicativo hello no GitHub [exemplos/TollApp](https://aka.ms/azure-stream-analytics-toll-source).
+No entanto, se estiver interessado nos detalhes da implementação, você encontrará o código-fonte do aplicativo TollApp no GitHub [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source).
 
 ![Captura de tela do código de exemplo exibido no Visual Studio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
-1. Olá portal do Azure, o clique Olá sinal de adição verde no canto superior esquerdo Olá Olá página toocreate um novo trabalho de análise de fluxo. Selecione **Inteligência + Análise** e clique em **Trabalho do Stream Analytics**.
+1. No portal do Azure, clique no sinal de adição verde no canto superior esquerdo da página para criar um novo trabalho do Stream Analytics. Selecione **Inteligência + Análise** e clique em **Trabalho do Stream Analytics**.
    
     ![Novo botão](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
-2. Forneça um nome de trabalho, validar assinatura hello está correto e, em seguida, criar um novo grupo de recursos no hello mesma região Olá armazenamento de hub de evento (o padrão é Centro Sul dos EUA para script hello).
-3. Clique em **Pin toodashboard** e **criar** final Olá Olá página.
+2. Forneça um nome de trabalho, valide se a assinatura está correta e crie um novo Grupo de recursos na mesma região do armazenamento do Hub de eventos (o padrão para o script é Centro-Sul dos EUA).
+3. Clique em **Fixar no painel** e em **CRIAR** na parte inferior da página.
    
     ![Opção Criar um Trabalho do Stream Analytics](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
 ## <a name="define-input-sources"></a>Definir fontes de entrada
-1. Olá trabalho criar e abrir a página de saudação do trabalho. Ou você pode clicar em Olá ao criar trabalho de análise no painel do portal hello.
+1. O trabalho criará e abrirá a página do trabalho. Se preferir, clique no trabalho de análise criado no painel do portal.
 
-2. Clique em Olá **ENTRADAS** guia toodefine Olá fonte de dados.
+2. Clique na guia **ENTRADAS** para definir os dados de origem.
    
-    ![Guia de entradas de saudação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.png)
+    ![A guia Entradas](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.png)
 3. Clique em **ADICIONAR UMA ENTRADA**.
    
-    ![Olá, adicionar uma opção de entrada](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
+    ![A opção Adicionar uma Entrada](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
 4. Digite **EntryStream** como **ALIAS DE ENTRADA**.
 5. O Tipo de Origem é **Transmissão de Dados**
 6. A Fonte é **Hub de eventos**.
-7. **Namespace de barramento de serviço** devem ser Olá TollData uma saudação lista suspensa.
-8. **Nome do hub de evento** deve ser definido muito**entrada**.
-9. **Nome de política do hub de evento*é **RootManageSharedAccessKey** (Olá valor padrão).
+7. O **Namespace do barramento de serviço** deve ser o TollData no menu suspenso.
+8. O **Nome do hub de eventos** deve ser definido como **entrada**.
+9. **Nome da política do hub de eventos*é **RootManageSharedAccessKey**  (o valor padrão).
 10. Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
    
     As configurações ficarão semelhantes:
    
     ![Configurações do hub de evento](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
-10. Clique em **criar** na parte inferior de saudação do Assistente de Olá Olá página toofinish.
+10. Clique em **Criar** na parte inferior da página para concluir o assistente.
     
-    Agora que você criou o fluxo de entrada hello, você seguirá Olá mesmo fluxo de saída etapas toocreate hello. Ser valores de tooenter-se em Olá captura de tela a seguir.
+    Agora que criou o fluxo de entrada, você seguirá as mesmas etapas para criar o fluxo de saída. Lembre-se de inserir valores como mostra a captura de tela a seguir.
     
-    ![Configurações de fluxo de saída de saudação de](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
+    ![Configurações do fluxo de saída](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
     
     Você definiu dois fluxos de entrada:
     
-    ![Fluxos de entrada definidos no hello portal do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
+    ![Fluxos de entrada definidos no portal do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
     
-    Em seguida, você irá adicionar a entrada de dados de referência para o arquivo de blob de saudação que contém dados de registro de carro.
-11. Clique em **adicionar**e, em seguida, siga Olá mesmo processo para entradas de fluxo hello, mas selecionar **dados de referência** em vez de **fluxo de dados** e hello **Alias de entrada**  é **registro**.
+    Em seguida, você adicionará a entrada de dados de referência para o arquivo de blob que contém os dados de registro do carro.
+11. Clique em **ADICIONAR** e siga o mesmo processo para as entradas de transmissão, mas selecione **DADOS DE REFERÊNCIA** em vez de **Transmissão de Dados**. O **Alias de Entrada** é **Registro**.
 
-12. conta de armazenamento que começa com **tolldata**. nome do contêiner Olá deve ser **tolldata**e hello **padrão de caminho** devem ser **registration.json**. Este nome de arquivo diferencia maiúsculas de minúsculas e deve estar em **minúsculas**.
+12. conta de armazenamento que começa com **tolldata**. O nome do contêiner deve ser **tolldata** e o **PADRÃO DO CAMINHO** deve ser **registration.json**. Este nome de arquivo diferencia maiúsculas de minúsculas e deve estar em **minúsculas**.
     
     ![Configurações de armazenamento de blob](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. Clique em **criar** toofinish Assistente de saudação.
+13. Clique em **Criar** para concluir o assistente.
 
 Agora, todas as entradas são definidas.
 
 ## <a name="define-output"></a>Definir saída
-1. No painel de visão geral do trabalho do Stream Analytics hello, selecione **SAÍDAS**.
+1. No painel de visão geral do trabalho do Stream Analytics, selecione **SAÍDAS**.
    
-    ![Olá, guia saída e a opção "Adicionar uma saída de"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
+    ![A guia Saída e a opção “Adicionar uma saída”](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
 2. Clique em **Adicionar**.
-3. Saudação de conjunto **alias de saída** too'output' e, em seguida, **coletor** muito**banco de dados SQL**.
-3. Selecione o nome do servidor de saudação que foi usado no Olá a seção "Conectar tooDatabase do Visual Studio" do artigo hello. nome do banco de dados de saudação é **TollDataDB**.
-4. Digite **tolladmin** em Olá **USERNAME** campo, **123toll!** em Olá **senha** campo, e **TollDataRefJoin** em Olá **tabela** campo.
+3. Defina o **Alias de saída** como “saída” e **Coletor** como **Banco de dados SQL**.
+3. Selecione o nome do servidor que foi usado na seção “Conectar-se ao banco de dados do Visual Studio” do artigo. O nome do banco de dados é **TollDataDB**.
+4. Digite **tolladmin** no campo **USERNAME**, **123toll!** no campo **SENHA**, e **TollDataRefJoin** no campo **TABELA**.
    
     ![Configurações do Banco de Dados SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
 5. Clique em **Criar**.
 
 ## <a name="azure-stream-analytics-query"></a>Consulta do Stream Analytics do Azure
-Olá **consulta** guia contém uma consulta SQL transformações Olá os dados de entrada.
+A guia **CONSULTA** contém uma consulta SQL que transforma os dados de entrada.
 
-![Uma consulta adicionada toohello guia de consulta](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.png)
+![Uma consulta adicionada à guia Consulta](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.png)
 
-Este tutorial tentativas tooanswer várias questões comerciais que estão relacionadas a dados tootoll e construtores de análise de fluxo de consultas que podem ser usados no Azure Stream Analytics tooprovide uma resposta relevante.
+Este tutorial tenta responder várias perguntas de negócios relacionadas aos dados de pedágio e criar consultas do Stream Analytics que possam ser usadas no Stream Analytics do Azure para fornecer uma resposta relevante.
 
-Antes de iniciar o trabalho do Stream Analytics primeiro, vamos explorar alguns cenários e sintaxe de consulta de saudação.
+Antes de você começar seu primeiro trabalho do Stream Analytics do Azure, vamos explorar alguns cenários e a sintaxe de consulta.
 
-## <a name="introduction-tooazure-stream-analytics-query-language"></a>Introdução tooAzure linguagem de consulta do Stream Analytics
+## <a name="introduction-to-azure-stream-analytics-query-language"></a>Introdução à linguagem de consulta do Stream Analytics do Azure
 - - -
-Digamos que você precisa que o número de saudação toocount dos veículos que insere um pedágio. Como esse é um fluxo contínuo de eventos, você tem toodefine um "período de tempo." Vamos modificar Olá pergunta toobe "quantos veículos inserir um pedágio a cada três minutos?". Isso é normalmente chamados tooas Olá em cascata contagem.
+Digamos que você precise contar o número de veículos que entram em uma cabine de pedágio. Como se trata de um fluxo contínuo de eventos, você precisa definir um “período”. Vamos modificar a pergunta para "Quantos veículos entram em uma cabine de pedágio a cada três minutos?". Isso é conhecido como contagem em cascata.
 
-Vamos analisar consulta do Stream Analytics do Azure Olá que responde a essa pergunta:
+Vejamos a consulta do Stream Analytics do Azure que responde essa pergunta:
 
     SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
     FROM EntryStream TIMESTAMP BY EntryTime
     GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
-Como você pode ver, o Azure Stream Analytics usa uma linguagem de consulta como SQL e adiciona algumas extensões toospecify tempo aspectos relacionados à consulta hello.
+Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.
 
-Para obter mais detalhes, leia sobre [gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) construções usadas na consulta de saudação do MSDN.
+Para obter mais detalhes, leia sobre [Gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e construções de [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usadas na consulta no MSDN.
 
 ## <a name="testing-azure-stream-analytics-queries"></a>Testando consultas do Stream Analytics do Azure
-Agora que você tenha escrito a primeira consulta do Stream Analytics do Azure, é hora tootest usando arquivos de dados de exemplo localizado na pasta TollApp no Olá que caminho a seguir:
+Agora que você escreveu sua primeira consulta do Stream Analytics do Azure, é hora de testá-la usando os arquivos de dados de exemplo localizados na pasta TollApp no caminho a seguir:
 
 **..\\TollApp\\TollApp\\Data**
 
-Esta pasta contém Olá seguintes arquivos:
+Esta pasta contém os seguintes arquivos:
 
 * Entry.json
 * Exit.JSON
 * registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Pergunta 1: número de veículos que entram em uma cabine de pedágio
-1. Abra hello portal do Azure e o trabalho do Stream Analytics do Azure vá tooyour criado. Clique em Olá **consulta** guia e cole a consulta da seção anterior hello.
+1. Abra o portal do Azure e navegue até o trabalho do Stream Analytics do Azure que foi criado. Clique na guia **CONSULTA** e copie e cole a consulta da seção anterior.
 
-2. toovalidate esta consulta em relação aos dados de exemplo, carregar dados Olá Olá EntryStream entrada clicando … Olá símbolo e selecionando **carregar dados de exemplo do arquivo**.
+2. Para validar essa consulta nos dados de exemplo, carregue os dados na entrada EntryStream clicando no símbolo … e selecionando **carregar dados de exemplo do arquivo**.
 
-    ![Captura de tela de arquivo de Entry.json Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
-3. No painel de saudação que aparece arquivo hello select (Entry.json) no seu computador local e clique em **Okey**. Olá **teste** ícone agora iluminam e ser clicável.
+    ![Captura de tela do arquivo Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
+3. No painel exibido, selecione o arquivo (Entry.json) no computador local e clique em **OK**. O ícone **Teste** agora ficará aceso e será clicável.
    
-    ![Captura de tela de arquivo de Entry.json Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.png)
-3. Valide que saída Olá consulta Olá é conforme o esperado:
+    ![Captura de tela do arquivo Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.png)
+3. Valide que a saída da consulta é conforme o esperado:
    
-    ![Resultados de teste de saudação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.png)
+    ![Resultados do teste](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.png)
 
-## <a name="question-2-report-total-time-for-each-car-toopass-through-hello-toll-booth"></a>Pergunta 2: Tempo total para cada toopass carro por meio de pedágio Olá de relatório
-tempo médio de saudação necessária para toopass um carro por meio de pedágio Olá ajuda a eficiência de saudação tooassess do processo de saudação e experiência de saudação do cliente.
+## <a name="question-2-report-total-time-for-each-car-to-pass-through-the-toll-booth"></a>Pergunta 2: relatar o tempo total para cada carro passar pela cabine de pedágio
+O tempo médio necessário para um carro passar pela cabine de pedágio ajuda a avaliar a eficiência do processo e a experiência do cliente.
 
-tempo total do toofind Olá, é necessário toojoin Olá EntryTime fluxo com o fluxo de ExitTime hello. Você adicionará fluxos Olá nas colunas TollId e LicencePlate. Olá **INGRESSAR** operador requer toospecify reserva temporal que descreve a diferença entre hello Unido eventos de tempo aceitável de saudação. Você usará **DATEDIFF** função toospecify que eventos devem ser não mais de 15 minutos entre si. Você também aplicará Olá **DATEDIFF** estação de chamada de função tooexit e entrada vezes toocompute Olá tempo real que um carro gasta em hello. Observe a diferença de saudação do uso de saudação do **DATEDIFF** quando ele é usado em uma **selecione** instrução em vez de **INGRESSAR** condição.
+Para encontrar o tempo total, você precisa associar o fluxo EntryTime ao fluxo ExitTime. Associe os fluxos nas colunas TollId e LicencePlate. O operador **JOIN** exige a especificação de um espaço de manobra temporal que descreve a diferença de tempo aceitável entre os eventos associados. Use a função **DATEDIFF** para especificar que os eventos não devem ter um intervalo maior que 15 minutos entre si. Aplique também a função **DATEDIFF** às horas de entrada e saída para calcular o tempo real que um carro gasta na praça de pedágio. Observe a diferença do uso da **DATEDIFF** quando usada em uma instrução **SELECT** em comparação com uma condição **JOIN**.
 
     SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
@@ -351,18 +351,18 @@ tempo total do toofind Olá, é necessário toojoin Olá EntryTime fluxo com o f
     ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
-1. tootest nesta consulta, atualização Olá consulta em Olá **consulta** para trabalho hello. Adicionar arquivo de teste Olá para **ExitStream** como **EntryStream** foi especificado acima.
+1. Para testar essa consulta, atualize-a na **CONSULTA** do trabalho. Adicione o arquivo de teste de **ExitStream** da mesma forma que **EntryStream** foi inserido acima.
    
 2. Clique em **Testar**.
 
-3. Selecione Olá caixa de seleção tootest Olá consulta e exibição Olá saída:
+3. Marque a caixa de seleção para testar a consulta e exibir a saída:
    
-    ![Saída do teste Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
+    ![Saída do teste](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
 ## <a name="question-3-report-all-commercial-vehicles-with-expired-registration"></a>Pergunta 3: relatar todos os veículos comerciais com o registro vencido
-O Azure Stream Analytics pode usar instantâneos estáticos dos dados toojoin com fluxos de dados temporais. toodemonstrate esse recurso, use Olá pergunta de exemplo a seguir.
+O Stream Analytics do Azure pode usar instantâneos estáticos de dados para se associar com os fluxos de dados temporais. Para demonstrar essa funcionalidade, use a pergunta de exemplo a seguir.
 
-Se um veículo comercial é registrado com a empresa de pedágio Olá, ele pode passar pelo pedágio Olá sem ser parado para inspeção. Você usará tooidentify de tabela de pesquisa de registro de veículo comercial todos os veículos comerciais registros expirados.
+Se um veículo comercial estiver registrado na empresa de pedágio, ele poderá passar pela cabine sem ser parado para inspeção. Use a tabela de pesquisa de Registro de Veículo Comercial para identificar todos os veículos comerciais com o registro vencido.
 
 ```
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
@@ -372,72 +372,72 @@ ON EntryStream.LicensePlate = Registration.LicensePlate
 WHERE Registration.Expired = '1'
 ```
 
-tootest uma consulta usando dados de referência, você precisa toodefine uma fonte de entrada hello dados de referência, que você tenha feito.
+Para testar uma consulta usando dados de referência, você precisa definir uma fonte de entrada para os dados de referência, o que você já fez.
 
-tootest nesta consulta, cole Olá consulta em hello **consulta** , clique em **teste**e especificar as fontes de entrada hello dois e o registro de saudação dados de exemplo e clique em **teste**.  
+Para testar essa consulta, cole-a na guia **CONSULTA** clique em **Testar**, especifique as duas fontes de entrada e os dados de exemplo de registro e clique em **Testar**.  
    
-![Saída do teste Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
+![Saída do teste](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
-## <a name="start-hello-stream-analytics-job"></a>Iniciar o trabalho de análise de fluxo de saudação
-Agora é hora toofinish Olá configuração e início Olá trabalho. Salvar a consulta de saudação da pergunta 3, que irá gerar saída correspondências Olá esquema da saudação **TollDataRefJoin** tabela de saída.
+## <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
+Agora, é hora de concluir a configuração e iniciar o trabalho. Salve a consulta da Pergunta 3, o que produzirá a saída correspondente ao esquema da tabela de saída **TollDataRefJoin** .
 
-Trabalho vá toohello **painel**e clique em **iniciar**.
+Navegue até o **PAINEL** de trabalho e clique em **INICIAR**.
 
-![Captura de tela do botão Iniciar de saudação no painel de trabalho Olá](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
+![Captura de tela do botão Iniciar no painel de trabalho](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
 
-Na caixa de diálogo de saudação que é aberta, alterar Olá **iniciar saída** muito tempo**tempo personalizado**. Alteração Olá hora tooone hora antes Olá hora atual. Essa alteração garante que todos os eventos do hub de eventos de saudação são processados desde o início de eventos de saudação toogenerate no início de saudação do tutorial de saudação. Agora clique Olá **iniciar** trabalho de saudação do botão toostart.
+Na caixa de diálogo que aparece, altere a hora de **INICIAR SAÍDA** para **HORA PERSONALIZADA**. Altere a hora para uma hora antes da hora atual. Essa alteração assegura que todos os eventos do hub de eventos sejam processados desde que você começou a gerar os eventos no início do tutorial. Agora clique no botão **Iniciar** para iniciar o trabalho.
 
 ![Seleção de hora personalizada](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image49.png)
 
-Iniciando o trabalho Olá pode levar alguns minutos. Você pode ver o status de saudação na página de nível superior Olá para análises de fluxo.
+O início do trabalho pode levar alguns minutos. Você pode ver o status na página de nível superior do Stream Analytics.
 
-![Captura de tela de status de saudação do trabalho de saudação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.png)
+![Captura de tela do status do trabalho](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.png)
 
 ## <a name="check-results-in-visual-studio"></a>Verificar resultados no Visual Studio
-1. Abra o Visual Studio Server Explorer e clique Olá **TollDataRefJoin** tabela.
-2. Clique em **Mostrar dados da tabela** toosee saída de saudação do seu trabalho.
+1. Abra o Gerenciador de Servidores do Visual Studio e clique com o botão direito do mouse na tabela **TollDataRefJoin** .
+2. Selecione **Mostrar Dados da Tabela** para ver a saída do seu trabalho.
    
     ![Seleção de "Mostrar Dados da Tabela" no Gerenciador de Servidores](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
 ## <a name="scale-out-azure-stream-analytics-jobs"></a>Escalar horizontalmente trabalhos do Stream Analytics do Azure
-O Azure Stream Analytics foi projetado tooelastically dimensionar para que ele possa manipular a muitos dados. consulta do Stream Analytics do Azure Olá pode usar um **PARTITION BY** sistema de saudação do tootell cláusula esta etapa será escalável. **PartitionId** é uma coluna especial Olá sistema adiciona toomatch Olá partição ID de entrada hello (hub de eventos).
+O Stream Analytics do Azure foi projetado para ser dimensionado de forma elástica, de modo a poder lidar com muitos dados. A consulta do Stream Analytics do Azure pode usar uma cláusula **PARTITION BY** para informar ao sistema que esta etapa será escalável horizontalmente. **PartitionId** é uma coluna especial adicionada pelo sistema e corresponde à ID da partição de entrada (hub de evento).
 
     SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
     FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
     GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
-1. Trabalho atual parar hello, atualização Olá consulta em Olá **consulta** guia e abra Olá **configurações** engrenagem no painel de trabalho hello. Clique em **Escala**.
+1. Interrompa o trabalho atual, atualize a consulta na guia **CONSULTA** e abra a engrenagem **Configurações** no painel do trabalho. Clique em **Escala**.
    
-    **UNIDADES de STREAMING** definir Olá o valor de capacidade de computação que Olá trabalho pode receber.
-2. Olá suspenso Change de 1 de 6.
+    **UNIDADES DE STREAMING** definem a quantidade de capacidade de computação que o trabalho pode receber.
+2. Altere o menu suspenso de 1 para 6.
    
     ![Captura de tela da seleção de 6 unidades de streaming](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
-3. Vá toohello **SAÍDAS** guia e altere o nome de saudação da tabela do SQL Olá muito**TollDataTumblingCountPartitioned**.
+3. Vá até a guia **SAÍDAS** e altere o nome da tabela SQL para **TollDataTumblingCountPartitioned**.
 
-Se você iniciar o trabalho de saudação agora, Stream Analytics do Azure pode distribuir o trabalho entre mais recursos de computação e obter melhor taxa de transferência. Observe que esse aplicativo TollApp Olá também está enviando eventos particionados por TollId.
+Se você iniciar o trabalho agora, o Stream Analytics do Azure poderá distribuir o trabalho entre mais recursos de computação e obter uma taxa de transferência melhor. Observe que o aplicativo TollApp também está enviando eventos particionados pelo TollId.
 
 ## <a name="monitor"></a>Monitoramento
-Olá **MONITOR** área contém estatísticas sobre Olá executando o trabalho. Primeira vez que a configuração é necessária toouse Olá conta de armazenamento Olá mesma região (nome de pedágio como Olá restante deste documento).   
+A área **MONITORAR** contém estatísticas sobre o trabalho em execução. Uma configuração inicial é necessária para usar a conta de armazenamento na mesma região (início do nome como o restante deste documento).   
 
 ![Captura de tela do monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
-Você pode acessar **Logs de atividade** do painel de trabalho Olá **configurações** área também.
+Você também pode acessar **Logs de Atividade** na área **Configurações** do painel do trabalho.
 
 
 ## <a name="conclusion"></a>Conclusão
-Este tutorial introduziu um serviço do Azure Stream Analytics toohello. Ele demonstrou como tooconfigure entradas e saídas para Olá trabalho do Stream Analytics. Usando o cenário de pedágio dados hello, tutorial Olá explicado tipos comuns de problemas que surgem no espaço de saudação de dados em movimento e como eles podem ser resolvidos com simples consultas SQL no Azure Stream Analytics. tutorial de saudação descrito SQL construções de extensão para trabalhar com dados temporais. Ele mostrou como toojoin fluxos de dados, como o fluxo de dados de saudação do tooenrich com dados de referência estática e tooscale-out de uma consulta tooachieve maior taxa de transferência.
+Este tutorial forneceu uma introdução ao serviço Stream Analytics do Azure. Ele demonstrou como configurar entradas e saídas para o trabalho do Stream Analytics. Usando o cenário de Dados de Pedágio, o tutorial explicou os tipos comuns de problemas que podem surgir no espaço de dados em movimento e como eles podem ser resolvidos com consultas simples do tipo SQL no Stream Analytics do Azure. O tutorial descreveu construções de extensão do SQL para trabalhar com os dados temporais. Ele mostrou como combinar transmissões de dados, como aprimorar a transmissão de dados com os dados de referência estáticos e como escalar horizontalmente uma consulta para aumentar a taxa de transferência.
 
-Embora este tutorial forneça uma boa introdução, ele não é, de forma alguma, completo. Você pode encontrar mais padrões de consulta usando a linguagem SAQL Olá em [consultar exemplos de padrões de uso comuns do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
-Consulte toohello [documentação on-line](https://azure.microsoft.com/documentation/services/stream-analytics/) toolearn mais sobre o Azure Stream Analytics.
+Embora este tutorial forneça uma boa introdução, ele não é, de forma alguma, completo. Você pode encontrar mais padrões de consulta usando a linguagem SAQL em [Exemplos de consulta para padrões de uso do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
+Consulte a [documentação online](https://azure.microsoft.com/documentation/services/stream-analytics/) para saber mais sobre o Stream Analytics do Azure.
 
 ## <a name="clean-up-your-azure-account"></a>Limpar sua conta do Azure
-1. Pare o trabalho de análise de fluxo de saudação no hello portal do Azure.
+1. Interrompa o trabalho do Stream Analytics do portal do Azure.
    
-    Olá Setup.ps1 script cria dois hubs de eventos e um banco de dados SQL. Olá você limpar os recursos no final de saudação do tutorial de saudação de ajuda de instruções a seguir.
-2. Em uma janela do PowerShell, digite **.\\ CleanUp.ps1** script hello toostart exclui os recursos usados no tutorial de saudação.
+    O script Setup.ps1 cria dois hubs de eventos e um banco de dados SQL. As instruções a seguir ajudarão você a limpar os recursos no final do tutorial.
+2. Em uma janela do PowerShell, digite **.\\Cleanup.ps1** Isso iniciará o script que exclui os recursos usados no tutorial.
    
    > [!NOTE]
-   > Recursos são identificados pelo nome da saudação. Certifique-se de examinar cuidadosamente cada item antes de confirmar a remoção.
+   > Os recursos são identificados pelo nome. Certifique-se de examinar cuidadosamente cada item antes de confirmar a remoção.
    > 
    > 
 

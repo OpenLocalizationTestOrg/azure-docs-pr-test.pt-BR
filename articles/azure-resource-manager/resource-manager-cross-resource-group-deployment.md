@@ -1,6 +1,6 @@
 ---
-title: grupos de recursos de toomultiple aaaDeploy recursos do Azure | Microsoft Docs
-description: "Mostra como tootarget mais de um recurso do Azure grupo durante a implantação."
+title: "Implantar recursos do Azure em vários grupos de recursos | Microsoft Docs"
+description: "Mostra como escolher mais de um grupo de recursos do Azure durante a implantação."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 93a39a26e0ca18dfcb5c6e8de95c38a64186d6de
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="deploy-azure-resources-toomore-than-one-resource-group"></a>Implantar recursos do Azure toomore que um grupo de recursos
+# <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>Implantar recursos do Azure em mais de um grupo de recursos
 
-Normalmente, você implanta todos os recursos de saudação em seu modelo tooa único grupo de recursos. No entanto, há situações em que você deseja toodeploy um conjunto de recursos juntos mas colocá-los em grupos de recursos diferentes. Por exemplo, você talvez queira toodeploy Olá backup virtual machine para local e o grupo de recursos separado do Azure Site Recovery tooa. Gerenciador de recursos permite que você toouse aninhado modelos tootarget diferentes grupos de recursos que o grupo de recursos de saudação usado para Olá pai modelo.
+Normalmente, você deve implantar todos os recursos em seu modelo em um único grupo de recursos. No entanto, há situações em que você deseja implantar um conjunto de recursos juntos, mas colocá-los em grupos de recursos diferentes. Por exemplo, você talvez queira implantar a máquina virtual de backup do Azure Site Recovery para um local e um grupo de recursos separados. O Resource Manager permite que você use modelos aninhados para grupos de recursos diferentes do grupo de recursos usado no modelo pai.
 
-grupo de recursos de saudação é o contêiner de ciclo de vida de Olá para o aplicativo hello e sua coleção de recursos. Criar grupo de recursos de saudação fora do modelo Olá e especificar Olá tootarget de grupo de recursos durante a implantação. Para grupos de tooresource uma introdução, consulte [visão geral do Gerenciador de recursos do Azure](resource-group-overview.md).
+O grupo de recursos é o contêiner de ciclo de vida do aplicativo e de sua coleção de recursos. Crie o grupo de recursos fora do modelo e especifique o grupo de recursos de destino durante a implantação. Para obter uma introdução sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
 
 ## <a name="example-template"></a>Modelo de exemplo
 
-tootarget um recurso diferente, você deve usar um modelo aninhado ou vinculado durante a implantação. Olá `Microsoft.Resources/deployments` tipo de recurso fornece um `resourceGroup` parâmetro que permite que você toospecify um grupo de recursos diferente para Olá aninhados a implantação. Todos os grupos de recursos de saudação devem existir antes de executar a implantação de saudação. exemplo a seguir Hello implanta duas contas de armazenamento - um em grupo de recursos de saudação especificado durante a implantação e um em um grupo de recursos denominado `crossResourceGroupDeployment`:
+Para buscar um recurso diferente, você deve usar um modelo aninhado ou vinculado durante a implantação. O tipo de recurso `Microsoft.Resources/deployments` fornece um parâmetro `resourceGroup` que permite que você especifique um grupo de recursos diferente para a implantação aninhada. Todos os grupos de recursos devem existir antes da execução da implantação. O exemplo a seguir implanta duas contas de armazenamento: uma no grupo de recursos especificado durante a implantação e outra em um grupo de recursos denominado `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -83,11 +83,11 @@ tootarget um recurso diferente, você deve usar um modelo aninhado ou vinculado 
 }
 ```
 
-Se você definir `resourceGroup` toohello o nome de um grupo de recursos que não existe, a implantação de saudação falha. Se você não fornecer um valor para `resourceGroup`, grupo de recursos pai Olá usa o Gerenciador de recursos.  
+Se você definir `resourceGroup` como o nome de um grupo de recursos que não existe, a implantação falhará. Se você não fornecer um valor para `resourceGroup`, o Resource Manager usará o grupo de recursos pai.  
 
-## <a name="deploy-hello-template"></a>Implante o modelo de saudação
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-modelo de exemplo hello toodeploy, você pode usar o portal hello, o Azure PowerShell ou CLI do Azure. Para o Azure PowerShell ou a CLI do Azure, você pode usar uma versão de maio de 2017 ou posterior. exemplos de Olá presumem que você salvou o modelo de saudação localmente como um arquivo chamado **crossrgdeployment.json**.
+Para implantar o modelo de exemplo, você poderá usar o portal, o Azure PowerShell ou a CLI do Azure. Para o Azure PowerShell ou a CLI do Azure, você pode usar uma versão de maio de 2017 ou posterior. Os exemplos pressupõem que você salvou o modelo localmente como um arquivo denominado **crossrgdeployment.json**.
 
 Para o PowerShell:
 
@@ -117,9 +117,9 @@ Após a implantação ser concluída, você verá dois grupos de recursos. Cada 
 
 ## <a name="use-resourcegroup-function"></a>Use a função resourceGroup()
 
-Para cruzada implantações de grupos de recursos, hello [resouceGroup() função](resource-group-template-functions-resource.md#resourcegroup) resolve diferente com base em como você especifica o modelo aninhado hello. 
+Para a implantações de grupos de recursos cruzados, a [função resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) é resolvida de forma diferente com base em como você especifica o modelo aninhado. 
 
-Se você inserir um modelo dentro de outro modelo, resouceGroup() modelo aninhado Olá resolve toohello grupo de recursos de pai. Um modelo incorporado usa Olá formato a seguir:
+Se você inserir um modelo dentro de outro modelo, a resouceGroup() no modelo aninhado será resolvida para o grupo de recursos pai. Um modelo incorporado usa o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -130,12 +130,12 @@ Se você inserir um modelo dentro de outro modelo, resouceGroup() modelo aninhad
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers tooparent resource group
+        resourceGroup() refers to parent resource group
     }
 }
 ```
 
-Se você vincular um modelo separado tooa, resouceGroup() no modelo vinculado Olá resolve toohello grupo de recursos aninhados. Um modelo vinculado usa Olá formato a seguir:
+Se você vincular a um modelo separado, a resouceGroup() no modelo vinculado será resolvida para o grupo de recursos aninhados. Um modelo incorporado usa o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -146,13 +146,13 @@ Se você vincular um modelo separado tooa, resouceGroup() no modelo vinculado Ol
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers toolinked resource group
+        resourceGroup() in linked template refers to linked resource group
     }
 }
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* toounderstand como toodefine parâmetros em seu modelo, consulte [entender a estrutura de saudação e a sintaxe de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+* Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md).

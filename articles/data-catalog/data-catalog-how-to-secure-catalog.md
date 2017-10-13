@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toosecure acesso tooAzure catálogo de dados | Microsoft Docs"
-description: "Este artigo explica como toosecure catálogo de dados e seus ativos de dados."
+title: "Como proteger o acesso ao Catálogo de Dados do Azure | Microsoft Docs"
+description: "Este artigo explica como proteger o catálogo de dados e seus ativos."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: maroche
-ms.openlocfilehash: d7c35fd57d8add1cdc152b75f111879288e1548f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9664a7bc8493b08c8e0797ac6f1b212079829833
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toosecure-access-toodata-catalog-and-data-assets"></a>Como toosecure acessar ativos de dados e o catálogo de toodata
+# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e ativos de dados
 > [!IMPORTANT]
-> Este recurso está disponível somente na edição standard de saudação do catálogo de dados do Azure.
+> Esse recurso está disponível somente na Standard Edition do Catálogo de Dados do Azure.
 
-Catálogo de dados do Azure permite que você toospecify quem pode acessar o catálogo de dados hello e quais operações (registrar, anotar, apropriar-se) eles podem executar em metadados no catálogo de saudação. 
+O Catálogo de Dados do Azure permite que você especifique quem pode acessar o catálogo de dados e quais operações (registrar, anotar, apropriar-se) eles podem executar em metadados no catálogo. 
 
 ## <a name="catalog-users-and-permissions"></a>Usuários e permissões do catálogo
-toogive um usuário ou uma saudação grupo acessar o catálogo de dados tooa e definir permissões:
+Para dar a um usuário ou grupo o acesso a um catálogo de dados e definir permissões:
 
-1. Em Olá [home page do seu catálogo de dados](http://www.azuredatacatalog.com), clique em **configurações** na barra de ferramentas de saudação.
+1. Na [home page do seu catálogo de dados](http://www.azuredatacatalog.com), clique em **Configurações** na barra de ferramentas.
 
     ![catálogo de dados – configurações](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
-2. Na página de configurações de Olá, expanda Olá **usuários catálogo** seção.
+2. Na página configurações, expanda a seção **Usuários do Catálogo**.
     ![Catálogo de Usuários – Adicionar](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 3. Clique em **Adicionar**.
-4. Digite hello totalmente qualificado **nome de usuário** ou nome de saudação **grupo de segurança** no hello Azure AAD (Active Directory) associado com o catálogo de saudação. Use vírgula (', ') como um separador se você estiver adicionando mais de um usuário ou grupo.
+4. Insira o **nome de usuário** totalmente qualificado ou nome do **grupo de segurança** no AAD (Azure Active Directory) associado ao catálogo. Use vírgula (', ') como um separador se você estiver adicionando mais de um usuário ou grupo.
     ![Usuários do Catálogo – usuários ou grupos](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
-5. Pressione **ENTER** ou **guia** fora da caixa de texto de saudação. 
-6.  Confirme se todas as permissões (**anotar**, **registrar**, e **Take Ownership**) são atribuídos toothese usuários ou grupos por padrão. Ou seja, Olá usuário ou grupo pode [registrar ativos de dados]( data-catalog-how-to-register.md), [anotar os ativos de dados]( data-catalog-how-to-annotate.md), e [assumir a propriedade de ativos de dados]( data-catalog-how-to-manage.md). 
+5. Pressione **ENTER** ou **TAB** fora da caixa de texto. 
+6.  Confirme que todas as permissões (**Anotar**, **Registrar** e **Apropriar-se**) sejam atribuídos a esses usuários ou grupos por padrão. Ou seja, o usuário ou grupo pode [registrar ativos de dados]( data-catalog-how-to-register.md), [anotar os ativos de dados]( data-catalog-how-to-annotate.md) e [assumir a propriedade de ativos de dados]( data-catalog-how-to-manage.md). 
     ![Usuários do Catálogo – permissões padrão](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
-7.  toogive um usuário ou grupo apenas Olá leitura acessar toohello catálogo, desmarque Olá **anotar** opção para esse usuário ou grupo. Quando você fizer isso, Olá usuário ou grupo não é possível anotar os ativos de dados no catálogo de hello, mas eles podem exibi-los. 
-8.  toodeny um usuário ou grupo do registro de recursos de dados, desmarque Olá **registrar** opção para esse usuário ou grupo.
-9.  toodeny um usuário de assumir a propriedade de um ativo de dados, desmarque Olá **apropriar** opção para esse usuário ou grupo. 
-10. toodelete um usuário/grupo de usuários do catálogo, clique em **x** para Olá/grupo de usuário final Olá Olá lista. 
+7.  Para conceder a um usuário ou grupo apenas o acesso de leitura para o catálogo, desmarque a opção **anotar** para esse usuário ou grupo. Quando você fizer isso, o usuário ou grupo não poderá anotar os ativos de dados no catálogo, mas poderá exibi-los. 
+8.  Para negar a um usuário ou grupo o registro de recursos de dados, desmarque a opção **registrar** para esse usuário ou grupo.
+9.  Para negar que um usuário assuma a propriedade de um ativo de dados, desmarque a opção **apropriar-se** para esse usuário ou grupo. 
+10. Para excluir um usuário/grupo de usuários do catálogo, clique em **x** para o usuário/grupo na parte inferior da lista. 
     ![Usuários do Catálogo – excluir usuário](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
     > [!IMPORTANT]
-    > É recomendável que você adiciona usuários de toocatalog de grupos de segurança em vez de adicionar usuários diretamente e atribuir permissões. Em seguida, adicione os grupos de segurança de toohello de usuários que correspondem ao seu catálogo de toohello de acesso necessários e suas funções.
+    > É recomendável que você adicione grupos de segurança para usuários do catálogo em vez de adicionar usuários diretamente e atribuir permissões. Em seguida, adicione usuários a grupos de segurança que correspondam às funções e ao acesso necessário ao catálogo desses usuários.
 
 ## <a name="special-considerations"></a>Considerações especiais
 
-- permissões de saudação atribuídas a grupos de toosecurity são aditivas. Digamos que um usuário esteja em dois grupos. Um grupo tem permissões para anotar e outro grupo não tem permissões para anotar. Nesse caso, o usuário tem permissões para anotar. 
-- permissões de saudação atribuídas explicitamente tooa Olá de substituição de usuário as permissões atribuídas toogroups toowhich Olá usuário pertence. No exemplo anterior de saudação, digamos que você adicionou o hello usuário toocatalog usuários explicitamente e não atribua permissões de anotar. usuário Olá não pode anotar os ativos de dados mesmo que o usuário Olá é um membro de um grupo que tenha permissões de anotar.
+- As permissões atribuídas a grupos de segurança são aditivas. Digamos que um usuário esteja em dois grupos. Um grupo tem permissões para anotar e outro grupo não tem permissões para anotar. Nesse caso, o usuário tem permissões para anotar. 
+- As permissões atribuídas explicitamente a um usuário substituem as permissões atribuídas a grupos aos quais o usuário pertence. No exemplo anterior, digamos, você adicionou explicitamente o usuário a usuários do catálogo e não atribuiu permissões para anotar. O usuário não pode anotar os ativos de dados mesmo que o usuário seja um membro de um grupo que tenha permissões para anotar.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)

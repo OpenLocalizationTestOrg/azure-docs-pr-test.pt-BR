@@ -1,6 +1,6 @@
 ---
-title: "predefinição de taxa de bits única 16X9 SD Media Encoder padrão aaaH264 - Azure | Microsoft Docs"
-description: "tópico de saudação fornece uma visão geral de saudação * * taxa de bits H264 única 16X9 SD * * predefinição de tarefa."
+title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Única 16x9 – Azure | Microsoft Docs"
+description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 16x9 SD**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: e5fbf6b8accaf779014bee67ee4f5fd6910b2d25
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 746dc845f1e32d6be3f207448523d8966da9f8a0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>H264 Taxa de Bits Única 16x9 SD
-`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` toospecify em qual formato você deseja que tooencode seu arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, transmita codificador do hello toohello predefinição personalizada. Para obter lista de saudação de saudação todos os predefinição nomes compatíveis com esta `Media Encoder Standard` codificador, consulte [predefinições de tarefa para o codificador de mídia padrão](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra Olá `H264 Single Bitrate 16x9 SD` predefinido no formato XML e JSON.  
+ Este tópico mostra a predefinição `H264 Single Bitrate 16x9 SD` no formato XML e JSON.  
   
- Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 2200 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. Isso predefinido, examine Olá XML ou JSON definido abaixo. Para obter explicações de que cada elemento nessas significa predefinições, e os valores válidos Olá para cada elemento, consulte Olá [esquema padrão do Media Encoder](media-services-mes-schema.md) tópico.  
+ Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 2200 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   

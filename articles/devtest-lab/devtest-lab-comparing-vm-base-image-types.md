@@ -1,6 +1,6 @@
 ---
-title: "aaaComparing imagens personalizadas e as fórmulas em DevTest Labs | Microsoft Docs"
-description: "Saiba mais sobre as diferenças de saudação entre imagens personalizadas e as fórmulas como bases de VM para que você possa decidir qual mais adequada para seu ambiente."
+title: "Comparando as imagens personalizadas e as fórmulas nos DevTest Labs | Microsoft Docs"
+description: "Saiba mais sobre as diferenças entre imagens personalizadas e fórmulas como bases de VM para que você possa decidir qual é mais adequada para seu ambiente."
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 3c1d88dfe0ff94b8e825bb7a0b4aca3341c9330d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ff771abc26c08f0adb977c29739d2f5c91924b21
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparando imagens personalizadas e fórmulas em Laboratórios de Desenvolvimento/Teste
-É possível usar tanto as [imagens personalizadas](devtest-lab-create-template.md) quanto as [fórmulas](devtest-lab-manage-formulas.md) como bases para as [novas VMs criadas](devtest-lab-add-vm-with-artifacts.md). No entanto, a principal diferença Olá entre imagens personalizadas e as fórmulas é uma imagem personalizada é simplesmente uma imagem com base em um VHD, enquanto uma fórmula é uma imagem com base em um VHD *além* pré-configurado configurações - como tamanho da VM, uma rede virtual, subrede e artefatos. Essas configurações predefinidas são configuradas com valores padrão que podem ser substituídos no tempo de saudação da criação de VM. Este artigo explica algumas das vantagens de saudação (profissionais) e desvantagens imagens personalizadas do toousing (contras) versus usando fórmulas.
+É possível usar tanto as [imagens personalizadas](devtest-lab-create-template.md) quanto as [fórmulas](devtest-lab-manage-formulas.md) como bases para as [novas VMs criadas](devtest-lab-add-vm-with-artifacts.md). No entanto, a principal diferença entre fórmulas e imagens personalizadas é que uma imagem personalizada é simplesmente uma imagem baseada em um VHD, enquanto uma fórmula é uma imagem baseada em um VHD, *além de* definições pré-configuradas, como tamanho da VM, rede virtual, sub-rede e artefatos. Essas configurações pré-configuradas são definidas com valores padrão que podem ser substituídos no momento da criação da VM. Este artigo explica algumas das vantagens (prós) e desvantagens (contras) de usar imagens personalizadas versus usar fórmulas.
 
 ## <a name="custom-image-pros-and-cons"></a>Prós e contras das imagens personalizadas
-Imagens personalizadas fornecem um modo estático, imutável toocreate VMs de um ambiente desejado. 
+As imagens personalizadas fornecem uma maneira estática e imutável para criar VMs em um ambiente desejado. 
 
 **Prós**
 
-* Provisionamento de uma imagem personalizada da VM é rápida como nada muda após Olá que passe VM da imagem de saudação. Em outras palavras, não há nenhum tooapply configurações como imagem personalizada Olá é apenas uma imagem sem configurações. 
+* O provisionamento da VM de uma imagem personalizada é rápido, uma vez que nada muda depois que a VM é criada por meio da imagem. Em outras palavras, não há nenhuma configuração a ser aplicada, uma vez que a imagem personalizada é apenas uma imagem sem configurações. 
 * VMs criadas por meio de uma única imagem personalizada são idênticas.
 
 **Contras**
 
-* Se você precisar tooupdate algum aspecto da imagem personalizada do hello, imagem Olá deve ser recriada.  
+* Se você precisar atualizar algum aspecto da imagem personalizada, a imagem precisará ser recriada.  
 
 ## <a name="formula-pros-and-cons"></a>Prós e contras da fórmula
-Fórmulas fornecem uma maneira dinâmica toocreate VMs do hello desejado configurações.
+As fórmulas fornecem uma maneira dinâmica de criar VMs por meio das configurações desejadas.
 
 **Prós**
 
-* Alterações no ambiente de saudação podem ser capturadas em Olá instantaneamente por meio de artefatos. Por exemplo, se você desejar uma VM instalada com o bits mais recentes de saudação do seu pipeline de versão ou inscrever-se código mais recente de saudação do seu repositório, você simplesmente especificar um artefato que implanta os bits mais recentes hello ou inscreve código mais recente de saudação na fórmula Olá junto com um imagem de base de destino. Sempre que essa fórmula é usada toocreate VMs, Olá bits/código mais recente são implantados/inscrito toohello VM. 
+* As alterações no ambiente podem ser capturadas em tempo real por meio de artefatos. Por exemplo, se você deseja uma VM instalada com os bits mais recentes do seu pipeline de lançamento ou inscrever o código mais recente do seu repositório, pode especificar simplesmente um artefato que implanta os bits mais recentes ou inscreve o código mais recente na fórmula juntamente com uma imagem base de destino. Sempre que essa fórmula é usada para criar VMs, os bits/códigos mais recentes são implantados/inscritos na VM. 
 * As fórmulas podem definir as configurações padrão que as imagens personalizadas não podem fornecer, como configurações de rede virtual e tamanhos de VM. 
-* configurações de saudação salvos em uma fórmula são mostradas como valores padrão, mas podem ser modificadas quando Olá VM é criada. 
+* As configurações salvas em uma fórmula são exibidas como valores padrão, mas podem ser modificadas quando a VM é criada. 
 
 **Contras**
 

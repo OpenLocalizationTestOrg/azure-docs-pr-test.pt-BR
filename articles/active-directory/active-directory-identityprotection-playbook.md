@@ -1,6 +1,6 @@
 ---
-title: "Guia estratégico de proteção de identidade do Active Directory aaaAzure | Microsoft Docs"
-description: "Saiba como Azure AD Identity Protection permite que você toolimit capacidade Olá tooexploit um invasor uma identidade comprometida ou dispositivo e toosecure uma identidade ou um dispositivo que era anteriormente conhecido ou suspeita toobe comprometido."
+title: "Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs"
+description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 documentationcenter: 
@@ -15,120 +15,120 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6252bc133fc0c0f84800ee245a04bbf62d4cd25b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 Este guia estratégico vai ajudá-lo a:
 
-* Preencher os dados no ambiente de proteção de identidade hello, simulando eventos de risco e vulnerabilidades
-* Configurar políticas de acesso condicional com base em risco e teste o impacto Olá dessas políticas
+* Popular dados no ambiente do Identity Protection, simulando eventos de riscos e vulnerabilidades
+* Configurar políticas de acesso condicional baseadas em risco e testar o impacto dessas políticas
 
 ## <a name="simulating-risk-events"></a>Simulação de Eventos de Risco
-Esta seção fornece as etapas para simular Olá seguintes tipos de eventos de risco:
+Esta seção fornece as etapas para simular os seguintes tipos de evento de risco:
 
 * Entradas de endereços IP anônimos (fácil)
 * Entradas de locais desconhecidos (moderado)
-* Viagem impossível tooatypical locais (difícil)
+* Viagem impossível a locais atípicos (difícil)
 
 Outros eventos de risco não podem ser simulados de maneira segura.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
-Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies são usados por pessoas que desejam toohide endereço IP do seu dispositivo e podem ser usadas com objetivos mal-intencionados.
+Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
-**toosimulate uma entrada de um IP anônimo, executar Olá etapas**:
+**Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
 
-1. Baixar Olá [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2. Usando o hello Tor Browser, navegue muito[https://myapps.microsoft.com](https://myapps.microsoft.com).   
-3. Insira as credenciais de saudação da conta de saudação desejado tooappear em hello **entradas de endereços IP anônimos** relatório.
+1. Baixe o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
+2. Usando o Tor Browser, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+3. Insira as credenciais da conta que deseja exibir no relatório **Entradas de endereços IP anônimos** .
 
-Olá entrar aparecerão no painel de proteção de identidade Olá em 5 minutos. 
+A entrada será exibida no painel do Identity Protection dentro de 5 minutos. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
-risco de locais desconhecidos Hello é um mecanismo de avaliação de entrada em tempo real que considera após entrar locais (IP, Latitude / Longitude e ASN) toodetermine locais de novo / desconhecidos. sistema de saudação armazena IPs anterior, Latitude / Longitude e ASNs de um usuário e considera esses locais familiares toobe. Um local de entrada é considerado familiarizado se hello local de entrada não corresponde a nenhum dos locais familiares existente de saudação.
+O risco de locais desconhecidos é um mecanismo de avaliação de entrada em tempo real que considera locais de entrada anteriores (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena IPs, Latitude/Longitude e ASNs anteriores de um usuário e os considera como locais “conhecidos”. Um local de entrada é considerado desconhecido se não corresponder a nenhum dos locais familiares existentes.
 
 Azure Active Directory Identity Protection:  
 
 * tem um período inicial de aprendizado de 14 dias, durante o qual ele não sinaliza nenhum local novo como desconhecido.
-* ignora entradas de dispositivos conhecidos e locais geograficamente fechar tooan local existente de familiar.
+* ignora entradas de dispositivos conhecidos e locais que estão geograficamente próximos de um local conhecido existente.
 
-toosimulate de locais desconhecidos, você tem toosign em um local e o dispositivo conta Olá não entrou de antes. 
+Para simular locais desconhecidos, você precisa entrar de um local e um dispositivo nunca utilizados para entrada na conta. 
 
-**toosimulate uma entrada de um local desconhecido, executar Olá etapas**:
+**Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
 1. Escolha uma conta com um histórico de entrada de, pelo menos, 14 dias. 
 2. Realize uma das seguintes opções:
    
-   a. Durante o uso de uma VPN, navegue muito[https://myapps.microsoft.com](https://myapps.microsoft.com) e digite as credenciais de saudação da conta de Olá você deseja que o evento de risco toosimulate hello para.
+   a. Usando uma VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da conta para a qual deseja simular o evento de risco.
    
-   b. Peça um colega no toosign local diferente usando credenciais da conta da saudação (não recomendadas).
+   b. Peça que um colega de um local diferente entre usando as credenciais da conta (não recomendado).
 
-Olá entrar aparecerão no painel de proteção de identidade Olá em 5 minutos.
+A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
 
-### <a name="impossible-travel-tooatypical-location"></a>Viagem impossível tooatypical local
-Simulando a condição de viagem impossível Olá é difícil porque o algoritmo de saudação usa tooweed de aprendizado de máquina out falsos positivos, como viagem impossível de dispositivos conhecidos ou entradas de VPNs são usadas por outros usuários no diretório de saudação. Além disso, o algoritmo de saudação exige um histórico de entrada de 3 dias too14 para usuário Olá antes de começar a gerar eventos de risco.
+### <a name="impossible-travel-to-atypical-location"></a>Viagem impossível a um local atípico
+É difícil simular a condição de viagem impossível porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, tais como viagens impossíveis de dispositivos conhecidos ou entradas de VPNs usadas por outros usuários no diretório. Além disso, o algoritmo exige um histórico de entrada de três a 14 dias para o usuário antes de começar a gerar eventos de risco.
 
-**toosimulate um local tooatypical viagem impossível executar Olá etapas**:
+**Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
 
-1. Usando o navegador padrão, navegue muito[https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Insira as credenciais de saudação da conta de saudação para que você deseja toogenerate um evento de risco de viagem impossível.
+1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+2. Insira as credenciais da conta para a qual deseja gerar um evento de risco de viagem impossível.
 3. Altere o agente do usuário. É possível alterar o agente do usuário no Internet Explorer nas Ferramentas de Desenvolvedor ou então no Firefox ou Chrome usando um complemento de alternador de agente do usuário.
 4. Altere seu endereço IP. É possível alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando um novo computador no Azure em um diferente.
-5. Entrada muito[https://myapps.microsoft.com](https://myapps.microsoft.com) usando Olá as mesmas credenciais como antes e após alguns minutos depois de entrar anterior Olá.
+5. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes, alguns minutos após a entrada anterior.
 
-Olá entrar aparecerá no painel de proteção de identidade hello dentro de 2 a 4 horas.<br>
-Devido a saudação complexos de aprendizado de máquina modelos envolvidos, há uma possibilidade que ele será não escolhido.<br> Você pode querer tooreplicate essas etapas de várias contas do AD do Azure.
+A entrada será exibida no painel do Identity Protection dentro de 2 a 4 horas.<br>
+Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br> É conveniente replicar essas etapas para várias contas do Azure AD.
 
 ## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades
-Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel de proteção de identidade Olá automaticamente depois que esses recursos são configurados.
+Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
 
 * Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 ## <a name="user-compromise-risk"></a>Risco de comprometimento do usuário
-**tootest risco de comprometimento do usuário, executar Olá etapas**:
+**Para testar o Risco de comprometimento do usuário, realize as seguintes etapas**:
 
-1. Entrada muito[https://portal.azure.com](https://portal.azure.com) com credenciais de administrador global para seu locatário.
-2. Navegue muito**Identity Protection**. 
-3. Em Olá principal **Azure AD Identity Protection** folha, clique em **configurações**. 
-4. Em Olá **configurações do Portal** folha, em **as regras de segurança**, clique em **o risco de comprometimento do usuário**. 
-5. Em Olá **entrar risco** folha, ativar **Habilitar regra** off e, em seguida, clique em **salvar** configurações.
-6. Para uma determinada conta de usuário, simule um evento de risco de locais desconhecidos ou IP anônimo. Isso será elevar o nível de risco do usuário Olá para esse usuário muito**médio**.
+1. Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+2. Navegue até **Identity Protection**. 
+3. Na folha principal de **Azure AD Identity Protection**, clique em **Configurações**. 
+4. Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de comprometimento do usuário**. 
+5. Na folha **Risco de Entrada**, desative **Habilitar regra** e clique em **Salvar** configurações.
+6. Para uma determinada conta de usuário, simule um evento de risco de locais desconhecidos ou IP anônimo. Isso elevará o nível de risco do usuário para **Médio**.
 7. Aguarde alguns minutos e verifique se o nível do usuário é **Médio**.
-8. Vá toohello **configurações do Portal** folha.
-9. Em Olá **o risco de comprometimento do usuário** folha, em **Habilitar regra**, selecione **em** . 
-10. Selecione uma saudação as opções a seguir:
+8. Vá para a folha **Configurações do Portal** .
+9. Na folha **Risco de Comprometimento do Usuário**, em **Habilitar regra**, selecione **Ativado**. 
+10. Selecione uma das seguintes opções:
     
-    a. tooblock, selecione **médio** em **bloco entrar**.
+    a. Para bloquear, selecione **Médio** em **Bloquear entrada**.
     
-    b. alteração de senha segura tooenforce, selecione **médio** em **exigir autenticação multifator**.
+    b. Para impor a alteração de senha de segurança, selecione **Médio** em **Exigir autenticação multifator**.
 11. Clique em **Salvar**.
-12. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco de usuário Olá é médio, dependendo da configuração de saudação de sua política, sua entrada no é a ser bloqueada ou são forçados toochange sua senha. 
+12. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco do usuário for Médio, dependendo da configuração da política, sua entrada será bloqueada ou você será forçado a alterar a senha. 
     <br><br>
     ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "manual")
     <br>
 
 ## <a name="sign-in-risk"></a>Risco de entrada
-**tootest um sinal de risco, execute Olá etapas a seguir:**
+**Para testar um risco de entrada, realize as seguintes etapas:**
 
-1. Entrada muito[https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global para seu locatário.
-2. Navegue muito**Identity Protection**.
-3. Em Olá principal **Azure AD Identity Protection** folha, clique em **configurações**. 
-4. Em Olá **configurações do Portal** folha, em **as regras de segurança**, clique em **entrar risco**.
-5. Em hello * * entrar risco * * folha, selecione **na** em **Habilitar regra**. 
-6. Selecione uma saudação as opções a seguir:
+1. Entre em [https://portal.azure.com ](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+2. Navegue até **Identity Protection**.
+3. Na folha principal de **Azure AD Identity Protection**, clique em **Configurações**. 
+4. Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de entrada**.
+5. Sobre o * * entrar risco * * folha, selecione **em** em **Habilitar regra**. 
+6. Selecione uma das seguintes opções:
    
-   a. tooblock, selecione **médio** em **bloco entrar**
+   a. Para bloquear, selecione **Médio** em **Bloquear entrada**
    
-   b. alteração de senha segura tooenforce, selecione **médio** em **exigir autenticação multifator**.
-7. tooblock, selecione média em bloco entrar.
-8. autenticação de multifator tooenforce, selecione **médio** em **exigir autenticação multifator**.
+   b. Para impor a alteração de senha de segurança, selecione **Médio** em **Exigir autenticação multifator**.
+7. Para bloquear, selecione Médio em Bloquear entrada.
+8. Para impor a autenticação multifator, selecione **Médio** em **Exigir autenticação multifator**.
 9. Clique em **Save**.
-10. Agora você pode testar o acesso condicional com base em risco, simulando locais desconhecidos hello ou IP anônimo corre o risco de eventos porque os dois são **médio** eventos de risco.
+10. Agora é possível testar o acesso condicional baseado em risco simulando eventos de risco de locais desconhecidos ou IP anônimo, pois são considerados eventos de risco **Médio** .
 
 
 ![Guia estratégico](./media/active-directory-identityprotection-playbook/200.png "Guia estratégico")

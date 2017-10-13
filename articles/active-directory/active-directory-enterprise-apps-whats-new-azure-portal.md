@@ -1,5 +1,5 @@
 ---
-title: AAA Novidades no gerenciamento de aplicativos de empresa no Active Directory do Azure | Microsoft Docs
+title: "O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory | Microsoft Docs"
 description: "Saiba o que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,141 +15,141 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 7f4b7b11b256f1e910e557f45f3709d762416f0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c32a6719292aa903aa32dfdc4a31114e7a28346
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory 
 
-Azure Active Directory (AD do Azure) aprimorado ferramentas de gerenciamento de aplicativo empresarial, com novo toomake recursos e recursos de gerenciamento de aplicativos mais simples e eficientes.
+O Azure AD (Azure Active Directory) aprimorou as ferramentas de gerenciamento de aplicativos empresariais, com novos recursos e funcionalidades para tornar os aplicativos de gerenciamento mais simples e eficientes.
 
-A seguir estão alguns dos aprimoramentos de saudação do AD do Azure no hello [portal do Azure](https://portal.azure.com).
+A seguir estão alguns dos aprimoramentos do Azure AD no [Portal do Azure](https://portal.azure.com).
 
-- Uma galeria de aplicativo melhor experiência, com um modelo de criação de aplicativo simplificado e suporte para todos os tipos de aplicativo hello que você está acostumado a. 
+- Uma experiência aprimorada da galeria de aplicativos, com um modelo de criação de aplicativos simplificado e suporte para todos os tipos de aplicativo aos quais você está acostumado. 
 - Uma experiência de início rápido totalmente nova, que lhe ajuda a começar com um piloto do seu aplicativo. 
 - Configure as políticas de autoatendimento com apenas alguns cliques. 
-- Melhorias tooapplication proxy única configuração de logon e colocar suas próprias experiências de aplicativos, permitindo que você tooget mais feito que antes.
+- Melhorias significativas no proxy de aplicativo, na configuração de logon único e nas experiências de trazer seu próprio aplicativo, permitindo que você faça mais do que antes.
 
-## <a name="improvements-toohello-azure-active-directory-application-gallery"></a>Melhorias toohello Galeria de aplicativos do Azure Active Directory
+## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Melhorias à Galeria de Aplicativos do Azure Active Directory
 
-Adicionar seus aplicativos favoritos, independentemente de estarem da saudação [Galeria de aplicativos](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aplicativos personalizados, você está estendendo toohello nuvem ou em novos aplicativos que você está desenvolvendo.  Você pode começar com essa nova experiência clicando **adicionar** em Olá **aplicativos empresariais** visão geral ou **todos os aplicativos** folhas.
+Adicione seus aplicativos favoritos, sejam eles da [galeria de aplicativos](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aplicativos personalizados que você está estendendo para a nuvem ou novos aplicativos que você está desenvolvendo.  Você pode começar com esta nova experiência clicando em **Adicionar** nas folhas da visão geral dos **Aplicativos Empresariais** ou **Todos os aplicativos**.
  
   ![Adicionando um aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-Uma vez na Galeria de hello, você verá todos os nossos aplicativos em Destaque que dar suporte ao provisionamento de usuário exibido frente e central.  Você pode procurar todos os tipos de categorias diferentes toodrill em aplicativos de saudação importantes para você, ou você pode usar Olá Olá pesquisa experiência toorapidly localizar aplicativos você deseja toointegrate.
+Uma vez na galeria, você verá todos os nossos aplicativos em destaque, o que auxilia no provisionamento do usuário com sua exibição na frente e no centro.  Você pode procurar todos os tipos de categorias diferentes para detalhar os aplicativos importantes, ou pode usar a experiência de pesquisa para localizar rapidamente os aplicativos que você deseja integrar.
 
-  ![Galeria de aplicativos Olá](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
+  ![A galeria de aplicativos](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
 ## <a name="add-custom-applications-from-one-place"></a>Adicionar aplicativos personalizados de um só lugar
 
-Além disso tooadding pré-integrado a aplicativos da Galeria de saudação, todas as experiências de configuração de aplicativo personalizado Olá que foram usados tooin portal de gerenciamento clássico de saudação agora são possíveis no novo portal de saudação. Se você estiver estendendo um aplicativo local usando o proxy de aplicativo hello, integração de sua senha ou o aplicativo SSO federado ou criar um aplicativo totalmente novo usando o registro do aplicativo hello, você pode obter tooit tudo desse um único local.
+Além de adicionar aplicativos pré-integrados da galeria, todas as experiências de configuração do aplicativo personalizado que você já conhece do portal de gerenciamento clássico agora são possíveis no novo portal. Se você estiver estendendo um aplicativo no local usando o proxy de aplicativo, integrando sua própria senha ou aplicativo SSO federado, ou criando um aplicativo totalmente novo usando o registro do aplicativo, tudo isso poderá ser feito nesse único local.
 
   ![Adicionar seu próprio aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/03.png)
 
  
-**tooget iniciado adicionando seu próprio aplicativo**:
+**Para começar a adicionar seu próprio aplicativo**:
 
-1. Clique em Olá **adicionar seu próprio link** na parte superior de saudação da Galeria de aplicativo hello. 
-2. Você verá duas opções na sua frente: **implantar um aplicativo existente** ou **desenvolver um novo aplicativo**. Leia na diferença de saudação toolearn entre as opções de saudação dois e como toouse-los.
+1. Clique no **link adicionar seu próprio** na parte superior da galeria de aplicativos. 
+2. Você verá duas opções na sua frente: **implantar um aplicativo existente** ou **desenvolver um novo aplicativo**. Continue lendo para saber a diferença entre as duas opções e como usá-las.
 
 ### <a name="deploying-existing-applications"></a>Implantação de aplicativos existentes
 
-1. Se você tem um aplicativo em execução já e deseja apenas toointegrate no Azure AD para logon único ou provisionamento, escolha Olá **implantar um aplicativo existente** opção. Escolha um nome para seu aplicativo, clique em **Adicionar**.
-2. É isso! Em vez de precisar tooknow todos os detalhes de saudação sobre seu aplicativo no futuro, você agora pode configurar como seu novo aplicativo funciona navegando por meio do menu esquerdo Olá e configurando a preferência de tooyour aplicativo hello a qualquer momento.
+1. Se você já tiver um aplicativo em execução e deseja apenas para integrá-lo ao Azure AD para logon único ou provisionamento, escolha a opção **Implantar um aplicativo existente**. Escolha um nome para seu aplicativo, clique em **Adicionar**.
+2. É isso! Em vez de precisar saber todos os detalhes sobre seu aplicativo com antecedência, você pode definir o funcionamento do seu novo aplicativo navegando por meio do menu à esquerda e configurar o aplicativo de sua preferência a qualquer momento.
 
   ![Adicionar um aplicativo existente com um clique](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### <a name="developing-new-applications"></a>Desenvolver novos aplicativos
 
-1. Se você estiver desenvolvendo um novo aplicativo, há uma maneira fácil para você tooget toohello do registro do aplicativo diretamente da Galeria de saudação:
-2. Clique em Olá **adicionar seus próprios** opção de saudação Galeria de aplicativos, selecione Olá **desenvolver um aplicativo existente** escolha e você verá um link à direita de aplicativo toohello adicionar experiência.
+1. Se você estiver desenvolvendo um novo aplicativo, há uma maneira fácil de acessar o Registro de Aplicativo à direita da galeria:
+2. Clique na opção **adicionar seu próprio** na Galeria de Aplicativos, selecione a opção **desenvolver um aplicativo existente** e você verá um link à direita para a experiência de adição de aplicativo.
 
   ![Adicionar um aplicativo recém-desenvolvido em alguns cliques](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
->Quando você adicionar um aplicativo usando a saudação do registro do aplicativo, você verá mostrar até na lista de saudação de aplicativos corporativos onde você será capaz de tooconfigure o logon único e gerenciar políticas de acesso para o novo aplicativo.
+>Depois de adicionar um aplicativo usando o Registro de Aplicativo, ele será mostrado na lista de Aplicativos Empresariais, onde você poderá configurar o logon único e gerenciar políticas de acesso para o novo aplicativo.
 
-  ![Gerenciando acesso tooyour novo aplicativo em aplicativos corporativos](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
+  ![Gerenciamento do acesso a seu novo aplicativo em Aplicativos Empresariais](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
 ## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Início rápido: Começar a usar seu novo aplicativo imediatamente 
 
-Depois de adicionar um aplicativo, se ele ser pré-integrados ou seu próprio aplicativo, criamos um tooget experiência de início rápido personalizadas baseadas na nova experiência de aplicativos Olá rapidamente. Se você seguir cada opção sistematicamente, vamos orientá-lo por meio da interface do usuário de saudação e mostram como tooget-se com um piloto de seu novo aplicativo mais rápido possível. 
+Depois de adicionar um aplicativo, independentemente de ser pré-integrado ou seu próprio aplicativo, criamos uma experiência personalizada de início rápido para ajudá-lo a começar a usar rapidamente o novo aplicativo. Se você seguir sistematicamente cada opção, vamos conduzi-lo por meio da interface do isuário e mostraremos como começar com um piloto do seu novo aplicativo o mais rápido possível. 
  
-  ![Olá novos aplicativos rápidos iniciam experiência](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
+  ![Experiência de início rápido de novos aplicativos](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
- Você pode acessar essa nova experiência de início rápido a qualquer momento e para qualquer aplicativo, clicando em **início rápido** no menu de navegação à esquerda do aplicativo hello.
+ Você pode visitar esta nova experiência de início rápido, a qualquer momento e de qualquer aplicativo, clicando em **Início rápido** no menu de navegação à esquerda do aplicativo.
 
 
 ## <a name="updated-application-proxy-configuration"></a>Configuração de proxy de aplicativo atualizada
-Agora, vamos dizer de novos aplicativos de saudação adicionado está em execução no seu ambiente local e você deseja toointegrate-lo com o Azure AD.  Uma saudação moderado novidades sobre a nova experiência de configuração de aplicativo hello no portal de saudação novo AD do Azure é que pela divisão modo de logon do aplicativo hello da sua configuração de proxy de aplicativo, você pode agora facilmente expor SSO de senha ou federado aplicativos em execução na nuvem de direito toohello sua rede corporativa, sem ter que toocreate várias instâncias do aplicativo hello.
+Agora, digamos que um dos novos aplicativos que você adicionou esteja em execução no seu ambiente local e você deseja integrá-lo ao Azure AD.  Uma das novidades interessantes sobre a nova experiência de configuração de aplicativo no novo portal do Azure AD é que ao dividir o modo de logon do aplicativo da configuração de proxy de aplicativo, agora você pode facilmente expor os aplicativos de SSO com senha ou federados executados em sua rede corporativa diretamente na nuvem, sem a necessidade de criar várias instâncias do aplicativo.
 
-Além disso toothis, você agora também pode configurar qualquer um dos aplicativos do novo Olá que você adicionou para uso com o Proxy de aplicativo do Azure AD de saudação à direita do novo portal de hello, incluindo os aplicativos que oferecem suporte à autenticação do Windows nativo experiências.
+Além disso, agora também é possível configurar qualquer um dos novos aplicativos que você adicionou para uso com o direito de Proxy de Aplicativo do Azure AD do novo portal, incluindo os aplicativos que oferecem suporte a experiências nativas de autenticação do Windows.
 
-  ![Configurando uma saudação de toouse aplicativo opção de logon da autenticação integrada do Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
+  ![Configurar um aplicativo para usar a opção de logon de Autenticação Integrada do Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
-tooget iniciar a configuração de um aplicativo nativo de autenticação do Windows com hello Proxy de aplicativo:
-1. Clique no item de navegação de logon único do hello e escolha **autenticação integrada do Windows** da folha de configurações de logon hello e configurar a preferência de tooyour configurações hello.
-2. Sobre o suporte a esses novos modos de autenticação, agora, você pode também carregar certificados de aplicativos de toosupport de domínios personalizados em execução em pontos de extremidade seguros dentro de sua organização.  
+Para começar a configurar um aplicativo nativo de autenticação do Windows com o Proxy de Aplicativo:
+1. Clique no item de navegação Logon Único e escolha **Autenticação Integrada do Windows** da folha configurações de logon e defina as configurações de sua preferência.
+2. Sobre o suporte a esses novos modos de autenticação, agora você pode também carregar certificados de domínios personalizados para oferecer suporte a aplicativos executados em pontos de extremidade seguros dentro da sua organização.  
  
-   ![Carregando um toobe certificado usado por hello Proxy de aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
+   ![Carregar um certificado a ser usado com o Proxy de Aplicativo](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. tooupload um novo certificado para o seu aplicativo local Favoritos, clique em Olá **proxy de aplicativo** opção no menu de navegação à esquerda de saudação, clique em Olá **certificado** seletor e carregar um arquivo de certificado, podemos usar tooencrypt solicitações de nosso aplicativo de tooyour de ponto de extremidade de nuvem.
+3. Para carregar um novo certificado para o seu aplicativo local favorito, clique na opção **Proxy de aplicativo** no menu de navegação à esquerda, clique no seletor **Certificado** e carregue um arquivo de certificado que podemos usar para criptografar solicitações de nosso ponto de extremidade de nuvem para seu aplicativo.
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configuração avançada de logon único federado
 
-Para aqueles que utilizam aplicativos federados atualmente, há muitos recursos novos na folha de configuração com base em SAML logon hello. toostart, agora você pode personalizar totalmente, adicionar, remover e mapear atributos de usuário existentes Olá emitidos como declarações em tokens SAML.
+Para aqueles que utilizam aplicativos federados hoje, há muitos novos recursos na folha de configuração de logon único baseado em SAML. Para começar, agora você pode personalizar, adicionar, remover e mapear totalmente os atributos de usuário existentes emitidos como declarações em tokens SAML.
  
-  ![Personalizar os atributos de usuário do token SAML Olá passado aplicativo tooa federado](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
+  ![Personalizar os atributos de usuário do token SAML passado para um aplicativo federado](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
-toocheck isso Olá federado nova configuração de SSO:
-1. Abra um aplicativo federado **o logon único** folha da saudação de navegação à esquerda menu e certifique-se de que Olá '*baseado no SAML logon** modo é selecionado. 
-2. Uma vez, habilitar caixa de seleção de saudação em Olá **atributos de usuário** toomodify título todos os atributos de saudação incluídos no token SAML Olá passado toothat aplicativo.
+Para conferir a nova configuração de SSO federado:
+1. Abra a folha **logon único** de um aplicativo federado no menu de navegação esquerdo e verifique se o modo '*Logon Único Baseado em SAML** está selecionado. 
+2. Uma vez lá, habilite a caixa de seleção no título **Atributos de Usuário** para modificar todos os atributos incluídos no token SAML passado para esse aplicativo.
 
-Você pode também criar, substituição e gerenciar certificados usados para logon único federado, bem como editar que é notificado quando seu certificado é sobre tooexpire. Você verá essas novas opções em Olá **certificados** título Olá mesmo folha de logon único.
+Você pode também criar, substituir e gerenciar os certificados usados para logon único federado, bem como editar quem será notificado quando o certificado estiver prestes a expirar. Você verá essas novas opções no título **Certificados** na mesma folha Logon único.
  
   ![Criar um novo certificado, personalizando o email de notificação de expiração e opções de assinatura de certificado](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
 ### <a name="relay-state-paramenter"></a>Parâmetro de estado de retransmissão
-Por fim, podemos também tiver estendido conjunto Olá dos parâmetros de URL do SAML suportamos Olá tooinclude **parâmetro de estado de retransmissão**, Page Olá seus usuários serão levadas em dentro de um aplicativo federado quando entrar Olá estiver concluída. Isso é muito útil configuração tooconfigure se você deseja toosend usuários tooa específicos colocar dentro de saudação aplicativo tooget-los daí rapidamente.
+Por fim, também ampliamos o conjunto de parâmetros de URL do SAML, oferecemos suporte para incluir o **parâmetro Estado de Retransmissão**, que é a página em que os usuários aterrissarão em um aplicativo federado depois que a entrada for concluída. Essa é uma configuração muito útil para configurar se deseja enviar os usuários para um local específico dentro do aplicativo para que eles comecem a usar rapidamente.
 
-  ![Definição do parâmetro de estado de retransmissão SAML Olá](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
+  ![Definição do parâmetro Estado de Retransmissão de SAML](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
-**parâmetro de estado de retransmissão tooset hello**:
+**Para definir o parâmetro de estado de retransmissão**:
 
-1. Habilitar Olá **Mostrar configurações de URL avançadas** caixa de seleção em Olá **domínio e URLs** título no logon único Olá na folha de configuração. 
-2. Depois de fazer isso, você verá que um conjunto de nova URL de entrada caixas aparecem que permitirá que você tooset essa e outra configurações de URL de SAML.
+1. Habilite a caixa de seleção **Mostrar configurações avançadas de URL** sob o título **Domínio e URLs** na folha de configuração do logon único. 
+2. Depois de fazer isso, você verá um conjunto de novas caixas de entrada de URL que permitirá a definição dessas e de outras configurações de URL de SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Aplicativos SSO BYOP
 
-Sabemos que nem todos os aplicativos dá suporte à Federação fora do caixa hello. Por exemplo, talvez uma saudação novos aplicativos você tem uma tela de logon personalizada que os usuários usam um nome de usuário e senha toosign em para. Você ainda pode integrar esses tipos de aplicativos com o AD do Azure usando nosso **colocar seus próprios aplicativos** recurso, que agora está disponível para você tooconfigure no novo portal de saudação.
+Sabemos que nem todos os aplicativos dão suporte à federação nativamente. Por exemplo, talvez um dos novos aplicativos que você adicionou tenha uma tela de logon personalizada em que os usuários usam um nome de usuário e uma senha para entrar. Você ainda pode integrar esses tipos de aplicativos ao Azure AD usando nosso recurso **BYOA**, que agora está disponível para a configuração no novo portal.
  
   ![Integração de aplicativos de cofre de senha personalizados ao Azure AD](./media/active-directory-enterprise-apps-whats-new-azure-portal/13.png)
 
-**toocheck recurso de 'Colocar seus próprios aplicativos' hello**:
+**Para conferir o recurso ‘BYOA’**:
 
-1. Depois de definir Olá modo de logon único para um novo aplicativo personalizado que você adicionou muito**baseada em senha logon**, insira a URL de saudação onde o aplicativo hello processa sua tela de logon e clique em **salvar**.  
-2. Depois de você fazer isso, podemos será arranhar automaticamente essa URL para um nome de usuário e senha caixa de entrada e permitem que você toouse AD do Azure toosecurely transmitir aplicativos de toothat senhas usando a extensão de navegador do painel de acesso de saudação.
+1. Depois de definir o modo de logon único para um novo aplicativo personalizado que você adicionou ao **Logon Único Baseado em Senha**, digite a URL onde o aplicativo processa sua tela de logon e clique em **Salvar**.  
+2. Depois de fazer isso, vamos extrair automaticamente essa URL para uma caixa de entrada de nome de usuário e de senha e permitir que você use o Azure AD para transmitir com segurança as senhas para o aplicativo usando a extensão de navegador de painel de acesso.
 
 ## <a name="configure-self-service-application-access"></a>Configurar o acesso ao aplicativo de autoatendimento
 
-Depois de adicionar muitos novos aplicativos, talvez você deseja tooallow toobrowse seus usuários e adicionar esses painéis de acesso próprios aplicativos tootheir, sem a necessidade de toobother você como administrador. Agora, com esta versão mais recente, você pode configurar e gerenciar o acesso de aplicativo de autoatendimento diretamente do novo portal de saudação.
+Depois de adicionar muitos aplicativos novos, talvez você queira permitir que os usuários procurem e adicionem os aplicativos a seus próprios painéis de acesso, sem que seja necessária a intervenção de um administrador. Com essa versão mais recente, você pode configurar e gerenciar o acesso a aplicativos de autoatendimento desde o novo portal.
 
   ![Configurar acesso ao aplicativo de autoatendimento para um aplicativo do SSO de senha](./media/active-directory-enterprise-apps-whats-new-azure-portal/14.png)
  
-**tooconfigure e gerenciar o acesso do aplicativo de autoatendimento**:
+**Para configurar e gerenciar o acesso do aplicativo de autoatendimento**:
 
-1. tooget iniciado, você pode selecionar Olá **Self-service** opção do aplicativo hello da esquerda do menu de navegação e defina Olá **permitir que os usuários aplicativos de toothis acesso toorequest?** opção muito ' **Sim**'. 
-2. Isso permitirá que você tooconfigure quem tem permissão de aplicativo de toothis tooapprove acesso e quais usuários de autoatendimento de grupo serão adicionados. Além disso, se o aplicativo hello estiver configurado para a senha de logon único, você também verá outra opção que permite que você, opcionalmente, permitir que os aprovadores toomanage senhas de saudação atribuído toohello aplicativo.
+1. Para começar, você pode selecionar a opção **Autoatendimento** no menu de navegação à esquerda do aplicativo e definir a opção **Permitir que os usuários solicitem acesso a este aplicativo?** como '**Sim**'. 
+2. Isso permitirá que você configure quem tem permissão para aprovar o acesso ao aplicativo e quais usuários de autoatendimento de grupo serão adicionados. Além disso, se o aplicativo estiver configurado para a senha de logon único, você também verá outra opção para permitir que os aprovadores gerenciem as senhas atribuídas ao aplicativo.
 
 ##<a name="feedback"></a>Comentários
 
-Esperamos que você deseja usar Olá melhor experiência de AD do Azure. Mantenha comentários Olá vindo! Poste seus comentários e ideias para a melhoria nos Olá **Portal de administração** seção do nosso [Fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos estiver contentes sobre a criação de novo e interessante diariamente e usar tooshape sua orientação e definir o que devemos construir a seguir.
+Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 

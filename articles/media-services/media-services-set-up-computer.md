@@ -1,5 +1,5 @@
 ---
-title: "aaaSet seu ambiente de desenvolvimento de serviços de mídia do Azure | Microsoft Docs"
+title: "Configurar o ambiente de desenvolvimento dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Configure seu ambiente para desenvolvimento com os Serviços de Mídia do Azure"
 services: media-services
 documentationcenter: 
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
-ms.openlocfilehash: 5637b0c872a76490dcccde5466bfc91c2ba56f31
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurar o ambiente de desenvolvimento dos Serviços de Mídia
 
-Olá, etapas a seguir descrevem os pré-requisitos necessários para o desenvolvimento com serviços de mídia do Azure.
+As etapas a seguir descrevem os pré-requisitos necessários para o desenvolvimento com os Serviços de Mídia do Azure.
 
 ## <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
-Usar Olá portal do Azure, Olá SDK .NET ou Olá API REST toocreate uma conta de serviços de mídia do Azure.
+Use o portal do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Mídia do Azure.
 
 <a id="setup_dev_env"></a>
 
-## <a name="set-up-hello-development-environment"></a>Configurar o ambiente de desenvolvimento Olá
+## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-tooset o ambiente de desenvolvimento .NET, consulte [isso](media-services-dotnet-how-to-use.md) tópico.  
+Para configurar o ambiente de desenvolvimento do .NET, confira [este](media-services-dotnet-how-to-use.md) tópico.  
 
-tooset o ambiente de desenvolvimento REST, consulte [isso](media-services-rest-how-to-use.md) tópico.  
+Para configurar o ambiente de desenvolvimento do REST, confira [este](media-services-rest-how-to-use.md) tópico.  
 
 <a id="connect"></a>
 
 ## <a name="connect-programmatically"></a>Conectar-se por meio de programação
 
-tooconnect toohello API de serviços de mídia do Azure, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md).  
+Para conectar-se à API dos Serviços de Mídia do Azure, veja [acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).  
 
 ## <a name="next-steps-azure-media-services-learning-paths"></a>Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia do Azure
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: aplicativos de Docker aaaMonitor no Azure Application Insights | Microsoft Docs
-description: "Exceções, eventos e contadores de desempenho de docker podem ser exibidas no Application Insights, juntamente com telemetria de saudação de saudação em contêineres de aplicativos."
+title: Monitorar aplicativos do Docker no Azure Application Insights | Microsoft Docs
+description: "Contadores de desempenho, eventos e exceções do Docker podem ser exibidos no Application Insights, juntamente com a telemetria dos aplicativos contidos."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 9aaf1076bae25485a396db1bb3dcd13bccd87c19
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorar aplicativos do Docker no Application Insights
-Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instalar Olá [Application Insights](app-insights-overview.md) imagem em um contêiner em seu host e ele exibirá contadores de desempenho para o host de saudação, bem como para Olá outras imagens.
+Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](app-insights-overview.md) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
 
 Com o Docker, você distribui os aplicativos em contêineres leves com todas as dependências. Eles serão executados em qualquer máquina host que executa um Mecanismo de Docker.
 
-Quando você executa Olá [imagem Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) no host do Docker, você obtém esses benefícios:
+Ao executar a [imagem do Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) no host do Docker, você obtém estes benefícios:
 
-* Ciclo de vida telemetria sobre todos os contêineres de saudação em execução no host de saudação - Iniciar, parar e assim por diante.
-* Contadores de desempenho para todos os contêineres de saudação. CPU, memória, uso da rede e muito mais.
-* Se você [instalado o SDK do Application Insights para Java](app-insights-java-live.md) em aplicativos de saudação em execução em contêineres hello, toda a telemetria Olá desses aplicativos terão propriedades adicionais que identifica o contêiner hello e o computador host. Portanto, por exemplo, se você tiver instâncias de um aplicativo em execução em mais de um host, poderá filtrar a telemetria do aplicativo pelo host com facilidade.
+* A telemetria do ciclo de vida sobre todos os contêineres em execução no host - início, parada e assim por diante.
+* Contadores de desempenho para todos os contêineres. CPU, memória, uso da rede e muito mais.
+* Se você [instalou o SDK do Application Insights para Java](app-insights-java-live.md) nos aplicativos em execução nos contêineres, toda a telemetria desses aplicativos terá propriedades adicionais que identificam o contêiner e o computador host. Portanto, por exemplo, se você tiver instâncias de um aplicativo em execução em mais de um host, poderá filtrar a telemetria do aplicativo pelo host com facilidade.
 
 ![exemplo](./media/app-insights-docker/00.png)
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurar seu recurso do Application Insights
-1. Entrar no [portal do Microsoft Azure](https://azure.com) e abrir o recurso do Application Insights Olá para seu aplicativo; ou [criar um novo](app-insights-create-new-resource.md). 
+1. Entre no [portal do Microsoft Azure](https://azure.com) e abra o recurso do Application Insights de seu aplicativo ou [crie um novo](app-insights-create-new-resource.md). 
    
-    *Qual recurso devo usar?* Se Olá aplicativos em execução no host do foram desenvolvidos por outra pessoa, você precisará de muito[criar um novo recurso do Application Insights](app-insights-create-new-resource.md). Isso é onde você pode exibir e analisar a telemetria de saudação. (Selecione 'Geral' para o tipo de aplicativo hello.)
+    *Qual recurso devo usar?* Se os aplicativos que estão em execução no host foram desenvolvidos por outra pessoa, você precisa [criar um novo recurso do Application Insights](app-insights-create-new-resource.md). Esse é o local em que você pode exibir e analisar a telemetria. (Selecione 'Geral' para o tipo de aplicativo.)
    
-    Mas se você for desenvolvedor Olá Olá aplicativos, em seguida, esperamos que você [adicionado SDK do Application Insights](app-insights-java-live.md) tooeach deles. Se eles são todos os componentes realmente de um aplicativo de negócios único, em seguida, você pode configurar recursos de tooone telemetria toosend para todos eles, e você usará esses mesmo recurso toodisplay Olá Docker do ciclo de vida e dados de desempenho. 
+    Mas se você for o desenvolvedor dos aplicativos, esperamos que você tenha [adicionado o SDK do Application Insights](app-insights-java-live.md) a cada um deles. Se eles forem realmente todos os componentes de um único aplicativo de negócios, você poderá configurar todos eles para enviar a telemetria para um recurso e usará esse mesmo recurso para exibir os dados de desempenho e do ciclo de vida do Docker. 
    
-    Um terceiro cenário é que você desenvolveu a maioria dos aplicativos hello, mas você estiver usando recursos separados toodisplay sua telemetria. Nesse caso, você provavelmente também deseja toocreate um recurso separado para Olá dados Docker. 
-2. Adicionar bloco de Docker Olá: escolha **Adicionar bloco**, arraste o bloco de Docker de saudação da Galeria hello e, em seguida, clique em **feito**. 
+    Um terceiro cenário é que você desenvolveu a maioria dos aplicativos, mas está usando recursos separados para exibir a telemetria deles. Nesse caso, provavelmente, você também desejará criar um recurso separado para os dados do Docker. 
+2. Adicione o bloco Docker: escolha **Adicionar Bloco**, arraste o bloco Docker a partir da galeria, em seguida, clique em **Concluído**. 
    
     ![exemplo](./media/app-insights-docker/03.png)
-3. Clique em Olá **Essentials** suspenso e copie Olá chave de instrumentação. Use este Olá tootell SDK onde toosend sua telemetria.
+3. Clique no menu suspenso **Informações gerais** e copie a Chave de Instrumentação. Você usará isso para informar ao SDK o local em que sua telemetria será enviada.
 
     ![exemplo](./media/app-insights-docker/02-props.png)
 
-Mantenha essa janela do navegador útil, pois você voltaremos tooit assim toolook em sua telemetria.
+Mantenha essa janela do navegador à mão, pois você voltará a ele em breve para examinar a telemetria.
 
-## <a name="run-hello-application-insights-monitor-on-your-host"></a>Executar o monitor do Application Insights Olá em seu host
-Agora que temos em algum lugar da telemetria do toodisplay Olá, você pode configurar o aplicativo em contêineres de saudação que coletará e enviá-lo.
+## <a name="run-the-application-insights-monitor-on-your-host"></a>Executar o monitor do Application Insights em seu host
+Agora que você tem algum lugar para exibir a telemetria, configure o aplicativo contido que a coletará e enviará.
 
-1. Conecte-se o host do Docker tooyour. 
+1. Conecte-se ao seu host do Docker. 
 2. Edite a chave de instrumentação nesse comando e, em seguida, execute-a:
    
    ```
@@ -60,26 +60,26 @@ Agora que temos em algum lugar da telemetria do toodisplay Olá, você pode conf
    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
    ```
 
-Apenas uma imagem do Application Insights é necessária por host do Docker. Se seu aplicativo for implantado em vários hosts de Docker, em seguida, repita o comando de saudação em cada host.
+Apenas uma imagem do Application Insights é necessária por host do Docker. Se o seu aplicativo for implantado em vários hosts do Docker, repita o comando em todos os hosts.
 
 ## <a name="update-your-app"></a>Atualizar seu aplicativo
-Se seu aplicativo está instrumentado com hello [SDK do Application Insights para Java](app-insights-java-get-started.md), adicionar Olá a seguinte linha no arquivo de ApplicationInsights.xml Olá no seu projeto, em Olá `<TelemetryInitializers>` elemento:
+Se seu aplicativo for instrumentado com o [SDK do Application Insights para Java](app-insights-java-get-started.md), adicione a seguinte linha ao arquivo ApplicationInsights.xml em seu projeto, sob o elemento `<TelemetryInitializers>`:
 
 ```xml
 
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Isso adiciona informações de Docker como contêiner host id tooevery telemetria item e enviado de seu aplicativo.
+Isso adiciona informações do Docker, como o contêiner e a ID de host, a cada item de telemetria enviado do seu aplicativo.
 
 ## <a name="view-your-telemetry"></a>Exibir sua telemetria
-Volte tooyour recurso Application Insights Olá portal do Azure.
+Volte ao recurso do Application Insights no Portal do Azure.
 
-Clique em bloco de Docker hello.
+Clique por meio do bloco do Docker.
 
-Em breve você verá dados chegando do aplicativo de Docker hello, especialmente se você tiver outros contêineres em execução no seu mecanismo do Docker.
+Em breve, você verá os dados recebidos do aplicativo do Docker, especialmente se tiver outros contêineres em execução em seu mecanismo do Docker.
 
-Aqui estão algumas das exibições de saudação, que você pode obter.
+Estas são algumas das exibições que você pode obter.
 
 ### <a name="perf-counters-by-host-activity-by-image"></a>Contadores de desempenho por host, atividade por imagem
 ![exemplo](./media/app-insights-docker/10.png)
@@ -88,20 +88,20 @@ Aqui estão algumas das exibições de saudação, que você pode obter.
 
 Clique em qualquer nome de imagem ou host para obter mais detalhes.
 
-modo de exibição toocustomize hello, clique em qualquer gráfico, a grade de saudação do título ou use Adicionar gráfico. 
+Para personalizar o modo de exibição, clique em qualquer gráfico, no título da grade ou use Adicionar Gráfico. 
 
 [Saiba mais sobre o Metrics Explorer](app-insights-metrics-explorer.md).
 
 ### <a name="docker-container-events"></a>Eventos de contêiner do Docker
 ![exemplo](./media/app-insights-docker/13.png)
 
-eventos individuais de tooinvestigate, clique em [pesquisa](app-insights-diagnostic-search.md). Pesquisar e filtrar toofind Olá eventos que você deseja. Clique em qualquer evento tooget mais detalhes.
+Para investigar os eventos individuais, clique em [Pesquisar](app-insights-diagnostic-search.md). Pesquise e filtre para localizar os eventos desejados. Clique em qualquer evento para obter mais detalhes.
 
 ### <a name="exceptions-by-container-name"></a>Exceções por nome do contêiner
 ![exemplo](./media/app-insights-docker/14.png)
 
-### <a name="docker-context-added-tooapp-telemetry"></a>O contexto de docker adicionado tooapp Telemetria
-Telemetria de solicitação enviada do aplicativo hello instrumentado com o SDK do AI, aprimorada com o contexto do Docker:
+### <a name="docker-context-added-to-app-telemetry"></a>Contexto do Docker adicionado à telemetria do aplicativo
+Telemetria da solicitação enviada do aplicativo instrumentado com o SDK do AI, aprimorada com o contexto do Docker:
 
 ![exemplo](./media/app-insights-docker/16.png)
 
@@ -114,11 +114,11 @@ Tempo do processador e contadores de desempenho de memória disponíveis, aprimo
 
 * Análise detalhada dos contadores de desempenho por contêiner e imagem.
 * Integração dos dados de contêiner e do aplicativo em um painel.
-* [Exportar telemetria](app-insights-export-telemetry.md) para o banco de dados de tooa análise adicional, o Power BI ou outro painel.
+* [Exporte a telemetria](app-insights-export-telemetry.md) para uma análise adicional em um banco de dados, no Power BI ou em outro painel.
 
-*Como obter telemetria de aplicativo hello em si?*
+*Como posso obter a telemetria do próprio aplicativo?*
 
-* Instale Olá SDK do Application Insights no aplicativo hello. Saiba mais para: [aplicativos Web Java](app-insights-java-get-started.md), [aplicativos Web Windows](app-insights-asp-net.md).
+* Instale o SDK do Application Insights no aplicativo. Saiba mais para: [aplicativos Web Java](app-insights-java-get-started.md), [aplicativos Web Windows](app-insights-asp-net.md).
 
 ## <a name="video"></a>Vídeo
 

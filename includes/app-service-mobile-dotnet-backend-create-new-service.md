@@ -1,19 +1,19 @@
-1. Entrar toohello [portal do Azure].
+1. Entre no [Portal do Azure].
 
 2. Clique em **Novo**.
 
-3. Na caixa de pesquisa hello, digite **aplicativos móveis**.
+3. Na caixa de pesquisa, digite **aplicativos móveis**.
 
-    ![Portal do Azure com Início Rápido de Aplicativos Móveis realçado][quickstart]
+    ![Portal do Azure com início rápido de aplicativos móveis realçado][quickstart]
 
-4. Na lista de resultados de saudação, selecione **início rápido de aplicativos móveis**e, em seguida, selecione **criar**.
+4. Na lista de resultados, selecione **início rápido de aplicativos móveis**e, em seguida, selecione **criar**.
  
-5. Em **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo (usando Olá o mesmo nome de seu aplicativo).
+5. Em **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo (usando o mesmo nome como seu aplicativo).
 
-6. Clique em **Criar**. Aguarde alguns minutos para Olá toobe de serviço implantado com êxito antes de continuar.
+6. Clique em **Criar**. Aguarde alguns minutos para que o serviço seja implantado com êxito antes de continuar.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

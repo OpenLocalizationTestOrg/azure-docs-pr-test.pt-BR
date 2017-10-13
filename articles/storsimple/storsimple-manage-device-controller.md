@@ -1,6 +1,6 @@
 ---
-title: controladores de dispositivo do StorSimple aaaManage | Microsoft Docs
-description: Saiba como toostop, reiniciar, desligar ou redefinir os controladores de dispositivo StorSimple.
+title: Gerenciar os controladores de dispositivo StorSimple | Microsoft Docs
+description: Saiba como parar, reiniciar, desligar ou redefinir os controladores de dispositivo StorSimple.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,174 +14,174 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
-ms.openlocfilehash: 9a86aa0f4a8fd96c36df206774972602c47a49a6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
-Este tutorial descreve as operações diferentes de saudação que podem ser executadas em seus controladores de dispositivo StorSimple. os controladores de saudação em seu dispositivo StorSimple são controladores redundantes (par) em uma configuração ativa-passiva. Em um determinado momento, somente um controlador está ativo e está processando todas as operações de disco e rede hello. Olá outro controlador está em um modo passivo. Se o controlador ativo Olá falhar, controlador passivo Olá torna-se ativo automaticamente.
+Este tutorial descreve as diferentes operações que podem ser executadas em seus controladores de dispositivo StorSimple. Os controladores em seu dispositivo StorSimple são controladores redundantes (par) em uma configuração ativo-passivo. Em um determinado momento, somente um controlador está ativo e está processando todas as operações de disco e rede. O outro controlador está em um modo passivo. Se o controlador ativo falhar, o controlador passivo ficará ativo automaticamente.
 
-Este tutorial inclui os controladores de dispositivo de saudação do toomanage instruções passo a passo usando o:
+Este tutorial inclui instruções passo a passo para gerenciar os controladores de dispositivo usando a:
 
-* **Controladores** seção Olá **manutenção** página Olá serviço StorSimple Manager
+* Seção **Controladores** na página **Manutenção** no serviço StorSimple Manager
 * Windows PowerShell para StorSimple.
 
-É recomendável que você gerencie os controladores de dispositivo Olá por meio do serviço do StorSimple Manager hello. Se uma ação só pode ser executada usando o Windows PowerShell para StorSimple, tutorial Olá faz uma observação sobre ela.
+É recomendável gerenciar os controladores de dispositivo por meio do serviço StorSimple Manager. Se só for possível executar uma ação usando o Windows PowerShell para StorSimple, o tutorial fará uma observação sobre isso.
 
 Depois de ler este tutorial, você poderá:
 
 * Reiniciar ou desligar um controlador de dispositivo StorSimple
 * Desligar um dispositivo StorSimple
-* Redefinir os padrões de toofactory do dispositivo StorSimple
+* Redefinir o dispositivo StorSimple para os padrões de fábrica
 
 ## <a name="restart-or-shut-down-a-single-controller"></a>Reiniciar ou desligar um único controlador
-Uma reinicialização ou um desligamento de controlador não é necessário como parte da operação normal do sistema. As operações de desligamento para um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware de dispositivo com falha requer substituição. Uma reinicialização de controlador também pode ser necessária em uma situação em que o desempenho é afetado pelo uso excessivo de memória ou controlador com defeito. Toorestart um controlador também pode ser necessário após a substituição de um controlador com êxito, se você deseja tooenable e Olá substituído controlador de teste.
+Uma reinicialização ou um desligamento de controlador não é necessário como parte da operação normal do sistema. As operações de desligamento para um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware de dispositivo com falha requer substituição. Uma reinicialização de controlador também pode ser necessária em uma situação em que o desempenho é afetado pelo uso excessivo de memória ou controlador com defeito. Se você deseja ativar e testar o controlador substituído também convém reiniciar um controlador após a sua substituição com êxito.
 
-Reiniciar um dispositivo não é tooconnected interrupções iniciadores, supondo que o controlador passivo hello está disponível. Se o controlador passivo não está disponível ou desativado, reiniciando Olá active controlador pode resultar na interrupção de saudação do serviço e o tempo de inatividade.
+Reiniciar um dispositivo que não é interrompido para os iniciadores conectados, supondo que o controlador passivo está disponível. Se um controlador passivo não está disponível ou está desligado, reiniciar o controlador ativo pode resultar na interrupção do serviço e em tempo de inatividade.
 
 > [!IMPORTANT]
 > * **Um controlador em execução nunca deve ser fisicamente removido, pois isso resultaria em uma perda de redundância e maior risco de tempo de inatividade.**
-> * Olá procedimento a seguir aplica-se apenas toohello dispositivo físico StorSimple. Para obter informações sobre como toostart, pare e reinicie Olá o dispositivo virtual, consulte [trabalhar com o dispositivo virtual Olá](storsimple-virtual-device-u2.md#work-with-the-storsimple-virtual-device).
+> * O procedimento a seguir aplica-se somente ao dispositivo físico StorSimple. Para saber mais sobre como iniciar, parar e reiniciar o dispositivo virtual, confira [Trabalhar com o dispositivo virtual](storsimple-virtual-device-u2.md#work-with-the-storsimple-virtual-device).
 > 
 > 
 
-Você pode reiniciar ou desligar um controlador de dispositivo único usando Olá portal clássico do Azure do serviço do StorSimple Manager hello ou o Windows PowerShell para StorSimple
+Você pode reiniciar ou desligar um controlador de dispositivo único usando o portal clássico do Azure do serviço StorSimple Manager ou do Windows PowerShell para StorSimple
 
-toomanage os controladores de dispositivo de saudação portal clássico do Azure, executar Olá seguintes etapas.
+Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, execute as seguintes etapas.
 
-#### <a name="toorestart-or-shut-down-a-controller-in-classic-portal"></a>toorestart ou desligar um controlador no portal clássico
-1. Navegue muito**dispositivos > manutenção**.
-2. Vá muito**Status do Hardware** e verificar se o status de saudação de ambos os controladores de saudação em seu dispositivo está **Íntegro**.
+#### <a name="to-restart-or-shut-down-a-controller-in-classic-portal"></a>Para reiniciar ou desligar um controlador no portal clássico
+1. Navegue até **Dispositivos > Manutenção**.
+2. Vá para **Status de Hardware** e verifique se o status de ambos os controladores em seu dispositivo está **Íntegro**.
    
     ![Verificar a integridade dos controladores do dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766017.png)
-3. De baixo Olá Olá **manutenção** , clique em **gerenciar controladores**.
+3. Na parte inferior da página **Manutenção**, clique em **Gerenciar Controladores**.
    
     ![Gerenciar controladores de dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
    
    > [!NOTE]
-   > Se você não conseguir ver **gerenciar controladores**, em seguida, você precisa tooinstall atualizações. Para obter mais informações, consulte [Atualizar seu dispositivo StorSimple](storsimple-update-device.md).
+   > Se você não conseguir ver **Gerenciar Controladores**, é preciso instalar atualizações. Para obter mais informações, consulte [Atualizar seu dispositivo StorSimple](storsimple-update-device.md).
    > 
    > 
-4. Em Olá **alterar configurações do controlador** caixa de diálogo caixa, Olá a seguir:
+4. Na caixa de diálogo **Alterar as Configurações do Controlador** , faça o seguinte:
    
-   1. De saudação **selecionar controlador** lista suspensa, o controlador de saudação selecione que você deseja toomanage. Opções de saudação são controlador 0 e 1. Esses controladores também são identificados como ativo ou passivo.
+   1. Na lista suspensa **Selecionar Controlador** , selecione o controlador que deseja gerenciar. As opções são Controlador 0 e Controlador 1. Esses controladores também são identificados como ativo ou passivo.
       
       > [!NOTE]
-      > Um controlador não pode ser gerenciado se ele estiver indisponível ou desativado, e ele não aparecerá na lista suspensa de saudação.
+      > Um controlador não pode ser gerenciado se estiver indisponível ou desligado e não aparecerá na lista suspensa.
       > 
       > 
-   2. De saudação **Selecionar ação** lista suspensa, escolha **reinicialização controlador** ou **desligar controlador**.
+   2. Na lista suspensa **Selecionar Ação**, escolha **Reiniciar controlador** ou **Desligar controlador**.
       
        ![Reiniciar o controlador passivo do dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766020.png)
-   3. Clique o ícone de verificação Olá ![Ícone de verificação](./media/storsimple-manage-device-controller/IC740895.png).
+   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-device-controller/IC740895.png).
 
-Isso irá reiniciar ou desligar o controlador de saudação. Olá tabela a seguir resume os detalhes de saudação do que acontece dependendo das seleções Olá feitas no hello **alterar configurações do controlador** caixa de diálogo.  
+Isso irá reiniciar ou desligar o controlador. A tabela a seguir resume os detalhes do que acontece dependendo das seleções feitas na caixa de diálogo **Alterar Configurações do Controlador** .  
 
 | Seleção # | Se você optar por... | Acontecerá isso. |
 | --- | --- | --- |
-| 1. |Reinicie controlador passivo hello. |Um trabalho será criado controlador de saudação toorestart, e você será notificado quando o trabalho de saudação é criado com êxito. Isso iniciará a reinicialização de controlador hello. Você pode monitorar o processo de reinicialização Olá acessando **serviço > Painel de controle > Exibir logs de operação** e filtrando pelo serviço de tooyour específicas de parâmetros. |
-| 2. |Reinicie o controlador ativo hello. |Você verá Olá aviso a seguir: "Se você reiniciar o controlador ativo hello, dispositivo Olá fará failover em controlador passivo toohello. Você deseja toocontinue?" </br>Se você escolher tooproceed com essa operação, o hello próximas etapas serão toorestart de toothose idênticos usado Olá controlador passivo (consulte a seleção 1). |
-| 3. |Desligar o controlador passivo hello. |Você verá a seguinte mensagem de saudação: "depois do desligamento ser concluído, será preciso toopush Olá botão liga em seu controlador tooturn-lo. Tem certeza de que deseja tooshut para este controlador?" </br>Se você escolher tooproceed com essa operação, o hello próximas etapas serão toorestart de toothose idênticos usado Olá controlador passivo (consulte a seleção 1). |
-| 4. |Desligar o controlador ativo hello. |Você verá a seguinte mensagem de saudação: "depois do desligamento ser concluído, será preciso toopush Olá botão liga em seu controlador tooturn-lo. Tem certeza de que deseja tooshut para este controlador?" </br>Se você escolher tooproceed com essa operação, o hello próximas etapas serão toorestart de toothose idênticos usado Olá controlador passivo (consulte a seleção 1). |
+| 1. |Reinicie o controlador passivo. |Um trabalho será criado para reiniciar o controlador e você será notificado depois que o trabalho tiver sido criado com êxito. Isso iniciará a reinicialização do controlador. Você pode monitorar o processo de reinicialização acessando **Serviço > Painel de controle > Exibir logs de operação** e filtrando por parâmetros específicos do seu serviço. |
+| 2. |Reinicie o controlador ativo. |Você verá o seguinte aviso: "Se você reiniciar o controlador ativo, o dispositivo realizará failover para o controlador passivo. Deseja continuar?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1). |
+| 3. |Desligue o controlador passivo. |Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1). |
+| 4. |Desligue o controlador ativo. |Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1). |
 
-#### <a name="toorestart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>toorestart ou desligar um controlador no Windows PowerShell para StorSimple
-Execute Olá tooshut as etapas a seguir para baixo ou reiniciar um único controlador em seu dispositivo StorSimple do hello portal clássico do Azure.
+#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Para reiniciar ou desligar um controlador no Windows PowerShell para StorSimple
+Execute as seguintes etapas para desligar ou reiniciar um único controlador no seu dispositivo StorSimple a partir do Portal Clássico do Azure.
 
-1. Acessar o dispositivo hello usando o console serial hello ou uma sessão telnet de um computador remoto. Conecte-se tooController 0 ou controlador 1 por Olá seguir as etapas em [console serial do dispositivo Use PuTTY tooconnect toohello](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. No menu do console serial hello, escolha a opção 1, **entrar com acesso completo**.
-3. Na mensagem de faixa Olá, tome nota do controlador Olá muito estiver conectado (controlador 0 ou controlador 1) e se Olá active controlador está ou Olá passivo (em espera).
+1. Acesse o dispositivo por meio do console serial ou uma sessão de telnet de um computador remoto. Conecte-se ao Controlador 0 ou Controlador 1 seguindo as etapas em [Usar PuTTY para se conectar ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
+3. Na mensagem da faixa, anote o controlador ao qual você está conectado (Controlador 0 ou Controlador 1) e se ele é o controlador passivo (em espera) ou ativo.
    
-   * tooshut para baixo de um único controlador, no prompt de hello, digite:
+   * Para desligar um único controlador no prompt, digite:
      
        `Stop-HcsController`
      
-       Isso desligará controlador Olá que você está conectado. Se você parar o controlador ativo hello, em seguida, ele faz failover controlador passivo toohello antes de desligar.
-   * toorestart um controlador, no prompt de hello, digite:
+       Esse procedimento desligará o controlador ao qual você está conectado. Se você parar o controlador ativo, em seguida, ele realizará failover para o controlador passivo antes de desligar.
+   * Para reiniciar um controlador, no prompt, digite:
      
        `Restart-HcsController`
      
-       Isso reiniciará o controlador de saudação que você está conectado. Se você reiniciar o controlador ativo hello, ele falhará em controlador passivo toohello antes de reiniciar hello.
+       Isso reiniciará o controlador ao qual você está conectado. Se você reiniciar o controlador ativo, ele realizará failover para o controlador passivo antes da reinicialização.
 
 ## <a name="shut-down-a-storsimple-device"></a>Desligar um dispositivo StorSimple
-Esta seção explica como tooshut para baixo de um dispositivo StorSimple com falha de um computador remoto ou um execução. Um dispositivo é desativado após desligar de ambos os controladores de dispositivo de saudação. Desligar um dispositivo é feita ao dispositivo hello está sendo movido fisicamente ou retirado de serviço.
+Esta seção explica como desligar um dispositivo StorSimple com falha ou em execução a partir de um computador remoto. Um dispositivo é desativado após desligar ambos os controladores do dispositivo. Um desligamento de dispositivo é feito quando o dispositivo está sendo movido fisicamente ou se for retirado de serviço.
 
 > [!IMPORTANT]
-> Antes de desligar o dispositivo Olá, verificar a integridade de saudação de componentes do dispositivo hello. Navegue muito**dispositivos > manutenção > Status do Hardware** e verificar se o status de saudação LED de todos os componentes de saudação está verde. Somente um dispositivo íntegro terá um status em verde. Se seu dispositivo está sendo desligado tooreplace um componente de mau funcionamento, você verá um falha (vermelho) ou um estado degradado (amarelo) para Olá respectivos componente (s).
+> Antes de desligar o dispositivo, verifique a integridade dos componentes do dispositivo. Navegue até **Dispositivos > Manutenção > Status de Hardware** e verifique se o LED de status de todos os componentes está verde. Somente um dispositivo íntegro terá um status em verde. Se o dispositivo está sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para os respectivos componentes.
 > 
 > 
 
-#### <a name="tooshut-down-a-storsimple-device"></a>tooshut um dispositivo StorSimple
-1. Saudação de uso [reiniciar ou desligar um controlador](#restart-or-shut-down-a-single-controller) tooidentify procedimento e desligar o controlador passivo de saudação em seu dispositivo. Você pode executar esta operação no hello portal clássico do Azure ou no Windows PowerShell para StorSimple.
-2. Repita Olá acima tooshut etapa para baixo o controlador ativo hello.
-3. Agora será necessário toolook em Olá plano posterior do dispositivo hello. Depois de dois controladores de saudação estiverem completamente desligados, hello LEDs de ambos os controladores Olá piscarão na cor vermelha. Se você precisar tooturn dispositivo Olá completamente nesse momento, Olá invertido interruptores nos módulos energia e resfriamento (PCMs) toohello OFF posição. Isso deve desativar dispositivo hello.
+#### <a name="to-shut-down-a-storsimple-device"></a>Para desligar um dispositivo StorSimple
+1. Use o procedimento de [reiniciar ou desligar um controlador](#restart-or-shut-down-a-single-controller) para identificar e desligar o controlador passivo em seu dispositivo. Você pode executar essa operação no portal de clássico do Azure ou no Windows PowerShell para StorSimple.
+2. Repita a etapa acima para desligar o controlador ativo.
+3. Agora, você precisará examinar o plano de apoio do dispositivo. Depois que os dois controladores são completamente desligados, os LEDs de status em ambos os controladores devem estar piscando em vermelho. Se você precisar desativar o dispositivo completamente neste momento, coloque os interruptores de energia nos Módulos de energia e resfriamento (PCMs) na posição OFF. Isso deve desativar o dispositivo.
 
-<!--#### tooshut down a StorSimple device in Windows PowerShell for StorSimple
+<!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. Connect toohello serial console of hello StorSimple device by following hello steps in [Use PuTTY tooconnect toohello device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
-1. In hello serial console menu, verify from hello banner message that hello controller you are connected toois hello passive controller. If you are connected toohello active controller, disconnect from this controller and connect toohello other controller.
+1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
-1. In hello serial console menu, choose option 1, **log in with full access**.
+1. In the serial console menu, choose option 1, **log in with full access**.
 
-1. At hello prompt, type:
+1. At the prompt, type:
 
     `Stop-HCSController`
 
-    This should shut down hello current controller. tooverify whether hello shutdown has finished, check hello back of hello device. hello controller status LED should be solid red.
+    This should shut down the current controller. To verify whether the shutdown has finished, check the back of the device. The controller status LED should be solid red.
 
-1. Repeat steps 1 through 4 tooconnect toohello active controller and then shut it down.
+1. Repeat steps 1 through 4 to connect to the active controller and then shut it down.
 
-1. After both hello controllers are completely shut down, hello status LEDs on both should be blinking red. If you need tooturn off hello device completely at this time, flip hello power switches on both Power and Cooling Modules (PCMs) toohello OFF position.-->
+1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
-## <a name="reset-hello-device-toofactory-default-settings"></a>Redefinir as configurações padrão do hello dispositivo toofactory
+## <a name="reset-the-device-to-factory-default-settings"></a>Redefinir o dispositivo para as configurações padrões de fábrica
 > [!IMPORTANT]
-> Se você precisar tooreset as configurações padrão do dispositivo toofactory, entre em contato com o Microsoft Support. procedimento Olá descrito a seguir deve ser usado somente em conjunto com o Microsoft Support.
+> Se você precisar redefinir o dispositivo para as configurações padrão de fábrica, entre em contato com o Suporte da Microsoft. O procedimento descrito a seguir deve ser usado apenas em conjunto com o Suporte da Microsoft.
 > 
 > 
 
-Este procedimento descreve como tooreset as configurações padrão do Microsoft Azure StorSimple dispositivo toofactory usando o Windows PowerShell para StorSimple.
-Redefinir um dispositivo remove todos os dados e configurações de cluster inteiro de saudação por padrão.
+Este procedimento descreve como redefinir o dispositivo Microsoft Azure StorSimple para as configurações padrão de fábrica usando o Windows PowerShell para StorSimple.
+A redefinição de um dispositivo remove todos os dados e todas as configurações do cluster inteiro por padrão.
 
-Execute as configurações padrão do Microsoft Azure StorSimple dispositivo toofactory de Olá tooreset as etapas a seguir:
+Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimple para as configurações padrões de fábrica:
 
-### <a name="tooreset-hello-device-toodefault-settings-in-windows-powershell-for-storsimple"></a>tooreset Olá toodefault configurações de dispositivo no Windows PowerShell para StorSimple
-1. Acessar o dispositivo Olá através do seu console serial. Verifique tooensure de mensagem de faixa Olá que você é o controlador ativo toohello conectado.
-2. No menu do console serial hello, escolha a opção 1, **entrar com acesso completo**.
-3. No prompt de hello, digite Olá após o comando tooreset Olá todo o cluster, removendo todas as configurações de controlador, metadados e dados:
+### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Para redefinir o dispositivo para as configurações padrões do Windows PowerShell para StorSimple
+1. Acesse o dispositivo por meio do seu console serial. Verifique a mensagem do cabeçalho para garantir que você está conectado ao controlador Ativo.
+2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
+3. No prompt, digite o seguinte comando para redefinir todo o cluster, removendo todas as configurações de dados, metadados e controlador:
    
     `Reset-HcsFactoryDefault`
    
-    tooinstead redefinir um único controlador, use Olá [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet com hello `-scope` parâmetro.)
+    Em vez disso, para redefinir um único controlador, use o cmdlet [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) com o parâmetro `-scope`.)
    
-    sistema de saudação será reiniciado várias vezes. Você será notificado quando Olá redefinição foi concluída com êxito. Dependendo do modelo do sistema hello, pode levar 45 a 60 minutos para um dispositivo 8100 e 60 a 90 minutos para um toofinish 8600 esse processo.
+    O sistema será reiniciado várias vezes. Você será notificado quando a reinicialização for concluída com êxito. Dependendo do modelo do sistema, podem ser necessários de 45 a 60 minutos para um dispositivo 8100 e de 60 a 90 minutos para um 8600 concluir esse processo.
    
    > [!TIP]
-   > * Se você estiver usando Update 1.2 ou anterior, use Olá `–SkipFirmwareVersionCheck` verificação de versão de firmware do parâmetro tooskip hello (caso contrário, você verá um erro de incompatibilidade de firmware: redefinição de fábrica não pode continuar devido a incompatibilidade de tooa em versões de firmware de saudação. ).
-   > * o procedimento de redefinição de fábrica Olá pode falhar para dispositivos de StorSimple que estão executando a atualização 1 ou 1.1 no portal do governo hello e executaram uma substituição de controlador único ou duplo com êxito (com controladores de substituição que foram enviados com pré-atualização 1 software). Isso ocorre quando a redefinição de fábrica Olá imagem é validada para a presença de saudação de um arquivo de SHA1 no controlador de saudação que não existe para o software de pré-atualização 1. Se você vir esta fábrica redefinição falha, entre em contato com o Microsoft Support tooassist com hello próximas etapas. Esse problema não seja visto com os controladores de substituição que foram enviados da fábrica Olá com atualização 1 ou posterior software.
+   > * Se você estiver usando a Atualização 1.2 ou anterior, use o parâmetro `–SkipFirmwareVersionCheck` para ignorar a verificação de versão de firmware (caso contrário, você verá um erro de incompatibilidade de firmware: A restauração de fábrica não pode continuar devido a uma incompatibilidade nas versões do firmware. ).
+   > * O procedimento de redefinição de fábrica pode falhar para dispositivos StorSimple que executam a Atualização 1 ou 1.1 no Portal do Governo e que executaram uma substituição de controlador único ou duplo com êxito (com os controladores de substituição que foram enviados com software anterior à Atualização 1). Isso acontece quando a imagem de redefinição de fábrica é validada para verificar a presença de um arquivo SHA1 no controlador, o qual não existe para um software anterior à Atualização 1. Se você encontrar esta falha de redefinição dos parâmetros originais, entre em contato com o Suporte da Microsoft para que ele possa auxiliar nas próximas etapas. Esse problema não é encontrado em controladores de substituição que foram enviados de fábrica com o software de Atualização 1 ou mais recente.
    > 
    > 
 
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre como gerenciar controladores de dispositivo
-Nesta seção, podemos resumiu alguns Olá perguntas frequentes sobre como gerenciar controladores do dispositivo StorSimple.
+Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento de controladores de dispositivo StorSimple.
 
-**P.** O que acontece se ambos Olá controladores em meu dispositivo estão íntegro e ativado e eu reiniciar ou desligar o controlador ativo Olá?
+**P.** O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
 
-**A.** Se ambos os controladores de saudação em seu dispositivo estiverem íntegros e ativados, você será solicitado para confirmação. Você pode optar por:
+**A.** Se ambos os controladores em seu dispositivo estão íntegros e ativados, será solicitada a sua confirmação. Você pode optar por:
 
-* **Reinicie o controlador ativo Olá** – você será notificado que reiniciar um controlador ativo fará com que Olá dispositivo toofail sobre o controlador passivo toohello. Olá controlador será reiniciado.
-* **Desligar um controlador ativo** – você será notificado de que desligar um controlador ativo resultará em tempo de inatividade. Você também precisará toopush Olá botão liga / desliga Olá dispositivo tooturn no controlador de saudação.
+* **Reiniciar o controlador ativo** – você será notificado de que reiniciar um controlador ativo fará com que o dispositivo faça failover para o controlador passivo. O controlador será reiniciado.
+* **Desligar um controlador ativo** – você será notificado de que desligar um controlador ativo resultará em tempo de inatividade. Você também precisará pressionar o botão de energia no dispositivo para ativar o controlador.
 
-**P.** O que acontece se o controlador passivo de saudação em meu dispositivo está indisponível ou desativado desativado e eu reiniciar ou desligar o controlador ativo Olá?
+**P.** O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
 
-**A.** Se o controlador passivo de saudação em seu dispositivo está indisponível ou desativado e você optar por:
+**A.** Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
 
-* **Reinicie o controlador ativo Olá** – você será notificado que continuar a operação de saudação resultará em uma interrupção temporária do serviço Olá, e você será solicitado a confirmar.
-* **Desligar um controlador ativo** – você será notificado que continuar a operação de saudação resulta em tempo de inatividade e que você precisará toopush Olá botão liga / desliga uma ou ambas as tooturn controladores no dispositivo de saudação. Será solicitada a sua confirmação.
+* **Reiniciar o controlador ativo** – você será notificado de que continuar a operação resultará em uma interrupção temporária do serviço e será solicitada a sua confirmação.
+* **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que você precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
 
-**P.** Quando a saudação controlador reinicialização ou desligamento falha tooprogress?
+**P.** Quando o desligamento ou reinicialização do controlador falha durante a execução?
 
 **A.** Reiniciar ou desligar um controlador pode falhar se:
 
@@ -191,17 +191,17 @@ Nesta seção, podemos resumiu alguns Olá perguntas frequentes sobre como geren
 
 **P.** Como saber se um controlador foi reiniciado ou desligado?
 
-**A.** Você pode verificar o status do controlador Olá na página de manutenção de saudação. status do controlador Olá indicará se um controlador foi reiniciado ou desligado. Além disso, página de alertas de saudação conterá um alerta informativo se o controlador de saudação foi reiniciado ou desligado. operações de reinicialização e desligamento do controlador Olá também são registradas nos logs de operação de saudação. Para obter mais informações sobre logs de operação, vá muito[exibir logs de operação Olá](storsimple-service-dashboard.md#view-the-operations-logs).
+**A.** Você pode verificar o status do controlador na página de Manutenção. O status do controlador indicará se um controlador foi reiniciado ou desligado. Além disso, a página Alertas terá um alerta informativo, avisando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de operação. Para obter mais informações sobre logs de operação, vá para [Exibir os logs de operação](storsimple-service-dashboard.md#view-the-operations-logs).
 
-**P.** Há qualquer toohello impacto e/SS como resultado de failover do controlador?
+**P.** Há algum impacto sobre as E/Ss como resultado de failover do controlador?
 
-**A.** conexões de TCP Olá entre os iniciadores e o controlador ativo serão redefinidas como resultado de failover do controlador, mas serão restabelecidas quando o controlador passivo Olá assume a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de e/s entre os iniciadores e o dispositivo Olá durante saudação dessa operação.
+**A.** As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
 
-**P.** Como devolver meu controlador tooservice depois que ele foi desligado e removido?
+**P.** Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
 
-**A.** tooreturn tooservice um controlador, você deve inseri-lo no chassi Olá conforme descrito em [substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md).
+**A.** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se você encontrar algum problema com os controladores de dispositivo StorSimple que você não conseguir resolver usando procedimentos de saudação listados neste tutorial, [entre em contato com o Microsoft Support](storsimple-contact-microsoft-support.md).
-* toolearn mais sobre como usar o serviço StorSimple Manager hello, ir muito[Use Olá tooadminister do serviço StorSimple Manager seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+* Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

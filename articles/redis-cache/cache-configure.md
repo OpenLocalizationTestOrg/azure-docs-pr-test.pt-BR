@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooconfigure Cache Redis do Azure | Microsoft Docs
-description: "Entender a configuração de Redis saudação padrão para o Cache Redis do Azure e aprenda como tooconfigure do Azure Redis Cache instâncias"
+title: Como configurar o Cache Redis do Azure | Microsoft Docs
+description: "Entenda a configuração padrão Redis Cache Redis do Azure e aprenda a configurar as instâncias de Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
-ms.openlocfilehash: 46bffb74cdf40e0e0a99c3a83dbe06d6fe1ea65b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooconfigure-azure-redis-cache"></a>Como tooconfigure Cache Redis do Azure
-Este tópico descreve como tooreview e atualização Olá configuração para suas instâncias de Cache Redis do Azure e configuração do servidor abrange saudação padrão Redis para instâncias de Cache Redis do Azure.
+# <a name="how-to-configure-azure-redis-cache"></a>Como configurar o Cache Redis do Azure
+Este tópico descreve como examinar e atualizar a configuração para suas instâncias de Cache Redis do Azure, além de incluir a configuração do servidor Redis padrão para instâncias de Cache Redis do Azure.
 
 > [!NOTE]
-> Para obter mais informações sobre como configurar e usar os recursos de cache premium, consulte [como persistência tooconfigure](cache-how-to-premium-persistence.md), [como tooconfigure clustering](cache-how-to-premium-clustering.md), e [como o suporte a tooconfigure rede Virtual ](cache-how-to-premium-vnet.md).
+> Para obter mais informações sobre como configurar e usar os recursos de cache premium, consulte [Como configurar a persistência](cache-how-to-premium-persistence.md), [Como configurar o clustering](cache-how-to-premium-clustering.md) e [Como configurar o suporte à Rede Virtual](cache-how-to-premium-vnet.md).
 > 
 > 
 
 ## <a name="configure-redis-cache-settings"></a>Definir configurações de cache Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Configurações de Cache Redis do Azure são exibidas e configuradas em Olá **Cache Redis** folha usando Olá **Menu recursos**.
+As configurações de Cache Redis do Azure são exibidas e configuradas na folha **Cache Redis** usando o **Menu Recursos**.
 
 ![Configurações de Cache Redis](./media/cache-configure/redis-cache-settings.png)
 
-Você pode exibir e configurar Olá seguindo as configurações usando Olá **Menu recursos**.
+Você pode exibir e definir as seguintes configurações usando o **Menu recursos**.
 
 * [Visão geral](#overview)
 * [Log de atividade](#activity-log)
@@ -75,25 +75,25 @@ Você pode exibir e configurar Olá seguindo as configurações usando Olá **Me
 
 ### <a name="activity-log"></a>Log de atividades
 
-Clique em **log de atividades** tooview ações executadas em seu cache. Você também pode usar filtragem tooexpand tooinclude essa exibição outros recursos. Para obter mais informações sobre como trabalhar com logs de auditoria, confira [Operações de auditoria com o Resource Manager](../azure-resource-manager/resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
+Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para obter mais informações sobre como trabalhar com logs de auditoria, confira [Operações de auditoria com o Resource Manager](../azure-resource-manager/resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Controle de acesso (IAM)
 
-Olá **(IAM) do controle de acesso** seção fornece suporte para controle de acesso baseado em função (RBAC) em Olá toohelp portal do Azure organizações atender seus requisitos de gerenciamento de acesso simples e precisa. Para obter mais informações, consulte [controle de acesso baseado em função no portal do Azure de saudação](../active-directory/role-based-access-control-configure.md).
+A seção **Controle de acesso (IAM)** dá suporte ao RBAC (controle de acesso baseado em função) no Portal do Azure para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../active-directory/role-based-access-control-configure.md)(Controle de acesso baseado em função no portal do Azure).
 
 ### <a name="tags"></a>Marcas
 
-Olá **marcas** seção ajuda você a organizar os recursos. Para obter mais informações, consulte [usando marcas tooorganize seus recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
+A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnosticar e resolver problemas
 
-Clique em **diagnosticar e resolver problemas** toobe fornecido com problemas comuns e estratégias para resolvê-los.
+Clique em **Diagnosticar e solucionar problemas** para ver problemas comuns e estratégias para resolvê-los.
 
 
 
 ## <a name="settings"></a>Configurações
-Olá **configurações** seção permite que você tooaccess e configurar Olá seguindo as configurações para seu cache.
+A seção **Configurações** permite acessar e definir as seguintes configurações para seu cache.
 
 * [Chaves de acesso](#access-keys)
 * [Configurações avançadas](#advanced-settings)
@@ -112,31 +112,31 @@ Olá **configurações** seção permite que você tooaccess e configurar Olá s
 
 
 ### <a name="access-keys"></a>Chaves de acesso
-Clique em **chaves de acesso** chaves de acesso de saudação tooview ou gere novamente para seu cache. Essas chaves são usadas pelos clientes Olá tooyour cache de conexão.
+Clique em **Teclas de acesso** para exibir ou regenerar as teclas de acesso para seu cache. Essas chaves são usadas pelos clientes que se conectam ao seu cache.
 
 ![Chaves de acesso de Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### <a name="advanced-settings"></a>Configurações avançadas
-Olá configurações a seguir são configuradas no hello **configurações avançadas** folha.
+As configurações a seguir são definidas na folha **Configurações avançadas**.
 
 * [Portas de acesso](#access-ports)
 * [Políticas de memória](#memory-policies)
 * [Notificações de Keyspace (configurações avançadas)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Portas de acesso
-Por padrão, o acesso não SSL está desabilitado para novos caches. tooenable Olá não SSL da porta, clique em **não** para **permitir acesso somente via SSL** em Olá **configurações avançadas** folha e depois clique em **salvar**.
+Por padrão, o acesso não SSL está desabilitado para novos caches. Para habilitar a porta não SSL, clique em **Não** para **Permitir acesso somente via SSL** na folha **Configurações avançadas** e, em seguida, clique em **Salvar**.
 
 ![Portas de acesso de Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
 #### <a name="memory-policies"></a>Políticas de memória
-Olá **política Maxmemory**, **reservado maxmemory**, e **reservado maxfragmentationmemory** configurações Olá **configuraçõesavançadas**folha configurar políticas de saudação de memória para cache de saudação.
+As configurações **Política de Maxmemory**, **maxmemory-reserved** e **maxfragmentationmemory-reserved** na folha **Configurações avançadas** definem as políticas de memória do cache.
 
 ![Política Maxmemory de Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Política MaxMemory** configura a política de remoção de saudação de cache hello e permite que você toochoose de saudação políticas de remoção a seguir:
+A **política Maxmemory** configura a política de remoção do cache e permite escolher uma das seguintes políticas de remoção:
 
-* `volatile-lru`-Este é o padrão de saudação.
+* `volatile-lru` – esse é o padrão.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,47 +145,47 @@ Olá **política Maxmemory**, **reservado maxmemory**, e **reservado maxfragment
 
 Para saber mais sobre políticas `maxmemory`, consulte [Políticas de remoção](http://redis.io/topics/lru-cache#eviction-policies).
 
-Olá **reservado maxmemory** configuração define a quantidade de saudação de memória em MB é reservado para operações de cache não como replicação durante o failover. Definir esse valor permite que você toohave uma experiência mais consistente do servidor Redis quando sua carga varia. Esse valor deve ser definido como maior para cargas de trabalho que executam muitas operações de gravação. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
+A configuração **maxmemory-reserved** configura a quantidade de memória em MB reservada para operações de não cache, como replicação, durante o failover. Definir esse valor permite que você tenha uma experiência mais consistente do servidor Redis quando sua carga varia. Esse valor deve ser definido como maior para cargas de trabalho que executam muitas operações de gravação. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
 
-Olá **reservado maxfragmentationmemory** configuração define a quantidade de saudação de memória em MB é reservado tooaccommodate de fragmentação de memória. Definir esse valor permite que você toohave uma experiência mais consistente do servidor Redis quando Olá cache estiver cheio ou fechar taxa de fragmentação toofull e hello também é alta. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
+A configuração **maxfragmentationmemory-reserved** define a quantidade de memória em MB reservada para acomodar a fragmentação de memória. A configuração desse valor permite ter uma experiência do servidor Redis mais consistente quando o cache está cheio ou quase cheio e a taxa de fragmentação também é alta. Quando a memória é reservada para essas operações, ela não fica disponível para o armazenamento de dados armazenados em cache.
 
-Uma coisa tooconsider ao escolher um novo valor de reserva de memória (**reservado maxmemory** ou **reservado maxfragmentationmemory**) é como essa alteração pode afetar um cache que já está em execução com grandes quantidades de dados. Por exemplo, se você tem um cache 53 GB com 49 GB de dados e alterar Olá reserva valor too8 GB, isso removerá Olá max a memória disponível para o sistema Olá too45 GB. Se seu atual `used_memory` ou `used_memory_rss` valores são maiores que o novo limite Olá de 45 GB, em seguida, sistema Olá terá tooevict dados até que as `used_memory` e `used_memory_rss` estão abaixo 45 GB. A remoção pode aumentar a fragmentação de memória e carregamento do servidor. Para obter mais informações sobre métricas do cache, como `used_memory` e `used_memory_rss`, consulte [Métricas disponíveis e intervalos de relatórios](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Uma coisa a ser considerada ao escolher um novo valor de reserva de memória (**maxmemory-reserved** ou **maxfragmentationmemory-reserved**) é como essa alteração pode afetar um cache que já está em execução com grandes quantidades de dados. Por exemplo, se você tiver um cache de 53 GB com 49 GB de dados, altere o valor de reserva para 8 GB; isso reduzirá a memória máxima disponível para o sistema para 45 GB. Se os valores `used_memory` ou `used_memory_rss` atuais forem maiores que o novo limite de 45 GB, o sistema precisará remover os dados até que `used_memory` e `used_memory_rss` fiquem abaixo de 45 GB. A remoção pode aumentar a fragmentação de memória e carregamento do servidor. Para obter mais informações sobre métricas do cache, como `used_memory` e `used_memory_rss`, consulte [Métricas disponíveis e intervalos de relatórios](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
-> Olá **reservado maxmemory** e **reservado maxfragmentationmemory** configurações só estão disponíveis para Standard e Premium armazena em cache.
+> As configurações **maxmemory-reserved** e **maxfragmentationmemory-reserved** estão disponíveis somente para caches Standard e Premium.
 > 
 > 
 
 #### <a name="keyspace-notifications-advanced-settings"></a>Notificações de Keyspace (configurações avançadas)
-Redis keyspace as notificações são configuradas no hello **configurações avançadas** folha. Notificações Keyspace permitem que os clientes tooreceive notificações quando ocorrem determinados eventos.
+As notificações keyspace do Redis são configuradas na folha **Configurações avançadas** . As notificações keyspace permitem que clientes recebam notificações quando determinados eventos ocorrerem.
 
 ![Configurações avançadas de Cache Redis](./media/cache-configure/redis-cache-advanced-settings.png)
 
 > [!IMPORTANT]
-> Keyspace notificações e hello **eventos notificar de keyspace** configuração só estão disponíveis para os caches Standard e Premium.
+> As notificações de Keyspace e a configuração **notify-keyspace-events** estão disponíveis apenas para os caches Standard e Premium.
 > 
 > 
 
-Para obter mais informações, veja [Notificações de Keyspace do Redis](http://redis.io/topics/notifications). Para exemplo de código, consulte Olá [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) arquivo hello [Olá, mundo](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplo.
+Para obter mais informações, veja [Notificações de Keyspace do Redis](http://redis.io/topics/notifications). Para o código de exemplo, veja o arquivo [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) no exemplo [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 
 <a name="recommendations"></a>
 ## <a name="redis-cache-advisor"></a>Supervisor do Cache Redis
-Olá **Redis Cache Advisor** folha exibe recomendações para seu cache. Durante as operações normais, nenhuma recomendação é exibida. 
+A folha do **Supervisor do Cache Redis** exibe recomendações para seu cache. Durante as operações normais, nenhuma recomendação é exibida. 
 
 ![Recomendações](./media/cache-configure/redis-cache-no-recommendations.png)
 
-Se qualquer condição ocorrer durante as operações de saudação do cache como alto uso da memória, largura de banda de rede ou de carga do servidor, um alerta é exibido na Olá **Redis Cache** folha.
+Se qualquer condição ocorrer durante as operações de seu cache, por exemplo, alto uso de memória, de largura de banda de rede ou de carga do servidor, um alerta será exibido na folha **Cache Redis** .
 
 ![Recomendações](./media/cache-configure/redis-cache-recommendations-alert.png)
 
-Informações adicionais podem ser encontradas em Olá **recomendações** folha.
+É possível encontrar mais informações na folha **Recomendações** .
 
 ![Recomendações](./media/cache-configure/redis-cache-recommendations.png)
 
-Você pode monitorar essas métricas em Olá [gráficos de monitoramento](cache-how-to-monitor.md#monitoring-charts) e [gráficos de uso](cache-how-to-monitor.md#usage-charts) seções de saudação **Redis Cache** folha.
+Você pode monitorar essas métricas nas seções [Gráficos de monitoramento](cache-how-to-monitor.md#monitoring-charts) e [Gráficos de uso](cache-how-to-monitor.md#usage-charts) da folha **Cache Redis**.
 
-Cada tipo de preço tem limites diferentes para conexões de cliente, memória e largura de banda. Se o cache se aproximar da capacidade máxima para essas métricas durante um período prolongado, uma recomendação será criada. Para obter mais informações sobre métricas hello e limites de revisores Olá **recomendações** ferramenta, consulte Olá a tabela a seguir:
+Cada tipo de preço tem limites diferentes para conexões de cliente, memória e largura de banda. Se o cache se aproximar da capacidade máxima para essas métricas durante um período prolongado, uma recomendação será criada. Para saber mais sobre as métricas e os limites revisados pela ferramenta **Recomendações**, confira a tabela a seguir:
 
 | Métrica do Cache Redis | Mais informações |
 | --- | --- |
@@ -194,38 +194,38 @@ Cada tipo de preço tem limites diferentes para conexões de cliente, memória e
 | Carga do servidor |[Gráficos de uso - carga do servidor Redis](cache-how-to-monitor.md#usage-charts) |
 | Uso de memória |[Desempenho do cache - tamanho](cache-faq.md#cache-performance) |
 
-tooupgrade seu cache, clique em **atualizar agora** toochange Olá preço e [escala](#scale) seu cache. Para obter mais informações sobre como escolher um tipo de preço, confira [Qual oferta e tamanho de Cache Redis devo usar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Para atualizar o cache, clique em **Atualizar agora** a fim de alterar o tipo de preço e [escalar](#scale) seu cache. Para obter mais informações sobre como escolher um tipo de preço, confira [Qual oferta e tamanho de Cache Redis devo usar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
 ### <a name="scale"></a>Escala
-Clique em **escala** Olá tooview ou alteração de preços para seu cache. Para obter mais informações sobre dimensionamento, consulte [como tooScale Cache Redis do Azure](cache-how-to-scale.md).
+Clique em **Escala** para exibir ou alterar o tipo de preço do cache. Para obter mais informações sobre escala, veja [Como escalonar o Cache Redis do Azure](cache-how-to-scale.md).
 
 ![Tipo de preço do Cache Redis](./media/cache-configure/pricing-tier.png)
 
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Tamanho do cluster Redis
-Clique em **tamanho de Cluster Redis (visualização)** o cache de tamanho do cluster Olá toochange para um premium em execução com cluster habilitado.
+Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para alterar o tamanho do cluster de um cache premium em execução com clustering habilitado.
 
 > [!NOTE]
-> Observe que, enquanto hello Azure Redis Cache Premium camada foi liberado tooGeneral disponibilidade, o recurso de tamanho de Cluster Redis hello está atualmente em visualização.
+> Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
 > 
 > 
 
 ![Tamanho do cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-tamanho do cluster Olá toochange, use o controle deslizante de saudação ou digite um número entre 1 e 10 Olá **contagem de fragmento** caixa de texto e clique em **Okey** toosave.
+Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
 
 > [!IMPORTANT]
-> O clustering está disponível apenas para os Caches premium. Para obter mais informações, consulte [como tooconfigure clustering para um Premium do Azure Redis Cache](cache-how-to-premium-clustering.md).
+> O clustering está disponível apenas para os Caches premium. Para saber mais, consulte [Como configurar um cluster para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 > 
 > 
 
 
 ### <a name="redis-data-persistence"></a>Persistência de dados do Redis
-Clique em **Redis a persistência de dados** tooenable, desabilitar ou configurar persistência de dados para seu cache premium. O Cache Redis do Microsoft Azure oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Clique em **Persistência de dados do Redis** para habilitar, desabilitar ou configurar a persistência de dados para o cache premium. O Cache Redis do Microsoft Azure oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-Para obter mais informações, consulte [como tooconfigure persistência para um Premium do Azure Redis Cache](cache-how-to-premium-persistence.md).
+Para saber mais, confira [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md).
 
 
 > [!IMPORTANT]
@@ -234,33 +234,33 @@ Para obter mais informações, consulte [como tooconfigure persistência para um
 > 
 
 ### <a name="schedule-updates"></a>Agende atualizações
-Olá **agendar atualizações** folha permite que você toodesignate uma janela de manutenção para atualizações de servidor Redis para seu cache. 
+A folha **Agendar atualizações** permite designar uma janela de manutenção para atualizações do servidor Redis do seu cache. 
 
 > [!IMPORTANT]
-> janela de manutenção de saudação se aplica apenas atualizações de servidor tooRedis e não tooany Azure atualiza ou atualiza o sistema operacional de toohello de saudação VMs que hospedam o cache de saudação.
+> A janela de manutenção se aplica apenas às atualizações do servidor Redis e não a quaisquer atualizações do Azure ou atualizações do sistema operacional das VMs que hospedam o cache.
 > 
 > 
 
-![Agende atualizações](./media/cache-configure/redis-schedule-updates.png)
+![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
 
-toospecify uma janela de manutenção, verifique dias Olá desejado e especifique a hora de início de janela de manutenção de saudação para cada dia e clique em **Okey**. Observe que o tempo de janela de manutenção de saudação é em UTC. 
+Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC. 
 
 > [!IMPORTANT]
-> Olá **agendar atualizações** funcionalidade está disponível somente para os caches da camada Premium. Para saber mais e instruções, confira [Como administrar o Cache Redis do Azure – Agendar atualizações](cache-administration.md#schedule-updates).
+> A funcionalidade **Agendar atualizações** está disponível somente para caches do nível Premium. Para saber mais e instruções, confira [Como administrar o Cache Redis do Azure – Agendar atualizações](cache-administration.md#schedule-updates).
 > 
 > 
 
 ### <a name="geo-replication"></a>Replicação geográfica
 
-Olá **georeplicação** folha fornece um mecanismo para vincular as duas instâncias de Cache Redis do Azure da camada Premium. Um cache é designado como o cache de vinculado primário hello e hello como cache de vinculado secundário hello. cache de vinculado secundário Olá se torna somente leitura e dados cache primário toohello escrito é replicada toohello cache secundário de vinculado. Essa funcionalidade pode ser usado tooreplicate um cache em regiões do Azure.
+A folha **Replicação geográfica** fornece um mecanismo para vincular duas instâncias de Cache Redis do Azure de camada Premium. Um cache é designado como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. Essa funcionalidade pode ser usada para replicar um cache entre regiões do Azure.
 
 > [!IMPORTANT]
-> A **replicação geográfica** está disponível somente para caches de camada Premium. Para obter mais informações e instruções, consulte [como tooconfigure replicação geográfica para Cache Redis do Azure](cache-how-to-geo-replication.md).
+> A **replicação geográfica** está disponível somente para caches de camada Premium. Para obter mais informações e instruções, consulte [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md) (Como configurar a replicação geográfica para o Cache Redis do Azure).
 > 
 > 
 
 ### <a name="virtual-network"></a>Rede Virtual
-Olá **rede Virtual** seção permite que as configurações de rede virtual de saudação tooconfigure para seu cache. Para obter informações sobre como criar um cache premium com uma rede virtual suporte e atualizar suas configurações, consulte [como tooconfigure dar suporte a rede Virtual para um Premium do Azure Redis Cache](cache-how-to-premium-vnet.md).
+A seção **Rede Virtual** permite que você defina as configurações de rede virtual para o cache. Para saber mais sobre como criar um cache premium com suporte de rede virtual e atualizar suas configurações, confira [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
 > As configurações de rede virtual só estão disponíveis para os caches premium configurados com suporte para rede virtual durante a criação do cache. 
@@ -269,11 +269,11 @@ Olá **rede Virtual** seção permite que as configurações de rede virtual de 
 
 ### <a name="firewall"></a>Firewall
 
-Clique em **Firewall** tooview e configure as regras de firewall para o Cache Redis do Premium do Azure.
+Clique em **Firewall** para exibir e configurar regras de firewall para o Cache Redis do Azure Premium.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-É possível especificar regras de firewall com um intervalo de endereços IP inicial e final. Quando as regras de firewall estão configuradas, apenas as conexões de cliente de saudação especificado intervalos de endereços IP podem se conectar a toohello cache. Quando uma regra de firewall é salvo há um pequeno atraso antes de regra de saudação é eficaz. Normalmente, esse atraso é inferior a um minuto.
+É possível especificar regras de firewall com um intervalo de endereços IP inicial e final. Quando regras de firewall são configuradas, apenas as conexões de cliente de intervalos de endereços IP especificados podem se conectar ao cache. Quando uma regra de firewall é salva, há um pequeno atraso antes que a regra entre em vigor. Normalmente, esse atraso é inferior a um minuto.
 
 > [!IMPORTANT]
 > Conexões dos sistemas de monitoramento do Cache Redis do Azure serão sempre permitidas, mesmo se regras de firewall forem configuradas.
@@ -283,19 +283,19 @@ Clique em **Firewall** tooview e configure as regras de firewall para o Cache Re
 > 
 
 ### <a name="properties"></a>Propriedades
-Clique em **propriedades** tooview informações sobre seu cache, incluindo o ponto de extremidade de cache hello e portas.
+Clique em **Propriedades** para exibir informações sobre o cache, incluindo o ponto de extremidade e as portas do cache.
 
 ![Propriedades de Cache Redis](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Bloqueios
-Olá **bloqueia** seção permite que você toolock uma assinatura, o grupo de recursos ou o recurso tooprevent outros usuários na sua organização do acidentalmente excluir ou modificar recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md).
+A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script de automação
 
-Clique em **script de automação** toobuild e exportar um modelo de seus recursos implantados para implantações futuras. Para saber mais sobre como trabalhar com modelos, confira [Implantar recursos com modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Clique em **Script de automação** para compilar e exportar um modelo de seus recursos implantados para implantações futuras. Para saber mais sobre como trabalhar com modelos, confira [Implantar recursos com modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="administration-settings"></a>Configurações de administração
-Olá configurações Olá **administração** seção permitir Olá tooperform tarefas administrativas para o cache a seguir. 
+As configurações na seção **Administração** permitem que você execute as tarefas administrativas a seguir para seu cache. 
 
 ![Administração](./media/cache-configure/redis-cache-administration.png)
 
@@ -305,11 +305,11 @@ Olá configurações Olá **administração** seção permitir Olá tooperform t
 
 
 ### <a name="importexport"></a>Importar/exportar
-Importação/exportação é uma operação de gerenciamento de dados do Cache Redis do Azure, que permite que você tooimport e exportar dados em cache Olá importando e exportando um instantâneo de banco de dados de Cache Redis (RDB) de um blob de páginas de tooa de cache premium em uma conta de armazenamento do Azure. Importação/exportação permite toomigrate entre instâncias diferentes do Cache Redis do Azure ou popular Olá cache com os dados antes do uso.
+A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar e exportar dados para o cache importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de páginas em uma Conta de Armazenamento do Azure. A Importação/Exportação permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
 
-Importação pode ser usado toobring Redis compatível RDB arquivos de qualquer servidor Redis em execução em qualquer nuvem ou o ambiente, incluindo o Redis em execução no Linux, Windows ou em qualquer provedor de nuvem como Amazon Web Services e outros. Importação de dados é uma maneira fácil de toocreate um cache com dados preenchidos previamente. Durante o processo de importação Olá, Cache Redis do Azure carrega arquivos RDB saudação do armazenamento do Azure na memória e insere chaves Olá cache hello.
+A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache Redis do Azure carrega os arquivos RDB do armazenamento do Azure na memória e insere as chaves no cache.
 
-Exportação permite que dados de saudação tooexport armazenados em Cache Redis do Azure tooRedis compatível RDB arquivos. Você pode usar esses dados de toomove do recurso de um Cache Redis do Azure instância tooanother ou servidor do Redis tooanother. Durante o processo de exportação hello, um arquivo temporário é criado no hello VM que hospeda Olá instância de servidor de Cache Redis do Azure e arquivo hello é carregado toohello designado a conta de armazenamento. Quando a operação de exportação Olá for concluído com o status de êxito ou falha, o arquivo temporário de saudação é excluído.
+A exportação permite exportar os dados armazenados no Cache Redis do Azure para arquivos RDB compatíveis com Redis. Você pode usar esse recurso para mover dados de uma instância do Cache Redis do Azure para outro ou para outro servidor Redis. Durante o processo de exportação, um arquivo temporário é criado na VM que hospeda a instância de servidor do Cache Redis do Azure e o arquivo é carregado para a conta de armazenamento designada. Após a operação de exportação ser concluída com um status de êxito ou de falha, o arquivo temporário é excluído.
 
 > [!IMPORTANT]
 > A opção Importar/Exportar está disponível somente para caches do nível Premium. Para saber mais e instruções, confira [Importar e exportar dados no Cache Redis do Azure](cache-how-to-import-export-data.md).
@@ -317,15 +317,15 @@ Exportação permite que dados de saudação tooexport armazenados em Cache Redi
 > 
 
 ### <a name="reboot"></a>Reboot
-Olá **reinicializar** folha permite tooreboot nós de saudação do cache. Esse recurso de reinicialização permite que você tootest seu aplicativo para garantir a resiliência se houver uma falha de um nó de cache.
+A folha **Reinicializar** permite a reinicialização dos nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
-Se você tiver um cache premium com cluster habilitado, você pode selecionar quais fragmentos de saudação tooreboot de cache.
+Se tiver um cache premium com clustering habilitado, você poderá selecionar quais fragmentos do cache serão reinicializados.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-tooreboot um ou mais nós de seu cache, selecione nós de saudação desejado e clique em **reinicializar**. Se você tiver um cache premium com cluster habilitado, selecione Olá shard(s) tooreboot e, em seguida, clique em **reinicializar**. Depois de alguns minutos, Olá reinicialização do nó (s) selecionado e estiverem online novamente depois de alguns minutos.
+Para reinicializar um ou mais nós do cache, selecione os nós desejados e clique em **Reinicializar**. Se tiver um cache premium com clustering habilitado, selecione os fragmentos a serem reinicializados e clique em **Reinicializar**. Depois de alguns minutos, os nós selecionados são reinicializados e voltam a ficar online alguns minutos mais tarde.
 
 > [!IMPORTANT]
 > A reinicialização agora está disponível para todos os tipos de preço. Para saber mais e instruções, confira [Como administrar o Cache Redis do Azure – Reinicializar](cache-administration.md#reboot).
@@ -335,7 +335,7 @@ tooreboot um ou mais nós de seu cache, selecione nós de saudação desejado e 
 
 ## <a name="monitoring"></a>Monitoramento
 
-Olá **monitoramento** seção permite que você tooconfigure diagnóstico e monitoramento para seu Cache Redis. Para obter mais informações sobre diagnóstico e monitoramento do Cache Redis do Azure, consulte [como toomonitor Cache Redis do Azure](cache-how-to-monitor.md).
+A seção **Monitoramento** permite que você configure o diagnóstico e o monitoramento para seu Cache Redis. Para saber mais sobre o diagnóstico e monitoramento do Cache Redis do Azure, confira [Como monitorar o Cache Redis do Azure](cache-how-to-monitor.md).
 
 ![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
 
@@ -344,23 +344,23 @@ Olá **monitoramento** seção permite que você tooconfigure diagnóstico e mon
 * [Diagnostics](#diagnostics)
 
 ### <a name="redis-metrics"></a>Métricas do Redis
-Clique em **Redis métricas** muito[exibir métricas](cache-how-to-monitor.md#view-cache-metrics) para seu cache.
+Clique em **Métricas do Redis** para [exibir métricas](cache-how-to-monitor.md#view-cache-metrics) para seu cache.
 
 ### <a name="alert-rules"></a>Regras de alerta
 
-Clique em **regras de alerta** tooconfigure alertas com base nas métricas de Cache Redis. Para obter mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
+Clique em **Regras de alerta** para configurar alertas com base nas métricas do Cache Redis. Para obter mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
 ### <a name="diagnostics"></a>Diagnostics
 
-Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) e, em seguida, excluídas. toopersist suas métricas de cache por mais de 30 dias, clique **diagnóstico** muito[configurar conta de armazenamento Olá](cache-how-to-monitor.md#export-cache-metrics) usado toostore diagnósticos de cache.
+Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
 >[!NOTE]
->Em adição tooarchiving seu toostorage de métricas de cache, você também pode [transmiti-los tooan hub de eventos ou enviá-los tooLog análise](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>Além de arquivar suas métricas de cache no armazenamento, você também pode [transmiti-las para um Hub de Eventos ou enviá-las para o Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
 >
 >
 
 ## <a name="support--troubleshooting-settings"></a>Configurações de suporte e solução de problemas
-Olá configurações Olá **suporte + solução de problemas** seção fornecerá opções para resolver problemas com seu cache.
+As configurações na seção **Suporte + solução de problemas** fornecem opções para resolver problemas com o cache.
 
 ![Suporte + solução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
@@ -368,64 +368,64 @@ Olá configurações Olá **suporte + solução de problemas** seção fornecer�
 * [Nova solicitação de suporte](#new-support-request)
 
 ### <a name="resource-health"></a>Integridade de recursos
-**Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para obter mais informações sobre Olá serviço de integridade de recursos do Azure, consulte [visão geral da integridade do recurso Azure](../resource-health/resource-health-overview.md).
+**Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
-> Integridade do recurso é atualmente não é possível tooreport na integridade de saudação de instâncias de Cache Redis do Azure hospedado em uma rede virtual. Para saber mais, confira [Todos os recursos de cache funcionam ao hospedar um cache em uma rede virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> A integridade de recursos atualmente não consegue relatar a integridade de instâncias de Cache Redis do Azure hospedadas em uma rede virtual. Para saber mais, confira [Todos os recursos de cache funcionam ao hospedar um cache em uma rede virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 > 
 > 
 
 ### <a name="new-support-request"></a>Nova solicitação de suporte
-Clique em **nova solicitação de suporte** tooopen uma solicitação de suporte para seu cache.
+Clique em **Nova solicitação de suporte** para abrir uma solicitação de suporte para seu cache.
 
 
 
 
 
 ## <a name="default-redis-server-configuration"></a>Configuração padrão do servidor Redis
-Novo Cache Redis do Azure são configuradas com hello valores de configuração de Redis a seguir.
+Novas instâncias de Cache Redis do Azure são configuradas com os seguintes valores de configuração padrão Redis.
 
 > [!NOTE]
-> configurações de saudação nesta seção não podem ser alteradas usando Olá `StackExchange.Redis.IServer.ConfigSet` método. Se esse método for chamado com um dos comandos de saudação nesta seção, é gerada uma exceção semelhante toohello a seguir:  
+> As configurações nesta seção não podem ser alteradas com o método `StackExchange.Redis.IServer.ConfigSet`. Se esse método for chamado com um dos comandos nesta seção, será gerada uma exceção similar à seguinte:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
-> Quaisquer valores que podem ser configuradas como **máxima de memória de política**, podem ser configuradas por meio de saudação portal do Azure ou ferramentas de gerenciamento de linha de comando como CLI do Azure ou o PowerShell.
+> Todos os valores que podem ser configurados, como **max-memory-policy**, podem ser configurados por meio do Portal do Azure ou de ferramentas de gerenciamento de linha de comando, como a CLI do Azure ou o PowerShell.
 > 
 > 
 
 | Configuração | Valor padrão | Descrição |
 | --- | --- | --- |
-| `databases` |16 |número de bancos de dados padrão de saudação é 16, mas você pode configurar uma saudação de com base no número diferente de preço. <sup>1</sup> o banco de dados do saudação padrão é o DB 0, você pode selecionar um diferente em uma base por conexão que usa `connection.GetDatabase(dbid)` onde `dbid` é um número entre `0` e `databases - 1`. |
-| `maxclients` |Depende de saudação preço<sup>2</sup> |Isso é que o número máximo de saudação de clientes conectados é permitida Olá mesmo tempo. Quando Olá limite é atingido o Redis fecha todas as conexões novas hello, retornando um erro de 'número máximo de clientes atingido'. |
-| `maxmemory-policy` |`volatile-lru` |Política MaxMemory é a configuração de saudação para como o Redis seleciona qual tooremove quando `maxmemory` (Olá o tamanho do cache Olá oferta selecionado quando você criou o cache de saudação) é atingido. Padrão de saudação do Cache Redis do Azure com a configuração é `volatile-lru`, que remove as chaves de saudação com um vencimento definido usando um algoritmo LRU. Essa configuração pode ser definida em Olá portal do Azure. Para obter mais informações, consulte [Políticas de memória](#memory-policies). |
-| `maxmemory-samples` |3 |memória toosave, LRU e algoritmos TTL mínimo são aproximados algoritmos em vez de algoritmos precisos. Por padrão o Redis verificações três chaves e escolhe Olá um usada menos recentemente. |
-| `lua-time-limit` |5.000 |Tempo máximo de execução de um script Lua em milissegundos. Se Olá tempo de execução máximo for atingido, o Redis registra que um script ainda está em execução após Olá máximo permitida de tempo e tooreply tooqueries é iniciado com um erro. |
+| `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
+| `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |
+| `maxmemory-policy` |`volatile-lru` |A política Maxmemory é a configuração de como o Redis seleciona o que remover quando `maxmemory` (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é `volatile-lru`, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para obter mais informações, consulte [Políticas de memória](#memory-policies). |
+| `maxmemory-samples` |3 |Para economizar memória, LRU e algoritmos TTL mínimos são algoritmos aproximados, em vez de algoritmos precisos. Por padrão, o Redis verificará três chaves e escolherá aquela que foi usada há mais tempo. |
+| `lua-time-limit` |5.000 |Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |O tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Olá limites de buffer de saída do cliente podem ser usado tooforce desconexão de clientes que não estão lendo dados do servidor de saudação rápido o suficiente, por algum motivo (um motivo comum é que um cliente Pub/Sub não consegue consumir mensagens assim que o publicador Olá pode produzi-las). Para obter mais informações, veja [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, veja [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
-<a name="databases"></a>
-<sup>1</sup>limite Olá para `databases` é diferente para cada Cache Redis do Azure, preço e pode ser definido na criação do cache. Se nenhum `databases` configuração é especificada durante a criação do cache, Olá padrão é 16.
+<a name="databases"></a> 
+<sup>1</sup>O limite para `databases` é diferente para cada tipo de preço do Cache Redis do Azure e pode ser definido na criação do cache. Se nenhuma configuração `databases` for especificada durante a criação do cache, o padrão será 16.
 
 * Caches Básico e Standard
-  * C0 cache (250 MB) – backup de bancos de dados too16
-  * C1 cache (1 GB) - backup too16 bancos de dados
-  * C2 cache (2,5 GB) - backup too16 bancos de dados
-  * C3 cache (6 GB) - backup too16 bancos de dados
-  * C4 cache (13 GB) - backup too32 bancos de dados
-  * C5 cache (26 GB) - backup too48 bancos de dados
-  * C6 cache (53 GB) - backup too64 bancos de dados
+  * Cache C0 (250 MB) - até 16 bancos de dados
+  * Cache C1 (1 GB) - até 16 bancos de dados
+  * Cache C2 (2,5 GB) - até 16 bancos de dados
+  * Cache C3 (6 GB) - até 16 bancos de dados
+  * Cache C4 (13 GB) - até 32 bancos de dados
+  * Cache C5 (26 GB) - até 48 bancos de dados
+  * Cache C6 (53 GB) - até 64 bancos de dados
 * Caches Premium
-  * P1 (6 GB - 60 GB) - backup too16 bancos de dados
-  * P2 (13 GB - 130 GB) - backup too32 bancos de dados
-  * P3 (26 GB - 260 GB) - backup too48 bancos de dados
-  * P4 (53 GB - 530 GB) - backup too64 bancos de dados
-  * Todos os caches premium com cluster Redis habilitado - Redis cluster só dá suporte ao uso do banco de dados 0 então Olá `databases` limite para qualquer cache premium com cluster Redis habilitada efetivamente é 1 e hello [selecione](http://redis.io/commands/select) comando não é permitido. Para obter mais informações, consulte [preciso toomake qualquer toouse de aplicativo alterações toomy cliente clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * P1 (6 GB - 60 GB) - até 16 bancos de dados
+  * P2 (13 - 130 GB) - até 32 bancos de dados
+  * P3 (26 GB - 260 GB) - até 48 bancos de dados
+  * P4 (53 - 530 GB) - até 64 bancos de dados
+  * Todos os caches premium com cluster Redis habilitado – o cluster Redis permite apenas o uso do banco de dados 0 para que o limite `databases` de qualquer cache premium com o cluster Redis habilitado seja efetivamente 1 e o comando [Select](http://redis.io/commands/select) não seja permitido. Para saber mais, confira [Preciso fazer alguma alteração no meu aplicativo cliente para usar clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> Olá `databases` configuração pode ser configurado somente durante a criação do cache e somente usando o PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 
@@ -433,21 +433,21 @@ Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](
 <sup>2</sup>`maxclients` é diferente para cada tipo de preço do Cache Redis do Azure.
 
 * Caches Básico e Standard
-  * C0 cache (250 MB) - too256 conexões
-  * C1 cache (1 GB) - backup too1, conexões, 000
-  * C2 cache (2,5 GB) - backup too2, conexões, 000
-  * C3 cache (6 GB) - backup too5, conexões, 000
-  * C4 cache (13 GB) - backup too10, conexões, 000
-  * C5 cache (26 GB) - backup too15, conexões, 000
-  * C6 cache (53 GB) - backup too20, conexões, 000
+  * Cache C0 (250 MB) - até 256 conexões
+  * Cache C1 (1 GB) - até 1.000 conexões
+  * Cache C2 (2.5 GB) - até 2.000 conexões
+  * Cache C3 (6 GB) - até 5.000 conexões
+  * Cache C4 (13 GB) - até 10.000 conexões
+  * Cache C5 (26 GB) - até 15.000 conexões
+  * Cache C6 (53 GB) - até 20.000 conexões
 * Caches Premium
-  * P1 (6 GB - 60 GB) - backup too7, conexões de 500
-  * P2 (13 GB - 130 GB) - backup too15, 000 conexões
-  * P3 (26 GB - 260 GB) - backup too30, 000 conexões
-  * P4 (53 GB - 530 GB) - backup too40, 000 conexões
+  * P1 (6 GB - 60 GB) - até 7.500 conexões
+  * P2 (13 GB - 130 GB) - até 15.000 conexões
+  * P3 (26 GB - 260 GB) - até 30.000 conexões
+  * P4 (53 GB - 530 GB) - até 40.000 conexões
 
 > [!NOTE]
-> Embora cada tamanho de cache permite que *até* um determinado número de conexões, tooRedis cada conexão tem sobrecarga associados a ele. Um exemplo de tal sobrecarga seria o uso da CPU e de memória como resultado de criptografia TLS/SSL. limite de conexão máximo Olá para um tamanho de cache determinado pressupõe um cache pouco carregado. Se carregar de sobrecarga de conexão *mais* carga a partir de operações do cliente excede a capacidade de sistema hello, cache Olá pode enfrentar problemas de capacidade, mesmo se você não tiver excedido o limite de conexão de saudação para o tamanho do cache atual hello.
+> Embora cada tamanho de cache permita *até* um determinado número de conexões, cada conexão com o Redis tem sobrecarga associadas. Um exemplo de tal sobrecarga seria o uso da CPU e de memória como resultado de criptografia TLS/SSL. O limite máximo de conexão para um tamanho de cache determinado pressupõe um cache com pouca carga. Se a carga da conexão de sobrecarga *mais* a carga de operações do cliente excederem a capacidade do sistema, o cache poderá enfrentar problemas de capacidade mesmo se não exceder o limite de conexão para o tamanho atual do cache.
 > 
 > 
 
@@ -455,7 +455,7 @@ Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>Comandos Redis não têm suporte no Cache Redis do Azure
 > [!IMPORTANT]
-> Porque a configuração e gerenciamento de instâncias de Cache Redis do Azure é gerenciada pela Microsoft, hello comandos a seguir são desabilitados. Se você tentar tooinvoke-las, você recebe uma mensagem de erro semelhante muito`"(error) ERR unknown command"`.
+> Como a configuração e o gerenciamento de instâncias de Cache Redis do Azure é gerenciada pela Microsoft, os comandos a seguir são desabilitados. Se você tentar invocá-los, receberá uma mensagem de erro semelhante a `"(error) ERR unknown command"`.
 > 
 > * BGREWRITEAOF
 > * BGSAVE
@@ -472,45 +472,45 @@ Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](
 Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Console do Redis
-Podem emitir comandos de forma segura tooyour instâncias de Cache Redis do Azure usando Olá **Console Redis**, que está disponível no portal do Azure para todas as camadas de cache de saudação.
+Você pode emitir comandos com segurança para suas instâncias do Cache Redis do Azure usando o **Console do Redis**, que está disponível no Portal do Azure para todas as camadas de cache.
 
 > [!IMPORTANT]
-> - Olá Console Redis não funciona com [VNET](cache-how-to-premium-vnet.md). Quando o cache faz parte de uma rede virtual, somente a clientes em redes de saudação pode acessar o cache de saudação. Como Redis Console é executado no navegador local, que está fora da saudação VNET, ele não pode se conectar tooyour cache.
-> - Nem todos os comandos do Redis têm suporte no Cache Redis do Azure. Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, consulte Olá anterior [Redis comandos não tem suportados no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache) seção. Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](http://redis.io/commands).
+> - O Console do Redis não funciona com [VNET](cache-how-to-premium-vnet.md). Quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis é executado em seu navegador local, que está fora da VNET, ele não poderá se conectar ao seu cache.
+> - Nem todos os comandos do Redis têm suporte no Cache Redis do Azure. Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, veja a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 
-Olá tooaccess Console Redis, clique em **Console** de saudação **Redis Cache** folha.
+Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
 
 ![Console do Redis](./media/cache-configure/redis-console-menu.png)
 
-comandos de tooissue em sua instância de cache, simplesmente saudação do tipo desejado comando no console de saudação.
+Para emitir comandos em sua instância de cache, simplesmente digite o comando desejado no console.
 
 ![Console do Redis](./media/cache-configure/redis-console.png)
 
 
-### <a name="using-hello-redis-console-with-a-premium-clustered-cache"></a>Usando Olá Console Redis com um premium cache clusterizados
+### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Usando o Console Redis com um cache Premium clusterizado
 
-Quando o cache usando Olá Console Redis com um premium em cluster, você pode emitir comandos tooa único fragmento de cache de saudação. tooissue um fragmento específico do tooa de comando, primeiro conecte-se fragmento desejado toohello clicando no selecionador de fragmento de saudação.
+Quando usar o Console do Redis com um cache Premium clusterizado, você pode emitir comandos para um único fragmento do cache. Para emitir um comando para um fragmento específico, primeiro conecte-se ao fragmento desejado clicando no seletor de fragmento.
 
 ![Console do Redis](./media/cache-configure/redis-console-premium-cluster.png)
 
-Se você tenta tooaccess uma chave armazenada em um fragmento diferente de Olá fragmento conectado, você receberá um toohello semelhantes da mensagem de erro seguinte mensagem.
+Se você tentar acessar uma chave armazenada em um fragmento diferente do fragmento conectado, você receberá uma mensagem de erro semelhante à mensagem a seguir.
 
 ```
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
 
-No exemplo anterior de saudação, o fragmento 1 é fragmento selecionado do hello, mas `myKey` está localizado no fragmento 0, conforme indicado pelo Olá `(shard 0)` parte da mensagem de saudação do erro. Neste exemplo, tooaccess `myKey`, selecione fragmento 0 usando Olá seletor de fragmento e comando de saudação desejado do problema.
+No exemplo anterior, o fragmento 1 é o fragmento selecionado, mas `myKey` está localizado no fragmento 0, conforme indicado pela parte `(shard 0)` da mensagem de erro. Neste exemplo, para acessar `myKey`, selecione o fragmento 0 usando o seletor de fragmento e, em seguida, execute o comando desejado.
 
 
-## <a name="move-your-cache-tooa-new-subscription"></a>Mover o cache tooa nova assinatura
-Você pode mover o cache tooa nova assinatura clicando **mover**.
+## <a name="move-your-cache-to-a-new-subscription"></a>Mover o cache para uma nova assinatura
+Você pode mover o cache para uma nova assinatura clicando em **Mover**.
 
 ![Mover o Cache Redis](./media/cache-configure/redis-cache-move.png)
 
-Para obter informações sobre como mover os recursos de um recurso grupo tooanother e de tooanother de uma assinatura, consulte [Mover grupo de recursos toonew de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre como trabalhar com os comandos do Redis, consulte [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)

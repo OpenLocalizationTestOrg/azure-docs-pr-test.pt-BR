@@ -1,5 +1,5 @@
 ---
-title: aaaReliableConcurrentQueue no Azure Service Fabric
+title: ReliableConcurrentQueue no Azure Service Fabric
 description: "ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite enfileirar e remover da fila de modo paralelo."
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 78a9905996b9ab265c1288d2b49753638d7bc445
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="introduction-tooreliableconcurrentqueue-in-azure-service-fabric"></a>Introdução tooReliableConcurrentQueue no Azure Service Fabric
-Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. É projetado toodeliver alta taxa de transferência e baixa latência ordenando relaxando Olá estrito FIFO fornecidos pelo [fila confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e fornece uma ordenação de melhor esforço.
+# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
+Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordenação de melhor esforço.
 
 ## <a name="apis"></a>APIs
 
@@ -33,20 +33,20 @@ Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada qu
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Comparação com [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Confiável simultâneos na fila é oferecido como uma alternativa muito[fila confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx). Ela deve ser usada em casos em que ordenação PEPS estrita não seja necessária, como garantir que PEPS exija uma compensação com simultaneidade.  [Fila confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) usa bloqueios tooenforce FIFO pedidos, no máximo uma transação permitido tooenqueue e no máximo uma transação permitido toodequeue por vez. Em comparação, simultâneos na fila confiável alivia Olá ordenação de restrição e permite que qualquer número toointerleave de transações simultâneas seu enfileirar e operações de remoção da fila. Ordenação de melhor esforço for fornecido, porém Olá a ordenação relativa de dois valores em uma fila simultâneas confiável pode nunca ser garantida.
+A Fila Simultâneas Confiável é oferecida como uma alternativa à [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx). Ela deve ser usada em casos em que ordenação PEPS estrita não seja necessária, como garantir que PEPS exija uma compensação com simultaneidade.  [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) usa bloqueios para impor a ordenação PEPS, com no máximo uma transação com permissão para enfileirar e no máximo uma transação com permissão para remover da fila por vez. Em comparação, Fila Simultâneos Confiável flexibiliza a restrição de ordenação e permite que qualquer número de transações simultâneas intercale suas operações de enfileirar e remover da fila. Ordenação de melhor esforço é fornecido, porém, a ordenação relativa de dois valores em uma Fila Simultânea Confiável nunca pode ser garantida.
 
 Fila Simultâneas Confiáveis fornecem maior taxa de transferência e menor latência que [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) sempre que há várias transações simultâneas executando ações de enfileirar e/ou remover da fila.
 
-Um exemplo de caso de uso para Olá ReliableConcurrentQueue é Olá [fila de mensagens](https://en.wikipedia.org/wiki/Message_queue) cenário. Nesse cenário, produtores de mensagens de uma ou mais criar e adicionar itens toohello fila e um ou mais consumidores de mensagens receber mensagens da fila de saudação e processá-las. Vários produtores e consumidores podem trabalhar de forma independente, usando transações simultâneas na fila de saudação do tooprocess de ordem.
+Um exemplo de caso de uso para o ReliableConcurrentQueue é o cenário [Fila de Mensagens](https://en.wikipedia.org/wiki/Message_queue). Nesse cenário, um ou mais produtores de mensagem criam e adicionam itens à fila, e um ou mais consumidores de mensagens capturam mensagens da fila e as processam. Vários produtores e consumidores podem trabalhar de modo independente, usando transações simultâneas para processar a fila.
 
 ## <a name="usage-guidelines"></a>Diretrizes de uso
-* fila de saudação espera que itens de saudação na fila de saudação têm um período de retenção de baixa. Ou seja, itens de saudação não permanece na fila de saudação por um longo tempo.
-* fila Olá não garante a ordenação de FIFO estrito.
-* fila de saudação não ler seus próprios gravações. Se um item é colocado dentro de uma transação, não será visível tooa dequeuer em hello mesma transação.
-* As operações de remover da fila não são isoladas umas das outras. Se o item *um* é removida da fila na transação *txnA*, embora *txnA* item não for confirmada, *um* não será visível tooa simultâneos transação *txnB*.  Se *txnA* anula, *um* ficará visível muito*txnB* imediatamente.
-* *TryPeekAsync* comportamento pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação de saudação. Um exemplo disso pode ser encontrado na seção de padrões de programação de saudação.
-* A contagem é não transacional. Pode ser usado tooget uma ideia do número de saudação de elementos na fila Olá, mas representa um point-in-time e não pode ser usado.
-* Caro processamento Olá removidas da fila de itens não devem ser executadas enquanto Olá transação está ativa, transações de longa execução tooavoid que podem ter um impacto de desempenho no sistema de saudação.
+* A fila espera que os itens na fila tenham um baixo período de retenção. Ou seja, os itens não permanecem na fila por um longo período.
+* A fila não assegura a ordenação PEPS estrita.
+* A fila não lê suas próprias gravações. Se um item for enfileirado em uma transação, ele não será visível para uma operação de remover da fila na mesma transação.
+* As operações de remover da fila não são isoladas umas das outras. Se o item *A* for removido da fila na transação *txnA*, embora *txnA* não esteja confirmado, o item *A* não ficará visível a uma transação simultânea *txnB*.  Se *txnA* for anulada, *A* ficará visível a *txnB* imediatamente.
+* O comportamento *TryPeekAsync* pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação. Um exemplo disso pode ser encontrado na seção de Padrões de Programação.
+* A contagem é não transacional. Você pode usá-la para ter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não é confiável.
+* Processamento dispendioso nos itens de remoção da fila não deve ser executado enquanto a transação estiver ativa para evitar transações de execução longa que podem afetar o desempenho do sistema.
 
 ## <a name="code-snippets"></a>Trechos de código
 Vamos analisar alguns trechos de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
@@ -66,7 +66,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Suponha que essa tarefa Olá foi concluída com êxito e que houve as transações simultâneas modificando fila hello. usuário de saudação pode esperar itens da saudação fila toocontain hello em qualquer Olá pedidos a seguir:
+Suponha que a tarefa tenha sido concluída com êxito e que não tenham ocorrido transações simultâneas que modificassem a fila. O usuário pode esperar que a fila contenha os itens em qualquer uma destas ordens:
 
 > 10, 20
 
@@ -95,11 +95,11 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Suponha que tarefas Olá concluída com êxito, que tarefas Olá foi executado em paralelo e que não houve nenhuma outra transação simultânea modificando fila hello. A inferência não pode ser feita sobre ordem de saudação de itens na fila de saudação. Este trecho de código, itens de saudação podem aparecer em qualquer um dos Olá 4! ordenações possíveis.  fila de saudação tentará itens de saudação tookeep na ordem do hello original (enfileirados), mas pode ser forçado tooreordê-los devido a operações de tooconcurrent ou falhas.
+Suponha que as tarefas tenham sido concluídas com êxito, que as tarefas foram executadas em paralelo e que não tenham ocorrido outras transações simultâneas que modificassem a fila. Não é possível inferir a ordem dos itens na fila. Para esse trecho de código, os itens podem aparecer em qualquer uma das 4! ordenações possíveis.  A fila tentará manter os itens na ordem original (enfileirados), mas poderá ser forçada a reordená-los devido a falhas ou operações simultâneas.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
-Aqui estão alguns trechos de código para usar TryDequeueAsync seguido de saídas Olá esperado. Suponha que essa fila Olá já está preenchida com hello itens na fila de saudação a seguir:
+Aqui estão alguns trechos de código para usar TryDequeueAsync seguidos pelas suas saídas esperadas. Suponha que a fila já está preenchida com os seguintes itens na fila:
 > 10, 20, 30, 40, 50, 60
 
 - *Caso 1: Tarefa única de remoção da fila*
@@ -115,7 +115,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Suponha que essa tarefa Olá foi concluída com êxito e que houve as transações simultâneas modificando fila hello. Desde a inferência não pode ser feita sobre ordem de saudação de itens de saudação na fila de saudação, qualquer três itens Olá podem ser removida da fila, em qualquer ordem. fila de saudação tentará itens de saudação tookeep na ordem do hello original (enfileirados), mas pode ser forçado tooreordê-los devido a operações de tooconcurrent ou falhas.  
+Suponha que a tarefa tenha sido concluída com êxito e que não tenham ocorrido transações simultâneas que modificassem a fila. Uma vez que não se pode fazer nenhuma inferência sobre a ordem dos itens na fila, qualquer um dos três itens pode ser removido da fila em qualquer ordem. A fila tentará manter os itens na ordem original (enfileirados), mas poderá ser forçada a reordená-los devido a falhas ou operações simultâneas.  
 
 - *Caso 2: Tarefa paralela de remoção da fila*
 
@@ -141,13 +141,13 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Suponha que tarefas Olá concluída com êxito, que tarefas Olá foi executado em paralelo e que não houve nenhuma outra transação simultânea modificando fila hello. Desde que a inferência não pode ser feita sobre ordem de saudação de itens de saudação na fila de saudação, Olá listas *dequeue1* e *dequeue2* cada conterá quaisquer dois itens, em qualquer ordem.
+Suponha que as tarefas tenham sido concluídas com êxito, que as tarefas foram executadas em paralelo e que não tenham ocorrido outras transações simultâneas que modificassem a fila. Uma vez que não se pode fazer nenhuma inferência sobre a ordem dos itens na fila, as listas *dequeue1* e *dequeue2* conterão, cada uma, qualquer um dos dois itens em qualquer ordem.
 
-Olá mesmo item será *não* aparecem em ambas as listas. Assim, dequeue1 tiver *10*, *30*, então dequeue2 terá *20*, *40*.
+O mesmo item *não* aparecerá em ambas as listas. Assim, dequeue1 tiver *10*, *30*, então dequeue2 terá *20*, *40*.
 
 - *Caso 3: Ordenação de remoção da fila com anulação da transação*
 
-Anular uma transação com em curso remove da fila coloca itens Olá de volta no cabeçalho de saudação da fila de saudação. ordem de saudação na qual itens Olá sejam colocados de volta no cabeçalho de saudação da fila de saudação não é garantida. Vamos dar uma olhada em Olá código a seguir:
+Anular uma transação com remoções de fila em andamento coloca que os itens de volta no topo da fila. A ordem em que os itens são colocados de volta no topo da fila não é garantida. Vamos examine o código a seguir:
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -155,25 +155,25 @@ using (var txn = this.StateManager.CreateTransaction())
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
-    // Abort hello transaction
+    // Abort the transaction
     await txn.AbortAsync();
 }
 ```
-Suponha que foram removidas da fila itens Olá no hello ordem a seguir:
+Suponha que os itens foram removidos da fila na seguinte ordem:
 > 10, 20
 
-Quando podemos anulá-Olá, itens Olá seriam adicionados o back toohello do cabeçalho da fila de saudação em qualquer Olá pedidos a seguir:
+Quando anulamos a transação, os itens são adicionados de volta ao topo da fila em qualquer uma das ordens a seguir:
 > 10, 20
 
 > 20, 10
 
-Olá mesmo é verdadeiro para todos os casos onde transação Olá não foi *confirmado*.
+O mesmo é verdadeiro para todos os casos em que a transação não foi *Confirmada* com sucesso.
 
 ## <a name="programming-patterns"></a>Padrões de programação
 Nesta seção, vamos analisar alguns padrões de programação que podem ser úteis no uso de ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Remoções de fila em lote
-A recomendado é padrão de programação para Olá consumidor tarefa toobatch seu remove da fila em vez de executar uma remoção da fila por vez. usuário Olá pode escolher toothrottle atrasos entre cada tamanho de lote de lote ou hello. Olá trecho de código a seguir mostra o modelo de programação.  Observe que neste exemplo, processamento de saudação é feito Olá transação é confirmada, para que se uma falha de toooccur durante o processamento, hello itens não processados serão perdidos sem ter sido processado.  Como alternativa, o processamento de saudação pode ser feito no escopo da transação hello, no entanto, isso pode ter um impacto negativo no desempenho e requer manipulação de itens de saudação já processados.
+O padrão de programação recomendado é a tarefa de consumidor realizar remoções da fila em lote, em vez de executar uma remoção da fila por vez. O usuário pode optar por restringir atrasos entre cada lote ou o tamanho do lote. O trecho de código a seguir mostra esse modelo de programação.  Observe que, neste exemplo, o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito no escopo da transação, no entanto, isso pode ter um impacto negativo no desempenho e requer tratamento dos itens já processados.
 
 ```
 int batchSize = 5;
@@ -194,12 +194,12 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add toohello buffer for processing
+                // If an item was dequeued, add to the buffer for processing
                 processItems.Add(ret.Value);
             }
             else
             {
-                // else break hello for loop
+                // else break the for loop
                 break;
             }
         }
@@ -207,7 +207,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -219,7 +219,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-notification-based-processing"></a>Processamento de melhor esforço baseado em notificação
-Outro padrão de programação interessante usa Olá API de contagem. Aqui, podemos implementar processamento baseada em notificação de melhor esforço para fila de saudação. fila de saudação contagem pode ser usado toothrottle um enfileirar ou uma tarefa de remoção da fila.  Observe que exemplo hello anterior, como processamento de saudação ocorre fora de transação hello, itens não processados poderão ser perdidos se ocorrer uma falha durante o processamento.
+Outro padrão de programação interessante usa a API de Contagem. Aqui, podemos implementar o processamento baseado em notificação de melhor esforço para a fila. A Contagem de fila pode ser usada para restringir uma tarefa de enfileiramento ou de remoção da fila.  Observe que, como no exemplo anterior, já que o processamento ocorre fora da transação, os itens não processados poderão ser perdidos se ocorrer uma falha durante o processamento.
 
 ```
 int threshold = 5;
@@ -231,11 +231,11 @@ while(!cancellationToken.IsCancellationRequested)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // If hello queue does not have hello threshold number of items, delay hello task and check again
+        // If the queue does not have the threshold number of items, delay the task and check again
         await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken);
     }
 
-    // If there are approximately threshold number of items, try and process hello queue
+    // If there are approximately threshold number of items, try and process the queue
 
     // Buffer for dequeued items
     List<int> processItems = new List<int>();
@@ -250,7 +250,7 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add toohello buffer for processing
+                // If an item was dequeued, add to the buffer for processing
                 processItems.Add(ret.Value);
             }
         } while (processItems.Count < threshold && ret.HasValue);
@@ -258,7 +258,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -267,9 +267,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Drenagem de melhor esforço
-Uma drenagem da fila de saudação não pode ser garantida devido a natureza simultâneas toohello Olá da estrutura de dados.  É possível que, mesmo se nenhuma operação de usuário na fila de saudação em curso, tooTryDequeueAsync uma chamada específica pode não retornar um item que foi previamente enfileirada e confirmada.  item de mensagens de saudação é garantida muito*eventualmente* se tornam visível toodequeue, mas sem um mecanismo de comunicação de fora da banda, um consumidor independente não pode saber essa fila Olá atingiu um estado estável mesmo se todos os produtores tenham sido interrompidos e nenhuma nova operação enqueue é permitidas. Assim, a operação de drenagem de saudação é melhor esforço conforme implementado abaixo.
+Uma drenagem da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync não retorne um item que foi anteriormente enfileirado e confirmado.  É garantido que o item enfileirado *acabará* ficando visível à remoção da fila, porém, sem um mecanismo de comunicação fora da banda, um consumidor independente não tem como saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e nenhuma nova operação de enfileiramento seja permitida. Portanto, a operação de drenagem é o melhor esforço conforme implementado abaixo.
 
-usuário Olá deve interromper todas as outra produtor e tarefas do consumidor e aguarde para qualquer toocommit de transações em trânsito ou anulação, antes de tentar a fila de saudação toodrain.  Se o usuário Olá sabe número Olá esperado de itens na fila de hello, eles podem configurar uma notificação que indica que todos os itens têm foi removida da fila.
+O usuário deve interromper todas as outras tarefas de produtor e consumidor e esperar qualquer transação em andamento ser confirmada ou anulada antes de tentar drenar a fila.  Se o usuário souber qual é o número esperado de itens na fila, ele poderá configurar uma notificação que sinalize que todos os itens foram removidos da fila.
 
 ```
 int numItemsDequeued;
@@ -289,7 +289,7 @@ do
 
             if(ret.HasValue)
             {
-                // Buffer hello dequeues
+                // Buffer the dequeues
                 processItems.Add(ret.Value);
             }
         } while (ret.HasValue && processItems.Count < batchSize);
@@ -297,7 +297,7 @@ do
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -306,7 +306,7 @@ do
 ```
 
 ### <a name="peek"></a>Espiar
-ReliableConcurrentQueue não fornece Olá *TryPeekAsync* api. Os usuários podem obter uma inspeção Olá semântica usando um *TryDequeueAsync* e, em seguida, anulando a transação de saudação. Neste exemplo, remove da fila são processadas somente se o valor do item de saudação for maior que *10*.
+ReliableConcurrentQueue não fornece a API *TryPeekAsync*. Os usuários podem obter a semântica da espiada usando um *TryDequeueAsync* e, em seguida, anulando a transação. Neste exemplo, remoções da fila serão processadas somente se o valor do item for maior do que *10*.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -318,7 +318,7 @@ using (var txn = this.StateManager.CreateTransaction())
     {
         if (ret.Value > 10)
         {
-            // Process hello item
+            // Process the item
             Console.WriteLine("Value : " + ret.Value);
             valueProcessed = true;
         }
@@ -342,5 +342,5 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Backup e restauração de Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 * [Introdução aos serviços de API Web do Service Fabric](service-fabric-reliable-services-communication-webapi.md)
-* [Uso avançado de saudação o modelo de programação de serviços confiável](service-fabric-reliable-services-advanced-usage.md)
+* [Uso avançado do modelo de programação de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

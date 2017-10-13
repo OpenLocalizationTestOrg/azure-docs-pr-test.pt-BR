@@ -1,6 +1,6 @@
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-tooclean seus recursos, execute Olá comando a seguir:
+Para limpar seus recursos, execute o comando a seguir:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

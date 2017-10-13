@@ -1,14 +1,14 @@
-Faça logon no site toohello do seu provedor de domínio.
+Entre no site de seu provedor de domínio.
 
-Localize a página de saudação para gerenciar registros DNS. Cada provedor de domínio tem sua própria interface de registros DNS, por isso consulte a documentação do provedor de saudação. Analisar as áreas do site Olá rotulada **nome de domínio**, **DNS**, ou **nome do servidor de gerenciamento**. 
+Localize a página para gerenciamento de registros DNS. Cada provedor de domínio tem sua própria interface de registros DNS; portanto, consulte a documentação do provedor. Procure áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**. 
 
-Muitas vezes, você pode encontrar a página de registros DNS Olá exibindo as informações da conta e, em seguida, procurando, como um link **Meus domínios**. Vá para a página de toothat e, em seguida, procure por um link chamado algo como **arquivo de zona**, **registros DNS**, ou **configuração avançada**.
+Normalmente, você pode encontrar a página de registros DNS exibindo as informações da conta e procurando um link como **Meus domínios**. Vá para essa página e, em seguida, procure um link com um nome semelhante a **Arquivo de zona**, **Registros DNS** ou **Configuração avançada**.
 
-Olá seguinte captura de tela é um exemplo de uma página de registros DNS:
+A captura de tela a seguir é um exemplo de uma página de registros DNS:
 
 ![Exemplo de página de registros DNS](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
 
-Captura de tela de exemplo hello, você deve selecionar **adicionar** toocreate um registro. Alguns provedores têm diferentes links tooadd diferentes tipos de registro. Novamente, consulte a documentação do provedor de saudação.
+Na captura de tela de exemplo, selecione **Adicionar** para criar um registro. Alguns provedores têm links diferentes para adicionar tipos de registro diferentes. Novamente, consulte a documentação do provedor.
 
 > [!NOTE]
-> Para alguns provedores, como GoDaddy, alterações tooDNS registros não entra em vigor até que você selecione um separado **salvar alterações** link. 
+> Para alguns provedores, como GoDaddy, as alterações nos registros DNS só entram em vigor quando você seleciona um link separado **Salvar Alterações**. 

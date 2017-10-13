@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do [Facebook](https://www.facebook.com/) 
 
-Antes de usar sua conta do Facebook em um aplicativo lógico, é necessário autorizar a conta do Facebook Olá lógica aplicativo tooconnect tooyour. Felizmente, você pode fazer isso facilmente a partir de dentro de seu aplicativo lógica em Olá Portal do Azure. 
+Antes de usar sua conta do Facebook em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Facebook. Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure. 
 
-Aqui está Olá etapas tooauthorize tooyour de tooconnect de aplicativo sua lógica conta do Facebook:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Facebook:
 
-1. toocreate tooFacebook uma conexão, no designer de aplicativo de lógica de saudação, selecione **APIs gerenciadas do Microsoft Mostrar** em Olá lista suspensa e digite *Facebook* na caixa de pesquisa de saudação. Selecione a ação que você irá gostar toouse ou gatilho Olá:  
+1. Para criar uma conexão com o Facebook, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Facebook* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
    ![etapa 1 do Facebook](./media/connectors-create-api-facebook/facebook-1.png)
-2. Se você não criou nenhum tooFacebook conexões antes, você obterá tooprovide solicitada as credenciais do Facebook. Essas credenciais serão tooauthorize usado tooconnect de aplicativo a lógica para e acessar dados da sua conta do Facebook:  
+2. Se você não tiver criado quaisquer conexões Facebook antes, será solicitado a fornecer suas credenciais do Facebook. Essas credenciais serão usadas para autorizar seu Aplicativo lógico a se conectar e acessar os dados da sua conta do Facebook:  
    ![Etapa 2 do Facebook](./media/connectors-create-api-facebook/facebook-2.png)
-3. Forneça seu nome e senha tooauthorize de usuário do Facebook sua lógica de aplicativo:  
+3. Forneça seu nome de usuário do Facebook e a senha para autorizar seu aplicativo lógico:  
    ![Etapa 3 do Facebook](./media/connectors-create-api-facebook/facebook-3.png)   
-4. Aviso Olá conexão tiver sido criado e você está livre tooproceed com hello outra etapas em seu aplicativo de lógica:  
+4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![Etapa 4 do Facebook](./media/connectors-create-api-facebook/facebook-4.png)   
 

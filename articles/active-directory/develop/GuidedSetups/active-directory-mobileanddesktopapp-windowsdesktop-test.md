@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 Windows Desktop Introdução - teste | Microsoft Docs"
+title: "Introdução à Área de Trabalho do Windows no Azure AD v2 – Teste | Microsoft Docs"
 description: "Como os aplicativos .NET da Área de Trabalho do Windows (XAML) podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,42 +15,42 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 0ae9612e1585c54a3fe35ba9d18f92554099b2c8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
-Em ordem tootest seu aplicativo, pressione `F5` toorun seu projeto no Visual Studio. A Janela Principal deve ser exibida:
+Para testar seu aplicativo, pressione `F5` para executar o projeto no Visual Studio. A Janela Principal deve ser exibida:
 
 ![Captura de tela de exemplo](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
 
-Quando você estiver pronto tootest, clique em *chamar a API do Microsoft Graph* e usar um Microsoft Azure Active Directory (conta organizacional) ou um toosign de conta Account da Microsoft (live.com, outlook.com) no. Ele é Olá primeira vez, você verá uma janela solicitando que usuário toosign em:
+Quando você estiver pronto para testar, clique em *Chamar API do Microsoft Graph* e use uma conta do Microsoft Azure Active Directory (conta organizacional) ou uma Conta da Microsoft (live.com, outlook.com) para se conectar. Se esta for a primeira vez, você verá uma janela solicitando o usuário a entrar:
 
 ![Conexão](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
 
 ### <a name="consent"></a>Consentimento
-Olá primeira vez que você entrar no aplicativo tooyour, você verá uma tela consentimento com, semelhante toohello de abaixo, onde você precisa aceitar tooexplicitly:
+Na primeira vez que você entrar no aplicativo, será apresentada uma tela de consentimento semelhante à tela abaixo, na qual você precisa aceitar explicitamente:
 
 ![Tela de consentimento](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
 
 ### <a name="expected-results"></a>Resultados esperados
-Você deve ver as informações de perfil do usuário retornadas pela chamada de API do Graph Microsoft hello na tela de resultados de chamadas de API de saudação.
+Você deverá ver as informações de perfil do usuário retornadas pela chamada à API do Microsoft Graph na tela Resultados da Chamada à API.
 
-Você também verá informações básicas sobre o token Olá adquirido por meio de `AcquireTokenAsync` ou `AcquireTokenSilentAsync` na caixa de informações de Token hello:
+Você também deverá ver informações básicas sobre o token adquirido por meio de `AcquireTokenAsync` ou `AcquireTokenSilentAsync` na caixa Informações de Token:
 
 |Propriedade  |Formatar  |Descrição |
 |---------|---------|---------|
-|Nome | {Nome completo do usuário} |primeiro e o último nome de usuário Olá|
-|Nome de Usuário |<span>user@domain.com</span> |saudação de nome de usuário usado tooidentify usuário de saudação|
-|O Token Expira |{DateTime}         |tempo de saudação na qual Olá token expira. MSAL estenderá a data de validade Olá para você renovando token hello quando necessário|
-|Token de acesso |{String}         |cadeia de caracteres de token do Hello enviados que será enviado solicitações tooHTTP que exigem um cabeçalho de autorização|
+|Nome | {Nome completo do usuário} |Nome e sobrenome do usuário|
+|Nome de Usuário |<span>user@domain.com</span> |O nome de usuário usado para identificar o usuário|
+|O Token Expira |{DateTime}         |A data e a hora em que o token expira. A MSAL estenderá a data de expiração para você renovando o token quando necessário|
+|Token de acesso |{String}         |A cadeia de caracteres do token enviada que será enviada para solicitações HTTP que exigem um cabeçalho de autorização|
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre escopos e permissões delegadas
-API do Graph requer Olá `user.read` tooread perfil de usuário do escopo. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado em nosso portal de registro. Algumas outras APIs do Graph, bem como APIs personalizadas do servidor de back-end, exigem escopos adicionais. Por exemplo, para o gráfico, `Calendars.Read` é calendários do usuário toolist necessária. Em ordem tooaccess Olá calendário do usuário em um contexto de um aplicativo, você precisa tooadd `Calendars.Read` delegadas informações do registro do aplicativo e, em seguida, adicionar `Calendars.Read` toohello `AcquireTokenAsync` chamar. Usuário pode ser solicitado para consente adicionais que você aumenta o número de saudação de escopos.
+A API do Graph precisa do escopo `user.read` para ler o perfil do usuário. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado em nosso portal de registro. Algumas outras APIs do Graph, bem como APIs personalizadas do servidor de back-end, exigem escopos adicionais. Por exemplo, para o Graph, `Calendars.Read` é necessário para listar os calendários do usuário. Para acessar o calendário do usuário no contexto de um aplicativo, você precisa adicionar as informações de registro do aplicativo delegado `Calendars.Read` e, em seguida, adicionar `Calendars.Read` à chamada `AcquireTokenAsync`. O usuário pode precisar fornecer consentimentos adicionais à medida que o número de escopos aumenta.
 
 <!--end-collapse-->
 

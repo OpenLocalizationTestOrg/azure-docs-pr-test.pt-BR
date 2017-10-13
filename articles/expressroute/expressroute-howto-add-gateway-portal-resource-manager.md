@@ -1,6 +1,6 @@
 ---
-title: 'Adicionar um gateway de rede virtual tooa VNet para o ExpressRoute: Portal: Azure | Microsoft Docs'
-description: "Este artigo o orienta por meio de adicionar um tooan de gateway de rede virtual já criado VNet Gerenciador de recursos para o ExpressRoute."
+title: 'Adicionar um gateway de rede virtual a uma VNet para a ExpressRoute: portal: Azure | Microsoft Docs'
+description: Este artigo explica como adicionar um gateway de rede virtual a uma VNet do Resource Manager para ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e922af1f3676eeebc569b57c3ae3a22d4e0b395
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-hello-azure-portal"></a>Configurar um gateway de rede virtual para o ExpressRoute usando Olá portal do Azure
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para ExpressRoute usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Este artigo orienta Olá etapas tooadd um gateway de rede virtual para uma rede virtual já existente. Este artigo orienta Olá etapas tooadd, redimensionar e remover um gateway de rede virtual (VNet) para uma rede virtual já existente. etapas de saudação para essa configuração são específicas para VNets que foram criados usando o modelo de implantação do Gerenciador de recursos de saudação que será usado em uma configuração de rota expressa. Para obter mais informações sobre gateways de rede virtual e definições de configuração do ExpressRoute, consulte [Sobre gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+Este artigo explica as etapas para adicionar um gateway de rede virtual a uma VNet existente. Este artigo explica as etapas para adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma VNet existente. As etapas para essa configuração destinam-se especificamente a VNets criadas usando o modelo de implantação do Resource Manager que será usado em uma configuração do ExpressRoute. Para obter mais informações sobre gateways de rede virtual e definições de configuração do ExpressRoute, consulte [Sobre gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Antes de começar
 
-etapas de saudação para usar essa tarefa uma rede virtual com base nos valores Olá Olá lista de referências de configuração a seguir. Usamos essa lista em nosso exemplo de etapas. Você pode copiar Olá toouse de lista como referência, substituindo valores hello com seus próprios.
+As etapas para essa tarefa usam uma VNet baseada nos valores na lista de referência de configuração a seguir. Usamos essa lista em nosso exemplo de etapas. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
 
 **Lista de referência de configuração**
 
@@ -54,36 +54,36 @@ etapas de saudação para usar essa tarefa uma rede virtual com base nos valores
 
 Você pode exibir um [Vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dessas etapas antes de iniciar sua configuração.
 
-## <a name="create-hello-gateway-subnet"></a>Criar uma sub-rede de gateway Olá
+## <a name="create-the-gateway-subnet"></a>Criar a sub-rede de gateway
 
-1. Em Olá [portal](http://portal.azure.com), navegue de rede virtual do Gerenciador de recursos toohello para o qual você deseja toocreate um gateway de rede virtual.
-2. Em Olá **configurações** seção da folha de sua rede virtual, clique em **sub-redes** tooexpand folha de sub-redes de saudação.
-3. Em Olá **sub-redes** folha, clique em **+ sub-rede de Gateway** tooopen Olá **Adicionar sub-rede** folha. 
+1. No [portal](http://portal.azure.com), navegue até a rede virtual do Gerenciador de Recursos para o qual você deseja criar um gateway de rede virtual.
+2. Na seção **Configurações** da folha de sua rede virtual, clique em **Sub-redes** para expandir a folha Sub-redes.
+3. Na folha **Sub-redes**, clique na **Sub-rede de +gateway** para abrir a folha **Adicionar sub-rede**. 
    
-    ![Adicionar sub-rede de gateway Olá](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Adicionar sub-rede de gateway Olá")
+    ![Adicionar a sub-rede de gateway](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Adicionar a sub-rede de gateway")
 
 
-4. Olá **nome** para sua sub-rede é automaticamente preenchido com hello valor 'GatewaySubnet'. Esse valor é necessário para a sub-rede do Azure toorecognize Olá de sub-rede de gateway de saudação. Ajustar o preenchimento automático de saudação **um intervalo de endereços** valores toomatch seus requisitos de configuração. É recomendável criar uma sub-rede do gateway com um /27 ou maior (/ 26, / 25, etc.). Em seguida, clique em **Okey** toosave Olá valores e criar uma sub-rede de gateway hello.
+4. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seus requisitos de configuração. É recomendável criar uma sub-rede do gateway com um /27 ou maior (/ 26, / 25, etc.). Em seguida, clique em **OK** para salvar os valores e criar a sub-rede de gateway.
 
-    ![Adicionar sub-rede Olá](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "adicionando sub-rede Olá")
+    ![Adicionar a sub-rede](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Adicionar sub-rede")
 
-## <a name="create-hello-virtual-network-gateway"></a>Criar gateway de rede virtual Olá
+## <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
 
-1. No portal de hello, no lado esquerdo do hello, clique em ** + ** e digite 'Gateway de rede Virtual' na pesquisa. Localize **gateway de rede Virtual** na pesquisa de saudação retornar e clique em entrada hello. Em Olá **gateway de rede Virtual** folha, clique em **criar** na parte inferior da saudação da folha de saudação. Isso abre o hello **criar gateway de rede virtual** folha.
-2. Em Olá **criar gateway de rede virtual** folha, preencha os valores de saudação do seu gateway de rede virtual.
+1. No portal, no lado esquerdo, clique em **+** e digite "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Na folha **Gateway de rede virtual**, clique em **Criar** na parte inferior. Isso abrirá a folha **Criar gateway de rede virtual**.
+2. Na folha **Criar gateway de rede virtual**, preencha os valores do seu gateway de rede virtual.
 
     ![Criar campos na folha do gateway de rede virtual](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Criar campos na folha do gateway de rede virtual")
-3. **Nome**: nomeie o seu gateway. Isso não é Olá igual ao nomear uma sub-rede de gateway. Nome de saudação do objeto de gateway Olá que você está criando-lo do.
+3. **Nome**: nomeie o seu gateway. Isso não é igual a nomear uma sub-rede de gateway. É o nome do objeto de gateway que você está criando.
 4. **Tipo de gateway**: selecione **ExpressRoute**.
-5. **SKU**: SKU do gateway Olá selecione na lista suspensa de saudação.
-6. **Local**: ajustar Olá **local** campo toopoint toohello local onde sua rede virtual está localizada. Se o local de saudação não está apontando para toohello região onde reside a sua rede virtual, rede virtual Olá não aparece na lista suspensa de 'Escolha uma rede virtual' hello.
-7. Escolha toowhich de rede virtual Olá deseja tooadd este gateway. Clique em **rede Virtual** tooopen Olá **escolha uma rede virtual** folha. Selecione Olá VNet. Se você não vir a sua rede virtual, verifique se Olá **local** campo está apontando toohello região na qual sua rede virtual está localizada.
-9. Escolha um endereço IP público. Clique em **endereço IP público** tooopen Olá **escolher endereço IP público** folha. Clique em **+ criar novos** tooopen Olá **criar lâmina de endereço IP pública**. Dê um nome para o seu endereço IP público. Esta folha cria um toowhich de objeto de endereço IP público que um endereço IP público será atribuído dinamicamente. Clique em **Okey** toosave folha de toothis suas alterações.
-10. **Assinatura**: Verifique se esse Olá correto de assinatura está selecionada.
-11. **Grupo de recursos**: essa configuração é determinada pelo Olá rede Virtual que você selecionar.
-12. Não ajustar Olá **local** depois que você especificou as configurações anteriores hello.
-13. Verifique as configurações de saudação. Se você quiser tooappear seu gateway no painel hello, você pode selecionar **toodashboard Pin** na parte inferior da saudação da folha de saudação.
-14. Clique em **criar** toobegin criando Olá gateway. configurações de saudação são validadas e implanta o gateway de saudação. A criação de gateway de rede virtual pode demorar até too45 toocomplete de minutos.
+5. **SKU**: selecione o SKU de gateway no menu suspenso.
+6. **Local**: ajuste o campo **Local** para apontar para o local onde está sua rede virtual. Se o local não estiver apontando para a região onde reside sua rede virtual, a rede virtual não aparecerá na lista suspensa 'Escolher uma rede virtual'.
+7. Escolha a rede virtual à qual você deseja adicionar este gateway. Clique em **Rede virtual** para abrir a folha **Escolher uma rede virtual**. Selecione a rede virtual. Se você não vir a sua rede virtual, verifique se o campo **Local** está apontando para a região na qual sua rede virtual está localizada.
+9. Escolha um endereço IP público. Clique em **Endereço IP público** para abrir a folha **Escolher endereço IP público**. Clique em **+Criar Novo** para abrir a folha **Criar endereço IP público**. Dê um nome para o seu endereço IP público. Essa folha cria um objeto de endereço IP público para o qual um endereço IP público será atribuído dinamicamente. Clique em **OK** para salvar as alterações a essa folha.
+10. **Assinatura**: verifique se a assinatura correta foi selecionada.
+11. **Grupo de recursos**: essa configuração é determinada pela Rede Virtual selecionada.
+12. Não ajuste o **Local** depois de especificar as configurações acima.
+13. Verifique as configurações. Se você quiser que seu gateway apareça no painel, poderá selecionar **Fixar no painel** na parte inferior da folha.
+14. Clique em **Criar** para começar a criar o gateway. As configurações são validadas e o gateway é implantado. A criação de um gateway de rede virtual pode levar até 45 minutos para ser concluída.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que você criou o gateway de rede virtual Olá, você pode vincular sua rede virtual tooan circuito de rota expressa. Consulte [vincular um circuito de rota expressa do tooan de rede Virtual](expressroute-howto-linkvnet-portal-resource-manager.md).
+Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito do ExpressRoute. Consulte [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).

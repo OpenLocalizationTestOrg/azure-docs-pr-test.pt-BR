@@ -1,6 +1,6 @@
 ---
-title: "aaaView atividades do Azure registra em log com análise de Log | Microsoft Docs"
-description: "Você pode usar o hello tooanalyze de solução de Logs de atividades do Azure e o log de atividades do Azure de saudação de pesquisa em todas as suas assinaturas do Azure."
+title: Exibir logs de atividades do Azure com o Log Analytics | Microsoft Docs
+description: "Você pode usar a solução de Logs de atividade do Azure para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 171d0d604d03a5714a9599cc0b448fc5f6471f69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
 ![Símbolo dos logs de atividades do Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
-Olá solução de análise de Log de atividade ajuda você a analisar e pesquisar Olá [log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) em todas as suas assinaturas do Azure. Olá Log de atividades do Azure é um log que oferece ideias sobre Olá operações executadas em recursos em suas assinaturas. Hello atividade Log era conhecido anteriormente como *os Logs de auditoria* ou *Logs operacionais* desde que ele relata eventos de suas assinaturas.
+A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
 
-Usando hello atividade de Log, você pode determinar Olá *que*, *que*, e *quando* para qualquer gravação operações (PUT, POST, DELETE) realizadas para recursos de saudação em sua assinatura. Você também pode saber o status de saudação de operações de saudação e outras propriedades relevantes. Olá Log de atividades não inclui operações (GET) de leitura ou de operações para recursos que usam o modelo de implantação clássico hello.
+Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* para qualquer operação de gravação (PUT, POST, DELETE) feitas para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo de implantação Clássico.
 
-Quando você se conectar a seu logs de atividades do Azure tooLog análise, você pode:
+Quando você conecta os logs de atividades do Azure ao Log Analytics, é possível:
 
-- Analisar logs de atividade de saudação com exibições predefinidas
+- Analisar os logs de atividade com exibições predefinidas
 - Analisar e pesquisar logs de atividade de várias assinaturas do Azure
 - Manter logs de atividade por mais de 90 dias<sup>1</sup>
 - Correlacionar os logs de atividade com outra plataforma do Azure e dados do aplicativo
@@ -38,66 +38,66 @@ Quando você se conectar a seu logs de atividades do Azure tooLog análise, voc�
 - Exibir tendências de atividades que acontecem em cada serviço do Azure
 - Relatar alterações de autorização em todos os recursos do Azure
 - Identificar problemas de integridade ou interrupção de serviço que afetam os recursos
-- Use atividades de usuário de toocorrelate de pesquisa de Log, operações de dimensionamento automático, alterações de autorização e logs de tooother de integridade do serviço ou métricas do seu ambiente
+- Usar pesquisa de logs para correlacionar atividades do usuário, operações de dimensionamento automático, alterações de autorização e integridade do serviço a outros logs ou métricas do seu ambiente
 
-<sup>1</sup>por padrão, a análise de Log mantém seus logs de atividades do Azure por 90 dias, mesmo se você estiver na camada gratuita hello. Ou, se você tiver uma configuração de retenção de espaço de trabalho inferior a 90 dias. Se o seu espaço de trabalho tem retenção mais de 90 dias, hello atividade logs são mantidos por período de retenção de saudação do espaço de trabalho.
+<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de espaço de trabalho inferior a 90 dias. Se o seu espaço de trabalho tiver retenção superior a 90 dias, os logs da atividade serão mantidos durante o período de retenção do espaço de trabalho.
 
-Análise de log coleta logs de atividade gratuitamente e armazena os logs de saudação por 90 dias gratuitos. Se você armazenar logs por mais de 90 dias, incorrerá em encargos de retenção de dados para dados de saudação armazenados mais de 90 dias.
+O Log Analytics coleta os logs de atividade e os armazena por 90 dias gratuitamente. Se você armazenar os logs por mais de 90 dias, incorrerá em encargos de retenção de dados para os dados armazenados por mais de 90 dias.
 
-Quando você estiver no hello livre de preço, logs de atividade não se aplicam a tooyour diário consumo de dados.
+Quando você está no tipo de preço Gratuito, os logs de atividade não se aplicam ao consumo de dados diário.
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-Ao contrário da maioria das outras soluções do Log Analytics, dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução de saudação vem diretamente do Azure.
+Ao contrário da maioria das outras soluções do Log Analytics, dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
 | Fonte Conectada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | solução de saudação não coletará informações de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | solução de saudação não coletará informações de agentes do Linux. |
-| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | solução de saudação não coletará informações de agentes em um grupo de gerenciamento do SCOM conectado. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | solução de saudação não coleta informações do armazenamento do Azure. |
+| [Agentes do Windows](log-analytics-windows-agents.md) | Não | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de agentes do Linux. |
+| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não coleta informações de armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- tooaccess informações do log de atividades do Azure, você deve ter uma assinatura do Azure.
+- Para acessar informações do log de atividades do Azure, você deve ter uma assinatura do Azure.
 
 ## <a name="configuration"></a>Configuração
 
-Execute Olá solução de análise de Log de atividade de saudação etapas tooconfigure para seus espaços de trabalho a seguir.
+Execute as seguintes etapas para configurar a solução Log Analytics da atividade para seus espaços de trabalho.
 
-1. Habilitar a solução de análise de Log de atividade de saudação da saudação [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo de saudação descrito em [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md).
-2. Configure o espaço de trabalho de atividade logs toogo tooyour análise de Log.
-    1. Olá portal do Azure, selecione o espaço de trabalho e, em seguida, clique em **log de atividades do Azure**.
-    2. Para cada assinatura, clique no nome de assinatura de saudação.  
+1. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](log-analytics-add-solutions.md).
+2. Configure os logs da atividade para ir para o espaço de trabalho do Log Analytics.
+    1. No portal do Azure, selecione seu espaço de trabalho e clique em **Log de Atividades do Azure**.
+    2. Para cada assinatura, clique no nome da assinatura.  
         ![adicionar assinatura](./media/log-analytics-activity/add-subscription.png)
-    3. Em Olá *SubscriptionName* folha, clique em **conectar**.  
+    3. Na folha *SubscriptionName*, clique em **Conectar**.  
         ![conectar assinatura](./media/log-analytics-activity/subscription-connect.png)
 
-Se você adicionar a solução hello usando o portal do OMS Olá, você verá a seguir Olá lado a lado. Entrar toohello tooconnect portal do Azure um espaço de trabalho de tooyour de assinatura do Azure.  
+Se você adicionar a solução usando o portal do OMS, verá o seguinte bloco. Entre no portal do Azure para conectar uma assinatura do Azure ao seu espaço de trabalho.  
 ![executar avaliação](./media/log-analytics-activity/tile-performing-assessment.png)
 
-## <a name="using-hello-solution"></a>Usando a solução de saudação
+## <a name="using-the-solution"></a>Usando a solução
 
-Quando você adiciona o espaço de trabalho tooyour solução de análise de Log de atividade de hello, Olá **os Logs de atividade do Azure** bloco é adicionado o painel de visão geral de tooyour. Este bloco exibe uma contagem do número de saudação de registros de atividades do Azure para hello assinaturas do Azure que Olá solução tem acessem.
+Quando você adiciona a solução Log Analytics da atividade ao espaço de trabalho, o bloco **Logs de Atividade do Azure** é adicionado ao painel Visão geral. Esse bloco exibe uma contagem do número de registros de atividade do Azure para as assinaturas do Azure às quais a solução tem acesso.
 
 ![Bloco de logs de atividade do Azure](./media/log-analytics-activity/azure-activity-logs-tile.png)
 
 ### <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
-Clique em hello **os Logs de atividade do Azure** bloco tooopen Olá **Logs de atividade do Azure** painel. painel Olá inclui folhas Olá Olá a tabela a seguir. Cada folha lista os itens too10 correspondência critérios da folha de saudação especificado escopo e tempo de intervalo. Você pode executar uma pesquisa de log que retorna todos os registros clicando **ver todos os** na parte inferior da folha de saudação ou clicando o cabeçalho de folha de saudação do hello.
+Clique no bloco **Logs de Atividade do Azure** para abrir o painel **Logs de Atividade do Azure**. O painel inclui as folhas na tabela a seguir. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros clicando em **Ver todos** na parte inferior da folha ou clicando no cabeçalho de folha.
 
-Dados de log de atividade aparecem somente *depois* você configurou sua solução de toohello de toogo de logs de atividade, para que você não pode exibir dados antes disso.
+Os dados do log de atividades aparecem apenas *depois* que você os configura para ir para a solução, portanto você não pode ver os dados antes disso.
 
 | Folha | Descrição |
 | --- | --- |
-| Entradas de log de atividades do Azure | Mostra um gráfico de barras da superior Olá entrada de log de atividades do Azure registros totais Olá intervalo de datas selecionado e mostra uma lista de saudação chamadores de atividade 10 principais. Clique em Olá toorun de gráfico de barras de uma pesquisa de log para <code>Type=AzureActivity</code>. Clique em um toorun de item do chamador uma pesquisa de log retornando todas as entradas de log de atividade para aquele item. |
-| Logs de atividade por status | Mostra um gráfico de rosca para status do log de atividades do Azure para o intervalo de datas de saudação que você selecionou. Também mostra uma lista de uma lista de registros de status dez principais da saudação. Clique em Olá gráfico toorun uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique em um toorun de item de status retornando todas as entradas de log de atividade para esse registro de status de uma pesquisa de log. |
-| Logs de atividade por recurso | Mostra o número total de saudação de recursos com logs de atividade e lista superior Olá dez recursos com o registro de conta para cada recurso. Clique em Olá área total toorun uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by Resource</code>, que mostra todos os recursos do Azure solução toohello disponíveis. Clique em um recurso toorun uma pesquisa de log retornar todos os registros de atividade para esse recurso. |
-| Logs de atividade por provedor de recursos | Mostra Olá o número total de provedores de recursos que produzem atividade logs e lista os dez primeiros de saudação. Clique em Olá área total toorun uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos toorun uma pesquisa de log retornar todos os registros de atividade para o provedor de saudação. |
+| Entradas de log de atividades do Azure | Mostra um gráfico de barras na parte superior dos totais de registro da entrada de log de atividades do Azure para o intervalo de datas selecionado e uma lista dos principais 10 chamadores da atividade. Clique no gráfico de barras para executar uma pesquisa de log para <code>Type=AzureActivity</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse item. |
+| Logs de atividade por status | Mostra um gráfico de rosca do status do log de atividades do Azure para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais registros de status. Clique no gráfico para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse registro de status. |
+| Logs de atividade por recurso | Mostra o número total de recursos com logs de atividade e lista os dez principais recursos com contagem de registro para cada recurso. Clique na área total para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by Resource</code>, que mostra todos os recursos do Azure disponíveis para a solução. Clique em um recurso para executar uma pesquisa de logs que retorna que todos os registros de atividades desse recurso. |
+| Logs de atividade por provedor de recursos | Mostra o número total de provedores de recursos que produzem logs da atividade e lista os dez principais. Clique na área total para executar uma pesquisa de log para <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos para executar uma pesquisa de logs que retorna todos os registros de atividades desse provedor. |
 
 ![Painel Logs de Atividade do Azure](./media/log-analytics-activity/activity-log-dash.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Crie um [alerta](log-analytics-alerts-creating.md) quando ocorrer uma atividade específica.
-- Use [pesquisa de Log](log-analytics-log-searches.md) tooview obter informações de seus logs de atividade.
+- Use a [Pesquisa de Logs](log-analytics-log-searches.md) para exibir informações detalhadas de seus logs de atividade.

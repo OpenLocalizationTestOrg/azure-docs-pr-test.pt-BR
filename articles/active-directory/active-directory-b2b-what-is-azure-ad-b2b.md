@@ -1,6 +1,6 @@
 ---
-title: "aaaWhat é colaboração B2B do Azure Active Directory? | Microsoft Docs"
-description: "Colaboração B2B do Active Directory do Azure suporta as relações entre empresas habilitando tooselectively de parceiros de negócios acesso a aplicativos corporativos."
+title: "O que é a colaboração B2B do Azure Active Directory? | Microsoft Docs"
+description: "A colaboração B2B do Azure Active Directory dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -17,39 +17,39 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: 359989b66f3d012c306e8748a607662fffacb919
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>O que é a colaboração B2B do Azure AD?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
 
-Recursos de colaboração (B2B) do Azure AD business-to-business habilitam qualquer organização usando o AD do Azure toowork com segurança com usuários de qualquer outra organização, grande ou pequeno. Essas organizações podem usar o Azure AD ou não ou até mesmo ter uma organização de TI ou não. 
+Os recursos de colaboração B2B (entre empresas) do Azure AD permitem que qualquer organização que use o Azure AD trabalhe com segurança com usuários de qualquer outra organização, seja ela grande ou pequena. Essas organizações podem usar o Azure AD ou não ou até mesmo ter uma organização de TI ou não. 
 
-As organizações que usam o AD do Azure podem fornecer acesso parceiros tootheir toodocuments, recursos e aplicativos, mantendo o controle completo sobre seus próprios dados corporativos. Os desenvolvedores podem usar Olá AD do Azure business-to-business APIs toowrite aplicativos reunir duas organizações mais segura. Além disso, é muito fácil para os usuários finais toonavigate.
+As organizações que usam o Azure AD podem fornecer acesso a documentos, recursos e aplicativos a seus parceiros, mantendo o controle completo sobre seus próprios dados corporativos. Os desenvolvedores podem usar as APIs entre empresas do Azure AD para programar aplicativos que reúnem duas organizações de forma mais segura. Além disso, a navegação é muito fácil para os usuários finais.
 
-97% de nossos clientes nos disseram a colaboração B2B do Azure AD é muito importante toothem.
+97% de nossos clientes nos disseram que a colaboração B2B do Azure AD é muito importante para eles.
 
 ![gráfico de pizza](media/active-directory-b2b-what-is-azure-ad-b2b/97-percent-support.png)
 
 Desde o início de abril de 2017, já tínhamos cerca de 3 milhões de usuários usando recursos de colaboração B2B do Azure AD. E mais de 23% das organizações do Azure AD que têm mais de 10 usuários já estão se beneficiando desses recursos.
 
-## <a name="hello-key-benefits-of-azure-ad-b2b-collaboration-tooyour-organization"></a>principais benefícios de saudação da organização de tooyour de colaboração B2B do Azure AD
+## <a name="the-key-benefits-of-azure-ad-b2b-collaboration-to-your-organization"></a>Os principais benefícios da colaboração B2B do Azure AD para sua organização
 
 ### <a name="work-with-any-user-from-any-partner"></a>Trabalhar com qualquer usuário de qualquer parceiro
 
 * Os parceiros usam suas próprias credenciais
 
-* Nenhum requisito para parceiros toouse AD do Azure
+* Não há requisito para que os parceiros usem o Azure AD
 
 * Diretórios externos nem configuração complexa são necessários
 
 ### <a name="simple-and-secure-collaboration"></a>Colaboração simples e segura
 
-* Fornecer acesso tooany corporativos aplicativo ou dados, aplicando sofisticadas, o Azure diretivas de autorização baseados em AD
+* Fornece acesso a quaisquer dados ou aplicativos corporativos, aplicando sofisticadas políticas de autorização com base no AD Azure
 
 * Fácil para os usuários
 
@@ -63,20 +63,20 @@ Desde o início de abril de 2017, já tínhamos cerca de 3 milhões de usuários
 
 * Sem sobrecarga administrativa externa
 
-## <a name="you-can-easily-add-b2b-collaboration-users-tooyour-organization"></a>Você pode adicionar facilmente a organização de tooyour de usuários de colaboração B2B
+## <a name="you-can-easily-add-b2b-collaboration-users-to-your-organization"></a>É possível adicionar usuários de colaboração B2B facilmente à sua organização
 
-Administradores podem adicionar usuários de colaboração (convidado) B2B Olá [portal do Azure](https://portal.azure.com).
+Administradores podem adicionar usuários de colaboração B2B (convidado) no [Portal do Azure](https://portal.azure.com).
 
 ![adicionar usuários convidados](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
-### <a name="enable-your-collaborators-toobring-their-own-identity"></a>Habilitar seu colaboradores toobring sua própria identidade
+### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Habilita que seus colaboradores tragam sua própria identidade
 
-Os colaboradores B2B podem entrar com uma identidade de sua escolha. Se o usuário Olá não tiver uma conta da Microsoft ou uma conta do AD do Azure – um é criado para eles diretamente em tempo de saudação de resgate de oferta.
+Os colaboradores B2B podem entrar com uma identidade de sua escolha. Se o usuário não tiver uma conta da Microsoft ou uma conta do Azure AD, uma dela será criada facilmente para o usuário no momento do resgate da oferta.
 
 ![Escolha de identidade de logon](media/active-directory-b2b-what-is-azure-ad-b2b/sign-in-identity-choice.png)
 
-### <a name="delegate-tooapplication-and-group-owners"></a>Proprietários de tooapplication e de grupo delegado 
-Aplicativo e proprietários de grupo podem adicionar usuários de B2B diretamente tooany aplicativo que você gosta, se ele é um aplicativo da Microsoft ou não. Administradores podem delegar permissão tooadd B2B usuários toonon administradores. Não-administradores podem usar o hello [painel de acesso do aplicativo do Azure AD](https://myapps.microsoft.com) tooadd B2B colaboração tooapplications de usuários ou grupos.
+### <a name="delegate-to-application-and-group-owners"></a>Delegar aos proprietários de aplicativos e grupos 
+Os proprietários de aplicativos e grupos podem adicionar usuários B2B diretamente em qualquer aplicativo de sua importância, seja ele um aplicativo da Microsoft ou não. Os administradores podem delegar permissão para adicionar usuários B2B a não-administradores. Não-administradores podem usar o [Painel de acesso do aplicativo do Azure AD](https://myapps.microsoft.com) para adicionar usuários de colaboração B2B a aplicativos ou grupos.
 
 ![painel de acesso](media/active-directory-b2b-what-is-azure-ad-b2b/access-panel.png)
 
@@ -85,34 +85,34 @@ Aplicativo e proprietários de grupo podem adicionar usuários de B2B diretament
 ### <a name="authorization-policies-protect-your-corporate-content"></a>As políticas de autorização protegem o conteúdo corporativo
 
 Políticas de acesso condicional, como autenticação multifator, podem ser aplicadas:
-- No nível de locatário Olá
-- No nível de aplicativo hello
-- Para dados e aplicativos corporativos de tooprotect usuários específicos
+- No nível do locatário
+- No nível do aplicativo
+- Para que usuários específicos protejam dados e aplicativos corporativos
 
 ![adicionar membro](media/active-directory-b2b-what-is-azure-ad-b2b/add-member.png)
 
-### <a name="use-our-apis-and-sample-code-tooeasily-build-applications-tooonboard"></a>Usar nossas APIs e aplicativos tooonboard de compilação tooeasily de código de exemplo
-Traga seus parceiros externos na placa nas necessidades da organização do maneiras tooyour personalizado.
+### <a name="use-our-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Use nossas APIs e código de exemplo para facilmente criar aplicativos para integração
+Integre seus parceiros externos de modo personalizado às necessidades de sua organização.
 
-Usando Olá [convite de colaboração B2B APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), você pode personalizar suas experiências de integração, incluindo a criação de portais de inscrição de autoatendimento. Nós fornecemos o código de exemplo para o portal de autoatendimento [no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+Usando as [APIs de convite de colaboração B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), você pode personalizar suas experiências de integração, incluindo a criação de portais de inscrição de autoatendimento. Nós fornecemos o código de exemplo para o portal de autoatendimento [no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![portal de inscrição](media/active-directory-b2b-what-is-azure-ad-b2b/sign-up-portal.png)
 
-Com a colaboração B2B do Azure AD, você pode obter toda a capacidade do AD do Azure tooprotect Olá seus relacionamentos com parceiros de forma que os usuários finais localizar fácil e intuitivo. Então vá em frente, Olá junção milhares de organizações que já estiver usando o Azure AD B2B para sua colaboração externa!
+Com a colaboração B2B do Azure AD é possível obter toda a capacidade do Azure AD para proteger seus relacionamentos com parceiros e para que os usuários finais localizem de maneira fácil e intuitiva. Então siga em frente, una-se às milhares de organizações que já estão usando B2B do Azure AD para sua colaboração externa!
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Experiências de administrador são encontradas em Olá [portal do Azure](https://portal.azure.com).
+* Experiências de administrador são encontradas no [Portal do Azure](https://portal.azure.com).
 
-* Experiências de trabalhador de informações estão disponíveis no hello [painel de acesso](https://myapps.microsoft.com).
+* Experiências de operadores de informações estão disponíveis no [Painel de Acesso](https://myapps.microsoft.com).
 
-* E, como sempre, conecte-se com a equipe de produto Olá para quaisquer comentários, discussões e sugestões por meio de nosso [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+* E, como sempre, conecte-se com a equipe do produto para enviar comentários, sugestões e participar de discussões por meio da [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b) (Comunidade Técnica da Microsoft).
 
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
 * [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-iw-add-users.md)
-* [elementos de saudação do hello email de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
+* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
 * [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
 * [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)

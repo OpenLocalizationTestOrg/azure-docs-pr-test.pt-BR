@@ -1,6 +1,6 @@
 ---
-title: aaaHow aplicativo consentimento funciona | Microsoft Docs
-description: "Saiba mais sobre como a estrutura de consentimento de saudação do AD do Azure funciona toosee como você pode usá-lo durante o desenvolvimento de aplicativos no AD do Azure"
+title: Como o consentimento de aplicativo funciona | Microsoft Docs
+description: "Saiba mais sobre como a estrutura de consentimento do Azure AD funciona para ver como você pode usá-la ao desenvolver aplicativos no Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 1b090c0c8d49320a012d8a06b7e9d35134a3ab43
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5abddf3a8698e3eb39f118f54eeac62ce68fed39
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-application-consent-works"></a>Como o consentimento de aplicativo funciona
 
-Este artigo é toohelp que você saber mais sobre como funciona a estrutura de consentimento de saudação do AD do Azure para que você possa desenvolver aplicativos com mais eficiência.
+Este artigo o ajuda a aprender mais sobre como a estrutura de consentimento do Azure AD funciona para que você possa desenvolver aplicativos com mais eficiência.
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-- Obter uma compreensão geral dos [como consentimento permite um toogovern de proprietário do recurso tooresources de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Obter uma visão geral de passo a passo de [como estrutura de consentimento de saudação do AD do Azure implementa consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Para mais detalhes, saiba [como um aplicativo multilocatário pode usar a estrutura de consentimento Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) tooimplement "usuário" e "admin" consentimento, dando suporte a padrões de aplicativo multicamadas mais avançados.
-- Para mais detalhes, saiba [como consentimento é suportado na camada de protocolo hello OAuth 2.0 durante saudação fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Tenha uma compreensão geral de [como o consentimento permite que o proprietário do recurso controle o acesso de um aplicativo a recursos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
+- Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
+- Para se aprofundar, veja [como um aplicativo multilocatário pode usar a estrutura de consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) para implementar consentimento de "usuário" e "administrador", dando suporte a padrões mais avançados de aplicativos de várias camadas.
+- Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Próximas etapas
 [StackOverflow do AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)

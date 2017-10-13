@@ -1,5 +1,5 @@
 ---
-title: "configuração de segurança de mesclagem aaaSplit | Microsoft Docs"
+title: "Configuração de segurança da divisão e mesclagem | Microsoft Docs"
 description: Configurar certificados x409 para criptografia
 metakeywords: Elastic Database certificates security
 services: sql-database
@@ -15,118 +15,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 511c04be0598d8a0889aa3e3fcf02be0bf0e96cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
-serviço de divisão/mesclagem de saudação toouse, você deve configurar corretamente segurança. serviço de saudação é parte do recurso de escala elástica de saudação do banco de dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configurando certificados
 Os certificados são configurados de duas maneiras. 
 
-1. [Olá tooConfigure certificado SSL](#to-configure-the-ssl-certificate)
-2. [tooConfigure certificados de cliente](#to-configure-client-certificates) 
+1. [Para configurar o certificado SSL](#to-configure-the-ssl-certificate)
+2. [Para configurar certificados de cliente](#to-configure-client-certificates) 
 
-## <a name="tooobtain-certificates"></a>tooobtain certificados
-Certificados podem ser obtidos de autoridades de certificação pública (CAs) ou de saudação [o serviço de certificado do Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Esses são Olá preferido métodos tooobtain certificados.
+## <a name="to-obtain-certificates"></a>Para obter certificados
+Certificados podem ser obtidos por meio de autoridades de certificação públicas (CAs) ou do [Serviço de Certificado do Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Esses são os métodos preferenciais para obter certificados.
 
 Se essas opções não estiverem disponíveis, você pode gerar **certificados autoassinados**.
 
-## <a name="tools-toogenerate-certificates"></a>Certificados de toogenerate de ferramentas
+## <a name="tools-to-generate-certificates"></a>Ferramentas para gerar certificados
 * [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-### <a name="toorun-hello-tools"></a>ferramentas de saudação toorun
+### <a name="to-run-the-tools"></a>Para executar as ferramentas
 * De um Prompt de Comando do Desenvolvedor para o Visual Studio, consulte o [Prompt de Comando do Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) 
   
     Se instalado, vá para:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obter Olá WDK do [Windows 8.1: baixar kits e ferramentas](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obter o WDK do [Windows 8.1: baixar kits e ferramentas](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="tooconfigure-hello-ssl-certificate"></a>certificado SSL Olá tooconfigure
-Um certificado SSL é necessário tooencrypt Olá comunicação e autenticar o servidor de saudação. Escolha hello mais aplicável de saudação três cenários abaixo e execute todas as suas etapas:
+## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
+É necessário um certificado SSL para criptografar a comunicação e autenticar o servidor. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Criar um Novo certificado autoassinado
 1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
 2. [Criar o arquivo PFX para o certificado SSL autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Carregar o certificado SSL tooCloud serviço](#upload-ssl-certificate-to-cloud-service)
+3. [Carregar certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
 4. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
 5. [Importar a autoridade de certificação SSL](#import-ssl-certification-authority)
 
-### <a name="toouse-an-existing-certificate-from-hello-certificate-store"></a>repositório de um certificado existente do certificado Olá toouse
+### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Para usar um certificado existente do repositório de certificados
 1. [Exportar o certificado SSL do repositório de certificados](#export-ssl-certificate-from-certificate-store)
-2. [Carregar o certificado SSL tooCloud serviço](#upload-ssl-certificate-to-cloud-service)
+2. [Carregar certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
 3. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
 
-### <a name="toouse-an-existing-certificate-in-a-pfx-file"></a>toouse um certificado existente em um arquivo PFX
-1. [Carregar o certificado SSL tooCloud serviço](#upload-ssl-certificate-to-cloud-service)
+### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Para usar um certificado existente em um arquivo PFX
+1. [Carregar certificado SSL para o serviço de nuvem](#upload-ssl-certificate-to-cloud-service)
 2. [Atualizar o certificado SSL no arquivo de configuração de serviço](#update-ssl-certificate-in-service-configuration-file)
 
-## <a name="tooconfigure-client-certificates"></a>certificados de cliente tooconfigure
-Certificados de cliente são necessários na ordem tooauthenticate solicitações toohello serviço. Escolha hello mais aplicável de saudação três cenários abaixo e execute todas as suas etapas:
+## <a name="to-configure-client-certificates"></a>Para configurar certificados de cliente
+Certificados de cliente são necessários para autenticar solicitações ao serviço. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
 
 ### <a name="turn-off-client-certificates"></a>Desabilitar certificados de cliente
 1. [Desabilitar a autenticação baseada em certificado do cliente](#turn-off-client-certificate-based-authentication)
 
 ### <a name="issue-new-self-signed-client-certificates"></a>Emitir novos certificados de cliente autoassinados
 1. [Criar uma Autoridade de certificado autoassinado](#create-a-self-signed-certification-authority)
-2. [Carregar certificado de autoridade de certificação tooCloud serviço](#upload-ca-certificate-to-cloud-service)
+2. [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#upload-ca-certificate-to-cloud-service)
 3. [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
 4. [Emitir certificados de cliente](#issue-client-certificates)
 5. [Criar arquivos PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
 6. [Importar o certificado de cliente](#Import-Client-Certificate)
 7. [Copie as impressões digitais de certificados de cliente](#copy-client-certificate-thumbprints)
-8. [Configurar clientes permitido no hello arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
+8. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Usar certificados de cliente existente
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Carregar certificado de autoridade de certificação tooCloud serviço](#Upload-CA-certificate-to-cloud-service)
+2. [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#Upload-CA-certificate-to-cloud-service)
 3. [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#Update-CA-Certificate-in-Service-Configuration-File)
 4. [Copie as impressões digitais de certificados de cliente](#Copy-Client-Certificate-Thumbprints)
-5. [Configurar clientes permitido no hello arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
+5. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
 6. [Configurar a verificação de revogação de certificado do cliente](#Configure-Client-Certificate-Revocation-Check)
 
 ## <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Pontos de extremidade de serviço de toohello acesso podem ser restrita toospecific intervalos de endereços IP.
+Acesso aos pontos de extremidade de serviço pode ser restrito a intervalos específicos de endereços IP.
 
-## <a name="tooconfigure-encryption-for-hello-store"></a>criptografia tooconfigure para armazenamento de saudação
-Um certificado é necessário tooencrypt credenciais de Olá que são armazenadas no repositório de metadados de saudação. Escolha hello mais aplicável de saudação três cenários abaixo e execute todas as suas etapas:
+## <a name="to-configure-encryption-for-the-store"></a>Configurar a criptografia para o armazenamento
+É necessário um certificado para criptografar as credenciais que são armazenadas no repositório de metadados. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Usar um novo certificado autoassinado
 1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
 2. [Criar arquivo PFX de certificado de criptografia autoassinado](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Carregar certificado de criptografia tooCloud serviço](#upload-encryption-certificate-to-cloud-service)
+3. [Carregar o certificado de criptografia para o serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
 4. [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
-### <a name="use-an-existing-certificate-from-hello-certificate-store"></a>Usar um certificado existente do repositório de certificados Olá
+### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Usar um certificado existente no repositório de certificados
 1. [Exportar o certificado de criptografia do repositório de certificados](#export-encryption-certificate-from-certificate-store)
-2. [Carregar certificado de criptografia tooCloud serviço](#upload-encryption-certificate-to-cloud-service)
+2. [Carregar o certificado de criptografia para o serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
 3. [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
 ### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Usar um certificado existente em um arquivo PFX
-1. [Carregar certificado de criptografia tooCloud serviço](#upload-encryption-certificate-to-cloud-service)
+1. [Carregar o certificado de criptografia para o serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
 2. [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
-## <a name="hello-default-configuration"></a>configuração padrão de saudação
-configuração padrão de saudação nega o ponto de extremidade HTTP toohello de todos os acesso. Isso é hello recomendado de configuração, como pontos de extremidade do hello solicitações toothese podem carregar informações confidenciais, como credenciais de banco de dados.
-configuração padrão de saudação permite que o ponto de extremidade HTTPS toohello de todos os acesso. Essa configuração pode ser mais restrita.
+## <a name="the-default-configuration"></a>A configuração padrão
+A configuração padrão nega todo os acessos ao ponto de extremidade HTTP. Esta é a configuração recomendada, pois as solicitações para esses pontos de extremidade podem carregar informações confidenciais, como credenciais de banco de dados.
+A configuração padrão permite todo os acessos ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
-### <a name="changing-hello-configuration"></a>Alterar configuração de saudação
-Olá grupo de regras de controle de acesso que se aplicam a tooand de ponto de extremidade são configurados no hello  **<EndpointAcls>**  seção Olá **arquivo de configuração do serviço**.
+### <a name="changing-the-configuration"></a>Alterando a configuração
+O grupo de regras de controle de acesso que são aplicadas e o ponto de extremidade são configurados na seção **<EndpointAcls>** no **arquivo de configuração de serviço**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-regras de saudação em um grupo de controle de acesso são configuradas em um <AccessControl name=""> seção do arquivo de configuração do serviço de saudação. 
+As regras em um grupo de controle de acesso são configuradas em uma seção de <AccessControl name=""> do arquivo de configuração do serviço. 
 
-formato de saudação é explicado na documentação de listas de controle de acesso à rede.
-Por exemplo, tooallow apenas IPs em Olá intervalo 100.100.0.0 too100.100.255.255 tooaccess Olá ponto de extremidade HTTPS, regras de saudação teria esta aparência:
+O formato é explicado na documentação de listas de controle de acesso à rede.
+Por exemplo, para permitir que apenas IPs no intervalo 100.100.0.0 para 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam esta aparência:
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -136,41 +136,41 @@ Por exemplo, tooallow apenas IPs em Olá intervalo 100.100.0.0 too100.100.255.25
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
 ## <a name="denial-of-service-prevention"></a>Negação de prevenção de serviço
-Há dois mecanismos diferentes suporte toodetect e evitar ataques de negação de serviço:
+Há dois mecanismos diferentes com suporte para detectar e impedir ataques de negação de serviço:
 
 * Restringir o número de solicitações simultâneas por host remoto (desativado por padrão)
 * Restringir a taxa de acesso por host remoto (em por padrão)
 
-Eles se baseiam em recursos hello mais documentados na segurança de IP dinâmico no IIS. Ao alterar essa configuração tenha cuidado com hello fatores a seguir:
+Eles se baseiam nos recursos documentados mais adiante na segurança de IP dinâmico no IIS. Ao alterar essa configuração Lembre-se dos seguintes fatores:
 
-* comportamento de saudação de proxies e dispositivos de conversão de endereços de rede sobre informações de host remoto Olá
-* Cada recurso de tooany de solicitação em função da web de saudação é considerado (por exemplo, carregar scripts, imagens, etc)
+* O comportamento de proxies e dispositivos de conversão de endereços de rede sobre as informações do host remoto
+* Cada solicitação para qualquer recurso na função web é considerada (por exemplo, carregamento de scripts, imagens, etc)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Restringir o número de acessos simultâneos
-configurações de saudação que configurar esse comportamento são:
+As configurações que configuram esse comportamento são:
 
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Altere DynamicIpRestrictionDenyByConcurrentRequests tootrue tooenable essa proteção.
+Alterar DynamicIpRestrictionDenyByConcurrentRequests como verdadeiro (true) para habilitar essa proteção.
 
 ## <a name="restricting-rate-of-access"></a>Restringindo a taxa de acesso
-configurações de saudação que configurar esse comportamento são:
+As configurações que configuram esse comportamento são:
 
     <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
     <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
     <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 
-## <a name="configuring-hello-response-tooa-denied-request"></a>Configurar Olá resposta tooa negou a solicitação
-Olá configuração a seguir configura Olá resposta tooa negada a solicitação:
+## <a name="configuring-the-response-to-a-denied-request"></a>Configurando a resposta para uma solicitação negada
+A configuração a seguir configura a resposta para uma solicitação negada:
 
     <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
-Consulte a documentação do toohello para outros valores com suporte para segurança de IP dinâmico no IIS.
+Consulte a documentação de segurança de IP dinâmico no IIS para outros valores com suporte.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Operações para configurar certificados de serviço
-Este tópico é apenas para referência. Siga etapas de configuração de saudação descritas no:
+Este tópico é apenas para referência. Siga as etapas de configuração descritas em:
 
-* Configurar o certificado SSL Olá
+* Configurar o certificado SSL
 * Configurar certificados de cliente
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
@@ -183,10 +183,10 @@ Execute:
       -a sha1 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
-toocustomize:
+Para personalizar:
 
-* URL do serviço - n com hello. Há suporte para caracteres curinga ("CN=*.cloudapp .net") e nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
-* -e com data de validade do certificado Olá criar uma senha forte e especificá-lo quando solicitado.
+* -n com a URL do serviço. Há suporte para caracteres curinga ("CN=*.cloudapp .net") e nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
+* -e com a data de validade do certificado Criar uma senha forte e especifique-a quando solicitado.
 
 ## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Criar o arquivo PFX para o certificado SSL autoassinado
 Execute:
@@ -195,47 +195,47 @@ Execute:
 
 Digite a senha e, em seguida, exporte o certificado com as seguintes opções:
 
-* Sim, exportar a chave privada Olá
+* Sim, exportar a chave privada
 * Exportar todas as propriedades estendidas
 
 ## <a name="export-ssl-certificate-from-certificate-store"></a>Exportar o certificado SSL do repositório de certificados
 * Localize o certificado
 * Clique em Ações -> todas as tarefas -> Exportar...
 * Exportar o certificado em um arquivo .PFX com as seguintes opções:
-  * Sim, exportar a chave privada Olá
-  * Incluir todos os certificados no caminho de certificação Olá se possível * exportar todas as propriedades estendidas
+  * Sim, exportar a chave privada
+  * Incluir todos os certificados no caminho de certificação, se possível *Exportar todas as propriedades estendidas
 
-## <a name="upload-ssl-certificate-toocloud-service"></a>Carregar o serviço de toocloud de certificado SSL
-Carregue o certificado com hello existente ou gerado. Arquivo PFX com hello par de chaves SSL:
+## <a name="upload-ssl-certificate-to-cloud-service"></a>Carregar certificado SSL para o serviço de nuvem
+Carregar certificado com o arquivo .PFX existente ou gerado com o par de chaves SSL:
 
-* Digite a senha de saudação protegendo informações de chave privada Olá
+* Digite a senha que protege as informações da chave privadas
 
 ## <a name="update-ssl-certificate-in-service-configuration-file"></a>Atualizar o certificado SSL no arquivo de configuração de serviço
-Atualize o valor de impressão digital de saudação do hello após a configuração no arquivo de configuração de serviço Olá com a impressão digital de Olá Olá certificado carregado toohello do serviço de nuvem:
+Atualize o valor de impressão digital da seguinte configuração no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="import-ssl-certification-authority"></a>Importar a autoridade de certificação SSL
-Siga estas etapas em todas as contas/máquina que irá se comunicar com o serviço de saudação:
+Siga estas etapas em todas as contas/computadores que se comunicarão com o serviço:
 
-* Clique duas vezes em hello. Arquivo CER no Windows Explorer
-* Na caixa de diálogo de certificado hello, clique em Instalar certificado...
-* Importar o certificado para Olá que repositório de autoridades de certificação raiz confiáveis
+* Clique duas vezes no arquivo .CER no Windows Explorer
+* Na caixa de diálogo do certificado, clique em Instalar certificado...
+* Importar certificados para o armazenamento de Autoridades de Certificação Confiáveis
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>Desabilitar a autenticação baseada em certificado do cliente
-Somente o cliente baseada em certificado autenticação tem suporte e desabilitá-lo permitirá acesso público toohello pontos de extremidade, a menos que outros mecanismos estão em vigor (por exemplo, Microsoft Azure Virtual Network).
+Há suporte somente para autenticação com base em certificado de cliente e desabilitá-la permitirá acesso público para os pontos de extremidade do serviço, a menos que outros mecanismos estão em vigor (por exemplo, Rede Virtual do Microsoft Azure).
 
-Altere toofalse essas configurações no recurso de saudação tooturn do arquivo de configuração de serviço Olá:
+Altere essas configurações para false no arquivo de configuração de serviço para desativar o recurso:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
 
-Em seguida, copie Olá mesma impressão digital que Olá SSL de certificado na configuração da saudação da autoridade de certificação do certificado:
+Em seguida, copie a mesma impressão digital do certificado SSL na configuração do Certificado de Autoridade de Certificação:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="create-a-self-signed-certification-authority"></a>Criar uma Autoridade de certificado autoassinado
-Execute Olá seguindo as etapas toocreate tooact um certificado autoassinado como uma autoridade de certificação:
+Execute as seguintes etapas para criar um certificado autoassinado para atuar como uma autoridade de certificação:
 
     makecert ^
     -n "CN=MyCA" ^
@@ -245,46 +245,46 @@ Execute Olá seguindo as etapas toocreate tooact um certificado autoassinado com
       -sr localmachine -ss my ^
       MyCA.cer
 
-toocustomize-lo
+Para personalizá-lo
 
-* -e com a data de expiração da certificação de saudação
+* -e com a data de validade do certificado
 
 ## <a name="find-ca-public-key"></a>Localizar a chave pública da autoridade de certificação
-Todos os certificados de cliente devem ter sido emitidos por uma autoridade de certificação confiável pelo serviço de saudação. Localize toohello chave pública Olá autoridade de certificação que emitiu os certificados de cliente de saudação que serão toobe usado para autenticação no tooupload ordem-toohello serviço de nuvem.
+Todos os certificados de cliente devem ter sido emitidos por uma autoridade de certificação confiável pelo serviço. Localize a chave pública para a autoridade de certificação que emitiu o cliente certificados a ser usado para autenticação para carregá-lo ao serviço de nuvem.
 
-Se o arquivo hello com a chave pública Olá não estiver disponível, você deve exportá-lo saudação do repositório de certificados:
+Se o arquivo com a chave pública não estiver disponível, você deve exportá-lo a partir do repositório de certificados:
 
 * Localize o certificado
-  * Olá de procurar por um certificado de cliente emitido pela mesma autoridade de certificação
-* Clique duas vezes no certificado de saudação.
-* Selecione a guia de caminho de certificação de saudação na caixa de diálogo de certificado hello.
-* Clique duas vezes em entrada de autoridade de certificação Olá no caminho de saudação.
-* Fazer anotações de propriedades do certificado hello.
-* Olá fechar **certificado** caixa de diálogo.
+  * Pesquise um certificado de cliente emitido pela mesma autoridade de certificação
+* Clique duas vezes no certificado.
+* Selecione a guia do Caminho de Certificação na caixa de diálogo de Certificado.
+* Clique duas vezes na entrada de AC no caminho.
+* Anote as propriedades do certificado.
+* Feche a caixa de diálogo do **Certificado** .
 * Localize o certificado
-  * Pesquisar Olá observada acima da autoridade de certificação.
+  * Pesquise pela AC anotada acima.
 * Clique em Ações -> todas as tarefas -> Exportar...
 * Exportar o certificado em um .CER com as seguintes opções:
-  * **Não, não exportar chave privada Olá**
-  * Inclua todos os certificados no caminho de certificação hello, se possível.
+  * **Não, não exportar a chave privada**
+  * Incluir todos os certificados no caminho de certificação, se possível.
   * Exportar todas as propriedades estendidas.
 
-## <a name="upload-ca-certificate-toocloud-service"></a>Carregar o serviço de toocloud de certificado de autoridade de certificação
-Carregue o certificado com hello existente ou gerado. Arquivo CER com a chave pública de saudação da autoridade de certificação.
+## <a name="upload-ca-certificate-to-cloud-service"></a>Carregar o Certificado de Autoridade de Certificação no serviço de nuvem
+Carregar certificado com o arquivo .CER existente ou gerado com a chave pública da autoridade de certificação.
 
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço
-Atualize o valor de impressão digital de saudação do hello após a configuração no arquivo de configuração de serviço Olá com a impressão digital de Olá Olá certificado carregado toohello do serviço de nuvem:
+Atualize o valor de impressão digital da seguinte configuração no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Atualizar o valor Olá Olá após a configuração com hello mesmo impressão digital:
+Atualize o valor de configuração a seguir com a mesma impressão digital:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Emitir certificados de cliente
-Cada serviço de saudação individuais tooaccess autorizados deve ter um certificado de cliente emitido para his/hers exclusivo a usar e deve escolher que HIS/hers possui senha forte tooprotect sua chave privada. 
+Cada pessoa autorizada a acessar o serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher que sua própria senha forte para proteger sua chave privada. 
 
-Olá, as etapas a seguir deve ser executado no hello mesma máquina onde Olá autoassinado certificado de autoridade de certificação foi gerada e armazenada:
+As etapas a seguir devem ser executadas no mesmo computador onde o Certificado de Autoridade de Certificação autoassinado foi gerado e armazenado:
 
     makecert ^
       -n "CN=My ID" ^
@@ -296,11 +296,11 @@ Olá, as etapas a seguir deve ser executado no hello mesma máquina onde Olá au
 
 Personalizando:
 
-* -n com uma ID de cliente toohello que será autenticado com o certificado
-* -e com data de validade do certificado Olá
+* -n com uma ID para o cliente será autenticado com o certificado
+* -e com a data de validade do certificado
 * MyID.pvk e MyID.cer com nomes de arquivo exclusivo para o certificado de cliente
 
-Esse comando solicitará um toobe senha criada e usada uma vez. Use uma senha forte.
+Esse comando solicitará uma senha a ser criada e usada uma vez. Use uma senha forte.
 
 ## <a name="create-pfx-files-for-client-certificates"></a>Criar arquivos PFX para certificados de cliente
 Para cada certificado de cliente gerado, execute:
@@ -309,39 +309,39 @@ Para cada certificado de cliente gerado, execute:
 
 Personalizando:
 
-    MyID.pvk and MyID.cer with hello filename for hello client certificate
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 Digite a senha e, em seguida, exporte o certificado com as seguintes opções:
 
-* Sim, exportar a chave privada Olá
+* Sim, exportar a chave privada
 * Exportar todas as propriedades estendidas
-* Olá toowhom individuais que esse certificado está sendo emitido deve escolher uma senha de exportação Olá
+* A pessoa para quem o certificado foi emitido deve escolher a senha de exportação
 
 ## <a name="import-client-certificate"></a>Importar o certificado de cliente
-Cada pessoa para quem um certificado de cliente tiver sido emitido deve importar o par de chaves Olá máquinas hello, ele usará toocommunicate com o serviço de saudação:
+Cada pessoa para quem um certificado cliente tiver sido emitido deve importar o par de chaves nas máquinas que ele usará para se comunicar com o serviço:
 
-* Clique duas vezes em hello. Arquivo PFX no Windows Explorer
-* Importar o certificado para Olá pessoal armazenar pelo menos essa opção:
+* Clique duas vezes no arquivo .PFX no Windows Explorer
+* Importar o certificado para o pessoal armazenar pelo menos essa opção:
   * Incluir todas as propriedades estendidas marcadas
 
 ## <a name="copy-client-certificate-thumbprints"></a>Copie as impressões digitais de certificados de cliente
-Cada pessoa para quem um certificado de cliente tiver sido emitido deve seguir estas etapas na ordem tooobtain Olá impressão digital his/hers certificado que será adicionado toohello arquivo de configuração de serviço:
+Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir estas etapas para obter a impressão digital do seu certificado que será adicionado ao arquivo de configuração de serviço:
 
 * Executar certmgr.exe
-* Selecione a guia pessoal Olá
-* Clique duas vezes no certificado do cliente Olá toobe usado para autenticação
-* Olá certificado caixa de diálogo que é aberta, selecione a guia de detalhes de saudação
+* Selecione a guia pessoal
+* Clique duas vezes no certificado do cliente para ser usado para autenticação
+* Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
 * Certifique-se de que mostrar está exibindo todos
-* Campo de saudação selecione denominado impressão digital na lista de saudação
-* Copiar valor Olá da impressão digital de saudação do * * excluir os caracteres Unicode não visíveis na frente do primeiro dígito de hello * * excluir todos os espaços
+* Selecione o campo denominado impressão digital na lista
+* Copie o valor da impressão digital ** Exclua caracteres Unicode não visíveis na frente do primeiro dígito ** Exclua todos os espaços
 
-## <a name="configure-allowed-clients-in-hello-service-configuration-file"></a>Configurar clientes de permitido no arquivo de configuração de serviço Olá
-Atualize o valor de saudação do hello configuração no arquivo de configuração de serviço Olá com uma lista separada por vírgulas de impressões digitais de Olá Olá certificados de cliente permitidos acesso toohello serviço a seguir:
+## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurar clientes permitidos no arquivo de configuração de serviço
+Atualize o valor da configuração a seguir no arquivo de configuração de serviço com uma lista separada por vírgulas das impressões digitais dos certificados do cliente pode acessar o serviço:
 
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## <a name="configure-client-certificate-revocation-check"></a>Configurar a verificação de revogação de certificado do cliente
-não verifica a configuração padrão de saudação com hello autoridade de certificação para o status de revogação de certificado de cliente. tooturn em Olá verifica se Olá autoridade de certificação que emitiu os certificados de cliente Olá dá suporte a essas verificações, altere Olá após a configuração com um dos valores hello definidos no hello enumeração X509RevocationMode:
+A configuração padrão não verifica a autoridade de certificação para o status de revogação de certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu os certificados de cliente oferece suporte a essas verificações, altere a configuração a seguir com um dos valores definidos na enumeração X509RevocationMode:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
@@ -352,34 +352,34 @@ Para um certificado de criptografia, execute:
 
 Personalizando:
 
-    MyID.pvk and MyID.cer with hello filename for hello encryption certificate
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
 
 Digite a senha e, em seguida, exporte o certificado com as seguintes opções:
 
-* Sim, exportar a chave privada Olá
+* Sim, exportar a chave privada
 * Exportar todas as propriedades estendidas
-* Você precisará senha Olá ao carregar o serviço de nuvem Olá certificado toohello.
+* Você precisará da senha ao carregar o certificado para o serviço de nuvem.
 
 ## <a name="export-encryption-certificate-from-certificate-store"></a>Exportar o certificado de criptografia do repositório de certificados
 * Localize o certificado
 * Clique em Ações -> todas as tarefas -> Exportar...
 * Exportar o certificado em um arquivo .PFX com as seguintes opções: 
-  * Sim, exportar a chave privada Olá
-  * Incluir todos os certificados no caminho de certificação hello, se possível 
+  * Sim, exportar a chave privada
+  * Incluir todos os certificados no caminho de certificação, se possível 
 * Exportar todas as propriedades estendidas
 
-## <a name="upload-encryption-certificate-toocloud-service"></a>Carregar o serviço de toocloud de certificado de criptografia
-Carregue o certificado com hello existente ou gerado. Arquivo PFX com o par de chaves de criptografia de saudação:
+## <a name="upload-encryption-certificate-to-cloud-service"></a>Carregar o certificado de criptografia para o serviço de nuvem
+Carregar certificado com o arquivo .PFX existente ou gerado com o par de chaves de criptografia:
 
-* Digite a senha de saudação protegendo informações de chave privada Olá
+* Digite a senha que protege as informações da chave privadas
 
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Atualizar o certificado de criptografia no arquivo de configuração de serviço
-Atualize o valor de impressão digital de saudação do hello configurações no arquivo de configuração de serviço Olá com a impressão digital de Olá Olá certificado carregado toohello do serviço de nuvem a seguir:
+Atualize o valor de impressão digital das seguintes configurações no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="common-certificate-operations"></a>Operações comuns de certificado
-* Configurar o certificado SSL Olá
+* Configurar o certificado SSL
 * Configurar certificados de cliente
 
 ## <a name="find-certificate"></a>Localize o certificado
@@ -389,67 +389,67 @@ Siga estas etapas:
 2. Arquivo -> Adicionar/Remover Snap-in...
 3. Selecione **Certificados**.
 4. Clique em **Adicionar**.
-5. Escolha o local de repositório de certificados de saudação.
+5. Escolha o local do repositório de certificados.
 6. Clique em **Concluir**.
 7. Clique em **OK**.
 8. Expanda **Certificados**.
-9. Expanda o nó de armazenamento de certificado hello.
-10. Expanda Olá certificado filho.
-11. Selecione um certificado na lista de saudação.
+9. Expanda o nó do repositório de certificados.
+10. Expanda o nó filho Certificado.
+11. Selecione um certificado na lista.
 
 ## <a name="export-certificate"></a>Exportar o certificado
-Em Olá **Assistente para exportação de certificados**:
+No **Assistente para Exportação de Certificados**:
 
 1. Clique em **Avançar**.
-2. Selecione **Sim**, em seguida, **chave privada de saudação de exportação**.
+2. Selecione **Sim** e **Exportar a chave privada**.
 3. Clique em **Avançar**.
-4. Selecione o formato de arquivo de saída desejada hello.
-5. Verifique as opções de saudação desejada.
+4. Selecione o formato de arquivo de saída desejado.
+5. Marque as opções desejadas.
 6. Marque a **Senha**.
 7. Digite uma senha forte e confirme-a.
 8. Clique em **Avançar**.
-9. Digite ou procure um nome de arquivo onde toostore Olá certificado (use um. Extensão PFX).
+9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
 10. Clique em **Avançar**.
 11. Clique em **Concluir**.
 12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar certificado
-Em Olá Assistente de importação de certificado:
+No Assistente para importação de certificados:
 
-1. Selecione o local do repositório de saudação.
+1. Selecione o local do repositório.
    
-   * Selecione **usuário atual** se apenas os processos em execução em usuário atual serão acessar o serviço de saudação
-   * Selecione **Máquina Local** se outros processos no computador acessará o serviço Olá
+   * Selecione **Usuário Atual** somente se processos em execução no atual usuário acessarão o serviço
+   * Selecione **Computador Local** se outros processos no computador acessarão o serviço
 2. Clique em **Avançar**.
-3. Se estiver importando de um arquivo, confirme o caminho do arquivo hello.
+3. Se estiver importando um arquivo, verifique seu caminho.
 4. Se estiver importando um arquivo .PFX:
-   1. Digite a senha de saudação proteger a chave privada Olá
+   1. Digite a senha que protege as informações da chave privada
    2. Selecione as opções de importação
-5. Selecionar certificados de "Local" em Olá repositório a seguir
+5. Selecione para “Colocar” os certificados no repositório a seguir
 6. Clique em **Procurar**.
-7. Selecione repositório de saudação desejado.
+7. Selecione o repositório desejado.
 8. Clique em **Concluir**.
    
-   * Se o repositório de autoridade de certificação raiz confiável Olá foi escolhido, clique em **Sim**.
+   * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9. Clique em **OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar um certificado
-Em Olá [Portal do Azure](https://portal.azure.com/)
+No [Portal do Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
-2. Selecione o serviço de nuvem hello.
-3. Clique no menu superior Olá **certificados**.
-4. Na barra inferior de saudação, clique em **carregar**.
-5. Selecione o arquivo de certificado de saudação.
-6. Se é um. PFX do arquivo, digite a senha de saudação para a chave privada hello.
-7. Depois de concluído, copie impressão digital do certificado Olá da nova entrada na lista de saudação de hello.
+2. Selecione o serviço de nuvem.
+3. Na parte superior do menu, clique em **Certificados**.
+4. Na barra inferior, clique em **Carregar**.
+5. Selecione o arquivo de certificado.
+6. Se for um arquivo .PFX, digite a senha da chave privada.
+7. Depois de concluído, copie a impressão digital do certificado da nova entrada na lista.
 
 ## <a name="other-security-considerations"></a>Outras considerações de segurança
-configurações de SSL Olá descritas neste documento criptografar a comunicação entre Olá serviço e seus clientes quando o ponto de extremidade HTTPS Olá é usado. Isso é importante, pois as credenciais para acesso de banco de dados e possivelmente, outras informações confidenciais estão contidos na comunicação hello. No entanto, observe que o serviço Olá persista status interno, incluindo credenciais, em suas tabelas internas no banco de dados de SQL do Microsoft Azure de saudação que você forneceu para o armazenamento de metadados na sua assinatura do Microsoft Azure. Esse banco de dados foi definido como parte da saudação após a configuração no arquivo de configuração do serviço (. Arquivo CSCFG): 
+As configurações de SSL descritas neste documento criptografar a comunicação entre o serviço e seus clientes quando o ponto de extremidade HTTPS é usado. Isso é importante já que as credenciais para acesso ao banco de dados e potencialmente outras informações confidenciais estão contidos na comunicação. No entanto, observe que o serviço persista status interno, incluindo credenciais, em suas tabelas internas no banco de dados SQL do Microsoft Azure que você forneceu para o armazenamento de metadados em sua assinatura do Microsoft Azurre. Esse banco de dados foi definido como parte da seguinte configuração no arquivo de configuração de serviço (arquivo .CSCFG): 
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 
-As credenciais armazenadas neste banco de dados são criptografadas. No entanto, como uma prática recomendada, verifique se as funções web e de trabalho de suas implantações de serviço são atualizadas toodate e seguro como eles têm acesso toohello metadados hello e banco de dados do certificado usado para criptografia e descriptografia de credenciais armazenadas. 
+As credenciais armazenadas neste banco de dados são criptografadas. No entanto, como uma prática recomendada, certifique-se de que funções da web e de trabalho de suas implantações de serviço sejam atualizadas e protegidas, visto que elas têm acesso ao banco de dados de metadados e o certificado usado para criptografia e descriptografia de credenciais armazenadas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

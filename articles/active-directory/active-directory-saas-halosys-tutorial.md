@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Halosys | Microsoft Docs"
-description: "Saiba como toouse Halosys com o Active Directory do Azure tooenable única de logon, o provisionamento automatizado e muito mais!"
+description: "Saiba como usar o Halosys com o Azure Active Directory para habilitar logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 18043ed1b6f7ab45c59cfd36252bef1621618e51
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: integração do Azure Active Directory com o Halosys
 
-Neste tutorial, você aprenderá como toointegrate Halosys com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o Halosys ao Azure AD (Azure Active Directory).
 
-Integrando Halosys com o AD do Azure fornece Olá benefícios a seguir:
+Integrar o Halosys ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooHalosys
-- Você pode habilitar seus usuários tooautomatically get conectado tooHalosys (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal clássico do Azure
+- Você pode controlar no Azure AD quem tem acesso ao Halosys
+- Você pode permitir que seus usuários façam logon automaticamente no Halosys (Logon Único) com suas contas do Azure AD
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com Halosys, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao Halosys, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Halosys habilitada para logon único
 
 
 > [!NOTE] 
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
@@ -52,151 +52,151 @@ tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
 
-cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Halosys da Galeria de saudação
+1. Como adicionar o Halosys da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
-## <a name="adding-halosys-from-hello-gallery"></a>Adicionando Halosys da Galeria de saudação
-integração de saudação tooconfigure de Halosys no AD do Azure, você precisa tooadd Halosys da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-halosys-from-the-gallery"></a>Como adicionar o Halosys da galeria
+Para configurar a integração do Halosys ao Azure AD, você precisará adicionar o Halosys da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd Halosys da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Halosys da galeria, execute as seguintes etapas:**
 
-1. Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory][1]
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Clique em exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, **aplicativos** no menu superior hello.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
     ![Aplicativos][2]
 
-4. Clique em **adicionar** final Olá Olá página.
+4. Clique em **Adicionar** na parte inferior da página.
 
     ![Aplicativos][3]
 
-5. Em Olá **o que fazer você deseja toodo** caixa de diálogo, clique em **adicionar um aplicativo da Galeria Olá**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Aplicativos][4]
 
-6. Na caixa de pesquisa hello, digite **Halosys**.
+6. Na caixa de pesquisa, digite **Halosys**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
     
-7. No painel de resultados de saudação, selecione **Halosys**e, em seguida, clique em **concluir** aplicativo hello de tooadd.
+7. No painel de resultados, selecione **Halosys** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Halosys, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Halosys é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Halosys precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Halosys é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Halosys.
 
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **nome de usuário** em Halosys.
+Essa relação de vinculação é estabelecida por meio da atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Halosys.
 
-tooconfigure e teste de logon único do AD do Azure com Halosys, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Halosys, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste Halosys](#creating-a-halosys-test-user)**  -toohave um equivalente do Britta Simon em Halosys é a representação toohello vinculado do Azure AD dela.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
+3. **[Criando um usuário de teste do Halosys](#creating-a-halosys-test-user)**: para ter um equivalente de Brenda Fernandes no Halosys que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no portal clássico do hello e configurar o logon único no aplicativo Halosys.
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo do Halosys.
 
 
-**tooconfigure AD do Azure-logon único com Halosys, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Halosys, execute as seguintes etapas:**
 
-1. No portal clássico hello, em Olá **Halosys** página de integração de aplicativos, clique em **configurar logon único** tooopen Olá **configurar logon único** caixa de diálogo.
+1. No portal clássico, na página de integração de aplicativos do **Halosys**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
      
     ![Configurar Logon Único][6] 
 
-2. Em Olá **como você gostaria usuários toosign em tooHalosys** página, selecione **do Azure AD Single Sign-On**e, em seguida, clique em **próximo**.
+2. Na página **Como você deseja que os usuários entrem no Halosys**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
+    ![Configurar o logon único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
 
-3. Em Olá **definir configurações de aplicativo** caixa de diálogo de página, execute Olá etapas a seguir:
+3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
 
-    a. Em Olá **URL de logon** caixa de texto, digite a URL do hello usada pelo seu aplicativo de Halosys tooyour toosign em usuários usando o saudação padrão a seguir: `https://<company-name>.Halosys.com/client-api/api`.
+    a. Na caixa de texto **URL de entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Halosys usando o seguinte padrão: `https://<company-name>.Halosys.com/client-api/api`.
 
-    Olá b.In **URL de identificador** caixa de texto, digite a URL de saudação em saudação padrão a seguir: `https://<company-name>.Halosys.com`. 
+    b.Na caixa de texto **URL de Identificador**, digite a URL no seguinte padrão: `https://<company-name>.Halosys.com`.   
          
-4. Em Olá **configurar logon único no Halosys** , clique em **baixar metadados**e, em seguida, salve o arquivo de saudação em seu computador:
+4. Na página **Configurar logon único no Halosys**, clique em **Baixar metadados** e salve o arquivo de metadados no computador:
 
     ![Configurar Logon Único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
    
-5. tooget SSO configurado para o seu aplicativo, entre em contato com a equipe de suporte Halosys e fornecê-los com os seguintes hello:
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Halosys e forneça o seguinte:
 
-    • Olá baixado **arquivo de metadados**
+    • O **arquivo de metadados** baixado
     
-    • Olá **URL SSO SAML**
+    • A **URL de SSO do SAML**
     
 
-6. No portal clássico do hello, selecione a confirmação de configuração de logon único do hello e, em seguida, clique em **próximo**.
+6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
     
     ![Logon Único do AD do Azure][10]
 
-7. Em Olá **único logon confirmação** , clique em **concluir**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.  
  
     ![Logon Único do AD do Azure][11]
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Nesta seção, você pode criar um usuário de teste no portal clássico do hello chamado Britta Simon.
+Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 
 ![Criar um usuário do AD do Azure][20]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
 
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. lista de saudação toodisplay de usuários, no menu de saudação na parte superior do hello, clique em **usuários**.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
 
-4. Olá tooopen **adicionar usuário** caixa de diálogo, na barra de ferramentas Olá inferior hello, clique em **adicionar usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. Em Olá **Conte-nos sobre este usuário** caixa de diálogo de página, execute Olá etapas a seguir: ![criando um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. Sobre o **Conte-nos sobre este usuário** caixa de diálogo página, execute as seguintes etapas: ![criando um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Em nome de usuário de saudação **textbox**, tipo **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Avançar**.
 
-6.  Em Olá **perfil de usuário** caixa de diálogo de página, execute Olá etapas a seguir: ![criando um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
+6.  Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
 
-    b. Em Olá **Sobrenome** caixa de texto, tipo, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Em Olá **nome de exibição** caixa de texto, tipo **Britta Simon**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
 
-    d. Em Olá **função** lista, selecione **usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
 
     e. Clique em **Avançar**.
 
-7. Em Olá **obter senha temporária** página da caixa de diálogo, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
 
-8. Em Olá **obter senha temporária** caixa de diálogo de página, execute Olá etapas a seguir:
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
 
-    a. Anote o valor Olá Olá **nova senha**.
+    a. Anote o valor da **Nova Senha**.
 
     b. Clique em **Concluído**.   
 
@@ -204,46 +204,46 @@ Nesta seção, você pode criar um usuário de teste no portal clássico do hell
 
 ### <a name="creating-a-halosys-test-user"></a>Criando um usuário de teste do Halosys
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Halosys. Trabalhe com Halosys suporte team tooadd Olá usuários na plataforma de Halosys hello.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Halosys. Trabalhe com a equipe de suporte para adicionar usuários à plataforma Halosys.
 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo tooHalosys seu acesso.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Halosys.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooHalosys, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Halosys, execute as seguintes etapas:**
 
-1. No portal clássico do hello, exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, clique em **aplicativos** no menu superior hello.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Halosys**.
+2. Na lista de aplicativos, selecione **Halosys**.
 
     ![Configurar Logon Único](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
 
-3. No menu de saudação na parte superior de saudação, clique em **usuários**.
+3. No menu na parte superior, clique em **Usuários**.
 
     ![Atribuir usuário][203]
 
-4. Na lista de usuários hello, selecione **Britta Simon**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
 
-5. Na barra de ferramentas de saudação na parte inferior do hello, clique em **atribuir**.
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
     ![Atribuir usuário][205]
 
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em Olá Halosys bloco no painel de acesso de saudação, você deve obter automaticamente assinado em tooyour Halosys aplicativo.
+Quando você clicar no bloco Halosys no Painel de Acesso, deverá fazer logon automaticamente no seu aplicativo Halosys.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

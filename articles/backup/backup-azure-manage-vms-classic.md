@@ -1,6 +1,6 @@
 ---
-title: "monitor e aaaManage backups de máquina virtual do Azure | Microsoft Docs"
-description: "Saiba como monitor virtual do Azure e toomanage máquina backups"
+title: "Gerenciar e monitorar backups de máquinas virtuais do Azure | Microsoft Docs"
+description: "Saiba como gerenciar e monitorar backups de uma máquina virtual do Azure"
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb95e0b3760c96f7fd563c42cb4c635553f48957
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-hello-classic-portal"></a>Gerenciar trabalhos de Backup do Azure comuns e os alertas de disparador no portal clássico Olá
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gerenciar trabalhos comuns do Backup do Azure e disparar alertas no portal clássico
 > [!div class="op_single_selector"]
 > * [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
 > * [Gerenciar backups de VMs clássicas](backup-azure-manage-vms-classic.md)
@@ -31,161 +31,161 @@ ms.lasthandoff: 10/06/2017
 Este artigo fornece informações sobre tarefas comuns de gerenciamento e monitoramento para máquinas virtuais do modelo Clássico protegidas no Azure.  
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [preparar seu tooback ambiente backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com implantação clássico VMs de modelo.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
 >
 > [!IMPORTANT]
->A partir de março de 2017, você não pode usar os cofres de Backup Olá toocreate portal clássico.
+>A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
 >
-> Agora você pode atualizar seu cofres dos serviços de tooRecovery de cofres de Backup. Para obter detalhes, consulte o artigo Olá [atualizar um tooa de Cofre de Backup Cofre de serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva tooupgrade cofres de serviços tooRecovery os cofres de Backup.<br/> Após 15 de outubro de 2017, você não pode usar o PowerShell toocreate os cofres de Backup. **Em 1º de novembro de 2017**:
->- Todos os cofres de Backup restantes serão automaticamente atualizados tooRecovery cofres de serviços.
->- Você não será capaz de tooaccess os dados de backup no portal clássico do hello. Em vez disso, use Olá tooaccess portal do Azure os dados de backup em cofres de serviços de recuperação.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 
 ## <a name="manage-protected-virtual-machines"></a>Gerenciar máquinas virtuais protegidas
-toomanage máquinas virtuais protegidas:
+Para gerenciar máquinas virtuais protegidas:
 
-1. tooview e gerenciar as configurações de backup para uma máquina virtual, clique em Olá **itens protegidos** guia.
-2. Clique no nome de saudação de uma saudação do item protegido toosee **detalhes de Backup** guia, que mostra informações sobre o último backup de saudação.
+1. Para exibir e gerenciar as configurações de backup de uma máquina virtual, clique na guia **Itens Protegidos** .
+2. Clique no nome de um item protegido para ver a guia **Detalhes de Backup** , que mostra informações sobre o último backup.
 
     ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-vmdetails.png)
-3. tooview e gerenciar configurações de política de backup para uma máquina virtual, clique em Olá **políticas** guia.
+3. Para exibir e gerenciar as configurações de política de backup de uma máquina virtual, clique na guia **Políticas** .
 
     ![Política de máquina virtual](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
-    Olá **políticas de Backup** guia mostra Olá política existente. Você pode modificar conforme necessário. Se você precisar de uma nova política de toocreate clique **criar** em Olá **políticas** página. Observe que se você quiser tooremove uma política de ele não deve ter todas as máquinas virtuais associadas a ele.
+    A guia **Políticas de Backup** exibe a política existente. Você pode modificar conforme necessário. Se você precisar criar uma nova política, clique em **Criar** na página **Políticas**. Se você quiser remover uma política, ela não deve ter nenhuma máquina virtual associada a ela.
 
     ![Política de máquina virtual](./media/backup-azure-manage-vms/backup-vmpolicy.png)
-4. Você pode obter mais informações sobre ações ou status para uma máquina virtual em Olá **trabalhos** página. Clique em um trabalho em Olá lista tooget mais detalhes, ou filtre os trabalhos para uma máquina virtual específica.
+4. Você pode obter mais informações sobre ações ou status de uma máquina virtual na página **Trabalhos** . Clique em um trabalho na lista para obter mais detalhes ou filtrar trabalhos para uma máquina virtual específica.
 
     ![Trabalhos](./media/backup-azure-manage-vms/backup-job.png)
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>Backup sob demanda de uma máquina virtual
-Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup de saudação inicial está pendente para a máquina virtual de hello, backup sob demanda criará uma cópia completa da máquina virtual de saudação no cofre de backup do Azure. Se o primeiro backup for concluído, será backup sob demanda somente alterações de envio do backup anterior de backup tooAzure cofre ou seja, ele é sempre incremental.
+Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre de backup do Azure. Se o primeiro backup for concluído, o backup sob demanda enviará apenas as alterações de backup anterior para o cofre de backup do Azure, ou seja, sempre é incremental.
 
 > [!NOTE]
-> Período de retenção de um backup sob demanda é definir o valor de tooretention especificado para retenção diária na política de backup correspondente toohello VM.  
+> O período de retenção de um backup sob demanda é definido como o valor de retenção especificado para retenção diária na política de backup correspondente à VM.  
 >
 >
 
-backup tootake uma demanda de uma máquina virtual:
+Para fazer backup sob demanda de uma máquina virtual:
 
-1. Navegue toohello **itens protegidos** página e selecione **Máquina Virtual do Azure** como **tipo** (se ainda não estiver selecionado) e clique em **selecione**botão.
+1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como **Tipo** (se ainda não estiver selecionada) e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
-2. Selecionar máquina virtual de saudação na qual você deseja tootake uma demanda backup e clique em **Backup agora** botão final Olá Olá página.
+2. Selecione a máquina virtual na qual você deseja fazer um backup sob demanda e clique no botão **Backup agora** na parte inferior da página.
 
     ![Fazer backup agora](./media/backup-azure-manage-vms/backup-now.png)
 
-    Isso criará um trabalho de backup na máquina virtual de saudação selecionada. Período de retenção de ponto de recuperação criado por esse trabalho será o mesmo que a especificada na política de saudação associada à máquina virtual de saudação.
+    Isso criará um trabalho de backup na máquina virtual selecionada. O período de retenção do ponto de recuperação criado por esse trabalho será o mesmo que o especificado na política associada à máquina virtual.
 
     ![Criando um trabalho de backup](./media/backup-azure-manage-vms/creating-job.png)
 
    > [!NOTE]
-   > política de saudação tooview associada a uma máquina virtual, detalhada para baixo em máquina virtual no hello **itens protegidos** guia de política de toobackup vá e página.
+   > Para exibir a política associada a uma máquina virtual, faça uma busca detalhada na máquina virtual na página **Itens protegidos** e vá para a guia da política de backup.
    >
    >
-3. Quando o trabalho de saudação é criado, você pode clicar em **Exibir trabalho** botão torrada Olá barra toosee trabalho correspondente do hello na página de trabalhos de saudação.
+3. Depois que o trabalho é criado, você pode clicar no botão **Exibir trabalho** na barra de notificação do sistema para ver o trabalho correspondente na página de trabalhos.
 
     ![Trabalho de backup criado](./media/backup-azure-manage-vms/created-job.png)
-4. Após a conclusão bem-sucedida do trabalho hello, um ponto de recuperação será criado que você pode usar toorestore Olá VM. Isso também será incrementado valor de coluna de ponto de recuperação Olá por 1 na **itens protegidos** página.
+4. Depois da conclusão bem-sucedida do trabalho, um ponto de recuperação será criado, o qual você poderá usar para restaurar a máquina virtual. Isso também incrementará o valor da coluna do ponto de recuperação em 1 na página **Itens protegidos** .
 
 ## <a name="stop-protecting-virtual-machines"></a>Interromper a proteção de máquinas virtuais
-Você pode escolher toostop futuros backups saudação de uma máquina virtual com hello as opções a seguir:
+Você pode optar por parar os futuros backups de uma máquina virtual com as seguintes opções:
 
 * Reter dados de backup associados à máquina virtual no cofre de Backup do Azure
 * Excluir dados de backup associados à máquina virtual
 
-Se você tiver selecionado dados de backup tooretain associados à máquina virtual, você pode usar a máquina virtual do hello dados de backup toorestore Olá. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](https://azure.microsoft.com/pricing/details/backup/).
+Se você tiver optado por reter dados de backup associados à máquina virtual, você pode usar os dados de backup para restaurá-la. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](https://azure.microsoft.com/pricing/details/backup/).
 
-proteção de tooStop para uma máquina virtual:
+Para interromper a proteção para uma máquina virtual:
 
-1. Navegue muito**itens protegidos** página e selecione **máquina virtual do Azure** como tipo de filtro da saudação (se ainda não estiver selecionado) e clique em **selecione** botão.
+1. Navegue até a página **Itens Protegidos**, selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
-2. Selecione a máquina virtual de saudação e clique em **parar proteção** final Olá Olá página.
+2. Selecione a máquina virtual e clique em **Parar proteção** na parte inferior da página.
 
-    ![Parar a proteção](./media/backup-azure-manage-vms/stop-protection.png)
-3. Por padrão, Backup do Azure não excluir os dados de backup Olá associados à máquina virtual de saudação.
+    ![Parar proteção](./media/backup-azure-manage-vms/stop-protection.png)
+3. Por padrão, o Backup do Azure não exclui os dados de backup associados à máquina virtual.
 
     ![Confirmar a interrupção da proteção](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
-    Se você quiser toodelete dados de backup, marque a caixa de seleção de saudação.
+    Se você deseja excluir os dados de backup, marque a caixa de seleção.
 
     ![Caixa de seleção](./media/backup-azure-manage-vms/checkbox.png)
 
-    Selecione um motivo para interromper o backup de saudação. Enquanto isso é opcional, fornecer um motivo ajuda toowork de Backup do Azure nos comentários de saudação e priorizar os cenários de cliente Olá.
-4. Clique em **enviar** saudação do botão toosubmit **interromper a proteção** trabalho. Clique em **Exibir trabalho** toosee Olá trabalho Olá correspondente em **trabalhos** página.
+    Selecione um motivo para interromper o backup. Embora seja opcional, fornecer um motivo ajudará o Backup do Azure a trabalhar com os comentários e priorizar os cenários do cliente.
+4. Clique no botão **Enviar** para enviar o trabalho **Interromper proteção**. Clique em **Exibir trabalho** para ver o trabalho correspondente na página **Trabalhos**.
 
     ![Parar a proteção](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Se você não selecionou **excluir os dados de backup associados** opção durante **parar proteção** proteção Assistente e, em seguida, após a conclusão do trabalho, status muda muito**proteção interrompida**. dados de saudação permanecem com o Azure Backup até que sejam excluídas explicitamente. Você sempre pode excluir dados saudação, selecionando a máquina virtual de saudação no hello **itens protegidos** página e clicando em **excluir**.
+    Se você não selecionou a opção **Excluir dados de backup associados** durante o assistente **Parar proteção**, poste a conclusão do trabalho, as alterações de status de proteção para **Proteção interrompida**. Os dados permanecem com o Backup do Azure até que sejam explicitamente excluídos. Você sempre pode excluir os dados selecionando a máquina virtual na página **Itens protegidos** e clicando em **Excluir**.
 
     ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Se você tiver selecionado Olá **excluir os dados de backup associados** opção, hello máquina virtual não fará parte dos Olá **itens protegidos** página.
+    Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens Protegidos**.
 
 ## <a name="re-protect-virtual-machine"></a>Proteger novamente a Máquina virtual
-Se você não selecionou Olá **excluir dados de backup associados** opção **parar proteção**, proteger máquina virtual de saudação novamente seguindo Olá etapas semelhantes toobacking backup registrado virtual máquinas. Depois de protegido, esta máquina virtual terá proteção do backup de dados retidos toostop anterior e pontos de recuperação criado após protege novamente.
+Se você não selecionou a opção **Excluir dados de backup associados** em **Parar proteção**, pode proteger novamente a máquina virtual seguindo as etapas semelhantes para fazer backup de máquinas virtuais registradas. Depois de protegida, essa máquina virtual terá os dados de backup retidos antes da interrupção da proteção e os pontos de recuperação serão criados após a nova proteção.
 
-Depois de proteger novamente, o status de proteção da máquina de virtual Olá será alterado muito**protegidos** se houver pontos de recuperação anterior muito**parar proteção**.
+Após proteger novamente, o status de proteção da máquina virtual será alterado para **Protegido** se houver pontos de recuperação anteriores a **Parar proteção**.
 
   ![Máquina virtual protegida novamente](./media/backup-azure-manage-vms/reprotected-status.png)
 
 > [!NOTE]
-> Ao proteger novamente a máquina virtual de hello, você pode escolher uma regra diferente que a política de saudação com a qual a máquina virtual foi inicialmente protegida.
+> Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
 >
 >
 
 ## <a name="unregister-virtual-machines"></a>Cancelar o registro das máquinas virtuais
-Se você desejar tooremove Olá máquina de virtual do Cofre de backup hello:
+Se você quiser remover a máquina virtual do cofre de backup:
 
-1. Clique em Olá **UNREGISTER** botão final Olá Olá página.
+1. Clique no botão **CANCELAR REGISTRO** , na parte inferior da página.
 
     ![Desabilitar a proteção](./media/backup-azure-manage-vms/unregister-button.png)
 
-    Uma notificação do sistema será exibido na parte inferior da saudação da tela hello solicitando a confirmação. Clique em **Sim** toocontinue.
+    Uma notificação do sistema será exibida na parte inferior da tela solicitando confirmação. Clique em **SIM** para continuar.
 
     ![Desabilitar a proteção](./media/backup-azure-manage-vms/confirm-unregister.png)
 
 ## <a name="delete-backup-data"></a>Excluir dados de backup
-Você pode excluir os dados de backup Olá associados a uma máquina virtual, ou:
+Você pode excluir os dados de backup associados a uma máquina virtual, ou:
 
 * Durante a interrupção do trabalho da proteção
 * Após uma interrupção no trabalho de proteção ser concluída em uma máquina virtual
 
-toodelete dados de backup em uma máquina virtual, que está na saudação *proteção interrompida* estado após a conclusão bem-sucedida de um **parar Backup** trabalho:
+Para excluir dados de backup em uma máquina virtual, que está no estado *Proteção Interrompida* , poste a conclusão bem-sucedida do trabalho em **Parar Backup** :
 
-1. Navegue toohello **itens protegidos** página e selecione **Máquina Virtual do Azure** como *tipo* e clique em Olá **selecione** botão.
+1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como o *tipo* e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
-2. Selecione a máquina virtual de saudação. máquina virtual de saudação estará em **proteção interrompida** estado.
+2. Selecione a máquina virtual. A máquina virtual estará no estado **Proteção interrompida** .
 
     ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-b.png)
-3. Clique em Olá **excluir** botão final Olá Olá página.
+3. Clique no botão **EXCLUIR** na parte inferior da página.
 
     ![Excluir backup](./media/backup-azure-manage-vms/delete-backup.png)
-4. Em Olá **excluir dados de backup** assistente, selecione um motivo para a exclusão de dados de backup (recomendados) e clique em **enviar**.
+4. No assistente **Excluir dados de backup**, selecione um motivo para a exclusão de dados de backup (altamente recomendado) e clique em **Enviar**.
 
     ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
-5. Isso criará um trabalho toodelete backup de dados de máquina virtual selecionada. Clique em **Exibir trabalho** toosee o trabalho correspondente na página trabalhos.
+5. Isso criará um trabalho para excluir os dados de backup da máquina virtual selecionada. Clique em **Exibir trabalho** para ver o trabalho correspondente na página Trabalhos.
 
     ![Exclusão de dados bem-sucedida](./media/backup-azure-manage-vms/delete-data-success.png)
 
-    Após a conclusão do trabalho hello, Olá entrada de máquina virtual de toohello correspondente será removida do **itens protegidos** página.
+    Depois que o trabalho for concluído, a entrada correspondente à máquina virtual será removida da página **Itens protegidos** .
 
 ## <a name="dashboard"></a>Painel
-Em Olá **painel** página você pode examinar informações sobre máquinas virtuais do Azure, armazenamento e trabalhos associados a eles no hello últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
+Na página **Painel** , você pode examinar informações sobre máquinas virtuais do Azure, seu armazenamento e os trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
 
 ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
 > [!NOTE]
-> Os valores no painel de saudação são atualizados uma vez a cada 24 horas.
+> Os valores no painel são atualizados a cada 24 horas.
 >
 >
 
 ## <a name="auditing-operations"></a>Operações de auditoria
-O backup do Azure fornece análise de hello "logs de operação" das operações de backup disparados por cliente Olá tornando fácil toosee exatamente quais operações de gerenciamento foram realizadas no cofre de backup hello. Logs de operações habilitar post-mortem grande e suporte para operações de backup de saudação de auditoria.
+O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
 
-Olá operações a seguir é registrada nos logs de operação:
+As seguintes operações são registradas nos logs de operação:
 
 * Registrar
 * Cancelar o registro 
@@ -199,52 +199,52 @@ Olá operações a seguir é registrada nos logs de operação:
 * Atualizar política
 * Cancelar trabalho
 
-Cofre de backup correspondente tooa logs da operação de tooview:
+Para exibir logs de operação correspondentes a um cofre de backup:
 
-1. Navegue muito**serviços de gerenciamento de** no portal do Azure e, em seguida, clique em Olá **Logs de operação** guia.
+1. Navegue até **Serviços de gerenciamento** no portal do Azure e clique na guia **Logs de Operação**.
 
     ![Logs de operação](./media/backup-azure-manage-vms/ops-logs.png)
-2. Em filtros de saudação, selecione **Backup** como *tipo* e especifique o nome do Cofre de backup Olá na *nome do serviço* e clique em **enviar**.
+2. Em filtros, selecione **Backup** como *Tipo*, especifique o nome do cofre de backup em *nome do serviço* e clique em **Enviar**.
 
     ![Filtro de logs de operação](./media/backup-azure-manage-vms/ops-logs-filter.png)
-3. Nos logs de operações de saudação, selecione qualquer operação e clique em **detalhes** toosee detalhes de operação tooan correspondente.
+3. Nos logs de operações, selecione qualquer operação e clique em **Detalhes** para ver os detalhes correspondentes a uma operação.
 
     ![Detalhes de busca de logs de operação](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    Olá **Assistente detalhes** contém informações sobre a operação Olá disparada, o Id de recurso em que essa operação é disparada e hora de início da operação de saudação do trabalho.
+    O **Assistente de detalhes** contém informações sobre a operação disparada, a Id do trabalho, o recurso em que essa operação é disparada e a hora de início da operação.
 
     ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## <a name="alert-notifications"></a>Notificações de alerta
-Você pode obter notificações de alerta personalizadas para trabalhos de saudação no portal. Isso é possível ao definir regras de alerta do PowerShell baseadas em eventos de logs operacionais. É recomendável usar o *PowerShell versão 1.3.0 ou superior*.
+Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é possível ao definir regras de alerta do PowerShell baseadas em eventos de logs operacionais. É recomendável usar o *PowerShell versão 1.3.0 ou superior*.
 
-toodefine tooalert uma notificação personalizada para falhas de backup, um comando de exemplo será semelhante:
+Para definir uma notificação personalizada para o alerta de falhas de backup, um comando de exemplo terá a seguinte aparência:
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. ResourceUri na janela pop-up de detalhes de uma operação é Olá ResourceId toobe fornecido para este cmdlet.
+**ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
 
-**OperationName**: esse será o formato de saudação "Microsoft.Backup/backupvault/<EventName>" onde EventName um de registrar, cancelar registro, ConfigureProtection, Backup, restauração, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
+**OperationName**: terá o formato "Microsoft.Backup/backupvault/<EventName> em que NomeDoEvento é uma das seguintes opções: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
 **Status**: os valores com suporte são Started, Succeeded e Failed.
 
-**ResourceGroup**: grupo de recursos do recurso de saudação no qual a operação é disparada. Você pode obter isso do valor ResourceId. Valor entre campos */resourceGroups/* e */providers/* em ResourceId valor é o valor de saudação para o grupo de recursos.
+**ResourceGroup**: ResourceGroup do recurso em que a operação é disparada. Você pode obter isso do valor ResourceId. O valor entre os campos */resourceGroups/* e */providers/* em um valor ResourceId é o valor para ResourceGroup.
 
-**Nome**: nome da regra de alerta de saudação.
+**Name**: nome da regra de alerta.
 
-**CustomEmail**: especificar Olá email personalizado endereço toowhich deseja toosend notificação de alerta
+**CustomEmail**: especifica o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
 
-**SendToServiceOwners**: essa opção envia os administradores tooall de notificação de alerta e os coadministradores de assinatura de saudação. Pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
+**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
 
 ### <a name="limitations-on-alerts"></a>Limitações sobre alertas
-Alertas baseados em eventos estão sujeito toohello seguintes limitações:
+Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
-1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup hello. Você não é possível personalizá-lo tooget alertas para um conjunto específico de máquinas virtuais em um cofre de backup.
+1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
 2. Esse recurso está em Preview. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. Você receberá alertas de “alerts-noreply@mail.windowsazure.com”. Atualmente você não pode modificar o remetente do email hello.
+3. Você receberá alertas de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)

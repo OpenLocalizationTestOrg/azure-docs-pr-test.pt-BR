@@ -1,6 +1,6 @@
 ---
-title: "conteúdo do Azure Media Services aaaPublish usando REST"
-description: "Saiba como toocreate um localizador que é usado toobuild uma URL de streaming. código de saudação usa a API REST."
+title: "Publicar conteúdo dos Serviços de Mídia do Azure usando o REST"
+description: "Saiba como criar um localizador que é usado para construir um URL de transmissão. O código usa a API REST."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: f849e21b3103b9b33bc652e886b2016ea495b19a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST
 > [!div class="op_single_selector"]
@@ -29,40 +29,40 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. Olá [codificar um ativo](media-services-rest-encode-asset.md) tópico mostra como definir tooencode em uma taxa de bits adaptável MP4. Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
 
-Você também pode usar um OnDemand localizador toobuild URLs que arquivos tooMP4 ponto que podem ser baixado progressivamente de streaming.  
+Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
-Este tópico mostra como a toocreate um localizador de streaming sob demanda em ordem toopublish seu ativo e criar um Smooth, MPEG DASH e HLS URLs de streaming. Ele também mostra toobuild hot URLs de download progressivo.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
 
-Olá [seguir](#types) seção mostra Olá tipos enum cujos valores são usados em chamadas REST de saudação.   
+A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
 
 > [!NOTE]
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-toomedia-services"></a>Conectar os serviços de tooMedia
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
-Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md). 
+Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes toohello novo URI.
+>Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming sob demanda
-toocreate Olá OnDemand localizador de streaming e obter URLs precisar Olá toodo a seguir:
+Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
 
-1. Se o conteúdo de saudação é criptografado, defina uma política de acesso.
+1. Se o conteúdo for criptografado, defina uma política de acesso.
 2. Criar um localizador de streaming sob demanda.
-3. Se você planejar toostream, obter Olá streaming de arquivo de manifesto (. ISM) em ativo hello. 
+3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo. 
    
-   Se você planejar tooprogressively download, obter nomes de saudação de arquivos MP4 no ativo de saudação. 
-4. Crie arquivo de manifesto de toohello URLs ou arquivos MP4. 
+   Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo. 
+4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
 5. Observe que você não pode criar um localizador de streaming usando um AccessPolicy que inclui permissões de gravação ou de exclusão.
 
 ### <a name="create-an-access-policy"></a>Crie uma política de acesso
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 Solicitação:
 
@@ -100,7 +100,7 @@ Resposta:
     {"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
 ### <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming sob demanda
-Crie localizador Olá para ativo especificado hello e política de ativo.
+Crie o localizador para o ativo especificado e a política de ativo.
 
 Solicitação:
 
@@ -138,7 +138,7 @@ Resposta:
     {"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
 ### <a name="build-streaming-urls"></a>Criar URLs de streaming
-Saudação de uso **caminho** valor retornado após a criação de saudação de saudação do hello localizador toobuild Smooth, HLS e MPEG DASH URLs. 
+Use o valor **Caminho** retornado após a criação do localizador para criar as URLs MPEG DASH, Smooth e HLS. 
 
 Smooth Streaming: **Caminho** + nome de arquivo de manifesto + "/manifest"
 
@@ -161,7 +161,7 @@ exemplo:
 
 
 ### <a name="build-progressive-download-urls"></a>Crie URLs de download progressivo
-Saudação de uso **caminho** valor retornado após a criação de saudação do URL de download progressivo Olá locator toobuild hello.   
+Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.   
 
 URL: **Caminho** + nome do arquivo MP4 do ativo
 

@@ -1,31 +1,31 @@
-## <a name="view-hello-telemetry"></a>Telemetria de saudação do modo de exibição
+## <a name="view-the-telemetry"></a>Exibir a Telemetria
 
-Olá framboesa Pi agora está enviando a solução de monitoramento remoto de toohello telemetria. Você pode exibir a telemetria de saudação no painel de solução de saudação. Você também pode enviar mensagens tooyour framboesa Pi no painel de solução de saudação.
+O Raspberry Pi agora está enviando a telemetria para a solução de monitoramento remota. Você pode exibir a telemetria no painel de solução. Você também pode enviar mensagens para o Raspberry Pi a partir do painel da solução.
 
-- Navegue toohello painel de solução.
-- Selecione o dispositivo em Olá **tooView dispositivo** lista suspensa.
-- Telemetria de saudação do hello framboesa Pi exibe no painel de saudação.
+- Navegue para o painel da solução.
+- Selecione o dispositivo na lista suspensa **Dispositivo para exibição**.
+- A telemetria do Raspberry Pi é exibida no painel.
 
-![Telemetria de exibição de saudação framboesa Pi][img-telemetry-display]
+![Exibir a telemetria do Raspberry Pi][img-telemetry-display]
 
-## <a name="act-on-hello-device"></a>Agir no dispositivo Olá
+## <a name="act-on-the-device"></a>Atuar no dispositivo
 
-No painel de solução Olá, você pode chamar métodos em seu framboesa Pi. Quando Olá framboesa Pi conecta-se a solução de monitoramento remoto toohello, ele envia informações sobre métodos de saudação oferece suporte.
+No painel de solução, você pode invocar métodos em seu Raspberry Pi. Quando o Raspberry Pi se conecta a solução de monitoramento remota, ele envia informações sobre os métodos que ele suporta.
 
-- No painel de solução de saudação, clique em **dispositivos** toovisit Olá **dispositivos** página. Selecione o Pi framboesa no hello **lista de dispositivos**. Depois, escolha **Métodos**:
+- No painel de solução, clique em **Dispositivos** para visitar a página **Dispositivos**. Selecione seu Raspberry Pi na **Lista de Dispositivos**. Depois, escolha **Métodos**:
 
     ![Listar dispositivos no painel][img-list-devices]
 
-- Em Olá **invocar o método** escolha **LightBlink** em Olá **método** lista suspensa.
+- Na página **Invocar Método** escolha **LightBlink** na lista suspensa **Método**.
 
-- Escolha **InvokeMethod**. simulador Olá imprime uma mensagem no console de saudação em Olá framboesa Pi. aplicativo Olá Olá framboesa Pi envia um painel de solução de backup toohello confirmação:
+- Escolha **InvokeMethod**. O simulator imprime uma mensagem no console do Raspberry Pi. O aplicativo no Raspberry Pi envia uma confirmação de volta para o painel da solução:
 
     ![Mostrar o histórico do método][img-method-history]
 
-- Você pode alternar LED hello e desativar usando Olá **ChangeLightStatus** método com um **LightStatusValue** definido muito**1** para em ou **0** para off.
+- Você pode ligar e desligar o LED usando o método **ChangeLightStatus** com **LightStatusValue** definido como **1** para ligar ou **0** para desligar.
 
 > [!WARNING]
-> Se você deixar Olá remoto em execução em sua conta do Azure de solução de monitoramento, você será cobrado por tempo de saudação que é executado. Para obter mais informações sobre como reduzir o consumo durante a saudação execuções de solução de monitoramento remoto, consulte [Configurando o Azure IoT Suite pré-configurado soluções para fins de demonstração][lnk-demo-config]. Exclua solução Olá pré-configurado de sua conta do Azure quando você tiver terminado de usá-lo.
+> Se você deixar a solução de monitoramento remoto em execução em sua conta do Azure, você receberá uma cobrança pelo tempo de execução. Para saber mais sobre como reduzir o consumo durante a execução da solução de monitoramento remoto, confira [Configuração de soluções pré-configuradas do Azure IoT Suite para fins de demonstração][lnk-demo-config]. Exclua a solução pré-configurada de sua conta do Azure quando terminar de usá-la.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

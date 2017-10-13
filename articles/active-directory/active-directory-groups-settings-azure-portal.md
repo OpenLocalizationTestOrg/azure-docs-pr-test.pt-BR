@@ -1,6 +1,6 @@
 ---
-title: Propriedades do grupo de aaaManage no Active Directory do Azure | Microsoft Docs
-description: "Como tooedit Olá propriedades e outras definições de configuração para um grupo no Active Directory do Azure"
+title: Gerenciar propriedades de grupo no Azure Active Directory | Microsoft Docs
+description: "Como editar as propriedades e outras definições de configuração para um grupo no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,28 +16,28 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: aa17c62b4824e5c2de8adc1d34cd9618f3e722f0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4baccafc0a9178223dbf64c664fc34ab9f7f916
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="manage-hello-settings-for-a-group-in-azure-active-directory"></a>Gerenciar configurações de saudação para um grupo no Active Directory do Azure
-Este artigo explica como toochange Olá configurações para um grupo no Azure Active Directory (AD do Azure).
+# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gerenciar as configurações para um grupo no Azure Active Directory
+Este artigo explica como alterar as configurações de um grupo no Azure AD (Azure Active Directory).
 
-## <a name="how-do-i-find-and-change-hello-settings"></a>Como localizar e alterar as configurações de Olá?
-1. Entrar toohello [Centro de administração do AD do Azure](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório de saudação.
-2. Selecione **mais serviços**, digite **usuários e grupos** Olá caixa de texto e, em seguida, selecione **Enter**.
+## <a name="how-do-i-find-and-change-the-settings"></a>Como localizo e altero as configurações?
+1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
+2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
    ![Abrir folha usuários e grupos](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
-3. Em Olá **usuários e grupos** folha, selecione **todos os grupos de**.
+3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
 
-   ![Saudação de abertura todos os grupos de folha](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. Em Olá **usuários e grupos - todos os grupos** folha, selecione um grupo.
-5. Em Olá **grupo - *groupname***  folha, selecione **propriedades**.
+   ![Abrir folha todos os grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
+5. Na folha **Grupo – *nomedogrupo*** , escolha **Propriedades**.
 
-   ![Folha de propriedades de saudação de abertura](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. Quando terminar de alterar as propriedades do grupo de saudação, selecione **salvar**.    
+   ![Abrir a folha Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
+6. Quando terminar de alterar as propriedades do grupo, escolha **Salvar**.    
 
    ![Salvar alterações de propriedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 

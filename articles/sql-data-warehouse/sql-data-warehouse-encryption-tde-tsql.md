@@ -1,5 +1,5 @@
 ---
-title: aaaTransparent a criptografia de dados no Data Warehouse do SQL (T-SQL) | Microsoft Docs
+title: Transparent Data Encryption no SQL Data Warehouse (T-SQL) | Microsoft Docs
 description: TDE (Transparent Data Encryption) no SQL Data Warehouse (T-SQL)
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 3894431c76f14b217f3a6b9a42dbf2f4d216bad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introdução ao Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
@@ -31,38 +31,38 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="required-permssions"></a>Permissões necessárias
-tooenable criptografia de dados transparente (TDE), você deve ser um administrador ou um membro da função dbmanager de saudação.
+Para habilitar a TDE (Transparent Data Encryption), você deve ser um administrador ou um membro da função dbmanager.
 
 ## <a name="enabling-encryption"></a>Habilitando a criptografia
-Siga essas etapas tooenable TDE para um SQL Data Warehouse:
+Siga estas etapas para habilitar a TDE para um SQL Data Warehouse:
 
-1. Conecte-se toohello *mestre* banco de dados no servidor de saudação hospeda Olá banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá
-2. Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.
+1. Conecte ao banco de dados *mestre* no servidor que está hospedando o banco de dados que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
+2. Execute a instrução a seguir para criptografar o banco de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Desabilitando a criptografia
-Siga essas etapas toodisable TDE para um SQL Data Warehouse:
+Siga estas etapas para desabilitar a TDE para um SQL Data Warehouse:
 
-1. Conecte-se toohello *mestre* banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá
-2. Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.
+1. Conecte-se ao banco de dados *mestre* que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
+2. Execute a instrução a seguir para criptografar o banco de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Um SQL Data Warehouse em pausa deve ser reiniciado antes de fazer alterações em configurações de TDE toohello.
+> Um SQL Data Warehouse em pausa deve ser retomado antes das mudanças nas configurações da TDE.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>Verificando a criptografia
-status da criptografia tooverify para um SQL Data Warehouse, siga as etapas de saudação abaixo:
+Para verificar o status de criptografia para um SQL Data Warehouse, siga estas etapas:
 
-1. Conecte-se toohello *mestre* ou instância de banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá
-2. Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.
+1. Conecte-se ao banco de dados *mestre* ou de instância que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
+2. Execute a instrução a seguir para criptografar o banco de dados.
 
 ```sql
 SELECT

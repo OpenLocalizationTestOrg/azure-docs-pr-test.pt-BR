@@ -1,6 +1,6 @@
 ---
-title: "aaaModify DATA 0 configurações de dispositivo da série StorSimple 8000 | Microsoft Docs"
-description: "Saiba como toouse do Windows PowerShell para StorSimple tooreconfigure Olá interface de rede 0 de dados no seu dispositivo StorSimple."
+title: "Modificar configurações da DATA 0 em dispositivo StorSimple 8000 series | Microsoft Docs"
+description: Saiba como usar o Windows PowerShell para StorSimple para reconfigurar a interface de rede DATA 0 em seu dispositivo StorSimple.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d3bdd3675017be86def45a81d94b6c03fc61da6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 90df43e22f17fd32fe642514df098b72700e77af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="modify-hello-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificar configurações de interface de rede 0 Olá dados em seu dispositivo da série StorSimple 8000
+# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificar as configurações do adaptador de rede DATA 0 no dispositivo StorSimple 8000 series
 
 ## <a name="overview"></a>Visão geral
 
-Seu dispositivo do Microsoft Azure StorSimple possui seis interfaces de rede, de DATA 0 tooDATA 5. Olá DATA 0 interface é sempre configurada através da interface do Windows PowerShell hello ou console serial hello e será automaticamente habilitado para a nuvem. Observe que você não pode configurar a interface de rede 0 de dados por meio de saudação portal do Azure.
+O dispositivo Microsoft Azure StorSimple tem seis interfaces de rede de DADOS 0 a DADOS 5. A interface de DADOS 0 é sempre configurada por meio da interface do Windows PowerShell ou do console serial e é habilitada para a nuvem automaticamente. Observe que não é possível configurar o adaptador de rede DATA 0 por meio do Portal do Azure.
 
-Olá interface DATA 0 é primeiro configurada por meio do Assistente de instalação Olá durante a implantação inicial do dispositivo do StorSimple hello. Quando o dispositivo de saudação estiver em um modo operacional, talvez seja necessário tooreconfigure DATA 0 configurações. Este tutorial fornece dois métodos toomodify dados 0 as configurações de rede, tanto por meio do Windows PowerShell para StorSimple.
+A interface de DADOS 0 é configurada primeiramente por meio do assistente de instalação durante a implantação inicial do dispositivo StorSimple. Quando o dispositivo está em modo operacional, talvez você precise redefinir as configurações de DADOS 0. Este tutorial fornece dois métodos para modificar as configurações de rede de DATA 0; os dois por meio do Windows PowerShell para StorSimple.
 
 Depois de ler este tutorial, você poderá:
 
-* Modificar dados 0 configuração por meio do Assistente de instalação de saudação de rede
-* Modificar as configurações de rede 0 de dados por meio de saudação `Set-HcsNetInterface` cmdlet
+* Modificar a configuração de rede de DADOS 0 por meio do assistente de instalação
+* Modificar as configurações de rede de DATA 0 por meio do cmdlet `Set-HcsNetInterface`
 
 ## <a name="modify-data-0-network-settings-through-setup-wizard"></a>Modificar as configurações de rede de DADOS 0 por meio do assistente de instalação
-Você pode reconfigurar as configurações de rede 0 de dados conectando-se a interface do Windows PowerShell toohello do seu dispositivo StorSimple e iniciar uma sessão do Assistente de instalação. Executar Olá seguindo as etapas toomodify DATA 0 configurações:
+Você pode reconfigurar as definições de rede de DADOS 0 conectando-se à interface do Windows PowerShell de seu dispositivo StorSimple e iniciando uma sessão do assistente de instalação. Execute as etapas a seguir para modificar as configurações de DADOS 0:
 
-#### <a name="toomodify-data-0-network-settings-through-setup-wizard"></a>configurações de rede 0 toomodify dados por meio do Assistente de instalação
-1. No menu do console serial hello, escolha a opção 1, **entrar com acesso completo**. Quando solicitado forneça Olá **senha de administrador do dispositivo**. Olá a senha padrão é `Password1`.
-2. No prompt de comando hello, digite:
+#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Para modificar as configurações de rede de DADOS 0 por meio do assistente de instalação
+1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
+2. No prompt de comando, digite:
    
     `Invoke-HcsSetupWizard`
-3. Um Assistente de instalação aparece toohelp configurar Olá DATA 0 interface do dispositivo. Fornece novos valores de máscara de rede, o gateway e o endereço IP de saudação.
+3. Um assistente de instalação aparecerá para ajudar na configuração da interface DATA 0 do dispositivo. Fornece novos valores para o endereço IP, gateway e máscara de rede.
 
 > [!NOTE]
-> Olá fixa controladores IPs precisará toobe reconfigurada por meio de saudação **as configurações de rede** folha do dispositivo StorSimple Olá Olá portal do Azure. Para obter mais informações, vá muito[modificar interfaces de rede](storsimple-8000-modify-device-config.md#modify-network-interfaces).
+> Os IPs de controladores fixos precisarão ser reconfigurados por meio da folha **Configurações de rede** do dispositivo StorSimple no Portal do Azure. Para obter mais informações, vá para [Modificar interfaces de rede](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 
 ## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Modificar as configurações de rede de DADOS 0 por meio do cmdlet Set-HcsNetInterface
-Tooreconfigure uma maneira alternativa DATA 0 é de interface de rede através do uso de saudação do hello `Set-HcsNetInterface` cmdlet. Olá cmdlet é executado na interface do Windows PowerShell de saudação do seu dispositivo StorSimple. Ao usar esse procedimento, IPs fixos do controlador Olá também pode ser configurado aqui. Executar Olá seguindo as etapas toomodify Olá DATA 0 configurações: 
+Uma maneira alternativa de reconfigurar a interface de rede DADOS 0 é através do uso do cmdlet `Set-HcsNetInterface` . O cmdlet é executado na interface do Windows PowerShell do seu dispositivo StorSimple. Ao usar esse procedimento, os IPs fixos pelo controlador também podem ser configurados aqui. Execute as etapas a seguir para modificar as configurações de DADOS 0: 
 
-#### <a name="toomodify-data-0-network-settings-through-hello-set-hcsnetinterface-cmdlet"></a>configurações de rede 0 toomodify dados por meio do cmdlet Set-HcsNetInterface de saudação
-1. No menu do console serial hello, escolha a opção 1, **entrar com acesso completo**. Quando solicitado forneça a senha de administrador de dispositivo de saudação. Olá a senha padrão é `Password1`.
-2. No prompt de comando hello, digite:
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Para modificar as configurações de rede de DADOS 0 por meio do cmdlet Set-HcsNetInterface
+1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a senha de administrador do dispositivo. A senha padrão é `Password1`.
+2. No prompt de comando, digite:
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
    
-    Olá angular parênteses, digite Olá valores a seguir para DATA 0:
+    Entre os colchetes angulares, digite os seguintes valores para DATA 0:
    
    * Endereço IPv4
    * Gateway IPv4
@@ -63,9 +63,9 @@ Tooreconfigure uma maneira alternativa DATA 0 é de interface de rede através d
    * Endereço IPv4 fixo para o controlador 0
    * Endereço IPv4 fixo para o controlador 1
      
-     Para obter mais informações sobre o uso de saudação desse cmdlet, vá muito[do Windows PowerShell para referência de cmdlet do StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
+     Para obter mais informações sobre como usar esse cmdlet, vá para a [Referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-* interfaces de rede tooconfigure diferente de DATA 0, você pode usar o hello [definir configurações de rede no portal do Azure de saudação](storsimple-8000-modify-device-config.md). 
-* Se você tiver problemas ao configurar as interfaces de rede, consulte muito[solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
+* Para configurar os adaptadores de rede que não sejam o DATA 0, você poderá usar [Definir configurações de rede no Portal do Azure](storsimple-8000-modify-device-config.md). 
+* Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
 

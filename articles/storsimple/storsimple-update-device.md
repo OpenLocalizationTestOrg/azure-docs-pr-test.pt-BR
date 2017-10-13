@@ -1,6 +1,6 @@
 ---
-title: aaaUpdate seu dispositivo StorSimple | Microsoft Docs
-description: "Explica como atualizar o hello toouse StorSimple recurso tooinstall regular e atualizações do modo de manutenção e hotfixes."
+title: Atualizar o dispositivo StorSimple | Microsoft Docs
+description: "Explica como usar o recurso de atualização do StorSimple para instalar hotfixes e atualizações regulares e no modo de manutenção."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,79 +14,79 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
-ms.openlocfilehash: 05acf05c8fc89bbb4343f67ad103235bbe3dba0a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar seu dispositivo do StorSimple série 8000
 ## <a name="overview"></a>Visão geral
-Olá StorSimple atualizações recursos permitem que você tooeasily manter atualizado o seu dispositivo StorSimple. Dependendo do tipo de atualização Olá, você pode aplicar o dispositivo toohello de atualizações por meio de saudação portal clássico do Azure ou por meio da interface do Windows PowerShell hello. Este tutorial descreve os tipos de atualização de saudação e como tooinstall cada um deles.
+Os recursos de atualização do StorSimple permitem que você mantenha seu dispositivo StorSimple atualizado com facilidade. Dependendo do tipo de atualização, você poderá aplicar as atualizações ao dispositivo por meio do Portal Clássico do Azure ou por meio da interface do Windows PowerShell. Este tutorial descreve os tipos de atualização e como instalar cada um deles.
 
 Você pode aplicar dois tipos de atualização de dispositivo: 
 
 * Atualizações regulares (ou modo Normal)
 * Atualizações no modo de Manutenção
 
-Você pode instalar atualizações regulares via Olá portal clássico do Azure ou o Windows PowerShell; No entanto, você deve usar o Windows PowerShell tooinstall atualizações do modo de manutenção. 
+Você pode instalar atualizações regulares por meio do Portal Clássico do Azure ou do Windows PowerShell; no entanto, você deve usar o Windows PowerShell para instalar atualizações do modo de Manutenção. 
 
 Cada tipo de atualização será descrito separadamente a seguir.
 
 ### <a name="regular-updates"></a>Atualizações regulares
-As atualizações regulares são atualizações sem interrupção que podem ser instaladas quando o dispositivo hello está no modo Normal. Essas atualizações são aplicadas por meio do controlador do dispositivo Olá Microsoft Update site tooeach. 
+As atualizações regulares são atualizações sem interrupções que podem ser instaladas quando o dispositivo estiver em modo Normal. Essas atualizações são aplicadas por meio do site Microsoft Update para cada controlador de dispositivo. 
 
 > [!IMPORTANT]
-> Um failover de controlador pode ocorrer durante o processo de atualização de saudação. No entanto, isso não afetará a disponibilidade do sistema ou a operação.
+> Um failover de controlador pode ocorrer durante o processo de atualização. No entanto, isso não afetará a disponibilidade do sistema ou a operação.
 > 
 > 
 
-* Para obter detalhes sobre como tooinstall regular atualiza via Olá portal clássico do Azure, consulte [instalar atualizações regulares via Olá portal clássico do Azure](#install-regular-updates-via-the-azure-classic-portal).
+* Para obter detalhes sobre como instalar atualizações regulares por meio do portal clássico o Azure, consulte [Instalar atualizações regulares por meio do portal clássico do Azure](#install-regular-updates-via-the-azure-classic-portal).
 * Você também pode instalar atualizações regulares por meio do Windows PowerShell para StorSimple. Para obter detalhes, consulte [Instalar atualizações regulares por meio do Windows PowerShell para StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Atualizações no modo de Manutenção
-As atualizações do Modo de Manutenção são atualizações com interrupção, como atualizações de firmware de disco. Essas atualizações exigem Olá dispositivo toobe colocar em modo de manutenção. Para obter detalhes, consulte [Etapa 2: Entrar no modo de Manutenção](#step2). Você não pode usar as atualizações do modo de manutenção do hello tooinstall de portal clássico do Azure. Em vez disso, você deverá usar o Windows PowerShell para StorSimple. 
+As atualizações do Modo de Manutenção são atualizações com interrupção, como atualizações de firmware de disco. Essas atualizações exigem que o dispositivo seja colocado em modo de Manutenção. Para obter detalhes, consulte [Etapa 2: Entrar no modo de Manutenção](#step2). Você não pode usar o Portal clássico do Azure para instalar atualizações do modo de Manutenção. Em vez disso, você deverá usar o Windows PowerShell para StorSimple. 
 
-Para obter detalhes sobre como o modo de manutenção tooinstall atualizações, consulte [atualizações do modo de manutenção instalar por meio do Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+Para obter detalhes sobre como instalar atualizações do modo de Manutenção, consulte [Instalar atualizações do modo de Manutenção instalar por meio do Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
 > [!IMPORTANT]
-> Modo de manutenção, as atualizações devem ser aplicadas separadamente tooeach controlador. 
+> As atualizações do modo de Manutenção devem ser aplicadas separadamente para cada controlador. 
 > 
 > 
 
-## <a name="install-regular-updates-via-hello-azure-classic-portal"></a>Instalar as atualizações regulares via Olá portal clássico do Azure
-Você pode usar o dispositivo StorSimple de tooyour de atualizações do hello tooapply de portal clássico do Azure.
+## <a name="install-regular-updates-via-the-azure-classic-portal"></a>Instalar atualizações regulares por meio do Portal clássico do Azure
+Você pode usar o Portal clássico do Azure para aplicar atualizações ao dispositivo StorSimple.
 
 [!INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## <a name="install-regular-updates-via-windows-powershell-for-storsimple"></a>Instalar atualizações regulares por meio do Windows PowerShell para StorSimple
-Como alternativa, você pode usar o Windows PowerShell para atualizações do StorSimple tooapply regular (modo Normal).
+Como alternativa, você pode usar o Windows PowerShell para StorSimple para aplicar atualizações regulares (modo Normal).
 
 > [!IMPORTANT]
-> Embora você possa instalar atualizações regulares usando o Windows PowerShell para StorSimple, é altamente recomendável que você instale atualizações regulares por meio de saudação portal clássico do Azure. Começando com atualização 1, pré-verificações de será executada tooinstalling anterior atualizações do portal de saudação. Essas verificações evitarão falhas e garantirão uma experiência mais uniforme. 
+> Embora seja possível instalar atualizações regulares usando o Windows PowerShell para StorSimple, é altamente recomendável que você instale atualizações regulares pelo Portal clássico do Azure. Começando da Atualização 1, serão executadas verificações prévias antes da instalação de atualizações pelo portal. Essas verificações evitarão falhas e garantirão uma experiência mais uniforme. 
 > 
 > 
 
 [!INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instalar atualizações do modo de Manutenção instalar por meio do Windows PowerShell para StorSimple
-Usar o Windows PowerShell para StorSimple tooapply manutenção modo atualizações tooyour o dispositivo StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços, como a memória de acesso aleatório não volátil (NVRAM) ou Olá serviço também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair deste modo, todos os serviços de saudação serão retomada e devem ser íntegros. (Isso pode levar alguns minutos).
+Você pode usar o Windows PowerShell para StorSimple para aplicar atualizações do modo de Manutenção ao dispositivo StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair desse modo, todos os serviços serão retomados e deverão estar íntegros. (Isso pode levar alguns minutos).
 
-Se você precisar tooapply atualizações do modo de manutenção, você receberá um alerta por meio de saudação portal clássico do Azure que você possui atualizações que devem ser instaladas. Esse alerta inclui instruções sobre como usar o Windows PowerShell para atualizações do StorSimple tooinstall hello. Depois de atualizar seu dispositivo, use Olá mesmo modo tooRegular do procedimento toochange Olá dispositivo. Para obter instruções passo a passo, consulte [Etapa 4: Sair do modo de Manutenção](#step4).
+Se você precisar aplicar atualizações do modo de Manutenção, receberá um alerta por meio do Portal clássico do Azure indicando que há atualizações que devem ser instaladas. Esse alerta incluirá instruções para o uso do Windows PowerShell para StorSimple para instalar as atualizações. Depois de atualizar o dispositivo, use o mesmo procedimento para alterar o dispositivo para o modo Normal. Para obter instruções passo a passo, consulte [Etapa 4: Sair do modo de Manutenção](#step4).
 
 > [!IMPORTANT]
-> * Antes de entrar no modo de manutenção, verifique se ambos os controladores estão íntegros verificando Olá **Status do Hardware** em Olá **manutenção** página Olá portal clássico do Azure. Se o controlador de saudação não está íntegro, entre em contato com o Microsoft Support para as próximas etapas hello. Para obter mais informações, acesse tooContact Microsoft Support. 
-> * Quando você estiver no modo de manutenção, é necessário tooapply Olá atualização pela primeira vez em um controlador e, em seguida, em Olá outro controlador.
+> * Antes de entrar no modo de Manutenção, verifique se ambos os controladores de dispositivo estão íntegros, verificando o **Status de Hardware** na página **Manutenção** no Portal clássico do Azure. Se o controlador não estiver íntegro, contate o Suporte da Microsoft para as próximas etapas. Para saber mais, acesse Contatar Suporte da Microsoft. 
+> * Quando você estiver no modo de Manutenção, precisará aplicar a atualização primeiro em um controlador e então no outro controlador.
 > 
 > 
 
-### <a name="step-1-connect-toohello-serial-console-a-namestep1"></a>Etapa 1: Conectar o console serial toohello<a name="step1">
-Primeiro, use um aplicativo, como o PuTTY tooaccess Olá console serial. Olá procedimento a seguir explica como console serial do toohello toouse tooconnect PuTTY.
+### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>Etapa 1: Conectar-se ao console serial <a name="step1">
+Primeiro, use um aplicativo como o PuTTY para acessar o console serial. O procedimento a seguir explica como usar o PuTTY para se conectar ao console serial.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
 ### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Etapa 2: Entrar no modo de Manutenção <a name="step2">
-Depois de conectar o console toohello, determinar se há atualizações tooinstall e insira tooinstall do modo de manutenção-los.
+Depois de se conectar ao console, determine se há atualizações a serem instaladas e entre no modo de manutenção para instalá-las.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
@@ -106,16 +106,16 @@ Ao contrário de atualizações para o Microsoft Azure StorSimple, os hotfixes s
 * Hotfixes regulares 
 * Hotfixes no modo de Manutenção  
 
-Olá procedimentos a seguir explicam como toouse do Windows PowerShell para StorSimple tooinstall regular e hotfixes do modo de manutenção.
+Os procedimentos a seguir explicam como usar o Windows PowerShell para StorSimple para instalar hotfixes regulares e no modo de Manutenção.
 
 [!INCLUDE [storsimple-install-regular-hotfixes](../../includes/storsimple-install-regular-hotfixes.md)]
 
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
-## <a name="what-happens-tooupdates-if-you-perform-a-factory-reset-of-hello-device"></a>O que acontece tooupdates se você executar uma fábrica de redefinição do dispositivo Olá?
-Se um dispositivo for toofactory de redefinir as configurações, todas as atualizações de saudação serão perdidas. Depois que o dispositivo de redefinição de fábrica Olá é registrado e configurado, você precisará toomanually instalar as atualizações por meio de saudação portal clássico do Azure e/ou do Windows PowerShell para StorSimple. Para obter mais informações sobre a redefinição de fábrica, consulte [redefinir as configurações padrão do hello dispositivo toofactory](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>O que acontece com as atualizações se você executar uma redefinição de fábrica do dispositivo?
+Se um dispositivo for redefinido para as configurações de fábrica, então todas as atualizações serão perdidas. Depois que o dispositivo com a redefinição de fábrica for registrado e configurado, você precisará instalar manualmente as atualizações por meio do Portal clássico do Azure e/ou do Windows PowerShell para StorSimple. Para saber mais sobre as redefinições de fábrica, consulte [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [usando o Windows PowerShell para StorSimple tooadminister seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
-* Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador do StorSimple em seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Saiba mais sobre [como usar o Windows PowerShell para StorSimple a fim de administrar seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
+* Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

@@ -1,10 +1,10 @@
-Agora, vamos criar uma campanha de notificação por push simples que envia um aplicativo de tooour de notificação por push.
+Agora criaremos uma campanha simples de notificação por push que enviará uma notificação por push para nosso aplicativo.
 
-1. Navegue toohello **alcançar** no seu portal do compromisso de mobilidade.
-2. Clique em **novo comunicado** toocreate sua campanha de notificação por push.
+1. Navegue até a guia **REACH** em seu portal do Mobile Engagement
+2. Clique em **Novo anúncio** para criar sua campanha de notificação por push.
    
     ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
-3. Configure o primeiro campo de saudação da campanha por meio de saudação etapas a seguir:
+3. Configure o primeiro campo da campanha executando as seguintes etapas:
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
    
@@ -12,14 +12,14 @@ Agora, vamos criar uma campanha de notificação por push simples que envia um a
    
     b. Selecione o **Horário de entrega** como *A qualquer momento*.
    
-    d. No texto de notificação Olá - digite hello **título** que estará em negrito no envio de saudação.
+    d. No texto de notificação - digite o **Título** que estará em negrito no envio por push.
    
     e. Em seguida, digite sua **Mensagem**
-4. Role para baixo e em Olá **conteúdo** seção, selecione **somente notificação**.
+4. Role para baixo e, na seção **Conteúdo**, selecione **Somente notificação**.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
-5. Você concluiu possíveis de campanha configuração hello mais básica. Agora, role para baixo novamente e clique em Olá **criar** botão toosave sua campanha.
-6. Última etapa: clique em **ativar** tooactivate sua campanha e toosend notificações por push.
+5. Você concluiu a configuração da campanha mais básica possível. Agora role para baixo novamente e clique no botão **Criar** para salvar sua campanha.
+6. Última etapa: clique em **Ativar** para ativar sua campanha e enviar notificações por push.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 

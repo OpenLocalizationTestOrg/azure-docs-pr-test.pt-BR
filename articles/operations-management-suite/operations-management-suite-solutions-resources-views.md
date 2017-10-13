@@ -1,6 +1,6 @@
 ---
-title: "aaaViews em soluções de gerenciamento do Operations Management Suite (OMS) | Microsoft Docs"
-description: "Soluções de gerenciamento no OMS Operations Management Suite () normalmente incluirá uma ou mais exibições toovisualize de dados.  Este artigo descreve como tooexport uma exibição criada pelo Olá Designer de exibição e incluí-lo em uma solução de gerenciamento. "
+title: "Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) | Microsoft Docs"
+description: "As soluções de gerenciamento no OMS (Operations Management Suite) normalmente incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo Designer de Exibição e incluí-la em uma solução de gerenciamento. "
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 303861465014a27289f831332b3d95925c0ae66d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) (Preview)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Qualquer esquema descrita abaixo é toochange de assunto.    
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.    
 >
 >
 
-[Soluções de gerenciamento no OMS Operations Management Suite ()](operations-management-suite-solutions.md) geralmente inclui uma ou mais exibições toovisualize de dados.  Este artigo descreve como tooexport uma exibição criada pelo Olá [View Designer](../log-analytics/log-analytics-view-designer.md) e incluí-lo em uma solução de gerenciamento.  
+As [soluções de gerenciamento no OMS (Operations Management Suite)](operations-management-suite-solutions.md) normalmente incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../log-analytics/log-analytics-view-designer.md) e incluí-la em uma solução de gerenciamento.  
 
 > [!NOTE]
-> Olá exemplos neste artigo usam parâmetros e variáveis que são ambos soluções toomanagement necessárias ou comuns e descritos na [criando soluções de gerenciamento no OMS Operations Management Suite ()](operations-management-suite-solutions-creating.md)
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já está familiarizado com como muito[criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e estrutura de saudação de um arquivo de solução.
+Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Visão geral
-tooinclude uma exibição em uma solução de gerenciamento, você cria um **recurso** na Olá [arquivo de solução](operations-management-suite-solutions-creating.md).  Olá JSON que descreve a configuração detalhada do modo de exibição da saudação é normalmente é complexo embora e não é algo que o autor de uma solução típica seria capaz de toocreate manualmente.  Olá, método mais comum é modo de exibição de saudação do toocreate usando Olá [View Designer](../log-analytics/log-analytics-view-designer.md), exportá-lo e, em seguida, adicionar sua solução de toohello configuração detalhada.
+Para incluir uma exibição em uma solução de gerenciamento, crie um **recurso** no [arquivo de solução](operations-management-suite-solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição geralmente é complexo e não algo que um autor típico de solução seria capaz de criar manualmente.  O método mais comum é criar a exibição usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md), exportá-la e, em seguida, adicionar sua configuração detalhada na solução.
 
-etapas básicas de saudação tooadd uma solução de tooa de exibição são da seguinte maneira.  Cada etapa é descrita mais detalhadamente nas seções de saudação abaixo.
+As etapas básicas para adicionar uma exibição a uma solução são da seguinte maneira.  Cada etapa é descrita mais detalhadamente nas seções a seguir.
 
-1. Olá exibição tooa arquivo de exportação.
-2. Crie recursos de exibição Olá Olá solução.
-3. Adicione detalhes da exibição de saudação.
+1. Exportar a exibição para um arquivo.
+2. Criar o recurso de exibição na solução.
+3. Adicionar os detalhes da exibição.
 
-## <a name="export-hello-view-tooa-file"></a>Olá exibição tooa arquivo de exportação
-Siga as instruções de saudação em [Designer de exibição de análise de Log](../log-analytics/log-analytics-view-designer.md) tooexport um arquivo de tooa de exibição.  Olá arquivo exportado será ser em formato JSON com hello mesmo [elementos como arquivo de solução Olá](operations-management-suite-solutions-solution-file.md).  
+## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
+Siga as instruções em [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](operations-management-suite-solutions-solution-file.md).  
 
-Olá **recursos** elemento do arquivo de exibição Olá terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces** representa Olá espaço de trabalho do OMS.  Este elemento tem um subelemento com um tipo de **exibições** que representa o modo de exibição de saudação e contém sua configuração detalhada.  Você copiará detalhes Olá desse elemento e, em seguida, copie-o em sua solução.
+O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do OMS.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
 
-## <a name="create-hello-view-resource-in-hello-solution"></a>Criar recursos de exibição Olá Olá solução
-Adicionar Olá toohello de recursos do modo de exibição a seguir **recursos** elemento do arquivo de solução.  Ele usa as variáveis descritas abaixo, que você também deverá adicionar.  Observe que Olá **painel** e **OverviewTile** propriedades são espaços reservados que serão substituídas com propriedades correspondentes de saudação do arquivo de modo de exibição exportado hello.
+## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de exibição na solução
+Adicione o seguinte recurso de exibição ao elemento **resources** do seu arquivo de solução.  Ele usa as variáveis descritas abaixo, que você também deverá adicionar.  Observe que as propriedades **Dashboard** e **OverviewTile** são espaços reservados que serão substituídos pelas propriedades correspondentes do arquivo de exibição exportado.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -73,28 +73,28 @@ Adicionar Olá toohello de recursos do modo de exibição a seguir **recursos** 
         }
     }
 
-Adicione Olá elemento de variáveis toohello variáveis saudação do arquivo da solução a seguir e substitua Olá valores toothose para sua solução.
+Adicione as variáveis a seguir ao elemento de variáveis do arquivo de solução e substitua os valores pelos da solução.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
-    "ViewDescription": "Optional description of hello view."
-    "ViewName": "Provide a name for hello view here."
+    "ViewDescription": "Optional description of the view."
+    "ViewName": "Provide a name for the view here."
 
 
-Observe que você poderá copiar recursos de toda a exibição de saudação do arquivo exportado do modo de exibição, mas você precisaria Olá toomake as seguintes alterações para que ele toowork em sua solução.  
+Observe que você poderá copiar todo o recurso de exibição do arquivo de exibição exportado, mas precisará fazer as seguintes alterações para que ele funcione em sua solução.  
 
-* Olá **tipo** para exibição Olá recurso precisa toobe alterado de **exibições** muito**Microsoft.OperationalInsights/workspaces**.
-* Olá **nome** propriedade para o recurso de exibição Olá precisa de nome de espaço de trabalho do toobe alterado tooinclude hello.
-* dependência de saudação no espaço de trabalho de saudação precisa toobe removido desde o recurso de espaço de trabalho Olá não está definido na solução de saudação.
-* **DisplayName** propriedade necessidades toobe adicionado toohello exibição.  Olá **Id**, **nome**, e **DisplayName** devem ser compatíveis.
-* Nomes de parâmetro devem ser alterados Olá toomatch necessário conjunto de parâmetros.
-* Variáveis devem ser definidas na solução hello e usadas nas propriedades de saudação apropriado.
+* O **type** para o recurso de exibição precisa ser alterado de **views** para **Microsoft.OperationalInsights/workspaces**.
+* A propriedade **name** para o recurso de exibição precisa ser alterada para incluir o nome do espaço de trabalho.
+* A dependência no espaço de trabalho precisa ser removida, uma vez que o recurso workspace não foi definido na solução.
+* A propriedade **DisplayName** precisa ser adicionada à exibição.  **Id**, **Name** e **DisplayName** devem ser compatíveis.
+* Os nomes dos parâmetros devem ser alterados para coincidirem com o conjunto de parâmetros exigido.
+* As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
 
-## <a name="add-hello-view-details"></a>Adicionar detalhes da exibição Olá
-recurso de exibição Olá Olá exportado Exibir arquivo contém dois elementos em Olá **propriedades** elemento chamado **painel** e **OverviewTile** que contêm Olá configuração detalhada do modo de exibição de saudação.  Copie esses dois elementos e seu conteúdo Olá **propriedades** elemento de recurso de exibição de saudação em seu arquivo de solução.
+## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição
+O recurso de exibição no arquivo de exibição exportado terá dois elementos no elemento **properties** chamados **Dashboard** e **OverviewTile**, que terão a configuração detalhada da exibição.  Copie esses dois elementos e seus conteúdos no elemento **properties** do recurso de exibição em seu arquivo de solução.
 
 ## <a name="example"></a>Exemplo
-Por exemplo, Olá exemplo a seguir mostra um arquivo de solução simples com um modo de exibição.  Reticências (...) são mostradas para Olá **painel** e **OverviewTile** conteúdo por motivos de espaço.
+Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com uma exibição.  As reticências (...) são mostradas para os conteúdos de **Dashboard** e **OverviewTile** por motivos de espaço.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

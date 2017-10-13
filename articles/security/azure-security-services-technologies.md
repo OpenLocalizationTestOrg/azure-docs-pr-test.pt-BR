@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure tecnologias e serviços de segurança | Microsoft Docs"
-description: "artigo Olá fornece uma lista de curadoria de tecnologias e serviços de segurança do Azure."
+title: "Tecnologias e serviços de segurança do Azure | Microsoft Docs"
+description: "O artigo fornece uma lista estruturada das tecnologias e serviços de segurança do Azure."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-ms.openlocfilehash: 100b7bba46dce5f989bde2f6d930f298beb901a1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Tecnologias e serviços de segurança do Azure
-Em nosso discussões com clientes do Azure atuais e futuros, somos geralmente solicitados "você tem uma lista de toda a segurança Olá relacionados a serviços e tecnologias que o Azure tem toooffer?"
+Em nossas discussões com clientes do Azure atuais e futuros, frequentemente nos fazem a seguinte pergunta “você tem uma lista de todas as tecnologias e serviços relacionados à segurança que o Azure tem a oferecer?”
 
-Compreendemos que, quando você estiver avaliando suas opções de técnica do provedor de serviços de nuvem, que é útil toohave essa lista disponível que você pode usar toodig para baixo quando mais tempo de saudação é ideal para você.
+Sabemos que, quando você estiver avaliando as opções técnicas do provedor de serviço de nuvem, é útil ter essa lista disponível para que você pode usá-la para se aprofundar ainda mais quando for o momento adequado para você.
 
-a seguir Olá é nossos esforços iniciais em fornecer uma lista. Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azure. Olá lista é categorizada e lista de saudação de categorias também aumentará ao longo do tempo. Tornar toocheck-se de que esta página em um toostay regularmente atualizado em nossos serviços relacionados à segurança e tecnologias.
+A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azure. A lista é categorizada e a lista de categorias também aumentará ao longo do tempo. Lembre-se de visitar essa página regularmente para se manter atualizado sobre nossas tecnologias e serviços relacionados à segurança.
 
 ## <a name="azure-security---general"></a>Segurança do Azure: geral
 * [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/)

@@ -1,3 +1,3 @@
 > [!TIP]
-> conteúdo de saudação neste artigo se aplica a toohello original básico armazenamento de tabela do Azure. No entanto, agora há uma oferta premium para o armazenamento de Tabelas do Azure em versão prévia pública que oferece tabelas com otimização de taxa de transferência, distribuição global e índices secundários automáticos. toolearn mais e experimentar a nova experiência de premium Olá, faça check-out [o banco de dados do Azure Cosmos: API de tabela](https://aka.ms/premiumtables).
+> O conteúdo deste artigo se aplica ao armazenamento de Tabelas do Azure básico original. No entanto, agora há uma oferta premium para o armazenamento de Tabelas do Azure em versão prévia pública que oferece tabelas com otimização de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [Azure Cosmos DB: API de Tabela](https://aka.ms/premiumtables).
 >

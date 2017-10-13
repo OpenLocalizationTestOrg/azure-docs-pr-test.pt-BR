@@ -1,28 +1,28 @@
-## <a name="configure-hello-nodejs-simulated-device"></a>Configurar dispositivo simulado do hello Node. js
-1. No painel de monitoramento remoto de saudação, clique em **+ adicionar um dispositivo** e, em seguida, adicione um *personalizadas de dispositivo*. Anote Olá IoT Hub hostname, a id de dispositivo e a chave do dispositivo. Você precisa-los posteriormente neste tutorial ao preparar o aplicativo de cliente de dispositivo de remote_monitoring.js hello.
-2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Executar `node --version` em um prompt de comando ou em uma versão de saudação do shell toocheck. Para obter informações sobre como usar um Gerenciador de pacote tooinstall Node. js no Linux, consulte [Node. js instalando por meio do Gerenciador de pacote][node-linux].
-3. Quando você tiver instalado o Node. js, clonar a versão mais recente de saudação do hello [azure iot-sdk-nó] [ lnk-github-repo] máquina de desenvolvimento tooyour de repositório. Sempre use Olá **mestre** ramificação para a versão mais recente Olá das bibliotecas de saudação e exemplos.
-4. A cópia local da saudação de [azure iot-sdk-nó] [ lnk-github-repo] repositório, Olá cópia seguir dois arquivos de saudação exemplos/de dispositivo de nó tooan vazio pasta no computador de desenvolvimento:
+## <a name="configure-the-nodejs-simulated-device"></a>Configurar o dispositivo Node.js simulado
+1. No painel de monitoramento remoto, clique em **+ Adicionar um dispositivo** e adicione um *dispositivo personalizado*. Anote o nome de host do Hub IoT, id do dispositivo e chave do dispositivo. Você precisará deles mais tarde neste tutorial ao preparar o aplicativo cliente de dispositivo remote_monitoring.js.
+2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Execute `node --version` em um prompt de comando ou em um shell para verificar a versão. Para obter informações sobre como usar um gerenciador de pacotes para instalar o Node.js no Linux, confira [Instalação do Node.js por meio do gerenciador de pacotes][node-linux].
+3. Após a instalação do Node.js, clone a versão mais recente do repositório [azure-iot-sdks][lnk-github-repo] em seu computador de desenvolvimento. Sempre use a ramificação **mestre** para a versão mais recente das bibliotecas e exemplos.
+4. Em sua cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois arquivos a seguir da pasta node/device/samples em uma pasta vazia em seu computador de desenvolvimento:
    
    * packages.json
    * remote_monitoring.js
-5. Abra o arquivo de remote_monitoring.js hello e procure Olá após a definição da variável:
+5. Abra o arquivo remote_monitoring.js e procure a seguinte definição de variável:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
-6. Substitua a **[cadeia de conexão de dispositivo do Hub IoT]** pela cadeia de conexão do seu dispositivo. Use valores de saudação para o nome de host IoT Hub, id do dispositivo e a chave do dispositivo que você tenha um anotado na etapa 1. Uma cadeia de caracteres de conexão do dispositivo tem Olá formato a seguir:
+6. Substitua a **[cadeia de conexão de dispositivo do Hub IoT]** pela cadeia de conexão do seu dispositivo. Use os valores de seu nome de host do Hub IoT, ID do dispositivo e chave de dispositivo que você anotou na etapa 1. Uma cadeia de conexão do dispositivo tem o seguinte formato:
    
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    Se o nome de host do IoT Hub é **contoso** e a id do dispositivo é **meudispositivo**, sua cadeia de caracteres de conexão parece Olá trecho de código a seguir:
+    Se o nome de host do Hub IoT for **contoso** e a ID de dispositivo for **mydevice**, a cadeia de conexão se parecerá com este código:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Salve o arquivo hello. Execute Olá comandos em um shell ou o prompt de comando na pasta Olá que contém os pacotes necessários do tooinstall Olá esses arquivos a seguir e, em seguida, execute o aplicativo de exemplo hello:
+7. Salve o arquivo. Execute os seguintes comandos em um shell ou prompt de comando na pasta que contém os arquivos para instalar os pacotes necessários e, em seguida, execute o aplicativo de exemplo:
    
     ```
     npm install
@@ -30,15 +30,15 @@
     ```
 
 ## <a name="observe-dynamic-telemetry-in-action"></a>Observe a telemetria dinâmica em ação
-painel Olá mostra a telemetria de temperatura e umidade Olá de dispositivos simuladas existentes de saudação:
+O painel mostra a telemetria de temperatura e umidade dos dispositivos existentes simulados:
 
-![Painel de padrão de saudação][image1]
+![O painel padrão][image1]
 
-Se você selecionar dispositivo simulado do Node. js Olá que você executou na seção anterior hello, consulte temperatura, umidade e telemetria temperatura externa:
+Se você selecionar dispositivo simulado Node.js executado na seção anterior, verá a telemetria de temperatura, umidade e temperatura externa:
 
-![Adicionar painel de toohello temperatura externa][image2]
+![Adicionar temperatura externa ao painel][image2]
 
-solução de monitoramento remoto Olá automaticamente detecta Olá adicionais temperatura externa telemetria tipo e o adiciona toohello gráfico no painel de saudação.
+A solução de monitoramento remoto detecta automaticamente o tipo de telemetria adicional de temperatura externa e o adiciona ao gráfico no painel.
 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node

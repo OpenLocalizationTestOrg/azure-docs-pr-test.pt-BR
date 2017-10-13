@@ -1,6 +1,6 @@
 ---
-title: "atualizações de aplicativo aaaRolling - banco de dados do SQL Azure | Microsoft Docs"
-description: "Saiba como toouse replicação geográfica do Azure SQL Database toosupport online atualizações do seu aplicativo na nuvem."
+title: "Atualizações de aplicativo sem interrupção - Banco de dados SQL do Azure | Microsoft Docs"
+description: "Saiba como usar a replicação geográfica do Banco de Dados SQL do Azure para dar suporte a atualizações online de seu aplicativo na nuvem."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,127 +15,127 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
-ms.openlocfilehash: 18c56300916d129bff141624cc5c416b500408d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciando a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
 > [!NOTE]
 > A [replicação geográfica ativa](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas.
 > 
 
-Saiba como toouse [georeplicação](sql-database-geo-replication-overview.md) no banco de dados SQL tooenable as atualizações sem interrupção do seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, que vamos examinar dois métodos diferentes de orquestração Olá processo de atualização e discutir os benefícios de saudação e vantagens e desvantagens de cada opção. Para fins de saudação deste artigo, usaremos um aplicativo simples que consiste em um site da web conectados tooa banco de dados como sua camada de dados. Nosso objetivo é tooupgrade versão 1 do hello aplicativo tooversion 2 sem qualquer impacto significativo na experiência do usuário final de saudação. 
+Saiba como usar a [replicação geográfica](sql-database-geo-replication-overview.md) no Banco de dados SQL para habilitar a rolagem de atualizações de seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, examinamos dois métodos diferentes de orquestrar o processo de atualização e discutiremos os benefícios e as desvantagens de cada opção. Para os fins deste artigo, usaremos um aplicativo simples que consiste em um site conectado a um banco de dados individual como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2, sem impactos significativos na experiência do usuário final. 
 
-Ao avaliar as opções de atualização Olá considere Olá fatores a seguir:
+Ao avaliar as opções de atualização, você deve considerar os seguintes fatores:
 
-* Impacto na disponibilidade do aplicativo durante atualizações. A função de aplicativo hello quanto tempo pode ser limitada ou degradada.
-* Capacidade tooroll novamente em caso de uma falha de atualização.
-* Vulnerabilidade do aplicativo hello se ocorrer uma falha catastrófica relacionada durante a atualização de saudação.
-* Custo total em dólares.  Isso inclui a redundância adicional e custos incrementais dos componentes de temporário Olá usados pelo processo de atualização de saudação. 
+* Impacto na disponibilidade do aplicativo durante atualizações. Por quanto tempo a função do aplicativo pode ser limitada ou degradada.
+* Capacidade de reversão em caso de falha durante a atualização.
+* Vulnerabilidade do aplicativo se ocorrer uma falha catastrófica não relacionada durante a atualização.
+* Custo total em dólares.  Isso inclui redundância adicional e custos incrementais dos componentes temporários usados pelo processo de atualização. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizando aplicativos que dependem de backups de banco de dados para recuperação de desastre
-Se seu aplicativo depende de backups de banco de dados automática e usa a restauração geográfica para recuperação de desastres, é normalmente implantado tooa única região do Azure. Nesse caso o processo de atualização Olá envolve a criação de uma implantação de todos os componentes do aplicativo de backup envolvidos na atualização de saudação. interrupção do toominimize saudação do usuário final você aproveitará o Azure Traffic Manager (WATM) com o perfil de failover de saudação.  Olá diagrama a seguir ilustra o processo de atualização do hello ambiente operacional toohello anterior. ponto de extremidade de Olá <i>1.azurewebsites.net contoso</i> representa um slot de produção do aplicativo hello que precisa toobe atualizado. tooenable Olá capacidade tooroll volta Olá atualização, você precisa criar um slot de estágio com uma cópia totalmente sincronizada do aplicativo hello. Olá etapas a seguir são necessárias tooprepare Olá aplicativo para atualização de saudação:
+Se seu aplicativo depende de backups automáticos de banco de dados e usa a restauração geográfica para recuperação de desastre, ele normalmente é implantado em uma única região do Azure. Nesse caso, o processo de atualização envolve a criação de uma implantação de backup de todos os componentes do aplicativo de backup envolvidos na atualização. Para minimizar a interrupção do usuário final, você utilizará o WATM (Gerenciador de Tráfego do Azure) com o perfil de failover.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. O ponto de extremidade <i>contoso-1.azurewebsites.net</i> representa um slot de produção do aplicativo que precisa ser atualizado. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
 
-1. Crie um slot de estágio para atualização de saudação. toodo que criar um banco de dados secundário (1) e implantar um site idêntico em Olá mesma região do Azure. Monitorar toosee secundário Olá se Olá processo de preparação foi concluída.
+1. Crie um slot de preparo para a atualização. Para fazer isso, crie um banco de dados secundário (1) e implante um site da Web idêntico na mesma região do Azure. Monitore o secundário para ver se o processo de propagação é concluído.
 2. Crie um perfil de failover no WATM com <i>contoso-1.azurewebsites.net</i> como ponto de extremidade online e <i>contoso-2.azurewebsites.net</i> como offline. 
 
 > [!NOTE]
-> Etapas de preparação de saudação Observação não terá impacto sobre o aplicativo hello no slot de produção de hello e ele pode funcionar em modo de acesso completo.
+> Observe que as etapas de preparação não terão impacto sobre o aplicativo no slot de produção e poderão funcionar no modo de acesso completo.
 >  
 
 ![Configuração da Replicação Geográfica do Banco de Dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-Depois que as etapas de preparação Olá forem concluídas aplicativo hello está pronto para atualização real hello. Olá diagrama a seguir ilustra as etapas de Olá envolvidas no processo de atualização de saudação. 
+Depois de concluir as etapas de preparação, o aplicativo estará pronto para a atualização real. O diagrama a seguir ilustra as etapas envolvidas no processo de atualização. 
 
-1. Definir banco de dados primário Olá no hello slot tooread somente modo de produção (3). Isso garantirá que Olá instância de produção do aplicativo hello (V1) permanecerá somente leitura durante a atualização de saudação impedindo divergência de dados Olá entre hello V1 e V2 instâncias de banco de dados.  
-2. Desconecte o banco de dados secundário hello usando o modo de encerramento planejado hello (4). Ele criará uma cópia independente totalmente sincronizada do banco de dados primário hello. Este banco de dados será atualizado.
-3. Ativar o modo de gravação tooread Olá banco de dados primário e execute o script de atualização de saudação no slot de estágio da saudação (5).     
+1. Defina o banco de dados primário no slot de produção para o modo somente leitura (3). Isso garantirá que a instância de produção do aplicativo (V1) permanecerá somente leitura durante a atualização, evitando assim divergência de dados entre as instâncias de banco de dados V1 e V2.  
+2. Desconecte o banco de dados secundário usando o modo de encerramento planejado (4). Ele criará uma cópia independente totalmente sincronizada do banco de dados primário. Este banco de dados será atualizado.
+3. Modifique o banco de dados primário para o modo de leitura/gravação e execute o script de atualização no slot de preparo (5).     
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-Se Olá atualização concluída com êxito você, são agora pronto tooswitch Olá os usuários finais toohello preparado cópia Olá aplicativos. Agora, ela ficará slot de produção de hello do aplicativo hello.  Isso envolve algumas etapas mais conforme ilustrado no diagrama a seguir de saudação.
+Se a atualização foi concluída com êxito, você agora está pronto para alternar os usuários finais para a cópia de preparo do aplicativo. Agora, ele se tornará o slot de produção do aplicativo.  Isso envolve mais algumas etapas conforme ilustrado no diagrama a seguir.
 
-1. Alternar ponto de extremidade online Olá no perfil do WATM Olá muito<i>2.azurewebsites.net contoso</i>, qual versão de toohello V2 pontos do site da web de saudação (6). Agora se torna slot de produção de hello com hello V2 aplicativo e o tráfego do usuário final Olá é tooit direcionado.  
-2. Se você não precisar mais componentes do aplicativo hello V1 forma você poderá removê-los (7).   
+1. Alterne o ponto de extremidade online no perfil do WATM para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (6). Agora, ele se torna o slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele.  
+2. Se você não precisar mais dos componentes do aplicativo V1, poderá removê-los com segurança (7).   
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-Se o processo de atualização de saudação for bem-sucedida, por exemplo devido a erro tooan no script de atualização hello, slot de estágio Olá deve ser considerada comprometida. tooroll fazer Olá toohello pré-atualização o estado do aplicativo simplesmente reverter o aplicativo hello no acesso de toofull de slot de produção de hello. etapas de Olá envolvidas são mostradas no diagrama seguinte hello.    
+Se o processo de atualização não for bem-sucedido, por exemplo, devido a um erro no script de atualização, o slot de preparo deverá ser considerado como comprometido. Para reverter o aplicativo para o estado de pré-atualização, você simplesmente deve reverter o aplicativo no slot de produção para acesso completo. As etapas envolvidas são mostradas no diagrama seguinte.    
 
-1. Definir o modo de gravação tooread de cópia do hello banco de dados (8). Isso irá restaurar Olá V1 completo funcionalmente no slot de produção de hello.
-2. Executar a análise da causa raiz hello e remover componentes Olá comprometido no slot de estágio da saudação (9). 
+1. Defina a cópia do banco de dados para o modo de leitura/gravação (8). Isso vai restaurar a funcionalidade completa do V1 no slot de produção.
+2. Execute a análise da causa raiz e remova os componentes comprometidos no slot de preparo (9). 
 
-Neste ponto aplicativo hello é totalmente funcional e etapas de atualização de saudação podem ser repetidas.
+Neste ponto, o aplicativo é totalmente funcional e as etapas de atualização podem ser repetidas.
 
 > [!NOTE]
-> Olá reversão não requer alterações no perfil do WATM como aponta já muito<i>1.azurewebsites.net contoso</i> como Olá ponto de extremidade ativo.
+> A reversão não requer alterações no perfil do WATM, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
 > 
 > 
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-chave de saudação **vantagem** dessa opção é que você pode atualizar um aplicativo em uma única região usando um conjunto de etapas simples. custo de dólar Olá de atualização de saudação é relativamente baixo. Olá principal **compensação** é que se ocorrer uma falha catastrófica durante o estado anterior à atualização do toohello Olá Olá atualização recuperação envolve a reimplantação do aplicativo hello em uma região diferente e restaurando banco de dados de saudação do backup usando a restauração geográfica. Esse processo resultará em um tempo de inatividade significativo.   
+A principal **vantagem** dessa opção é que você pode atualizar um aplicativo em uma única região usando um conjunto de etapas simples. O custo da atualização é relativamente baixo. A principal **compensação** é que, se ocorrer uma falha catastrófica durante a atualização, a recuperação para o estado de pré-atualização envolverá reimplantação do aplicativo em uma região diferente e a restauração do banco de dados de backup usando a restauração geográfica. Esse processo resultará em um tempo de inatividade significativo.   
 
 ## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Atualizando aplicativos que dependem de replicação geográfica de banco de dados para recuperação de desastre
-Se seu aplicativo utiliza a replicação geográfica para continuidade de negócios, é tooat implantado pelo menos dois diferentes regiões com uma implantação ativa na região primária e uma implantação em espera na região de Backup. Além disso toohello fatores mencionado anteriormente, o processo de atualização Olá deve garantir que:
+Se seu aplicativo usar a replicação geográfica para continuidade dos negócios, ele será implantado em ao menos duas regiões diferentes com uma implantação ativa na região Primária e uma implantação em espera na região de Backup. Além dos fatores mencionados anteriormente, o processo de atualização deve garantir que:
 
-* aplicativo Hello permanece protegido contra falhas catastróficas em todos os momentos durante o processo de atualização Olá
-* componentes com redundância geográfica de saudação do aplicativo hello são atualizados em paralelo com componentes ativos Olá
+* O aplicativo permaneça protegido contra falhas catastróficas em todos os momentos durante o processo de atualização
+* Os componentes com redundância geográfica do aplicativo sejam atualizados em paralelo com os componentes ativos
 
-tooachieve esses objetivos otimizará o Traffic Manager WATM (Azure) usando failover Olá perfil com uma ativa e três pontos de extremidade de backup.  Olá diagrama a seguir ilustra o processo de atualização do hello ambiente operacional toohello anterior. Olá sites da web <i>contoso 1.azurewebsites.net</i> e <i>dr.azurewebsites.net contoso</i> representar um slot de produção do aplicativo hello com redundância geográfica. tooenable Olá capacidade tooroll volta Olá atualização, você precisa criar um slot de estágio com uma cópia totalmente sincronizada do aplicativo hello. Porque você precisa tooensure aplicativo hello pode recuperar rapidamente no caso de uma falha catastrófica ocorre durante o processo de atualização hello, slot de estágio Olá precisa toobe com redundância geográfica também. Olá etapas a seguir são necessárias tooprepare Olá aplicativo para atualização de saudação:
+Para atingir essas metas, você utilizará o WATM (Gerenciador de Tráfego do Azure) usando o perfil de failover com um ponto de extremidade ativo e três de backup.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. Os sites da Web <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> representam um slot de produção do aplicativo com redundância geográfica completa. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. Como você precisa garantir que o aplicativo pode se recuperar rapidamente no caso de uma falha catastrófica durante o processo de atualização, o slot de preparo também deve ter redundância geográfica. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
 
-1. Crie um slot de estágio para atualização de saudação. toodo que criar um banco de dados secundário (1) e implantar uma cópia idêntica de site da web Olá Olá mesma região do Azure. Monitorar toosee secundário Olá se Olá processo de preparação foi concluída.
-2. Criar um banco de dados secundário com redundância geográfica no slot de estágio Olá por replicação geográfica Olá banco de dados secundário toohello backup região (Isso é chamado de "encadeados replicação geográfica"). Monitorar toosee secundária do backup Olá se Olá propagação processo for concluído (3).
-3. Criar uma cópia em espera do site Olá na região backup hello e vinculá-lo toohello com redundância geográfica secundário (4).  
-4. Adicionar pontos de extremidade adicionais Olá <i>contoso 2.azurewebsites.net</i> e <i>3.azurewebsites.net contoso</i> toohello perfil de failover no WATM como pontos de extremidade offline (5). 
+1. Crie um slot de preparo para a atualização. Para fazer isso, crie um banco de dados secundário (1) e implante uma cópia idêntica do site da Web na mesma região do Azure. Monitore o secundário para ver se o processo de propagação é concluído.
+2. Crie um banco de dados secundário com redundância geográfica no slot de preparo ao fazer replicação geográfica do banco de dados secundário na região de backup (isso é chamado de "replicação geográfica encadeada"). Monitore o secundário do backup para ver se o processo de propagação é concluído (3).
+3. Crie uma cópia em espera do site da Web na região de backup e vincule-a ao secundário com redundância geográfica (4).  
+4. Adicione pontos de extremidade adicionais <i>contoso-2.azurewebsites.net</i> e <i>contoso-3.azurewebsites.net</i> ao perfil de failover no WATM como pontos de extremidade offline (5). 
 
 > [!NOTE]
-> Etapas de preparação de saudação Observação não terá impacto sobre o aplicativo hello no slot de produção de hello e ele pode funcionar em modo de acesso completo.
+> Observe que as etapas de preparação não terão impacto sobre o aplicativo no slot de produção e poderão funcionar no modo de acesso completo.
 > 
 > 
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-Depois que as etapas de preparação Olá forem concluídas, slot de estágio hello está pronto para atualização de saudação. Olá diagrama a seguir ilustra as etapas de atualização hello.
+Depois de concluir as etapas de preparação, o slot de preparo estará pronto para a atualização. O diagrama a seguir ilustra as etapas de atualização.
 
-1. Definir banco de dados primário Olá no hello slot tooread somente modo de produção (6). Isso garantirá que Olá instância de produção do aplicativo hello (V1) permanecerá somente leitura durante a atualização de saudação impedindo divergência de dados Olá entre hello V1 e V2 instâncias de banco de dados.  
-2. Desconecte o banco de dados secundário Olá no hello mesmo região usando Olá modo de encerramento planejado (7). Ele cria uma cópia independente totalmente sincronizada Olá banco de dados primário, que se tornará automaticamente um primário após o encerramento de saudação. Este banco de dados será atualizado.
-3. Ativar o banco de dados primário Olá no modo de gravação tooread de slot de estágio hello e execute o script de atualização de saudação (8).    
+1. Defina o banco de dados primário no slot de produção para o modo somente leitura (6). Isso garantirá que a instância de produção do aplicativo (V1) permanecerá somente leitura durante a atualização, evitando assim divergência de dados entre as instâncias de banco de dados V1 e V2.  
+2. Desconecte o banco de dados secundário na mesma região usando o modo de encerramento planejado (7). Ele criará uma cópia independente totalmente sincronizada do banco de dados primário, que se tornará automaticamente um primário após a finalização. Este banco de dados será atualizado.
+3. Modifique o banco de dados primário no slot de preparo para o modo de leitura/gravação e execute o script de atualização (8).    
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-Se Olá atualização concluída com êxito agora você está pronto tooswitch Olá os usuários finais toohello V2 versão Olá aplicativo. Olá diagrama a seguir ilustra as etapas de saudação envolvidas.
+Se a atualização foi concluída com êxito, você agora está pronto para alternar os usuários finais para a versão V2 do aplicativo. O diagrama a seguir ilustra as etapas envolvidas.
 
-1. Alternar ponto de extremidade ativo Olá no perfil do WATM Olá muito<i>2.azurewebsites.net contoso</i>, que agora aponta toohello V2 versão do site da web de saudação (9). Agora se torna um slot de produção com hello V2 aplicativo e o tráfego do usuário final é tooit direcionado. 
-2. Se você não precisar mais aplicativos de V1 Olá para que você possa com segurança removido (10 e 11).  
+1. Alterne o ponto de extremidade ativo no perfil do WATM para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (9). Agora, ele se torna um slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele. 
+2. Se você não precisar mais do aplicativo V1, poderá removê-lo com segurança (10 e 11).  
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-Se o processo de atualização de saudação for bem-sucedida, por exemplo devido a erro tooan no script de atualização hello, slot de estágio Olá deve ser considerada comprometida. tooroll fazer Olá toohello pré-atualização o estado do aplicativo simplesmente reverter o aplicativo de hello toousing no slot de produção de hello com acesso completo. etapas de Olá envolvidas são mostradas no diagrama seguinte hello.    
+Se o processo de atualização não for bem-sucedido, por exemplo, devido a um erro no script de atualização, o slot de preparo deverá ser considerado como comprometido. Para reverter o aplicativo para o estado de pré-atualização, você simplesmente deve reverter o uso do aplicativo no slot de produção com acesso completo. As etapas envolvidas são mostradas no diagrama seguinte.    
 
-1. Conjunto Olá cópia de banco de dados primário no modo de gravação de tooread de slot de produção de hello (12). Isso irá restaurar Olá V1 completo funcionalmente no slot de produção de hello.
-2. Executar a análise da causa raiz hello e remover componentes do hello comprometido no slot de estágio da saudação (13 e 14). 
+1. Defina a cópia do banco de dados primário no slot de produção para o modo de leitura/gravação (12). Isso vai restaurar a funcionalidade completa do V1 no slot de produção.
+2. Execute a análise da causa raiz e remova os componentes comprometidos no slot de preparo (13 e 14). 
 
-Neste ponto aplicativo hello é totalmente funcional e etapas de atualização de saudação podem ser repetidas.
+Neste ponto, o aplicativo é totalmente funcional e as etapas de atualização podem ser repetidas.
 
 > [!NOTE]
-> Olá reversão não requer alterações no perfil do WATM como aponta já muito <i>1.azurewebsites.net contoso</i> como Olá ponto de extremidade ativo.
+> A reversão não requer alterações no perfil do WATM, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
 > 
 > 
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-chave de saudação **vantagem** dessa opção é que você pode atualizar o aplicativo hello e sua cópia com redundância geográfica em paralelo sem comprometer a continuidade dos negócios durante a atualização de saudação. Olá principal **compensação** é que ele requer redundância dupla de cada componente do aplicativo e, portanto, incorre em custo mais alto de dólares. Ele também envolve um fluxo de trabalho mais complicado. 
+A principal **vantagem** dessa opção é que você pode atualizar o aplicativo e sua cópia com redundância geográfica em paralelo sem comprometer a continuidade dos negócios durante a atualização. A principal **compensação** é que ela exige redundância dupla de cada componente do aplicativo e, portanto, incorre custos mais altos. Ele também envolve um fluxo de trabalho mais complicado. 
 
 ## <a name="summary"></a>Resumo
-métodos de atualização Olá dois descritos no artigo Olá diferem em dólar hello e complexidade de custo, mas ambos se concentrar na minimização de tempo de saudação quando o usuário final de saudação é limitado de operações somente tooread. Esse tempo é definido diretamente por duração Olá Olá do script de atualização. Ele não depende de tamanho de banco de dados hello, Olá de camada de serviço você escolher, configuração de site da web hello e outros fatores que você não pode controlar facilmente. Isso ocorre porque todas as etapas de preparação de saudação são desacopladas etapas de atualização de saudação e podem ser feitas sem afetar o aplicativo de produção de hello. eficiência de Olá Olá do script de atualização é Olá fator-chave que determina a experiência do usuário final de saudação durante as atualizações. Portanto, Olá melhor maneira aprimorá-la é concentrando seus esforços em tornar o script de atualização hello mais eficiente possível.  
+Os dois métodos de atualização descritos no artigo diferem em complexidade e custo, mas ambos focam na redução do tempo quando o usuário final está limitado às operações de somente leitura. Esse tempo é definido diretamente pela duração do script de atualização. Ele não depende do tamanho do banco de dados, da camada de serviço escolhida, da configuração de site da Web e de outros fatores que você não pode controlar facilmente. Isso ocorre porque todas as etapas de preparação são desacopladas das etapas de atualização e podem ser feitas sem afetar o aplicativo de produção. A eficiência do script de atualização é o principal fator que determina a experiência do usuário final durante as atualizações. Portanto, a melhor maneira aprimorá-la é concentrando seus esforços em tornar o script de atualização o mais eficiente possível.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-* toolearn sobre backups de banco de dados do SQL Azure automatizadas, consulte [backups automatizados de banco de dados SQL](sql-database-automated-backups.md).
-* toolearn sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados de backups automatizados](sql-database-recovery-using-backups.md).
-* toolearn sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-geo-replication-overview.md).
+* Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
+* Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups automatizados](sql-database-recovery-using-backups.md).
+* Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
 

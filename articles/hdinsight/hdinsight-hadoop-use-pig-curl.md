@@ -1,6 +1,6 @@
 ---
-title: aaaUse Pig do Hadoop com REST no HDInsight - Azure | Microsoft Docs
-description: Saiba como cluster de trabalhos de Pig latino de toorun toouse restante em um Hadoop no HDInsight do Azure.
+title: "Usar o Pig do Hadoop com REST no HDInsight – Azure | Microsoft Docs"
+description: Aprenda a usar o REST para executar trabalhos do Pig Latin em um cluster do Hadoop no Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,27 +16,27 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 760139e3caad9103d8c9d34e7f548d476014b5ae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a86864a779b0de1c6d5669cfbba0f3e1a27f1ff1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Executar trabalhos do Pig com Hadoop no HDInsight usando o REST
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Saiba como toorun Pig latino trabalhos, tornando o cluster do REST solicitações tooan HDInsight do Azure. Ondulação é usado toodemonstrate como você pode interagir com o HDInsight usando Olá WebHCat REST API.
+Saiba como executar trabalhos do Pig Latin fazendo solicitações REST para um cluster HDInsight do Azure. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando a API REST do WebHCat.
 
 > [!NOTE]
-> Se você já estiver familiarizado com o uso de servidores baseados em Linux Hadoop, mas é tooHDInsight novo, consulte [dicas de HDInsight baseados em Linux](hdinsight-hadoop-linux-information.md).
+> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte [Dicas do HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Pré-requisitos
 
 * Um cluster do Azure HDInsight (Hadoop no HDInsight, baseado em Windows ou Linux)
 
   > [!IMPORTANT]
-  > Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](http://curl.haxx.se/)
 
@@ -45,74 +45,74 @@ Saiba como toorun Pig latino trabalhos, tornando o cluster do REST solicitaçõe
 ## <a id="curl"></a>Executar trabalhos do Pig usando Curl
 
 > [!NOTE]
-> Olá API REST é protegida por meio de [autenticação de acesso básico](http://en.wikipedia.org/wiki/Basic_access_authentication). Sempre fazem solicitações usando o HTTP seguro (HTTPS) tooensure que suas credenciais são enviadas com segurança toohello server.
+> A API REST é protegida por meio de [autenticação básica de acesso](http://en.wikipedia.org/wiki/Basic_access_authentication). Para assegurar que suas credenciais sejam enviadas com segurança para o servidor, sempre faça solicitações usando HTTPS (HTTP seguro).
 >
-> Ao usar os comandos de saudação nesta seção, substitua `USERNAME` com cluster do hello usuário tooauthenticate toohello e substituir `PASSWORD` com senha Olá Olá conta de usuário. Substituir `CLUSTERNAME` com nome de saudação do cluster.
+> Ao usar os comandos nesta seção, substitua `USERNAME` pelo usuário para autenticar o cluster e substitua `PASSWORD` pela senha da conta de usuário. Substitua `CLUSTERNAME` pelo nome do cluster.
 >
 
 
-1. De uma linha de comando, use Olá tooverify de comando que você pode conectar o cluster do HDInsight tooyour a seguir:
+1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Você deve receber Olá resposta JSON a seguir:
+    Você deve receber a resposta JSON a seguir:
 
         {"status":"ok","version":"v1"}
 
-    Estes são os parâmetros de saudação usados neste comando:
+    Os parâmetros usados nesse comando são os seguintes:
 
-    * **-u**: Olá nome de usuário e senha usados tooauthenticate solicitação de saudação
+    * **-u**: o nome de usuário e a senha usados para autenticar a solicitação
     * **-G**: indica que essa solicitação é uma solicitação GET
 
-     Olá a partir da URL de saudação **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, Olá mesmo para todas as solicitações. caminho de saudação **/status**, indica que a solicitação Olá status Olá tooreturn WebHCat (também conhecido como Templeton) para o servidor de saudação.
+     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
-2. Use Olá código toosubmit um cluster de toohello de trabalho de Pig latino a seguir:
+2. Use o seguinte para enviar um trabalho de Pig Latin para o cluster:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
     ```
 
-    Estes são os parâmetros de saudação usados neste comando:
+    Os parâmetros usados nesse comando são os seguintes:
 
-    * **-d**: porque `-G` não for usado, solicitação Olá padrões toohello método de POSTAGEM. `-d`Especifica valores de dados de saudação que são enviados com a solicitação de saudação.
+    * **-d**: como `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
 
-    * **User.Name**: usuário de saudação que está executando o comando Olá
-    * **executar**: Olá Pig latino instruções tooexecute
-    * **statusdir**: diretório Olá Olá status para esse trabalho é gravado
+    * **user.name**: o usuário que está executando o comando
+    * **execute**: as instruções de Pig Latin a executar
+    * **statusdir**: o diretório no qual o status deste trabalho é gravado
 
     > [!NOTE]
-    > Observe que os espaços de saudação em instruções de Pig latino serão substituídos por Olá `+` quando usado com a rotação de caracteres.
+    > Observe que os espaços em instruções do Pig Latin são substituídos pelo caractere `+` quando usado com o Curl.
 
-    Este comando deve retornar uma ID de trabalho que pode ser usado toocheck Olá status do trabalho Olá, por exemplo:
+    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho, por exemplo:
 
         {"id":"job_1415651640909_0026"}
 
-3. status de Olá toocheck de trabalho Olá Olá use comandos a seguir
+3. Para verificar o status do trabalho, use o comando a seguir
 
      ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-     Substituir `JOBID` com hello valor retornado na etapa anterior hello. Por exemplo, se hello retornar o valor era `{"id":"job_1415651640909_0026"}`, em seguida, `JOBID` é `job_1415651640909_0026`.
+     Substitua `JOBID` pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado era `{"id":"job_1415651640909_0026"}`, então `JOBID` é `job_1415651640909_0026`.
 
-    Se o trabalho de saudação tiver sido concluída, o estado de Olá é **êxito**.
+    Se o trabalho foi concluído, o estado será **SUCCEEDED**.
 
     > [!NOTE]
-    > Essa solicitação de ondulação retorna um JavaScript Object Notation (JSON) um documento com informações sobre o trabalho de saudação e jq é tooretrieve usado Olá somente o valor de estado.
+    > Essa solicitação de Curl retorna um documento JSON (JavaScript Object Notation) com informações sobre o trabalho; jq é usado para recuperar o valor de estado.
 
 ## <a id="results"></a>Exibir resultados
 
-Quando o estado de saudação do trabalho Olá foi alterado muito**êxito**, você pode recuperar os resultados de saudação do trabalho de saudação. Olá `statusdir` parâmetro passado com hello consulta contém o local de Olá Olá do arquivo de saída; nesse caso, `/example/pigcurl`.
+Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/pigcurl`.
 
-HDInsight pode usar o armazenamento do Azure ou repositório Azure Data Lake como armazenamento de dados padrão de saudação. Há tooget de várias maneiras em dados Olá dependendo de qual delas você usar. Para obter mais informações, consulte a seção de armazenamento de saudação do hello [HDInsight baseados em Linux informações](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) documento.
+O HDInsight pode usar o Armazenamento do Azure ou o Azure Data Lake Store como o armazenamento de dados padrão. Há várias maneiras de obter os dados, dependendo de qual deles você usa. Para obter mais informações, consulte a seção armazenamento do documento [Informações do HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store).
 
 ## <a id="summary"></a>Resumo
 
-Conforme demonstrado neste documento, você pode usar um toorun de solicitação HTTP bruto, o monitor e exibir resultados de saudação de trabalhos de Pig no seu cluster HDInsight.
+Conforme demonstrado nesse documento, você pode usar a solicitação HTTP bruta para executar, monitorar e exibir os resultados de trabalhos Pig no seu cluster HDInsight.
 
-Para obter mais informações sobre a interface REST de saudação usado neste artigo, consulte Olá [WebHCat referência](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Para obter mais informações sobre a interface REST usada nesse artigo, consulte a [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
 ## <a id="nextsteps"></a>Próximas etapas
 

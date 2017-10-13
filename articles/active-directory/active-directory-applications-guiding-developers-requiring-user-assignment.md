@@ -1,6 +1,6 @@
 ---
-title: "atribuição de usuário aaaRequire - AD do Azure | Microsoft Docs"
-description: "Como toorequire atribuição de usuário para aplicativos do Azure."
+title: "Exigir a atribuição de usuário – Azure AD| Microsoft Docs"
+description: "Como exigir a atribuição de usuários para aplicativos do Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: b72037cb2321fe03a8ecbbefb568029ce903a126
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD e aplicativos: exigir atribuição de usuário
 ## <a name="requiring-user-assignment"></a>Exigindo atribuição do usuário
-1. Faça logon em toohello portal do Azure com uma conta de administrador.
-2. Clique em Olá **todos os itens** item no menu principal da saudação.
-3. Escolha o diretório de saudação que você está usando para o aplicativo hello.
-4. Clique em Olá **aplicativos** guia.
-5. Selecione o aplicativo hello na lista de saudação de aplicativos associados a esse diretório.
-6. Clique em Olá **configurar** guia.
-7. Saudação de alteração **tooAccess necessário de atribuição do usuário aplicativo** alternar tooYes.
-8. Clique em Olá **salvar** botão Olá final da tela hello.
+1. Faça logon no Portal do Azure com uma conta de administrador.
+2. Clique no item **Todos os Itens** no menu principal.
+3. Escolha o diretório que você está usando para o aplicativo.
+4. Clique na guia **APLICATIVOS** .
+5. Selecione o aplicativo na lista de aplicativos associada ao diretório.
+6. Clique na guia **CONFIGURAR** .
+7. Altere **Atribuição do usuário necessária para acessar o aplicativo** para Sim.
+8. Clique no botão **Salvar** na parte inferior da tela.
 
-Agora, você terá tooassign aplicativos de toohello de usuários e/ou grupos. Consulte [atribuindo usuários aplicativo tooan](active-directory-applications-guiding-developers-assigning-users.md) e [atribuir grupos de aplicativos tooan](active-directory-applications-guiding-developers-assigning-groups.md).
+Agora, você precisará atribuir usuários e/ou grupos ao aplicativo. Consulte [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) e [Atribuir grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

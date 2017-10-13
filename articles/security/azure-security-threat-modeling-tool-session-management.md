@@ -1,6 +1,6 @@
 ---
-title: "aaaSession de gerenciamento - ferramenta de modelagem de ameaça Microsoft - Azure | Microsoft Docs"
-description: "reduções de ameaças expostas em Olá, ferramenta de modelagem de ameaça"
+title: "Gerenciamento de sessão - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
+description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 915ffae3f775ca6902fcfb93e7e1952ce85612f1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-frame-session-management--articles"></a>Quadro de segurança: Gerenciamento de sessão | Artigos 
 | Produto/Serviço | Artigo |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/06/2017
 | **Azure DocumentDB** | <ul><li>[Usar tempos de vida mínimos de tokens para tokens de Recurso gerados](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implementar o logoff apropriado usando métodos WsFederation ao usar o ADFS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implementar o logoff adequado ao usar o Servidor de identidade](#proper-logout)</li></ul> |
-| **Aplicativo Web** | <ul><li>[Os aplicativos disponíveis via HTTPS devem usar cookies seguros](#https-secure-cookies)</li><li>[Todo aplicativo baseado em http deve especificar http somente para definição de cookie](#cookie-definition)</li><li>[Atenuar ataques CSRF (solicitação intersite forjada) em páginas Web ASP.NET](#csrf-asp)</li><li>[Configurar sessão para tempo de vida de inatividade](#inactivity-lifetime)</li><li>[Implementar o logout adequado do aplicativo hello](#proper-app-logout)</li></ul> |
+| **Aplicativo Web** | <ul><li>[Os aplicativos disponíveis via HTTPS devem usar cookies seguros](#https-secure-cookies)</li><li>[Todo aplicativo baseado em http deve especificar http somente para definição de cookie](#cookie-definition)</li><li>[Atenuar ataques CSRF (solicitação intersite forjada) em páginas Web ASP.NET](#csrf-asp)</li><li>[Configurar sessão para tempo de vida de inatividade](#inactivity-lifetime)</li><li>[Implementar o logoff apropriado do aplicativo](#proper-app-logout)</li></ul> |
 | **API da Web** | <ul><li>[Atenuar ataques CSRF (solicitação intersite forjada) em APIs da Web ASP.NET](#csrf-api)</li></ul> |
 
 ## <a id="logout-adal"></a>Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/06/2017
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Se o aplicativo hello depende de token de acesso emitido pelo AD do Azure, o manipulador de eventos de logoff de saudação deve chamar |
+| **Etapas** | Se o aplicativo depende do token de acesso emitido pelo Azure AD, o manipulador de evento de logoff deverá chamar |
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -75,7 +75,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Tokens SaS gerados para autenticar tooAzure IoT Hub devem ter um período de expiração Finitas. Manter Olá SaS tempos de vida de token tooa toolimit mínimo Olá quantidade de tempo que podem ser reproduzidos no caso de tokens de saudação sejam comprometidos.|
+| **Etapas** | Tokens SaS gerados para autenticar no Hub IoT do Azure devem ter um período de expiração finito. Mantenha o tempo de vida do token SaS com um valor mínimo a fim de limitar o tempo que ele pode ser reproduzido em caso de comprometimento do token.|
 
 ## <a id="resource-tokens"></a>Usar tempos de vida mínimos de tokens para tokens de Recurso gerados
 
@@ -86,7 +86,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Reduza o timespan de saudação do valor mínimo de tooa token de recurso necessário. Tokens de recurso têm um intervalo de tempo válido padrão de uma hora.|
+| **Etapas** | Reduza o intervalo de tempo do token de recurso para um valor mínimo necessário. Tokens de recurso têm um intervalo de tempo válido padrão de uma hora.|
 
 ## <a id="wsfederation-logout"></a>Implementar o logoff apropriado usando métodos WsFederation ao usar o ADFS
 
@@ -97,7 +97,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Se o aplicativo hello depende de token do STS emitido pelo ADFS, manipulador de eventos de logout Olá deve chamar WSFederationAuthenticationModule.FederatedSignOut() método toolog usuário hello. Também hello atual sessão deve ser destruída, e o valor do token de sessão Olá deve ser redefinido e inúteis.|
+| **Etapas** | Se o aplicativo depender do token de STS emitido pelo ADFS, o manipulador de eventos de logoff deverá chamar o método WSFederationAuthenticationModule.FederatedSignOut() para fazer logoff do usuário. Além disso, a sessão atual deve ser destruída, e o valor do token da sessão deve ser redefinido e tornado nulo.|
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -110,7 +110,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
                 return this.View("LogOff", null);
             }
 
-            // Removes hello user profile.
+            // Removes the user profile.
             this.Session.Clear();
             this.Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new System.Web.HttpCookie("ASP.NET_SessionId", string.Empty)
@@ -120,17 +120,17 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
                     HttpOnly = true
                 });
 
-            // Signs out at hello specified security token service (STS) by using hello WS-Federation protocol.
+            // Signs out at the specified security token service (STS) by using the WS-Federation protocol.
             Uri signOutUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Issuer);
             Uri replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm);
             if (!string.IsNullOrEmpty(redirectUrl))
             {
                 replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm + redirectUrl);
             }
-           //     Signs out of hello current session and raises hello appropriate events.
+           //     Signs out of the current session and raises the appropriate events.
             var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
             authModule.SignOut(false);
-        //     Signs out at hello specified security token service (STS) by using hello WS-Federation
+        //     Signs out at the specified security token service (STS) by using the WS-Federation
         //     protocol.            
             WSFederationAuthenticationModule.FederatedSignOut(signOutUrl, replyUrl);
             return new RedirectResult(redirectUrl);
@@ -146,7 +146,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Saída do IdentityServer3-Federated](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
-| **Etapas** | IdentityServer oferece suporte a saudação capacidade toofederate com provedores de identidade externa. Quando um usuário sai de um provedor de identidade upstream, dependendo do protocolo de saudação usado, talvez seja possível tooreceive uma notificação quando Olá usuário sai. Ele permite toonotify IdentityServer seus clientes para que eles também podem entrar Olá usuário out. Verifique a documentação na seção de referências de saudação para obter detalhes de implementação Olá Olá.|
+| **Etapas** | O IdentityServer oferece suporte à federação com provedores de identidade externos. Quando um usuário sai de um provedor de identidade upstream, dependendo do protocolo usado, talvez seja possível receber uma notificação quando o usuário se desconectar. Isso permite que o IdentityServer notifique seus clientes para que eles também possam desconectar o usuário. Consulte a documentação na seção de referências para obter detalhes sobre a implementação.|
 
 ## <a id="https-secure-cookies"></a>Os aplicativos disponíveis via HTTPS devem usar cookies seguros
 
@@ -157,7 +157,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | [httpCookies Element (Esquema de configurações ASP.NET)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propriedade HttpCookie.Secure](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
-| **Etapas** | Os cookies são normalmente apenas domínio toohello acessível para o qual eles foram escopo. Infelizmente, definição de saudação do "domínio" não inclui protocolo Olá para que cookies que são criados por HTTPS são acessíveis por meio de HTTP. atributo "segura" Hello indica que o navegador toohello Olá cookie deve apenas ser disponibilizada via HTTPS. Verifique se todos os cookies definido por HTTPS usam Olá **segura** atributo. requisito de saudação pode ser imposto no arquivo Web. config de saudação definindo Olá requireSSL atributo tootrue. É Olá preferencial abordagem porque ele aplicará Olá **segura** atributo para todos os cookies atuais e futuros sem Olá necessidade toomake as alterações de código adicional.|
+| **Etapas** | Normalmente, os cookies só são acessíveis ao domínio para o qual foram definidos. Infelizmente, a definição de "domínio" não inclui o protocolo para que cookies criados por HTTPS sejam acessíveis via HTTP. O atributo "secure" indica para o navegador que o cookie deve ser disponibilizado apenas por HTTPS. Certifique-se de que todos os cookies definidos por HTTPS usem o atributo **secure**. Esse requisito pode ser imposto no arquivo web.config pela configuração do atributo requireSSL como true. Essa é a abordagem preferencial, pois vai impor o atributo **secure** a todos os cookies atuais e futuros, sem a necessidade de fazer qualquer alteração adicional no código.|
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -167,7 +167,7 @@ Também deve destruir a sessão do usuário chamando o método Session.Abandon()
   </system.web>
 </configuration>
 ```
-configuração de saudação é imposta mesmo que o HTTP é usado tooaccess Olá aplicativo. Se o HTTP é usado tooaccess Olá aplicativo, quebras de configuração aplicativo hello porque cookies Olá são definidos com navegador seguro de atributo e Olá Olá não enviará-los hello volta toohello aplicativo.
+A configuração é aplicada mesmo que HTTP seja usado para acessar o aplicativo. Se HTTP é usado para acessar o aplicativo, a configuração interrompe o aplicativo, pois os cookies estão definidos com o atributo secure e o navegador não os enviará de volta ao aplicativo.
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -176,7 +176,7 @@ configuração de saudação é imposta mesmo que o HTTP é usado tooaccess Olá
 | **Tecnologias aplicáveis** | Web Forms, MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | N/D  |
-| **Etapas** | Quando Olá web aplicativo hello terceira parte confiável, e Olá IdP servidor ADFS, atributo de segurança do token de FedAuth Olá pode ser configurado por definindo o requireSSL tooTrue em `system.identityModel.services` seção de Web. config:|
+| **Etapas** | Quando o aplicativo Web for a terceira parte confiável, e o IdP for o servidor ADFS, o atributo secure do token FedAuth poderá ser configurado definindo requireSSL como True na seção `system.identityModel.services` de web.config:|
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -198,10 +198,10 @@ configuração de saudação é imposta mesmo que o HTTP é usado tooaccess Olá
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Atributo Secure Cookie](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
-| **Etapas** | toomitigate o risco de saudação de divulgação de informações com um ataque de script entre sites (XSS), um novo atributo - httpOnly - foi introduzido toocookies e é suportado por todos os principais navegadores. atributo de saudação especifica que um cookie não é acessível por meio de script. Usando cookies HttpOnly, um aplicativo web reduz a possibilidade de saudação que informações confidenciais contidas no cookie de saudação seja roubadas por meio de script e enviadas site tooan invasor. |
+| **Etapas** | Para atenuar o risco de divulgação de informações com um ataque XSS (script entre sites), um novo atributo - httpOnly - foi introduzido aos cookies e é suportado por todos os principais navegadores. O atributo especifica que um cookie não pode ser acessado por script. Usando cookies HttpOnly, um aplicativo Web reduz a possibilidade de roubo de informações confidenciais contidas no cookie por meio de script e o envio dessas informações ao site de um invasor. |
 
 ### <a name="example"></a>Exemplo
-Todos os aplicativos com base em HTTP que usam cookies devem especificar HttpOnly na definição de cookie hello, Implementando a seguinte configuração no Web. config:
+Todos os aplicativos baseados em HTTP que usam cookies devem especificar HttpOnly na definição de cookie implementando a seguinte configuração em web.config:
 ```XML
 <system.web>
 .
@@ -219,10 +219,10 @@ Todos os aplicativos com base em HTTP que usam cookies devem especificar HttpOnl
 | **Tecnologias aplicáveis** | Formulários da Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [Propriedade FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Etapas** | Olá RequireSSL valor da propriedade é definida no arquivo de configuração de saudação para um aplicativo ASP.NET usando o atributo requireSSL de saudação do elemento de configuração de saudação. Você pode especificar no arquivo Web. config de saudação para seu aplicativo ASP.NET se SSL (Secure Sockets Layer) é servidor de toohello de cookie tooreturn necessário Olá autenticação de formulários ao definir atributo de requireSSL hello.|
+| **Etapas** | O valor da propriedade RequireSSL é definido no arquivo de configuração para um aplicativo ASP.NET usando o atributo requireSSL do elemento de configuração. Especifique no arquivo web.config para seu aplicativo ASP.NET se o protocolo SSL (Secure Sockets Layer) é necessário para retornar o cookie de autenticação de formulários para o servidor configurando o atributo requireSSL.|
 
 ### <a name="example"></a>Exemplo 
-Olá exemplo de código a seguir define Olá requireSSL atributo no arquivo Web. config de saudação.
+O exemplo de código a seguir define o atributo requireSSL no arquivo Web.config.
 ```XML
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
@@ -236,10 +236,10 @@ Olá exemplo de código a seguir define Olá requireSSL atributo no arquivo Web.
 | **Tecnologias aplicáveis** | MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | [Configuração do Windows Identity Foundation (WIF) – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
-| **Etapas** | atributo de httpOnly tooset cookies FedAuth, o valor do atributo hideFromCsript deve ser definido tooTrue. |
+| **Etapas** | Para definir o atributo httpOnly para cookies FedAuth, o valor do atributo hideFromCsript deve ser definido como True. |
 
 ### <a name="example"></a>Exemplo
-Configuração a seguir mostra a configuração correta de saudação:
+A configuração a seguir mostra a configuração correta:
 ```XML
 <federatedAuthentication>
 <cookieHandler mode="Custom"
@@ -261,7 +261,7 @@ Configuração a seguir mostra a configuração correta de saudação:
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Falsificação de solicitação entre sites (CSRF ou XSRF) é um tipo de ataque em que um invasor pode realizar ações no contexto de segurança de saudação da sessão de um usuário diferente estabelecida em um site da web. meta de saudação é toomodify ou excluir o conteúdo, se o site de destino-Olá se basear exclusivamente em cookies de sessão tooauthenticate solicitação recebida. Um invasor pode explorar essa vulnerabilidade obtendo tooload do navegador de um usuário diferente uma URL com um comando de um site vulnerável no qual usuário Olá já estiver conectado. Há várias maneiras para um toodo invasor que, como hospedar um site diferente que carrega um recurso de servidor vulnerável hello, ou tooclick de usuário Olá obtendo um link. ataque de saudação pode ser evitado se o servidor de saudação envia um cliente toohello token adicionais, requer Olá cliente tooinclude esse token em todas as solicitações futuras e verifica se todas as solicitações futuras incluem um token que pertence toohello sessão atual, como por usando Olá AntiForgeryToken ASP.NET ou ViewState. |
+| **Etapas** | A CSRF ou XSRF (solicitação intersite forjada) é um tipo de ataque em que um invasor pode realizar ações no contexto de segurança da sessão estabelecida de um usuário diferente em um site da Web. A meta é modificar ou excluir o conteúdo, caso o site de destino dependa exclusivamente de cookies de sessão para autenticar a solicitação recebida. Um invasor pode explorar essa vulnerabilidade fazendo com que um navegador diferente de um usuário carregue uma URL com um comando de um site vulnerável no qual o usuário já esteja conectado. Há muitas maneiras de um invasor fazer isso, como hospedando um site diferente que carrega um recurso do servidor vulnerável ou fazendo o usuário clicar em um link. Esse ataque pode ser evitado se o servidor enviar um token adicional ao cliente, exigir que o cliente inclua esse token em todas as solicitações futuras e verificar se todas as solicitações futuras incluem um token que pertence à sessão atual, por exemplo, usando o ASP.NET AntiForgeryToken ou ViewState. |
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -270,7 +270,7 @@ Configuração a seguir mostra a configuração correta de saudação:
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Prevenção de XSRF/CSRF no ASP.NET MVC e páginas Web](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
-| **Etapas** | Formulários de anti-CSRF e ASP.NET MVC - Olá Use `AntiForgeryToken` método auxiliar em exibições; coloque um `Html.AntiForgeryToken()` em formulário hello, por exemplo,|
+| **Etapas** | Formulários MVC Anti-CSRF e do ASP.NET – Use o método auxiliar `AntiForgeryToken` em Exibições; coloque um `Html.AntiForgeryToken()` no formulário, por exemplo,|
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -289,7 +289,7 @@ Configuração a seguir mostra a configuração correta de saudação:
 ```
 
 ### <a name="example"></a>Exemplo
-A saudação mesmo momento, visitante de saudação do Html.AntiForgeryToken() oferece um cookie chamado __RequestVerificationToken, com o mesmo valor como valor oculto aleatório Olá mostrado acima de saudação. Em seguida, toovalidate uma postagem de formulário de entrada, adicione o método de ação do hello [ValidateAntiForgeryToken] filtro toohello destino. Por exemplo:
+Ao mesmo tempo, Html.AntiForgeryToken() fornece ao visitante um cookie chamado __RequestVerificationToken, com o mesmo valor que o valor oculto aleatório mostrado acima. Em seguida, para validar uma postagem de formulário de entrada, adicione o filtro [ValidateAntiForgeryToken] ao método de ação de destino. Por exemplo:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -298,12 +298,12 @@ public ViewResult SubmitUpdate()
 }
 ```
 Filtro de autorização que verifica se:
-* solicitação de entrada Hello tem um cookie chamado __RequestVerificationToken
-* Olá solicitação de entrada tem um `Request.Form` entrada chamada __RequestVerificationToken
-* Esses cookies e `Request.Form` correspondência de valores, supondo que todas as é bem, Olá solicitação passa por como normal. Mas, se não estiver, uma falha de autorização com a mensagem "Um token antifalsificação necessário não foi fornecido ou era inválido". 
+* A solicitação de entrada tem um cookie chamado __RequestVerificationToken
+* A solicitação de entrada tem um `Request.Form` chamado __RequestVerificationToken
+* O cookie e o valor `Request.Form` são correspondentes. Supondo que tudo esteja certo, a solicitação passará normalmente. Mas, se não estiver, uma falha de autorização com a mensagem "Um token antifalsificação necessário não foi fornecido ou era inválido". 
 
 ### <a name="example"></a>Exemplo
-Anti-CSRF e AJAX: token de formulário de saudação pode ser um problema para solicitações do AJAX, porque uma solicitação AJAX pode enviar dados JSON, não os dados de formulário HTML. Uma solução é tokens de saudação do toosend em um cabeçalho HTTP personalizado. Hello código a seguir usa os tokens de saudação do Razor sintaxe toogenerate e, em seguida, adiciona Olá tokens tooan AJAX solicitação. 
+Anti-CSRF e AJAX: O token do formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. 
 ```C#
 <script>
     @functions{
@@ -328,7 +328,7 @@ Anti-CSRF e AJAX: token de formulário de saudação pode ser um problema para s
 ```
 
 ### <a name="example"></a>Exemplo
-Ao processar solicitação Olá, extrai tokens de saudação do cabeçalho de solicitação de saudação. Chame Olá AntiForgery.Validate método toovalidate tokens de saudação. Olá método Validate lança uma exceção se os tokens de saudação não são válidos.
+Ao processar a solicitação, extraia os tokens do cabeçalho da solicitação. Em seguida, chame o método AntiForgery.Validate para validar os tokens. O método Validate lança uma exceção se os tokens não forem válidos.
 ```C#
 void ValidateRequestHeader(HttpRequestMessage request)
 {
@@ -355,11 +355,11 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Formulários da Web |
 | **Atributos**              | N/D  |
-| **Referências**              | [Tirar proveito dos recursos internos do ASP.NET tooFend Off ataques de Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
-| **Etapas** | Ataques CSRF em aplicativos de formulário da Web com base podem ser atenuadas definindo ViewStateUserKey tooa cadeia de caracteres aleatória que varia para cada usuário - ID de usuário ou, melhor ainda, ID de sessão. Por diversos motivos técnicos e sociais, ID de sessão é uma opção bem melhor, pois é imprevisível, atinge um tempo limite e varia de acordo com o usuário.|
+| **Referências**              | [Tirar proveito dos recursos internos do ASP.NET para afastar os ataques na Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Etapas** | Os ataques CSRF em aplicativos baseados em WebForm podem ser minimizados definindo ViewStateUserKey para uma cadeia de caracteres aleatória que varia para cada usuário - ID de usuário ou, melhor ainda, ID de sessão. Por diversos motivos técnicos e sociais, ID de sessão é uma opção bem melhor, pois é imprevisível, atinge um tempo limite e varia de acordo com o usuário.|
 
 ### <a name="example"></a>Exemplo
-Aqui está o código de saudação necessário toohave em todas as páginas:
+Aqui está o código necessário em todas as suas páginas:
 ```C#
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
@@ -376,7 +376,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Propriedade HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Etapas** | Tempo limite da sessão representa Olá eventos que ocorrem quando um usuário não executará qualquer ação em um site da web durante um intervalo (definido pelo servidor web). Olá evento no lado do servidor, altere o status de saudação do hello too'invalid de sessão de usuário ' (por exemplo "não usado mais") e instruir Olá web server toodestroy-lo (excluindo todos os dados contidos nele). Hello exemplo de código a seguir define Olá tempo limite sessão atributo too15 minutos no arquivo Web. config de saudação.|
+| **Etapas** | O tempo limite de sessão representa o evento que ocorre quando um usuário não realiza qualquer ação em um site durante um intervalo (definido pelo servidor Web). O evento, no lado do servidor, altera o status da sessão do usuário para "inválida" (por exemplo, "não mais utilizada") e instrui o servidor Web a destruí-la (excluindo todos os dados contidos nela). O exemplo de código a seguir define o atributo de tempo limite de sessão como 15 minutos no arquivo Web.config.|
 
 ### <a name="example"></a>Exemplo
 ```código XML <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
@@ -392,7 +392,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Tecnologias aplicáveis** | Formulários da Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [Elemento forms para autenticação (Esquema de configuração ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Etapas** | Definir minutos Olá too15 de tempo limite de cookie do tíquete de autenticação de formulários|
+| **Etapas** | Defina o tempo limite de cookie do tíquete de autenticação de formulários como 15 minutos|
 
 ### <a name="example"></a>Exemplo
 ```código XML <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
@@ -406,7 +406,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Applicable Technologies** | Web Forms, MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
 | **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When hello web application is Relying Party and ADFS is hello STS, hello lifetime of hello authentication cookies - FedAuth tokens - can be set by hello following configuration in web.config:|
+| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
 
 ### Example
 ```XML
@@ -417,7 +417,7 @@ void Page_Init (object sender, EventArgs e) {
       <!-- Set requireHttps=true; -->
       <wsFederation passiveRedirectEnabled="true" issuer="http://localhost:39529/" realm="https://localhost:44302/" reply="https://localhost:44302/" requireHttps="true"/>
       <!--
-      Use hello code below tooenable encryption-decryption of claims received from ADFS. Thumbprint value varies based on hello certificate being used.
+      Use the code below to enable encryption-decryption of claims received from ADFS. Thumbprint value varies based on the certificate being used.
       <serviceCertificate>
         <certificateReference findValue="4FBBBA33A1D11A9022A5BF3492FF83320007686A" storeLocation="LocalMachine" storeName="My" x509FindType="FindByThumbprint" />
       </serviceCertificate>
@@ -427,12 +427,12 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ### <a name="example"></a>Exemplo
-Também Olá ADFS emitido o tempo de vida do token de SAML declaração deve ser definido como too15 minutos, executando Olá comando do powershell no servidor ADFS Olá a seguir:
+Além disso, o tempo de vida do token da declaração SAML emitida pelo ADFS deve ser definido como 15 minutos, executando o seguinte comando powershell no servidor ADFS:
 ```C#
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
-## <a id="proper-app-logout"></a>Implementar o logout adequado do aplicativo hello
+## <a id="proper-app-logout"></a>Implementar o logoff apropriado do aplicativo
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -441,7 +441,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Execute sair adequado do aplicativo hello, quando o usuário pressionar botão de logoff. Após o logoff, o aplicativo deve destruir a sessão do usuário e também redefinir e anular o valor do cookie de sessão, juntamente com a redefinição e anulação do valor do cookie de autenticação. Além disso, quando várias sessões estão empatados tooa identidade de usuário único, eles devem ser coletivamente terminados no lado do servidor de saudação no tempo limite ou logoff. Por fim, certifique-se de que a funcionalidade de Logoff esteja disponível em cada página. |
+| **Etapas** | Execute uma Saída adequada do aplicativo, quando o usuário pressionar o botão logoff. Após o logoff, o aplicativo deve destruir a sessão do usuário e também redefinir e anular o valor do cookie de sessão, juntamente com a redefinição e anulação do valor do cookie de autenticação. Além disso, quando várias sessões estiverem vinculadas a uma única identidade de usuário, elas deverão ser coletivamente encerradas no lado do servidor no momento do tempo limite ou no logoff. Por fim, certifique-se de que a funcionalidade de Logoff esteja disponível em cada página. |
 
 ## <a id="csrf-api"></a>Atenuar ataques CSRF (solicitação intersite forjada) em APIs da Web ASP.NET
 
@@ -452,7 +452,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Falsificação de solicitação entre sites (CSRF ou XSRF) é um tipo de ataque em que um invasor pode realizar ações no contexto de segurança de saudação da sessão de um usuário diferente estabelecida em um site da web. meta de saudação é toomodify ou excluir o conteúdo, se o site de destino-Olá se basear exclusivamente em cookies de sessão tooauthenticate solicitação recebida. Um invasor pode explorar essa vulnerabilidade obtendo tooload do navegador de um usuário diferente uma URL com um comando de um site vulnerável no qual usuário Olá já estiver conectado. Há várias maneiras para um toodo invasor que, como hospedar um site diferente que carrega um recurso de servidor vulnerável hello, ou tooclick de usuário Olá obtendo um link. ataque de saudação pode ser evitado se o servidor de saudação envia um cliente toohello token adicionais, requer Olá cliente tooinclude esse token em todas as solicitações futuras e verifica se todas as solicitações futuras incluem um token que pertence toohello sessão atual, como por usando Olá AntiForgeryToken ASP.NET ou ViewState. |
+| **Etapas** | A CSRF ou XSRF (solicitação intersite forjada) é um tipo de ataque em que um invasor pode realizar ações no contexto de segurança da sessão estabelecida de um usuário diferente em um site da Web. A meta é modificar ou excluir o conteúdo, caso o site de destino dependa exclusivamente de cookies de sessão para autenticar a solicitação recebida. Um invasor pode explorar essa vulnerabilidade fazendo com que um navegador diferente de um usuário carregue uma URL com um comando de um site vulnerável no qual o usuário já esteja conectado. Há muitas maneiras de um invasor fazer isso, como hospedando um site diferente que carrega um recurso do servidor vulnerável ou fazendo o usuário clicar em um link. Esse ataque pode ser evitado se o servidor enviar um token adicional ao cliente, exigir que o cliente inclua esse token em todas as solicitações futuras e verificar se todas as solicitações futuras incluem um token que pertence à sessão atual, por exemplo, usando o ASP.NET AntiForgeryToken ou ViewState. |
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -461,7 +461,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Impedir ataques CSRF (solicitação intersite forjada) em APIs da Web ASP.NET](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Etapas** | Anti-CSRF e AJAX: token de formulário de saudação pode ser um problema para solicitações do AJAX, porque uma solicitação AJAX pode enviar dados JSON, não os dados de formulário HTML. Uma solução é tokens de saudação do toosend em um cabeçalho HTTP personalizado. Hello código a seguir usa os tokens de saudação do Razor sintaxe toogenerate e, em seguida, adiciona Olá tokens tooan AJAX solicitação. |
+| **Etapas** | Anti-CSRF e AJAX: O token do formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. |
 
 ### <a name="example"></a>Exemplo
 ```Javascript
@@ -487,7 +487,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 ```
 
 ### <a name="example"></a>Exemplo
-Ao processar solicitação Olá, extrai tokens de saudação do cabeçalho de solicitação de saudação. Chame Olá AntiForgery.Validate método toovalidate tokens de saudação. Olá método Validate lança uma exceção se os tokens de saudação não são válidos.
+Ao processar a solicitação, extraia os tokens do cabeçalho da solicitação. Em seguida, chame o método AntiForgery.Validate para validar os tokens. O método Validate lança uma exceção se os tokens não forem válidos.
 ```C#
 void ValidateRequestHeader(HttpRequestMessage request)
 {
@@ -509,7 +509,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### <a name="example"></a>Exemplo
-Anti-CSRF e formulários do ASP.NET MVC - Olá Use método de auxiliar AntiForgeryToken em modos de exibição; colocar um Html.AntiForgeryToken() no formulário hello, por exemplo,
+Formulários MVC Anti-CSRF e do ASP.NET – Use o método auxiliar AntiForgeryToken em Exibições; coloque um Html.AntiForgeryToken() no formulário, por exemplo,
 ```C#
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
@@ -519,7 +519,7 @@ Anti-CSRF e formulários do ASP.NET MVC - Olá Use método de auxiliar AntiForge
 ```
 
 ### <a name="example"></a>Exemplo
-exemplo Hello acima produzirá algo semelhante Olá seguinte:
+O exemplo acima produzirá algo como o seguinte:
 ```C#
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
@@ -528,7 +528,7 @@ exemplo Hello acima produzirá algo semelhante Olá seguinte:
 ```
 
 ### <a name="example"></a>Exemplo
-A saudação mesmo momento, visitante de saudação do Html.AntiForgeryToken() oferece um cookie chamado __RequestVerificationToken, com o mesmo valor como valor oculto aleatório Olá mostrado acima de saudação. Em seguida, toovalidate uma postagem de formulário de entrada, adicione o método de ação do hello [ValidateAntiForgeryToken] filtro toohello destino. Por exemplo:
+Ao mesmo tempo, Html.AntiForgeryToken() fornece ao visitante um cookie chamado __RequestVerificationToken, com o mesmo valor que o valor oculto aleatório mostrado acima. Em seguida, para validar uma postagem de formulário de entrada, adicione o filtro [ValidateAntiForgeryToken] ao método de ação de destino. Por exemplo:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -537,9 +537,9 @@ public ViewResult SubmitUpdate()
 }
 ```
 Filtro de autorização que verifica se:
-* solicitação de entrada Hello tem um cookie chamado __RequestVerificationToken
-* Olá solicitação de entrada tem um `Request.Form` entrada chamada __RequestVerificationToken
-* Esses cookies e `Request.Form` correspondência de valores, supondo que todas as é bem, Olá solicitação passa por como normal. Mas, se não estiver, uma falha de autorização com a mensagem "Um token antifalsificação necessário não foi fornecido ou era inválido".
+* A solicitação de entrada tem um cookie chamado __RequestVerificationToken
+* A solicitação de entrada tem um `Request.Form` chamado __RequestVerificationToken
+* O cookie e o valor `Request.Form` são correspondentes. Supondo que tudo esteja certo, a solicitação passará normalmente. Mas, se não estiver, uma falha de autorização com a mensagem "Um token antifalsificação necessário não foi fornecido ou era inválido".
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -548,9 +548,9 @@ Filtro de autorização que verifica se:
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | Provedor de Identidade - ADFS, Provedor de Identidade - Azure AD |
 | **Referências**              | [Proteger uma API Web com contas individuais e logon local na API Web ASP.NET 2.2](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
-| **Etapas** | Se Olá API da Web é protegido usando OAuth 2.0, em seguida, ele espera um token de portador na solicitação cabeçalho e concede acesso toohello solicitação de autorização somente se o token Olá é válido. Ao contrário de autenticação baseada em cookie, navegadores não anexe Olá toorequests de tokens de portador. Olá solicitando o cliente precisa tooexplicitly anexar o token de portador Olá no cabeçalho de solicitação de saudação. Portanto, para APIs Web ASP.NET protegidas usando o OAuth 2.0, os tokens de portador são considerados uma defesa contra ataques de CSRF. Observe que se parte do MVC de saudação do aplicativo hello usa autenticação de formulários (ou seja, usa cookies), tokens antifalsificação toobe usado pelo aplicativo de web MVC hello. |
+| **Etapas** | Se a API Web for protegida usando OAuth 2.0, ela esperará um token de portador no cabeçalho de solicitação de Autorização e a concederá o acesso à solicitação somente se o token for válido. Diferentemente da autenticação baseada em cookie, os navegadores não anexam os tokens de portador às solicitações. O cliente solicitante deve anexar explicitamente o token de portador no cabeçalho da solicitação. Portanto, para APIs Web ASP.NET protegidas usando o OAuth 2.0, os tokens de portador são considerados uma defesa contra ataques de CSRF. Observe que, se a parte MVC do aplicativo usar a autenticação de formulários (ou seja, cookies), será necessário usar tokens antifalsificação pelo aplicativo Web do MVC. |
 
 ### <a name="example"></a>Exemplo
-Olá API da Web tem toobe informado toorely apenas em tokens de portador e não em cookies. Isso pode ser feito por Olá seguinte configuração em `WebApiConfig.Register` método: ' ' configuração de código C-Sharp. SuppressDefaultHostAuthentication(); config. Filters.Add (nova HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+A API Web precisa ser informada para confiar SOMENTE em tokens de portador e não em cookies. Isso pode ser feito pela configuração a seguir no método `WebApiConfig.Register`: ```Código C-Sharp config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-hello SuppressDefaultHostAuthentication method tells Web API tooignore any authentication that happens before hello request reaches hello Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API tooauthenticate only using bearer tokens.
+The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.

@@ -1,5 +1,5 @@
 ---
-title: "elementos de aaaThe de email de convite de colaboração de saudação do Azure Active Directory B2B | Microsoft Docs"
+title: "Os elementos do email de convite para colaboração B2B do Azure Active Directory | Microsoft Docs"
 description: "Modelo de email de convite para colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -15,60 +15,60 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: f4908014d71a63442bbdca2182f54c7a79675a82
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="hello-elements-of-hello-b2b-collaboration-invitation-email"></a>elementos de saudação do hello email de convite de colaboração B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Os elementos do email de convite para colaboração B2B
 
-Emails de convite são parceiros de toobring um componente crítico na placa como usuários de colaboração B2B no AD do Azure. Você pode usá-los confiança tooincrease Olá destinatário. Você pode adicionar legitimidade e email toohello prova sociais, toomake destinatário de saudação se sentir confortável com selecionando Olá **começar** botão tooaccept convite de saudação. Essa relação de confiança é que uma chave significa tooreduce fricção de compartilhamento. E você também desejar toomake Olá email aparência excelente!
+Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Você pode usá-los para aumentar a confiança do destinatário. Você pode adicionar a legitimidade e a comprovação social ao email, para certificar-se de que o destinatário sinta-se confortável com a seleção do botão **Introdução** para aceitar o convite. Essa confiança é uma maneira importante de reduzir o atrito de compartilhamento. E o email fica ótimo dessa maneira!
 
 ![Email de convite de B2b do AD do Azure](media/active-directory-b2b-invitation-email/invitation-email.png)
 
-## <a name="explaining-hello-email"></a>Explicando email Olá
-Vamos examinar alguns elementos de email Olá para que você saiba a melhor maneira de toouse seus recursos.
+## <a name="explaining-the-email"></a>Explicação do email
+Vamos examinar alguns elementos do email para que você conheça a melhor maneira de usar esses recursos.
 
-### <a name="subject"></a>Assunto
-assunto do email Olá Olá segue saudação padrão a seguir: você está convidado toohello &lt;tenantname&gt; organização
+### <a name="subject"></a>Subject
+O assunto do email segue o seguinte padrão: você foi convidado para a organização &lt;nomedolocatário&gt;
 
 ### <a name="from-address"></a>Do endereço
-Usamos um LinkedIn padrão de saudação do endereço.  Você deve estar claro que é do emissor do convite hello e do qual da empresa e também esclarecer e-mail Olá vêm de um endereço de email da Microsoft. Olá formato é: &lt;nome para exibição do emissor do convite&gt; de &lt;tenantname&gt; (por meio da Microsoft) <invites@microsoft.com&gt;
+Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: &lt;Nome de exibição do emissor do convite&gt; de &lt;nome do locatário&gt; (via Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Responder Para
-Olá resposta-tooemail é definido email do emissor do convite toohello quando disponível, para que responder toohello email envia um email toohello back quem enviou o convite.
+O email para resposta é definido como o email do emissor do convite, quando houver um disponível, para que a resposta envie um email ao emissor do convite.
 
 ### <a name="branding"></a>Identidade visual
-Convite Olá emails do seu locatário usam empresa Olá identidade visual que você pode configurar para seu locatário. Se você quiser tootake proveito dessa funcionalidade, [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) Olá detalhes sobre como tooconfigure-lo. logotipo do banner Olá aparece no email de saudação. Siga o tamanho da imagem hello e instruções de qualidade [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) para obter melhores resultados. Além disso, o nome de empresa Olá também aparece na Olá chamada tooaction.
+Os emails de convite de seu locatário usam a identidade visual da empresa configurada para o locatário. Se você quiser aproveitar esse recurso, [estes](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) são os detalhes da configuração. O logotipo da faixa é exibido no email. Siga as instruções de tamanho e qualidade da imagem [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) para obter os melhores resultados. Além disso, o nome da empresa também aparece no plano de ação.
 
-### <a name="call-tooaction"></a>Chamar tooaction
-Olá chamada tooaction consiste em duas partes: explicando por que o destinatário Olá recebeu mail Olá e o destinatário hello está sendo solicitado toodo sobre ele.
-- Olá "por" seção pode ser resolvida usando saudação padrão a seguir: foi convidado tooaccess aplicativos Olá &lt;tenantname&gt; organização
+### <a name="call-to-action"></a>Plano de ação
+O plano de ação é composto por duas partes: explicação do motivo de o destinatário ter recebido o email, e o que o destinatário deve fazer a respeito.
+- A seção "motivo" pode ter o seguinte padrão: Você foi convidado(a) para acessar aplicativos na organização &lt;nomedolocatário&gt;
 
-- E hello a seção "o que você está sendo solicitado toodo" é indicada pela presença de saudação do hello **começar** botão. Quando o destinatário Olá foi adicionado sem necessidade de saudação de convites, esse botão não aparecerá.
+- E a seção "o que você deve fazer" é indicada pela presença do botão **Introdução**. Quando o destinatário tiver sido adicionado sem a necessidade de convites, esse botão não aparecerá.
 
 ### <a name="inviters-information"></a>Informações sobre o emissor do convite
-nome para exibição do emissor do convite Olá é incluído no email de saudação. E, além disso, se você tiver configurado uma foto de perfil para a sua conta do AD do Azure, Olá convidar email incluirá imagem também. Ambos é tooincrease pretendido confiança do destinatário no email de saudação.
+O nome de exibição do emissor do convite está incluído no email. E, além disso, se você tiver configurado uma foto de perfil para sua conta do Azure AD, o email do convite também incluirá a imagem. Ambos servem para aumentar a confiança do destinatário do email.
 
-Se você ainda não configurou a foto do perfil, um ícone com iniciais do emissor do convite Olá no lugar de imagem Olá será mostrado:
+Se você ainda não tiver configurado uma imagem de perfil, um ícone com as iniciais do emissor do convite no lugar da imagem, conforme mostra a imagem:
 
-  ![Exibindo iniciais do emissor do convite Olá](media/active-directory-b2b-invitation-email/inviters-initials.png)
+  ![exibição das iniciais do emissor do convite](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
-corpo da saudação contém a mensagem de saudação do emissor do convite que Olá compõe ou é passado por convite Olá API. Como é uma área de texto, ela não processa marcas HTML por motivos de segurança.
+O corpo conterá a mensagem que o emissor compõe ou a passada na API do convite. Como é uma área de texto, ela não processa marcas HTML por motivos de segurança.
 
 ### <a name="footer-section"></a>Seção de rodapé
-rodapé Olá contém a marca de empresa do Microsoft hello e permite que o destinatário Olá se Olá email foi enviado de um alias não monitorado. Casos especiais:
+O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. Casos especiais:
 
-- emissor do convite Olá não tem um endereço de email no hello convidar aluguel
+- O emissor do convite não tem um endereço de email no locatário que está convidando
 
-  ![imagem do emissor do convite não tem um endereço de email no hello convidar aluguel](media/active-directory-b2b-invitation-email/inviter-no-email.png)
+  ![imagem do emissor do convite não tem um endereço de email no locatário que está convidando](media/active-directory-b2b-invitation-email/inviter-no-email.png)
 
 
-- destinatário de saudação não precisa de convite de saudação tooredeem
+- O destinatário não precisa resgatar o convite
 
-  ![Quando o destinatário não precisa tooredeem convite](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
+  ![quando o destinatário não precisa resgatar o convite](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

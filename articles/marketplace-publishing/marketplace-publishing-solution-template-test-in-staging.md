@@ -1,6 +1,6 @@
 ---
-title: "aaaTesting oferecem o modelo de solução para Olá Marketplace | Microsoft Docs"
-description: "Entenda como tootest o modelo de solução oferecem para hello Azure Marketplace."
+title: "Testando sua oferta de modelo de solução para o Marketplace | Microsoft Docs"
+description: "Saiba como testar a oferta do modelo de solução para o Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9c195c465d2fc6aa349e4bbcc348e5325f32850d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a oferta de modelo de solução em preparo
-Preparo significa Implantando sua oferta em uma "área restrita" onde você pode testar e verificar sua funcionalidade antes de enviar a ele tooproduction particular. oferta de saudação aparece no preparo como faria cliente tooa que implantou a ele. Sua oferta deve ser toostaging toobe certificados enviada por push.
+Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparece em preparo como apareceria para um cliente que a tivesse implantado. Sua oferta deve estar certificada para ser enviada por push para preparação.
 
-Depois de oferta de saudação é testada, você pode exibir e testar Olá oferta no hello [Portal do Azure](https://portal.azure.com/).
+Depois que a oferta for preparada, você poderá exibir e testar a oferta no [Portal do Azure](https://portal.azure.com/).
 
-Siga as etapas de saudação abaixo toopush toostaging sua oferta e testá-lo em Olá [Portal do Azure](https://portal.azure.com/):
+Siga as etapas abaixo para enviar por push sua oferta de preparo e testá-la no [Portal do Azure](https://portal.azure.com/):
 
-1. Vá toohello [Portal de publicação](https://publish.windowsazure.com) > **modelos de solução** guia > sua oferta > **publicar** > **Push tooStaging** .
-2. Fornece a lista de saudação de assinaturas do Azure que você usará toopreview e testar sua oferta.
-3. Entre no portal de visualização do Azure toohello usando o ID de assinatura de saudação que você usou na etapa anterior hello.
-4. Execute pelo menos uma etapa do teste no portal de visualização do Azure Olá Olá pontos mencionados abaixo:
-   * Certifique-se de que conteúdo de marketing exibida corretamente no hello Azure Marketplace.
-   * Implantação de ponta a ponta da topologia de saudação.
+1. Acesse o [Portal de Publicação](https://publish.windowsazure.com) > **guia Modelos de Solução** > sua oferta > **Publicar** > **Enviar por Push para Preparação**.
+2. Forneça a lista de assinaturas do Azure que você usará para visualizar e testar sua oferta.
+3. Entre no portal de visualização do Azure usando uma dos IDs de assinatura do Azure que você usou na etapa anterior.
+4. Execute pelo menos uma rodada de testes no portal de visualização do Azure nos pontos mencionados a seguir:
+   * Certifique-se de que o conteúdo de marketing seja mostrado corretamente no Azure Marketplace.
+   * Implantação ponta a ponta da topologia.
    * Execute testes de desempenho e testes de estresse.
-   * Certifique-se de que sua topologia adere toohello práticas recomendadas.
+   * Certifique-se de que a sua topologia segue as práticas recomendadas.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se estiver satisfeito com os resultados de saudação, você poderá toohello oferta final publicação fase, **etapa 4**: [Implantando toohello sua oferta Marketplace](marketplace-publishing-push-to-production.md). Caso contrário, faça alterações na oferta e solicite a certificação novamente.
+Se você estiver satisfeito com os resultados, poderá prosseguir para a fase de publicação de oferta final, **Etapa 4**: [Implantando sua oferta no Marketplace](marketplace-publishing-push-to-production.md). Caso contrário, faça alterações na oferta e solicite a certificação novamente.
 
 > [!NOTE]
 > A certificação não é necessária para mudanças de conteúdo de marketing.
 > 
 > 
 
-Consulte [guia de Introdução: como toopublish toohello uma oferta do Azure Marketplace](marketplace-publishing-getting-started.md) para tarefas do publicador de tooall uma guia.
+Confira [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md) para obter um guia para todas as tarefas de editor.
 

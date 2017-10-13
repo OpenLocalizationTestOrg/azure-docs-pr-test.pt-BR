@@ -1,12 +1,12 @@
 ---
-title: aaaSimulated framboesa Pi toocloud (Node. js) - conectar framboesa Pi web simulador tooAzure IoT Hub | Microsoft Docs
-description: Conecte-se tooAzure simulador de web Pi framboesa IoT Hub para Pi framboesa toosend dados toohello nuvem do Azure.
+title: "Raspberry Pi simulado para nuvem (Node.js) – Conectar o simulador web Raspberry Pi ao Hub IoT do Azure | Microsoft Docs"
+description: Conectar o simulador web Raspberry Pi ao Hub IoT do Azure para que o Raspberry Pi envie dados para a nuvem do Azure.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: pi framboesa simulador, azure iot framboesa pi, framboesa pi iot hub pi framboesa enviar dados toocloud, framboesa pi toocloud
+keywords: simulador raspberry pi, raspberry pi azure iot, hub iot raspberry pi, raspberry pi enviar dados para a nuvem, raspberry pi para nuvem
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/28/2017
 ms.author: xshi
-ms.openlocfilehash: 83736caf6ce723a49001058495a780f7f51946a9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b80bf35d6af91d5bdb196d97668dc0f837b92cc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connect-raspberry-pi-online-simulator-tooazure-iot-hub-nodejs"></a>Conecte-se framboesa Pi online simulador tooAzure IoT Hub (Node. js)
+# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar o simulador online Raspberry Pi ao Hub IoT do Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, você começar a aprender Noções básicas de saudação de trabalhar com o simulador online framboesa Pi. Em seguida, você aprenderá como tooseamlessly se conectam a nuvem de toohello Olá Pi simulador usando [Azure IoT Hub](iot-hub-what-is-iot-hub.md). 
+Neste tutorial, você começará aprendendo as noções básicas de como trabalhar com o simulador online Raspberry Pi. Em seguida, aprenderá a conectar o simulador Pi diretamente à nuvem usando o [Hub IoT do Azure](iot-hub-what-is-iot-hub.md). 
 
-Se você tiver dispositivos físicos, visite [tooAzure conectar framboesa Pi IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) tooget iniciado. 
+Se você tiver dispositivos físicos, visite [Conectar ao Raspberry Pi ao Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) para começar. 
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator tooAzure IoT Hub" width="400">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
 <p>
 <div id="button" style="width:100%; text-align:center">
@@ -41,36 +41,36 @@ Se você tiver dispositivos físicos, visite [tooAzure conectar framboesa Pi IoT
 
 ## <a name="what-you-do"></a>O que fazer
 
-* Conheça os fundamentos de saudação do simulator online framboesa Pi.
+* Conheça os fundamentos do simulador online Raspberry Pi.
 * Crie um Hub IoT.
 * Registre um dispositivo para o Pi em seu Hub IoT.
-* Execute um aplicativo de exemplo em dados de sensor do Pi toosend simulado tooyour IoT hub.
+* Execute um aplicativo de exemplo no Pi para enviar os dados do sensor simulado para o seu Hub IoT.
 
-Conecte o hub de IoT simulada de tooan de framboesa Pi que você criar. Em seguida, você executar um aplicativo de exemplo com os dados do sensor toogenerate Olá simulador. Por fim, você pode enviar hub IoT do hello sensor dados tooyour.
+Conecte o Raspberry Pi simulado a um Hub IoT criado por você. Em seguida, você deve executar um aplicativo de exemplo com o simulador para gerar dados de sensor. Por fim, você envia os dados do sensor para o Hub IoT.
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
-* Como toocreate um hub IoT do Azure e obter sua nova cadeia de caracteres de conexão do dispositivo. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
-* Como toowork com o simulador online framboesa Pi.
-* Como hub IoT do toosend sensor dados tooyour.
+* Como criar um Hub IoT do Azure e obter sua nova cadeia de conexão do dispositivo. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* Como trabalhar com o Simulador online Raspberry Pi.
+* Como enviar dados de sensor ao Hub IoT.
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Visão geral do simulador de web do Raspberry Pi
 
-Clique em simulador on-line do hello botão toolaunch framboesa Pi.
+Clique no botão para iniciar o simulador online Raspberry Pi.
 
 > [!div class="button"]
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar o simulador do Raspberry Pi</a>
 
-Há três áreas no simulador do Olá web.
-1. Área do assembly - circuito do saudação padrão é que um Pi se conecta com um sensor BME280 e um LED. área de saudação é bloqueada na versão de visualização assim no momento você não pode fazer a personalização.
-2. Codificação área - um editor de código online para você toocode com framboesa Pi. aplicativo de exemplo Hello padrão ajuda a toocollect os dados do sensor do sensor BME280 e envia tooyour Azure IoT Hub. aplicativo Hello é totalmente compatível com dispositivos de Pi reais. 
-3. Janela de console integrado - ele mostra a saída de saudação do seu código. Na parte superior do hello desta janela, há três botões.
-   * **Executar** -executar o aplicativo hello em Olá codificação área.
-   * **Redefinir** -Olá de redefinição de aplicativo de exemplo área toohello padrão de codificação.
-   * **Dobra/expandir** - nas Olá direita lado existe é um botão para você toofold/expanda Olá janela do console.
+Há três áreas no simulador da web.
+1. Área do assembly - O circuito padrão é que um Pi se conecta com um sensor BME280 e um LED. A área é bloqueada na versão prévia assim no momento você não pode fazer a personalização.
+2. Codificação área - Um editor de código online para você no código com Raspberry Pi. O aplicativo de exemplo padrão ajuda a coletar dados de sensor do sensor BME280 e envia para o Azure IoT Hub. O aplicativo é totalmente compatível com dispositivos de Pi reais. 
+3. Janela de console integrado - Mostra a saída do seu código. Na parte superior da janela, há três botões.
+   * **Executar** - Executar o aplicativo na área de codificação.
+   * **Redefinir** - Redefinir a área de codificação para o aplicativo de exemplo padrão.
+   * **Dobrar/expandir** - No lado direito, há um botão para a dobrar/expandir a janela do console.
 
 > [!NOTE] 
-simulador de web Pi framboesa Olá agora está disponível na versão de visualização. Gostaríamos toohear sua voz Olá [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). código-fonte Olá é público no [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+O simulador de web do Raspberry Pi agora está disponível na versão prévia. Gostaríamos de ouvir sua voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código-fonte é público no [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Visão geral do simulador online de Pi](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
@@ -79,17 +79,17 @@ simulador de web Pi framboesa Olá agora está disponível na versão de visuali
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Executar um aplicativo de exemplo no simulador de web Pi
 
-1. Na área de codificação, verifique se que você estiver trabalhando no aplicativo de exemplo hello padrão. Substitua o espaço reservado de saudação em 15 de linha com hello cadeia de conexão de dispositivo de hub IoT do Azure.
-   ![Substitua a cadeia de caracteres de conexão de dispositivo Olá](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+1. Na área de codificação, verifique se você está trabalhando no aplicativo de exemplo padrão. Substitua o espaço reservado na Linha 15 com cadeia de conexão do dispositivo do Azure IoT hub.
+   ![Substitua a cadeia de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
-2. Clique em **executar** ou tipo `npm start` toorun aplicativo de hello.
+2. Clique em **Executar** ou digite `npm start` para executar o aplicativo.
 
 
-Você deve ver a saída de hello a seguir que mostra dados de sensor hello e mensagens de saudação enviadas tooyour IoT hub ![saída - dados de sensor enviados do hub de IoT tooyour framboesa Pi](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens que são enviadas ao seu Hub IoT ![saída - dados de sensor enviados do Raspberry Pi para o seu Hub IoT](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Executar dados de sensor de toocollect do aplicativo de exemplo e enviá-lo tooyour IoT hub.
+Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

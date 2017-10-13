@@ -1,8 +1,8 @@
 ---
-title: aaaGet iniciado com acesso condicional no Active Directory do Azure | Microsoft Docs
+title: "Introdução ao acesso condicional no Azure Active Directory | Microsoft Docs"
 description: "Teste o acesso condicional usando uma condição de local."
 services: active-directory
-keywords: "tooapps de acesso condicional, o acesso condicional com o AD do Azure, proteger o acesso toocompany recursos, políticas de acesso condicional"
+keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
 documentationcenter: 
 author: MarkusVi
 manager: femila
@@ -15,35 +15,35 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4521f5a34f5882e026f5e58a7127d8c55cba2f0b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd53e8be32d1e98aaf9f72177895871dba69df86
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introdução ao acesso condicional no Azure Active Directory
 
-Acesso condicional é um recurso do Active Directory do Azure que permite que você toodefine condições sob as quais os usuários autorizados podem acessar seus aplicativos. 
+O acesso condicional é um recurso do Azure Active Directory que permite que você defina as condições sob as quais os usuários autorizados possam acessar seus aplicativos. 
 
 Este tópico fornece instruções para testar um acesso condicional com base em uma condição de local em seu ambiente.  
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Um requisito comum em muitas organizações é tooonly exigir autenticação multifator para acesso tooapps que não é executada da intranet corporativa hello. Com o Azure Active Directory, você pode facilmente atingir essa meta, configurando uma política de acesso condicional com base no local. Este tópico fornece instruções detalhadas sobre como configurar uma política relacionada. Olá aproveita a política [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) toodistinguish entre tentativas de acesso de saudação corporativa da intranet e todos os outros locais.
+É um requisito comum em muitas organizações só exigir autenticação multifator para acesso a aplicativos que não é executado desde a intranet corporativa. Com o Azure Active Directory, você pode facilmente atingir essa meta, configurando uma política de acesso condicional com base no local. Este tópico fornece instruções detalhadas sobre como configurar uma política relacionada. A política aproveita os [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) para distinguir entre tentativas de acesso de rede da intranet e todos os outros locais.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Olá cenário descrito neste tópico pressupõe que você esteja familiarizado com os conceitos de saudação descritos em [acesso condicional do Active Directory do Azure](active-directory-conditional-access-azure-portal.md).
+O cenário descrito neste tópico pressupõe que você esteja familiarizado com os conceitos descritos em [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-tootest neste cenário, você precisa:
+Para testar este cenário, você precisa:
 
 - Criar um usuário de teste 
 
-- Atribuir um usuário de teste do Azure AD Premium licença toohello
+- Atribuir uma licença do Azure AD Premium ao usuário de teste
 
-- Configurar um aplicativo gerenciado e atribuir seu tooit de usuário de teste
+- Configurar um aplicativo gerenciado e atribuir o usuário de teste a ele
 
 - Configurar IPs confiáveis
 
@@ -52,29 +52,29 @@ Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis]
 
 ## <a name="policy-configuration-steps"></a>Etapas de configuração de política
 
-**tooconfigure política de acesso condicional, execute:**
+**Para configurar a política de acesso condicional, execute:**
 
-1. No hello portal do Azure, na barra de navegação esquerda hello, clique em **Active Directory do Azure**. 
+1. No portal do Azure, na barra de navegação à esquerda, clique em **Azure Active Directory**. 
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/01.png)
 
-2. Em Olá **Active Directory do Azure** folha em Olá **gerenciar** seção, clique em **acesso condicional**.
+2. Na folha **Azure Active Directory**, na seção **Gerenciar**, clique em **Acesso condicional**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
  
-3. Em Olá **acesso condicional** folha, Olá tooopen **novo** folha, na barra de ferramentas Olá superior hello, clique em **adicionar**.
+3. Na folha **Acesso Condicional**, para abrir a folha **Novo**, na barra de ferramentas na parte superior, clique em **Adicionar**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/03.png)
 
-4. Em Olá **novo** folha em Olá **nome** caixa de texto, digite um nome para a política.
+4. Na folha **Novo**, na caixa de texto **Nome**, digite um nome para a política.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/04.png)
 
-5. Em Olá **atribuição** seção, clique em **usuários e grupos**.
+5. Na seção **Atribuição**, clique em **Usuários e Grupos**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/05.png)
 
-6. Em Olá **usuários e grupos** folha, executar Olá etapas a seguir:
+6. Na folha **Usuários e grupos**, execute as seguintes etapas:
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/06.png)
 
@@ -82,15 +82,15 @@ Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis]
 
     b. Clique em **Selecionar**.
 
-    c. Em Olá **selecione** folha, selecione seu usuário de teste e, em seguida, clique em **selecione**.
+    c. Na folha **Selecionar**, selecione seu usuário de teste e clique em **Selecionar**.
 
-    d. Em Olá **usuários e grupos** folha, clique em **feito**.
+    d. Na folha **Usuários e grupos**, clique em **Concluído**.
 
-7. Em Olá **novo** folha, Olá tooopen **aplicativos de nuvem** folha em Olá **atribuição** seção, clique em **aplicativos de nuvem**.
+7. Na folha **Novo**, para abrir a folha **Aplicativos de nuvem**, na seção **Atribuição**, clique em **Aplicativos de nuvem**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
 
-8. Em Olá **aplicativos de nuvem** folha, executar Olá etapas a seguir:
+8. Na folha **Aplicativos de nuvem**, execute as seguintes etapas:
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/08.png)
 
@@ -98,19 +98,19 @@ Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis]
 
     b. Clique em **Selecionar**.
 
-    c. Em Olá **selecione** folha, selecione o aplicativo de nuvem e, em seguida, clique em **selecione**.
+    c. Na folha **Selecionar**, selecione seu aplicativo em nuvem e, em seguida, clique em **Selecionar**.
 
-    d. Em Olá **aplicativos de nuvem** folha, clique em **feito**.
+    d. Na folha **Aplicativos de nuvem**, clique em **Concluído**.
 
-9. Em Olá **novo** folha, Olá tooopen **condições** folha em Olá **atribuição** seção, clique em **condições**.
+9. Na folha **Novo**, para abrir a folha **Condições**, na seção **Atribuição**, clique em **Condições**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/09.png)
 
-10. Em Olá **condições** folha, Olá tooopen **locais** folha, clique em **locais**.
+10. Na folha **Condições**, para abrir a folha **Locais**, clique em **Locais**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/10.png)
 
-11. Em Olá **locais** folha, executar Olá etapas a seguir:
+11. Na folha **Locais**, execute as seguintes etapas:
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/11.png)
 
@@ -124,13 +124,13 @@ Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis]
 
     d. Clique em **Concluído**.
 
-12. Em Olá **condições** folha, clique em **feito**.
+12. Na folha **Condições**, clique em **Concluído**.
 
-13. Em Olá **novo** folha, Olá tooopen **Grant** folha em Olá **controles** seção, clique em **Grant**.
+13. Na folha **Novo**, para abrir a folha **Conceder**, na seção **Controles**, clique em **Conceder**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
-14. Em Olá **Grant** folha, executar Olá etapas a seguir:
+14. Na folha **Conceder**, execute as seguintes etapas:
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
@@ -138,16 +138,16 @@ Se você precisar de mais detalhes sobre IPs confiáveis, veja [IPs confiáveis]
 
     b. Clique em **Selecionar**.
 
-15. Em Olá **novo** folha, em **habilitar política**, clique em **em**.
+15. Na folha **Novo**, em **Habilitar política**, clique em **Ativar**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
 
-16. Em Olá **novo** folha, clique em **criar**.
+16. Na folha **Novo**, clique em **Criar**.
 
 
-## <a name="testing-hello-policy"></a>Política de teste Olá
+## <a name="testing-the-policy"></a>Testar a política
 
-tootest sua política, você deve acessar o aplicativo de um dispositivo que: 
+Para testar sua política, você deve acessar o aplicativo de um dispositivo que: 
 
 1. Tenha um endereço IP que esteja dentro de seus IPs Confiáveis configurados 
 
@@ -158,5 +158,5 @@ A autenticação multifator só será necessária durante uma tentativa de conex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser toolearn mais sobre o acesso condicional, consulte [acesso condicional do Active Directory do Azure](active-directory-conditional-access-azure-portal.md).
+Se você quiser saber mais sobre o acesso condicional, veja [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

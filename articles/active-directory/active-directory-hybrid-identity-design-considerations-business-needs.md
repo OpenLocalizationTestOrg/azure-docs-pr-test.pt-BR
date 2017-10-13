@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure considerações de design do Active Directory híbrida identidade - determinar requisitos de identidade | Microsoft Docs"
-description: "Identificar as necessidades de negócios da empresa Olá que levarão toodefine requisitos de saudação para design de identidade híbrida Olá."
+title: "Considerações sobre design da identidade híbrida do Azure Active Directory - determinar os requisitos de identidade | Microsoft Docs"
+description: "Identifique as necessidades de negócios da empresa que levarão você definir os requisitos para o design de identidade híbrida."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,92 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b2f1cad923b0f08ededa0d8f9a4ea8e799956e54
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de identidade para sua solução de identidade híbrida
-Olá primeira etapa na criação de uma solução de identidade híbrida é requisitos de saudação toodetermine da organização de negócios de saudação que será a utilização dessa solução.  Identidade híbrida começa como uma função de suporte (há suporte para todas as outras soluções de nuvem, fornecendo autenticação) e vai tooprovide funcionalidades novas e interessantes que desbloquear novas cargas de trabalho para os usuários.  Essas cargas de trabalho ou serviços que você deseja tooadopt para seus usuários ditará os requisitos de saudação para design de identidade híbrida hello.  Esses serviços e cargas de trabalho precisam de identidade híbridas de tooleverage locais e na nuvem hello.  
+A primeira etapa na criação de uma solução de identidade híbrida é determinar os requisitos da organização de negócios que aproveitará essa solução.  A identidade híbrida começa como uma função de suporte (ela dá suporte para todas as outras soluções de nuvem fornecendo autenticação) e prossegue fornecendo recursos novos e interessantes que desbloqueiam novas cargas de trabalho para os usuários.  Essas cargas de trabalho ou os serviços que você deseja adotar para seus usuários determinarão os requisitos de design de identidade híbrida.  Esses serviços e cargas de trabalho precisam aproveitar a identidade híbrida no local e na nuvem.  
 
-Você precisa toogo esses principais aspectos da saudação business toounderstand o que é um requisito agora e que empresa Olá planos para Olá futuras. Se você não tem visibilidade de saudação da estratégia de longo prazo Olá para design de identidade híbrida, a probabilidade é que sua solução não será escalonável conforme as necessidades de negócios de saudação aumenta e muda.   T ele diagrama abaixo mostra um exemplo de um híbrido identidade arquitetura e hello cargas de trabalho que estão sendo desbloqueada para usuários. Isso é apenas um exemplo de todos os Olá novas possibilidades que podem ser desbloqueadas e entregue com uma estratégia de identidade híbrida sólido. 
+Você precisa abordar esses aspectos principais do negócio para entender o que é um requisito agora e quais são os planos da empresa para o futuro. Se você não tiver a visualização da estratégia de longo prazo para o design de identidade híbrida, a probabilidade é a de que sua solução não seja escalonável conforme o crescimento e a mudança nas necessidades dos negócios.   O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e cargas de trabalho que estão sendo desbloqueadas para os usuários. Isso é apenas um exemplo de todos os recursos novos que podem ser desbloqueados e entregues com uma estratégia de identidade híbrida sólida. 
 
-Alguns componentes que fazem parte da arquitetura de identidade híbrida Olá![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que são parte da arquitetura de identidade híbrida ![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinar as necessidades de negócios
-Cada empresa terá requisitos diferentes, mesmo que essas empresas fizerem parte da saudação mesmo setor, os requisitos de negócios reais Olá podem variar. Você ainda pode aproveitar as práticas recomendadas do setor hello, mas, por fim, são necessidades de negócios da empresa Olá que levarão toodefine requisitos de saudação para design de identidade híbrida hello. 
+Cada empresa terá requisitos diferentes, mesmo que essas empresas façam parte do mesmo setor; os requisitos reais dos negócios podem variar. Você ainda pode aproveitar as práticas recomendadas do setor, mas acaba sendo as necessidades da empresa que levarão você a definir os requisitos para o design de identidade híbrida. 
 
-Verifique se a seguir Olá tooanswer perguntas tooidentify sua empresa precisa de:
+Não deixe de responder às seguintes perguntas para identificar suas necessidades de negócios:
 
-* Sua empresa está procurando toocut custos operacionais de TI?
-* Sua empresa está procurando recursos de nuvem toosecure (aplicativos SaaS, infraestrutura)?
-* Sua empresa procurando toomodernize sua equipe de TI?
-  * São os usuários mais exigentes e móveis IT toocreate exceções em seu tipo diferente de tooallow DMZ recursos diferentes do tráfego tooaccess?
-  * Sua empresa tem aplicativos herdados que necessários toobe publicado usuários modernos toothese mas não são fácil toorewrite?
-  * Sua empresa precisa tooaccomplish todas essas tarefas e colocá-lo sob controle Olá simultaneamente?
-* Sua empresa é procurando as identidades dos usuários toosecure e reduzir o risco colocando novas ferramentas que aproveitam a experiência de saudação do Azure segurança experiência local do Microsoft?
-* É sua empresa tentar tooget rid da saudação temido contas "externas" no local e movê-los toohello nuvem em que eles não são mais uma ameaça inativa em seu ambiente local?
+* Sua empresa está procurando reduzir os custos operacionais de TI?
+* Sua empresa está procurando proteger ativos de nuvem (aplicativos SaaS, infraestrutura)?
+* Sua empresa está procurando modernizar sua TI?
+  * Seus usuários são mais exigentes e exigem da TI que esta crie exceções na sua rede de perímetro para permitir outro tipo de tráfego a fim de acessar recursos diferentes?
+  * Sua empresa tem aplicativos herdados que precisavam ser publicados para esses usuários modernos, mas não são fáceis de reescrever?
+  * Sua empresa precisa realizar todas essas tarefas e colocá-las sob controle ao mesmo tempo?
+* Sua empresa está procurando proteger as identidades dos usuários e reduzir riscos trazendo novas ferramentas que utilizam a experiência de segurança do Microsoft Azure no local?
+* Sua empresa está tentando se livrar das temidas contas "externas" no local e movê-las para a nuvem onde não são mais uma ameaça inativa dentro do seu ambiente local?
 
 ## <a name="analyze-on-premises-identity-infrastructure"></a>Analisar a infraestrutura de identidades no local
-Agora que você tem uma ideia sobre os requisitos de negócios da empresa, é necessário tooevaluate sua infraestrutura de identidade local. Essa avaliação é importante para definir Olá requisitos técnicos toointegrate identidade solução toohello nuvem identidade sistema de gerenciamento atual. Certifique-se de saudação tooanswer perguntas a seguir:
+Agora que você tem uma ideia sobre os requisitos de negócios da empresa, precisa avaliar sua infraestrutura de identidade no local. Essa avaliação é importante para definir os requisitos técnicos para integrar sua solução de identidade atual ao sistema de gerenciamento de identidade de nuvem. Certifique-se de responder às seguintes perguntas:
 
 * Que solução de autenticação e autorização sua empresa usa no local? 
 * Sua empresa possui atualmente algum serviço de sincronização local?
 * Sua empresa usa qualquer IdP (provedor de identidade de terceiros)?
 
-Você também precisa toobe com reconhecimento de saudação serviços de nuvem que sua empresa pode ter. Executar uma avaliação toounderstand Olá atual a integração com o SaaS, IaaS ou PaaS modelos em seu ambiente é muito importante. Certifique-se de saudação tooanswer perguntas a seguir durante a avaliação:
+Você também precisa estar ciente dos serviços de nuvem que sua empresa pode ter. É muito importante executar uma avaliação para entender a integração atual com os modelos SaaS, IaaS ou PaaS em seu ambiente. Certifique-se de responder às seguintes perguntas durante essa avaliação:
 
 * Sua empresa tem alguma integração com um provedor de serviços de nuvem?
 * Em caso afirmativo, quais serviços estão sendo usados?
 * Atualmente, essa integração está em produção ou é um piloto?
 
 > [!NOTE]
-> Se você não tiver um mapeamento de precisão de todos os seus aplicativos e serviços em nuvem, você pode usar a ferramenta do Cloud App Discovery Olá. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Que torna mais fácil do que nunca toodiscover shadow IT em sua organização, incluindo detalhes sobre os padrões de uso e de quaisquer usuários acessando seus aplicativos na nuvem. Consulte tooget iniciado [do Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para começar, consulte [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 
 ## <a name="evaluate-identity-integration-requirements"></a>Avaliar os requisitos de integração de identidade
-Em seguida, você precisa tooevaluate requisitos de integração de identidade de saudação. Essa avaliação é importante toodefine requisitos técnicos do Olá para como fará a autenticação de usuários, como presença da organização Olá aparecerão na nuvem de saudação, como a organização Olá permitirá que a autorização e experiência do usuário que Olá é toobe contínuo. Certifique-se de saudação tooanswer perguntas a seguir:
+Em seguida, você precisa avaliar os requisitos de integração de identidade. Essa avaliação é importante para definir os requisitos técnicos de como os usuários serão autenticados, qual será a aparência da presença da organização na nuvem, como a organização permitirá a autorização e como será a experiência do usuário. Certifique-se de responder às seguintes perguntas:
 
 * Sua organização usará federação, autenticação padrão ou ambos?
-* A federação é um requisito?  Devido ao seguinte hello:
+* A federação é um requisito?  Por causa do seguinte:
   * SSO baseada em Kerberos
   * Sua empresa tem um aplicativo local (seja criado internamente ou de terceiros) que usa SAML ou recursos de federação semelhantes.
   * MFA usando cartões inteligentes. RSA SecurID, etc.
-  * Regras de acesso de cliente que aborde questões de saudação abaixo:
-    1. Posso bloquear todos os tooOffice de acesso externo 365 com base no endereço IP de saudação do cliente Olá?
-    2. Posso bloquear todos os tooOffice de acesso externo 365, exceto o Exchange ActiveSync?
-    3. Posso bloquear todos os tooOffice de acesso externo 365, exceto aplicativos baseados em navegador (OWA, SPO)
-    4. Pode bloquear todos os tooOffice de acesso externo 365 para membros de grupos do AD designados
+  * Regras de acesso para cliente que abordam as perguntas a seguir:
+    1. Posso bloquear todo o acesso externo ao Office 365 baseado no endereço IP do cliente?
+    2. Posso bloquear todo o acesso externo ao Office 365 exceto o ActiveSync do Exchange?
+    3. Posso bloquear todo o acesso externo ao Office 365, exceto aplicativos baseados em navegador (OWA, SPO)
+    4. Pode bloquear todo o acesso externo ao Office 365 de membros de grupos do AD designados
 * Preocupações de auditoria/segurança
 * Investimento já existente na autenticação federada
-* Qual nome de nossa organização usará para nosso domínio na nuvem Olá?
-* Organização de saudação tem um domínio personalizado?
+* Qual nome a nossa organização usará para nosso domínio na nuvem?
+* A organização tem um domínio personalizado?
   1. Esse domínio é público e verificável facilmente usando DNS?
-  2. Se não for, em seguida, você tem um domínio público que pode ser usado tooregister um UPN alternativo no AD?
-* Identificadores de usuário Olá são consistentes para representação de nuvem? 
-* Organização de saudação têm aplicativos que exigem integração com serviços de nuvem?
-* Organização de saudação tem vários domínios e todos eles usará a autenticação federada ou padrão?
+  2. Se não for, você tem um domínio público que possa ser usado para registrar um UPN alternativo no AD?
+* Os identificadores de usuário são consistentes para a representação de nuvem? 
+* A empresa possui aplicativos que requerem integração com serviços de nuvem?
+* A organização possui vários domínios e todos eles usarão a autenticação federada ou padrão?
 
 ## <a name="evaluate-applications-that-run-in-your-environment"></a>Avaliar aplicativos executados em seu ambiente
-Agora que você tem uma ideia sobre seus locais e infraestrutura de nuvem, você precisa de aplicativos de saudação tooevaluate que são executados nesses ambientes. Essa avaliação é importante toodefine Olá requisitos técnicos toointegrate sistema de gerenciamento de identidade de nuvem para toohello esses aplicativos. Certifique-se de saudação tooanswer perguntas a seguir:
+Agora que você tem uma ideia sobre suas instalações e infraestrutura de nuvem, precisa avaliar os aplicativos executados nesses ambientes. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos ao sistema de gerenciamento de identidades na nuvem. Certifique-se de responder às seguintes perguntas:
 
 * Onde nossos aplicativos residirão?
-* Os usuários acessarão os aplicativos no local?  Na nuvem Olá? Ou ambos?
-* Existem planos tootake Olá aplicativo cargas de trabalho existentes e movê-los toohello nuvem?
-* Há planos toodevelop novos aplicativos que residem no local ou na saudação de nuvem que usará a autenticação de nuvem?
+* Os usuários acessarão os aplicativos no local?  Na nuvem? Ou ambos?
+* Há planos para levar as cargas de trabalho de aplicativo existentes e movê-las para a nuvem?
+* Há planos para desenvolver novos aplicativos que residirão no local ou na nuvem que usará autenticação de nuvem?
 
 ## <a name="evaluate-user-requirements"></a>Avaliar os requisitos do usuário
-Você também tem requisitos de usuário tooevaluate hello. Essa avaliação é toodefine importantes etapas de saudação que serão necessário para a integração e ajudando os usuários como transição toohello nuvem. Certifique-se de saudação tooanswer perguntas a seguir:
+Você também precisa avaliar os requisitos do usuário. Essa avaliação é importante para definir as etapas que serão necessárias para a integração e para ajudar os usuários com a transição para a nuvem. Certifique-se de responder às seguintes perguntas:
 
 * Os usuários acessarão aplicativos no local?
-* Os usuários acessarão os aplicativos na nuvem Olá?
-* Como fazer os usuários normalmente tootheir logon local ambiente?
-* Como os usuários entrar toohello será nuvem?
+* Os usuários acessarão aplicativos na nuvem?
+* Como os usuários normalmente entram em seu ambiente local?
+* Como os usuários entrarão na nuvem?
 
 > [!NOTE]
-> Verifique se anotações tootake de cada resposta e entender Olá lógica por trás da resposta de saudação. [Determinar requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções de saudação disponíveis e profissionais/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+> Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções disponíveis e os prós e contras de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 > 
 > 
 

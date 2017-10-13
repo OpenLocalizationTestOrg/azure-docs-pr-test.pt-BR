@@ -1,6 +1,6 @@
 ---
-title: "aaaReport e verificação de integridade com o Azure Service Fabric | Microsoft Docs"
-description: "Saiba como relatórios de integridade de toosend do seu código de serviço e como fornece integridade de saudação toocheck do seu serviço usando ferramentas de monitoramento de integridade de saudação que Azure Service Fabric."
+title: Relatar e verificar a integridade com o Service Fabric do Azure| Microsoft Docs
+description: "Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.openlocfilehash: bcb838fefe3f2054447e1731d709e455560260e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
-Quando os serviços de encontram problemas, seus incidentes de correção de capacidade toorespond tooand e interrupções depende de sua capacidade toodetect Olá problemas rapidamente. Se você relatar problemas e falhas de Gerenciador de integridade do Azure Service Fabric toohello do seu código de serviço, você pode usar ferramentas do Service Fabric fornece o status de integridade de saudação toocheck de monitoramento de integridade padrão.
+Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir os incidentes e as interrupções depende da sua capacidade de detectar os problemas rapidamente. Se relatar problemas e falhas ao gerenciador de integridade do Azure Service Fabric usando seu código de serviço, você pode usar ferramentas padrão de monitoramento de integridade fornecidas pelo Service Fabric para verificar o status de integridade.
 
-Há três maneiras que você pode relatar a integridade do serviço de saudação:
+Há três maneiras de relatar a integridade no serviço:
 
 * Usar os objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
-  Você pode usar o hello `Partition` e `CodePackageActivationContext` tooreport integridade de saudação de elementos que fazem parte do contexto atual de saudação de objetos. Por exemplo, código que é executado como parte de uma réplica pode reportar integridade somente essa réplica, partição Olá que pertence a e aplicativo hello que ele faz parte do.
+  Você pode usar os objetos `Partition` e `CodePackageActivationContext` para relatar a integridade de elementos que fazem parte do contexto atual. Por exemplo, o código que é executado como parte de uma réplica pode relatar a integridade apenas dessa réplica, da partição a qual pertence e do aplicativo do qual faz parte.
 * Usar o `FabricClient`.   
-  Você pode usar `FabricClient` tooreport integridade do código de serviço Olá se Olá cluster não está [segura](service-fabric-cluster-security.md) ou se o serviço de hello está sendo executado com privilégios de administrador. A maioria dos cenários do mundo real não usa clusters inseguros ou fornece privilégios de administrador. Com `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster de saudação. Idealmente, no entanto, o código de serviço deve apenas enviar relatórios de integridade próprio tooits relacionados.
-* Olá Use APIs REST no cluster hello, aplicativo, aplicativo implantado, serviço, o pacote de serviço, partição, réplica ou níveis de nó. Isso pode ser usado tooreport a integridade de dentro de um contêiner.
+  Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. A maioria dos cenários do mundo real não usa clusters inseguros ou fornece privilégios de administrador. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.
+* Use as APIs REST no cluster, no aplicativo, no aplicativo implantado, no serviço, no pacote de serviço, na partição, na réplica ou nos níveis de nó. Isso pode ser usado para relatar a integridade no interior de um contêiner.
 
-Este artigo o orienta por meio de um exemplo que relata a integridade do código de saudação do serviço. exemplo Hello também mostra como ferramentas Olá fornecidas pela malha do serviço podem ser usado toocheck status de integridade de saudação. Este artigo é pretendido toobe integridade de toohello uma rápida introdução recursos de malha do serviço de monitoramento. Para obter mais informações, você pode ler a série de saudação de artigos detalhados sobre integridade que começam com hello link no final deste artigo hello.
+Este artigo apresenta um exemplo que relata a integridade do código de serviço. O exemplo também mostra como as ferramentas fornecidas pelo Service Fabric podem ser usadas para verificar o status de integridade. Este artigo é uma rápida introdução aos recursos de monitoramento de integridade do Service Fabric. Para obter informações mais detalhadas, você pode ler a série de artigos explicativos sobre integridade, começando com o link no fim deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você deve ter o seguinte Olá instalado:
+Você deve ter o seguinte instalado:
 
 * Visual Studio 2015 ou Visual Studio 2017
 * SDK da Malha do Serviço
 
-## <a name="toocreate-a-local-secure-dev-cluster"></a>toocreate um cluster de desenvolvimento de segurança local
-* Abra o PowerShell com privilégios de administrador e execute Olá comandos a seguir:
+## <a name="to-create-a-local-secure-dev-cluster"></a>Para criar um cluster de desenvolvimento local seguro
+* Abra o PowerShell com privilégios de administrador e execute os comandos a seguir:
 
-![Comandos que mostram como toocreate um cluster de desenvolvimento seguro](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
+![Comandos que mostram como criar um cluster de desenvolvimento seguro](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
-## <a name="toodeploy-an-application-and-check-its-health"></a>toodeploy um aplicativo e verificar sua integridade
+## <a name="to-deploy-an-application-and-check-its-health"></a>Para implantar um aplicativo e verificar sua integridade
 1. Abra o Visual Studio como administrador.
-2. Criar um projeto usando Olá **serviço de monitoração de estado** modelo.
+2. Crie um projeto usando o modelo **Serviço com Estado** .
    
     ![Criar um aplicativo do Service Fabric com serviço com estado](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. Pressione **F5** aplicativo hello de toorun no modo de depuração. aplicativo Hello é cluster local toohello implantado.
-4. Depois que o aplicativo hello está em execução, ícone do Gerenciador de Cluster Local Olá na área de notificação hello e selecione **gerenciar o Cluster Local** de tooopen de menu de atalho Olá Service Fabric Explorer.
+3. Pressione **F5** para executar o aplicativo no modo de depuração. O aplicativo é implantado no cluster local.
+4. Depois que o aplicativo estiver em execução, clique com o botão direito do mouse no ícone do Gerenciador de Cluster Local na área de notificação e selecione **Gerenciar Cluster Local** no menu de atalho para abrir o Service Fabric Explorer.
    
     ![Abra o Service Fabric Explorer na área de notificação](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
-5. integridade do aplicativo Hello deve ser exibida como esta imagem. Neste momento, o aplicativo hello deverão estar Íntegro sem erros.
+5. A integridade do aplicativo deve ser exibida como nesta imagem. Neste momento, o aplicativo deve estar íntegro, sem erros.
    
     ![Aplicativo de integridade no Gerenciador do Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-healthy-app.png)
-6. Você também pode verificar a integridade de saudação usando o PowerShell. Você pode usar ```Get-ServiceFabricApplicationHealth``` toocheck integridade de um aplicativo e você pode usar ```Get-ServiceFabricServiceHealth``` toocheck integridade do serviço. Olá relatório de integridade de saudação do mesmo aplicativo no PowerShell é nesta imagem.
+6. Você também pode verificar a integridade usando o PowerShell. Você pode usar ```Get-ServiceFabricApplicationHealth``` para verificar a integridade de um aplicativo e ```Get-ServiceFabricServiceHealth``` para verificar a integridade de um serviço. O relatório de integridade para o mesmo aplicativo no PowerShell está nesta imagem.
    
     ![Aplicativo de integridade no PowerShell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
-## <a name="tooadd-custom-health-events-tooyour-service-code"></a>código de serviço tooyour do eventos de integridade personalizado tooadd
-modelos de projeto do Service Fabric Olá no Visual Studio contêm o código de exemplo. Olá etapas a seguir mostram como você pode relatar eventos de integridade personalizado no seu código de serviço. Esses relatórios mostram automaticamente em ferramentas padrão de saudação do Service Fabric fornece, como Service Fabric Explorer, exibição de integridade do portal do Azure e do PowerShell de monitoramento de integridade.
+## <a name="to-add-custom-health-events-to-your-service-code"></a>Para adicionar eventos de integridade personalizados ao seu código de serviço
+Os modelos de projeto do Service Fabric no Visual Studio contêm código de exemplo. As etapas a seguir mostram como você pode relatar eventos de integridade personalizados do seu código de serviço. Esses relatórios serão exibidos automaticamente nas ferramentas padrão para monitoramento de integridade fornecidas pelo Service Fabric, como o Service Fabric Explorer, a exibição de integridade do Portal do Azure e o PowerShell.
 
-1. Reabra o aplicativo hello que você criou anteriormente no Visual Studio, ou criar um novo aplicativo usando Olá **serviço de monitoração de estado** modelo do Visual Studio.
-2. Abrir o arquivo de Stateful1.cs hello e localize Olá `myDictionary.TryGetValueAsync` chamar hello `RunAsync` método. Você pode ver que esse método retorna um `result` que mantém Olá valor atual do contador de saudação porque a lógica de chave Olá neste aplicativo é tookeep um execução de contagem. Se esse fosse um aplicativo real, e falta de saudação do resultado representado uma falha, você desejaria tooflag desse evento.
-3. tooreport um evento de integridade quando falta de saudação do resultado representa uma falha, adicione Olá etapas a seguir.
+1. Abra novamente o aplicativo que você criou anteriormente no Visual Studio ou crie um novo usando o modelo de **Serviço com Estado** do Visual Studio.
+2. Abra o arquivo Stateful1.cs e encontre a chamada `myDictionary.TryGetValueAsync` no método `RunAsync`. Você pode ver que esse método retorna um `result` que mantém o valor atual do contador, pois a lógica principal desse aplicativo é manter uma contagem em execução. Se esse fosse um aplicativo real e a falta de resultado representasse uma falha, seria necessário sinalizar esse evento.
+3. Para relatar um evento de integridade quando a falta de resultado representa uma falha, adicione as etapas a seguir.
    
-    a. Adicionar Olá `System.Fabric.Health` namespace toohello Stateful1.cs arquivo.
+    a. Adicione o namespace `System.Fabric.Health` ao arquivo Stateful1.cs.
    
     ```csharp
     using System.Fabric.Health;
     ```
    
-    b. Adicionar Olá código a seguir após Olá `myDictionary.TryGetValueAsync` chamar
+    b. Adicione o seguinte código após a chamada `myDictionary.TryGetValueAsync`
    
     ```csharp
     if (!result.HasValue)
@@ -82,9 +82,9 @@ modelos de projeto do Service Fabric Olá no Visual Studio contêm o código de 
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-    Relatamos a integridade da réplica porque ela está sendo relatada de um serviço com estado. Olá `HealthInformation` parâmetro armazena informações sobre o problema de integridade de saudação que está sendo relatado.
+    Relatamos a integridade da réplica porque ela está sendo relatada de um serviço com estado. O parâmetro `HealthInformation` armazena informações sobre o problema de integridade que está sendo relatado.
    
-    Se você tivesse criado um serviço sem monitoração de estado, use Olá código a seguir
+    Se você tiver criado um serviço sem estado, use o código a seguir
    
     ```csharp
     if (!result.HasValue)
@@ -93,15 +93,15 @@ modelos de projeto do Service Fabric Olá no Visual Studio contêm o código de 
         this.Partition.ReportInstanceHealth(healthInformation);
     }
     ```
-4. Se o serviço é executado com privilégios de administrador ou se hello cluster não for [segura](service-fabric-cluster-security.md), você também pode usar `FabricClient` tooreport integridade conforme Olá etapas a seguir.  
+4. Se o serviço estiver sendo executado com privilégios de administrador ou se o cluster não for [seguro](service-fabric-cluster-security.md), também será possível usar `FabricClient` para relatar a integridade conforme mostrado nas etapas a seguir.  
    
-    a. Criar hello `FabricClient` instância após Olá `var myDictionary` declaração.
+    a. Crie a instância do `var myDictionary` após a declaração `FabricClient`.
    
     ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    b. Adicionar Olá código a seguir após Olá `myDictionary.TryGetValueAsync` chamar.
+    b. Adicione o seguinte código após a chamada `myDictionary.TryGetValueAsync` :
    
     ```csharp
     if (!result.HasValue)
@@ -113,7 +113,7 @@ modelos de projeto do Service Fabric Olá no Visual Studio contêm o código de 
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }
     ```
-5. Vamos simular essa falha e ser exibido em ferramentas de monitoramento de integridade de saudação. Falha de saudação toosimulate, comente a primeira linha hello integridade Olá código de relatório que você adicionou anteriormente. Depois que você comentar a primeira linha de saudação, código Olá se parecerá com hello exemplo a seguir.
+5. Vamos simular essa falha e ver como ela é exibida nas ferramentas de monitoramento de integridade. Para simular a falha, comente a primeira linha no código de relatório de integridade adicionado anteriormente. Depois de comentar a primeira linha, o código se parecerá com este exemplo:
    
     ```csharp
     //if(!result.HasValue)
@@ -122,24 +122,24 @@ modelos de projeto do Service Fabric Olá no Visual Studio contêm o código de 
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   Esse código é acionado relatório de integridade Olá sempre `RunAsync` executa. Após você alterar hello, pressione **F5** aplicativo hello de toorun.
-6. Depois que o aplicativo hello está em execução, abra integridade de saudação do Service Fabric Explorer toocheck do aplicativo hello. Neste momento, o Service Fabric Explorer mostra que o aplicativo hello está íntegro. Isso é devido a erro de saudação que foi relatado do código de saudação que adicionamos anteriormente.
+   Esse código aciona o relatório de integridade sempre que o `RunAsync` é executado. Depois de fazer a alteração, pressione **F5** para executar o aplicativo.
+6. Depois que o aplicativo estiver em execução, abra o Service Fabric Explorer para verificar a integridade do aplicativo. Desta vez, o Service Fabric Explorer mostra que o aplicativo não está íntegro. Isso ocorre devido ao erro relatado no código que adicionamos anteriormente.
    
     ![Aplicativo não íntegro no Gerenciador do Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
-7. Se você selecionar a réplica primária Olá na exibição de árvore de saudação do Service Fabric Explorer, você verá que **estado de integridade** indica um erro, muito. Service Fabric Explorer também exibe o relatório de integridade Olá detalhes que foram adicionados toohello `HealthInformation` parâmetro no código de saudação. Você pode ver Olá mesmo relatórios de integridade no PowerShell e Olá portal do Azure.
+7. Se você selecionar a réplica primária na exibição de árvore do Service Fabric Explorer, verá que **Estado de Integridade** indica um erro também. O Service Fabric Explorer também exibe os detalhes do relatório de integridade que foram adicionados ao parâmetro `HealthInformation` no código. Você pode ver os mesmos relatórios de integridade no PowerShell e no Portal do Azure.
    
     ![Integridade da réplica no Gerenciador do Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-Este relatório permanece no Gerenciador de integridade Olá até que ele seja substituído por outro relatório ou até que essa réplica será excluída. Como nós não definimos `TimeToLive` para este relatório de integridade no hello `HealthInformation` objeto relatório Olá nunca expira.
+Esse relatório permanece no gerenciador de integridade até que seja substituído por outro relatório ou até que essa réplica seja excluída. Como nós não definimos `TimeToLive` para este relatório de integridade no objeto `HealthInformation`, o relatório nunca expira.
 
-É recomendável que a integridade deve ser relatada no nível mais granular hello, que nesse caso é a réplica hello. Você também pode relatar a integridade em `Partition`.
+Recomendamos que a integridade seja relatada no nível mais granular. Neste caso, é a réplica. Você também pode relatar a integridade em `Partition`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-integridade de tooreport em `Application`, `DeployedApplication`, e `DeployedServicePackage`, use `CodePackageActivationContext`.
+Para relatar a integridade em `Application`, `DeployedApplication` e `DeployedServicePackage`, use `CodePackageActivationContext`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);

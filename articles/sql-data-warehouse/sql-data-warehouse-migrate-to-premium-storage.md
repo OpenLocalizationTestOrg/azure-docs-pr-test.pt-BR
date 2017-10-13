@@ -1,6 +1,6 @@
 ---
-title: "aaaMigrate toopremium armazenamento de depósito de dados existentes do Azure | Microsoft Docs"
-description: "Instruções para migrar um armazenamento toopremium existente do data warehouse"
+title: Migrar seu data warehouse existente do Azure para o armazenamento premium | Microsoft Docs
+description: "Instruções para migrar um data warehouse existente para o armazenamento premium"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,19 +15,19 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 145199c2da1f6f1fb8898626cd04886c42d82204
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="migrate-your-data-warehouse-toopremium-storage"></a>Migrar o armazenamento do data warehouse toopremium
-Recentemente, o Azure SQL Data Warehouse apresentou o [Armazenamento premium para maior previsibilidade de desempenho][premium storage for greater performance predictability]. Os dados existentes warehouses atualmente no armazenamento padrão podem ser migrados toopremium armazenamento. Você pode tirar proveito da migração automática, ou se você preferir toocontrol quando toomigrate (que envolvem algum tempo de inatividade), você pode fazer Olá a migração.
+# <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrar seu data warehouse para o armazenamento premium
+Recentemente, o Azure SQL Data Warehouse apresentou o [Armazenamento premium para maior previsibilidade de desempenho][premium storage for greater performance predictability]. Agora, os data warehouses existentes atualmente no armazenamento standard podem ser migrados para o armazenamento premium. Você pode aproveitar a migração automática ou, se preferir controlar quando migrar (o que envolve algum tempo de inatividade), você mesmo pode fazer a migração.
 
-Se você tiver mais de um data warehouse, use Olá [agenda a migração automática] [ automatic migration schedule] toodetermine quando ele também será migrado.
+Se você tiver mais de um data warehouse, use o [agendamento de migração automática][automatic migration schedule] para determinar quando ele será migrado também.
 
 ## <a name="determine-storage-type"></a>Determinar o tipo de armazenamento
-Se você tiver criado um data warehouse antes de saudação datas a seguir, você está usando atualmente o armazenamento padrão.
+Se você criou um data warehouse antes das datas abaixo, estará usando o armazenamento standard.
 
 | **Região** | **Data warehouse criado antes desta data** |
 |:--- |:--- |
@@ -41,31 +41,31 @@ Se você tiver criado um data warehouse antes de saudação datas a seguir, voc�
 | Centro-Norte dos EUA |10 de novembro de 2016 |
 
 ## <a name="automatic-migration-details"></a>Detalhes da migração automática
-Por padrão, irá migrar seu banco de dados para que você entre 6:00 e às 6:00 AM na hora local, da região durante a saudação [agenda a migração automática][automatic migration schedule]. O data warehouse existente será inutilizável durante a migração de saudação. migração de saudação levará aproximadamente uma hora por terabyte de armazenamento por depósito de dados. Você não será cobrado durante qualquer parte da migração automática de saudação.
+Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local de sua região durante o [agendamento de migração automática][automatic migration schedule]. Seu data warehouse existente ficará inutilizável durante a migração. A migração levará cerca de uma hora por terabyte de armazenamento por data warehouse. Não haverá cobrança durante qualquer parte da migração automática.
 
 > [!NOTE]
-> Quando a saudação migração for concluída, o data warehouse será novamente online e utilizável.
+> Após a conclusão da migração, o data warehouse ficará online e utilizável novamente.
 >
 >
 
-Microsoft está demorando Olá após a migração de saudação toocomplete etapas (eles não exigem qualquer envolvimento de sua parte). Neste exemplo, imagine que o data warehouse existente no armazenamento standard é chamado atualmente de "MyDW".
+A Microsoft está executando as etapas a seguir para concluir a migração (elas não exigem qualquer envolvimento de sua parte). Neste exemplo, imagine que o data warehouse existente no armazenamento standard é chamado atualmente de "MyDW".
 
-1. Microsoft renomeia "MyDW" muito "MyDW_DO_NOT_USE_ [Timestamp]".
+1. A Microsoft renomeia “MyDW” para “MyDW_DO_NOT_USE_[Carimbo de data/hora]”
 2. A Microsoft pausa o “MyDW_DO_NOT_USE_[carimbo de data/hora]”. Durante esse tempo, um backup é feito. Você poderá ver várias pausas e retomadas se encontrarmos problemas durante o processo.
-3. Microsoft cria um novo data warehouse denominado "MyDW" no armazenamento premium do backup Olá feito na etapa 2. "MyDW" não será exibido até após a conclusão da restauração de saudação.
-4. Após a conclusão da restauração hello, "MyDW" retorna toohello mesmo data warehouse unidades e estado (em pausa ou ativa) que estava antes da migração de saudação.
-5. Após a conclusão da migração hello, a Microsoft exclui "MyDW_DO_NOT_USE_ [Timestamp]".
+3. A Microsoft cria um novo data warehouse chamado "MyDW" no armazenamento premium do backup feito na etapa 2. "MyDW" não será exibido até a restauração ser concluída.
+4. Após a conclusão da restauração, "MyDW" retornará para as mesmas unidades de data warehouse e para o mesmo estado (em pausa ou ativo) em que estava antes da migração.
+5. Após a conclusão da migração, a Microsoft excluirá "MyDW_DO_NOT_USE_ [Carimbo de data/hora]".
 
 > [!NOTE]
-> Olá configurações a seguir não serão transferidos como parte da migração de saudação:
+> As configurações a seguir não são transferidas como parte da migração:
 >
-> * Auditoria no nível de banco de dados de saudação precisa toobe habilitada novamente.
-> * Regras de firewall no nível de banco de dados de saudação necessário toobe adicionado novamente. Regras de firewall no nível do servidor de saudação não são afetadas.
+> * A auditoria no nível do banco de dados precisa ser habilitada novamente.
+> * As regras de firewall no nível do banco de dados precisam ser adicionadas novamente. As regras de firewall no nível do servidor não deverão ser afetadas.
 >
 >
 
 ### <a name="automatic-migration-schedule"></a>cronograma de migração automática
-As migrações automáticas ocorrerem entre 6:00 e às 6:00 AM (hora local por região) durante a saudação agenda de interrupção a seguir.
+As migrações automáticas ocorrem das 18h às 6h (hora local por região) durante o cronograma de interrupção a seguir.
 
 | **Região** | **Data de início estimada** | **Data de término estimada** |
 |:--- |:--- |:--- |
@@ -78,49 +78,49 @@ As migrações automáticas ocorrerem entre 6:00 e às 6:00 AM (hora local por r
 | Oeste do Japão |Ainda não foi determinado |Ainda não foi determinado |
 | Centro-Norte dos EUA |9 de janeiro de 2017 |13 de janeiro de 2017 |
 
-## <a name="self-migration-toopremium-storage"></a>Armazenamento de toopremium migração Self
-Se você quiser toocontrol quando o tempo de inatividade, você pode usar o hello seguindo as etapas toomigrate um data warehouse existente no armazenamento de toopremium de armazenamento padrão. Se você escolher essa opção, você deve concluir a migração de Self Olá antes de começa a migração automática de saudação nessa região. Isso garante que você evite qualquer risco de migração automática Olá, causando um conflito (consulte toohello [agenda a migração automática][automatic migration schedule]).
+## <a name="self-migration-to-premium-storage"></a>Automigração para o armazenamento premium
+Se quiser controlar quando o tempo de inatividade deverá ocorrer, você poderá usar as etapas a seguir para migrar um data warehouse existente no armazenamento standard para o armazenamento premium. Se você escolher essa opção, deverá concluir a migração antes de a migração automática começar nessa região. Isso evita qualquer risco de a migração automática causar um conflito (consulte a [agendamento de migração automática][automatic migration schedule]).
 
 ### <a name="self-migration-instructions"></a>Instruções de automigração
-toomigrate seus dados do data warehouse por conta própria, usam Olá backup e restauração recursos. parte de restauração de saudação de migração de saudação é esperado tootake cerca de uma hora por terabyte de armazenamento por do data warehouse. Se você quiser Olá tookeep mesmo nome após a conclusão da migração, siga Olá [toorename etapas durante a migração][steps toorename during migration].
+Para você mesmo migrar seu data warehouse, use os recursos de backup e restauração. A parte de restauração da migração deve demorar cerca de uma hora por terabyte de armazenamento por data warehouse. Se você desejar manter o mesmo nome após a conclusão da migração, execute as [etapas para renomear durante a migração][steps to rename during migration].
 
 1. [Pause][Pause] seu data warehouse. Isso leva a um backup automático.
 2. [Restaure][Restore] usando o instantâneo mais recente.
-3. Exclua seu data warehouse existente do armazenamento standard. **Se você não toodo esta etapa, você será cobrado para ambos os data warehouses.**
+3. Exclua seu data warehouse existente do armazenamento standard. **Se você não conseguir fazer isso, será cobrado pelos dois data warehouses.**
 
 > [!NOTE]
-> Olá configurações a seguir não serão transferidos como parte da migração de saudação:
+> As configurações a seguir não são transferidas como parte da migração:
 >
-> * Auditoria no nível de banco de dados de saudação precisa toobe habilitada novamente.
-> * Regras de firewall no nível de banco de dados de saudação necessário toobe adicionado novamente. Regras de firewall no nível do servidor de saudação não são afetadas.
+> * A auditoria no nível do banco de dados precisa ser habilitada novamente.
+> * As regras de firewall no nível do banco de dados precisam ser adicionadas novamente. As regras de firewall no nível do servidor não deverão ser afetadas.
 >
 >
 
 #### <a name="rename-data-warehouse-during-migration-optional"></a>Renomear o data warehouse durante a migração (opcional)
-Dois bancos de dados no mesmo servidor lógico não pode ter de saudação Olá o mesmo nome. SQL Data Warehouse agora dá suporte a capacidade de saudação toorename um data warehouse.
+Dois bancos de dados no mesmo servidor lógico não podem ter o mesmo nome. O SQL Data Warehouse agora dá suporte para a capacidade de renomear um data warehouse.
 
 Neste exemplo, imagine que o data warehouse existente no armazenamento standard é chamado atualmente de "MyDW".
 
-1. Renomear "MyDW" usando Olá após o comando ALTER DATABASE. (Neste exemplo, iremos renomeá-lo "MyDW_BeforeMigration.")  Esse comando interrompe todas as transações existentes e deve ser feito em Olá toosucceed de banco de dados mestre.
+1. Renomeie "MyDW" usando o seguinte comando ALTER DATABASE. (Neste exemplo, o renomearemos como "MyDW_BeforeMigration".) Esse comando interrompe todas as transações existentes e deve ser feito no banco de dados mestre para ter êxito.
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
 2. [Pause][Pause] "MyDW_BeforeMigration." Isso leva a um backup automático.
-3. [Restaurar] [ Restore] do seu instantâneo mais recente, um novo banco de dados com o nome da saudação era toobe (por exemplo, "MyDW").
-4. Exclua "MyDW_BeforeMigration". **Se você não toodo esta etapa, você será cobrado para ambos os data warehouses.**
+3. [Restaure][Restore], usando o instantâneo mais recente, um novo banco de dados com o nome antigo (por exemplo, “MyDW”).
+4. Exclua "MyDW_BeforeMigration". **Se você não conseguir fazer isso, será cobrado pelos dois data warehouses.**
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Olá alterar toopremium armazenamento, você também tem um número maior de arquivos do banco de dados blob na arquitetura subjacente de saudação do data warehouse. benefícios de desempenho de saudação toomaximize dessa alteração, reconstrua os índices columnstore clusterizados usando Olá script a seguir. script Hello funciona, forçando a alguns dos seus existente blobs de dados toohello adicionais. Se você não executar nenhuma ação, dados saudação naturalmente serão redistribuir ao longo do tempo conforme você carregar mais dados em tabelas.
+Com a alteração para o armazenamento premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu data warehouse. Para maximizar os benefícios de desempenho dessa mudança, recompile seus índices columnstore clusterizados usando o script a seguir. O script funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas.
 
 **Pré-requisitos:**
 
-- Olá depósito de dados deve ser executado com unidades de depósito de 1.000 dados ou mais recente (consulte [capacidade de computação de escala][scale compute power]).
-- Olá usuário executando o script hello deve estar no hello [mediumrc função] [ mediumrc role] ou superior. tooadd uma função do usuário toothis, execute o seguinte hello:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- O data warehouse deve ser executado com 1.000 unidades de data warehouse ou mais (consulte [capacidade de computação de escala][scale compute power]).
+- O usuário que executa o script deve estar na [função mediumrc][mediumrc role] ou superior. Para adicionar um usuário a essa função, execute o seguinte: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
--- Step 1: Create table toocontrol index rebuild
+-- Step 1: Create table to control index rebuild
 -- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 create table sql_statements
@@ -138,7 +138,7 @@ where
 go
 
 --------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, hello below can be re-run toorestart where last left off.
+-- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
 -- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 
@@ -160,19 +160,19 @@ drop table sql_statements;
 go
 ````
 
-Se você encontrar algum problema com o data warehouse, [criar um tíquete de suporte] [ create a support ticket] e fazer referência a "toopremium de armazenamento de migração" como causa possível hello.
+Se você tiver algum problema com o data warehouse, [crie um tíquete de suporte][create a support ticket] e faça referência à “migração para o armazenamento premium” como a possível causa.
 
 <!--Image references-->
 
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
-[self-migration tooPremium Storage]: #self-migration-to-premium-storage
+[self-migration to Premium Storage]: #self-migration-to-premium-storage
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
 [Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
-[steps toorename during migration]: #optional-steps-to-rename-during-migration
+[steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 

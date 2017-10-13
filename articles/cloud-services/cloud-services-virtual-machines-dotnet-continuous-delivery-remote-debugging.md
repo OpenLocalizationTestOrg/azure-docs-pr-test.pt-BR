@@ -1,6 +1,6 @@
 ---
-title: "depuração remota com o fornecimento contínuo de aaaEnable | Microsoft Docs"
-description: "Saiba como depuração remota tooenable ao usar a entrega contínua toodeploy tooAzure"
+title: "Habilitar a depuração remota com entrega contínua | Microsoft Docs"
+description: "Saiba como habilitar a depuração remota ao utilizar a entrega contínua para implantar no Azure."
 services: cloud-services
 documentationcenter: .net
 author: kraigb
@@ -14,44 +14,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: d9d9d1cfe5304c9526586a9164f172746a448e4e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="enable-remote-debugging-when-using-continuous-delivery-toopublish-tooazure"></a>Habilitar a depuração remota ao usar a entrega contínua toopublish tooAzure
-Você pode habilitar a depuração remota no Azure, para os serviços de nuvem ou máquinas virtuais, quando você usa [fornecimento contínuo](cloud-services-dotnet-continuous-delivery.md) tooAzure toopublish seguindo estas etapas.
+# <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Habilitar a depuração remota ao utilizar a entrega contínua para publicar no Azure
+Você pode habilitar a depuração remota no Azure, para os serviços de nuvem ou máquinas virtuais, ao utilizar a [entrega contínua](cloud-services-dotnet-continuous-delivery.md) para publicar no Azure seguindo as etapas abaixo.
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>Habilitando a depuração remota para serviços de nuvem
-1. No agente de compilação hello, configurar saudação inicial ambiente do Azure conforme descrito na [de linha de comando de compilação para Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Como tempo de execução de depuração remota de saudação (msvsmon.exe) é necessário para o pacote de saudação, instalar Olá **ferramentas remotas para Visual Studio**.
+1. No agente de compilação, configure o ambiente inicial para o Azure conforme descrito em [Compilação de linha de comando para Azure](http://msdn.microsoft.com/library/hh535755.aspx).
+2. Como o tempo de execução de depuração remota (msvsmon.exe) é exigido para o pacote, instale as **Ferramentas Remotas para Visual Studio**.
 
     * [Ferramentas Remotas para Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [Ferramentas Remotas para Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
     * [Ferramentas Remotas para Visual Studio 2013 Atualização 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    Como alternativa, você pode copiar os binários de depuração remota de saudação de um sistema que tenha instalado o Visual Studio.
+    Você pode, como alternativa, copiar os binários de depuração remota de um sistema que tiver o Visual Studio instalado.
 
-3. Crie um certificado conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md). Mantenha. Olá pfx e a impressão digital do certificado RDP e carregar o serviço de nuvem de destino do hello certificado toohello.
-4. Use Olá opções a seguir na toobuild de linha de comando do MSBuild hello e pacote com a depuração remota habilitada. (Substitua caminhos reais tooyour sistema e arquivos de projeto para itens de colchetes angulares Olá).
+3. Crie um certificado conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md). Mantenha o .pfx e a impressão digital do certificado RDP e carregue o certificado no serviço de nuvem alvo.
+4. Utilize as opções a seguir na linha de comando do MSBuild para compilar e criar o pacote com a depuração remota habilitada. (Substitua os caminhos reais até seus arquivos do sistema e de projeto pelos itens entre colchetes angulares.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of hello certificate added toohello cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path tooyour VS solution file>"
+        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
    
-    `VSX64RemoteDebuggerPath`Olá caminho toohello pasta é que contém msvsmon.exe em Olá Remote Tools para Visual Studio.
-    `RemoteDebuggerConnectorVersion`é a versão do SDK do Azure de saudação em seu serviço de nuvem. Ele também deve corresponder a versão Olá instalado com o Visual Studio.
-5. Publica toohello serviço de nuvem de destino usando o arquivo de pacote e. cscfg do hello gerado na etapa anterior hello.
-6. Importar Olá certificado (arquivo. pfx) toohello máquina que tenha o Visual Studio com o SDK do Azure para .NET instalado. Certifique-se de que toohello de tooimport `CurrentUser\My` repositório de certificados, caso contrário, anexando depurador toohello no Visual Studio falhará.
+    `VSX64RemoteDebuggerPath` corresponde ao caminho até a pasta contendo msvsmon.exe em Ferramentas Remotas para o Visual Studio.
+    `RemoteDebuggerConnectorVersion` é a versão do SDK do Azure no serviço de nuvem. Ele também deve corresponder à versão instalada com o Visual Studio.
+5. Publique no serviço de nuvem alvo usando o pacote e o arquivo .cscfg gerado na etapa anterior.
+6. Importe o certificado (arquivo .pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado. Certifique-se de importar para o `CurrentUser\My` repositório de certificados; caso contrário, a anexação do depurador do Visual Studio falhará.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Habilitando a depuração remota para máquinas virtuais
 1. Crie uma máquina virtual do Azure. Consulte [Criar uma Máquina Virtual Executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Criar e Gerenciar Máquinas Virtuais do Azure no Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. Em Olá [página do portal clássica do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exibir painel toosee Olá máquina virtual do hello máquina virtual **impressão digital do certificado RDP**. Esse valor é usado para Olá `ServerThumbprint` valor na configuração da extensão hello.
-3. Criar um certificado de cliente, conforme descrito na [visão geral de certificados para serviços de nuvem do Azure](cloud-services-certs-create.md) (mantenha. Olá pfx e a impressão digital do certificado RDP).
-4. Instale o Azure Powershell (versão 0.7.4 ou posterior) conforme descrito na [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
-5. Execute Olá extensão do script tooenable Olá RemoteDebug a seguir. Substitua dados pessoais e caminhos de saudação com seus próprios, como o nome da assinatura, o nome do serviço e a impressão digital.
+2. Na [página do portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exiba o painel da máquina virtual para conferir a **IMPRESSÃO DIGITAL DO CERTIFICADO RDP**da máquina virtual. Esse valor é usado como o valor de `ServerThumbprint` na configuração da extensão.
+3. Crie um certificado cliente conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
+4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e os dados pessoais por seus dados, como seu nome da assinatura, nome do serviço e impressão digital.
    
    > [!NOTE]
-   > Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013 ou o Visual Studio de 2017, modificar Olá `$referenceName` e `$extensionName` atribuições abaixo muito`RemoteDebugVS2013` ou `RemoteDebugVS2017`.
+   > Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013 ou Visual Studio 2017, modifique as atribuições `$referenceName` e `$extensionName` abaixo para `RemoteDebugVS2013` ou `RemoteDebugVS2017`.
 
     ```powershell   
     Add-AzureAccount
@@ -93,5 +93,5 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
     $vm | Update-AzureVM
     ```
 
-6. Importar Olá certificado (. pfx) toohello máquina que tenha o Visual Studio com o SDK do Azure para .NET instalado.
+6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
 

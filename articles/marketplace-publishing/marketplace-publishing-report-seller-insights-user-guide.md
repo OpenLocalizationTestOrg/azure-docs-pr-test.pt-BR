@@ -1,6 +1,6 @@
 ---
-title: "portal de Insights do Azure Marketplace vendedor aaaHow toouse Olá | Microsoft Docs"
-description: "Como um vendedor de saudação do Azure Marketplace, entenda como toouse Olá portal do Azure Marketplace vendedor Insights."
+title: Como usar o Portal do Azure Marketplace Seller Insights | Microsoft Docs
+description: Como um vendedor no Azure Marketplace, entenda como usar o Portal do Azure Marketplace Seller Insights.
 services: marketplace publishing
 documentationcenter: na
 author: DavidBosland
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 6a3c0438d26da7199a818a7927ca8e17c95b8ecc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd5db703ab0b89b8597c99c0d536bc07f883ebc6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-hello-azure-marketplace-seller-insights-portal"></a>Como toouse Olá portal do Azure Marketplace vendedor Insights
+# <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Como usar o Portal do Azure Marketplace Seller Insights
 
-Este artigo descreve como os administradores acessem Olá vendedor Insights portal, adicionar ou excluir usuários e definir permissões para usuários.
+Este artigo descreve como os administradores acessam o portal do Seller Insights, adicionam ou excluem usuários e definem permissões para os usuários.
 
 ## <a name="onboard-users"></a>Usuários integrados
 
-Esta seção discute como administradores acessam portal de Insights vendedor Olá para Olá primeira vez. tarefas de saudação nesta seção são reservadas para administradores. 
+Esta seção discute como os administradores acessam o portal do Seller Insights pela primeira vez. As tarefas nesta seção são reservadas para os administradores. 
 
 
 ### <a name="overview-of-roles"></a>Visão geral das funções
 
-o administrador do portal de Insights vendedor Olá adiciona usuários, edita usuários e excluir usuários.
+O administrador do portal do Seller Insights adiciona, edita e exclui usuários.
 
-Um usuário do portal Insights vendedor pode exibir todos os dados que está disponível tooyour organização.
+Um usuário do portal do Seller Insights pode exibir todos os dados que estão disponíveis para sua organização.
 
-Administradores e usuários são necessária tooauthenticate usando válido [conta da Microsoft](http://signup.live.com), ou da sua organização conta corporativa ou escolar. Certifique-se de que Olá nova ID de conta está associado uma caixa de correio monitorada.
+Administradores e Usuários precisam se autenticar usando uma [conta da Microsoft](http://signup.live.com) válida ou a respectiva conta corporativa ou de estudante. Verifique se a ID da nova conta está associada a uma caixa de correio monitorada.
 
 ![Tipo de conta][5]
 
 
 
-### <a name="invitation-tooactivate-your-account"></a>Convite tooactivate sua conta
+### <a name="invitation-to-activate-your-account"></a>Convite para ativar a conta
 
-Antes de entrar no portal de Insights vendedor toohello, administrador Olá deve identificar contas de saudação de indivíduos Olá quiserem tooset backup como usuários. Configure os usuários com uma conta corporativa ou de estudante ou uma conta da Microsoft.
+Antes de entrar no portal do Seller Insights, o administrador deve identificar as contas dos indivíduos que quer configurar como usuários. Configure os usuários com uma conta corporativa ou de estudante ou uma conta da Microsoft.
 
-tooactivate seu serviço, o administrador Olá deve ir toohello [endereço de URL](https://reports.azure.com) que aparece no email de convite de saudação.
+Para ativar o serviço, o administrador deve navegar até o [endereço URL](https://reports.azure.com) que aparece no email do convite.
 
 >[!NOTE]
->Se o email do administrador hello está listada como uma conta da Microsoft, e você não tiver criado uma conta da Microsoft que está associado ao endereço de email de saudação do qual você recebeu o convite hello, será necessário muito[criar conta Olá](https://signup.live.com) antes você entrar.
+>Se o email do administrador estiver listado como uma conta da Microsoft e você não tiver criado uma conta da Microsoft associada ao endereço de email do qual você recebeu o convite, você precisará [criar a conta](https://signup.live.com) para entrar.
 
 
-### <a name="administrator-sign-in-toohello-seller-insights-portal"></a>Portal do administrador entrar toohello vendedor Insights
+### <a name="administrator-sign-in-to-the-seller-insights-portal"></a>Entrada do administrador no portal do Seller Insights
 
-1. Entrar toohello portal Insights vendedor clicando em URL Olá no email de saudação enviada tooyou.
-2. Insira a senha e o endereço de email do administrador de saudação.
-3. Clique em Olá **entrar** botão.
-4. Comece tooadminister sua conta. Adicionar usuários, definir permissões e editar usuários.
-5. Certifique-se de que os usuários tenham Olá URL para o portal de Insights vendedor hello.
+1. Entre no portal do Seller Insights clicando na URL do email que foi enviado a você.
+2. Insira o endereço de email e a senha do administrador.
+3. Clique no botão **Entrar**.
+4. Comece a administrar sua conta. Adicionar usuários, definir permissões e editar usuários.
+5. Verifique se os usuários têm a URL para o portal do Seller Insights.
 
     ![Página de entrada][6]
 
-## <a name="user-sign-in-toohello-portal"></a>Portal do usuário entrar toohello
+## <a name="user-sign-in-to-the-portal"></a>Entrada do usuário no portal
 
-O administrador deve receber notificações por email que sua conta é criada e compartilhar Olá [endereço de URL](https://reports.azure.com) para o portal de Insights vendedor Olá com você.
+O administrador deve notificá-lo por email que sua conta foi criada e compartilhar com você o [endereço URL](https://reports.azure.com) para o portal do Seller Insights.
 
 >[!NOTE]
->administrador Olá é proprietário de saudação da conta de saudação que publica toohello soluções do Azure Marketplace. proprietário Olá desta conta pode fornecer acesso tooothers.  Se você tiver o portal de publicação do acesso toohello como coadministrador, você pode encontrar o endereço do administrador Olá seguindo estas etapas:
->1. Faça logon no portal de publicação toohello.
->2. Clique em Olá **editores** guia.
->3. Abrir Editor de saudação em questão (normalmente há apenas um).
->4. Clique em **administradores** na Olá inferior esquerda.
->5. endereço de email do administrador de saudação que você está procurando é rotulado *proprietário*.
+>O administrador é o proprietário da conta que publica as soluções no Azure Marketplace. O proprietário dessa conta pode fornecer acesso a outras pessoas.  Se você tiver acesso ao portal de publicação como coadministrador, você poderá encontrar o endereço do administrador seguindo estas etapas:
+>1. Entre no portal de publicação.
+>2. Clique na guia **Editores**.
+>3. Abra o editor em questão (normalmente há apenas um).
+>4. Clique em **Administradores** no canto inferior esquerdo.
+>5. O endereço de email do administrador que você está procurando é rotulado como *Proprietário*.
 
 
-Você pode entrar no portal de Insights vendedor toohello usando uma conta pessoal da Microsoft, ou usando uma conta corporativa ou escolar. tipo de saudação da conta depende do que o administrador define no seu perfil. O administrador deve informar sobre conta Olá usada.
+Você pode entrar no portal do Seller Insights usando uma conta pessoal da Microsoft ou usando uma conta corporativa ou de estudante. O tipo de conta depende do que o administrador define no seu perfil. O administrador deve lhe aconselhar sobre a conta a usar.
 
 ![Tipo de conta][1]
 
 
 
-**Portal de Insights vendedor toohello bem-vindo!**
+**Bem-vindo ao portal do Seller Insights!**
 
-1. Depois que você entrar no, você será levado à saudação **resumo** página.
-2. Levar Olá tooread de alguns minutos a política de privacidade.
-3. Você pode **entre em contato conosco** a qualquer momento, por email, com perguntas você pode ter que são relacionadas toohello vendedor Insights portal.
-4. Você pode se mover no portal de Insights vendedor hello usando guias de saudação na parte superior de saudação da página de saudação.  Procure guias Olá na parte superior da saudação de páginas de saudação na orientação de toohelp guia você no portal de Insights vendedor hello.
-5. Clique Olá Smiley ícone no tempo toosend enviar comentários que é o portal de Insights vendedor toohello relacionados.
-6. toosign fora do portal de Insights vendedor hello, clique em seu nome no canto superior direito de saudação.
+1. Depois que você tiver entrado, você será levado para a página **Resumo**.
+2. Reserve alguns minutos para ler a Política de Privacidade.
+3. Você pode **entrar em contato conosco** pelo link correspondente a qualquer momento, por email, com perguntas relacionadas ao portal do Seller Insights.
+4. Você pode navegar no portal do Seller Insights usando as guias na parte superior da página.  Observe as guias na parte superior das páginas neste guia para ajudar a lhe orientar no portal do Seller Insights.
+5. Clique no ícone de smiley a qualquer momento para enviar comentários relacionados ao portal do Seller Insights.
+6. Para sair do portal do Seller Insights, clique em seu nome no canto superior direito.
 
     ![Página de aterrissagem padrão][2]
 
@@ -95,25 +95,25 @@ Você pode entrar no portal de Insights vendedor toohello usando uma conta pesso
 ## <a name="summary-view"></a>Exibição do resumo
 
 
-1. Selecione Olá **resumo** guia.
-2. Digite hello **Start Date** do período de tempo de saudação estiver interessado em aqui e, em seguida, clique em **aplicar**. Três meses de dados são mostrados.
-3. Novos dados de tendência de ordem de saudação três meses período de tempo que você selecionou são mostrados aqui.
-4. Novas ordens para Olá período de tempo selecionado são mostradas aqui por canal e oferecem o tipo.
+1. Clique na guia **Resumo**.
+2. Insira a **Data de Início** do período de interesse aqui e clique em **Aplicar**. Três meses de dados são mostrados.
+3. Os dados de tendência de novas ordens para o período de 3 meses que você selecionou são mostrados aqui.
+4. Novas ordens para o período selecionado serão mostradas aqui pelo canal e tipo de oferta.
 5. Selecione uma exibição deste painel. **5 Principais Mercados**, **5 Ofertas com Melhor Desempenho** ou **5 Principais Clientes**.
-6. Tendência de pagamento para Olá período de tempo selecionado é mostrada aqui para ofertas pagas. Se você tiver apenas BYOL ou ofertas internas, esse painel não será mostrado.
+6. A tendência de pagamento para o período selecionado é mostrada aqui para as ofertas pagas. Se você tiver apenas BYOL ou ofertas internas, esse painel não será mostrado.
 
     ![Exibição do resumo][7]
 
 ## <a name="orders-and-usage"></a>Pedidos e uso
 ### <a name="overview"></a>Visão geral
 
-Em *painel um*, você pode selecionar Olá **pedidos e uso** guia.  Aqui você pode selecionar **pedidos** ou **uso** de **tipo de relatório**e depois usa Olá controles deslizantes tooselect Olá dados de interesse.
+No *Painel A*, você pode selecionar a guia **Ordens e Uso**.  Nela, você pode selecionar **Ordens** ou **Uso** nas guias **Tipo de Relatório**, bem como usar os controles deslizantes para selecionar os dados de interesse.
 
-No *Painel B*, você pode selecionar os dados mensais. Selecione **pedidos** ou **uso** dependendo da sua seleção na **tipo de relatório** no painel da.  Olá que aparece refletem datas Olá que inserir e filtros de saudação aplicadas por meio de controles deslizantes de saudação no painel A.
+No *Painel B*, você pode selecionar os dados mensais. Selecione **Ordens** ou **Uso** dependendo da sua seleção em **Tipo de Relatório** no Painel A. Os dados exibidos refletem as datas inseridas e os filtros aplicados usando os controles deslizantes no Painel A.
 
-No *Painel C*, você pode selecionar os dados de tendência trimestrais. Selecione **pedidos** ou **uso** dependendo da sua seleção na **tipo de relatório** no painel da.  Olá que aparece refletem datas Olá que inserir e filtros de saudação aplicado usando controles deslizantes de saudação no painel da.
+No *Painel C*, você pode selecionar os dados de tendência trimestrais. Selecione **Ordens** ou **Uso** dependendo da sua seleção em **Tipo de Relatório** no Painel A. Os dados exibidos refletem as datas inseridas e os filtros aplicados usando os controles deslizantes no Painel A.
 
-Em *painel D*, dados de assinatura de saudação para cada um estão listados.  Os dados podem ser baixados desse painel em formato CSV ou Excel.
+No *painel D*, os dados de assinatura para cada indivíduo estão listados.  Os dados podem ser baixados desse painel em formato CSV ou Excel.
 
 ![Visão geral dos pedidos][8]
 ![Mapa da visão geral dos pedidos][9]
@@ -124,10 +124,10 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
 ![Mapa do Painel A][10]
 
-  1. Selecione Olá **pedidos e uso** guia de saudação linha superior tooaccess seus pedidos e os dados de uso.
+  1. Selecione a guia **Ordens e Uso** na linha superior para acessar dados de uso e ordens.
   2. Selecione **Ordens** em **Tipo de Relatório**.
-  3. Use Olá filtro símbolo tooshow ou ocultar Olá opções de segmentação de dados.  Usar esses dados Olá toofilter de segmentações de dados que você deseja tooview por **tipo de licença do Azure**, **tipo de licença do Marketplace**, **mercado**, **oferecem tipo**, e **visualização** status.  Consulte Olá **ajuda** guia definições destes termos.
-  4. Selecionar data de início da saudação você está interessado e, em seguida, clique em **vá**.
+  3. Use o símbolo de filtro para mostrar ou ocultar as opções de segmentação.  Use essas segmentações para filtrar os dados que deseja exibir para o **Tipo de Licença do Azure**, **Tipo de Licença do Marketplace**, **Mercado**, **Tipo de Oferta** e status de **Versão Prévia**.  Consulte a guia **Ajuda** para obter definições desses termos.
+  4. Selecione a data de início de interesse e clique em **Ir**.
 
   ![Exibição mensal de ordens, Painel A][14]
 
@@ -137,7 +137,7 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
   1. Selecione **Exibição Mensal**.
   2. Os Detalhes do Resumo da Ordem são mostrados por canal: CSP, Direct Enterprise, Indirect Enterprise e Web Direct.
-  3. Para Olá **exibição mensal**, Olá **detalhes do resumo de pedidos** painel fornece Olá modos de exibição de gráfico a seguir:
+  3. Para a **Exibição Mensal**, o painel **Detalhes do Resumo da Ordem** fornece as seguintes exibições de gráfico:
 
 * Ordens por Mercado (10 Principais)
 * Ordens por Título da Oferta (10 Principais)
@@ -152,16 +152,16 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
   ![Mapa do Painel C][12]
 
   1. Selecione **Exibição de Tendência**.
-  2. Selecione itens de saudação que deseja tooview de saudação **área de assunto** lista e, em seguida, clique em **aplicar**. saudação padrão é **Selecionar tudo**.
+  2. Selecione os itens que quer exibir na lista suspensa **Área de Assunto**; clique em **Aplicar**. O padrão é **Selecionar Tudo**.
 
   ![Lista da área de assunto na exibição mensal de ordens, Painel C][17]
 
-  3. Use Olá filtro símbolo tooselect **todos os** dados ou **10 principais** para todas as suas seleções. saudação padrão é **10 principais**.
+  3. Use o símbolo de filtro para selecionar **Todos** os dados ou **10 Principais** para todas as suas seleções. O padrão é **10 Principais**.
 
   ![Símbolo de filtro na exibição mensal de ordens, Painel C][18]
 
-  4. Gráficos de barras de ponto tooeach em Olá você selecionou Olá tooreveal dados subjacentes.
-  5. Saudação de uso  **+**  modo de tooa tooswitch de símbolo onde dados Olá abaixo de cada um dos gráficos de saudação que você selecionou aparecem.
+  4. Aponte o cursor para cada barra nos gráficos que você selecionou para revelar os dados subjacentes.
+  5. Use o símbolo **+** para mudar para um modo em que os dados abaixo de cada um dos gráficos que você selecionou aparecem.
 
   ![Exibição de tendência de ordens, Painel C][16]
 
@@ -171,13 +171,13 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
   ![Mapa do Painel D][13]
 
-  1. Olá **Order Detail** painel mostra dados de pedidos detalhadas.
-  2. Use filtros de saudação na parte superior de saudação de cada coluna toofilter Olá de dados usando uma variedade de comandos e valores.
+  1. O painel **Detalhes da Ordem** apresenta dados detalhados da ordem.
+  2. Use os filtros na parte superior de cada coluna para filtrar os dados usando uma variedade de comandos e valores.
 
   ![Filtros da exibição mensal de ordens, Painel D][20]
 
-  3. Selecione o número de saudação de itens por página que você deseja tooview. Estão disponíveis as opções de 10, 20 ou 50 itens por página.
-  4. Baixe dados de saudação em formato Excel ou CSV para análise offline.
+  3. Selecione o número de itens por página que quer exibir. Estão disponíveis as opções de 10, 20 ou 50 itens por página.
+  4. Baixe os dados no formato CSV ou Excel para análise offline.
 
   ![Exibição detalhada das ordens, Painel D][19]
 
@@ -188,10 +188,10 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
   ![Mapa do Painel A][10]
 
 
-  1. tooaccess seus pedidos e dados de uso, selecione Olá **pedidos e uso** guia.
+  1. Para acessar dados de uso e ordens, selecione a guia **Ordens e uso**.
   2. Selecione **Uso** na guia **Tipo de Relatório**.
-  3. Use Olá filtro símbolo tooshow ou ocultar Olá opções de segmentação de dados.  Usar esses dados Olá toofilter de segmentações de dados que você deseja tooview por **tipo de licença do Azure**, **tipo de licença do Marketplace**, **mercado**, **oferecem tipo**, **Visualização** status, e **tipo de uso**.  Consulte Olá **ajuda** guia definições destes termos.
-  4. Selecionar data de início da saudação você está interessado e, em seguida, clique em **vá**.
+  3. Use o símbolo de filtro para mostrar ou ocultar as opções de segmentação.  Use essas segmentações para filtrar os dados que deseja exibir para o **Tipo de Licença do Azure**, **Tipo de Licença do Marketplace**, **Mercado**, **Tipo de Oferta**, status de **Versão Prévia** e **Tipo de Uso**.  Consulte a guia **Ajuda** para obter definições desses termos.
+  4. Selecione a data de início de interesse e clique em **Ir**.
 
   ![Exibição mensal de uso, Painel A][21]
 
@@ -201,7 +201,7 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
   1. Selecione **Exibição Mensal**.
   2. Os detalhes do resumo de uso são mostrados, em horas.
-  3. Para Olá **exibição mensal**, Olá **detalhes do resumo de pedidos** painel fornece Olá modos de exibição de gráfico a seguir:
+  3. Para a **Exibição Mensal**, o painel **Detalhes do Resumo da Ordem** fornece as seguintes exibições de gráfico:
 
 * Ordens por Mercado (10 Principais)
 * Ordens por Título da Oferta (10 Principais)
@@ -210,7 +210,7 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
 
 >[!NOTE]
->segmentações de dados de saudação no painel de um são usados dados saudação toofilter que aparece no painel b Por exemplo, os gráficos de saudação são configurados para **uso normalizado**.
+>As segmentações de dados no painel de A são usadas para filtrar os dados que aparecem no Painel B. Por exemplo, os gráficos são configurados para **Uso Normalizado**.
 
 ![Exibição mensal de uso, Painel B][22]
 
@@ -219,17 +219,17 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
   ![Mapa do Painel C][12]
 
   1. Selecione **Exibição de Tendência**.
-  2. Selecionar itens de saudação que você deseja tooview de saudação **área de assunto** lista e, em seguida, clique em **aplicar**. saudação padrão é **Selecionar tudo**.
+  2. Selecione os itens que quer exibir na lista suspensa **Área de Assunto**; clique em **Aplicar**. O padrão é **Selecionar Tudo**.
 
 
   ![Lista da área de assunto na exibição mensal de uso, Painel C][17]
 
-  3. Use Olá filtro símbolo tooselect **todos os** dados ou **10 principais** para todas as suas seleções. saudação padrão é **10 principais**.
+  3. Use o símbolo de filtro para selecionar **Todos** os dados ou **10 Principais** para todas as suas seleções. O padrão é **10 Principais**.
 
   ![Símbolo de filtro na exibição mensal de uso, Painel C][18]
 
-  4. Barra de ponto tooeach em gráficos de saudação que você selecionou Olá tooreveal dados subjacentes.
-  5. Saudação de uso  **+**  tooshow dados abaixo de cada um dos gráficos de saudação que você selecionou tooview do símbolo.
+  4. Aponte o cursor para cada barra nos gráficos que você selecionou para revelar os dados subjacentes.
+  5. Alterne o símbolo **+** para mostrar os dados abaixo de cada um dos gráficos selecionados para exibição.
 
   ![Exibição de tendência de uso, Painel C][23]
 
@@ -239,13 +239,13 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
   ![Mapa do Painel D][13]
 
-  1. Olá **os detalhes de uso** painel mostra dados de pedidos detalhadas.
-  2. Use filtros de saudação na parte superior de saudação de cada coluna toofilter Olá de dados usando vários comandos e valores.
+  1. O painel **Detalhes de Uso** apresenta dados detalhados da ordem.
+  2. Use os filtros na parte superior de cada coluna para filtrar os dados usando vários comandos e valores.
 
   ![Filtros da exibição mensal de uso, Painel D][20]
 
-  3. Selecione o número de saudação de itens por página que você deseja tooview. Estão disponíveis as opções de 10, 20 ou 50 itens por página.
-  4. Baixe dados de saudação em formato Excel ou CSV para análise offline.
+  3. Selecione o número de itens por página que quer exibir. Estão disponíveis as opções de 10, 20 ou 50 itens por página.
+  4. Baixe os dados no formato CSV ou Excel para análise offline.
 
 
   ![Painel de exibição do uso mensal D][24]
@@ -253,117 +253,117 @@ Em *painel D*, dados de assinatura de saudação para cada um estão listados.  
 
 ### <a name="accessing-detailed-customer-data"></a>Acessando dados detalhados do cliente
 
-  1. De saudação **Order Detail** do painel, clique em Olá ID de assinatura do Azure que você está interessado.  Você pode apenas clicar Olá não - BYOL Marketplace licença IDs de tipo. IDs de assinatura BYOL são recusadas por motivos de segurança.
+  1. Do painel **Detalhes da Ordem**, clique na ID de assinatura do Azure em que você está interessado.  Você só pode clicar em IDs de tipo de licença do Marketplace não BYOL. IDs de assinatura BYOL são recusadas por motivos de segurança.
 
   ![Painel de dados de ordens e uso do cliente][26]
 
-  2. São redirecionada toohello **dados detalhados de clientes** painel. Olá dados para o cliente Olá são recuperados.
-  3. Você pode baixar dados Olá no formato Excel ou CSV.
+  2. Você será redirecionado para o painel **Dados Detalhados de Clientes**. Os dados do cliente são recuperados.
+  3. Você pode baixar os dados no formato CSV ou Excel.
 
   ![Painel de dados de ordens e uso do cliente][27]
 
 ### <a name="customer-data"></a>Dados do cliente
 
-  1. Selecione Olá **cliente** guia.
-  2. Usar Olá segmentações de dados toofilter Olá dados que você deseja tooview por **tipo de licença do Azure** ou **tipo de licença do Marketplace**.
-  3. Selecione Olá **Start Date** e **data de término** para Olá período de interesse.
+  1. Selecione a guia **Cliente**.
+  2. Use as segmentações para filtrar os dados que quer exibir por **Tipo de Licença do Azure** ou **Tipo de Licença do Marketplace**.
+  3. Selecione a **Data de Início** e **Data de Término** do período de interesse.
   4. Os detalhes do resumo do cliente por **Tipo de Licença do Marketplace** são mostrados.
-  5. Use filtros de saudação na parte superior de saudação de cada coluna toofilter Olá de dados usando vários comandos e valores.
-  6. Baixe dados de saudação em formato Excel ou CSV.
+  5. Use os filtros na parte superior de cada coluna para filtrar os dados usando vários comandos e valores.
+  6. Baixe os dados no formato CSV ou Excel.
 
   ![Painel de dados do cliente][28]
 
 
 ## <a name="user-management"></a>Gerenciamento de Usuários
 
-tarefas de saudação nesta seção são reservadas para administradores. Usar Olá usuários de tooadd procedimentos a seguir, alterar permissões ou excluir usuários no portal de Insights vendedor hello.
+As tarefas nesta seção são reservadas para os administradores. Use os procedimentos a seguir para adicionar usuários, alterar permissões ou excluir usuários no portal do Seller Insights.
 
 
 ### <a name="add-user"></a>Adicionar usuário
 
-Esta seção mostra como tooadd novos usuários ou alterar as permissões no portal de Insights vendedor hello.
+Esta seção mostra como você adiciona novos usuários ou altera as permissões no portal do Seller Insights.
 
 
-1. Selecione Olá **gerenciamento de usuário** guia.
-2. tooadd um usuário, selecione **adicionar usuário**.
-3. Insira o endereço de email de saudação que está associado à conta da Microsoft ou sua conta corporativa ou escolar. Clique em **Continuar**.
-4. Como administrador, você pode atribuir toousers de acesso somente leitura de relatório.
-5. Insira detalhes do usuário Olá **nome**, **Sobrenome**, e **Email**e, em seguida, clique em **continuar**.
-6. Selecione Olá permissões que você deseja tooallocate toohello usuário e, em seguida, clique em **continuar**.
-7. Certifique-se de que informações Olá que você inseriu estão corretas e, em seguida, clique em **salvar** toocontinue.  Você adicionou um usuário com êxito.
+1. Selecione a guia **Gerenciamento de Usuários**.
+2. Para adicionar um usuário, selecione **Adicionar Usuário**.
+3. Insira o endereço de email associado à conta da Microsoft ou conta corporativa ou de estudante. Clique em **Continuar**.
+4. Como um administrador, você pode atribuir acesso a relatórios somente leitura aos usuários.
+5. Insira os detalhes do usuário – **Nome**, **Sobrenome** e **Email** – e clique em **Continuar**.
+6. Clique nas permissões que deseja alocar ao usuário e clique em **Continuar**.
+7. Certifique-se de que as informações inseridas estão corretas e, em seguida, clique em **Salvar** para continuar.  Você adicionou um usuário com êxito.
 
   ![Painel Adicionar um usuário][29]
 
 
 ### <a name="edit-user"></a>Editar usuário
 
-1. Selecione Olá **gerenciamento de usuários** guia e, em seguida, selecione **editar usuários**.
-2. Localizar usuário Olá cujas permissões você deseja toomodify.  Você também pode adicionar novos usuários. Clique em **Adicionar Usuários**.
-3. Clique em Olá permissões você deseja tooremove para usuário hello.  Você também pode excluir um usuário. Clique em **Excluir Usuário**.
-4. Clique em **salvar** toocontinue.  Editar com êxito Olá permissões de usuário.
+1. Selecione a guia **Gerenciamento de Usuários** e **Editar Usuários**.
+2. Localize o usuário cujas permissões você quer modificar.  Você também pode adicionar novos usuários. Clique em **Adicionar Usuários**.
+3. Clique nas permissões que quer remover do usuário.  Você também pode excluir um usuário. Clique em **Excluir Usuário**.
+4. Clique em **Salvar** para continuar.  Você editou as permissões do usuário com êxito.
 
   ![Painel Editar um usuário][30]
 
 ## <a name="help-support-requests"></a>Solicitações de suporte
 
 
-### <a name="access-hello-support-request-format"></a>Formato de solicitação de suporte do acesso Olá
+### <a name="access-the-support-request-format"></a>Acessar o formato de solicitação de suporte
 
-1. Selecione Olá **ajuda** guia.
+1. Selecione a guia **Ajuda**.
 2. Selecione **Suporte e Documentação** e **Iniciar Solicitação**.
-3. Você também pode enviar uma solicitação de suporte de saudação **entre em contato conosco** link. Este link aparece na parte inferior da saudação de cada página no aplicativo hello.
+3. Você também pode enviar uma solicitação de suporte pelo link **Fale conosco**. Esse link aparece na parte inferior de cada página no aplicativo.
 4. Uma nova guia é aberta, pela qual você pode enviar uma solicitação de suporte.
 
-  ![Formulário de suporte de saudação do Access][31]
+  ![Acesso ao formulário de suporte][31]
 
 ### <a name="review-helpful-information"></a>Revisar informações úteis
 
-1. toosubmit uma solicitação de suporte é tooyour relacionados relatórios, selecione **relatórios e Insights** de **tipo de problema**.
-2. Selecione uma categoria.  Opções de saudação são **perguntas relacionadas tooreports** e **outros**.
-3. Alguns links úteis são exibidas, que pode fornecer uma consulta de tooyour de resposta.  Confira estes links antes de enviar a solicitação de suporte.
-4. Se você ainda precisar toosubmit uma solicitação de suporte, selecione **Iniciar solicitação**.
+1. Para enviar uma solicitação de suporte relacionada aos relatórios, selecione **Relatórios e Insights** em **Tipo de problema**.
+2. Selecione uma categoria.  As opções são **Perguntas relacionadas a relatórios** e **Outros**.
+3. Alguns links úteis que são exibidos podem fornecer uma resposta à sua consulta.  Confira estes links antes de enviar a solicitação de suporte.
+4. Se você ainda precisa enviar uma solicitação de suporte, selecione **Iniciar Solicitação**.
 
   ![Painel Editar um usuário][32]
 
 
-### <a name="enter-information-and-submit-hello-request"></a>Insira as informações e enviar solicitação de saudação
+### <a name="enter-information-and-submit-the-request"></a>Inserir as informações e enviar a solicitação
 
 1. Insira suas informações de contato, fuso horário, região e preferências de idioma e selecione **Continuar**.
 2. Dê um título ao incidente e forneça o máximo possível de informações.  Você também pode carregar os arquivos de suporte como captura de tela e selecionar **Enviar**.
 3. Você recebe uma confirmação de que a solicitação de suporte foi bem-sucedida.
-4. Você pode verificar o status de saudação de sua solicitação de suporte a qualquer momento.
+4. Você pode verificar o status da solicitação de suporte a qualquer momento.
 
-  ![Formulário de suporte de saudação do Access][33]
+  ![Acesso ao formulário de suporte][33]
 
 
 ## <a name="reset-a-password"></a>Redefinir uma senha
 
 **Validação de conta e senha**
 
-1. *Valide que conta Olá que você está usando é registrada e senha Olá não funciona.* Se você inserir uma conta que está registrada no Active Directory do Azure, ele automaticamente solicitará que você toochoose como toosign com conta hello. Você usa uma conta corporativa ou de estudante ou uma conta da Microsoft que funciona como sua conta pessoal.
-2. Vá muito[https://reports.azure.com](https://reports.azure.com) e sair de qualquer conta que você pode entrar com. Você também pode abri-lo dentro de um tooensure janela particular que outras contas não estão conectadas.
-3. Insira o endereço de email do publicador hello, mas não insira uma senha. Se ela está registrada no Active Directory do Azure, ela será redirecionada toostep 4.
+1. *Valide se a conta que você está usando está registrada e a senha não funciona.* Se você inserir uma conta que esteja registrada no Azure Active Directory, ele solicitará automaticamente que você escolha como entrar com a conta. Você usa uma conta corporativa ou de estudante ou uma conta da Microsoft que funciona como sua conta pessoal.
+2. Vá para [https://reports.azure.com](https://reports.azure.com) e saia de qualquer conta com que você esteja conectado. Você também pode abri-la dentro de uma janela privada para assegurar que nenhuma outra conta esteja conectada.
+3. Insira o endereço de email do editor sem inserir uma senha. Se estiver registrado no Azure Active Directory, ele será redirecionado para a etapa 4.
 
     >[!NOTE]
-    >Contas de administrador são registradas. As contas ou de estudante que são definidas pela conta de administrador Olá também são registradas.
+    >Contas de administrador são registradas. Contas corporativas ou de estudante que são definidas pela conta de administrador também são registradas.
 
 4. Escolha **Conta corporativa ou de estudante**. Contas corporativas ou de estudante são configuradas por empresas que são registradas com o Azure. 
 
     >[!NOTE]
-    >É possível que um usuário configure uma conta da Microsoft usando o endereço de email da organização. Nesse cenário, Olá organização posterior onboards tooAzure e Olá mesmo endereço de email é registrado como uma conta corporativa ou escolar. Este usuário pode ter uma conta da Microsoft com hello mesma senha que eles usaram Olá toocreate ou de estudante conta. O usuário também pode ter uma conta corporativa ou de estudante com uma senha separada usada pela organização.
+    >É possível que um usuário configure uma conta da Microsoft usando o endereço de email da organização. Nesse cenário, a organização posteriormente passa a integrar o Azure e o mesmo endereço de email é registrado como uma conta corporativa ou de estudante. Esse usuário pode ter uma conta da Microsoft com a mesma senha que ele usou para criar a conta corporativa ou de estudante. O usuário também pode ter uma conta corporativa ou de estudante com uma senha separada usada pela organização.
 
-5. Para o portal de Insights vendedor hello, quando você seleciona **de trabalho ou conta de escola**, certifique-se de que você use seu trabalho ou a senha da conta de escola e não uma senha de conta da Microsoft.
-6. Uma conta corporativa ou escolar redireciona toosign de página do Editor de toohello no.
-7. A partir daqui, valide essa senha Olá Olá corporativa ou escolar conta funciona. Se não funcionar, continue toohello seção "Redefinir senha" deste artigo.
+5. Para o portal do Seller Insights, ao selecionar **Conta corporativa ou de estudante**, verifique se você está usando a senha da conta corporativa ou de estudante e não a senha da conta da Microsoft.
+6. Uma conta corporativa ou de estudante redireciona você à página do editor para entrar.
+7. Desse ponto em diante, valide que a senha da conta corporativa ou de estudante funciona. Se não funcionar, vá para a seção "Redefinir senha" deste artigo.
 
 
 
 **Redefinição de senha**
 
-Use Olá após a Microsoft de trabalho ou escola contas tooreset sua senha.
+Use as seguintes contas corporativas ou de estudante ou a conta da Microsoft para redefinir sua senha.
 
 >[!NOTE]
->Para contas ou de estudante que são definidas pela conta de administrador Olá, se o administrador Olá ativado recurso Olá permitir que você redefinir sua senha, você pode redefinir sua senha. Caso contrário, redefinição de senha Olá fornece formulário Olá o opção toocontact seu administrador.
+>Para configuração de contas corporativas ou de estudante definidas pela conta de administrador, se um administrador tiver ativado a funcionalidade para permitir que você redefina sua senha, você poderá fazê-lo. Caso contrário, o formulário de redefinição de senha oferece a opção de entrar em contato com seu administrador.
 
 * [Conta da Microsoft](https://account.live.com/ResetPassword.aspx)
 ![Redefinição de senha de conta da Microsoft][3]
@@ -372,9 +372,9 @@ Use Olá após a Microsoft de trabalho ou escola contas tooreset sua senha.
 ![Redefinição de senha de conta corporativa ou de estudante][4]
 
 
-## <a name="send-feedback-tooimprove-hello-seller-insights-portal"></a>Enviar o portal de Insights vendedor comentários tooimprove Olá
+## <a name="send-feedback-to-improve-the-seller-insights-portal"></a>Enviar comentários para aprimorar o portal do Seller Insights
 
-  Você pode clicar em ícone de Smiley Olá em comentários de tooprovide qualquer tempo.
+  Você pode clicar no ícone de smiley a qualquer momento para fornecer comentários.
 
 
   ![Formulário de comentários][34]

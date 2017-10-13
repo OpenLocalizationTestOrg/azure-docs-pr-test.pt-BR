@@ -1,39 +1,39 @@
-ouvinte do grupo de disponibilidade de saudação é um nome de rede e o endereço IP que Olá ouve o grupo de disponibilidade do SQL Server. ouvinte de grupo de disponibilidade do toocreate hello, Olá a seguir:
+O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
-1. <a name="getnet"></a>Obter nome Olá Olá rede do recurso de cluster.
+1. <a name="getnet"></a>Obtenha o nome do recurso de rede de cluster.
 
-    a. Use RDP tooconnect toohello máquina virtual do Azure que hospeda a réplica primária hello. 
+    a. Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
 
     b. Abra o Gerenciador de Cluster de Failover.
 
-    c. Selecione Olá **redes** nó e o nome de rede de cluster de saudação de observação. Use o nome da saudação `$ClusterNetworkName` variável Olá script do PowerShell. Olá nome de rede de cluster de saudação de imagem a seguir é **rede de Cluster 1**:
+    c. Selecione o nó **Redes** e observe o nome da rede do cluster. Use esse nome na variável `$ClusterNetworkName` no script do PowerShell. Na imagem a seguir, o nome da rede de clusters é **Rede de Cluster 1**:
 
    ![Nome da rede de clusters](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Adicione ponto de acesso para cliente hello.  
-    ponto de acesso para cliente Olá é o nome de rede de saudação que os aplicativos usem tooconnect toohello os bancos de dados em um grupo de disponibilidade. Crie ponto de acesso para cliente Olá no Gerenciador de Cluster de Failover.
+2. <a name="addcap"></a>Adicionar o ponto de acesso para cliente.  
+    O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se conectar aos bancos de dados em um grupo de disponibilidade. Crie o ponto de acesso de cliente no Gerenciador de Cluster de Failover.
 
-    a. Expanda o nome do cluster hello e, em seguida, clique em **funções**.
+    a. Expanda o nome do cluster e, em seguida, clique em **Funções**.
 
-    b. Em Olá **funções** painel, o grupo de disponibilidade do botão direito do mouse Olá nome e, em seguida, selecione **adicionar recurso** > **ponto de acesso para cliente**.
+    b. No painel **Funções**, clique com o botão direito do mouse no nome do grupo de disponibilidade e, em seguida, selecione **Adicionar recurso** > **Ponto de acesso para o cliente**.
 
    ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. Em Olá **nome** caixa, crie um nome para este novo ouvinte. 
-   Olá nome novo ouvinte de saudação é o nome de rede de saudação que os aplicativos usem tooconnect toodatabases no grupo de disponibilidade do SQL Server hello.
+    c. Na caixa **Nome**, crie um nome para o novo ouvinte. 
+   O nome para o novo ouvinte é o nome da rede que o aplicativo usará para se conectar aos bancos de dados no grupo de disponibilidade do SQL Server.
    
-    d. toofinish criando Olá ouvinte, clique em **próximo** duas vezes e, em seguida, clique em **concluir**. Não coloque Olá ouvinte ou recurso online neste momento.
+    d. Para concluir a criação do ouvinte, clique em **Avançar** duas vezes e, em seguida, clique em **Concluir**. Não coloque o ouvinte ou o recurso online neste momento.
 
-3. <a name="congroup"></a>Configure o recurso IP Olá Olá grupo de disponibilidade.
+3. <a name="congroup"></a>Configurar o recurso de IP do grupo de disponibilidade.
 
-    a. Clique em Olá **recursos** guia e em seguida, expanda o ponto de acesso de cliente Olá criado por você.  
-    ponto de acesso para cliente Hello está offline.
+    a. Clique na guia **Recursos**e expanda o ponto de acesso para cliente que você acabou de criar.  
+    O ponto de acesso para cliente está offline.
 
    ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
-    b. Clique o recurso IP hello e, em seguida, clique em Propriedades. Observe o nome de saudação do endereço IP de saudação e usá-lo em Olá `$IPResourceName` variável Olá script do PowerShell.
+    b. Clique com o botão direito do mouse no recurso de IP e clique em Propriedades. Anote o nome do endereço IP e use-o na variável `$IPResourceName` no script do PowerShell.
 
-    c. Em **Endereço IP**, clique em **Endereço IP Estático**. Definir o endereço IP de saudação como hello mesmo endereço que você usou ao definir o endereço do balanceador de carga de saudação em Olá portal do Azure.
+    c. Em **Endereço IP**, clique em **Endereço IP Estático**. Defina o endereço IP como o mesmo endereço que você usou quando definiu o endereço do balanceador de carga no portal do Azure.
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -41,44 +41,44 @@ ouvinte do grupo de disponibilidade de saudação é um nome de rede e o endere�
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-4. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade do SQL Server Olá dependente no ponto de acesso de cliente hello.
+4. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade.
 
-    b. Em Olá **recursos** guia em **outros recursos**, clique o grupo de recursos de disponibilidade hello e, em seguida, clique em **propriedades**. 
+    b. Na guia **Recursos** em **Outros Recursos**, com o botão direito do mouse no grupo de recursos de disponibilidade e clique em **Propriedades**. 
 
-    c. Na guia de dependências de hello, adicione o nome de saudação do recurso de ponto (ouvinte Olá) de acesso de cliente hello.
+    c. Na guia dependências, adicione o nome do recurso de ponto de acesso ao cliente (o ouvinte).
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Clique em **OK**.
 
-5. <a name="listname"></a>Verifique o acesso para cliente Olá recursos dependentes no endereço IP de saudação do ponto.
+5. <a name="listname"></a>Torne o recurso de ponto de acesso de cliente dependente do endereço IP.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade. 
 
-    b. Em Olá **recursos** guia, clique no recurso de ponto de acesso de cliente de saudação em **nome do servidor**e, em seguida, clique em **propriedades**. 
+    b. Na guia **Recursos**, clique com o botão direito do mouse no recurso do ponto de acesso no **Nome do Servidor** e clique em **Propriedades**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Clique em Olá **dependências** guia. Verifique se o endereço IP de saudação é uma dependência. Se não estiver, defina uma dependência no endereço IP hello. Se houver vários recursos listados, verifique se os endereços IP hello tem ou não e dependências. Clique em **OK**. 
+    c. Selecione a guia **Dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Clique no nome do ouvinte Olá e clique **colocar Online**. 
+    d. Clique com o botão direito do mouse no nome do ouvinte e, em seguida, clique em **Colocar online**. 
 
     >[!TIP]
-    >Você pode validar que Olá as dependências estão corretamente configuradas. No Gerenciador de Cluster de Failover, vá tooRoles, grupo de disponibilidade hello, clique **mais ações**e, em seguida, clique em **Mostrar relatório de dependências**. Quando dependências Olá estão configuradas corretamente, o grupo de disponibilidade Olá é dependente de nome de rede hello e nome de rede de saudação é dependente de endereço IP de saudação. 
+    >Você pode validar se as dependências estão configuradas corretamente. No Gerenciador de Cluster de Failover, vá para funções, clique no grupo de disponibilidade, clique em **Mais Ações**e clique em **Mostrar Relatório de Dependências**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade é dependente do nome da rede e o nome da rede depende do endereço IP. 
 
 
-6. <a name="setparam"></a>Definir parâmetros de cluster de saudação do PowerShell.
+6. <a name="setparam"></a>Definir os parâmetros do cluster no PowerShell.
     
-    a. Saudação de cópia tooone de script do PowerShell de suas instâncias do SQL Server a seguir. Atualize as variáveis de saudação para seu ambiente.     
+    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.     
     
     ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # hello cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher toofind hello name)
-    $IPResourceName = "<IPResourceName>" # hello IP Address resource name
-    $ILBIP = “<n.n.n.n>” # hello IP Address of hello Internal Load Balancer (ILB). This is hello static IP address for hello load balancer you configured in hello Azure portal.
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
     [int]$ProbePort = <nnnnn>
     
     Import-Module FailoverClusters
@@ -86,7 +86,7 @@ ouvinte do grupo de disponibilidade de saudação é um nome de rede e o endere�
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     ```
 
-    b. Definir parâmetros de cluster de saudação executando Olá script do PowerShell em um de nós de cluster de saudação.  
+    b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
 
     > [!NOTE]
-    > Se suas instâncias do SQL Server estiverem em regiões separadas, você precisa de script do PowerShell Olá toorun duas vezes. Olá primeira vez, use Olá `$ILBIP` e `$ProbePort` da região de saudação primeiro. Olá pela segunda vez, use Olá `$ILBIP` e `$ProbePort` da região segundo hello. nome de rede de cluster Hello e nome de recurso de IP de cluster Olá são Olá mesmo. 
+    > Se suas instâncias do SQL Server estiverem em regiões separadas, você precisará executar o script do PowerShell duas vezes. Na primeira vez, use o `$ILBIP` e `$ProbePort` da primeira região. Na segunda vez, use o `$ILBIP` e `$ProbePort` da segunda região. O nome da rede de cluster e o nome do recurso de IP do cluster são os mesmos. 

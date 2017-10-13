@@ -1,6 +1,6 @@
 ---
-title: "endereços IP privados de aaaConfigure para VMs - PowerShell do Azure | Microsoft Docs"
-description: "Saiba como endereços IP privados tooconfigure máquinas virtuais usando o PowerShell."
+title: "Configurar endereços IP para máquinas virtuais - Azure PowerShell | Microsoft Docs"
+description: "Saiba como configurar endereços IP para máquinas virtuais usando o PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a3eb67de583e08208fcab40de1c2a8a9b65618c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configurar endereços IP particulares para uma máquina virtual usando o PowerShell
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda a criação de recursos por meio do modelo de implantação do Gerenciador de recursos de saudação. mais sobre toolearn Olá diferenças entre modelos de saudação dois ler Olá [modelos de implantação do Azure entender](../azure-resource-manager/resource-manager-deployment-model.md) artigo. Este artigo aborda o modelo de implantação do Gerenciador de recursos de saudação. Você também pode [gerenciar o endereço IP privado estático no modelo de implantação clássico Olá](virtual-networks-static-private-ip-classic-ps.md).
+O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda criar recursos por meio do modelo de implantação do Gerenciador de Recursos. Para saber mais sobre as diferenças entre os dois modelos, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [gerenciar o endereço IP privado estático no modelo de implantação clássico](virtual-networks-static-private-ip-classic-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-exemplo Hello PowerShell comandos abaixo esperam um ambiente simples já foi criado com base no cenário de saudação acima. Se você quiser comandos de saudação toorun conforme elas são exibidas neste documento, primeiro criar o ambiente de teste de hello, descrito em [criar uma rede virtual](virtual-networks-create-vnet-arm-ps.md).
+O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma rede virtual](virtual-networks-create-vnet-arm-ps.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Criar uma VM com um endereço IP privado estático
-toocreate uma VM denominada *DNS01* em Olá *front-end* sub-rede de uma rede virtual denominada *TestVNet* com um endereço IP privado estático de *192.168.1.101*, Siga as etapas de saudação abaixo:
+Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:
 
-1. Defina variáveis para a conta de armazenamento hello, local, grupo de recursos e toobe de credenciais usado. Você precisará tooenter um nome de usuário e senha para Olá VM. grupo de contas e recursos de armazenamento Olá já deve existir.
+1. Defina as variáveis para a conta de armazenamento, o local, o grupo de recursos e as credenciais que serão usadas. Você precisará inserir um nome de usuário e uma senha para a VM. A conta de armazenamento e o grupo de recursos já devem existir.
 
     ```powershell
     $stName  = "vnetstorage"
     $locName = "Central US"
     $rgName  = "TestRG"
-    $cred    = Get-Credential -Message "Type hello name and password of hello local administrator account."
+    $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
     ```
 
-2. Recuperar Olá uma rede virtual e sub-rede que deseja toocreate Olá VM.
+2. Recupere a rede virtual e a sub-rede nas quais você deseja criar a VM.
 
     ```powershell
     $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     $subnet = $vnet.Subnets[0].Id
     ```
 
-3. Se necessário, crie um tooaccess endereço IP público Olá VM de saudação à Internet.
+3. Se for necessário, crie um endereço IP público para acessar a VM da Internet.
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
     -Location $locName -AllocationMethod Dynamic
     ```
 
-4. Crie uma NIC usando Olá endereço IP privado estático desejado tooassign toohello VM. Certifique-se de IP de saudação é saudação do intervalo de sub-rede está adicionando Olá VM. Esta é a etapa principal Olá neste artigo, onde você definir Olá toobe IP privado estático.
+4. Crie uma NIC usando o endereço IP privado estático que você deseja atribuir à VM. Verifique se o IP é do intervalo de sub-rede ao qual você está adicionando a VM. Esta é a etapa principal deste artigo, na qual você define o IP privado como estático.
 
     ```powershell
     $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
@@ -68,7 +68,7 @@ toocreate uma VM denominada *DNS01* em Olá *front-end* sub-rede de uma rede vir
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. Crie hello VM usando Olá NIC criado acima.
+5. Crie a VM usando a NIC criada acima.
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -95,7 +95,7 @@ toocreate uma VM denominada *DNS01* em Olá *front-end* sub-rede de uma rede vir
         StatusCode          : OK 
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Recuperar informações de endereço IP privado estático para uma interface de rede
-tooview Olá IP privado estático informações sobre endereço de saudação VM criada com o script de saudação acima, execute Olá comando PowerShell a seguir e observe os valores hello para *PrivateIpAddress* e  *PrivateIpAllocationMethod*:
+Para exibir as informações do endereço IP privado estático da VM criada com o script acima, execute o seguinte comando do PowerShell e observe os valores de *PrivateIpAddress* e *PrivateIpAllocationMethod*:
 
 ```powershell
 Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -142,7 +142,7 @@ Saída esperada:
     Primary              : True
 
 ## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Remover um endereço IP privado estático de uma interface de rede
-tooremove Olá endereço IP privado estático adicionados toohello VM script hello acima, Olá executar comandos do PowerShell a seguir:
+Para remover o endereço IP privado estático adicionado à VM no script acima, execute os seguintes comandos do PowerShell:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -190,8 +190,8 @@ Saída esperada:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-tooa-network-interface"></a>Adicione uma estático privado IP endereço tooa interface de rede
-tooadd um toohello de endereço IP de privado estático VM criada usando o script de saudação acima, execute Olá comandos a seguir:
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Adicionar um endereço IP privado estático a uma interface de rede
+Para adicionar um IP privado estático à VM criada com o script acima, execute os comandos a seguir:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -199,9 +199,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
-## <a name="change-hello-allocation-method-for-a-private-ip-address-assigned-tooa-network-interface"></a>Alterar o método de alocação de saudação de um endereço IP privado atribuído tooa interface de rede
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede
 
-Um endereço IP privado é atribuído tooa NIC com o método de alocação estática ou dinâmica hello. Endereços IP dinâmicos podem alterar depois de iniciar uma VM que foi anteriormente no hello interrompido (desalocado) estado. Isso pode potencialmente causar problemas se Olá VM está hospedando um serviço que requer Olá mesmo endereço IP, mesmo após a reinicialização de um estado parado (desalocado). Endereços IP estáticos são mantidos até que Olá VM seja excluída. método de alocação toochange hello de um endereço IP, execute Olá script, que altera o método de alocação de saudação do toostatic dinâmico a seguir. Se o método de alocação de saudação de saudação atual de endereço IP é estático, alterar *estático* muito*dinâmico* antes de executar o script hello.
+Um endereço IP privado é atribuído a uma NIC com o método de alocação estática ou dinâmica. Os endereços IP dinâmicos podem ser alterados depois de ser iniciada uma VM que estava anteriormente no estado parado (desalocado). Isso poderá causar problemas se a VM estiver hospedando um serviço que exija o mesmo endereço IP, mesmo após a reinicialização de um estado parado (desalocado). Os endereços IP estáticos são mantidos até que a máquina virtual seja excluída. Para alterar o método de alocação de um endereço IP, execute o script a seguir, que altera o método de alocação de dinâmico para estático. Se o método de alocação para o endereço IP privado atual for estático, altere *Estático* para *Dinâmico* antes de executar o script.
 
 ```powershell
 $RG = "TestRG"
@@ -212,10 +212,10 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
 Set-AzureRmNetworkInterface -NetworkInterface $nic 
 $IP = $nic.IpConfigurations[0].PrivateIpAddress
 
-Write-Host "hello allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for hello IP address" $IP"." -NoNewline
+Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
 ```
 
-Se você não souber o nome de saudação do hello NIC, você pode exibir uma lista de NICs dentro de um grupo de recursos inserindo Olá comando a seguir:
+Se não souber o nome da NIC, você poderá exibir uma lista das NICs dentro de um grupo de recursos digitando o seguinte comando:
 
 ```powershell
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
@@ -224,5 +224,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
 * Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
-* Consulte Olá [APIs de REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

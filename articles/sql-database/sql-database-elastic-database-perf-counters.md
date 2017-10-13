@@ -1,5 +1,5 @@
 ---
-title: contadores de aaaPerformance do Gerenciador do mapa de fragmentos
+title: Contadores de desempenho do gerenciador de mapa de fragmentos
 description: Classe do ShardMapManager e contadores de desempenho de roteamento dependente de dados
 services: sql-database
 documentationcenter: 
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
-ms.openlocfilehash: d24198563d9fa88d12e6c464dbe89bc300e72ca0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 60bb26fe6833998137ede71b363d5d40479a4c60
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gerenciador de mapa de fragmentos
-Você pode capturar o desempenho de saudação de um [Gerenciador do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), especialmente ao usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos de saudação Microsoft.Azure.SqlDatabase.ElasticScale.Client classe.  
+Você pode capturar o desempenho de um [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md), especialmente ao usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Contadores são usados tootrack Olá desempenho de [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) operações. Esses contadores são acessíveis no hello Monitor de desempenho, na categoria de "Gerenciamento de fragmento de: de banco de dados que Elástico" hello.
+Contadores são usados para controlar o desempenho de operações de [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) . Esses contadores estão acessíveis no Monitor de Desempenho, na categoria "Banco de Dados Elástico: Gerenciamento de Fragmento".
 
-**Para a versão mais recente do hello:** ir muito[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [atualizar uma aplicativo toouse hello mais recente Elástico de banco de dados biblioteca de cliente](sql-database-elastic-scale-upgrade-client-library.md).
+**Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente](sql-database-elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* categoria de desempenho de saudação toocreate e contadores, Olá usuário deve ser uma parte da saudação local **administradores** grupo máquina Olá hospedando o aplicativo hello.  
-* toocreate um desempenho de instância do contador e atualizar contadores hello, Olá usuário deve ser um membro de qualquer hello **administradores** ou **usuários de Monitor de desempenho** grupo. 
+* Para criar a categoria de desempenho e contadores, o usuário deve ser uma parte do grupo **Administradores** local no computador que hospeda o aplicativo.  
+* Para criar uma instância do contador de desempenho e atualizar os contadores, o usuário deve ser um membro do grupo **Administradores** ou **Usuários do Monitor de Desempenho**. 
 
 ## <a name="create-performance-category-and-counters"></a>Criar categoria e contadores de desempenho
-contadores de saudação toocreate, chamar o método de CreatePeformanceCategoryAndCounters de saudação de Olá [ShardMapManagmentFactory classe](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Somente um administrador pode executar o método hello: 
+Para criar os contadores, chame o método CreatePeformanceCategoryAndCounters da [classe ShardMapManagmentFactory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Somente um administrador pode executar o método: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-Você também pode usar [isso](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) método de saudação do tooexecute de script do PowerShell. método Hello cria Olá contadores de desempenho a seguir:  
+Você também pode usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script do PowerShell para executar o método. O método cria os seguintes contadores de desempenho:  
 
-* **Armazenado em cache mapeamentos**: número de mapeamentos armazenados em cache para o mapa do fragmento hello.
-* **Operações/s DDR**: taxa de operações de roteamento dependente de dados para o mapa do fragmento hello. Esse contador é atualizado quando uma chamada muito[OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulta em um fragmento de destino toohello conexão bem-sucedida. 
-* **Mapeamento de pesquisa de acertos de cache/s**: taxa de operações de pesquisa de cache bem-sucedida para mapeamentos no mapa do fragmento hello. 
-* **Mapeamento de pesquisa de erros de cache/s**: taxa de operações de pesquisa de cache com falha para mapeamentos no mapa do fragmento hello.
-* **Mapeamentos adicionados ou atualizados no cache/s**: taxa na qual mapeamentos estão sendo adicionados ou atualizados no cache para o mapa do fragmento hello. 
-* **Os mapeamentos são removidos do cache/s**: taxa em que os mapeamentos estão sendo removidos do cache para o mapa do fragmento Olá. 
+* **Mapeamentos em cache**: número de mapeamentos armazenados em cache para o mapa de fragmentos.
+* **Operações de DDR/s**: a taxa de operações de roteamento dependentes de dados para o mapa de fragmentos. Esse contador é atualizado quando uma chamada para [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulta em uma conexão bem-sucedida com o fragmento de destino. 
+* **Mapeamento de acertos de pesquisa do cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos. 
+* **Mapeamento de erros de pesquisa de cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
+* **Mapeamentos adicionados ou atualizados no cache/s**: taxa à qual os mapeamentos estão sendo adicionados ou atualizados no cache para o mapa de fragmentos. 
+* **Mapeamentos removidos do cache/s**: taxa à qual os mapeamentos estão sendo removidos do cache para o mapa de fragmentos. 
 
 Contadores de desempenho são criados para cada mapa de fragmentos em cache por processo.  
 
 ## <a name="notes"></a>Observações
-Olá seguintes eventos disparam criação Olá Olá de contadores de desempenho:  
+Os seguintes eventos disparam a criação dos contadores de desempenho:  
 
-* Inicialização de saudação [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) com [carregamento adiantado](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), se Olá ShardMapManager contém qualquer mapas de fragmento. Esses incluem hello [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) e hello [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) métodos.
+* Inicialização do [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) com [carregamento adiantado](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), se o ShardMapManager contiver quaisquer mapas de fragmentos. Inclui os métodos [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) e [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx).
 * Pesquisa bem-sucedida de um mapa de fragmentos (usando [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) ou [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
 * Criação bem-sucedida do mapa de fragmentos usando CreateShardMap().
 
-contadores de desempenho de saudação serão atualizados por todas as operações de cache executadas em mapeamentos e o mapa do fragmento hello. Remoção bem-sucedida do mapa do fragmento hello usando DeleteShardMap () reults na exclusão da instância de contadores de desempenho de saudação.  
+Os contadores de desempenho serão atualizados por todas as operações de cache executadas no mapa do fragmentos e nos mapeamentos. A remoção bem-sucedida do mapa de fragmentos usando DeleteShardMap() resulta na exclusão da instância de contadores de desempenho.  
 
 ## <a name="best-practices"></a>Práticas recomendadas
-* Criação de categoria de saudação de desempenho e contadores deve ser executada somente uma vez antes da criação de saudação do objeto ShardMapManager. Cada execução do comando Olá CreatePerformanceCategoryAndCounters() limpa contadores anterior de saudação (perda de dados reportados por todas as instâncias) e cria novas.  
-* Instâncias de contador de desempenho são criadas por processo. Qualquer falha do aplicativo ou a remoção de um mapa do fragmento do cache de saudação resultará na exclusão de instâncias de contadores de desempenho de saudação.  
+* A criação de categoria e dos contadores de desempenho deve ser feita apenas uma vez antes da criação do objeto ShardMapManager. Cada execução do comando CreatePerformanceCategoryAndCounters() limpa os contadores anteriores (perdendo dados relatados por todas as instâncias) e cria novos.  
+* Instâncias de contador de desempenho são criadas por processo. Qualquer falha do aplicativo ou remoção de um mapa de fragmentos do cache resultará na exclusão das instâncias de contadores de desempenho.  
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Consulte também 
 [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

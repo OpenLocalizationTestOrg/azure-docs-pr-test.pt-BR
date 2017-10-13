@@ -1,6 +1,6 @@
 ---
-title: "aaaManage expiração de conteúdo da web no Azure CDN | Microsoft Docs"
-description: "Saiba como toomanage expiração de conteúdo de serviços de nuvem/aplicativos de Web do Azure, ASP.NET ou IIS no Azure CDN."
+title: "Gerenciar a expiração do conteúdo da Web na CDN do Azure | Microsoft Docs"
+description: "Saiba como gerenciar a expiração de conteúdo de Serviços de Nuvem/Aplicativos Web do Azure, ASP.NET ou IIS na CDN do Azure."
 services: cdn
 documentationcenter: .NET
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: a0154236c3893b627f4480e0688f555964862556
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Gerenciar a expiração de conteúdo de Serviços de Nuvem/Aplicativos Web do Azure, ASP.NET ou IIS na CDN do Azure
 > [!div class="op_single_selector"]
@@ -27,19 +27,19 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Arquivos de qualquer servidor Web de origem publicamente acessível podem ser armazenados em cache no Azure CDN até que o TTL (tempo de vida) tenha decorrido.  Olá TTL é determinado pelo Olá [ *Cache-Control* cabeçalho](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) na resposta HTTP de saudação do servidor de origem de saudação.  Este artigo descreve como tooset `Cache-Control` cabeçalhos para aplicativos Web do Azure e sites de Internet Information Services, que são configurados da mesma forma, aplicativos ASP.NET e serviços de nuvem do Azure.
+Arquivos de qualquer servidor Web de origem publicamente acessível podem ser armazenados em cache no Azure CDN até que o TTL (tempo de vida) tenha decorrido.  O TTL é determinado pelo [cabeçalho *Controle de Cache*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) na resposta HTTP do servidor de origem.  Este artigo descreve como definir cabeçalhos `Cache-Control` para Aplicativos Web do Azure, Serviços de Nuvem do Azure, aplicativos ASP.NET e sites de Internet Information Services, todos configurados de maneira semelhante.
 
 > [!TIP]
-> Você não pode escolher tooset nenhum TTL em um arquivo.  Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias.
+> Você pode optar por não definir nenhum TTL em um arquivo.  Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias.
 > 
-> Para obter mais informações sobre como funciona o Azure CDN toospeed toofiles de acesso e outros recursos, consulte Olá [visão geral do Azure CDN](cdn-overview.md).
+> Para saber mais sobre como o Azure CDN trabalha para acelerar o acesso a blobs e outros recursos, confira a [Visão geral do Azure CDN](cdn-overview.md).
 > 
 > 
 
 ## <a name="setting-cache-control-headers-in-configuration"></a>Definindo cabeçalhos Cache-Control na configuração
-Conteúdo estático, como imagens e folhas de estilo, você pode controlar a frequência de atualização de saudação modificando Olá **applicationHost. config** ou **Web. config** arquivos para o aplicativo web.  Olá **system.webServer\staticContent\clientCache** elemento no arquivo de configuração de saudação definirá Olá `Cache-Control` cabeçalho para o seu conteúdo. Para **Web. config**, definições de configuração de saudação afetarão tudo na pasta hello e todas as subpastas, a menos que substituído no nível de subpasta hello.  Por exemplo, você pode definir um padrão time-to-live em Olá raiz toohave todo o conteúdo estático armazenado em cache por 3 dias, mas tem uma subpasta que tenha mais variável conteúdo com uma configuração de cache de 6 horas.  Para **applicationHost. config**, todos os aplicativos no site hello serão afetados, mas pode ser substituídos em **Web. config** arquivos em aplicativos de saudação.
+Para conteúdo estático, como imagens e folhas de estilo, você pode controlar a frequência de atualização modificando os arquivos **applicationHost.config** ou **Web.config** para seu aplicativo Web.  O elemento **system.webServer\staticContent\clientCache** no arquivo de configuração definirá o cabeçalho `Cache-Control` para seu conteúdo. Em **eb.config**, as configurações afetarão tudo na pasta e em todas as subpastas, a menos que sejam substituídas no nível da subpasta.  Por exemplo, você pode definir um tempo de vida padrão na raiz para que todo o conteúdo estático seja armazenado em cache por três dias, mas ter uma subpasta que tenha conteúdo mais variável com uma configuração de cache de seis horas.  Em **applicationHost.config**, todos os aplicativos no site serão afetados, mas pode ser substituídos nos arquivos **eb.config** dos aplicativos.
 
-Olá, XML a seguir mostra um exemplo de configuração **clientCache** toospecify a duração máxima de 3 dias:  
+O seguinte XML mostra e exemplo de configuração de **clientCache** para especificar um tempo decorrido máximo de três dias:  
 
 ```xml
 <configuration>
@@ -51,24 +51,24 @@ Olá, XML a seguir mostra um exemplo de configuração **clientCache** toospecif
 </configuration>
 ```
 
-Especificando **UseMaxAge** adiciona um `Cache-Control: max-age=<nnn>` resposta do cabeçalho toohello com base no valor de saudação especificado no hello **CacheControlMaxAge** atributo. formato de saudação de timespan Olá é para Olá **cacheControlMaxAge** atributo é <days>.<hours>:<min>:<sec>. Para obter mais informações sobre Olá **clientCache** nó, consulte [Cache do cliente <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+A especificação de **UseMaxAge** adiciona um `Cache-Control: max-age=<nnn>` à resposta com base no valor especificado no atributo **CacheControlMaxAge**. O formato do período de tempo para o atributo **cacheControlMaxAge** é <days>.<hours>:<min>:<sec>. Para obter mais informações sobre o nó **clientCache**, consulte [Cache de cliente <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-in-code"></a>Definindo cabeçalhos Cache-Control no código
-Para aplicativos ASP.NET, você pode definir o comportamento do cache de CDN Olá programaticamente, definindo Olá **HttpResponse** propriedade. Para obter mais informações sobre Olá **HttpResponse** propriedade, consulte [propriedade HttpResponse](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [classe HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Para aplicativos ASP.NET, você pode definir o comportamento do caching de CDN programaticamente definindo a propriedade **HttpResponse** . Para obter mais informações sobre a propriedade **HttpResponse.Cache**, consulte [Propriedade HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
-Se desejar que o conteúdo do aplicativo de cache tooprogrammatically no ASP.NET, certifique-se de que o conteúdo de saudação está marcado como armazenável em cache, definindo HttpCacheability muito*público*. Além disso, verifique se um validador de cache está definido. Validador de cache Olá pode ser a última modificação timestamp definido ao chamar SetLastModified ou um valor de etag definido ao chamar SetETag. Opcionalmente, você também pode especificar um tempo de expiração de cache chamando SetExpires ou você pode confiar na heurística de cache padrão de saudação descrita anteriormente neste documento.  
+Se você quiser armazenar em cache programaticamente o conteúdo do aplicativo no ASP.NET, verifique se o conteúdo está marcado como armazenável em cache, definindo HttpCacheability como *Public*. Além disso, verifique se um validador de cache está definido. O validador de cache pode ser um carimbo de data/hora de Última Modificação definido chamando SetLastModified ou um valor de etag definido chamando SetETag. Opcionalmente, você também pode especificar um tempo de expiração de cache chamando SetExpires ou pode contar com a heurística de cache padrão descrita anteriormente neste documento.  
 
-Por exemplo, toocache o conteúdo de uma hora, adicione o seguinte hello:  
+Por exemplo, para armazenar o conteúdo em cache por uma hora, adicione o seguinte:  
 
 ```csharp
-// Set hello caching parameters.
+// Set the caching parameters.
 Response.Cache.SetExpires(DateTime.Now.AddHours(1));
 Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Ler os detalhes sobre Olá **clientCache** elemento](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Leia a documentação Olá Olá **HttpResponse** propriedade](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Leia a documentação Olá Olá **classe HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+* [Leia os detalhes sobre o elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Leia a documentação sobre a propriedade **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [Leia a documentação sobre a **classe HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 

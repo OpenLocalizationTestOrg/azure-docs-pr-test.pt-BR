@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure notificação Hubs seguro Push"
-description: "Saiba como toosend segura envio notificações tooan iOS aplicativo do Azure. Exemplos de códigos escritos em Objective-C e c#."
+title: "Push Seguro dos Hubs de Notificação do Azure"
+description: "Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#."
 documentationcenter: ios
 author: ysxu
 manager: erikre
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 86dd8d7042e5b9e55d2d7ff41cb42f23831fc575
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push Seguro dos Hubs de Notificação do Azure
 > [!div class="op_single_selector"]
@@ -29,22 +29,22 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-Suporte de notificação por push no Microsoft Azure permite que você tooaccess uma infraestrutura de push de fácil de usar, multiplataforma, dimensionável, que simplifica bastante a implementação de saudação de notificações por push para aplicativos de consumidor e empresariais para dispositivos móveis plataformas.
+O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
 
-Devido a restrições de segurança ou tooregulatory, às vezes, um aplicativo pode ser conveniente tooinclude algo na notificação de saudação que não pode ser transmitida por meio da infraestrutura de notificação por push padrão hello. Este tutorial descreve como tooachieve Olá a mesma experiência, enviando informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo de cliente hello e back-end de aplicativo hello.
+Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão. Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo cliente e o back-end do aplicativo.
 
-Em um nível alto, o fluxo de saudação é o seguinte:
+Em um nível superior, o fluxo é o seguinte:
 
-1. Olá aplicativo back-end:
+1. O back-end do aplicativo:
    * Armazena uma carga segura no banco de dados de back-end.
-   * Envia a ID de saudação do dispositivo toohello notificação (nenhuma informação de segurança é enviada).
-2. Olá o aplicativo no dispositivo hello, ao receber a notificação de saudação:
-   * dispositivo Olá contata Olá back-end solicitante Olá carga de segurança.
-   * aplicativo Hello pode mostrar carga hello como uma notificação no dispositivo de saudação.
+   * Envia a ID dessa notificação ao dispositivo (nenhuma informação segura é enviada).
+2. O dispositivo no aplicativo, ao receber a notificação:
+   * O dispositivo entra em contato com o back-end solicitando a carga segura.
+   * O aplicativo pode mostrar a carga como uma notificação no dispositivo.
 
-É importante toonote em Olá anterior fluxo (e, neste tutorial), vamos supor que o dispositivo Olá armazena um token de autenticação no armazenamento local, depois Olá usuário fizer logon. Isso garante uma experiência completamente, como dispositivo Olá pode recuperar a carga de segurança da notificação hello usando este token. Se seu aplicativo não armazenar os tokens de autenticação no dispositivo hello, ou se esses tokens podem ser expirados, hello aplicativo de dispositivo, ao receber a notificação de saudação deve exibir uma notificação genérica solicitando Olá usuário toolaunch Olá aplicativo. aplicativo Hello, em seguida, autentica o usuário hello e mostra a carga de notificação de saudação.
+É importante observar que no fluxo anterior (e neste tutorial), pressupomos que o dispositivo armazena um token de autenticação no armazenamento local depois que o usuário faz logon. Isso garante uma experiência perfeita  já que o dispositivo pode recuperar a carga de segurança da notificação usando este token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial seguro Push mostra como toosend uma notificação por push com segurança. Olá tutorial baseia-se em Olá [notificar usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, portanto você deve concluir as etapas de saudação neste tutorial primeiro.
+Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial [Notificação de usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , por isso, você deve concluir as etapas nesse tutorial primeiro.
 
 > [!NOTE]
 > Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
@@ -53,20 +53,20 @@ Este tutorial seguro Push mostra como toosend uma notificação por push com seg
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-hello-ios-project"></a>Modificar o projeto do iOS Olá
-Agora que você modificou o Olá apenas de toosend de back-end do aplicativo *id* de uma notificação, você tem toochange seu toohandle de aplicativo do iOS que notificação e o retorno de chamada hello seu back-end tooretrieve Proteja toobe mensagem exibida.
+## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
+Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de uma notificação, é preciso alterar o aplicativo iOS para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
 
-tooachieve essa meta, temos toowrite Olá lógica tooretrieve Olá conteúdo seguro do que Olá back-end do aplicativo.
+Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
-1. Em **appdelegate. M**, verifique se registros de aplicativo hello silenciosa notificações para que ele processa a id de notificação de saudação enviada de back-end de saudação. Adicionar Olá **UIRemoteNotificationTypeNewsstandContentAvailability** opção didFinishLaunchingWithOptions:
+1. Em **AppDelegate.m**, verifique se o aplicativo registra para notificações silenciosas para processar a id de notificação enviada do back-end. Adicione a opção **UIRemoteNotificationTypeNewsstandContentAvailability** em didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
-2. No seu **appdelegate. M** adicionar uma seção de implementação na parte superior da saudação com hello declaração a seguir:
+2. No **AppDelegate.m** , adicione uma seção de implementação no topo, com a seguinte declaração:
    
         @interface AppDelegate ()
         - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
         @end
-3. Adicione ao Olá Olá de seção de implementação código a seguir, substituindo o espaço reservado de saudação `{back-end endpoint}` com ponto de extremidade Olá para o back-end obtido anteriormente:
+3. Em seguida, adicione o código a seguir à seção de implementação, substituindo o espaço reservado `{back-end endpoint}` pelo ponto de extremidade para seu back-end obtido anteriormente:
 
 ```
         NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -115,13 +115,13 @@ tooachieve essa meta, temos toowrite Olá lógica tooretrieve Olá conteúdo seg
         }
 ```
 
-    This method calls your app back-end tooretrieve hello notification content using hello credentials stored in hello shared preferences.
+    This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
-1. Agora temos toohandle notificação de entrada hello e usar o método hello acima tooretrieve Olá conteúdo toodisplay. Primeiro, temos tooenable seu toorun de aplicativo do iOS no plano de fundo de saudação ao receber uma notificação por push. Em **XCode**, selecione o projeto de aplicativo no painel esquerdo do hello, clique em seu destino de aplicativo principal no hello **destinos** seção no painel central hello.
-2. Em seguida, clique em seu **recursos** guia na parte superior de saudação do seu painel central e verifique Olá **remoto notificações** caixa de seleção.
+1. Agora, precisamos manipular a notificação de entrada e utilizar o método acima para recuperar o conteúdo a ser exibido. Primeiro, precisamos habilitar o aplicativo iOS para ser executado em segundo plano ao receber uma notificação por push. Em **XCode**, selecione seu projeto de aplicativo no painel à esquerda e depois clique no seu destino de aplicativo principal na seção **Destinos** do painel central.
+2. Então, clique na guia **Recursos** na parte superior do painel central e marque a caixa de seleção **Notificações Remotas**.
    
     ![][IOS1]
-3. Em **appdelegate. M** adicionar Olá notificações de push toohandle método a seguir:
+3. Em **AppDelegate.m** , adicione o método a seguir para manipular notificações por push:
    
         -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
         {
@@ -144,13 +144,13 @@ tooachieve essa meta, temos toowrite Olá lógica tooretrieve Olá conteúdo seg
    
         }
    
-    Observe que é preferível toohandle casos de saudação de propriedade de cabeçalho de autenticação ausente ou rejeição por Olá back-end. tratamento específico de Olá desses casos dependem principalmente em sua experiência de usuário de destino. Uma opção é toodisplay uma notificação com um aviso genérico para Olá tooauthenticate tooretrieve Olá real notificação ao usuário.
+    Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end. A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário. Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
 
-## <a name="run-hello-application"></a>Executar Olá aplicativo
-toorun Olá aplicativo, Olá a seguir:
+## <a name="run-the-application"></a>Executar o aplicativo
+Para executar o aplicativo, faça o seguinte:
 
-1. No XCode, execute o aplicativo hello em um dispositivo iOS físicos (push de notificações não funcionará no simulador Olá).
-2. No aplicativo do iOS Olá da interface do usuário, digite um nome de usuário e senha. Eles podem ser qualquer cadeia de caracteres, mas eles devem ser Olá o mesmo valor.
-3. No aplicativo do iOS Olá da interface do usuário, clique em **login**. Em seguida, clique em **Enviar push**. Você deve ver a notificação de seguro hello está sendo exibida no seu centro de notificação.
+1. No XCode, execute o aplicativo em um dispositivo iOS físico (as notificações por push não funcionarão no simulador).
+2. Na interface do usuário do aplicativo iOS, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas elas devem ter o mesmo valor.
+3. Na interface do usuário do aplicativo iOS, clique em **Logon**. Em seguida, clique em **Enviar push**. Você deve ver a notificação segura sendo exibida no centro de notificações.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

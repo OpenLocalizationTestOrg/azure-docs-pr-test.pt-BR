@@ -1,9 +1,9 @@
 
-#### <a name="tooconfigure-remote-management-on-hello-device"></a>gerenciamento remoto de tooconfigure no dispositivo de saudação
-1. Em seu dispositivo virtual, vá muito**dispositivos > configurar**.
-2. Role para baixo toohello **gerenciamento remoto** seção.
-3. Definir **habilitar o gerenciamento remoto** muito**Sim**.
-4. Agora você pode escolher tooconnect usando HTTP. padrão de saudação é tooconnect via HTTPS. A conexão por HTTP só será aceitável em redes confiáveis.
-5. Clique em **baixar certificado de gerenciamento remoto** toodownload um certificado de gerenciamento remoto. Você especificará um local no qual toosave esse arquivo. Esse certificado, será preciso toobe instalado no computador cliente ou host Olá que você usará o dispositivo virtual do tooconnect toohello.
-6. Clique em **salvar** final Olá Olá página.
+#### <a name="to-configure-remote-management-on-the-device"></a>Para configurar o gerenciamento remoto no dispositivo
+1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
+2. Role para baixo até a seção **Gerenciamento Remoto** .
+3. Defina **Habilitar o Gerenciamento Remoto** como **Sim**.
+4. Agora, você pode optar por conectar-se usando HTTP. O padrão é conectar-se por HTTPS. A conexão por HTTP só será aceitável em redes confiáveis.
+5. Clique em **Baixar Certificado de Gerenciamento Remoto** para baixar um certificado de gerenciamento remoto. Você especificará um local no qual o arquivo será salvo. Esse certificado precisa então ser instalado na máquina cliente ou host que você usará para se conectar ao dispositivo virtual.
+6. Na parte inferior da página, clique em **Salvar** .
 

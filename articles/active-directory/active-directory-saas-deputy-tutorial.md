@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Deputy | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e representante."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Deputy."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,104 +13,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 42f65b758682ce2513b6bb38ef40a19f955c88c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: integração do Azure Active Directory ao Deputy
 
-Neste tutorial, você aprenderá como toointegrate representante com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprende a integrar o Github ao Azure AD (Azure Active Directory).
 
-Integrando o representante com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Deputy ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooDeputy
-- Você pode habilitar seu usuários tooautomatically get conectado tooDeputy (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao Deputy
+- Você pode permitir que seus usuários façam logon automaticamente no Deputy (Logon único) com as contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o representante, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao Deputy, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Deputy habilitada para logon único
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar representante da Galeria de saudação
+1. Adicionando o Deputy da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-deputy-from-hello-gallery"></a>Adicionar representante da Galeria de saudação
-integração de saudação tooconfigure do representante no AD do Azure, você precisa tooadd representante na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-deputy-from-the-gallery"></a>Adicionando o Deputy da galeria
+Para configurar a integração do Deputy ao Azure AD, você precisará adicionar o Deputy da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd representante da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Deputy da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **representante**.
+4. Na caixa de pesquisa, digite **Deputy**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_search.png)
 
-5. No painel de resultados de saudação, selecione **representante**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Deputy** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o Deputy com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no representante é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no representante precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Deputy é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Deputy.
 
-Substituto, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No Deputy, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com o representante, você precisa Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Deputy, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste de representante](#creating-a-deputy-test-user)**  -toohave um equivalente do Britta Simon no representante que é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Como criar um usuário de teste do Deputy](#creating-a-deputy-test-user)** – para ter um equivalente de Brenda Fernandes no Deputy que esteja vinculado à representação do usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo de representante.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único em seu aplicativo Deputy.
 
-**tooconfigure AD do Azure-logon único com substituto, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Deputy, realize as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **representante** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Deputy**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_samlbase.png)
 
-3. Em Olá **domínio representante e URLs** seção, se desejar que o aplicativo hello tooconfigure **IDP** modo iniciado:
+3. Na seção **URLs e Domínio do Deputy**, se você desejar configurar o aplicativo em modo iniciado pelo **IDP**:
 
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url1.png)
 
-    a. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -129,7 +129,7 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     | `https://<subdomain>.<region>.ent-an.deputy.com` |
     | `https://<subdomain>.<region>.deputy.com` |
 
-    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:
+    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
     | |
     |----|
     | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs.` |
@@ -148,31 +148,31 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     | `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs.` |
     | `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs.` |
 
-4. Marque **Mostrar configurações de URL avançadas**. Se desejar que o aplicativo hello tooconfigure **SP** modo iniciado:
+4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url2.png)
+    ![Configurar o logon único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url2.png)
 
-    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<your-subdomain>.<region>.deputy.com`
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<your-subdomain>.<region>.deputy.com`
     
     >[!NOTE]
     > O sufixo de região do Deputy é opcional ou ele deve usar uma destas opções: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualizar esses valores com hello real identificador, URL de resposta e URL de logon. Entre em contato com [equipe de suporte de representante](https://www.deputy.com/call-centers-customer-support-scheduling-software) tooget esses valores. 
+    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte do Deputy](https://www.deputy.com/call-centers-customer-support-scheduling-software) para obter esses valores. 
 
-5. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_general_400.png)
     
-7. Em Olá **representante configuração** seção, clique em **representante configurar** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+7. Na seção **Configuração do Deputy**, clique em **Configurar Deputy** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_configure.png) 
 
-8. Navegue toohello URL a seguir:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Vá muito**as configurações de segurança** e clique em **editar**.
+8. Navegue até a seguinte URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Vá para as **Configurações de Segurança** e clique em **Editar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 
@@ -182,97 +182,97 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     
     a. Habilite o **Logon Social**.
    
-    b. Abra seu certificado codificado na Base64 que baixou do portal do Azure no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **certificado OpenSSL** caixa de texto.
+    b. Abra seu certificado codificado em base64 baixado do portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado OpenSSL**.
    
-    c. Na caixa de texto de URL SSO SAML Olá, digite`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. Na caixa de texto URL de SSO do SAML, digite `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
-    d. Na caixa de texto de URL SSO SAML Olá, substitua `<your subdomain>` com seu subdomínio.
+    d. Na caixa de texto URL de SSO do SAML, substitua `<your subdomain>` pelo seu subdomínio.
    
-    e. Na caixa de texto de URL SSO SAML Olá, substitua `<saml sso url>` com hello **Single Sign-On URL do serviço SAML** você copiou da saudação portal do Azure.
+    e. Na caixa de texto URL de SSO do SAML, substitua `<saml sso url>` pela **URL de Serviço de Logon Único do SAML** copiada do portal do Azure.
    
     f. Clique em **Salvar Configurações**.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-deputy-test-user"></a>Criando um usuário de teste do Deputy
 
-tooenable AD do Azure usuários toolog em tooDeputy, eles devem ser provisionados no representante. No caso do Deputy, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no Deputy, eles devem ser provisionados no Deputy. No caso do Deputy, o provisionamento é uma tarefa manual.
 
-#### <a name="tooprovision-a-user-account-perform-hello-following-steps"></a>tooprovision uma conta de usuário, execute Olá etapas a seguir:
-1. Faça logon no site da empresa tooyour representante como um administrador.
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+1. Faça logon no site da empresa do Deputy como administrador.
 
-2. No painel de navegação superior hello, clique em **pessoas**.
+2. No painel de navegação superior, clique em **Pessoas**.
    
    ![Pessoas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "Pessoas")
 
-3. Clique em Olá **adicionar pessoas** botão e clique em **adicionar uma única pessoa**.
+3. Clique no botão **Adicionar Pessoas** e em **Adicionar uma única pessoa**.
    
    ![Adicionar Pessoas](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Adicionar Pessoas")
 
-4. Execute Olá etapas a seguir e clique em **salvar e convidar**.
+4. Execute as etapas a seguir e clique em **Salvar e Convidar**.
    
    ![Novo Usuário](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "Novo Usuário")
 
-   a. Em Olá **nome** caixa de texto Nome do tipo de usuário hello como **BrittaSimon**.
+   a. Na caixa de texto **Nome**, digite o nome do usuário como **BrendaFernandes**.
    
-   b. Em Olá **Email** caixa de texto, endereço de email de saudação do tipo de uma conta do AD do Azure você deseja tooprovision.
+   b. Na caixa de texto **Email** , digite o endereço de email de uma conta do Azure AD que você deseja provisionar.
    
-   c. Em Olá **trabalhar em** caixa de texto Nome do tipo hello comercial.
+   c. Na caixa de texto **Trabalha em**, digite o nome da empresa.
    
    d. Clique no botão **Salvar e Convidar**.
 
-5. proprietário de conta do AAD Olá recebe um email e segue um link tooconfirm sua conta antes de se tornar ativa. Você pode usar qualquer ferramenta de criação outros representante usuário conta ou APIs fornecidas pelo representante tooprovision AAD contas de usuário.
+5. O titular da conta do AAD receberá um email e seguirá um link para confirmar sua conta antes de se tornar ativo. Você pode usar qualquer outra ferramenta de criação da conta de usuário do Deputy ou as APIs fornecidas pelo Deputy para provisionar as contas de usuário do AAD.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooDeputy.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Deputy.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooDeputy, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Deputy, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **representante**.
+2. Na lista de aplicativos, selecione **Deputy**.
 
     ![Configurar Logon Único](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -280,7 +280,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -288,13 +288,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
-Quando você clica em Olá representante bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo de representante.
+Quando você clicar no bloco Deputy no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Deputy.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

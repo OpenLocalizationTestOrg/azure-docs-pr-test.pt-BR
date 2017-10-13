@@ -1,6 +1,6 @@
 ---
-title: "conteúdo da página aaaModify no portal do desenvolvedor Olá no gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como tooedit página de conteúdo no portal do desenvolvedor Olá no gerenciamento de API do Azure."
+title: "Modificar conteúdo da página no portal do desenvolvedor no Gerenciamento de API do Azure | Microsoft Docs"
+description: "Saiba como editar o conteúdo da página no portal do desenvolvedor no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: fd5a854e900d9512518643e593b1b59a0952621f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="modify-hello-content-and-layout-of-pages-on-hello-developer-portal-in-azure-api-management"></a>Modificar o conteúdo de saudação e o layout de páginas no portal do desenvolvedor Olá no gerenciamento de API do Azure
-Há três portal do desenvolvedor maneiras fundamentais toocustomize Olá no gerenciamento de API do Azure:
+# <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o layout de páginas no portal do desenvolvedor no Gerenciamento de API do Azure
+Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
 
-* [Editar conteúdo Olá páginas estáticas e elementos de layout de página] [ modify-content-layout] (explicado neste guia)
-* [Atualizar estilos Olá usados para elementos de página entre o portal do desenvolvedor Olá][customize-styles]
-* [Modificar modelos de saudação usados para as páginas geradas pelo portal de saudação] [ portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
+* [Editar o conteúdo de páginas estáticas e elementos de layout da página][modify-content-layout] (explicado neste guia)
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação do usuário, etc.)
 
 ## <a name="page-structure"> </a>Estrutura das páginas do portal do desenvolvedor
 
-portal do desenvolvedor Olá baseia-se em um sistema de gerenciamento de conteúdo. layout de saudação de cada página é criado com base no conjunto de elementos da página pequeno conhecido como widgets:
+O portal do desenvolvedor é baseado em um sistema de gerenciamento de conteúdo. O layout de cada página é criado com base no conjunto de pequenos elementos de página conhecidos como widgets:
 
 ![Estrutura de página do portal do desenvolvedor][api-management-customization-widget-structure]
 
 Todos os widgets são editáveis. 
-* Olá core conteúdo específico tooeach cada página residem no widget de "Conteúdo" hello. Edição de uma página significa editando o conteúdo de saudação deste widget.
-* Todos os elementos de layout de página estão contidos com os widgets de saudação restantes. As alterações feitas widgets toothese aplicará tooall páginas. Eles serão chamados tooas "widgets layout".
+* O conteúdo principal específico de cada página está no widget "Conteúdo". A edição de uma página significa a edição do conteúdo desse widget.
+* Todos os elementos de layout da página estão contidos nos widgets restantes. As alterações feitas nesses widgets serão aplicadas a todas as páginas. Eles serão chamados de "widgets de layout".
 
-Na página diária editar um geralmente só modifica widget de conteúdo de saudação com conteúdo diferente para cada página.
+Na edição de página de rotina é comum a modificação somente do widget de conteúdo, que terá conteúdo diferente para cada página.
 
-## <a name="modify-layout-widget"></a>Modificar o conteúdo de saudação de um widget de layout
+## <a name="modify-layout-widget"> </a>Modificação do conteúdo de um widget de layout
 
-Conteúdo no portal do desenvolvedor Olá é modificado por meio do portal do publicador Olá acessível pelo Olá Portal do Azure. tooreach-la, clique em **portal do publicador** da barra de ferramentas de serviço de saudação da sua instância de gerenciamento de API.
+O conteúdo no portal do desenvolvedor é modificado por meio do portal do editor, que pode ser acessado do Portal do Azure. Para alcançá-lo, clique em **Portal do editor** na barra de ferramentas do serviço da sua instância do Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-conteúdo Olá tooedit que widget, clique em **Widgets** de saudação **Portal do desenvolvedor** menu Olá esquerda. Para este exemplo permite modificar o conteúdo de saudação do widget de cabeçalho de saudação. Selecione Olá **cabeçalho** widget da lista de saudação.
+Para editar o conteúdo do widget, clique em **Widgets** no menu do **Portal do Desenvolvedor** à esquerda. Neste exemplo, vamos modificar o conteúdo do widget Cabeçalho. Selecione o widget **Cabeçalho** na lista.
 
 ![Cabeçalho de widget][api-management-widgets-header]
 
-conteúdo de saudação do cabeçalho de saudação é editável de saudação **corpo** campo. Alterar o texto de saudação conforme desejado e, em seguida, clique em **salvar** final Olá Olá página.
+O conteúdo do cabeçalho é editável no campo **Corpo** . Altere o texto como desejar e, em seguida, clique em **Salvar** na parte inferior da página.
 
-Agora você deve ser capaz de toosee Olá novo cabeçalho em cada página no portal do desenvolvedor hello.
+Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolvedor.
 
-> portal do desenvolvedor Olá tooopen no portal do publicador hello, clique em **portal do desenvolvedor** na barra superior hello.
+> Para abrir o portal do desenvolvedor enquanto estiver no portal do publicador, clique em **Portal do desenvolvedor** na barra superior.
 > 
 > 
 
-## <a name="edit-page-contents"></a>Editar Olá conteúdo de uma página
+## <a name="edit-page-contents"> </a>Editar o conteúdo de uma página
 
-toosee Olá lista de todas as páginas de conteúdo existentes, clique em **conteúdo** de saudação **portal do desenvolvedor** menu no portal do publicador hello.
+Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Conteúdo** no menu **Portal do desenvolvedor** no portal do publicador.
 
 ![Gerenciar conteúdo][api-management-customization-manage-content]
 
-Clique em Olá **bem-vindo** página tooedit o que é exibido em Olá home page do portal do desenvolvedor hello. Fazer alterações de saudação você deseja visualizá-los, se necessário e, em seguida, clique em **publicar agora** toomake-los tooeveryone visível.
+Clique na página **Bem-vindo** para editar o que é exibido na home page do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar Agora** para torná-las visíveis para todos.
 
-> home page do Hello usa um layout especial que permite que ele toodisplay uma faixa na parte superior da saudação. Esse cabeçalho não é editável de saudação **conteúdo** seção. tooedit nesse faixa, clique em **Widgets** de saudação **portal do desenvolvedor** menu, selecione **Home page** de saudação **camada atual** suspensa lista e, em seguida, abra Olá **faixa** item sob Olá **em destaque seção**. conteúdo de saudação deste widget é editável, assim como qualquer outra página.
+> A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção **Conteúdo** . Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, selecione **Home page** na lista suspensa **Camada Atual** e abra o item **Faixa** na seção **Em destaque**. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
 > 
 > 
 
 ## <a name="next-steps"> </a>Próximas etapas
-* [Atualizar estilos Olá usados para elementos de página entre o portal do desenvolvedor Olá][customize-styles]
-* [Modificar modelos de saudação usados para as páginas geradas pelo portal de saudação] [ portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação do usuário, etc.)
 
 [Structure of developer portal pages]: #page-structure
-[Modifying hello contents of a layout widget]: #modify-layout-widget
-[Edit hello contents of a page]: #edit-page-contents
+[Modifying the contents of a layout widget]: #modify-layout-widget
+[Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
 [modify-content-layout]: api-management-modify-content-layout.md

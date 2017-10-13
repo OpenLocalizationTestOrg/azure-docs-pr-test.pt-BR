@@ -1,6 +1,6 @@
 ---
-title: "diretrizes de utilitário de carregamento de arquivo de solicitação de aaaMicrosoft novo suporte do Azure | Microsoft Docs"
-description: "Descreve as diretrizes de saudação ao usar o Microsoft Azure nova solicitação de suporte utilitário de carregamento de arquivo"
+title: "Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure | Microsoft Docs"
+description: "Descreve as diretrizes ao usar o utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure"
 services: 
 documentationcenter: 
 author: genlin
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 19e51b40b82a71454b4b04752ebeefd5d26c2db5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure
-Quando você [criar uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), utilitário de carregamento de arquivo hello pode ajudá-lo facilmente os arquivos de diagnóstico de carregamento ou outros arquivos que você acha que são relevantes toohello incidente.  
+Quando você [criar uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário Carregar Arquivo poderá ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que considere relevantes para o incidente.  
 
 > [!NOTE]
-> tooprotect sua privacidade, não incluem quaisquer informações pessoais em seu carregamento.
+> Para proteger sua privacidade, não inclua nenhuma informação pessoal em seu upload.
 >
 >
 
-Quando você usar o utilitário de carregamento de arquivo hello, siga estas diretrizes:
+Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 
-* Todos os arquivos devem ter uma extensão de nome de arquivo, como .docx ou .xlsx. Consulte a tabela de saudação para lista de saudação de extensões de nome de arquivo permitido.
-* nome do arquivo Hello deve ter menos de 110 caracteres.
+* Todos os arquivos devem ter uma extensão de nome de arquivo, como .docx ou .xlsx. Confira a tabela para ver uma lista das extensões de nome de arquivo permitidas.
+* O nome do arquivo deve ter menos de 110 caracteres.
 * Você não pode carregar mais de um arquivo.
 * Os arquivos não podem ser maiores que 4 MB.
 
-## <a name="table-of-hello-allowed-file-name-extensions"></a>Tabela de saudação extensões de nome de arquivo permitidas
+## <a name="table-of-the-allowed-file-name-extensions"></a>Tabela das extensões de nome de arquivo permitidas
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

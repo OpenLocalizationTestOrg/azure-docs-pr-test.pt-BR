@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com Zoho | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Zoho."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e Zoho."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,237 +14,237 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d1c196d3b97babab196f509ea68e7d61523a7e0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0688cb75584ada805b944d2ef5409d66ab37339
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integração do Azure Active Directory com Zoho
 
-Neste tutorial, você aprenderá como toointegrate Zoho com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o Zoho ao Azure AD (Azure Active Directory).
 
-Integrando Zoho com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Zoho com o Azure AD fornece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooZoho.
-- Você pode habilitar seu usuários tooautomatically get conectado tooZoho (logon único) com suas contas do AD do Azure.
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure.
+- Você pode controlar no Azure AD quem terá acesso ao Zoho.
+- Você pode habilitar seus usuários para conexão automática no Zoho (Logon Único) com suas contas Azure AD.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o Zoho, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD com o Zoho, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Zoho
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Zoho da Galeria de saudação
+1. Adicionar Zoho da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-zoho-from-hello-gallery"></a>Adicionando Zoho da Galeria de saudação
-integração de saudação tooconfigure do Zoho no AD do Azure, você precisa tooadd Zoho da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-zoho-from-the-gallery"></a>Adicionar Zoho da galeria
+Para configurar a integração do Zoho com o Azure AD, você precisará adicionar o Zoho à sua lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**tooadd Zoho da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Zoho da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![botão de Active Directory do Azure Olá][1]
+    ![O botão Azure Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![folha de aplicativos de empresa Olá][2]
+    ![A folha Aplicativos empresariais][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Novo botão de aplicativo Hello][3]
+    ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa hello, digite **Zoho**, selecione **Zoho** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
+4. Na caixa de pesquisa, digite **Zoho**, selecione **Zoho** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Zoho na lista de resultados de saudação](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_addfromgallery.png)
+    ![Zoho na lista de resultados](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Zoho, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Zoho é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Zoho precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Zoho é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Zoho.
 
-No Zoho, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+NoZoho, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vinculação.
 
-tooconfigure e teste de logon único do AD do Azure com o Zoho, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Zoho, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do Zoho](#create-a-zoho-test-user)**  -toohave um equivalente do Britta Simon no Zoho é vinculado toohello AD do Azure representação do usuário.
-4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do Zoho](#create-a-zoho-test-user)** – para ter um equivalente de Brenda Fernandes no Zoho que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo do Zoho.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no seu aplicativo Zoho.
 
-**tooconfigure AD do Azure-logon único com o Zoho, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **Zoho** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração do aplicativo **Zoho**, clique em **Logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_samlbase.png)
 
-3. Em Olá **Zoho domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do Zoho**, execute as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Zoho](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_url.png)
 
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company name>.zohomail.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.zohomail.com`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com hello URL de logon real. Entre em contato com [equipe de suporte do cliente Zoho](https://www.zoho.com/mail/contact.html) tooget esse valor. 
+    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Zoho](https://www.zoho.com/mail/contact.html) para obter esse valor. 
  
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![link de download de certificado Olá](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-zoho-mail-tutorial/tutorial_general_400.png)
 
-6. Em Olá **Zoho configuração** seção, clique em **configurar Zoho** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML, alterar a URL da senha e URL de logout** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do Zoho** clique em **Configurar Zoho** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a URL de Alteração de Senha e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configuração do Zoho](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_configure.png) 
 
 7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zoho Mail como administrador.
 
-8. Vá toohello **painel de controle**.
+8. Vá para o **Painel de Controle**.
    
     ![Painel de controle](./media/active-directory-saas-zoho-mail-tutorial/ic789607.png "Painel de controle")
 
-9. Clique em Olá **autenticação SAML** guia.
+9. Clique na guia **Autenticação SAML** .
    
     ![Autenticação SAML](./media/active-directory-saas-zoho-mail-tutorial/ic789608.png "Autenticação SAML")
 
-10. Em Olá **detalhes de autenticação SAML** , execute Olá etapas a seguir:
+10. Na seção **Detalhes da Autenticação SAML** , realize as seguintes etapas:
    
     ![Detalhes de Autenticação SAML](./media/active-directory-saas-zoho-mail-tutorial/ic789609.png "Detalhes de Autenticação SAML")
    
-    a. Em Olá **URL de logon** caixa de texto, colar **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
    
-    b. Em Olá **URL de Logout** caixa de texto, colar **URL de logout** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL de Logoff**, cole a **URL de Saída** copiada do portal do Azure.
    
-    c. Em Olá **alterar a URL da senha** caixa de texto, colar **alterar a URL da senha** que você copiou do portal do Azure.
+    c. Na caixa de texto **Alterar URL de Senha**, cole **Alterar URL da Senha** copiada do portal do Azure.
        
-    d. Abra seu certificado codificado em base 64 baixado do portal do Azure no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **PublicKey** caixa de texto.
+    d. Abra o certificado codificado em BASE-64 baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **PublicKey**.
    
     e. Para **Algoritmo**, selecione **RSA**.
    
     f. Clique em **OK**.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
+1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
-    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_01.png)
+    ![O botão Azure Active Directory](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_01.png)
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
-    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_02.png)
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_02.png)
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
-    ![botão Adicionar de saudação](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_03.png)
+    ![O botão Adicionar](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_03.png)
 
-4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
-    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_04.png)
+    ![A caixa de diálogo Usuário](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_04.png)
 
-    a. Em Olá **nome** , digite **BrittaSimon**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
-    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
-    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-zoho-test-user"></a>Criar um usuário de teste do Zoho
 
-Ordem tooenable AD do Azure usuários toolog no Zoho Mail, eles devem ser provisionados no Zoho Mail. No caso de saudação do Zoho Mail, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles devem ser provisionados no Zoho Mail. No caso do Zoho Mail, o provisionamento é uma tarefa manual.
 
 > [!NOTE]
-> Você pode usar qualquer ferramenta de criação outros Zoho Mail usuário conta ou APIs fornecidas pelo Zoho Mail tooprovision contas de usuário do AAD.
+> É possível usar qualquer outra ferramenta de criação da conta de usuário do Zoho Mail ou APIs fornecidas pelo Zoho Mail para provisionar as contas de usuário do AAD.
 
-### <a name="tooprovision-a-user-account-perform-hello-following-steps"></a>tooprovision uma conta de usuário, execute Olá etapas a seguir:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-1. Faça logon no tooyour **Zoho Mail** site da empresa como um administrador.
+1. Faça logon em seu site de empresa do **Zoho Mail** como administrador.
 
-2. Vá muito**painel de controle \> Mail & documentos**.
+2. Vá para **Painel de Controle \> Emails e Documentos**.
 
-3. Vá muito**detalhes do usuário \> adicionar usuário**.
+3. Vá para **Detalhes do Usuário \> Adicionar Usuário**.
    
     ![Adicionar Usuário](./media/active-directory-saas-zoho-mail-tutorial/ic789611.png "Adicionar Usuário")
 
-4. Em Olá **adicionar usuários** caixa de diálogo, executar Olá etapas a seguir:
+4. No diálogo **Adicionar usuários** , realize as seguintes etapas:
    
     ![Adicionar Usuário](./media/active-directory-saas-zoho-mail-tutorial/ic789612.png "Adicionar Usuário")
    
-    a. Em Olá **nome** caixa de texto, tipo hello primeiro nome do usuário, como **Britta**.
+    a. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.
 
-    b. Em Olá **Sobrenome** caixa de texto, digite Olá sobrenome do usuário como **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
 
-    c. Em Olá **ID de Email** caixa de texto, id de email do tipo saudação do usuário como  **brittasimon@contoso.com** .
+    c. Na caixa de texto **ID de Email** digite a identificação do email do usuário, como **brittasimon@contoso.com**.
 
-    d. Em Olá **senha** caixa de texto, digite a senha do usuário.
+    d. Na caixa de texto **Senha** digite a senha do usuário.
    
     e. Clique em **OK**.  
       
     > [!NOTE]
-    > proprietário de conta do Active Directory do Azure Olá receberá um email com uma conta de saudação do link tooconfirm antes de se tornar ativa.
+    > O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooZoho.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Zoho.
 
-![Atribuir função de usuário Olá][200] 
+![Atribuir a função de usuário][200] 
 
-**tooassign Britta Simon tooZoho, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Zoho, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Zoho**.
+2. Na lista de aplicativos, escolha **Zoho**.
 
-    ![link de Zoho Olá na lista de aplicativos Olá](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_app.png)  
+    ![O link do Zoho na lista de Aplicativos](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_app.png)  
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![link de "Usuários e grupos" Hello][202]
+    ![O link “Usuários e grupos”][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![Painel de atribuição adicionar Olá][203]
+    ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -252,14 +252,14 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Zoho Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Zoho aplicativo.
-Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clicar no bloco Zoho no Painel de Acesso, deverá conectar automaticamente no seu aplicativo Zoho.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

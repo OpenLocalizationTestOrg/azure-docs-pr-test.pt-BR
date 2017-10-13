@@ -1,5 +1,5 @@
 ---
-title: aaaAuditing no Azure SQL Data Warehouse | Microsoft Docs
+title: Auditoria no SQL Data Warehouse do Azure | Microsoft Docs
 description: "Introdução à auditoria no SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 948de74fa052ef206cf1aa65c0d81f084b18cb00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Auditoria do SQL Data Warehouse permite toorecord eventos no log de auditoria de banco de dados tooan em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para relatórios e análises de buscas detalhadas.
+A auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua Conta de Armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para relatórios e análises de buscas detalhadas.
 
-Ferramentas de auditoria habilitar e facilitar os padrões toocompliance aderência mas não garantem a conformidade. Para obter mais informações sobre o Azure programas que conformidade com padrões de suporte, consulte Olá <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
+As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte a <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Central de Confiabilidade do Azure</a>.
 
 * [Fundamentos da Auditoria do Banco de Dados]
 * [Configurar a auditoria do banco de dados]
@@ -39,15 +39,15 @@ Ferramentas de auditoria habilitar e facilitar os padrões toocompliance aderên
 ## <a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados do SQL Data Warehouse do Azure
 A auditoria do banco de dados do SQL Data Warehouse permite que você:
 
-* **Retenha** uma trilha de auditoria dos eventos selecionados. Você pode definir categorias de banco de dados ações toobe auditado.
-* **Relate** sobre a atividade do banco de dados. Você pode usar relatórios pré-configurados e um tooget painel iniciada rapidamente com a atividade e o relatório de eventos.
+* **Retenha** uma trilha de auditoria dos eventos selecionados. Definir categorias de ações de banco de dados a ser auditadas.
+* **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
 * **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
-Você pode configurar a auditoria de saudação categorias de evento a seguir:
+Você pode configurar a auditoria para as categorias de eventos a seguir:
 
-**SQL simples** e **SQL parametrizadas** para qual Olá logs de auditoria coletados são classificados como  
+**SQL simples** e **SQL parametrizado** para os quais os logs de auditoria coletados são classificados como  
 
-* **Toodata de acesso**
+* **Acesso a dados**
 * **Alterações de esquema (DDL)**
 * **Alterações de dados (DML)**
 * **Contas, funções e permissões (DCL)**
@@ -55,51 +55,51 @@ Você pode configurar a auditoria de saudação categorias de evento a seguir:
 
 Para cada categoria de evento, as operações de auditoria de **sucesso** e **falha** são configuradas separadamente.
 
-Para obter mais informações sobre atividades hello e eventos de auditoria, consulte Olá <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">referência de formato de Log de auditoria (download do arquivo doc)</a>.
+Para obter mais informações sobre as atividades e os eventos auditados, consulte a <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Referência de Formato de Log de Auditoria (download do arquivo .doc)</a>.
 
 Logs de auditoria são armazenados na sua conta de armazenamento do Azure. Você pode definir um período de retenção para logs de auditoria.
 
-Uma política de auditoria pode ser definida para um banco de dados específico ou como uma política padrão do servidor. Uma política de auditoria de servidor padrão se aplica a bancos de dados tooall em um servidor, que não têm uma substituição de banco de dados auditoria política específica definida.
+Uma política de auditoria pode ser definida para um banco de dados específico ou como uma política padrão do servidor. Uma política de auditoria padrão do servidor é aplicada a todos os bancos de dados em um servidor que não contém uma política de auditoria de banco de dados substituta específica definida.
 
 Antes de configurar a auditoria, verifique se você está usando um ["Cliente de nível inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 ## <a id="subheading-2"></a>Configurar a auditoria do banco de dados
-1. Iniciar Olá <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
-2. Vá toohello **configurações** folha de saudação SQL Data Warehouse, você deseja tooaudit. Em Olá **configurações** folha, selecione **detecção de auditoria e ameaças**.
+1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
+2. Acesse a folha **Configurações** do SQL Data Warehouse que deseja auditar. Na folha **Configurações**, selecione **Auditoria e Detecção de ameaças**.
    
     ![][1]
-3. Em seguida, habilitar a auditoria clicando Olá **ON** botão.
+3. Em seguida, habilite a auditoria clicando no botão **ON** .
    
     ![][3]
-4. No hello folha de configuração de auditoria, selecione **detalhes armazenamento** tooopen folha de armazenamento de Logs de auditoria de saudação. Selecione Olá conta de armazenamento do Azure onde os logs serão salvas e hello período de retenção. 
+4. Na folha de configuração de auditoria, selecione **DETALHES DE ARMAZENAMENTO** para abrir a folha Armazenamento de Logs de Auditoria. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e o período de retenção. 
 >[!TIP]
->Olá Use pré-configurado de mesma conta de armazenamento para todos os Olá de tooget auditados bancos de dados máximo Olá relatórios de modelos.
+>Use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatórios pré-configurados.
    
     ![][4]
-5. Clique em Olá **Okey** configuração detalhes de armazenamento de saudação do botão toosave.
-6. Em **registro em log pelo evento**, clique em **êxito** e **falha** toolog todos os eventos, ou escolha categorias de evento individuais.
-7. Se você estiver configurando a auditoria para um banco de dados, talvez seja necessário cadeia de caracteres de conexão Olá de tooalter de sua tooensure cliente dados de auditoria é capturado corretamente. Verificar Olá [modificar o FQDN do servidor na cadeia de caracteres de conexão Olá](sql-data-warehouse-auditing-downlevel-clients.md) tópico para conexões de cliente de nível inferior.
+5. Clique no botão **OK** para salvar a configuração de detalhes do armazenamento.
+6. Em **REGISTRO EM LOG POR EVENTO**, clique em **SUCESSO** e **FALHA** para registrar todos os eventos ou escolha categorias de evento individuais.
+7. Se você estiver configurando a Auditoria para um banco de dados, talvez seja necessário alterar a cadeia de conexão do cliente para garantir que os dados de auditoria sejam capturados corretamente. Verifique o tópico [Modificar o FQDN do servidor na cadeia de conexão](sql-data-warehouse-auditing-downlevel-clients.md) para conexões de cliente de nível inferior.
 8. Clique em **OK**.
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
-Logs de auditoria são agregados em uma coleção de tabelas de armazenamento com uma **SQLDBAuditLogs** prefixo no hello escolhido durante a instalação de conta de armazenamento do Azure. Você pode ver os arquivos de log usando uma ferramenta como o <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Gerenciador de Armazenamento do Azure</a>.
+Logs de auditoria são agregados em uma coleção de tabelas de armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Gerenciador de Armazenamento do Azure</a>.
 
-Um modelo de relatório do painel pré-configurado está disponível como um <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">planilha do Excel para download</a> toohelp você analisar rapidamente os dados de log. modelo de saudação toouse em seus logs de auditoria, você precisa Excel 2013 ou posterior e o Power Query, que você pode baixar <a href="http://www.microsoft.com/download/details.aspx?id=39379">aqui</a>.
+Um modelo de relatório do painel pré-configurado está disponível como uma planilha do <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">Excel para download</a> para ajudar você a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que pode ser baixado <a href="http://www.microsoft.com/download/details.aspx?id=39379">aqui</a>.
 
-Olá possui dados de exemplo fictício nele, e você pode configurar tooimport Power Query seu log de auditoria diretamente de sua conta de armazenamento do Azure.
+O modelo possui dados de amostra fictícios, e você pode configurar o Power Query para importar seu log de auditoria diretamente da sua conta de armazenamento do Azure.
 
 ## <a id="subheading-4"></a>Regeneração de chave de armazenamento
-Em produção, você está provavelmente toorefresh o armazenamento de chaves periodicamente. Ao atualizar as chaves, é necessário toosave política de saudação. processo de saudação é o seguinte:
+Em produção, você provavelmente atualizará suas chaves de armazenamento periodicamente. Ao atualizar suas chaves, é necessário salvar a política. O processo é o seguinte:
 
-1. No hello auditoria folha de configuração (instalação Olá auditoria seção descrita acima), alterne Olá **chave de acesso de armazenamento** de *primário* muito*secundário* e  **Salvar**.
+1. Na folha de configuração de auditoria (descrita acima na seção de configuração de auditoria), altere a **Chave de Acesso de Armazenamento** de *Primária* para *Secundária* e clique em **SALVAR**.
 
    ![][4]
-2. Folha de configuração de armazenamento vá toohello e **regenerar** Olá *chave de acesso primário*.
-3. Voltar toohello auditoria folha de configuração de comutador hello **chave de acesso de armazenamento** de *secundário* muito*primário* e pressione **salvar**.
-4. Voltar toohello armazenamento da interface do usuário e **regenerar** Olá *chave de acesso secundária* (como preparação para Olá chaves próximas ciclo de atualização.
+2. Acesse a folha de configuração de armazenamento e **regenere** a *Chave de Acesso Primária*.
+3. Volte para a folha de configuração de auditoria, altere a **Chave de Acesso de Armazenamento** de *Secundária* para *Primária* e pressione **SALVAR**.
+4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves.
 
 ## <a id="subheading-5"></a>Automação (PowerShell/API REST)
-Você também pode configurar a auditoria no Azure SQL Data Warehouse usando Olá ferramentas de automação a seguir:
+Você também pode configurar a auditoria no SQL Data Warehouse do Azure usando as seguintes ferramentas de automação:
 
 * **Cmdlets do PowerShell**:
 

@@ -1,6 +1,6 @@
 ---
-title: aaaMonitor e gerenciar Hadoop com API REST do Ambari - HDInsight do Azure | Microsoft Docs
-description: "Saiba como toouse Ambari toomonitor e gerenciar clusters Hadoop em HDInsight do Azure. Neste documento, você aprenderá como clusters de toouse Olá API REST do Ambari incluídos no HDInsight."
+title: "Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight | Microsoft Docs"
+description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,51 +16,51 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1866a77c8e402231bccbcfba7174253aca41339b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="manage-hdinsight-clusters-by-using-hello-ambari-rest-api"></a>Gerenciar clusters HDInsight usando Olá Ambari REST API
+# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Saiba como toouse Olá toomanage Ambari REST API e monitorar clusters Hadoop em HDInsight do Azure.
+Aprenda a usar a API REST do Ambari para gerenciar e monitorar clusters Hadoop no Azure HDInsight.
 
-Apache Ambari simplifica o gerenciamento de saudação e monitoramento de um cluster de Hadoop, fornecendo a interface do usuário e REST API toouse fácil da web. Ambari é incluído em clusters de HDInsight que usam o sistema de operacional Linux hello. Você pode usar o cluster de saudação do Ambari toomonitor e fazer alterações de configuração.
+O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari é incluído em clusters HDInsight que usam o sistema operacional Linux. Você pode usar o Ambari para monitorar o cluster e fazer alterações de configuração.
 
 ## <a id="whatis"></a>O que é o Ambari
 
-[Apache Ambari](http://ambari.apache.org) fornece a interface que pode ser usado tooprovision, gerenciar e monitorar clusters Hadoop da web. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando Olá [APIs de REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+O [Apache Ambari](http://ambari.apache.org) fornece uma interface do usuário da Web que pode ser usada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.
 
-## <a name="how-toouse-hello-ambari-rest-api"></a>Como toouse Olá Ambari REST API
+## <a name="how-to-use-the-ambari-rest-api"></a>Como usar a API REST do Ambari
 
 > [!IMPORTANT]
-> informações de saudação e exemplos neste documento exigem um cluster HDInsight que usa o sistema operacional Linux. Para saber mais, confira [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+> As informações e exemplos deste documento exigem um cluster HDInsight que usa o sistema operacional Linux. Para saber mais, confira [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-exemplos de saudação neste documento são fornecidos para o shell Bourne de saudação (bash) e o PowerShell. bash Olá exemplos foram testados com GNU bash 4.3.11, mas devem funcionar com outros shells do Unix. exemplos do PowerShell Olá foram testados com o PowerShell 5.0, mas devem funcionar com o PowerShell 3.0 ou superior.
+Os exemplos neste documento são fornecidos para o shell Bourne (bash) e o PowerShell. O bash exemplos foram testados com GNU bash 4.3.11, mas devem funcionar com outros shells do Unix. Os exemplos do PowerShell foram testados com o PowerShell 5.0, mas devem funcionar com o PowerShell 3.0 ou superior.
 
-Se usar o hello __shell Bourne__ (Bash), você deve ter o seguinte Olá instalado:
+Se usar o __shell Bourne__ (Bash), você deve ter o seguinte instalado:
 
-* [cURL](http://curl.haxx.se/): Ondulação é um utilitário que pode ser usado toowork com APIs de REST da linha de comando de saudação. Neste documento, é usado toocommunicate com hello API REST do Ambari.
+* [cURL](http://curl.haxx.se/): o cURL é um utilitário que pode ser usado para trabalhar com APIs REST na linha de comando. Neste documento, ele é usado para se comunicar com a API REST do Ambari.
 
-Se usar Bash ou o PowerShell, você também deverá ter o [jq](https://stedolan.github.io/jq/) instalado. Jq é um utilitário para trabalhar com documentos JSON. Ele é usado em **todos os** Olá Bash exemplos, e **um** de exemplos do PowerShell hello.
+Se usar Bash ou o PowerShell, você também deverá ter o [jq](https://stedolan.github.io/jq/) instalado. Jq é um utilitário para trabalhar com documentos JSON. Ele é usado em **todos os** exemplos Bash, e **um** dos exemplos do PowerShell.
 
 ### <a name="base-uri-for-ambari-rest-api"></a>Base de URI para a API de Rest do Ambari
 
-Olá, URI de base para Olá API REST do Ambari no HDInsight é https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, onde **CLUSTERNAME** é o nome de saudação do cluster.
+A URI de base para a API REST em clusters HDInsight é https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, em que **CLUSTERNAME** é o nome do seu cluster.
 
 > [!IMPORTANT]
-> Enquanto o nome do cluster Olá no hello totalmente qualificado parte do nome (FQDN) do domínio de saudação URI (CLUSTERNAME.azurehdinsight.net) diferencia maiusculas de minúsculas, outras ocorrências em Olá URI diferenciam maiusculas de minúsculas. Por exemplo, se o cluster é denominado `MyCluster`, Olá seguem URIs válidos:
+> Embora o nome do cluster na parte do nome de domínio totalmente qualificado (FQDN) do URI (CLUSTERNAME.azurehdinsight.net) diferencie maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas. Por exemplo, se seu cluster se chamar `MyCluster`, os seguintes URIs serão válidos:
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 > 
-> seguir Olá URIs retornará um erro porque Olá segunda ocorrência do nome de saudação não é Olá corrija caso.
+> Os URIs a seguir retornam um erro, pois a segunda ocorrência do nome não apresenta o uso correto de maiúsculas e minúsculas.
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
 >
@@ -68,22 +68,22 @@ Olá, URI de base para Olá API REST do Ambari no HDInsight é https://CLUSTERNA
 
 ### <a name="authentication"></a>Autenticação
 
-Conexão tooAmbari no HDInsight requer HTTPS. Nome de conta de administrador use hello (Olá padrão é **admin**) e a senha fornecidos durante a criação do cluster.
+Conectar-se ao Ambari no HDInsight requer HTTPS. Use o nome da conta do administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
 
 ## <a name="examples-authentication-and-parsing-json"></a>Exemplos: Autenticação e analisando o JSON
 
-Olá exemplos a seguir demonstram como toomake uma solicitação GET hello base Ambari REST API:
+Os exemplos a seguir demonstram como fazer uma solicitação GET em relação a API REST do Ambari base:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
-> exemplos de Bash Olá neste documento fazer Olá seguintes suposições:
+> Os exemplos neste documento Bash fazem as seguintes suposições:
 >
-> * nome de logon de Olá para cluster Olá é o valor padrão de saudação do `admin`.
-> * `$PASSWORD`contém a senha Olá Olá comando de login do HDInsight. Você pode definir esse valor usando `PASSWORD='mypassword'`.
-> * `$CLUSTERNAME`contém o nome de saudação do cluster hello. Você pode definir esse valor usando `set CLUSTERNAME='clustername'`
+> * O nome de logon para o cluster é o valor padrão de `admin`.
+> * `$PASSWORD`contém a senha para o comando de logon do HDInsight. Você pode definir esse valor usando `PASSWORD='mypassword'`.
+> * `$CLUSTERNAME` contém o nome do cluster. Você pode definir esse valor usando `set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -92,12 +92,12 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-> exemplos do PowerShell Olá neste documento fazer Olá seguintes suposições:
+> Os exemplos do PowerShell neste documento fazem as seguintes suposições:
 >
-> * `$creds`é um objeto de credencial que contém o logon de administrador hello e a senha para o cluster hello. Você pode definir esse valor usando `$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"` e fornecer credenciais de saudação quando solicitado.
-> * `$clusterName`é uma cadeia de caracteres que contém o nome de saudação do cluster de saudação. Você pode definir esse valor usando `$clusterName="clustername"`.
+> * `$creds`é um objeto de credencial que contém o logon de administrador e a senha do cluster. Você pode definir esse valor usando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e fornecer as credenciais quando solicitado.
+> * `$clusterName` é uma cadeia de caracteres que contém o nome do cluster. Você pode definir esse valor usando `$clusterName="clustername"`.
 
-Os dois exemplos retornam um documento JSON que começa com informações toohello semelhante exemplo a seguir:
+Ambos os exemplos retornam um documento JSON que começa com informações semelhantes ao exemplo a seguir:
 
 ```json
 {
@@ -121,14 +121,14 @@ Os dois exemplos retornam um documento JSON que começa com informações toohel
 
 ### <a name="parsing-json-data"></a>Analisar dados JSON
 
-Olá exemplo a seguir usa `jq` tooparse Olá documento de resposta JSON e exibir somente Olá `health_report` informações dos resultados de saudação.
+O exemplo a seguir usa `jq` para analisar o documento de resposta JSON e exibir apenas o `health_report` informações dos resultados.
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
-PowerShell 3.0 e superior fornece Olá `ConvertFrom-Json` cmdlet, que converte o documento JSON de saudação em um objeto que é mais fácil toowork do PowerShell. Olá exemplo a seguir usa `ConvertFrom-Json` Olá somente toodisplay `health_report` informações dos resultados de saudação.
+O PowerShell 3.0 e superior fornece o cmdlet `ConvertFrom-Json`, que converte o documento JSON em um objeto com que é mais fácil de trabalhar desde o PowerShell. O exemplo a seguir usa `ConvertFrom-Json` para exibir somente as informações de `health_report` dos resultados.
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -138,13 +138,13 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]
-> Embora a maioria dos exemplos deste documento usam `ConvertFrom-Json` toodisplay elementos do documento de resposta hello, Olá [Ambari de atualização de configuração](#example-update-ambari-configuration) exemplo usa jq. Jq é usado em tooconstruct Este exemplo um novo modelo de documento de resposta JSON hello.
+> Enquanto a maioria dos exemplos deste documento usa `ConvertFrom-Json` para exibir elementos do documento de resposta, o exemplo [Atualizar configuração do Ambari](#example-update-ambari-configuration) usa jq. Jq é usado neste exemplo, para criar um novo modelo do documento de resposta JSON.
 
-Para obter uma referência completa de saudação API REST, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="example-get-hello-fqdn-of-cluster-nodes"></a>Exemplo: Obter Olá FQDN de nós de cluster
+## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Exemplo: obter o FQDN de nós do cluster
 
-Ao trabalhar com HDInsight, talvez seja necessário um nome de domínio totalmente qualificado de saudação tooknow (FQDN) de um nó de cluster. Você pode recuperar facilmente hello FQDN para Olá vários nós no cluster hello usando Olá exemplos a seguir:
+Ao trabalhar com o HDInsight, você precisará saber o nome de domínio totalmente qualificado (FQDN) de um nó do cluster. Você pode recuperar facilmente o FQDN para vários nós no cluster usando os seguintes exemplos:
 
 * **Todos os nós**
 
@@ -202,14 +202,14 @@ Ao trabalhar com HDInsight, talvez seja necessário um nome de domínio totalmen
     $respObj.host_components.HostRoles.host_name
     ```
 
-## <a name="example-get-hello-internal-ip-address-of-cluster-nodes"></a>Exemplo: Obter o endereço IP interno de saudação de nós de cluster
+## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Exemplo: Obter o endereço IP interno de nós de cluster
 
 > [!IMPORTANT]
-> endereços IP de saudação retornados por exemplos Olá nesta seção são não diretamente acessível via Olá da internet. Eles são acessíveis apenas dentro de saudação rede Virtual do Azure que contém o cluster do HDInsight hello.
+> Os endereços IP retornados pelos exemplos nesta seção não estão diretamente acessíveis pela internet. Eles só são acessíveis na rede Virtual do Azure que contém o cluster HDInsight.
 >
 > Para saber mais sobre como trabalhar com o HDInsight e com as redes virtuais, veja [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-endereço IP de saudação toofind, você deve saber Olá interno nome totalmente qualificado (FQDN) do hello nós de cluster. Depois que você tiver Olá FQDN, em seguida, você pode obter endereço IP de saudação do host de saudação. Olá exemplos a seguir primeiro consultar Ambari Olá FQDN de todos os nós de host hello e consultar Ambari para o endereço IP de saudação de cada host.
+Para localizar o endereço IP, você deve saber o FQDN (nome de domínio totalmente qualificado) interno dos nós de cluster. Uma vez que o FQDN, em seguida, você pode obter o endereço IP do host. Os exemplos a seguir primeiro consultar o Ambari para o FQDN de todos os nós de host e consultar o Ambari para o endereço IP de cada host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -233,11 +233,11 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-hello-default-storage"></a>Exemplo: Obter armazenamento padrão da saudação
+## <a name="example-get-the-default-storage"></a>Exemplo: Obtenha o armazenamento padrão
 
-Quando você cria um cluster HDInsight, você deve usar uma conta de armazenamento do Azure ou um repositório Data Lake como armazenamento de padrão de saudação para cluster hello. Você pode usar essas informações de Ambari tooretrieve depois Olá cluster foi criado. Por exemplo, se você quiser que o contêiner de toohello tooread/gravação dados fora do HDInsight.
+Quando você criar um cluster HDInsight, será necessário usar uma conta do Armazenamento do Azure ou o Data Lake Store como o armazenamento padrão para o cluster. Você pode usar o Ambari para recuperar essas informações após a criação do cluster. Por exemplo, se você quiser ler/gravar dados no contêiner fora do HDInsight.
 
-Olá exemplos a seguir recuperar configuração de armazenamento padrão de saudação do cluster hello:
+Os exemplos a seguir recuperar a configuração de armazenamento padrão do cluster:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -252,15 +252,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]
-> Esses exemplos retornam o primeiro servidor de toohello configuração aplicada hello (`service_config_version=1`) que contém essas informações. Se você recuperar um valor que foi modificado após a criação do cluster, você pode precisa toolist Olá configuração versões e recuperar hello mais recente.
+> Estes exemplos retornam a primeira configuração aplicada ao servidor (`service_config_version=1`) que contém essas informações. Se você recuperar um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
 
-valor de retorno de saudação é semelhante tooone de saudação exemplos a seguir:
+O valor de retorno é semelhante a um dos exemplos a seguir:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster hello está usando uma conta de armazenamento do Azure para armazenamento padrão. Olá `ACCOUNTNAME` valor é o nome de Olá Olá da conta de armazenamento. Olá `CONTAINER` parte é o nome de Olá Olá do contêiner de blob na conta de armazenamento hello. contêiner de saudação é raiz Olá Olá armazenamento compatíveis do HDFS para cluster hello.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor `ACCOUNTNAME` é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz de armazenamento compatível com HDFS para o cluster.
 
-* `adl://home`-Este valor indica que o cluster hello está usando um repositório Data Lake do Azure para armazenamento padrão.
+* `adl://home`-Este valor indica que o cluster está usando um Azure Data Lake Store para armazenamento padrão.
 
-    Olá toofind nome de conta do repositório Data Lake, use Olá exemplos a seguir:
+    Para localizar o nome da conta Data Lake Store, use os exemplos a seguir:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -274,9 +274,9 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Olá valor de retorno é semelhante muito`ACCOUNTNAME.azuredatalakestore.net`, onde `ACCOUNTNAME` é o nome de saudação do hello conta do repositório Data Lake.
+    O valor de retorno é semelhante ao `ACCOUNTNAME.azuredatalakestore.net`, onde `ACCOUNTNAME` é o nome da conta de Data Lake Store.
 
-    diretório de saudação toofind dentro do repositório Data Lake que contém o armazenamento Olá Olá cluster, use Olá exemplos a seguir:
+    Para localizar o diretório no Data Lake Store que contém o armazenamento do cluster, use os exemplos a seguir:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -290,15 +290,15 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    Olá valor de retorno é semelhante muito`/clusters/CLUSTERNAME/`. Esse valor é um caminho dentro Olá conta do repositório Data Lake. Esse caminho é a raiz de saudação de sistema de arquivos compatíveis do HDFS para o cluster de saudação do hello. 
+    O valor de retorno é semelhante ao `/clusters/CLUSTERNAME/`. Esse valor é um caminho dentro da conta de Data Lake Store. Esse caminho é a raiz do sistema de arquivos compatível com HDFS para o cluster. 
 
 > [!NOTE]
-> Olá `Get-AzureRmHDInsightCluster` cmdlet fornecido pelo [Azure PowerShell](/powershell/azure/overview) também retorna Olá informações de armazenamento de cluster hello.
+> O cmdlet `Get-AzureRmHDInsightCluster` fornecido pelo [Azure PowerShell](/powershell/azure/overview) também retorna as informações de armazenamento de cluster.
 
 
 ## <a name="example-get-configuration"></a>Exemplo: obter configuração
 
-1. Obter configurações de saudação que estão disponíveis para seu cluster.
+1. Obtenha as configurações que estão disponíveis para o seu cluster.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -310,7 +310,7 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     $respObj.Content
     ```
 
-    Este exemplo retorna um documento JSON que contém a configuração atual da saudação (identificada pelo Olá *marca* valor) para componentes de saudação instalados no cluster hello. Olá, exemplo a seguir é um trecho da saudação dados retornados de um tipo de cluster do Spark.
+    Esse exemplo retorna um documento JSON contendo a configuração atual (identificada pelo valor *tag* ) para os componentes instalados no cluster. O exemplo a seguir é um trecho dos dados retornados de um tipo de cluster Spark.
    
    ```json
    "spark-metrics-properties" : {
@@ -330,7 +330,7 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
    }
    ```
 
-2. Obter a configuração Olá componente Olá que você está interessado. Olá seguinte exemplo, substitua `INITIAL` com valor de marca Olá retornado da solicitação anterior de saudação.
+2. Obtenha a configuração para o componente em que você tem interesse. No exemplo a seguir, substitua `INITIAL` pelo valor retornado da solicitação anterior.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
@@ -342,11 +342,11 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     $resp.Content
     ```
 
-    Este exemplo retorna um documento JSON que contém a configuração atual Olá Olá `core-site` componente.
+    Este exemplo retorna um documento JSON que contém a configuração atual do componente `core-site`.
 
 ## <a name="example-update-configuration"></a>Exemplo: Atualizar a configuração
 
-1. Obter a configuração atual do hello, que armazena o Ambari como hello "configuração desejada":
+1. Obtenha a configuração atual, que o Ambari armazena como a "configuração desejada":
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -357,7 +357,7 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
         -Credential $creds
     ```
 
-    Este exemplo retorna um documento JSON que contém a configuração atual da saudação (identificada pelo Olá *marca* valor) para componentes de saudação instalados no cluster hello. Olá, exemplo a seguir é um trecho da saudação dados retornados de um tipo de cluster do Spark.
+    Esse exemplo retorna um documento JSON contendo a configuração atual (identificada pelo valor *tag* ) para os componentes instalados no cluster. O exemplo a seguir é um trecho dos dados retornados de um tipo de cluster Spark.
    
     ```json
     "spark-metrics-properties" : {
@@ -377,9 +377,9 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     }
     ```
    
-    Nesta lista, você precisa toocopy nome de saudação do componente de saudação (por exemplo, **spark\_thrift\_sparkconf** e hello **marca** valor.
+    Nesta lista, você precisa copiar o nome do componente (por exemplo, **spark\_thrift\_sparkconf** e o valor **tag**.
 
-2. Recupere a configuração de saudação do componente hello e marca usando Olá comandos a seguir:
+2. Recupere a configuração do componente e da marca usando os comandos a seguir:
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -396,21 +396,21 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     ```
 
     > [!NOTE]
-    > Substituir **spark-thrift-sparkconf** e **inicial** com componente hello e marca que você deseja tooretrieve Olá configuração para.
+    > Substitua **spark-thrift-sparkconf** e **INITIAL** pelo componente e pela marcação cuja configuração você deseja recuperar.
    
-    Jq é recuperados do HDInsight em um novo modelo de configuração de dados de saudação tooturn usado. Especificamente, esses exemplos executam Olá ações a seguir:
+    O jq é usado para transformar os dados recuperados do HDInsight em um novo modelo de configuração. Especificamente, esses exemplos executam as seguintes ações:
    
-    * Cria um valor exclusivo que contém Olá cadeia de caracteres "versão" e a data de saudação, que é armazenada em `newtag`.
+    * Cria um valor exclusivo que contém a cadeia de caracteres "version" e a data, que é armazenada em `newtag`.
 
-    * Cria um documento de raiz para a nova configuração de desejado hello.
+    * Cria um documento raiz para a nova configuração desejada.
 
-    * Obtém Olá conteúdo da saudação `.items[]` de matriz e adiciona-o em Olá **desired_config** elemento.
+    * Obtém o conteúdo da matriz `.items[]` e o adiciona sob o elemento **desired_config**.
 
-    * Olá exclusões `href`, `version`, e `Config` elementos, como esses elementos não são necessário toosubmit uma nova configuração.
+    * Exclui os elementos `href`, `version` e `Config`, pois eles não são necessários para enviar uma nova configuração.
 
-    * Adiciona um elemento `tag` com um valor de `version#################`. parte numérica Olá baseia Olá data atual. Cada configuração deve ter uma marca exclusiva.
+    * Adiciona um elemento `tag` com um valor de `version#################`. A parte numérica tem base na data atual. Cada configuração deve ter uma marca exclusiva.
      
-    Por fim, os dados de saudação são salvos toohello `newconfig.json` documento. estrutura do documento Hello deve aparecer semelhante toohello exemplo a seguir:
+    Por fim, os dados são salvos no documento `newconfig.json`. A estrutura do documento deve ser semelhante a este exemplo:
      
      ```json
     {
@@ -428,14 +428,14 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     }
     ```
 
-3. Olá abrir `newconfig.json` documento e modificar ou adicionar valores em Olá `properties` objeto. exemplo a seguir altera Olá Olá valor `"spark.yarn.am.memory"` de `"1g"` muito`"3g"`. Ele também adiciona `"spark.kryoserializer.buffer.max"` com um valor de `"256m"`.
+3. Abra o documento `newconfig.json` e modifique/adicione valores no objeto `properties`. O exemplo a seguir altera o valor de `"spark.yarn.am.memory"` desde `"1g"` até `"3g"`. Ele também adiciona `"spark.kryoserializer.buffer.max"` com um valor de `"256m"`.
    
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
    
-    Salve o arquivo de saudação quando terminar de fazer modificações.
+    Quando terminar de fazer modificações, salve o arquivo.
 
-4. Use Olá comandos toosubmit Olá atualizado configuração tooAmbari a seguir.
+4. Use os seguintes comandos para enviar a configuração atualizada ao Ambari.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
@@ -451,13 +451,13 @@ valor de retorno de saudação é semelhante tooone de saudação exemplos a seg
     $resp.Content
     ```
    
-    Esses comandos enviar conteúdo Olá Olá **newconfig.json** arquivo toohello cluster Olá desejado nova configuração. solicitação de saudação retorna um documento JSON. Olá **versionTag** elemento neste documento deve corresponder a versão de saudação enviada e Olá **configurações** objeto contém as alterações de configuração de saudação solicitado.
+    Esses comandos enviam o conteúdo do arquivo **newconfig.json** para o cluster como a nova configuração desejada. A solicitação retorna um documento JSON. O elemento **versionTag** nesse documento deverá corresponder à versão enviada e o objeto **configs** conterá as alterações de configuração solicitadas.
 
 ### <a name="example-restart-a-service-component"></a>Exemplo: reiniciar um componente de serviço
 
-Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá serviço Spark indicando que precisa toobe reiniciado para que a nova configuração de saudação entre em vigor. Use Olá serviço de saudação do toorestart as etapas a seguir.
+Neste ponto, se você examinar a interface do usuário da Web do Ambari, o serviço do Spark indicará que ele precisa ser reiniciado para que a nova configuração entre em vigor. Use as etapas a seguir para reiniciar o serviço.
 
-1. Use Olá tooenable modo de manutenção para Olá serviço Spark a seguir:
+1. Use o seguinte para habilitar o modo de manutenção para o serviço do Spark:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -474,7 +474,7 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
     $resp.Content
     ```
    
-    Estes comandos enviam um servidor de toohello de documento JSON que ativa o modo de manutenção. Você pode verificar se o serviço de saudação está agora no modo de manutenção usando Olá solicitação a seguir:
+    Estes comandos enviam um documento JSON para o servidor que ativa o modo de manutenção. Você pode verificar se o serviço está em modo de manutenção usando a seguinte solicitação:
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -489,9 +489,9 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
     $respObj.ServiceInfo.maintenance_state
     ```
    
-    Olá valor de retorno é `ON`.
+    O valor de retorno é `ON`.
 
-2. Em seguida, use Olá tooturn desativar serviço Olá a seguir:
+2. Em seguida, use o seguinte para desativar o serviço:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -508,7 +508,7 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
     $resp.Content
     ```
     
-    resposta de saudação é semelhante toohello exemplo a seguir:
+    A resposta é semelhante ao seguinte exemplo:
    
     ```json
     {
@@ -521,9 +521,9 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
     ```
     
     > [!IMPORTANT]
-    > Olá `href` valor retornado por esse URI é usando o endereço IP interno de Olá Olá do nó do cluster. toouse-lo do cluster Olá externa, substituir a parte de saudação '10.0.0.18:8080' com hello FQDN do cluster de saudação. 
+    > O valor `href` retornado por esse URI usa o endereço IP interno do nó de cluster. Para usá-lo de fora do cluster, substitua a parte '10.0.0.18:8080' pelo FQDN do cluster. 
     
-    Olá comandos a seguir recuperar o status de saudação da solicitação de saudação:
+    Os comandos a seguir recuperam o status da solicitação:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -538,9 +538,9 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
     $respObj.Requests.request_status
     ```
 
-    Uma resposta de `COMPLETED` indica que a solicitação Olá foi concluída.
+    Uma resposta de `COMPLETED` indica que a solicitação foi concluída.
 
-3. Após a conclusão da solicitação anterior hello, use Olá após toostart Olá serviço.
+3. Quando a solicitação anterior for concluída, use o seguinte para iniciar o serviço:
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -555,9 +555,9 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-    serviço de saudação agora está usando a nova configuração de saudação.
+    O serviço agora está usando a nova configuração.
 
-4. Por fim, use Olá tooturn desativar o modo de manutenção a seguir.
+4. Por fim, use o seguinte para desativar o modo de manutenção:
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -575,5 +575,5 @@ Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma referência completa de saudação API REST, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

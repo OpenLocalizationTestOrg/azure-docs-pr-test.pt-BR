@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooadd ou remover uma função de usuário | Microsoft Docs"
-description: "Saiba como identidades de tooprivileged tooadd funções com hello aplicativo do Azure Active Directory Privileged Identity Management."
+title: "Como adicionar ou remover uma função de usuário | Microsoft Docs"
+description: "Saiba como adicionar funções a identidades privilegiadas com o aplicativo Azure Active Directory Privileged Identity Management."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,53 +15,53 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: f84639757dd76061ea12ed6ea7ec9e62ad942109
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="azure-ad-privileged-identity-management-how-tooadd-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Como tooadd ou remover uma função de usuário
-Com o Azure AD (Active Directory), um administrador global (ou o administrador da empresa) pode atualizar os usuários que devem **permanentemente** atribuído tooroles no AD do Azure. Isso é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou eles podem usar Olá portal clássico do Azure conforme descrito em [atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
+# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
+Com o Azure AD (Active Directory), um administrador global (ou o administrador da empresa) pode atualizar os usuários que estão **permanentemente** atribuídos a funções no Azure AD. Isso é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou eles podem usar o portal clássico do Azure conforme descrito em [atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
-saudação de aplicativo do Azure AD Privileged Identity Management permite que os administradores de função privilegiada toomake permanente as atribuições de função, também. Além disso, os administradores de função com privilégios podem tornar os usuários **qualificados** para funções de administrador. Um administrador qualificado pode ativar a função hello quando necessário e, em seguida, suas permissões expirarem assim que estiverem concluídos.
+O aplicativo Azure AD Privileged Identity Management permite que os administradores de função com privilégios façam atribuições de função permanentes também. Além disso, os administradores de função com privilégios podem tornar os usuários **qualificados** para funções de administrador. Um administrador elegível pode ativar a função quando necessário e, em seguida, suas permissões expirarão assim ele tiver terminado.
 
-## <a name="manage-roles-with-pim-in-hello-azure-portal"></a>Gerenciar funções PIM em Olá portal do Azure
-Em sua organização, você pode atribuir usuários funções administrativas toodifferent no AD do Azure, aplicativos e serviços do Microsoft Office 365 e outros.  Mais detalhes sobre funções disponíveis Olá podem ser encontrados no [funções no Azure AD PIM](active-directory-privileged-identity-management-roles.md).
+## <a name="manage-roles-with-pim-in-the-azure-portal"></a>Gerenciar funções com PIM no portal do Azure
+Na sua organização, você pode atribuir usuários a diferentes funções administrativas no Azure AD, Office 365 e outros serviços e aplicativos Microsoft.  É possível encontrar mais detalhes sobre as funções disponíveis em [Roles in Azure AD PIM](active-directory-privileged-identity-management-roles.md)(Funções no Azure AD PIM).
 
-tooadd ou remover um usuário em uma função usando o gerenciamento de identidades com privilégios, coloque o painel PIM hello. Em seguida, clique em Olá **usuários em funções de administrador** botão, ou selecione uma função específica (por exemplo, o Administrador Global) da tabela de funções de saudação.
+Para adicionar ou remover um usuário em uma função usando o Privileged Identity Management, abra o painel PIM. Em seguida, clique no botão **Usuários em Funções de Administrador** ou selecione uma função específica (como Administrador Global) na tabela de funções.
 
 > [!NOTE]
-> Se você não tiver habilitado o PIM em Olá portal do Azure, vá muito[Introdução ao Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) para obter detalhes.
+> Se você ainda não habilitou o PIM no portal do Azure, acesse [Get started with Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) (Introdução ao Azure AD PIM) para obter detalhes.
 
-Se você quiser que outra tooPIM de acesso de usuário em si, funções de saudação que requer o PIM Olá usuário toohave são descritos mais detalhadamente em toogive [como toogive acessar tooPIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+Se você desejar conceder acesso ao próprio PIM a outro usuário, as funções que o PIM exige que o usuário tenha serão descritas detalhadamente em [como conceder acesso ao PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-## <a name="add-a-user-tooa-role"></a>Adicionar uma função de usuário tooa
-1. Em Olá [portal do Azure](https://portal.azure.com/), selecione Olá **do Azure AD Privileged Identity Management** bloco no painel de saudação.
+## <a name="add-a-user-to-a-role"></a>Adicionar um usuário a uma função
+1. No [Portal do Azure](https://portal.azure.com/), selecione o bloco **Azure AD Privileged Identity Management** no painel.
 2. Selecione **Gerenciar funções privilegiadas**.
-3. Em Olá **Resumo da função** tabela, selecione Olá função toomanage.
-4. Na folha de função hello, selecione **adicionar**.
-5. Clique em **Selecione usuários** e pesquise o usuário Olá Olá **Selecione usuários** folha.  
-6. Selecione usuário Olá Olá lista de resultados de pesquisa e, em seguida, clique em **feito**.
-7. Clique em **Okey** toosave sua seleção. usuário Olá selecionados serão exibidos na lista de saudação como qualificado para a função hello.
+3. Na tabela **Resumo da função** , selecione a função que você deseja gerenciar.
+4. Na folha de função, selecione **Adicionar**.
+5. Clique em **Selecionar usuários** e pesquise pelo usuário na folha **Selecionar usuários**.  
+6. Selecione o usuário na lista de resultados da pesquisa e clique em **Concluído**.
+7. Clique em **OK** para salvar sua seleção. O usuário que você selecionou aparecerá na lista como elegível para essa função.
 
 > [!NOTE]
-> Novos usuários em uma função só são elegíveis para a função hello por padrão. Se quiser toomake Olá função permanente, clique em usuário Olá na lista de saudação. informações de saudação do usuário serão exibida em uma nova folha. Selecione **Verifique perm** no menu de informações de usuário de saudação.  
-> Se um usuário não é possível registrar para o Azure multi-Factor Authentication (MFA) ou está usando uma conta da Microsoft (geralmente @outlook.com), você precisa toomake-los permanente em todas as suas funções. Administradores qualificados serão solicitadas tooregister do MFA durante a ativação.
+> Novos usuários em uma função só são elegíveis para a função por padrão. Se você quiser tornar a função permanente, clique no usuário na lista. As informações do usuário serão exibidas em uma nova folha. Selecione **Tornar perm.** no menu de informações do usuário.  
+> Se um usuário não é possível registrar para o Azure multi-Factor Authentication (MFA) ou está usando uma conta da Microsoft (geralmente @outlook.com), você precisa torná-las permanentes em todas as suas funções. Os administradores qualificados são solicitados a se registrar no MFA durante a ativação.
 
-Agora que hello a usuário está qualificado para uma função, que eles saibam que eles podem ativá-lo de acordo com as instruções de toohello em [como tooactivate ou desativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md).
+Agora que o usuário está qualificado para uma função, avise-o que ele pode ativá-la de acordo com as instruções em [Como ativar ou desativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## <a name="remove-a-user-from-a-role"></a>Remover um usuário de uma função
 Você pode remover usuários de atribuições de função elegíveis, mas certifique-se de que sempre haja pelo menos um usuário que seja um administrador global permanente.
 
-Siga essas etapas tooremove um usuário específico de uma função:
+Siga estas etapas para remover um usuário específico de uma função:
 
-1. Navegue toohello função na lista de função hello selecionando uma função no painel do Azure AD PIM hello ou clicando no hello **usuários em funções de administrador** botão.
-2. Clique no usuário Olá na lista de saudação do usuário.
-3. Clique em **Remover**. Uma mensagem solicitará que você tooconfirm.
-4. Clique em **Sim** tooremove função de saudação do usuário hello.
+1. Navegue até a folha na lista de funções, seja selecionando uma função no painel do Azure AD PIM ou clicando no botão **Usuários em Funções de Administrador** .
+2. Clique no usuário na lista de usuários.
+3. Clique em **Remover**. Uma mensagem solicitará que você confirme.
+4. Clique em **Sim** para remover a função do usuário.
 
-Se você não tiver certeza de que os usuários que ainda precisam as atribuições de função e, em seguida, você pode [iniciar uma revisão de acesso para a função hello](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Se não tiver certeza de quais os usuários ainda precisam de suas atribuições de função, você poderá [iniciar uma revisão de acesso para a função](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

@@ -1,5 +1,5 @@
 ---
-title: aaaAzure modelo de dados de telemetria do Application Insights - telemetria de rastreamento | Microsoft Docs
+title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de rastreamento | Microsoft Docs"
 description: Modelo de dados do Application Insights para telemetria de rastreamento
 services: application-insights
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.openlocfilehash: dfdee958e07d57448ff41abc5cd33bfd05dac090
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e1da0d6a6fbd9ca5486936c326ade667d7b01006
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreamento: modelo de dados do Application Insights
 
-A telemetria de rastreamento (em [Application Insights](app-insights-overview.md)) representa instruções de rastreamento de estilo `printf` pesquisadas por texto. `Log4Net`, `NLog` e outras entradas do arquivo de log baseadas em texto são convertidas em instâncias desse tipo. rastreamento de saudação não tem medidas como uma extensibilidade.
+A telemetria de rastreamento (em [Application Insights](app-insights-overview.md)) representa instruções de rastreamento de estilo `printf` pesquisadas por texto. `Log4Net`, `NLog` e outras entradas do arquivo de log baseadas em texto são convertidas em instâncias desse tipo. O rastreamento não tem medidas como uma extensibilidade.
 
 ## <a name="message"></a>Mensagem
 

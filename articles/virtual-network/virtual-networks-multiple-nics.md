@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate uma VM (clássico) com várias placas de rede usando o PowerShell | Microsoft Docs"
-description: "Saiba como toocreate e configurar máquinas virtuais com várias placas de rede usando o PowerShell."
+title: "Criar uma VM (Clássica) com diversas NICs usando o PowerShell | Microsoft Docs"
+description: "Saiba como criar e configurar VMs com várias NICs usando PowerShell."
 services: virtual-network, virtual-machines
 documentationcenter: na
 author: jimdial
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: 8ef35bd4cfd7e6a527080f1cfc541275ca86f5e7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 68ccc1cac22e593b099729fe68c6bee63df44d9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics"></a>Criar uma VM (Clássica) com diversas NICs
-Você pode criar máquinas virtuais (VMs) no Azure e anexar várias tooeach (NICs) de interfaces de rede das suas máquinas virtuais. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Várias NICs também fornecem isolamento do tráfego entre NICs.
+Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma de suas VMs. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Várias NICs também fornecem isolamento do tráfego entre NICs.
 
 ![Várias NICs da VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
-Olá figura mostra uma VM com três NICs, cada um conectado tooa outra sub-rede.
+A figura mostra uma VM com três NICs, cada uma conectada a uma sub-rede diferente.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que a maioria das implantações novas use o Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o Gerenciador de Recursos.
 
-* Só há suporte para o VIP da Internet (implantações clássicas) em uma NIC hello "padrão". Há apenas um VIP toohello IP da NIC saudação padrão.
+* VIP da Internet (implantações clássicas) têm suporte apenas na NIC "padrão". Há apenas um VIP para o IP da NIC padrão.
 * Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs.
-* Olá a ordem das NICs de saudação do dentro Olá VM será aleatória e também pode mudar entre atualizações de infraestrutura do Azure. No entanto, Olá endereços IP e Olá correspondente ethernet MAC permanecerão endereços Olá mesmo. Por exemplo, suponha que **Eth1** tem o endereço IP 10.1.0.100 e o endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura do Azure e a reinicialização, ela pode ser alterada muito**Eth2**, mas Olá IP e MAC emparelhamento será permanecem Olá mesmo. Quando uma reinicialização for iniciada pelo cliente, Olá ordem da NIC permanecerá Olá mesmo.
-* Olá endereço para cada NIC em cada VM deve estar localizado em uma sub-rede, várias NICs em uma única VM pode cada ter Olá de endereços que estão na mesma sub-rede.
-* Olá tamanho da VM determina o número de saudação de NICS que você pode criar para uma máquina virtual. Saudação de referência [Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) tamanhos de VM toodetermine artigos de quantos NICS dá suporte a cada tamanho VM. 
+* A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma.
+* O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede.
+* O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. Consulte os artigos sobre tamanhos de VM do[Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e do [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para determinar a quantas NICS cada tamanho de VM oferece suporte. 
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de segurança de rede (NSG)
-Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina virtual pode estar associada com um NSG (grupo de segurança de rede), incluindo todas as NICs em uma VM que tenha várias NICs habilitadas. Se uma NIC é atribuída um endereço de sub-rede onde a sub-rede de saudação é associada um NSG, em seguida, hello regras NSG da sub-rede Olá também se aplicam NIC toothat. Em sub-redes tooassociating de adição com NSGs, você também pode associar uma NIC com um NSG.
+Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina virtual pode estar associada com um NSG (grupo de segurança de rede), incluindo todas as NICs em uma VM que tenha várias NICs habilitadas. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
 
-Se uma sub-rede é associada a um NSG e uma NIC dentro dessa sub-rede individualmente associada a um NSG, Olá associado NSG regras são aplicadas em **fluxo ordem** toohello direção do tráfego de saudação sendo passado dentro ou fora de acordo com Olá NIC:
+Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na **ordem de fluxo** de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
 
-* **Tráfego de entrada** cujo destino é hello NIC em questão flui do primeiro sub-rede hello, disparar regras NSG da sub-rede hello, antes de passar para Olá NIC e disparar regras NSG de saudação do NIC.
-* **Tráfego de saída** cuja origem é hello NIC em questão flui primeiro a sair de saudação NIC, disparar regras NSG da NIC hello, antes de passar por sub-rede hello e disparar regras do NSG da sub-rede hello.
+* **tráfego de entrada** cujo destino é a NIC em questão flui primeiro pela sub-rede, disparando as regras do NSG da sub-rede, antes de passar pela NIC, quando serão acionadas as regras do NSG da NIC.
+* **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede.
 
-Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg.md) e como elas são aplicadas com base nas associações toosubnets, VMs e NICs.
+Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg.md) e como elas são aplicados com base nas associações a sub-redes, VMs e NICs.
 
-## <a name="how-tooconfigure-a-multi-nic-vm-in-a-classic-deployment"></a>Como tooConfigure uma várias VMs de NIC em uma implantação clássica
-instruções de saudação abaixo ajudará você a criar uma várias VMs de NIC contendo 3 NICs: uma NIC padrão e duas NICs adicionais. etapas de configuração de saudação criará uma VM que será configurada de acordo com o fragmento configuração de arquivo do serviço toohello abaixo:
+## <a name="how-to-configure-a-multi-nic-vm-in-a-classic-deployment"></a>Como configurar uma VM de várias NICs em uma implantação clássica
+As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 NICs: uma NIC padrão e duas NICs adicionais. As etapas da configuração criarão uma VM que será configurada de acordo com o fragmento do arquivo de configuração de serviços abaixo:
 
     <VirtualNetworkSite name="MultiNIC-VNet" Location="North Europe">
     <AddressSpace>
@@ -68,19 +68,19 @@ instruções de saudação abaixo ajudará você a criar uma várias VMs de NIC 
             <AddressPrefix>10.1.200.0/28</AddressPrefix>
           </Subnet>
         </Subnets>
-    … Skip over hello remainder section …
+    … Skip over the remainder section …
     </VirtualNetworkSite>
 
 
-Você precisa de saudação pré-requisitos a seguir antes de tentar toorun Olá comandos do PowerShell exemplo hello.
+É necessário ter os pré-requisitos a seguir antes de tentar executar os comandos do PowerShell no exemplo.
 
 * Uma assinatura do Azure.
 * Uma rede virtual configurada. Confira a [Visão geral da Rede Virtual](virtual-networks-overview.md) para saber mais sobre VNets.
-* versão mais recente de saudação do Azure PowerShell baixada e instalada. Consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview).
+* A versão mais recente do Azure PowerShell baixada e instalada. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
-toocreate uma VM com várias NICs, Olá concluir etapas a seguir, inserindo cada comando em uma única sessão do PowerShell:
+Para criar uma VM com várias NICs, conclua as etapas a seguir, inserindo cada comando em uma única sessão do PowerShell:
 
-1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. Olá imagem especificada no exemplo hello abaixo pode alterar ou pode não estar em sua região, portanto, imagem Olá toospecify que você precisa.
+1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. A imagem especificada no exemplo a seguir pode ser alterada ou pode não ser da sua região, portanto certifique-se de especificar a imagem correta.
 
     ```powershell
     $image = Get-AzureVMImage `
@@ -94,14 +94,14 @@ toocreate uma VM com várias NICs, Olá concluir etapas a seguir, inserindo cada
     -Image $image.ImageName –AvailabilitySetName "MyAVSet"
     ```
 
-3. Crie logon de administrador saudação padrão.
+3. Crie o logon de administrador padrão.
 
     ```powershell
     Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
     -Password "<YourAdminPassword>"
     ```
 
-4. Adicione configuração da VM toohello NICs adicional.
+4. Adicione outras NICs à configuração da VM.
 
     ```powershell
     Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
@@ -110,35 +110,35 @@ toocreate uma VM com várias NICs, Olá concluir etapas a seguir, inserindo cada
     -SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
     ```
 
-5. Especifique uma sub-rede de saudação e endereço IP para a NIC saudação padrão.
+5. Especifique a sub-rede e o endereço IP da NIC padrão.
 
     ```powershell
     Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
     Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
     ```
 
-6. Crie hello VM em sua rede virtual.
+6. Crie a VM na sua rede virtual.
 
     ```powershell
     New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
     ```
 
     > [!NOTE]
-    > Olá VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos Olá). exemplo Hello abaixo especifica uma rede virtual denominada **MultiNIC-VNet**.
+    > A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada **MultiNIC-VNet**.
     >
 
 ## <a name="limitations"></a>Limitações
-Olá limitações a seguir é aplicável ao usar várias NICs:
+As seguintes limitações são aplicáveis ao usar várias NICs:
 
 * VMs com várias NICs devem ser criadas nas redes virtuais do Azure (VNets). As VMs que não sejam Redes Virtuais não podem ser configuradas com várias NICs.
-* Todas as VMs em um disponibilidade definido necessidade toouse várias NICs ou uma única placa de rede. Não é possível haver uma combinação de VMs com várias NICs e VMs com uma única NIC em um conjunto de disponibilidade. As mesmas regras se aplicam a VMs em um serviço de nuvem. Para várias VMs de NIC, eles não são necessários toohave Olá mesmo número de NICs, desde que cada um deles tem pelo menos dois.
+* Todas as VMs em um conjunto de disponibilidade precisam usar várias NICs ou uma única NIC. Não é possível haver uma combinação de VMs com várias NICs e VMs com uma única NIC em um conjunto de disponibilidade. As mesmas regras se aplicam a VMs em um serviço de nuvem. Para VMs de várias NICs, não é necessário ter o mesmo número de NICs, desde que cada uma delas tenha pelo menos duas.
 * Uma VM com uma única NIC não pode ser configurada com várias NICs (e vice-versa) depois de implantada, sem sua exclusão e recriação.
 
-## <a name="secondary-nics-access-tooother-subnets"></a>Secundário NICs acesso tooother sub-redes
-Por padrão NICs secundárias não serão configuradas com um gateway padrão, devido o fluxo de tráfego de saudação toowhich em Olá NICs secundárias será limitado toobe dentro Olá mesma sub-rede. Se quiserem que os usuários de saudação tooenable secundário NICs tootalk fora da sua própria sub-rede, será necessário tooadd uma entrada na Olá tabela tooconfigure Olá gateway de roteamento como descrita abaixo.
+## <a name="secondary-nics-access-to-other-subnets"></a>Acesso a NICs secundárias a outras sub-redes
+Por padrão, as NICs secundárias não serão configuradas com um gateway padrão e, devido a isso, o fluxo de tráfego nas NICs secundárias será limitado à mesma sub-rede. Se os usuários desejarem habilitar NICs secundárias para falar fora de suas próprias sub-redes, precisarão adicionar uma entrada à tabela de roteamento para configurar o gateway, conforme descrito abaixo.
 
 > [!NOTE]
-> VMs criadas antes de julho de 2015 poderão ter um gateway padrão configurado para todas as NICs. gateway padrão Olá NICs secundárias não será removido até que essas VMs são reiniciados. Em sistemas operacionais que usam o modelo roteamento de saudação host fraco, como o Linux, a conectividade com a Internet pode quebrar se o tráfego de entrada e saída hello usar NICs diferentes.
+> VMs criadas antes de julho de 2015 poderão ter um gateway padrão configurado para todas as NICs. O gateway padrão para NICs secundárias não será removido até que essas VMs sejam reinicializadas. Em sistemas operacionais que usam o modelo de roteamento de host fraco, como o Linux, a conectividade da Internet poderá ser interrompida se o tráfego de entrada e de saída usarem NICs diferentes.
 > 
 
 ### <a name="configure-windows-vms"></a>Configurar máquinas virtuais do Windows
@@ -147,7 +147,7 @@ Suponha que você tenha uma VM do Windows com duas NICs da seguinte maneira:
 * Endereço IP primário da NIC: 192.168.1.4
 * Endereço IP secundário da NIC: 192.168.2.5
 
-tabela de rotas do IPv4 Olá para essa VM deve ter esta aparência:
+A tabela de rotas do IPv4 para essa VM ficaria assim:
 
     IPv4 Route Table
     ===========================================================================
@@ -172,7 +172,7 @@ tabela de rotas do IPv4 Olá para essa VM deve ter esta aparência:
       255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
     ===========================================================================
 
-Observe a que rota padrão (0.0.0.0) hello está apenas disponível toohello principal placa de rede. Você não será capaz de tooaccess recursos fora da sub-rede Olá Olá secundário NIC, conforme mostrado abaixo:
+Observe que a rota padrão (0.0.0.0) só está disponível para a NIC primária. Você não conseguirá acessar recursos fora da sub-rede para a NIC secundária, conforme mostrado abaixo:
 
     C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
 
@@ -182,9 +182,9 @@ Observe a que rota padrão (0.0.0.0) hello está apenas disponível toohello pri
     PING: transmit failed. General failure.
     PING: transmit failed. General failure.
 
-tooadd uma rota padrão em Olá NIC secundário, siga Olá etapas abaixo:
+Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 
-1. Em um prompt de comando, execute o comando de saudação abaixo tooidentify Olá número de índice para Olá NIC secundário:
+1. Em um prompt de comando, execute o comando a seguir para identificar o número de índice para a NIC secundária:
    
         C:\Users\Administrator>route print
         ===========================================================================
@@ -195,11 +195,11 @@ tooadd uma rota padrão em Olá NIC secundário, siga Olá etapas abaixo:
          14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
          20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
         ===========================================================================
-2. Observe que a segunda entrada hello na tabela hello, com um índice de 27 (no exemplo).
-3. Saudação prompt de comando, execute Olá **Adicionar rota** comando conforme mostrado abaixo. Neste exemplo, você está especificando 192.168.2.1 como gateway padrão Olá Olá NIC secundário:
+2. Observe a segunda entrada na tabela, com um índice de 27 (no exemplo).
+3. No prompt de comando, execute o comando **route add** conforme mostrado abaixo. Neste exemplo, você está especificando 192.168.2.1 como o gateway padrão para a NIC secundária:
    
         route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
-4. conectividade de tootest voltar toohello prompt de comando e tente tooping uma sub-rede diferente do hello NIC secundário como int mostrado eh exemplo abaixo:
+4. Para testar a conectividade, volte ao prompt de comando e tente executar o ping em uma sub-rede diferente da NIC secundária, como int eh, mostrado no exemplo a seguir:
    
         C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
    
@@ -207,7 +207,7 @@ tooadd uma rota padrão em Olá NIC secundário, siga Olá etapas abaixo:
         Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
         Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
         Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
-5. Você também pode verificar que a saudação de toocheck de tabela de rota recém-adicionado rota, conforme mostrado abaixo:
+5. Você também pode conferir a sua tabela de rotas para verificar a rota recém-adicionada, conforme mostrado abaixo:
    
         C:\Users\Administrator>route print
    
@@ -222,7 +222,7 @@ tooadd uma rota padrão em Olá NIC secundário, siga Olá etapas abaixo:
                 127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
 
 ### <a name="configure-linux-vms"></a>Configurar máquinas virtuais Linux
-Para VMs do Linux, como o comportamento padrão de saudação usa host fraco roteamento, recomendamos que Olá secundárias NICs são fluxos de tootraffic restrito apenas em Olá mesma sub-rede. No entanto, se determinados cenários exigem conectividade fora da sub-rede hello, os usuários devem habilitar tooensure de roteamento baseado em política que Olá ingresso e usos de tráfego de saída Olá NIC mesmo.
+Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).

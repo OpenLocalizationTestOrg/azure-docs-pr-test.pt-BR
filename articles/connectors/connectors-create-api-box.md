@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd Olá caixa conector tooyour aplicativos lógicos | Microsoft Docs"
-description: "Visão geral do conector de caixa Olá com parâmetros de API REST"
+title: "Adicionar o conector do Box aos seus Aplicativos Lógicos | Microsoft Docs"
+description: "Visão geral do Conector do Box com os parâmetros da API REST"
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0c64785a8e729fb0f1d06cd015b2351288b18f00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-box-connector"></a>Introdução ao conector de caixa Olá
-Conecte-se tooBox e criar arquivos, excluir arquivos e muito mais. Com o Box, você pode:
+# <a name="get-started-with-the-box-connector"></a>Introdução ao conector do Box
+Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. Com o Box, você pode:
 
-* Crie seu fluxo de negócios com base em dados Olá que obter da caixa. 
+* Compile seu fluxo de negócios baseado nos dados que obtém do Box. 
 * Usar gatilhos para quando um arquivo for criado ou atualizado.
-* Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtém uma resposta e saída de hello tornar disponível para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
+* Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/box/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/box/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Voltar toohello [lista APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 

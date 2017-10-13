@@ -1,6 +1,6 @@
 ---
-title: "aaaThrottling no Gerenciador de recursos de cluster Olá Service Fabric | Microsoft Docs"
-description: "Saiba mais Aceleradores de saudação tooconfigure fornecidos pelo Gerenciador de recursos de Cluster do serviço de malha de saudação."
+title: "Limitação no Resource Manager de Cluster do Service Fabric | Microsoft Docs"
+description: Aprenda a configurar os limitadores fornecidos pelo Resource Manager de Cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f418536911d3e3814e78a4d9f057dfb867ca7c63
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1be0beaf2e199a9c384187efd80b33c7dab5e87c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="throttling-hello-service-fabric-cluster-resource-manager"></a>Olá limitação Gerenciador de recursos de Cluster do serviço de malha
-Mesmo se você configurou corretamente o hello Gerenciador de recursos de Cluster, cluster Olá pode obter interrompida. Por exemplo, pode haver falha e nó de domínio falhas simultâneas - o que aconteceria se o que ocorreu durante uma atualização? Olá Gerenciador de recursos de Cluster sempre tenta toofix tudo, consumindo recursos do cluster Olá tentar tooreorganize e correção de cluster de saudação. Limitadores ajudam a fornecer uma barreira para que o cluster Olá pode usar recursos toostabilize - nós Olá voltar, partições de rede Olá reparar, corrigidos bits implantados.
+# <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Restringindo o Gerenciador de Recursos de Cluster do Service Fabric
+Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver falhas simultâneas no domínio de falha e no nó – o que aconteceria se isso ocorresse durante um upgrade? O Gerenciador de Recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster ao tentar reorganizar e corrigir o cluster. As restrições ajudam a construir uma barreira para que o cluster possa usar recursos para se estabilizar — os nós voltam, as partições de rede são corrigidas, os bits corrigidos são implantados.
 
-toohelp com esses tipos de situações, Olá Gerenciador de recursos de Cluster do serviço de malha inclui várias limitações. Essas restrições são exigências razoavelmente grandes. Em geral, elas não devem ser alteradas sem planejamento e teste cuidadosos.
+Para ajudar com esses tipos de situação, o Gerenciador de Recursos de Cluster do Service Fabric inclui várias restrições. Essas restrições são exigências razoavelmente grandes. Em geral, elas não devem ser alteradas sem planejamento e teste cuidadosos.
 
-Se você alterar Aceleradores do Gerenciador de recursos do Cluster hello, você deverá ajustá-las carga real esperado de tooyour. Você pode determinar que você precisa toohave alguns limita em vigor, mesmo se isso significar cluster Olá leva mais tempo toostabilize em algumas situações. O teste é necessário toodetermine Olá correto valores limitadores. Limitadores precisam toobe tooallow alta o suficiente Olá cluster toorespond toochanges em um período de tempo razoável e baixo suficiente tooactually impedir muito o consumo de recursos. 
+No caso de alterar as restrições do Gerenciador de Recursos de Cluster, você deve ajustá-las para sua carga real esperada. Você pode descobrir que precisa ter algumas restrições definidas, mesmo que isso signifique que o cluster levará mais tempo para ser estabilizado em algumas situações. O teste é obrigatório para determinar os valores corretos das restrições. As restrições precisam ser altas o suficiente para permitir que o cluster responda às alterações em um tempo razoável e baixas o suficiente para de fato impedir o consumo de muito recurso. 
 
-A maioria dos que vimos clientes de tempo de saudação usa limitadores foi porque já estavam em um ambiente de recurso restrito. Alguns exemplos seriam largura de banda de rede limitada para nós individuais ou discos que não são toobuild capaz de várias réplicas com monitoração de estado em paralelo devido a limitações de toothroughput. Sem limitações, as operações podem sobrecarregar esses recursos, fazendo com que as operações toofail ou lenta. Nessas situações clientes usado limitadores em soubessem que eles foram estendendo a quantidade de saudação do tempo gasto Olá cluster tooreach um estado estável. Os clientes também entendiam que poderiam acabar executando com uma confiabilidade geral menor enquanto estivessem restritos.
+Na maioria das vezes em que vimos os clientes usarem essas restrições era porque eles já estavam em um ambiente com restrição de recursos. Alguns exemplos disso são a largura de banda de rede limitada em nós individuais ou discos que não podem criar muitas réplicas com estado paralelamente devido às limitações da taxa de transferência. Sem restrições, as operações poderiam sobrecarregar esses recursos, fazendo com que as operações falhassem ou ficassem lentas. Nessas situações, os clientes usavam restrições e sabiam que estavam estendendo o tempo que levaria para o cluster chegar a um estado estável. Os clientes também entendiam que poderiam acabar executando com uma confiabilidade geral menor enquanto estivessem restritos.
 
 
-## <a name="configuring-hello-throttles"></a>Configurando Olá limita
+## <a name="configuring-the-throttles"></a>Configurando os limitadores
 
-Serviço de malha possui dois mecanismos para limitação do número de saudação de movimentações de réplica. mecanismo de padrão de saudação que existia antes do serviço de malha 5.7 representa limitação como um número absoluto de movimentações permitido. Isso não funciona para clusters de todos os tamanhos. Em particular, para o padrão de saudação grandes clusters valor pode ser muito pequeno, diminuir significativamente balanceamento mesmo quando é necessário, embora não tenha nenhum efeito em clusters menores. Esse mecanismo anterior foi substituído pelo baseadas em porcentagens de limitação, que oferece melhor escalabilidade com clusters dinâmicos no qual número de saudação de serviços e nós alteram regularmente.
+O Service Fabric tem dois mecanismos para restringir o número de movimentações de réplica. O mecanismo padrão que existia antes do Service Fabric 5.7 representava a restrição como um número absoluto de movimentações permitidas. Isso não funciona para clusters de todos os tamanhos. Particularmente, em clusters grandes, o valor padrão pode ser muito pequeno, o que reduz significativamente o balanceamento mesmo quando ele é necessário, não tendo qualquer efeito em clusters menores. Esse mecanismo anterior foi substituído pela restrição baseada em porcentagem, que é melhor escalada com clusters dinâmicos, nos quais o número de serviços e nós muda regularmente.
 
-Olá limitadores baseiam-se em uma porcentagem do número de saudação de réplicas em clusters de saudação. Percetage com base em limitadores Habilitar regra de saudação expressar: "não mova mais de 10% das réplicas em um intervalo de 10 minutos", por exemplo.
+As restrições são baseadas em uma porcentagem do número de réplicas nos clusters. As restrições baseadas em porcentagem permitem expressar a regra: "não mova mais de 10% das réplicas no intervalo de 10 minutos", por exemplo.
 
-Olá as configurações baseadas em porcentagens limitação estão:
+As definições de configuração para restrição baseada em porcentagem são:
 
-  - GlobalMovementThrottleThresholdPercentage - o número máximo de movimentações permitido no cluster a qualquer momento, expresso como porcentagem do número total de réplicas em cluster hello. 0 indica nenhum limite. valor padrão de saudação é 0. Se essa configuração e o GlobalMovementThrottleThreshold forem especificados, em seguida, hello limite mais conservador é usado.
-  - GlobalMovementThrottleThresholdPercentageForPlacement - o número máximo de movimentações permitido durante a fase de posicionamento hello, expresso como porcentagem do número total de réplicas em cluster hello. 0 indica nenhum limite. valor padrão de saudação é 0. Se essa configuração e o GlobalMovementThrottleThresholdForPlacement forem especificados, em seguida, hello limite mais conservador é usado.
-  - GlobalMovementThrottleThresholdPercentageForBalancing - o número máximo de movimentações permitido durante a saudação balanceamento fase, expressada como porcentagem do número total de réplicas em cluster hello. 0 indica nenhum limite. valor padrão de saudação é 0. Se essa configuração e o GlobalMovementThrottleThresholdForBalancing forem especificados, em seguida, hello limite mais conservador é usado.
+  - GlobalMovementThrottleThresholdPercentage - o número máximo de movimentações permitidas no cluster a qualquer momento, expresso como porcentagem do número total de réplicas no cluster. 0 indica nenhum limite. O valor padrão é 0. Se essa configuração e GlobalMovementThrottleThreshold forem especificadas, será usado o limite mais conservador.
+  - GlobalMovementThrottleThresholdPercentageForPlacement - o número máximo de movimentações permitidas durante a fase de posicionamento, expresso como porcentagem do número total de réplicas no cluster. 0 indica nenhum limite. O valor padrão é 0. Se essa configuração e GlobalMovementThrottleThresholdForPlacement forem especificadas, será usado o limite mais conservador.
+  - GlobalMovementThrottleThresholdPercentageForBalancing - o número máximo de movimentações permitidas durante a fase de balanceamento, expresso como porcentagem do número total de réplicas no cluster. 0 indica nenhum limite. O valor padrão é 0. Se essa configuração e GlobalMovementThrottleThresholdForBalancing forem especificadas, será usado o limite mais conservador.
 
-Ao especificar o percentual de acelerador hello, você deve especificar % 5 como 0,05. intervalo de saudação nos quais essas limitações são governadas é hello GlobalMovementThrottleCountingInterval, que é especificado em segundos.
+Ao especificar a porcentagem de restrição, você deve especificar 5% como 0,05. O intervalo no qual essas restrições são governadas é GlobalMovementThrottleCountingInterval, que é especificado em segundos.
 
 
 ``` xml
@@ -83,13 +83,13 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 ### <a name="default-count-based-throttles"></a>Restrições baseadas em contagem padrão
-Essas informações são fornecidas para o caso em que você tenha clusters mais antigos ou ainda retenha essas configurações em clusters que foram atualizados desde então. Em geral, é recomendável que elas são substituídas com aceleradores de baseadas em porcentagens do hello acima. Desde que baseadas em porcentagens de limitação é desabilitada por padrão, essas limitações permanecem Olá aceleradores de padrão para um cluster até que eles estão desabilitados e substituídos por limitadores baseadas em porcentagens de saudação. 
+Essas informações são fornecidas para o caso em que você tenha clusters mais antigos ou ainda retenha essas configurações em clusters que foram atualizados desde então. Em geral, é recomendável que elas sejam substituídas pelas restrições baseadas em porcentagem acima. Uma vez que a restrição baseada em porcentagem é desabilitada por padrão, essas restrições permanecem como as restrições padrão para um cluster até que elas sejam desabilitadas e substituídas pelas restrições baseadas em porcentagem. 
 
-  - GlobalMovementThrottleThreshold – essa configuração controla o número total de saudação de movimentações de cluster Olá por algum tempo. tempo total de saudação é especificado em segundos como Olá GlobalMovementThrottleCountingInterval. valor padrão Olá Olá GlobalMovementThrottleThreshold é 1000 e valor padrão Olá Olá GlobalMovementThrottleCountingInterval é 600.
-  - MovementPerPartitionThrottleThreshold – essa configuração controla o número total de saudação de movimentações de qualquer partição de serviço por algum tempo. tempo total de saudação é especificado em segundos como Olá MovementPerPartitionThrottleCountingInterval. valor padrão Olá Olá MovementPerPartitionThrottleThreshold é 50 e valor padrão Olá Olá MovementPerPartitionThrottleCountingInterval é 600.
+  - GlobalMovementThrottleThreshold – essa configuração controla o número total de movimentações no cluster ao longo de um período. O tempo é especificado em segundos como GlobalMovementThrottleCountingInterval. O valor padrão para GlobalMovementThrottleThreshold é 1000 e o valor padrão para GlobalMovementThrottleCountingInterval é 600.
+  - MovementPerPartitionThrottleThreshold – essa configuração controla o número total de movimentações de qualquer partição de serviço ao longo de um período. O tempo é especificado em segundos como MovementPerPartitionThrottleCountingInterval. O valor padrão para MovementPerPartitionThrottleThreshold é 50 e o valor padrão para MovementPerPartitionThrottleCountingInterval é 600.
 
-configuração de saudação para esses Aceleradores segue Olá mesmo padrão como Olá baseadas em porcentagens de limitação.
+A configuração para essas restrições segue o mesmo padrão que a restrição baseada em porcentagem.
 
 ## <a name="next-steps"></a>Próximas etapas
-- toofind out sobre como Olá Gerenciador de recursos de Cluster gerencia e equilibra a carga no cluster hello, check-out artigo Olá em [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)
-- Olá Gerenciador de recursos de Cluster tem muitas opções para descrever o cluster hello. toofind mais sobre eles, leia este artigo em [que descreve um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)

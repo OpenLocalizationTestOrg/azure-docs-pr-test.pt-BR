@@ -1,6 +1,6 @@
 ---
-title: "aaaSet um cofre para VMware tooAzure de replicação usando o Azure Site Recovery | Microsoft Docs"
-description: "Resume as etapas de saudação necessário tooset um cofre para VMware tooAzure de replicação usando o Azure Site Recovery"
+title: "Configurar um cofre para a replicação VMware para o Azure usando o Azure Site Recovery | Microsoft Docs"
+description: "Resume as etapas necessárias para configurar um cofre para replicação do VMware para o Azure usando o Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: 8a7755a6c9a3f55f241c615e425285bc4b782493
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-7-set-up-a-vault-for-vmware-replication-tooazure"></a>Etapa 7: Configurar um cofre para VMware tooAzure de replicação
+# <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>Etapa 7: configurar um cofre para a replicação do VMware para o Azure
 
 
-Este artigo descreve como tooset até um cofre e especifique o que você deseja tooreplicate de sua localização no local, tooAzure usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço Olá portal do Azure.
+Este artigo descreve como configurar um cofre e especifica o que você deseja replicar de sua localização local para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
 
 
-Postar perguntas e comentários na parte inferior da saudação deste artigo, ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Poste perguntas e comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
@@ -37,14 +37,14 @@ Postar perguntas e comentários na parte inferior da saudação deste artigo, ou
 
 ## <a name="select-a-protection-goal"></a>Selecionar uma meta de proteção
 
-Selecione o que você deseja tooreplicate, e onde você deseja tooreplicate para.
+Selecione o que você deseja replicar e para onde deseja replicar.
 
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
-2. No hello recurso de Menu, clique em **recuperação de Site** > **preparar a infraestrutura** > **objetivo de proteção**.
-3. Em **objetivo de proteção**, selecione **tooAzure** > **Sim, com VMware vSphere hipervisor**.
+2. No Menu Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Meta de proteção**.
+3. Em **Meta de proteção**, selecione **Para o Azure** > **Sim, com o Hipervisor VMware vSphere**.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá muito[etapa 8: configurar a origem e destino](vmware-walkthrough-source-target.md)
+Vá para a [Etapa 8: definir a origem e o destino](vmware-walkthrough-source-target.md)

@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do provedor de recursos de aaaNetwork | Microsoft Docs"
-description: "Saiba mais sobre Olá novo provedor de recursos de rede no Gerenciador de recursos do Azure"
+title: "Visão geral do Provedor de recursos de rede | Microsoft Docs"
+description: Saiba mais sobre o novo Provedor de recursos de rede no Gerenciador de Recursos do Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 81b8f51fe8ee180d8f7885c6e04eb953904d7be5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-resource-provider"></a>Provedor de recursos de rede
-Uma necessidade de base no sucesso nos negócios atuais, é Olá toobuild de capacidade e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e reproduzível. Gerenciador de recursos do Azure permite que você toocreate aplicativos, como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no Resource Manager.
+Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O Azure Resource Manager permite criar tais aplicativos como uma única coleção de recursos nos grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no Resource Manager.
 
-Gerenciador de recursos do Azure depende de outro recurso provedores tooprovide acessar tooyour os recursos. Existem três provedores de recurso principais: Rede, Armazenamento e Computação. Este documento aborda as características de saudação e os benefícios de saudação provedor de recursos de rede, incluindo:
+O Gerenciador de Recursos do Azure utiliza diferentes provedores de recursos para fornecer acesso a seus recursos. Existem três provedores de recurso principais: Rede, Armazenamento e Computação. Este documento aborda as características e os benefícios do Provedor de Recursos de Rede, incluindo:
 
-* **Metadados** – você pode adicionar informações tooresources usando marcas. Essas marcas podem ser usadas tootrack utilização de recursos entre assinaturas e os grupos de recursos.
-* **Maior controle da sua rede** - recursos de rede são flexíveis e você pode controlá-los de forma mais granular. Isso significa que você tem mais flexibilidade no gerenciamento de recursos de rede hello.
+* **Metadados** – você pode adicionar informações aos recursos usando marcas. Essas marcas podem ser usadas para controlar a utilização de recursos em grupos de recursos e assinaturas.
+* **Maior controle da sua rede** - recursos de rede são flexíveis e você pode controlá-los de forma mais granular. Isso significa que você tem mais flexibilidade no gerenciamento de recursos de rede.
 * **Configuração mais rápida** - já que os recursos de rede são agrupados de modo menos rígido, você pode criar e organizar os recursos de rede em paralelo. Isso reduziu drasticamente o tempo de configuração.
-* **Controle de acesso baseado em função** -RBAC oferece funções padrão, o escopo de segurança específico, na criação de saudação tooallowing adição de funções personalizadas para o gerenciamento de proteção.
-* **Implantação e gerenciamento mais fácil** -é mais fácil toodeploy e gerenciar aplicativos, pois pode ser que você pode criar uma pilha de todo o aplicativo como um único conjunto de recursos em um grupo de recursos. E toodeploy mais rápido, pois você pode implantar, simplesmente fornecendo uma carga JSON do modelo.
-* **Personalização rápida** -você pode usar modelos de estilo declarativo tooenable repetível e rápido personalização das implantações.
-* **Personalização REPEATABLE** -você pode usar modelos de estilo declarativo tooenable repetível e rápido personalização das implantações.
-* **Interfaces de gerenciamento** -você pode usar seus recursos para qualquer Olá toomanage interfaces a seguir:
+* **Controle de acesso com base em função** - o RBAC fornece funções padrão, com escopo de segurança específico, além de permitir a criação de funções personalizadas para gerenciamento seguro.
+* **Gerenciamento e implantação simplificados** - é mais fácil implantar e gerenciar aplicativos, já que você pode criar uma pilha com todo o aplicativo como uma única coleção de recursos em um grupo de recursos. E isso agiliza a implantação, pois você pode implantar simplesmente fornecendo uma carga JSON de modelo.
+* **Personalização rápida** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações.
+* **Personalização repetível** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações.
+* **Interfaces de gerenciamento** - você pode usar qualquer uma das seguintes interfaces para gerenciar seus recursos:
   * API baseada em REST
   * PowerShell
   * SDK .NET
@@ -49,15 +49,15 @@ Uma exibição conceitual de uma implantação de exemplo envolvendo um aplicati
 
 ![Modelo de recursos de rede](./media/resource-groups-networking/Figure2.png)
 
-Cada recurso contém um conjunto comum de propriedades e seu conjunto de propriedades individuais. Olá as propriedades comuns são:
+Cada recurso contém um conjunto comum de propriedades e seu conjunto de propriedades individuais. As propriedades comuns são:
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
 | **name** |Nome de recurso exclusivo. Cada tipo de recurso tem suas próprias restrições de nomenclatura. |PIP01, VM01, NIC01 |
-| **local** |Região do Azure no qual Olá recurso reside |westus, eastus |
+| **local** |Região do Azure na qual o recurso reside |westus, eastus |
 | **ID** |Identificação baseada em URI exclusivo |/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP |
 
-Você pode verificar as propriedades individuais de saudação do recursos nas seções de saudação abaixo.
+Você pode verificar as propriedades individuais de recursos nas seções abaixo.
 
 [!INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
 
@@ -85,26 +85,26 @@ Você pode gerenciar os recursos de rede do Azure usando interfaces diferentes. 
 ### <a name="rest-api"></a>API REST
 Como mencionado anteriormente, os recursos de rede podem ser gerenciados por meio de uma variedade de interfaces, inclusive API REST, o SDK do .NET, SDK do Node.JS, Java SDK, PowerShell, CLI, Portal do Azure e modelos.
 
-API de Rest a saudação obedecer toohello especificação do protocolo HTTP 1.1. estrutura geral de URI Olá de saudação API é apresentada a seguir:
+A API Rest está de acordo com a especificação do protocolo HTTP 1.1. A estrutura geral do URI da API é apresentada abaixo:
 
     https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
-E parâmetros de saudação chaves representam Olá elementos a seguir:
+E os parâmetros entre chaves representam os elementos a seguir:
 
 * **subscription-id** - a ID de sua assinatura do Azure.
-* **namespace do provedor de recursos** -namespace para o provedor de hello está sendo usado. provedor de recursos de rede Olá Olá valor é *Network*.
-* **nome da região** -nome da região do Azure Olá
+* **resource-provider-namespace** - namespace para o provedor que está sendo usado. O valor para o provedor de recursos de rede é *Microsoft.Network*.
+* **region-name** - o nome da região do Azure
 
-métodos HTTP seguir Hello têm suporte ao fazer chamadas toohello API REST:
+Os métodos HTTP a seguir têm suporte ao fazer chamadas para a API REST:
 
-* **COLOCAR** - usadas toocreate um recurso de um determinado tipo, modificar uma propriedade de recurso ou alterar uma associação entre os recursos.
-* **OBTER** -usado tooretrieve informações para um recurso de provisionamento.
-* **Excluir** -usado toodelete um recurso existente.
+* **PUT** - usado para criar um recurso de um determinado tipo, modificar uma propriedade de recurso ou alterar uma associação entre os recursos.
+* **GET** - usado para recuperar informações de um recurso provisionado.
+* **DELETE** - usado para excluir um recurso existente.
 
-Saudação de solicitação e de resposta em conformidade tooa formato de carga JSON. Para obter mais detalhes, consulte [APIs de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
+Ambas a solicitação e a resposta têm conformidade com um formato de carga JSON. Para obter mais detalhes, consulte [APIs de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ### <a name="resource-manager-template-language"></a>Linguagem de modelo do Resource Manager
-Em recursos de toomanaging adição imperativa (por meio de APIs ou SDK), também pode usar um toobuild de estilo de programação declarativa e gerenciar recursos de rede usando Olá Gerenciador de recursos de linguagem de modelo.
+Além de gerenciar recursos de modo imperativo (por APIs ou SDK), você também pode usar um estilo de programação declarativo para criar e gerenciar recursos de rede usando a Linguagem de Modelo do Resource Manager.
 
 Uma representação de um modelo de exemplo é fornecida abaixo -
 
@@ -117,7 +117,7 @@ Uma representação de um modelo de exemplo é fornecida abaixo -
       "outputs": { <output-of-template> }    
     }
 
-modelo de saudação é principalmente uma descrição JSON dos recursos de saudação e valores de instância Olá injetados por meio de parâmetros. exemplo Hello abaixo pode ser usado toocreate uma rede virtual com 2 sub-redes.
+O modelo é basicamente uma descrição de JSON os recursos e os valores de instância injetados por meio de parâmetros. O exemplo a seguir pode ser usado para criar uma rede virtual com 2 sub-redes.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
@@ -205,7 +205,7 @@ modelo de saudação é principalmente uma descrição JSON dos recursos de saud
         ]
     }
 
-Você tem a opção de saudação do fornecimento de valores de parâmetro hello manualmente ao usar um modelo, ou você pode usar um arquivo de parâmetro. exemplo Hello abaixo mostra um conjunto de possíveis de toobe de valores de parâmetro usado com o modelo de saudação acima:
+Você tem a opção de fornecer os valores de parâmetro manualmente ao usar um modelo, ou então pode usar um arquivo de parâmetro. O exemplo a seguir mostra um conjunto possível de valores de parâmetro a ser usado com o modelo acima:
 
     {
       "location": {
@@ -232,28 +232,28 @@ Você tem a opção de saudação do fornecimento de valores de parâmetro hello
     }
 
 
-Olá principais vantagens de usar os modelos são:
+As principais vantagens de usar modelos são:
 
-* Você pode criar uma infraestrutura complexa em um grupo de recursos em um estilo declarativo. Olá orquestração de criação de recursos hello, incluindo o gerenciamento de dependência é tratada pelo Gerenciador de recursos.
-* infraestrutura de saudação pode ser criada de forma repetida por várias regiões e dentro de uma região, simplesmente alterando os parâmetros.
-* estilo declarativo Olá leva prazo tooshorter na criação de modelos de saudação e implantação de infraestrutura de saudação.
+* Você pode criar uma infraestrutura complexa em um grupo de recursos em um estilo declarativo. A orquestração de criação de recursos, incluindo gerenciamento de dependências, é manipulada pelo Resource Manager.
+* A infraestrutura pode ser criada de forma repetida por várias regiões e dentro de uma região, simplesmente alterando os parâmetros.
+* O estilo declarativo resulta em menor tempo de avanço na criação de modelos e implantação da infraestrutura.
 
 Para exemplos de modelo, consulte [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obter mais informações sobre Olá Gerenciador de recursos de linguagem de modelo, consulte [linguagem de modelo do Gerenciador de recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre a Linguagem de Modelo do Resource Manager, confira [Linguagem de Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-o modelo de saudação de exemplo acima usa Olá uma rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
+O modelo de exemplo acima usa a rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
 
 ### <a name="using-a-template"></a>Criação de um modelo
-Você pode implantar serviços tooAzure de um modelo usando o PowerShell, AzureCLI, ou executando um toodeploy clique do GitHub. serviços toodeploy de um modelo no GitHub, execute Olá etapas a seguir:
+Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureCLI ou apenas clicando para implantar no GitHub. Para implantar os serviços de um modelo no GitHub, execute as etapas a seguir:
 
-1. Abra o arquivo de template3 de saudação do GitHub. Por exemplo, abra a rede Virtual do [com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
-2. Clique em **implantar tooAzure**e, em seguida, entre em toohello portal do Azure com suas credenciais.
-3. Verifique se o modelo de saudação e, em seguida, clique em **salvar**.
-4. Clique em **Editar parâmetros** e selecione um local, como *Oeste dos EUA*, Olá redes e sub-redes.
-5. Se necessário, altere Olá **ADDRESSPREFIX** e **SUBNETPREFIX** parâmetros e clique **Okey**.
-6. Clique em **selecionar um grupo de recursos** e, em seguida, clique no grupo de recursos de saudação deseja tooadd Olá redes e sub-redes. Como alternativa, você pode criar um novo grupo de recursos clicando **Ou criar novos**.
-7. Clique em **Criar**. Observe Olá bloco exibindo **implantação de modelo de provisionamento**. Depois de implantação hello, você verá um tooone semelhante de tela abaixo.
+1. Abra o arquivo template3 no GitHub. Por exemplo, abra a rede Virtual do [com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+2. Clique em **implantar no Azure**e entre no portal do Azure com suas credenciais.
+3. Verifique o modelo e, em seguida, clique em **Salvar**.
+4. Clique em **Editar parâmetros** e selecione um local, como *Oeste dos EUA*, para o vnet e sub-redes.
+5. Se necessário, altere os parâmetros **ADDRESSPREFIX** e **SUBNETPREFIX** e clique em **OK**.
+6. Clique em **Selecionar um grupo de recursos** e, em seguida, clique no grupo de recursos ao qual você deseja adicionar o vnet e as sub-redes. Como alternativa, você pode criar um novo grupo de recursos clicando **Ou criar novos**.
+7. Clique em **Criar**. Observe a exibição lado a lado **Implantação de modelo de provisionamento**. Quando a implantação estiver concluída, você verá uma tela semelhante à tela abaixo.
 
 ![Implantação do modelo de exemplo](./media/resource-groups-networking/Figure6.png)
 

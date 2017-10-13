@@ -1,6 +1,6 @@
 ---
-title: "aaaWindows Phone Silverlight alcançar SDK integração"
-description: Como tooIntegrate do Azure Mobile Engagement atingir com aplicativos do Windows Phone Silverlight
+title: "Integração do SDK do Windows Phone Silverlight para o Reach"
+description: Como integrar o Azure Mobile Engagement com aplicativos do Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 09c8767216e11963c5c600755ab8d4d11cd92034
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Integração do SDK do Windows Phone Silverlight para o Reach
-Você deve seguir Olá integração procedimento descrito em Olá [integração do SDK do Windows Phone Silverlight contrato](mobile-engagement-windows-phone-integrate-engagement.md) antes de seguir este guia.
+Você deve seguir o procedimento de integração descrito na [Integração do SDK do Engagement do Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) , antes de seguir este guia.
 
-## <a name="embed-hello-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Inserir saudação SDK do Reach contrato em seu projeto do Windows Phone Silverlight
-Você não tem nada tooadd. `EngagementReach` já estão em seu projeto.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Incorpore o SDK do Engagement Reach em seu projeto do Windows Phone Silverlight
+Você não tem nada a adicionar. `EngagementReach` já estão em seu projeto.
 
 > [!TIP]
-> Você poderá personalizar as imagens localizadas em Olá `Resources` pasta do seu projeto, especialmente Olá marca ícone (esse padrão toohello contrato).
+> Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement).
 > 
 > 
 
-## <a name="add-hello-capabilities"></a>Adicionar recursos de saudação
-Olá SDK do Reach contrato precisa de alguns recursos adicionais.
+## <a name="add-the-capabilities"></a>Adicione recursos
+O SDK do Engagement Reach precisa de alguns recursos adicionais.
 
-Abra sua `WMAppManifest.xml` de arquivo e certifique-se de que Olá recursos a seguir são declarados:
+Abra o seu arquivo `WMAppManifest.xml` e certifique-se de que os seguintes recursos estão declarados:
 
 * `ID_CAP_PUSH_NOTIFICATION`
 * `ID_CAP_WEBBROWSERCOMPONENT`
 
-Olá primeiro um é usado pela exibição de saudação de tooallow Olá MPNS serviço de notificação do sistema. Olá, um segundo é usado tooembed uma tarefa de navegador em Olá SDK.
+O primeiro deles é usado pelo serviço MPNS para permitir a exibição de notificação do sistema. O segundo é usado para inserir uma tarefa de navegador no SDK.
 
-Editar saudação `WMAppManifest.xml` de arquivos e adicionar dentro Olá `<Capabilities />` marca:
+Editar o arquivo `WMAppManifest.xml` e adicione dentro da marca `<Capabilities />` :
 
     <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
     <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
-## <a name="enable-hello-microsoft-push-notification-service"></a>Habilitar Olá Microsoft Push Notification Service
-Na saudação de toouse ordem **Microsoft Push Notification Service** (conhecido como MPNS) seu `WMAppManifest.xml` arquivo deve ter uma `<App />` marca com um `Publisher` atributo definido toohello nome do seu projeto.
+## <a name="enable-the-microsoft-push-notification-service"></a>Habilitar o serviço de notificação por push da Microsoft
+Para usar o **Serviço de Notificação por Push da Microsoft** (chamado MPNS), seu arquivo `WMAppManifest.xml` deverá ter uma marca `<App />` com um atributo `Publisher` definido como o nome do seu projeto.
 
-## <a name="initialize-hello-engagement-reach-sdk"></a>Inicializar Olá contrato SDK do Reach
+## <a name="initialize-the-engagement-reach-sdk"></a>Inicializar o SDK do Engagement Reach
 ### <a name="engagement-configuration"></a>Configuração do Engagement
-configuração do contrato de saudação é centralizada em Olá `Resources\EngagementConfiguration.xml` arquivo do projeto.
+A configuração do Engagement está centralizada no arquivo `Resources\EngagementConfiguration.xml` do seu projeto.
 
-Edite essa configuração do arquivo toospecify alcance:
+Edite esse arquivo para especificar a configuração de alcance:
 
-* *Opcional*, indique se o push nativo da saudação (MPNS) está ativado ou não entre `<enableNativePush>` e `</enableNativePush>` marcas, (`true` por padrão).
-* *Opcional*, indicar o nome de saudação do canal de envio de saudação entre `<channelName>` e `</channelName>` marcas, forneça Olá mesmo que seu aplicativo pode usar ou deixe-o vazio no momento.
+* *Opcional*, indique se o push nativo (MPNS) está ativado ou não entre as marcas `<enableNativePush>` e `</enableNativePush>`, (`true` por padrão).
+* *Opcional*, indique o nome do canal push entre as marcas `<channelName>` e `</channelName>`, forneça o mesmo que seu aplicativo possa usar no momento ou deixo-o vazio.
 
-Se você quiser toospecify em tempo de execução em vez disso, você pode chamar a seguir Olá método antes da inicialização de agente do hello contrato:
+Se você quiser especificá-lo em tempo de execução, você pode chamar o método a seguir antes da inicialização do agente do Engagement:
 
     /* Engagement configuration. */
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -66,23 +66,23 @@ Se você quiser toospecify em tempo de execução em vez disso, você pode chama
     engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
     engagementConfiguration.Reach.EnableNativePush = true;                  
-    /* [Optional] whether hello native push (MPNS) is activated or not. */
+    /* [Optional] whether the native push (MPNS) is activated or not. */
 
     engagementConfiguration.Reach.ChannelName = "YOUR_PUSH_CHANNEL_NAME";   
-    /* [Optional] Provide hello same channel name that your application may currently use. */
+    /* [Optional] Provide the same channel name that your application may currently use. */
 
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
 > [!TIP]
-> Você pode especificar o nome de saudação do canal de push MPNS saudação do seu aplicativo. Por padrão, o contrato cria um nome com base no appId hello. Você não têm necessidade toospecify Olá nome por conta própria, exceto se você estiver planejando canal de push Olá toouse fora do contrato.
+> Você pode especificar o nome do canal de notificação MPNS do seu aplicativo. Por padrão, o Engagement cria um nome baseado na appId. Você não precisa especificar o nome, exceto se você planeja usar o canal de notificação fora do Engagement.
 > 
 > 
 
 ### <a name="engagement-initialization"></a>Inicialização do Engagement
-Modificar Olá `App.xaml.cs`:
+Modifique o `App.xaml.cs`:
 
-* Adicionar tooyour `using` instruções:
+* Adicione às suas instruções `using`:
   
       using Microsoft.Azure.Engagement;
 * Insira `EngagementReach.Instance.Init` logo após `EngagementAgent.Instance.Init` e `Application_Launching` :
@@ -92,7 +92,7 @@ Modificar Olá `App.xaml.cs`:
          EngagementAgent.Instance.Init();
          EngagementReach.Instance.Init();
       }
-* Inserir `EngagementReach.Instance.OnActivated` em Olá `Application_Activated` método:
+* Insira `EngagementReach.Instance.OnActivated` no método `Application_Activated` :
   
       private void Application_Activated(object sender, ActivatedEventArgs e)
       {
@@ -101,41 +101,41 @@ Modificar Olá `App.xaml.cs`:
       }
 
 > [!IMPORTANT]
-> Olá `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não tem toodo-lo por conta própria.
+> O `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não precisa fazê-lo.
 > 
 > 
 
 ## <a name="app-store-submission-considerations"></a>Considerações de envio de armazenamento de aplicativo
-Microsoft impõe algumas regras ao usar notificações por push de saudação:
+A Microsoft impõe algumas regras ao usar as notificações de push:
 
-De saudação Microsoft [políticas de aplicativo] documentação, seção 2.9:
+Na documentação de [Políticas de aplicativo] da Microsoft, seção 2.9:
 
-1) Você deve pedir notificações por push do hello usuário tooaccept tooreceive. Em seguida, em suas configurações, adicione notificações de push uma maneira toodisable hello.
+1) Você deve perguntar ao usuário para aceitar para receber notificações por push. Em seguida, em suas configurações, adicione uma forma de desativar as notificações de envio.
 
-Olá EngagementReach fornece dois métodos toomanage Olá aceitar-em/Recusar, `EnableNativePush()` e `DisableNativePush()`. Por exemplo, pode criar uma opção nas configurações de saudação com uma alternância toodisable ou habilitar MPNS.
+O objeto EngagementReach fornece dois métodos para gerenciar o opt-in/opt-out, `EnableNativePush()` e `DisableNativePush()`. Você pode, por exemplo, criar uma opção nas configurações com uma alternância para desabilitar ou habilitar o MPNS.
 
-Você também pode decidir toodeactivate MPNS por meio da configuração de contrato Olá\<windows phone-sdk-alcance-configuração\>.
+Também é possível decidir desativar o MPNS por meio da configuração do Engajamento \<windows-phone-sdk-reach-configuration\>.
 
-> 2.9.1) aplicativo hello primeiro deve descrever Olá notificações toobe fornecido e **obter permissão expressa e do usuário da saudação (opt-in)**, e **deve fornecer um mecanismo pelo qual Olá usuário pode recusar recebimento notificações por push**. Todas as notificações fornecidas usando Olá Microsoft Push Notification Service deve ser consistentes com hello descrição fornecida toohello usuário e deve estar em conformidade com todos os aplicável [políticas de aplicativo] [ Content Policies]e [requisitos adicionais para tipos específicos de aplicativo].
+> 2.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão expressa do usuário (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por parar de receber notificações por push**. Todas as notificações fornecidas usando o Serviço de Notificação por Push da Microsoft devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de aplicativo][Content Policies] e [Requisitos adicionais para tipos específicos de aplicativo] aplicáveis.
 > 
 > 
 
 2) Você não deve usar muitas notificações por push. O Engagement manipulará notificações para você.
 
-> 2.9.2) aplicativo hello e seu uso da saudação Microsoft Push Notification Service não excessivamente use capacidade de rede ou de largura de banda de saudação Microsoft Push Notification Service, ou caso contrário indevidamente sobrecarregam um Windows Phone ou outro dispositivo da Microsoft ou o serviço com excessiva por push de notificações, conforme determinado pela Microsoft a seu critério e não deve danificar ou interferir com redes Microsoft ou servidores ou servidores de terceiros ou redes conectadas toohello Microsoft Push Notification Service.
+> 2.9.2) O aplicativo e o uso do Serviço de notificação por push da Microsoft não devem usar excessivamente a capacidade de rede ou de largura de banda do serviço de notificação por push da Microsoft, ou caso contrário indevidamente sobrecarregam o Windows Phone ou outros dispositivos Microsoft ou serviço com notificações por push excessivo, conforme determinado pela Microsoft a seu critério lógico e não devem prejudicar ou interferir com nenhuma rede Microsoft ou servidores ou quaisquer servidores de terceiros ou redes conectadas ao do serviço de notificação por push da Microsoft.
 > 
 > 
 
-3) Não confie em informações de criticals toosend MPNS. Contrato usa MPNS, portanto, esta regra também se aplica para campanhas Olá criadas dentro de saudação contrato front-end.
+3) Não confie no MPNS para enviar informações muito sérias. O Engagement usa o MPNS, portanto, essa regra também se aplica para campanhas criadas dentro do projeto front-end.
 
-> 2.9.3) Olá Microsoft Push Notification Service não pode ser usado toosend notificações que são de missão crítica ou não poderia afetar assuntos de vida ou morte, incluindo, sem dispositivo médico da limitação notificações críticas tooa relacionados ou condição. MICROSOFT expressamente se isenta de qualquer garantia que Olá uso de hello MICROSOFT PUSH notificação serviço ou entrega de MICROSOFT PUSH notificação serviço notificações serão ser ININTERRUPTAS, livre de erro, ou caso contrário garantido tooOCCUR ON A real-time base.
+> 2.9.3) O serviço de notificação por push da Microsoft não pode ser usado para enviar notificações que são de missão crítica ou que poderiam afetar assuntos de vida ou morte, incluindo, sem limitação, relacionadas a um dispositivo médico ou condição de notificações críticas. A MICROSOFT EXPRESSAMENTE SE ISENTA DE QUAISQUER GARANTIAS DE QUE O USO DO SERVIÇO DE NOTIFICAÇÃO POR PUSH OU ENVIO DE NOTIFICAÇÕES DO SERVIÇO DE NOTIFICAÇÃO POR PUSH DA MICROSOFT SERÁ ININTERRUPTO, SEM ERRO, OU CASO CONTRÁRIO GARANTIDO QUE OCORRA EM TEMPO REAL.
 > 
 > 
 
-**Não podemos garantir que seu aplicativo passará o processo de validação Olá se você não respeitam essas recomendações.**
+**Não podemos garantir que seu aplicativo passará o processo de validação se você não respeita essas recomendações.**
 
 ## <a name="handle-data-push-optional"></a>Manipular o push de dados (opcional)
-Se você quiser envios por push os aplicativo toobe tooreceive capaz de alcançar dados, você tem tooimplement dois eventos de saudação EngagementReach classe:
+Se desejar que o aplicativo seja capaz de receber push de dados do Reach, você precisa implementar dois eventos da classe EngagementReach:
 
     EngagementReach.Instance.DataPushStringReceived += (body) =>
     {
@@ -150,18 +150,18 @@ Se você quiser envios por push os aplicativo toobe tooreceive capaz de alcança
        return true;
     };
 
-Você pode ver o retorno de chamada saudação de cada método retorna um valor booleano. Contrato envia um feedback tooits back-end após distribuir dados por push-Olá. Se o retorno de chamada hello retorna false, Olá `exit` comentários será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para eventos de hello, Olá `drop` comentários retornará tooEngagement.
+Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` retornará ao Engagement.
 
 > [!WARNING]
-> Contrato não é capaz de tooreceive comentários de múltiplos para um envio de dados. Se você planejar tooset vários manipuladores em um evento, lembre-se de que comentários Olá corresponderá toohello última aquela enviada. Nesse caso, é recomendável tooalways retorna Olá mesmo tooavoid valor ter confuso comentários em Olá front-end.
+> O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
 > 
 > 
 
 ## <a name="customize-ui-optional"></a>Personalizar a interface do usuário (opcional)
 ### <a name="first-step"></a>Primeira etapa
-Permitir que você alcance de saudação toocustomize da interface do usuário.
+Permitir que você personalize a interface do usuário do reach.
 
-toodo assim, você tem toocreate uma subclasse de saudação `EngagementReachHandler` classe.
+Para fazer isso, você precisa criar uma subclasse da classe `EngagementReachHandler` .
 
 **Exemplo de código :**
 
@@ -175,7 +175,7 @@ toodo assim, você tem toocreate uma subclasse de saudação `EngagementReachHan
        }
     }
 
-Em seguida, defina o conteúdo de saudação do hello `EngagementReach.Instance.Handler` campo com seu objeto personalizado no seu `App.xaml.cs` classe dentro Olá `Application_Launching` método.
+Depois, defina o conteúdo do campo `EngagementReach.Instance.Handler` com seu objeto personalizado em sua classe `App.xaml.cs` dentro do método `Application_Launching`.
 
 **Exemplo de código :**
 
@@ -187,16 +187,16 @@ Em seguida, defina o conteúdo de saudação do hello `EngagementReach.Instance.
     }
 
 > [!NOTE]
-> Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não tem toocreate seus próprios, e se você fizer isso, você não tem toooverride cada método. comportamento padrão de saudação é o objeto base do contrato tooselect hello.
+> Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
 > 
 > 
 
 ### <a name="layouts"></a>Layouts
-Por padrão, o alcance usará recursos de saudação inserido de notificações de Olá Olá DLL toodisplay e páginas.
+Por padrão, o Reach usará os recursos incorporados da DLL para exibir as notificações e páginas.
 
-No entanto, você pode decidir toouse tooreflect seus próprios recursos sua marca nesses componentes.
+No entanto, você pode optar por usar seus próprios recursos para refletir sua marca desses componentes.
 
-Você pode substituir `EngagementReachHandler` métodos no seu toouse de contrato subclasse tootell seus layouts:
+Você pode substituir os métodos `EngagementReachHandler` em sua subclasse para informar o Engagement para usar seus layouts:
 
 **Exemplo de código :**
 
@@ -204,17 +204,17 @@ Você pode substituir `EngagementReachHandler` métodos no seu toouse de contrat
 
     public override string GetTextViewAnnouncementUri()
     {
-       // return hello path of your own xaml
+       // return the path of your own xaml
     }
 
     public override string GetWebViewAnnouncementUri()
     {
-       // return hello path of your own xaml
+       // return the path of your own xaml
     }
 
     public override string GetPollUri()
     {
-       // return hello path of your own xaml
+       // return the path of your own xaml
     }
 
     public override EngagementNotificationView CreateNotification(EngagementNotificationViewModel viewModel)
@@ -223,63 +223,63 @@ Você pode substituir `EngagementReachHandler` métodos no seu toouse de contrat
     }
 
 > [!TIP]
-> Olá `CreateNotification` método pode retornar nulo. notificação de saudação não será exibida e campanha de alcance hello será descartada.
+> O método `CreateNotification` pode retornar nulo. A notificação não será exibida e a campanha de alcance será descartada.
 > 
 > 
 
-toosimplify sua implementação de layout, nós também fornecemos nossa própria xaml que pode servir como base para seu código. Eles estão localizados no arquivo de projeto SDK hello (/ src alcance /).
+Para simplificar a implementação de layout, também fornecemos nossa própria xaml que pode servir como base para o seu código. Eles estão localizados no arquivo do SDK do Engagement (/src/reach/).
 
 > [!WARNING]
-> fontes de saudação que fornecemos são Olá exata que mesmo que usamos. Portanto toomodify-los diretamente, não esqueça toochange Olá namespace e Olá nome.
+> As fontes que fornecemos são exatamente as mesmas que usamos. Portanto, se você quiser modificá-las diretamente, não se esqueça de alterar o namespace e o nome.
 > 
 > 
 
 ### <a name="notification-position"></a>Posição de notificação
-Por padrão, uma notificação no aplicativo é exibida no lado Olá inferior esquerdo do aplicativo hello. Você pode alterar esse comportamento, substituindo Olá `GetNotificationPosition` método hello `EngagementReachHandler` objeto.
+Por padrão, uma notificação no aplicativo é exibida na parte inferior esquerda do aplicativo. Você pode alterar esse comportamento, substituindo o método `GetNotificationPosition` do objeto `EngagementReachHandler`.
 
     // In your subclass of EngagementReachHandler
 
     public override EngagementReachHandler.NotificationPosition GetNotificationPosition(EngagementNotificationViewModel viewModel)
     {
-       // return a value of hello EngagementReachHandler.NotificationPosition enum (TOP or BOTTOM)
+       // return a value of the EngagementReachHandler.NotificationPosition enum (TOP or BOTTOM)
     }
 
-No momento, você pode escolher entre hello `BOTTOM` (padrão) e `TOP` posições.
+No momento, você pode escolher entre as posições `BOTTOM`(padrão) e `TOP`.
 
 ### <a name="launch-message"></a>Iniciar mensagem
-Quando um usuário clica em um sistema de notificação (uma notificação do sistema), inicia contrato Olá aplicativo, conteúdo de saudação do carregamento de saudação por push as mensagens e exibir página Olá Olá correspondente campanha.
+Quando um usuário clica em um sistema de notificação (um toast), o Engagement inicia o aplicativo, carrega o conteúdo das mensagens de envio por push e exibe a página da campanha correspondente.
 
-Há um atraso entre a inicialização de saudação da exibição de aplicativo e Olá Olá da página de saudação (dependendo da velocidade da saudação da sua rede).
+Há um atraso entre a inicialização do aplicativo e a exibição da página (dependendo da velocidade da sua rede).
 
-tooindicate toohello o usuário que algo está sendo carregado, você deve fornecer uma informações visuais, como uma barra de progresso ou um indicador de progresso. O Engagement não pode manipular isto por conta própria, mas oferece alguns manipuladores para você.
+Para indicar ao usuário que algo está sendo carregado, você deve fornecer informações visuais, como uma barra de progresso ou um indicador de progresso. O Engagement não pode manipular isto por conta própria, mas oferece alguns manipuladores para você.
 
-tooimplement Olá retorno de chamada, execute:
+Para implementar o retorno de chamada, execute:
 
-    /* hello application has launched and hello content is loading.
+    /* The application has launched and the content is loading.
      * You should display an indicator here.
      */
     EngagementReach.Instance.RetrieveLaunchMessageStarted += () => { [...] };
 
-    /* hello application has finished loading hello content and hello page
-     * is about toobe displayed.
-     * You should hide hello indicator here.
+    /* The application has finished loading the content and the page
+     * is about to be displayed.
+     * You should hide the indicator here.
      */
     EngagementReach.Instance.RetrieveLaunchMessageCompleted += () => { [...] };
 
-    /* hello content has been loaded, but an error has occurred.
-     * You can provide an information toohello user.
-     * You should hide hello indicator here.
+    /* The content has been loaded, but an error has occurred.
+     * You can provide an information to the user.
+     * You should hide the indicator here.
      */
     EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-Você pode definir o retorno de chamada de saudação seu `Application_Launching` método de sua `App.xaml.cs` arquivos, preferencialmente antes Olá `EngagementReach.Instance.Init()` chamar.
+Você pode definir o retorno de chamada em seu método `Application_Launching` de seu arquivo `App.xaml.cs`, de preferência antes da chamada de `EngagementReach.Instance.Init()`.
 
 > [!TIP]
-> Cada manipulador é chamado pelo Olá Thread de interface do usuário. Você não tem tooworry ao usar uma MessageBox ou algo relacionados à interface do usuário.
+> Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
 > 
 > 
 
-[políticas de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
+[Políticas de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[requisitos adicionais para tipos específicos de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[Requisitos adicionais para tipos específicos de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 

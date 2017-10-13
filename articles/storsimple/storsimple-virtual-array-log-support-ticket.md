@@ -1,6 +1,6 @@
 ---
-title: "aaaLog tíquete de suporte por meio do Gerenciador de dispositivos do StorSimple | Microsoft Docs"
-description: "Descreve Olá Gerenciador de dispositivos do StorSimple capacidade de diagnosticar e explica como toouse-tootroubleshoot sua matriz Virtual StorSimple."
+title: "Registrar tíquete de suporte por meio do StorSimple Device Manager | Microsoft Docs"
+description: "Descreve o diagnóstico do Gerenciador de Dispositivos StorSimple e explica como usá-lo na solução de problemas da Matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: ae5eafff726d8ee310af26a13150e40ff861be0e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-device-manager-service-toolog-a-support-request-for-hello-storsimple-virtual-array"></a>Usar toolog de serviço de Gerenciador de dispositivos de StorSimple Olá uma solicitação de suporte para Olá matriz Virtual StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para registrar uma solicitação de Suporte para a Matriz Virtual StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-Olá Gerenciador de dispositivos de StorSimple fornece a capacidade de saudação muito**uma nova solicitação de suporte de log** na folha de resumo de serviço hello. Este artigo explica como você pode fazer uma nova solicitação de suporte e gerenciar o ciclo de vida de dentro do portal de saudação.
+O Gerenciador de Dispositivos StorSimple fornece a capacidade de **fazer uma nova solicitação de suporte** na folha de resumo de serviço. Este artigo explica como você pode fazer uma nova solicitação de suporte e gerenciar o ciclo de vida de dentro do portal.
 
 ## <a name="new-support-request"></a>Nova solicitação de suporte
 
-Dependendo de sua [plano de suporte](https://azure.microsoft.com/support/plans/), você pode criar tíquetes de suporte para um problema em seu StorSimple Virtual array diretamente da lâmina do resumo de serviço do Gerenciador de dispositivos do StorSimple hello.
+Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/), você pode criar tíquetes de suporte para um problema em sua Matriz Virtual StorSimple diretamente da folha de resumo de serviço do Gerenciador de Dispositivos do StorSimple.
 
-#### <a name="toolog-a-new-request"></a>uma nova solicitação de toolog
+#### <a name="to-log-a-new-request"></a>Para fazer uma nova solicitação
 
-1. Acesse o serviço de Gerenciador de dispositivos de StorSimple tooyour. Nas configurações de resumo de folha do serviço hello, ir muito**suporte + solução de problemas** seção e, em seguida, clique em **nova solicitação de suporte**.
+1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Nas configurações de resumo de serviço, vá até a seção **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
    
     ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
-2. Em Olá **Noções básicas sobre** folha, Olá a seguir:
+2. Na folha **Básico**, faça o seguinte:
 
-    1. De saudação **emitir tipo** lista suspensa, selecione **técnico**. 
+    1. Na lista suspensa **Tipo de problema**, selecione **Técnico**. 
     
-    2. Olá atual **assinatura**, **Service** tipo e hello **recurso** (serviço de Gerenciador de dispositivos do StorSimple) são escolhidos automaticamente. 
+    2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
 
-    3. Especifique um ou mais serviços tooyour registrado dispositivos que estão enfrentando problemas.
+    3. Especifique um ou mais dispositivos registrados para o serviço que está com problemas.
 
-    4. Escolha um **plano de suporte** apropriado se você tiver vários planos associados à sua assinatura. É necessário um tooenable do plano de suporte pago suporte técnico.
+    4. Escolha um **plano de suporte** apropriado se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
 
-3. Em **etapa 2**, escolha Olá **severidade** e especifique se o problema de saudação é matriz toohello relacionados ou hello serviço do Gerenciador de dispositivos do StorSimple. Além disso, escolha um **categoria** para este problema e fornecer mais **detalhes** sobre o problema de saudação.
+3. Em **Etapa 2**, escolha a **Severidade** e especifique se o problema está relacionado à matriz ou ao serviço do Gerenciador de Dispositivos StorSimple. Além disso, escolha uma **Categoria** para este problema e forneça mais **Detalhes** sobre o problema.
    
     ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. Na **Etapa 3**, forneça suas informações de contato. Microsoft Support usará este tooreach informações out tooyou para obter mais informações, diagnóstico e resolução.
+4. Na **Etapa 3**, forneça suas informações de contato. O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
    
     ![Nova solicitação de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 
-Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida de saudação de tíquete de saudação de dentro do portal de saudação.
+Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do tíquete de dentro do portal.
 
-#### <a name="toomanage-your-support-requests"></a>solicitações de suporte do seu toomanage
+#### <a name="to-manage-your-support-requests"></a>Para gerenciar suas solicitações de suporte
 
-tooget toohello ajuda e suporte a página, navegar muito**procurar > Ajuda + suporte**.
+Para acessar a página de ajuda e suporte navegue até **Procurar -> Ajuda + suporte**.
 
 ![Gerenciar solicitações de suporte](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como muito[diagnosticar e resolver matriz Virtual StorSimple do tooyour relacionados de problemas](storsimple-virtual-array-diagnose-problems.md)
+Saiba como [diagnosticar e resolver problemas relacionados à Matriz Virtual StorSimple](storsimple-virtual-array-diagnose-problems.md)
 

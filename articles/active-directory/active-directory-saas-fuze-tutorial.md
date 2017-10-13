@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Fuze | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Fuze."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Fuze."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,71 +13,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: d0ea8c6456824e348301ed8bf1f5e00f4bfa8121
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c7f7b095aac6202a7ec5248ee2bbb109615287a7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: integração do Azure Active Directory com o Fuze
 
-Neste tutorial, você aprenderá como toointegrate Fuze com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o Fuze ao Azure AD (Azure Active Directory).
 
-Integrando Fuze com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Fuze com o Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooFuze
-- Você pode habilitar seu usuários tooautomatically get conectado tooFuze (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – portal de gerenciamento do Azure Olá
+- É possível controlar, no Azure AD, quem terá acesso ao Fuze
+- É possível permitir que seus usuários façam logon automaticamente no Fuze (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com Fuze, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD com o Fuze, são necessários os seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Fuze habilitada para logon único
 
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Fuze da Galeria de saudação
+1. Adicionando o Fuze da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
-## <a name="adding-fuze-from-hello-gallery"></a>Adicionando Fuze da Galeria de saudação
-integração de saudação tooconfigure de Fuze no AD do Azure, você precisa tooadd Fuze da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-fuze-from-the-gallery"></a>Adicionando o Fuze da galeria
+Para configurar a integração do Fuze com o Azure AD, é necessário adicionar o Fuze da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd Fuze da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Fuze da galeria, siga as etapas abaixo:**
 
-1. Em Olá  **[Portal de gerenciamento](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique em **adicionar** botão na parte superior de saudação da caixa de diálogo de saudação.
+3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **Fuze**.
+4. Na caixa de pesquisa, digite **Fuze**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_000.png)
 
-5. No painel de resultados de saudação, selecione **Fuze**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Fuze** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_0001.png)
 
@@ -85,77 +85,77 @@ integração de saudação tooconfigure de Fuze no AD do Azure, você precisa to
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Fuze, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Fuze é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Fuze precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Fuze é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Fuze.
 
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **nome de usuário** em Fuze.
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como sendo o valor de **nome de usuário** no Fuze.
 
-tooconfigure e teste de logon único do AD do Azure com Fuze, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Fuze, é necessário concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste Fuze](#creating-a-fuze-test-user)**  -toohave um equivalente do Britta Simon em Fuze é a representação toohello vinculado do Azure AD dela.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Fuze](#creating-a-fuze-test-user)** – para ter um equivalente de Brenda Fernandes no Fuze que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no portal de gerenciamento do Azure hello e configurar o logon único no aplicativo Fuze.
+Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenciamento do Azure e configurará o logon único em seu aplicativo Fuze.
 
-**tooconfigure AD do Azure-logon único com Fuze, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Fuze, siga as etapas abaixo:**
 
-1. No portal de gerenciamento do Azure do hello, no hello **Fuze** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Fuze**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, como **modo** selecione **baseado no SAML logon** tooenable de logon único.
+2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_01.png)
 
-3. Em Olá **Fuze domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do Fuze**, siga as etapas abaixo:
 
-    ![Configurar Logon Único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_020.png)
+    ![Configurar o logon único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_020.png)
     
-    Em Olá **URL de logon** caixa de texto, digite a URL de saudação logon como:`https://www.thinkingphones.com/jetspeed/portal/`
+    Na caixa de texto **URL de Logon**, digite a URL de logon como: `https://www.thinkingphones.com/jetspeed/portal/`
 
 4.  Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-fuze-tutorial/tutorial_general_400.png)
 
-5. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de xml de saudação em seu computador.
+5. Na seção **Certificado de Autenticação SAML**, clique em **XML de metadados** e, em seguida, salve o arquivo xml em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_05.png) 
 
-6. tooconfigure logon único no **Fuze** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte Fuze](https://www.fuze.com/support). Eles serão configurados isso no hello toohave de ordem conexão SSO do SAML definido corretamente em ambos os lados.
+6. Para configurar o logon único no lado do **Fuze**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte Fuze](https://www.fuze.com/support). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá o objetivo desta seção é toocreate um usuário de teste no portal de gerenciamento do Azure Olá chamado Britta Simon.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal de gerenciamento do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/create_aaduser_01.png) 
 
-2. Vá muito**usuários e grupos** e clique em **todos os usuários** toodisplay lista de saudação de usuários.
+2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior de saudação da caixa de diálogo Olá clique **adicionar** tooopen Olá **usuário** caixa de diálogo.
+3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuze-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**. 
 
@@ -164,23 +164,23 @@ Olá o objetivo desta seção é toocreate um usuário de teste no portal de ger
 
 O aplicativo Fuze dá suporte ao provisionamento de usuário just-in-time completo. Dessa forma, os usuários serão criados automaticamente quando eles conectarem. Para outros esclarecimentos, contate o [suporte](https://www.fuze.com/support) Fuze.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo tooFuze seu acesso.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Fuze.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooFuze, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Fuze, siga as etapas abaixo:**
 
-1. No portal de gerenciamento do Azure hello, abrir modo de exibição de aplicativos Olá e, em seguida, navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Fuze**.
+2. Na lista de aplicativos, selecione **Fuze**.
 
     ![Configurar Logon Único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_50.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -188,7 +188,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -197,14 +197,14 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Fuze Olá Olá painel de acesso, você deve obter o aplicativo de Fuze tooyour automaticamente conectado em.
+Ao clicar no bloco Fuze no Painel de Acesso, seu logon deverá ser feito automaticamente no aplicativo Fuze.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

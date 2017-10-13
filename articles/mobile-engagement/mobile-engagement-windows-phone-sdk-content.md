@@ -1,6 +1,6 @@
 ---
-title: "aaaWindows conteúdo Phone Silverlight SDK"
-description: "Saiba mais sobre o conteúdo de saudação do hello SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
+title: "Conteúdo do SDK do Windows Phone Silverlight"
+description: "Saiba mais sobre o conteúdo do SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c39247383d65200493d028a80d444a6e96a697cd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ce323880100706accf0c08c9929d20908c6198cb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-content"></a>Conteúdo do SDK do Windows Phone Silverlight
-Este documento lista e descreve o conteúdo de saudação implantado por Olá SDK em seu aplicativo.
+Este documento lista e descreve o conteúdo implantado pelo SDK em seu aplicativo.
 
-## <a name="hello-resources-folder"></a>Olá `/Resources` pasta
-Esta pasta contém todos os recursos de saudação do Mobile Engagement precisa. Você também pode personalizá-los toofit seu aplicativo.
+## <a name="the-resources-folder"></a>A pasta `/Resources`
+Essa pasta contém todos os recursos que o Mobile Engagement precisa. Você também pode personalizá-los para se adequarem ao seu aplicativo.
 
-* `EngagementIconNotification.png`: ícone de marca de saudação exibido no hello à esquerda de uma notificação, substituí-lo por seu ícone de marca.
-* `EngagementIconOk.png`: ícone de "Okey" hello de saudação acessar páginas ApplicationBar.
-* `EngagementIconCancel.png`: hello "Cancelar" ícone de saudação acessar páginas ApplicationBar.
-* `EngagementIconCloseLight.png`: ícone de "Fechar" hello de saudação do Mobile Engagement alcançar notificação para o tema claro do Windows Phone hello.
-* `EngagementIconCloseDark.png`: ícone de "Fechar" hello de saudação do Mobile Engagement alcançar notificação de tema escuro do Windows Phone hello.
-* `EngagementConfiguration.xml`: Olá o arquivo de configuração do Mobile Engagement, que é onde você pode personalizar as configurações do contrato (cadeia de caracteres de conexão do contrato, relatório falha etc).
+* `EngagementIconNotification.png` : O ícone de marca exibido à esquerda de uma notificação, substitua-o pelo ícone da sua marca.
+* `EngagementIconOk.png` : O ícone "Ok" da ApplicationBar das páginas do Reach.
+* `EngagementIconCancel.png` : O ícone "Cancelar" da ApplicationBar das páginas do Reach.
+* `EngagementIconCloseLight.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema claro do Windows Phone.
+* `EngagementIconCloseDark.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema escuro do Windows Phone.
+* `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Engagement (cadeia de conexão do Engagement, relatar falhas, etc.).
 

@@ -1,7 +1,7 @@
-#### <a name="tooget-hello-storsimple-service-registration-key"></a>chave de registro de serviço do tooget Olá StorSimple
+#### <a name="to-get-the-storsimple-service-registration-key"></a>Para obter a chave de registro do serviço StorSimple
 
-1.  Em Olá **Gerenciador de dispositivos de StorSimple** folha, clique em serviço Olá que você criou. Isso abre um novo direito toohello folha.
+1.  Na folha **StorSimple Device Manager**, clique no serviço que você criou. Isso abre uma nova folha à direita.
 
-2.  Na folha de saudação que é aberta, clique em **gerenciar &gt;**  **chaves**.
+2.  Na folha que é aberta, clique em **Gerenciar &gt;** **Chaves**.
 
-3.  Clique em Olá cópia ícone toocopy Olá chave de registro e salvá-lo para uso posterior.
+3.  Clique no ícone de cópia para copiar a chave de registro de serviço e salvá-la para uso posterior.

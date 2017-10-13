@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta dos [Usuários do Office 365](https://office365.com)  
 
-Antes de usar sua conta de usuários do Office 365 em um aplicativo lógico, é necessário autorizar as contas de usuários do Office 365 Olá lógica aplicativo tooconnect tooyour. Felizmente, você pode fazer isso facilmente a partir de dentro de seu aplicativo lógica em Olá Portal do Azure.  
+Antes de usar a conta dos Usuários do Office 365 em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta dos Usuários do Office 365. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.  
 
-Aqui está Olá etapas tooauthorize tooyour de tooconnect de aplicativo sua lógica conta usuários do Office 365:  
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta dos Usuários do Office 365:  
 
-1. toocreate uma conexão tooOffice 365 usuários, no designer de aplicativo de lógica de saudação, selecionam **APIs gerenciadas do Microsoft Mostrar** em Olá lista suspensa e digite *usuários do Office 365* na caixa de pesquisa de saudação. Selecione a ação que você irá gostar toouse ou gatilho Olá:  
+1. Para criar uma conexão com os Usuários do Office 365, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Usuários do Office 365* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
    ![Etapa de criação da conexão com os Usuários do Office 365](./media/connectors-create-api-office365users/office365users-1.png)  
-2. Se você não criou tooOffice 365 usuários antes de todas as conexões, você obterá tooprovide solicitada as credenciais de usuários do Office 365. Essas credenciais serão tooauthorize usado tooconnect de aplicativo a lógica para e acessar dados da sua conta de usuários do Office 365:  
+2. Se você não tiver criado quaisquer conexões com os Usuários do Office 365 antes, suas credenciais dos Usuários do Office 365 serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta dos Usuários do Office 365 e usá-los:   
    ![Etapa de criação da conexão com os Usuários do Office 365](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Forneça seu tooauthorize nome e a senha do usuário de usuários do Office 365 sua lógica de aplicativo:  
+3. Forneça seu nome de usuário dos Usuários do Office 365 e a senha para autorizar seu aplicativo lógico:   
    ![Etapa de criação da conexão com os Usuários do Office 365](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Aviso Olá conexão tiver sido criado e você está livre tooproceed com hello outra etapas em seu aplicativo de lógica:  
+4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![Etapa de criação da conexão com os Usuários do Office 365](./media/connectors-create-api-office365users/office365users-4.png)  
 

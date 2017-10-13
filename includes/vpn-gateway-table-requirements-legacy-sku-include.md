@@ -1,4 +1,4 @@
-Olá tabela listas Olá requisitos para gateways PolicyBased e RouteBased VPN a seguir. Esta tabela se aplica a saudação tooboth Gerenciador de recursos e modelos de implantação clássico. Para o modelo clássico Olá gateways VPN PolicyBased são Olá mesmo como gateways estáticos e gateways de rota são Olá mesmo como gateways dinâmicos.
+A tabela a seguir lista os requisitos para gateways de VPN PolicyBased e RouteBased. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico. Para o modelo clássico, os gateways de VPN PolicyBased são iguais aos gateways Estáticos, e os gateways Baseados em rota são iguais aos gateways Dinâmicos.
 
 |  | **Gateway Básico de VPN PolicyBased** | **Gateway Básico de VPN RouteBased** | **Gateway Padrão de VPN RouteBased** | **Gateway de Alto Desempenho de VPN RouteBased** |
 | --- | --- | --- | --- | --- |

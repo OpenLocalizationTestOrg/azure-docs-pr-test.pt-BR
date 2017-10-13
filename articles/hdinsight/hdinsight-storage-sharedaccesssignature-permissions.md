@@ -1,6 +1,6 @@
 ---
-title: acesso de aaaRestrict usando assinaturas de acesso compartilhado - HDInsight do Azure | Microsoft Docs
-description: Saiba como toouse assinaturas de acesso compartilhado toorestrict HDInsight acessar toodata armazenado em blobs de armazenamento do Azure.
+title: "Restringir o acesso usando Assinaturas de Acesso Compartilhado – HDInsight do Azure | Microsoft Docs"
+description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir o acesso do HDInsight a dados armazenados em blobs de armazenamento do Azure.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: a34a2f8e52e47a15b09f09bc1fc67fc6159ec75f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-storage-shared-access-signatures-toorestrict-access-toodata-in-hdinsight"></a>Usar assinaturas de acesso compartilhado do Azure Storage toorestrict acesso toodata no HDInsight
+# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
-HDInsight tem acesso completo toodata nas contas de armazenamento do Azure Olá associadas Olá cluster. Você pode usar assinaturas de acesso compartilhado em dados de toohello Olá blob contêiner toorestrict acesso. Por exemplo, tooprovide acesso somente leitura toohello dados. Assinaturas de acesso compartilhado (SAS) são um recurso de contas de armazenamento do Azure que permite que você toolimit toodata de acesso. Por exemplo, fornecendo acesso somente leitura toodata.
+O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. Por exemplo, para fornecer acesso somente leitura aos dados. As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazenamento do Azure que permitem que você limite o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
 
 > [!IMPORTANT]
-> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte Olá [configurar domínio HDInsight](hdinsight-domain-joined-configure.md) documento.
+> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](hdinsight-domain-joined-configure.md).
 
 > [!WARNING]
-> HDInsight deve ter acesso completo toohello padrão armazenamento Olá cluster.
+> O HDInsight deve ter acesso completo ao armazenamento padrão para o cluster.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -39,250 +39,250 @@ HDInsight tem acesso completo toodata nas contas de armazenamento do Azure Olá 
   * A versão do Visual Studio deve ser a 2013, 2015 ou 2017
   * A versão do Python deverá ser a 2.7 ou superior
 
-* Um cluster HDInsight baseados em Linux ou [Azure PowerShell] [ powershell] -se você tiver um cluster existente com base em Linux, você pode usar o Ambari tooadd um cluster de toohello de assinatura de acesso compartilhado. Caso contrário, você pode usar o Azure PowerShell toocreate um cluster e adicionar uma assinatura de acesso compartilhado durante a criação do cluster.
+* Um cluster HDInsight baseado em Linux OU o [Azure PowerShell][powershell] ‑ Se você tiver um cluster existente baseado em Linux, poderá usar o Ambari para adicionar uma Assinatura de Acesso Compartilhado ao cluster. Caso contrário, você poderá usar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
 
     > [!IMPORTANT]
-    > Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Olá arquivos de exemplo do [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Esse repositório contém Olá itens a seguir:
+* Os arquivos de exemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Esse repositório contém os seguintes itens:
 
   * Um projeto do Visual Studio que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
   * Um script Python que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
-  * Um script do PowerShell que pode criar um HDInsight de cluster e configurá-lo toouse Olá SAS.
+  * Um script do PowerShell que pode criar um cluster HDInsight e configurá-lo para usar a SAS.
 
 ## <a name="shared-access-signatures"></a>As Assinaturas de Acesso Compartilhado
 
 Há duas formas de Assinaturas de Acesso Compartilhado:
 
-* Ad hoc: Olá hora de início, hora de expiração e as permissões para Olá SAS são especificados no URI SAS de saudação.
+* Ad hoc: a hora de início, o tempo de expiração e as permissões para a SAS são todos especificados no URI SAS.
 
-* Política de acesso armazenada: uma política de acesso armazenada é definida em um contêiner de recurso, como um contêiner de blob. Uma política pode ser usado toomanage restrições para uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS com uma política de acesso armazenada, Olá SAS herda restrições Olá - Olá hora de início, hora de expiração e permissões - definidas para a política de acesso Olá armazenado.
+* Política de acesso armazenada: uma política de acesso armazenada é definida em um contêiner de recurso, como um contêiner de blob. Uma política pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
 
-Olá diferença entre formulários Olá dois é importante para um cenário de chave: revogação. Uma SAS é uma URL, portanto qualquer pessoa que obtém Olá SAS pode usá-lo, independentemente de quem solicitou toobegin com. Se uma SAS é publicada publicamente, ele pode ser usado por qualquer pessoa no Olá, mundo. Uma SAS distribuída será válida até que ocorra um destes quatro fatores:
+A diferença entre as duas formas é importante para um cenário fundamental: revogação. Uma SAS é uma URL, portanto qualquer pessoa que obtiver a SAS poderá usá-la, independentemente de quem a tiver solicitado em primeiro lugar. Se uma SAS for publicada publicamente, ela poderá ser usada por qualquer pessoa no mundo. Uma SAS distribuída será válida até que ocorra um destes quatro fatores:
 
-1. tempo de expiração de saudação especificado em Olá que SAS é atingido.
+1. A hora de expiração especificada na SAS é atingida.
 
-2. tempo de expiração de saudação especificado na política de acesso Olá armazenado referenciada por Olá que SAS é atingido. cenários a seguir Hello causam um tempo de expiração Olá toobe atingido:
+2. O tempo de expiração especificado na política de acesso armazenada referenciada por SAS é atingido. Os seguintes cenários fazem com que o tempo de expiração seja atingido:
 
-    * intervalo de tempo de saudação expirou.
-    * política de acesso de saudação armazenada é modificado toohave um tempo de expiração em Olá anterior. Alterar o tempo de expiração de saudação é uma maneira toorevoke Olá SAS.
+    * O intervalo de tempo esgotou-se.
+    * A política de acesso armazenada foi modificada para ter um tempo de expiração no passado. Alterar o tempo de expiração é uma maneira de revogar a SAS.
 
-3. Olá armazenado referenciada por Olá que SAS é excluído, que é Olá toorevoke de outra maneira SAS de política de acesso. Se você recriar a política de acesso de saudação armazenada com hello mesmo nome, todos os tokens SAS para diretiva anterior Olá são válidas (se o tempo de expiração saudação em Olá SAS não passou). Se você pretende toorevoke Olá SAS, ser toouse se um nome diferente se você recriar a política de acesso de saudação com um tempo de expiração em Olá futuras.
+3. A política de acesso armazenada referenciada pelas SAS é excluída, que é uma outra maneira de revogar a SAS. Se você recriar a política de acesso armazenado com o mesmo nome, todos os tokens SAS para a política anterior serão válidos (se o tempo de expiração na SAS não tiver passado). Se você estiver pretendendo revogar a SAS, use um nome diferente se recriar a política de acesso com uma hora de expiração no futuro.
 
-4. Olá a chave de conta que foi usado toocreate Olá SAS é regenerada. Regenerando chave Olá faz com que todos os aplicativos que usam a autenticação de chave toofail anterior hello. Atualize todos os componentes toohello nova chave.
+4. A chave de conta usada para criar as SAS é regenerada. A regeneração da chave faz com que todos os aplicativos que usam a chave anterior falhem na autenticação. Atualize todos os componentes para a nova chave.
 
 > [!IMPORTANT]
-> Um URI de assinatura de acesso compartilhado é associado à assinatura de Olá Olá conta chave toocreate usado e Olá associados a política de acesso armazenada (se houver). Se nenhuma política de acesso armazenada for especificada, hello toorevoke de maneira somente uma assinatura de acesso compartilhado é toochange Olá conta chave.
+> Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
 
-É recomendável sempre usar políticas de acesso armazenadas. Ao usar as diretivas armazenadas, você pode revogar assinaturas ou estender a data de expiração de saudação conforme necessário. Olá etapas deste documento usam políticas de acesso armazenada toogenerate SAS.
+É recomendável sempre usar políticas de acesso armazenadas. Ao usar políticas armazenadas, você pode revogar assinaturas ou estender a data de expiração conforme a necessidade. As etapas deste documento usam políticas de acesso armazenado para gerar a SAS.
 
-Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [modelo SAS Olá Noções básicas sobre](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções básicas sobre o modelo de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ### <a name="create-a-stored-policy-and-sas-using-c"></a>Criar uma política armazenada e uma SAS usando C\#
 
-1. Abra a solução de saudação no Visual Studio.
+1. Abra a solução no Visual Studio.
 
-2. No Gerenciador de soluções, clique com botão direito em Olá **SASToken** do projeto e selecione **propriedades**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASToken** e selecione **Propriedades**.
 
-3. Selecione **configurações** e adicionar valores para Olá entradas a seguir:
+3. Escolha **Configurações** e adicione valores às seguintes entradas:
 
-   * StorageConnectionString: conexão Olá string hello conta de armazenamento que você deseja toocreate uma política armazenada e a SAS para. saudação de formato deve ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` onde `myaccount` é o nome da saudação da sua conta de armazenamento e `mykey` é chave Olá Olá conta de armazenamento.
+   * StorageConnectionString: a cadeia de conexão da conta de armazenamento para a qual você deseja criar uma política armazenada e uma SAS. O formato deve ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` onde `myaccount` é o nome de sua conta de armazenamento e `mykey` é a chave da conta de armazenamento.
 
-   * ContainerName: contêiner de saudação na conta de armazenamento de saudação que você deseja toorestrict access.
+   * ContainerName: o contêiner na conta de armazenamento para o qual você deseja restringir o acesso.
 
-   * SASPolicyName: Olá nome toouse para Olá armazenados toocreate de política.
+   * SASPolicyName: o nome a ser usado para a política armazenada que será criada.
 
-   * FileToUpload: Olá caminho tooa arquivo que é carregado toohello contêiner.
+   * FileToUpload: o caminho para um arquivo que é carregado no contêiner.
 
-4. Execute projeto hello. Informações toohello semelhante texto a seguir é exibida depois Olá SAS foi gerada:
+4. Execute o projeto. Informações semelhantes ao seguinte texto serão exibidas assim que a SAS for gerada:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
-    Salve o token de política SAS Olá, nome da conta de armazenamento e nome do contêiner. Esses valores são usados ao associar a conta de armazenamento Olá seu cluster HDInsight.
+    Salve o token da política SAS, o nome da conta de armazenamento e o nome do contêiner. Esses valores são usados ao associar a conta de armazenamento com seu cluster HDInsight.
 
 ### <a name="create-a-stored-policy-and-sas-using-python"></a>Criar uma política armazenada e uma SAS usando Python
 
-1. Abrir o arquivo de SASToken.py hello e alterar Olá valores a seguir:
+1. Abra o arquivo SASToken.py e altere os valores a seguir:
 
-   * diretiva\_nome: Olá nome toouse para Olá armazenados toocreate de política.
+   * policy\_name: o nome a ser usado para a política armazenada que será criada.
 
-   * armazenamento\_conta\_name: nome de saudação da sua conta de armazenamento.
+   * storage\_account\_name: o nome da sua conta de armazenamento.
 
-   * armazenamento\_conta\_chave: Olá chave Olá conta de armazenamento.
+   * storage\_account\_key: a chave da conta de armazenamento.
 
-   * armazenamento\_contêiner\_nome: contêiner de saudação na conta de armazenamento de saudação que você deseja toorestrict access.
+   * storage\_container\_: o contêiner na conta de armazenamento para o qual você deseja restringir o acesso.
 
-   * exemplo\_arquivo\_caminho: Olá caminho tooa arquivo contêiner toohello carregado.
+   * example\_file\_path: o caminho para um arquivo que é carregado para o contêiner.
 
-2. Execute o script hello. Ele exibe o saudação SAS token semelhante toohello texto a seguir quando Olá script é concluído:
+2. Execute o script. Isso exibirá o token SAS semelhante ao texto a seguir quando o script for concluído:
 
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
-    Salve o token de política SAS Olá, nome da conta de armazenamento e nome do contêiner. Esses valores são usados ao associar a conta de armazenamento Olá seu cluster HDInsight.
+    Salve o token da política SAS, o nome da conta de armazenamento e o nome do contêiner. Esses valores são usados ao associar a conta de armazenamento com seu cluster HDInsight.
 
-## <a name="use-hello-sas-with-hdinsight"></a>Usar Olá SAS com HDInsight
+## <a name="use-the-sas-with-hdinsight"></a>Usar a SAS com o HDInsight
 
-Ao criar um cluster HDInsight, você deverá especificar uma conta de armazenamento primária e, opcionalmente, poderá especificar contas de armazenamento adicionais. Ambos os métodos de adição de armazenamento exigem contas de armazenamento toohello acesso completo e contêineres que são usados.
+Ao criar um cluster HDInsight, você deverá especificar uma conta de armazenamento primária e, opcionalmente, poderá especificar contas de armazenamento adicionais. Ambos os métodos de adição de armazenamento exigem acesso total às contas de armazenamento e aos contêineres usados.
 
-toouse um contêiner de tooa de acesso de toolimit de assinatura de acesso compartilhado, adicione uma entrada personalizada toohello **site principal** configuração de cluster de saudação.
+Para usar uma Assinatura de Acesso Compartilhado para limitar o acesso a um contêiner, você deverá adicionar uma entrada personalizada para a configuração **core-site** do cluster.
 
-* Para **baseados no Windows** ou **baseados em Linux** clusters de HDInsight, você pode adicionar a entrada de saudação durante a criação de cluster usando o PowerShell.
-* Para **baseados em Linux** clusters de HDInsight, alterar a configuração de saudação após a criação de cluster usando o Ambari.
+* Para os clusters HDInsight **baseados no Windows** ou **baseados em Linux**, você pode adicionar a entrada durante a criação do cluster usando o PowerShell.
+* Para clusters HDInsight **baseados em Linux**, altere a configuração após a criação do cluster usando o Ambari.
 
-### <a name="create-a-cluster-that-uses-hello-sas"></a>Criar um cluster que usa Olá SAS
+### <a name="create-a-cluster-that-uses-the-sas"></a>Criar um cluster que use a SAS
 
-Um exemplo de como criar um cluster HDInsight que Olá usa SAS está incluído no hello `CreateCluster` diretório de repositório de saudação. toouse-lo, use Olá seguindo as etapas:
+Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no diretório `CreateCluster` do repositório. Para usá-lo, execute estas etapas:
 
-1. Olá abrir `CreateCluster\HDInsightSAS.ps1` do arquivo em um editor de texto e modifique Olá valores no início de saudação do documento de saudação a seguir.
+1. Abra o arquivo `CreateCluster\HDInsightSAS.ps1` em um editor de texto e modifique os valores a seguir no início do documento.
 
     ```powershell
-    # Replace 'mycluster' with hello name of hello cluster toobe created
+    # Replace 'mycluster' with the name of the cluster to be created
     $clusterName = 'mycluster'
     # Valid values are 'Linux' and 'Windows'
     $osType = 'Linux'
-    # Replace 'myresourcegroup' with hello name of hello group toobe created
+    # Replace 'myresourcegroup' with the name of the group to be created
     $resourceGroupName = 'myresourcegroup'
-    # Replace with hello Azure data center you want toohello cluster toolive in
+    # Replace with the Azure data center you want to the cluster to live in
     $location = 'North Europe'
-    # Replace with hello name of hello default storage account toobe created
+    # Replace with the name of the default storage account to be created
     $defaultStorageAccountName = 'mystorageaccount'
-    # Replace with hello name of hello SAS container created earlier
+    # Replace with the name of the SAS container created earlier
     $SASContainerName = 'sascontainer'
-    # Replace with hello name of hello SAS storage account created earlier
+    # Replace with the name of the SAS storage account created earlier
     $SASStorageAccountName = 'sasaccount'
-    # Replace with hello SAS token generated earlier
+    # Replace with the SAS token generated earlier
     $SASToken = 'sastoken'
-    # Set hello number of worker nodes in hello cluster
+    # Set the number of worker nodes in the cluster
     $clusterSizeInNodes = 3
     ```
 
-    Por exemplo, alterar `'mycluster'` toohello nome de cluster Olá você deseja toocreate. valores SAS Olá devem corresponder valores hello de etapas anteriores Olá ao criar uma conta de armazenamento e o token SAS.
+    Por exemplo, altere `'mycluster'` para o nome do cluster que você deseja criar. Os valores da SAS devem corresponder aos valores das etapas anteriores durante a criação de uma conta de armazenamento e de um token SAS.
 
-    Depois que você tiver alterado os valores hello, salve arquivo hello.
+    Depois de alterar os valores, salve o arquivo.
 
 2. Abra um novo prompt do Azure PowerShell. Se você não estiver familiarizado com o Azure PowerShell ou se não o tiver instalado, consulte [Instalar e configurar o Azure PowerShell][powershell].
 
-1. No prompt de hello, use Olá comando tooauthenticate tooyour assinatura do Azure a seguir:
+1. No prompt, use o seguinte comando para se autenticar em sua assinatura do Azure:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-    Quando solicitado, faça logon com a conta Olá para sua assinatura do Azure.
+    Quando solicitado, faça logon com a conta da sua assinatura do Azure.
 
-    Se sua conta estiver associada a várias assinaturas do Azure, talvez seja necessário toouse `Select-AzureRmSubscription` tooselect assinatura de saudação desejar toouse.
+    Se a conta estiver associada a várias assinaturas do Azure, talvez seja necessário utilizar `Select-AzureRmSubscription` para selecionar a assinatura que você deseja usar.
 
-4. No prompt de hello, altere diretórios toohello `CreateCluster` diretório que contém o arquivo de HDInsightSAS.ps1 hello. Em seguida, usar Olá após o script do comando toorun Olá
+4. No prompt, altere os diretórios para o diretório `CreateCluster` que contém o arquivo HDInsightSAS.ps1. Em seguida, use o comando a seguir para executar o script
 
     ```powershell
     .\HDInsightSAS.ps1
     ```
 
-    Como Olá script é executado, ele registra prompt do PowerShell toohello saída enquanto cria recursos Olá contas de grupo e de armazenamento. Você está tooenter solicitada ao usuário Olá HTTP Olá cluster HDInsight. Essa conta é usada toosecure cluster de toohello de acesso HTTP/s.
+    À medida que o script for executado, ele registrará a saída em log do prompt do PowerShell enquanto cria o grupo de recursos e as contas de armazenamento. Ele solicitará que você insira o usuário HTTP para o cluster HDInsight. Essa conta é usada para proteger o acesso HTTP/s ao cluster.
 
-    Se você estiver criando um cluster baseado em Linux, também será solicitado que você forneça um nome de conta de usuário SSH e uma senha. Essa conta é usado tooremotely login toohello cluster.
+    Se você estiver criando um cluster baseado em Linux, também será solicitado que você forneça um nome de conta de usuário SSH e uma senha. Essa conta é usada para fazer logon remotamente no cluster.
 
    > [!IMPORTANT]
-   > Quando solicitado Olá HTTP/s ou SSH nome de usuário e senha, você deve fornecer uma senha que atenda a saudação critérios a seguir:
+   > Quando o nome de usuário ou a senha HTTP/s ou SSH forem solicitados, você deverá fornecer uma senha que atenda a estes critérios:
    >
    > * Deve ter pelo menos 10 caracteres de comprimento
    > * Deve conter pelo menos um dígito
    > * Deve conter pelo menos um caractere não alfanumérico
    > * Deve conter pelo menos uma letra maiúscula ou minúscula
 
-Leva algum tempo para esse script toocomplete, normalmente em torno de 15 minutos. Quando o script de saudação é concluído sem erros, Olá cluster foi criado.
+Esse script demora um pouco para terminar, normalmente cerca de 15 minutos. Quando o script for concluído sem erros, o cluster terá sido criado.
 
-### <a name="use-hello-sas-with-an-existing-cluster"></a>Usar Olá SAS com um cluster existente
+### <a name="use-the-sas-with-an-existing-cluster"></a>Usar a SAS com um cluster existente
 
-Se você tiver um cluster existente com base em Linux, você pode adicionar Olá SAS toohello **site principal** configuração usando Olá etapas a seguir:
+Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à configuração **core-site** usando as seguintes etapas:
 
-1. Abra Olá Ambari web da interface do usuário para seu cluster. endereço de saudação para essa página é https://YOURCLUSTERNAME.azurehdinsight.net. Quando solicitado, autentique toohello cluster usando o nome do administrador de saudação (administrador) e senha que você usou quando criar o cluster de saudação.
+1. Abra a UI da Web do Ambari para seu cluster. O endereço para essa página é https://YOURCLUSTERNAME.azurehdinsight.net. Quando solicitado, faça a autenticação no cluster usando o nome do administrador (admin) e a senha usados na criação do cluster.
 
-2. Olá lado esquerdo da interface da web hello Ambari, selecione **HDFS** e, em seguida, selecione Olá **configurações** guia no meio de saudação da página de saudação.
+2. No lado esquerdo da interface do usuário da Web do Ambari, escolha **HDFS** e selecione a guia **Configurações** na metade da página.
 
-3. Selecione Olá **avançado** guia e, em seguida, role até encontrar hello **site personalizado core** seção.
+3. Selecione a guia **Avançado** e então role até encontrar a seção **Core-site personalizado**.
 
-4. Expanda Olá **site personalizado core** seção, em seguida, final de toohello de rolagem e selecione Olá **adicionar propriedade...**  link. A seguir Olá Use valores de saudação **chave** e **valor** campos:
+4. Expanda a seção **Core-site personalizado**, role até o fim e escolha o link **Adicionar propriedade...**. Use os valores a seguir para os campos **Chave** e **Valor**:
 
    * **Chave**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Valor**: Olá SAS retornado por Olá aplicativo c# ou Python que você executou anteriormente
+   * **Valor**: a SAS retornada pelo aplicativo C# ou Python executado anteriormente
 
-     Substituir **CONTAINERNAME** com o nome do contêiner de saudação usada com o aplicativo hello de c# ou SAS. Substituir **STORAGEACCOUNTNAME** com o nome de conta de armazenamento Olá usado.
+     Substitua **CONTAINERNAME** pelo nome do contêiner usado com o aplicativo C# ou SAS. Substitua **STORAGEACCOUNTNAME** pelo nome da conta de armazenamento usada.
 
-5. Clique em Olá **adicionar** toosave nesse chave e valor e clique em Olá **salvar** botão toosave alterações de configuração de saudação. Quando solicitado, adicione uma descrição da alteração da saudação ("adicionar acesso de armazenamento SAS" por exemplo) e, em seguida, clique em **salvar**.
+5. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e clique em **Salvar**.
 
-    Clique em **Okey** quando Olá alterações foram concluídas.
+    Clique em **OK** quando as alterações forem concluídas.
 
    > [!IMPORTANT]
-   > Você deve reiniciar vários serviços para que Olá alteração entra em vigor.
+   > Você deverá reiniciar vários serviços antes que a alteração entre em vigor.
 
-6. No Olá Ambari web da interface do usuário, selecione **HDFS** na lista Olá Olá à esquerda e, em seguida, selecione **reiniciar todos os** de saudação **ações de serviço** suspensa lista saudação à direita. Quando solicitado, selecione **Ativar o modo de manutenção** e selecione __Conforme Reiniciar Todos".
+6. Na IU da Web do Ambari, escolha **HDFS** na lista à esquerda e selecione **Reiniciar Todos** na lista suspensa **Ações de Serviço** à direita. Quando solicitado, selecione **Ativar o modo de manutenção** e selecione __Conforme Reiniciar Todos".
 
     Repita esse processo para MapReduce2 e YARN.
 
-7. Depois de reiniciar serviços hello, selecione cada uma e desabilitar o modo de manutenção de saudação **ações de serviço** lista suspensa.
+7. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço**.
 
 ## <a name="test-restricted-access"></a>Testar o acesso restrito
 
-tooverify restringir o acesso, use Olá métodos a seguir:
+Para verificar se você tem acesso restrito, use estes métodos:
 
-* Para **baseados no Windows** clusters de HDInsight, use o cluster de toohello tooconnect área de trabalho remota. Para obter mais informações, consulte [se conectar usando o RDP de tooHDInsight](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+* Para clusters HDInsight **baseados no Windows** , use a Área de Trabalho Remota para se conectar ao cluster. Para obter mais informações, consulte [Conectar ao HDInsight usando RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-    Uma vez conectado, use Olá **Hadoop de linha de comando** ícone Olá desktop tooopen um prompt de comando.
+    Uma vez conectado, use o ícone **Linha de Comando do Hadoop** na área de trabalho para abrir um prompt de comando.
 
-* Para **baseados em Linux** clusters de HDInsight, usar SSH tooconnect toohello cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Para clusters HDInsight **baseados em Linux** , use SSH para conectar-se ao cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Uma vez conectado toohello cluster, use Olá tooverify etapas que você pode somente leitura e a lista de itens na conta de armazenamento SAS Olá a seguir:
+Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só pode ler e listar itens na conta de armazenamento SAS:
 
-1. conteúdo de saudação toolist do contêiner hello, use Olá comando a seguir no prompt de saudação de: 
+1. Para listar o conteúdo do contêiner, use o seguinte comando no prompt: 
 
     ```bash
     hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     ```
 
-    Substituir **SASCONTAINER** com o nome de saudação do contêiner Olá criado para conta de armazenamento SAS de saudação. Substituir **SASACCOUNTNAME** com nome Olá Olá da conta de armazenamento usada para Olá SAS.
+    Substitua **SASCONTAINER** pelo nome do contêiner criado para a conta de armazenamento SAS. Substitua **SASACCOUNTNAME** pelo nome da conta de armazenamento usada para a SAS.
 
-    lista de saudação inclui arquivo hello carregado quando o contêiner de saudação e a SAS foram criados.
+    A lista inclui o arquivo carregado quando o contêiner e a SAS foram criados.
 
-2. Use Olá tooverify de comando que você pode ler o conteúdo de saudação do arquivo hello a seguir. Substituir saudação **SASCONTAINER** e **SASACCOUNTNAME** como na etapa anterior hello. Substituir **FILENAME** pelo nome de saudação do arquivo de saudação exibido no comando anterior hello:
+2. Use o comando a seguir para verificar se você pode ler o conteúdo do arquivo. Substitua **SASCONTAINER** e **SASACCOUNTNAME** como na etapa anterior. Substitua **FILENAME** pelo nome do arquivo exibido no comando anterior:
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
     ```
 
-    Esse comando lista os conteúdos de saudação do arquivo hello.
+    Esse comando lista o conteúdo do arquivo.
 
-3. Saudação de usar o sistema de arquivos local do comando toodownload Olá arquivo toohello a seguir:
+3. Use o comando a seguir para baixar o arquivo para o sistema de arquivos local:
 
     ```bash
     hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     ```
 
-    Este comando downloads Olá tooa local arquivo denominado **Testfile**.
+    Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt**.
 
-4. A seguir use Olá comando tooupload Olá arquivo local tooa novo arquivo denominado **testupload.txt** em Olá armazenamento SAS:
+4. Use o comando a seguir para carregar o arquivo local para um novo arquivo chamado **testupload.txt** no armazenamento SAS:
 
     ```bash
     hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
-    Você receberá um toohello semelhante mensagem texto a seguir:
+    Você receberá uma mensagem semelhante ao texto a seguir:
 
         put: java.io.IOException
 
-    Esse erro ocorre porque o local de armazenamento de saudação é leitura + lista. Use Olá seguindo os dados de saudação do comando tooput no armazenamento padrão da saudação para cluster hello, que é gravável:
+    Esse erro só ocorrerá porque o local do armazenamento é somente leitura+lista. Use o comando a para colocar os dados no armazenamento padrão do cluster, que pode ser gravável:
 
     ```bash
     hdfs dfs -put testfile.txt wasb:///testupload.txt
     ```
 
-    Neste momento, Olá operação deve ser concluída com êxito.
+    Dessa vez, a operação deverá ser concluída com êxito.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 ### <a name="a-task-was-canceled"></a>Uma tarefa foi cancelada
 
-**Sintomas**: ao criar um cluster usando o script do PowerShell hello, você pode receber Olá a seguinte mensagem de erro:
+**Sintomas**: ao criar um cluster usando o script do PowerShell, talvez você receba a seguinte mensagem de erro:
 
     New-AzureRmHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
@@ -291,9 +291,9 @@ Uma vez conectado toohello cluster, use Olá tooverify etapas que você pode som
         + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
-**Causa**: este erro pode ocorrer se você usar uma senha de usuário de administração/HTTP Olá para cluster hello, ou (para clusters baseados em Linux) usuário SSH hello.
+**Causa**: esse erro poderá ocorrer se você usar uma senha para o usuário admin/HTTP do cluster ou, para clusters baseados em Linux, o usuário SSH.
 
-**Resolução**: Use uma senha que atenda a saudação critérios a seguir:
+**Resolução**: use uma senha que atenda aos seguintes critérios:
 
 * Deve ter pelo menos 10 caracteres de comprimento
 * Deve conter pelo menos um dígito
@@ -302,7 +302,7 @@ Uma vez conectado toohello cluster, use Olá tooverify etapas que você pode som
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como tooadd acesso limitado armazenamento tooyour cluster HDInsight, aprender toowork outras maneiras com dados em seu cluster:
+Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, conheça outras maneiras de trabalhar com dados no cluster:
 
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)

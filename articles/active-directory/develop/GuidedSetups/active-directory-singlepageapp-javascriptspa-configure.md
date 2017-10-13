@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 JS SPA interativa de instalação - configurar | Microsoft Docs"
+title: "AD do Azure v2 JS SPA interativa instalação - configurar | Microsoft Docs"
 description: Como aplicativos JavaScript SPA podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,50 +13,50 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.openlocfilehash: 1b93298d4bd4e17dd261dbb75502a122c30aac97
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: adff529bfdc40006666cc643d49a302d7f1d09ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-Há várias maneiras toocreate um aplicativo, selecione um deles:
+Há várias maneiras de criar um aplicativo, selecione um deles:
 
-### <a name="option-1-register-your-application-express-mode"></a>Opção 1: Registrar seu aplicativo (modo Expresso)
-Agora você precisa tooregister seu aplicativo no hello *Portal de registro de aplicativo do Microsoft*:
+### <a name="option-1-register-your-application-express-mode"></a>Opção 1: Registrar seu aplicativo (modo Express)
+Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
 
-1.  Registrar seu aplicativo por meio de saudação [Portal de registro de aplicativo do Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
+1.  Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
 2.  Insira um nome para o aplicativo e seu email
-3.  Certifique-se de opção de saudação *instalação interativa* é verificada
-4.  Siga a ID do aplicativo hello instruções tooobtain hello e colá-lo em seu código
+3.  Certifique-se de que a opção *Instalação Guiada* está marcada
+4.  Siga as instruções para obter a ID do aplicativo e colá-lo no código
 
-### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registrar seu aplicativo (modo Avançado)
+### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registre seu aplicativo (modo avançado)
 
-1. Vá toohello [Portal de registro de aplicativo do Microsoft](https://apps.dev.microsoft.com/portal/register-app) tooregister um aplicativo
+1. Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo
 2. Insira um nome para o aplicativo e seu email 
-3. Certifique-se de opção de saudação *instalação interativa* está desmarcada
+3. Certifique-se de que a opção *Instalação Guiada* está desmarcada
 4.  Clique em `Add Platform` e selecione `Web`
-5. Adicionar Olá `Redirect URL` que correspondem a URL do aplicativo toohello com base em seu servidor web. Consulte as seções de saudação abaixo para obter instruções sobre como tooset / obter URL de redirecionamento Olá no Visual Studio e Python.
+5. Adicionar o `Redirect URL` que correspondem à URL do aplicativo com base em seu servidor web. Consulte as seções a seguir para obter instruções sobre como definir / obter a URL de redirecionamento no Visual Studio e Python.
 6. Clique em *Salvar*
 
 > #### <a name="visual-studio-instructions-for-obtaining-redirect-url"></a>Instruções do Visual Studio para obter a URL de redirecionamento
-> Execute Olá instruções tooobtain sua URL de redirecionamento:
-> 1.    Em *Solution Explorer*, selecione o projeto hello e examinar Olá `Properties` janela (se você não vir uma janela de propriedades, pressione `F4`)
-> 2.    Copie o valor de saudação do `URL` toohello área de transferência:<br/> ![Propriedades do projeto](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Alternar back toohello *Portal de registro de aplicativo* e cole o valor de saudação como um `Redirect URL` e clique em 'Salvar'
+> Siga as instruções para obter a URL de redirecionamento:
+> 1.    No *Gerenciador de Soluções*, selecione o projeto e examine a janela `Properties` (se uma janela Propriedades não for exibida, pressione `F4`)
+> 2.    Copie o valor de `URL` para a área de transferência:<br/> ![Propriedades do projeto](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.    Volte para o *Portal de registro de aplicativo* e cole o valor como um `Redirect URL` e clique em 'Salvar'
 
 <p/>
 
 > #### <a name="setting-redirect-url-for-python"></a>Definir a URL de Redirecionamento para o Python
-> Para Python, você pode definir a porta do servidor web hello por meio da linha de comando. Esta instalação interativa usa a saudação porta 8080 para referência, mas se sentir livre toouse qualquer porta disponível. Em qualquer caso, siga as instruções de saudação abaixo tooset uma URL de redirecionamento nas informações de registro de aplicativo hello:<br/>
-> - Alternar back toohello *Portal de registro de aplicativo* e defina `http://localhost:8080/` como um `Redirect URL`, ou use `http://localhost:[port]/` se você estiver usando uma porta TCP personalizada (onde *[port]* é a porta TCP personalizada Olá número) e clique em 'Salvar'
+> Para Python, você pode definir a porta do servidor Web por meio da linha de comando. Esta instalação interativa usa a porta 8080 para referência, mas fique à vontade para usar qualquer outra porta disponível. Em qualquer caso, siga as instruções abaixo para configurar uma URL de redirecionamento nas informações de registro do aplicativo:<br/>
+> - Volte para o *Portal de registro de aplicativo* e defina `http://localhost:8080/` como um `Redirect URL`, ou use `http://localhost:[port]/` se você estiver usando uma porta TCP personalizada (onde *[port]* é a porta TCP personalizada número) e clique em 'Salvar'
 
 
-#### <a name="configure-your-javascript-spa"></a>Configurar o JavaScript SPA
+#### <a name="configure-your-javascript-spa"></a>Configurar seu JavaScript SPA
 
-1.  Crie um arquivo chamado `msalconfig.js` que contém informações de registro de aplicativo hello. Se você estiver usando um projeto Visual Studio, selecione hello (pasta raiz do projeto), com o botão direito e selecione: `Add`  >  `New Item`  >  `JavaScript File`. Nomeie-o `msalconfig.js`
-2.  Adicionar Olá tooyour de código a seguir `msalconfig.js` arquivo:
+1.  Crie um arquivo chamado `msalconfig.js` que contém as informações de registro do aplicativo. Se você estiver usando o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito do mouse e selecione: `Add` > `New Item` > `JavaScript File`. Nomeie-o `msalconfig.js`
+2.  Adicione o seguinte código ao seu arquivo `msalconfig.js`:
 
 ```javascript
 var msalconfig = {
@@ -66,6 +66,6 @@ var msalconfig = {
 ```
 <ol start="3">
 <li>
-Substituir <code>Enter_the_Application_Id_here</code> com hello Id de aplicativo que você acabou de registrar
+Substitua <code>Enter_the_Application_Id_here</code> pela ID do Aplicativo que você acabou de registrar
 </li>
 </ol>

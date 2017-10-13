@@ -1,5 +1,5 @@
 ---
-title: gerenciamento de estado de atores aaaReliable | Microsoft Docs
+title: Gerenciamento de estado dos Reliable Actors | Microsoft Docs
 description: "Descreve como o estado dos Reliable Actors é gerenciado, persistido e replicado para alta disponibilidade."
 services: service-fabric
 documentationcenter: .net
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 346d92426b1890617d108a9504afb179e463bded
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
-Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados em serviços confiáveis, podem manter o estado confiável usando Olá os mesmos mecanismos de persistência e replicação que usa serviços confiáveis. Dessa forma, os atores não percam o seu estado após falhas, após a reativação após a coleta de lixo, ou quando eles são movidos entre nós em um cluster de conclusão tooresource balanceamento ou atualizações ao redor.
+Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação usados pelos Reliable Services. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
 
 ## <a name="state-persistence-and-replication"></a>Replicação e persistência de estado
-Todos os atores confiável são considerados *com monitoração de estado* porque cada instância de ator mapeia ID tooa exclusiva. Isso significa que toohello repetidas chamadas mesma ID de ator são roteadas toohello mesma instância de ator. Em um sistema sem monitoração de estado, por outro lado, chamadas de cliente não têm garantia de toohello toobe roteada mesmo servidor de cada vez. Por esse motivo, os serviços de ator são sempre serviços com estado.
+Todos os Reliable Actors são considerados *com estado* , pois cada instância de ator é mapeada para uma ID exclusiva. Isso significa que as chamadas repetidas para a mesma ID de ator são encaminhadas para a mesma instância de ator. Em um sistema sem estado, por outro lado, as chamadas de cliente não têm garantia de serem encaminhadas sempre para o mesmo servidor. Por esse motivo, os serviços de ator são sempre serviços com estado.
 
-Mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Atores podem escolher o nível de saudação de persistência de estado e a replicação com base em seus dados, requisitos de armazenamento:
+Mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Os atores podem escolher o nível de persistência de estado e replicação com base em seus requisitos de armazenamento de dados:
 
-* **Estado persistente**: estado é toodisk persistente e é replicada too3 ou mais réplicas. Isso é mais durável opção de armazenamento de estado hello, onde o estado pode persistir por meio de interrupção de conclusão de cluster.
-* **Estado volátil**: estado é replicado too3 ou mais réplicas e mantido somente na memória. Isso proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistente toodisk. Se todas as réplicas sejam perdidas ao mesmo tempo, o estado de saudação é perdido também.
-* **Nenhum estado persistente**: estado não foi replicado ou gravado toodisk. Esse nível é para os atores que não basta toomaintain estado confiável.
+* **Estado persistente:** o estado é persistido em disco e replicado para três ou mais réplicas. Essa é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
+* **Estado volátil:** o estado é replicado para três ou mais réplicas e mantido apenas na memória. Isso proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
+* **Nenhum estado persistente:** o estado não é replicado nem é gravado em disco. Esse nível é para atores que simplesmente não precisam manter o estado de modo confiável.
 
-Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. Se o estado é gravado ou não toodisk depende do provedor de estado hello – componente Olá em um serviço confiável que armazena o estado. A replicação depende de quantas réplicas são implantadas com um serviço. Assim como acontece com serviços confiáveis, ambos Olá provedor de estado e contagem de réplica pode ser facilmente definida manualmente. a estrutura de ator Olá fornece um atributo que, quando usada em um ator, seleciona automaticamente um provedor de estado padrão e gera automaticamente as configurações de réplica contagem tooachieve uma destas três configurações de persistência. atributo StatePersistence de saudação não será herdado pela classe derivada, cada tipo de ator deve fornecer seu nível de StatePersistence.
+Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. A decisão de gravar ou não o estado em disco depende do provedor de estado – o componente que armazena o estado em um serviço confiável. A replicação depende de quantas réplicas são implantadas com um serviço. Assim como acontece com os Reliable Services, o provedor de estado e a contagem de réplicas podem ser definidos manualmente com facilidade. A estrutura de ator fornece um atributo, que, quando usado em um ator, seleciona automaticamente um provedor de estado padrão e gera automaticamente as configurações de contagem de réplicas, a fim de alcançar uma dessas três configurações de persistência. O atributo StatePersistence não será herdado pela classe derivada. Cada tipo de Ator deve fornecer seu nível de StatePersistence.
 
 ### <a name="persisted-state"></a>Estado persistente
 ```csharp
@@ -47,7 +47,7 @@ class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
-Essa configuração usa um provedor de estado que armazena dados em disco e define automaticamente Olá too3 de contagem de réplica de serviço.
+Essa configuração usa um provedor de estado que armazena dados em disco e define automaticamente a contagem de réplicas do serviço como 3.
 
 ### <a name="volatile-state"></a>Estado volátil
 ```csharp
@@ -62,7 +62,7 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Essa configuração usa um provedor de estado na memória-somente e conjuntos de Olá too3 de contagem de réplica.
+Essa configuração usa um provedor de estado somente na memória e define a contagem de réplicas como 3.
 
 ### <a name="no-persisted-state"></a>Nenhum estado persistente
 ```csharp
@@ -77,12 +77,12 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Essa configuração usa um provedor de estado na memória-somente e conjuntos de Olá too1 de contagem de réplica.
+Essa configuração usa um provedor de estado somente na memória e define a contagem de réplicas como 1.
 
 ### <a name="defaults-and-generated-settings"></a>Padrões e configurações geradas
-Quando você estiver usando Olá `StatePersistence` atributo, um provedor de estado é selecionado automaticamente para você em tempo de execução quando o serviço de ator Olá é iniciado. Contagem de réplicas Hello, no entanto, é definida em tempo de compilação por Olá ator do Visual Studio ferramentas de compilação. Olá ferramentas de compilação geram automaticamente um *serviço padrão* para serviço de ator Olá applicationmanifest.XML. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**.
+Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você em tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**.
 
-Você pode alterar esses parâmetros manualmente. Saudação de cada vez, mas `StatePersistence` atributo é alterado, os parâmetros de saudação são definidos valores de tamanho de conjunto toohello padrão réplica para Olá selecionado `StatePersistence` atributo, substituindo qualquer valor anterior. Em outras palavras, os valores hello definidos em ServiceManifest.xml são *somente* substituído em tempo de compilação quando você altera Olá `StatePersistence` valor do atributo.
+Você pode alterar esses parâmetros manualmente. Mas, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo os valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos *somente* no momento do build quando você alterar o valor do atributo `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -105,20 +105,20 @@ Você pode alterar esses parâmetros manualmente. Saudação de cada vez, mas `S
 ```
 
 ## <a name="state-manager"></a>Gerenciador de estado
-Cada instância de ator tem seu próprio gerenciador de estado: uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. Gerenciador de estado de saudação é um wrapper em torno de um provedor de estado. Você pode usá-lo toostore dados independentemente de qual configuração de persistência é usada. Ele não fornece nenhuma garantia de que um serviço de ator em execução pode ser alterado de um tooa de configuração de estado volátil (na memória-somente) persistentes configuração de estado por meio de uma atualização sem interrupção enquanto preserva os dados. No entanto, é possível toochange contagem da réplica para um serviço em execução.
+Cada instância de ator tem seu próprio gerenciador de estado: uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-lo para armazenar dados, independentemente da configuração de persistência utilizada. Ele não dá nenhuma garantia de que um serviço de ator em execução poderá ser alterado de uma configuração de estado volátil (somente na memória) para uma configuração de estado persistente por meio de uma atualização sem interrupção, ao mesmo tempo que preserva os dados. No entanto, é possível alterar a contagem de réplicas de um serviço em execução.
 
-As chaves do gerenciador de estado devem ser cadeias de caracteres. Os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no Gerenciador de estado de saudação devem ser serializável de contrato de dados porque eles podem ser transmitidos através de nós da saudação rede tooother durante a replicação e podem ser gravados toodisk, dependendo da configuração de persistência de estado de um ator.
+As chaves do gerenciador de estado devem ser cadeias de caracteres. Os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no gerenciador de estado devem ser serializáveis pelo contrato de dados, pois poderão ser transmitidos pela rede a outros nós durante a replicação e gravados em disco, dependendo da configuração de persistência de estado de um ator.
 
-Gerenciador de estado Olá expõe métodos comuns de dicionário de estado de gerenciamento, semelhante toothose encontrado no dicionário confiável.
+O gerenciador de estado expõe métodos comuns de dicionário para o gerenciamento do estado, semelhantes àqueles encontrados no Dicionário Confiável.
 
 ### <a name="accessing-state"></a>Acessando o estado
-Estado pode ser acessado por meio do Gerenciador de estado Olá por chave. Os métodos do gerenciador de estado são todos assíncronos, pois podem exigir E/S de disco quando os atores têm um estado persistente. No primeiro acesso, os objetos de estado são armazenados em cache na memória. As operações de acesso repetidas acessam os objetos diretamente da memória e são retornadas de forma síncrona sem incorrer em E/S de disco ou sobrecarga de troca de contexto assíncrona. Um objeto de estado é removido do cache de saudação em Olá casos a seguir:
+O estado pode ser acessado por chave por meio do gerenciador de estado. Os métodos do gerenciador de estado são todos assíncronos, pois podem exigir E/S de disco quando os atores têm um estado persistente. No primeiro acesso, os objetos de estado são armazenados em cache na memória. As operações de acesso repetidas acessam os objetos diretamente da memória e são retornadas de forma síncrona sem incorrer em E/S de disco ou sobrecarga de troca de contexto assíncrona. Um objeto de estado é removido do cache nos seguintes casos:
 
-* Um método de ator lança uma exceção sem tratamento depois de recuperar um objeto do Gerenciador de estado de saudação.
+* Um método de ator gera uma exceção sem tratamento depois de recuperar um objeto do gerenciador de estado.
 * Um ator é reativado depois de ser desativado ou depois de uma falha.
-* páginas de provedor de estado de saudação do estado toodisk. Esse comportamento depende da implementação de provedor de estado de saudação. provedor de estado de padrão de saudação para Olá `Persisted` configuração tem esse comportamento.
+* O provedor de estado efetua a paginação do estado em disco. Esse comportamento depende da implementação do provedor de estado. O provedor de estado padrão para a configuração `Persisted` apresenta esse comportamento.
 
-Você pode recuperar o estado usando um padrão *obter* operação gera `KeyNotFoundException`(c#) ou `NoSuchElementException`(Java) se não existir uma entrada para a chave de saudação:
+Você poderá recuperar o estado usando uma operação *Get* padrão, que gera `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) se não existir uma entrada para a chave:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -194,9 +194,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ### <a name="saving-state"></a>Salvando o estado
-métodos de recuperação do Gerenciador de estado de saudação retornam um objeto de tooan de referência na memória local. Modificar esse objeto na memória local sozinho não faz com que ele toobe salvo permanentemente. Quando um objeto é recuperado do Gerenciador de estado hello e modificado, ele deve ser reinserido Olá toobe de Gerenciador de estado salvo permanentemente.
+Os métodos de recuperação do gerenciador de estado retornam uma referência a um objeto na memória local. A modificação desse objeto na memória local por si só não faz com que ele seja salvo permanentemente. Quando um objeto é recuperado do gerenciador de estado e é modificado, ele deve ser reinserido no gerenciador de estado para ser salvo permanentemente.
 
-Você pode inserir o estado usando um incondicional *definir*, que é Olá equivalente de saudação `dictionary["key"] = value` sintaxe:
+O estado pode ser inserido usando um *Set* incondicional, que é o equivalente da sintaxe `dictionary["key"] = value`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -229,7 +229,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Você pode adicionar estado usando um método *Add*. Este método lança `InvalidOperationException`(c#) ou `IllegalStateException`(Java) quando ele tenta tooadd uma chave que já existe.
+Você pode adicionar estado usando um método *Add*. Este método lança `InvalidOperationException` (C#) ou `IllegalStateException` (Java) ao tentar adicionar uma chave que já exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -262,7 +262,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Você também pode adicionar estado usando um método *TryAdd*. Esse método não lançará quando ele tenta tooadd uma chave que já existe.
+Você também pode adicionar estado usando um método *TryAdd*. Esse método não lançará exceção ao tentar adicionar uma chave que já exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -305,9 +305,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-No final de saudação de um método de ator, o Gerenciador de estado de saudação salva automaticamente quaisquer valores que foram adicionados ou modificados por uma operação de inserção ou atualização. "Salvar" pode incluir toodisk persistente e replicação, dependendo das configurações de saudação usado. Valores que não foram modificados não serão persistentes nem replicados. Se nenhum valor tiver sido modificado, Olá operação de salvamento não fará nada. Se salvar falhas, hello estado modificado será descartado e estado original Olá é recarregado.
+No final de um método de ator, o gerenciador de estado salva automaticamente todos os valores que foram adicionados ou modificados por uma operação de inserção ou de atualização. A operação “salvar” pode incluir a persistência em disco e a replicação, dependendo das configurações utilizadas. Valores que não foram modificados não serão persistentes nem replicados. Caso nenhum valor tenha sido modificado, a operação salvar não terá nenhum efeito. Se houver uma falha na operação salvar, o estado modificado será descartado e o estado original será recarregado.
 
-Você também pode salvar estado manualmente pela chamada hello `SaveStateAsync` método na base de ator hello:
+Você também pode salvar o estado manualmente ao chamar o método `SaveStateAsync` na base de ator:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -329,7 +329,7 @@ interface MyActor {
 ```
 
 ### <a name="removing-state"></a>Removendo o estado
-Você pode remover estado permanentemente do Gerenciador de estado de um ator Olá chamada *remover* método. Este método lança `KeyNotFoundException`(c#) ou `NoSuchElementException`(Java) quando ele tenta tooremove uma chave que não existe.
+O estado pode ser removido permanentemente do gerenciador de estado de um ator com a chamada do método *Remove*. Este método lança `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) ao tentar remover uma chave que não exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -362,7 +362,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Você também pode remover estado permanentemente usando Olá *TryRemove* método. Esse método não lançará quando ele tenta tooremove uma chave que não existe.
+Você também pode remover o estado permanentemente usando o método *TryRemove*. Esse método não lançará exceção ao tentar remover uma chave que não exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -407,6 +407,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Estado que é armazenado no Reliable Actors deve ser serializado antes de sua toodisk escrito e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Em seguida, saiba mais sobre [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md).

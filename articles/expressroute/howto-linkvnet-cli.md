@@ -1,6 +1,6 @@
 ---
-title: 'Vincular um circuito de rota expressa do tooan de rede virtual: CLI: Azure | Microsoft Docs'
-description: "Este documento fornece uma visão geral de como toolink virtual redes circuitos de tooExpressRoute (VNets) usando o modelo de implantação do Gerenciador de recursos de saudação e a CLI."
+title: 'Vincular uma rede virtual a um circuito ExpressRoute: CLI: Azure | Microsoft Docs'
+description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos do ExpressRoute usando o modelo de implantação do Resource Manager e a CLI."
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 1251f016d9b94d3fee81de1df164cb085cbe9d78
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
-# <a name="connect-a-virtual-network-tooan-expressroute-circuit-using-cli"></a>Conecte-se a um circuito de rota expressa do tooan de rede virtual usando a CLI
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conectar uma rede virtual a um circuito de ExpressRoute usando a CLI
 
-Este artigo ajuda você a vincular circuitos do ExpressRoute tooAzure redes virtuais (VNets) usando a CLI. toolink usando a CLI do Azure, redes virtuais Olá devem ser criadas usando o modelo de implantação do Gerenciador de recursos de saudação. Eles podem ser em Olá mesma assinatura, ou parte de outra assinatura. Se você quiser toouse tooconnect um método diferente tooan sua rede virtual circuito de rota expressa, você pode selecionar um artigo Olá lista a seguir:
+Este artigo ajuda a vincular redes virtuais (VNets) aos circuitos de ExpressRoute do Azure usando a CLI. Para vincular usando a CLI do Azure, as redes virtuais devem ser criadas usando o modelo de implantação do Resource Manager. Elas podem estar na mesma assinatura ou fazer parte de outra assinatura. Se quiser usar um método diferente para conectar sua VNet a um circuito de ExpressRoute, você poderá selecionar um artigo na lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -35,34 +35,34 @@ Este artigo ajuda você a vincular circuitos do ExpressRoute tooAzure redes virt
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
-* Você precisa Olá a versão mais recente do hello interface de linha de comando (CLI). Para obter mais informações, consulte [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-* Você precisa Olá tooreview [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+* Você precisa da versão mais recente da CLI (interface de linha de comando). Para obter mais informações, consulte [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Você deve ter um circuito do ExpressRoute ativo. 
-  * Siga as instruções de saudação muito[criar um circuito de rota expressa](howto-circuit-cli.md) e ter circuito Olá habilitado por seu provedor de conectividade. 
-  * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Consulte Olá [configurar o roteamento](howto-routing-cli.md) artigo para obter instruções de roteamentos. 
-  * Verifique se o emparelhamento particular do Azure está configurado. Olá emparelhamento via protocolo BGP entre sua rede e da Microsoft deve estar ativos para que você pode habilitar a conectividade de ponta a ponta.
-  * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções de saudação muito[configurar um gateway de rede virtual para o ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Ser toouse se `--gateway-type ExpressRoute`.
+  * Siga as instruções para [criar um circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
+  * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](howto-routing-cli.md) para obter instruções sobre roteamento. 
+  * Verifique se o emparelhamento particular do Azure está configurado. O emparelhamento via protocolo BGP entre sua rede e a Microsoft deve estar ativo para que você possa habilitar a conectividade de ponta a ponta.
+  * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [Configurar um gateway de rede virtual para ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de usar `--gateway-type ExpressRoute`.
 
-* Você pode vincular o circuito de rota expressa padrão do too10 redes virtuais tooa. Todas as redes virtuais devem estar em Olá mesma região geopolíticas ao usar um circuito de rota expressa padrão. 
+* Você pode vincular até 10 redes virtuais a um circuito do ExpressRoute padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito do ExpressRoute padrão. 
 
-* Se você habilitar o complemento do premium Olá rota expressa, você pode vincular uma rede virtual fora da região geopolíticas Olá Olá circuito de rota expressa ou conectar-se um grande número de redes virtuais tooyour circuito de rota expressa. Para obter mais informações sobre o complemento do premium Olá, consulte Olá [perguntas frequentes sobre](expressroute-faqs.md).
+* Se você tiver habilitado o complemento premium do ExpressRoute, você poderá vincular uma rede virtual fora da região geopolítica do circuito de ExpressRoute ou conectar um grande número de redes virtuais ao circuito de ExpressRoute. Para obter mais informações sobre o complemento premium, consulte as [Perguntas Frequentes](expressroute-faqs.md).
 
-## <a name="connect-a-virtual-network-in-hello-same-subscription-tooa-circuit"></a>Conectar uma rede virtual no hello mesmo circuito de tooa de assinatura
+## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
 
-Você pode se conectar a um circuito de rota expressa de tooan de gateway de rede virtual usando o exemplo hello. Verifique se esse gateway de rede virtual Olá é criado e está pronto para vinculação antes de executar o comando hello.
+Você pode conectar um gateway de rede virtual a um circuito do ExpressRoute usando o exemplo. Verifique se o gateway de rede virtual foi criado e se está pronto para vinculação antes de executar o comando.
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-tooa-circuit"></a>Conectar uma rede virtual em um circuito de tooa assinatura diferente
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 
-Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. a Figura Olá abaixo mostra um esquemático simples de como funciona o compartilhamento para circuitos ExpressRoute entre várias assinaturas.
+Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura abaixo mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores de saudação dentro da nuvem grande Olá é toorepresent usadas assinaturas que pertencem a toodifferent departamentos dentro de uma organização. Cada um dos departamentos hello dentro da organização Olá pode usar sua própria assinatura para implantar seus serviços – mas eles podem compartilhar uma única rede rota expressa circuito tooconnect tooyour back local. Um único departamento (neste exemplo: IT) pode ter o circuito de rota expressa hello. Outras assinaturas dentro da organização Olá podem usar o circuito de rota expressa hello.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito do ExpressRoute.
 
 > [!NOTE]
-> Encargos de largura de banda e conectividade para o circuito dedicado de saudação será aplicado toohello proprietário do circuito de rota expressa. Todas as redes virtuais compartilham Olá mesma largura de banda.
+> As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito de ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.
 > 
 > 
 
@@ -70,23 +70,23 @@ Cada uma das nuvens menores de saudação dentro da nuvem grande Olá é toorepr
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Administração – proprietários e usuários do circuito
 
-Olá proprietário do circuito é um usuário autorizado Power Olá recursos de circuito de rota expressa. Olá proprietário do circuito pode criar autorizações que podem ser trocadas por 'Usuários do circuito'. Os usuários do circuito são proprietários da rede virtual gateways que não estão no hello mesma assinatura conforme Olá circuito de rota expressa. Usuários do circuito podem resgatar autorizações (uma autorização por rede virtual).
+O 'proprietário do circuito' é um usuário avançado autorizado do recurso de circuito de ExpressRoute. O proprietário do circuito pode criar autorizações que podem ser resgatadas pelos 'usuários do circuito'. Usuários do circuito são proprietários de gateways de rede virtual que não estão na mesma assinatura que o circuito de ExpressRoute. Usuários do circuito podem resgatar autorizações (uma autorização por rede virtual).
 
-Olá proprietário do circuito tem autorizações de toomodify e revoke power Olá a qualquer momento. Quando uma autorização é revogada, todas as conexões de link são excluídas da assinatura Olá cujo acesso foi revogado.
+O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização faz com que todas as conexões de links sejam excluídas da assinatura cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações do proprietário do circuito
 
-**toocreate uma autorização**
+**Criar uma autorização**
 
-Olá proprietário do circuito cria uma autorização, que cria uma chave de autorização que pode ser usado por um usuário do circuito tooconnect seu gateways de rede virtual toohello circuito de rota expressa. Uma autorização é válida apenas para uma conexão.
+O proprietário do circuito cria uma autorização, que por sua vez cria uma chave de autorização que pode ser usada por um usuário do circuito para conectar seus gateways de rede virtual ao circuito do ExpressRoute. Uma autorização é válida apenas para uma conexão.
 
-Olá mostrado no exemplo a seguir como toocreate uma autorização:
+O exemplo a seguir mostra como criar uma autorização:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization
 ```
 
-resposta de saudação contém o status e a chave de autorização de saudação:
+A resposta para isso conterá a chave de autorização e o status:
 
 ```azurecli
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
@@ -98,25 +98,25 @@ resposta de saudação contém o status e a chave de autorização de saudação
 "resourceGroup": "ExpressRouteResourceGroup"
 ```
 
-**tooreview autorizações**
+**Examinar autorizações**
 
-Olá proprietário do circuito pode revisar todas as autorizações que são emitidas em um circuito específico executando Olá exemplo a seguir:
+O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte exemplo:
 
 ```azurecli
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**tooadd autorizações**
+**Adicionar autorizações**
 
-Olá proprietário do circuito pode adicionar autorizações usando Olá exemplo a seguir:
+O proprietário do circuito pode adicionar autorizações usando o exemplo a seguir:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
-**toodelete autorizações**
+**Excluir autorizações**
 
-Olá proprietário do circuito pode revogar/excluir autorizações toohello usuário executando Olá exemplo a seguir:
+O proprietário do circuito pode revogar/excluir autorizações usando o exemplo a seguir:
 
 ```azurecli
 az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -124,24 +124,24 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 ### <a name="circuit-user-operations"></a>Operações do usuário do circuito
 
-Olá usuários do circuito precisa Olá peer ID e uma chave de autorização do proprietário do circuito de saudação. chave de autorização de saudação é um GUID.
+O usuário do circuito precisa da ID do par e de uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
 
 ```azurecli
 Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**tooredeem uma autorização de conexão**
+**Resgatar uma autorização de conexão**
 
-Olá usuários do circuito pode executar Olá tooredeem de exemplo a seguir uma autorização de link:
+O usuário de circuito pode executar o seguinte exemplo para resgatar uma autorização de vínculo:
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**toorelease uma autorização de conexão**
+**Liberar uma autorização de conexão**
 
-Você pode liberar uma autorização Excluindo conexão Olá que vincula a rede virtual de toohello Olá de circuito ExpressRoute.
+É possível liberar uma autorização excluindo a conexão que vincula o circuito do ExpressRoute à rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a rota expressa, consulte Olá [perguntas Frequentes do ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

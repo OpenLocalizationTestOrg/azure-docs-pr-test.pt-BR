@@ -1,6 +1,6 @@
 ---
-title: aaaReport em bancos de dados de nuvem expandido (particionamento horizontal) | Microsoft Docs
-description: como toouse cruzada consultas de banco de dados do banco de dados
+title: "Relatórios em bancos de dados expandidos na nuvem (particionamento horizontal) | Microsoft Docs"
+description: como usar consultas de banco de dados entre bancos de dados
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: e34f398f8d408cffd91a70fc2cfbda73daec3550
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
-Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). bancos de dados Olá devem ser particionados horizontalmente (também conhecido como "fragmentados").
+Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
 
-Se você tiver um banco de dados existente, consulte [existente migrando bancos de dados de bancos de dados de saída tooscaled](sql-database-elastic-convert-to-use-elastic-tools.md).
+Se você tiver um banco de dados existente, consulte [Migrando bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-objetos do SQL Olá toounderstand necessário tooquery, consulte [consultas em bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
+Para compreender os objetos SQL necessários para a consulta, veja [Consultar bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Baixe e execute Olá [guia de Introdução com amostra das ferramentas de banco de dados Elástico](sql-database-elastic-scale-get-started.md).
+Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-hello-sample-app"></a>Criar um mapa do fragmento manager usando o aplicativo de exemplo hello
-Aqui você criará um mapa do fragmento manager juntamente com vários fragmentos, seguido de inserção de dados em fragmentos hello. Se você se deparar tooalready possuem instalação fragmentos com dados fragmentados, você pode ignorar Olá etapas a seguir e mover toohello próxima seção.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
+Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos. Se você já tem fragmentos configurados com dados fragmentados, poderá ignorar as etapas a seguir e mover para a próxima seção.
 
-1. Compilar e executar Olá **Introdução às ferramentas de banco de dados Elástico** aplicativo de exemplo. Execute as etapas de saudação até a etapa 7 na seção Olá [Baixe e execute o aplicativo de exemplo hello](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final da saudação da etapa 7, você verá saudação de prompt de comando a seguir:
+1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico** . Siga as etapas até a 7 na seção [Baixe e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final da etapa 7, você verá o seguinte prompt de comando:
 
     ![prompt de comando][1]
-2. Na janela de comando hello, digite "1" e pressione **Enter**. Isso cria o Gerenciador do mapa de fragmentos Olá e adiciona dois servidores toohello de fragmentos. Em seguida, digite "3" e pressione **Enter**; repetir a ação de saudação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3. Olá [portal do Azure](https://portal.azure.com) devem mostrar três novos bancos de dados em seu servidor:
+2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
 
    ![Confirmação do Visual Studio][2]
 
-   Neste ponto, as consultas de bancos de dados têm suporte por meio de bibliotecas de cliente do banco de dados Elástico hello. Por exemplo, use a opção 4 na janela de comando hello. resultados de saudação de uma consulta de vários fragmento são sempre um **UNION ALL** dos resultados de saudação de todos os fragmentos.
+   Neste ponto, consultas entre bancos de dados têm suporte por meio de bibliotecas de cliente do Banco de Dados Elástico. Por exemplo, use a opção 4 na janela Comando. Os resultados de uma consulta de vários fragmento são sempre um **UNION ALL** dos resultados de todos os fragmentos.
 
-   Na próxima seção, Olá, podemos criar um ponto de extremidade de banco de dados de exemplo que oferece suporte a consultas mais sofisticadas de dados de saudação em fragmentos.
+   Na próxima seção, criaremos um ponto de extremidade de banco de dados de exemplo que dá suporte a consultas mais avançadas de dados entre fragmentos.
 
 ## <a name="create-an-elastic-query-database"></a>Criar um banco de dados de consulta elástico
-1. Olá abrir [portal do Azure](https://portal.azure.com) e faça logon.
-2. Criar um novo banco de dados do SQL Azure no hello mesmo servidor como sua configuração de fragmento. Nome do banco de dados hello "ElasticDBQuery".
+1. Abra o [Portal do Azure](https://portal.azure.com) e faça logon.
+2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery".
 
     ![Portal do Azure e camada de preços][3]
 
     > [!NOTE]
-    > você pode usar um banco de dados existente. Se você pode fazer isso, ele não deve ser um dos fragmentos de saudação que deseja tooexecute suas consultas em. Este banco de dados será usado para criar objetos de metadados para uma consulta de banco de dados Elástico de saudação.
+    > você pode usar um banco de dados existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
     >
 
 ## <a name="create-database-objects"></a>Criar objetos de banco de dados
 ### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra do escopo do banco de dados e credenciais
-Estes são Gerenciador do mapa do fragmento usado tooconnect toohello e fragmentos de saudação:
+Eles são usados para conectar ao gerenciador de mapa de fragmentos e aos fragmentos:
 
 1. Abra o SQL Server Management Studio ou o SQL Server Data Tools no Visual Studio.
-2. Conecte-se o banco de dados tooElasticDBQuery e execute Olá comandos T-SQL a seguir:
+2. Conecte-se ao banco de dados ElasticDBQuery e execute os seguintes comandos T-SQL:
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -68,10 +68,10 @@ Estes são Gerenciador do mapa do fragmento usado tooconnect toohello e fragment
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" e "password" deve ser Olá mesmo como informações de logon usadas na etapa 6 de [Baixe e execute o aplicativo de exemplo hello](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) na [Introdução às ferramentas de banco de dados Elástico](sql-database-elastic-scale-get-started.md).
+    "username" e "password" devem ser o mesmo que as informações de logon usadas na etapa 6 do [Baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) na [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
 
 ### <a name="external-data-sources"></a>Fontes de dados externas
-toocreate uma fonte de dados externa, execute Olá comando a seguir no banco de dados de ElasticDBQuery hello:
+Para criar uma fonte de dados externa, execute o seguinte comando no banco de dados ElasticDBQuery:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
@@ -81,10 +81,10 @@ toocreate uma fonte de dados externa, execute Olá comando a seguir no banco de 
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- "CustomerIDShardMap" é o nome de saudação do mapa do fragmento hello, se você criou o mapa do fragmento hello e o mapa do fragmento manager usando o exemplo de ferramentas de banco de dados Elástico hello. No entanto, se você usou a configuração personalizada para este exemplo, ele deve ser nome do mapa de fragmentos Olá escolhido em seu aplicativo.
+ "CustomerIDShardMap" é o nome do mapa de fragmentos, se você tiver criado um mapa de fragmentos e o gerenciador de mapa de fragmentos usando as ferramentas de banco de dados de exemplo. No entanto, se você usou a configuração personalizada para este exemplo, ele deve ter o nome do mapa de fragmento escolhido no seu aplicativo.
 
 ### <a name="external-tables"></a>Tabelas externas
-Crie uma tabela externa que coincide com a tabela de clientes de saudação em fragmentos Olá executando o comando a seguir no banco de dados ElasticDBQuery de saudação:
+Crie uma tabela externa que corresponda à tabela de Clientes nos fragmentos executando o comando a seguir no banco de dados ElasticDBQuery:
 
     CREATE EXTERNAL TABLE [dbo].[Customers]
     ( [CustomerId] [int] NOT NULL,
@@ -98,33 +98,33 @@ Crie uma tabela externa que coincide com a tabela de clientes de saudação em f
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Executar uma consulta T-SQL no banco de dados elástico de exemplo
 Depois que tiver definido sua fonte de dados e tabelas externas, agora você poderá usar o T-SQL completo nas tabelas externas.
 
-Execute esta consulta no banco de dados de ElasticDBQuery hello:
+Execute esta consulta no banco de dados ElasticDBQuery:
 
     select count(CustomerId) from [dbo].[Customers]
 
-Você notará que consultam Olá agrega os resultados de todos os fragmentos de saudação e fornece Olá saída a seguir:
+Você observará que a consulta agrega os resultados de todos os fragmentos e fornece a seguinte saída:
 
 ![Detalhes de saída][4]
 
-## <a name="import-elastic-database-query-results-tooexcel"></a>Importar tooExcel de resultados de consulta de banco de dados Elástico
- Você pode importar resultados de saudação de um consulta tooan do arquivo de Excel.
+## <a name="import-elastic-database-query-results-to-excel"></a>Importar resultados de consulta de banco de dados elástico para o Excel
+ Você pode importar os resultados de uma consulta para um arquivo do Excel.
 
 1. Inicie o Excel 2013.
-2. Navegue toohello **dados** faixa de opções.
+2. Navegue até a faixa de opções **Dados** .
 3. Clique em **De Outras Fontes** e em **Do SQL Server**.
 
    ![Importação de outras fontes para o Excel][5]
-4. Em Olá **Assistente de Conexão de dados** digite credenciais de nome e logon do servidor de saudação. Em seguida, clique em **Próximo**.
-5. Na caixa de diálogo Olá **banco de dados Olá Select que contém dados Olá deseja**, selecione Olá **ElasticDBQuery** banco de dados.
-6. Selecione Olá **clientes** tabela na exibição de lista hello e clique em **próximo**. Em seguida, clique em **Concluir**.
-7. Em Olá **importar dados** formulário, em **selecione como deseja tooview esses dados na pasta de trabalho**, selecione **tabela** e clique em **Okey**.
+4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo**.
+5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja**, selecione o banco de dados **ElasticDBQuery**.
+6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
+7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.
 
-Todos os Olá linhas de **clientes** tabela, armazenada em fragmentos diferentes preencher a planilha do Excel hello.
+Todas as linhas da tabela **Clientes** , armazenada em fragmentos diferentes, populam a planilha do Excel.
 
-Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de caracteres de conexão de saudação com seu nome de servidor, nome do banco de dados e credenciais tooconnect seu dados e BI integração ferramentas toohello Elástico consultar banco de dados. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta Elástico toohello e tabelas externas, assim como qualquer outro banco de dados do SQL Server e tabelas do SQL Server que você se conectaria toowith sua ferramenta.
+Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
 ### <a name="cost"></a>Custo
-Não há nenhum custo adicional para usar o recurso de consulta de banco de dados Elástico Olá.
+Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico.
 
 Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

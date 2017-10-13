@@ -1,10 +1,10 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-Olá tamanhos A8 A11 e H série também são conhecidas como *instâncias de computação intensiva*. hardware de saudação que executa esses tamanhos é projetado e otimizado para computação intensa e aplicativos, modelagem e simulações de cluster de aplicativos com uso intensivo de rede, incluindo a computação de alto desempenho (HPC). Olá A8 A11 série usa Intel Xeon E5-2670 @ 2.6 GHZ e Olá H série v3 Intel Xeon E5-2667 @ 3,2 GHz. 
+Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz. 
 
-Máquinas virtuais do Azure H-series são Olá próxima geração computação de alto desempenho que VMs visam necessidades computacionais high-end, como modelagem molecular e dinâmica de fluidos computacional. Esses 8 e 16 vCPU VMs baseiam-se na tecnologia de processador Olá Intel 2667 Haswell E5 V3 com DDR4 memória e armazenamento temporário baseada em SSD. 
+As máquinas virtuais da série H do Azure são a próxima geração de VMs de computação de alto desempenho voltadas para as necessidades computacionais de alto nível, como modelagem molecular e dinâmica de fluido computacional. Essas VMs de 8 e 16 vCPUs baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento temporário baseado em SSD. 
 
-Além disso toohello substancial de energia da CPU, Olá H-series oferece diversas opções de rede de RDMA de baixa latência usando FDR InfiniBand e várias configurações toosupport memória intensiva computacional requisitos de memória.
+Além de potência de CPU considerável, a série H oferece diversas opções para RDMA e rede de baixa latência usando FDR InfiniBand e várias configurações de memória para dar suporte a requisitos computacionais com uso intensivo de memória.
 
 
 

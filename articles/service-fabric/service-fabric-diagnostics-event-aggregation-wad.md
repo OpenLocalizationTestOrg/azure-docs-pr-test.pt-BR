@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure agregação de eventos do serviço de malha com o diagnóstico do Windows Azure | Microsoft Docs"
+title: "Agregação de Eventos do Azure Service Fabric com Diagnóstico do Windows Azure | Microsoft Docs"
 description: "Saiba mais sobre a agregação e coleta de eventos utilizando o WAD para monitoramento e diagnóstico de clusters do Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 4827ce66620e61c5b4a8682db55952333113188a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Quando você estiver executando um cluster do Service Fabric do Azure, é logs de Olá de toocollect uma boa ideia de todos os nós de saudação em um local central. Ter Olá logs em um local central ajuda a analisar e solucionar problemas no seu cluster, ou em aplicativos de saudação e serviços em execução no cluster.
+Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Tooupload uma forma e coletar logs é extensão de Windows Azure WAD (Diagnóstico) de saudação toouse, que carrega logs tooAzure armazenamento e também tem Olá opção toosend logs tooAzure Application Insights ou Hubs de eventos. Você também pode usar um processo externo tooread Olá de eventos do armazenamento e colocá-los em um produto de plataforma de análise, como [análise de logs do OMS](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
+Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Também é possível utilizar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de logs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Essas ferramentas são usada tooperform algumas das operações de saudação neste documento:
+Essas ferramentas são usadas para executar algumas das operações neste documento:
 
-* [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado tooAzure serviços de nuvem, mas tem boas informações e exemplos)
+* [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado aos Serviços de Nuvem do Azure, mas tem boas informações e exemplos)
 * [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
 * [PowerShell do Azure](/powershell/azure/overview)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
@@ -43,35 +43,35 @@ Essas ferramentas são usada tooperform algumas das operações de saudação ne
 ## <a name="log-and-event-sources"></a>Origem do evento e log
 
 ### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
-Conforme discutido em [neste artigo](service-fabric-diagnostics-event-generation-infra.md)Service Fabric configura você com alguns canais de registro de fora da caixa, do qual Olá canais a seguir facilmente configurados com WAD toosend monitoramento e diagnóstico tooa armazenamento tabela de dados ou em outro lugar:
-  * Eventos operacionais: operações de nível mais alto que Olá executa a plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização. Eles são emitidos como eventos de Rastreamento de Eventos para Windows (ETW)
+Conforme discutido [neste artigo](service-fabric-diagnostics-event-generation-infra.md), o Service Fabric estabelece alguns canais de registro prontos, dos quais os seguintes canais facilmente são configurados com o WAD para enviar dados de monitoramento e diagnóstico para uma tabela de armazenamento ou outro lugar:
+  * Eventos operacionais: operações de nível superior que a plataforma do Service Fabric executa. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização. Eles são emitidos como eventos de Rastreamento de Eventos para Windows (ETW)
   * [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 ### <a name="application-events"></a>Eventos de aplicativo
- Eventos emitidas a partir de seus aplicativos e serviços de código e gravadas usando a classe de auxiliar de EventSource Olá fornecidas Olá modelos do Visual Studio. Para obter mais informações sobre como toowrite EventSource logs de seu aplicativo, consulte [monitorar e diagnosticar os serviços em uma instalação de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+ Os eventos emitidos a partir do código de serviços e aplicativos, e gravados usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs EventSource do seu aplicativo, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-## <a name="deploy-hello-diagnostics-extension"></a>Implantar a extensão de diagnóstico Olá
-Olá primeira etapa na coleta de logs é extensão de diagnóstico Olá toodeploy em cada uma das VMs Olá no cluster do Service Fabric hello. Olá extensão de diagnóstico coleta logs em cada VM e os carrega toohello conta de armazenamento que você especificar. etapas de saudação variam um pouco com base em se você usar Olá portal do Azure ou o Gerenciador de recursos do Azure. etapas de saudação também variam com base na implantação Olá faz parte da criação do cluster ou para um cluster que já existe. Vamos dar uma olhada em etapas Olá para cada cenário.
+## <a name="deploy-the-diagnostics-extension"></a>Implantar a extensão de Diagnóstico
+A primeira etapa para coletar logs será implantar a extensão Diagnóstico em cada uma das VMs no cluster do Service Fabric. A extensão de Diagnóstico coleta logs em cada VM e os carrega para a conta de armazenamento especificada. As etapas variam um pouco com base em seu uso do Portal do Azure ou do Azure Resource Manager. As etapas também variam com base em se a implantação faz parte da criação do cluster ou é para um cluster que já existe. Vejamos as etapas para cada cenário.
 
-### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Implantar a extensão de diagnóstico hello como parte da criação de cluster por meio do portal do Azure
-toodeploy Olá diagnóstico extensão toohello VMs no cluster hello como parte da criação do cluster, que você usar o painel de configurações de diagnóstico Olá mostrado na seguinte Olá imagem - Verifique se o diagnóstico está definido muito**em** (Olá a configuração padrão) . Depois de criar o cluster hello, você não pode alterar essas configurações usando o portal de saudação.
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Implantar a extensão de Diagnóstico como parte da criação de cluster por meio do portal do Azure
+Para implantar a extensão de Diagnóstico nas VMs do cluster como parte da criação do cluster, você usa o painel de configurações de Diagnóstico mostrado na imagem a seguir - certifique-se de que esse Diagnóstico foi definido como **Habilitado** (a configuração padrão). Depois de criar o cluster, você não poderá alterar essas configurações por meio do portal.
 
-![Configurações de diagnóstico do Azure no portal de saudação para criação de cluster](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
+![Configuração de Diagnóstico do Azure no portal para a criação do cluster](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
 
-Quando você estiver criando um cluster usando o portal de Olá, é altamente recomendável que você baixe o modelo de saudação **antes de clicar em Okey** toocreate cluster de saudação. Para obter detalhes, consulte muito[configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Será necessário toomake alterações do modelo de hello mais tarde, porque você não pode fazer algumas alterações usando o portal de saudação.
+Ao criar um cluster usando o portal, é altamente recomendável que você baixe o modelo **antes de clicar em OK** para criar o cluster. Para obter detalhes, confira [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) (Configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager). Você precisará do modelo para fazer alterações posteriormente, porque não é possível fazer algumas alterações usando o portal.
 
-### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implantar a extensão de diagnóstico hello como parte da criação de cluster usando o Gerenciador de recursos do Azure
-toocreate um cluster usando o Gerenciador de recursos, é necessário tooadd Olá diagnóstico JSON toohello completo do cluster Resource Manager modelo de configuração antes de criar o cluster de saudação. Fornecemos um modelo de Gerenciador de recursos de cluster de cinco VM de exemplo com a configuração de diagnóstico adicionada tooit como parte de nossos exemplos de modelo do Gerenciador de recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure Olá: [cluster de cinco nós com exemplo de modelo do Gerenciador de recursos de diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implantar a extensão de diagnóstico como parte da criação de cluster usando o Gerenciador de Recursos do Azure
+Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Resource Manager completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
-configuração de diagnóstico de Olá toosee no modelo do Gerenciador de recursos de saudação, arquivo de azuredeploy.json Olá aberto e procure **IaaSDiagnostics**. toocreate um cluster usando esse modelo, selecione Olá **implantar tooAzure** disponíveis no link anterior de saudação do botão.
+Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
 
-Como alternativa, você pode baixar o exemplo do Gerenciador de recursos de hello, fazer alterações tooit e criar um cluster com o modelo modificado hello usando Olá `New-AzureRmResourceGroupDeployment` comando em uma janela do PowerShell do Azure. Consulte Olá código para hello parâmetros que você passa no toohello comando a seguir. Para obter informações detalhadas sobre como toodeploy um recurso de grupo usando o PowerShell, consulte o artigo Olá [implantar um grupo de recursos com o modelo do Azure Resource Manager Olá](../azure-resource-manager/resource-group-template-deploy.md).
+Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
 
-### <a name="deploy-hello-diagnostics-extension-tooan-existing-cluster"></a>Implantar um cluster existente do hello diagnóstico extensão tooan
-Se você tiver um cluster existente que não tem o diagnóstico de implantado, ou se você quiser toomodify uma configuração existente, você pode adicionar ou atualizá-lo. Modificar o modelo do Gerenciador de recursos de saudação que é usado toocreate Olá existente cluster ou baixar o modelo de saudação do portal Olá conforme descrito anteriormente. Modificar o arquivo de template.json de saudação executando Olá tarefas a seguir.
+### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>Implantar a extensão de diagnóstico em um cluster existente
+Se você tiver um cluster existente que não tenha o Diagnóstico implantado ou se você quiser modificar uma configuração existente, você poderá adicioná-lo ou atualizá-lo. Modifique o modelo do Resource Manager usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito anteriormente. Modifique o arquivo template.json executando as seguintes tarefas.
 
-Adicione um novo modelo de toohello de recursos de armazenamento adicionando toohello seção de recursos.
+Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de recursos.
 
 ```json
 {
@@ -89,7 +89,7 @@ Adicione um novo modelo de toohello de recursos de armazenamento adicionando too
 },
 ```
 
- Em seguida, adicione a seção parâmetros toohello depois de definições de conta de armazenamento hello, entre `supportLogStorageAccountName` e `vmNodeType0Name`. Substitua o texto do espaço reservado Olá *o nome de conta de armazenamento aqui* com nome Olá Olá da conta de armazenamento.
+ Em seguida, adicione à seção de parâmetros logo após as definições da conta de armazenamento, entre `supportLogStorageAccountName` e `vmNodeType0Name`. Substitua o texto do espaço reservado *nome da conta de armazenamento aqui* pelo nome da conta de armazenamento.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -100,18 +100,18 @@ Adicione um novo modelo de toohello de recursos de armazenamento adicionando too
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "Replication option for hello application diagnostics storage account"
+        "description": "Replication option for the application diagnostics storage account"
       }
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
       "defaultValue": "storage account name goes here",
       "metadata": {
-        "description": "Name for hello storage account that contains application diagnostics data from hello cluster"
+        "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
     },
 ```
-Em seguida, atualizar Olá `VirtualMachineProfile` seção do arquivo de template.json Olá adicionando Olá código dentro do conjunto de extensões de saudação a seguir. Ser tooadd se uma vírgula no início de saudação ou no final de hello, dependendo de onde será inserido.
+Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json adicionando o conteúdo a seguir dentro da matriz extensions. Adicione uma vírgula no início ou no fim, dependendo de onde será inserido.
 
 ```json
 {
@@ -168,13 +168,13 @@ Em seguida, atualizar Olá `VirtualMachineProfile` seção do arquivo de templat
 }
 ```
 
-Depois de modificar o arquivo de template.json Olá conforme descrito, republicar o modelo do Gerenciador de recursos de saudação. Se o modelo de saudação foi exportado, executando o arquivo hello deploy.ps1 republica modelo hello. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
+Após modificar o arquivo template.json conforme descrito, republique o modelo do Resource Manager. Se o modelo tiver sido exportado, a execução do arquivo deploy.ps1 republicará o modelo. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
 
 ## <a name="collect-health-and-load-events"></a>Coletar eventos de integridade e de carga
 
-A partir da versão de hello 5.4 da malha do serviço, eventos de métrica de integridade e de carga estão disponíveis para coleção. Esses eventos refletir os eventos gerados pelo sistema hello ou seu código usando a integridade de saudação ou carregar relatórios APIs como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. tooview adicionar esses eventos no Visualizador de eventos diagnóstico do Visual Studio "Microsoft-ServiceFabric:4:0x4000000000000008" toohello lista de provedores do ETW.
+Começando com a versão 5.4 do Service Fabric, eventos de métrica de carga e integridade estão disponíveis para coleta. Esses eventos refletir os eventos gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
-eventos de saudação toocollect, modificar tooinclude de modelo do Gerenciador de recursos de saudação
+Para coletar os eventos, modifique o modelo do Resource Manager para incluir
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,11 @@ eventos de saudação toocollect, modificar tooinclude de modelo do Gerenciador 
 
 ## <a name="collect-reverse-proxy-events"></a>Coletar eventos de proxy reverso
 
-Versão de hello 5.7 do Service Fabric [proxy reverso](service-fabric-reverseproxy.md) eventos estão disponíveis para a coleção.
-Proxy reverso emite eventos em dois canais, um erro que contém eventos refletindo falhas de processamento de solicitação e Olá outros uma que contém eventos detalhados sobre todas as solicitações de saudação processados no proxy reverso hello. 
+A partir da versão 5.7 do Service Fabric, os eventos de [proxy reverso](service-fabric-reverseproxy.md) estão disponíveis para coleta.
+O proxy reverso emite eventos em dois canais, um que contém eventos de erro refletindo falhas e o outro que contém eventos detalhados sobre todas as solicitações de processamento de solicitações processados no proxy reverso. 
 
-1. Coletar eventos de erro: tooview adicionar esses eventos no Visualizador de eventos diagnóstico do Visual Studio "Microsoft-ServiceFabric:4:0x4000000000000010" toohello lista de provedores do ETW.
-eventos de saudação toocollect de clusters do Azure, modifique tooinclude de modelo do Gerenciador de recursos de saudação
+1. Coletar eventos de erro: para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
+Para coletar os eventos de clusters do Azure, modifique o modelo do Resource Manager para incluir
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +210,8 @@ eventos de saudação toocollect de clusters do Azure, modifique tooinclude de m
     }
 ```
 
-2. Coletar todos os eventos de processamento de solicitação: visualizador no Visual Studio de eventos diagnóstico, entrada hello ServiceFabric do Microsoft update Olá lista de provedor ETW muito "Microsoft-ServiceFabric:4:0x4000000000000020".
-Para clusters de malha do serviço do Azure, modifique Olá tooinclude de modelo de Gerenciador de recursos
+2. Coletar todos os eventos de processamento de solicitação: no Visualizador de Eventos de Diagnóstico no Visual Studio, atualize a entrada Microsoft-ServiceFabric na lista de provedores do ETW para "Microsoft-ServiceFabric:4:0x4000000000000020".
+Para clusters do Azure Service Fabric, modifique o modelo do resource manager para incluir
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,18 +225,18 @@ Para clusters de malha do serviço do Azure, modifique Olá tooinclude de modelo
       }
     }
 ```
-> É recomendável toojudiciously habilitar coleta de eventos deste canal como isso coleta todo o tráfego por meio do proxy reverso hello e pode consumir rapidamente a capacidade de armazenamento.
+> É recomendável habilitar criteriosamente a coleta de eventos deste canal pois isso coleta todo o tráfego por meio do proxy reverso e pode consumir rapidamente a capacidade de armazenamento.
 
-Para clusters de malha do serviço do Azure, os eventos de saudação de todos os nós de saudação são coletados e agregados em Olá SystemEventTable.
-Para obter a solução de problemas de eventos de proxy reverso hello, consulte Olá [guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).
+Para os clusters de Azure Service Fabric, os eventos de todos os nós são coletados e agregados em SystemEventTable.
+Para obter a solução de problemas dos eventos de proxy reverso, veja o [guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Coletar a partir de novos canais EventSource
 
-logs de toocollect tooupdate diagnóstico de novos canais de EventSource que representam um novo aplicativo que você está prestes a toodeploy, executar Olá mesmas etapas conforme descritas anteriormente para a configuração de saudação do diagnóstico para um cluster existente.
+Para atualizar o Diagnóstico para coletar logs a partir de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, execute as mesmas etapas anteriores para configurar o Diagnóstico para um cluster existente.
 
-Atualizar Olá `EtwEventSourceProviderConfiguration` seção nas entradas de tooadd Olá template.json arquivo hello novos EventSource canais antes de aplicar a configuração de saudação atualizar usando Olá `New-AzureRmResourceGroupDeployment` comando do PowerShell. nome de saudação da origem de eventos de saudação é definido como parte do seu código no arquivo do hello ServiceEventSource.cs gerado pelo Visual Studio.
+Atualize a seção `EtwEventSourceProviderConfiguration` no arquivo template.json para adicionar entradas para novos canais de EventSource antes de aplicar a atualização de configuração usando o comando `New-AzureRmResourceGroupDeployment` do PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo Visual Studio-generated ServiceEventSource.cs.
 
-Por exemplo, se a origem do evento é denominada Meu Eventsource, adicione Olá após eventos de saudação do código tooplace do meu Eventsource em uma tabela nomeada MyDestinationTableName.
+Por exemplo, se a origem do evento for denominada My-Eventsource, adicione o seguinte código para colocar os eventos de My-Eventsource em uma tabela chamada MyDestinationTableName.
 
 ```json
         {
@@ -248,13 +248,13 @@ Por exemplo, se a origem do evento é denominada Meu Eventsource, adicione Olá 
         }
 ```
 
-contadores de desempenho de toocollect ou logs de eventos, modificar o modelo de Gerenciador de recursos de saudação usando exemplos Olá fornecidos [criar uma máquina virtual do Windows com o monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguida, republicar o modelo do Gerenciador de recursos de saudação.
+Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do Resource Manager usando os exemplos fornecidos em [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguira, republique o modelo do Resource Manager.
 
 ## <a name="collect-performance-counters"></a>Coletar contadores de desempenho
 
-toocollect métricas de desempenho do seu cluster, adicione tooyour de contadores de desempenho do hello "WadCfg > DiagnosticMonitorConfiguration" no modelo do Gerenciador de recursos de saudação para seu cluster. Consulte [Contadores de desempenho do Service Fabric](service-fabric-diagnostics-event-generation-perf.md) para contadores de desempenho que recomendamos para coleta.
+Para coletar métricas de desempenho do seu cluster, adicione os contadores de desempenho para o "WadCfg > DiagnosticMonitorConfiguration" no modelo do Resource Manager para o cluster. Consulte [Contadores de desempenho do Service Fabric](service-fabric-diagnostics-event-generation-perf.md) para contadores de desempenho que recomendamos para coleta.
 
-Por exemplo, aqui vamos definir um contador de desempenho, a cada 15 segundos de amostra (Isso pode ser alterado e segue Olá formato de "PT\<tempo >\<unidade >", por exemplo, PT3M seria amostragem em três minutos) e transferida toohello tabela de armazenamento apropriado cada um minuto.
+Por exemplo, aqui vamos definir um contador de desempenho, amostras a cada 15 segundos (isso pode ser alterado e segue o formato de "PT\<time>\<unit>", por exemplo, o PT3M seria a amostra em intervalos de três minutos) e transferências para a tabela de armazenamento apropriada a cada um minuto.
 
   ```json
   "PerformanceCounters": {
@@ -272,20 +272,20 @@ Por exemplo, aqui vamos definir um contador de desempenho, a cada 15 segundos de
   }
   ```
   
-Se você estiver usando um coletor do Application Insights, conforme descrito na seção de saudação abaixo e deseja tooshow essas métricas para cima no Application Insights, faça-se de nome de coletor de saudação tooadd na seção de "coletores" hello como mostrado acima. Além disso, considere a criação de uma tabela separada toosend seus contadores de desempenho, para que eles não prejudique out Olá dados provenientes do hello outros canais de registro que você tiver habilitado.
+Se você estiver usando um coletor do Application Insights, conforme descrito na seção abaixo e deseja que essas métricas sejam exibidas no Application Insights, certifique-se de adicionar o nome do coletor na seção "coletores", como mostrado acima. Além disso, considere a criação de uma tabela separada para enviar seus Contadores de desempenho, para que eles não fiquem cheios de dados provenientes de outros canais de log que você habilitou.
 
 
-## <a name="send-logs-tooapplication-insights"></a>Enviar logs tooApplication Insights
+## <a name="send-logs-to-application-insights"></a>Enviar logs para o Application Insights
 
-Enviar dados de monitoramento e diagnóstico tooApplication Insights (AI) pode ser feito como parte da configuração do WAD hello. Se você decidir toouse AI para visualização e análise de eventos, leia [visualização com o Application Insights e análise de eventos](service-fabric-diagnostics-event-analysis-appinsights.md) tooset a um coletor AI como parte da "WadCfg".
+Enviar dados de monitoramento e diagnóstico para o Application Insights (AI) pode ser feito como parte da configuração do WAD. Se você decidir usar o AI para visualização e análise de eventos, leia [Visualização e análise de eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) para configurar um coletor do AI como parte do "WadCfg".
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que você configurou corretamente o diagnóstico do Azure, você verá os dados nas tabelas de armazenamento dos logs de EventSource e Olá ETW. Se você escolher toouse OMS, Kibana, ou outros dados análise e visualização de plataforma que não é configurada diretamente no modelo do Gerenciador de recursos de saudação, verifique tooset-se de que a plataforma de saudação do tooread sua escolha nos dados Olá dessas tabelas de armazenamento. Fazer isso para OMS é relativamente simples e é explicado em [Análise de eventos e logs no OMS](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco de um caso especial nesse sentido, pois ele pode ser configurado como parte da configuração de extensão de diagnóstico hello, então consulte toohello [apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se você escolher toouse AI.
+Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas Tabelas de armazenamento dos logs do ETW e EventSource. Se você optar por usar o OMS, Kibana ou qualquer outra plataforma de análise e visualização de dados que não foi configurada diretamente no modelo do Resource Manager , certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para OMS é relativamente simples e é explicado em [Análise de eventos e logs no OMS](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco diferente nesse sentido, pois ele pode ser configurado como parte da configuração da extensão de diagnóstico, então consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar o AI.
 
 >[!NOTE]
->Atualmente, não há nenhuma maneira toofilter ou limpar Olá eventos enviados toohello tabela. Se você não implementa um tooremove de processar eventos de tabela hello, tabela Olá continuará toogrow. Atualmente, há um exemplo de um serviço de manutenção de dados em execução no hello [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você escreva uma para você mesmo assim, a menos que haja uma boa razão para você toostore logs além de um período de 30 ou 90 dias.
+>Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
 
-* [Saiba como os contadores de desempenho de toocollect ou logs usando Olá extensão de diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Visualização e Análise de Eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)

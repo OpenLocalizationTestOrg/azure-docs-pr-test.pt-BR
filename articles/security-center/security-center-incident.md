@@ -1,6 +1,6 @@
 ---
-title: "alertas de segurança aaaHandling na Central de segurança do Azure | Microsoft Docs"
-description: "Este documento ajudará a incidentes de segurança de toohandle de recursos do toouse Central de segurança do Azure."
+title: "Gerenciamento de alertas de segurança na Central de Segurança do Azure | Microsoft Docs"
+description: "Este documento ajuda você a usar os recursos da Central de Segurança do Azure para gerenciar incidentes de segurança."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-ms.openlocfilehash: edb911c298a2ce93cd0ea5b22ce002005040090f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Manipulação de Incidentes de Segurança na Central de Segurança do Azure
-Separação e investigando os alertas de segurança podem levar muito tempo para que os analistas de segurança mais capacitados Olá mesmo e para muitos é tooeven difícil saber onde toobegin. Usando [análise](security-center-detection-capabilities.md) tooconnect informações de saudação entre distintos [alertas de segurança](security-center-managing-and-responding-alerts.md), Central de segurança pode fornecer uma única exibição de uma campanha de ataque e todos Olá relacionados alertas – você pode Compreenda rapidamente o invasor de saudação ações levou e os recursos que foram afetados.
+A triagem e investigação de alertas de segurança pode ser uma tarefa demorada até mesmo para os analistas de segurança mais capacitados, e, para muitos, é difícil até mesmo saber por onde começar. Usando [análise](security-center-detection-capabilities.md) para conectar as informações entre diferentes [alertas de segurança](security-center-managing-and-responding-alerts.md), a Central de Segurança pode fornecer uma exibição única de uma campanha de ataque e todos os alertas relacionados, com isso, você pode entender rapidamente quais ações o invasor executou e quais recursos foram afetados.
 
-Este documento aborda como toouse alerta de segurança do recurso na Central de segurança tooassist você lidar com incidentes de segurança.
+Este documento discute como usar o recurso de alerta de segurança na Central de Segurança para ajudar a lidar com incidentes de segurança.
 
 ## <a name="what-is-a-security-incident"></a>O que é um incidente de segurança?
-Na Central de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da [cadeia de desativações](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Incidentes aparecem na Olá [alertas de segurança](security-center-managing-and-responding-alerts.md) lado a lado e folha. Um incidente revelará a lista de saudação de alertas relacionados, que permite que você tooobtain obter mais informações sobre cada ocorrência.
+Na Central de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da [cadeia de desativações](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Incidentes aparecem no bloco e folha [Alertas de Segurança](security-center-managing-and-responding-alerts.md) . Um Incidente revelará a lista de alertas relacionados, o que permite a obtenção de mais informações sobre cada ocorrência.
 
 ## <a name="managing-security-incidents"></a>Gerenciamento de incidentes de segurança
-Você pode examinar seus incidentes de segurança atual examinando Olá bloco de alertas de segurança. Acesso Olá Portal do Azure e siga as etapas de saudação abaixo toosee mais detalhes sobre cada incidente de segurança:
+Você pode examinar os incidentes atuais de segurança observando o bloco de alertas de segurança. Acesse o Portal do Azure e execute as etapas abaixo para ver mais detalhes sobre cada incidente de segurança:
 
-1. No painel de Central de segurança hello, você verá Olá **alertas de segurança** lado a lado.
+1. No painel Central de Segurança, você verá o bloco **Alertas de segurança** .
 
     ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-incident/security-center-incident-fig1.png)
 
-2. Clique em tooexpand esse bloco-lo e se um incidente de segurança é detectado, ele será exibido no gráfico de alertas de segurança Olá conforme mostrado abaixo:
+2. Clique nesse bloco para expandi-lo e se um incidente de segurança for detectado, ele aparecerá no gráfico de alertas de segurança, como mostrado abaixo:
 
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig2.png)
 
-3. Observe que a descrição do incidente de segurança Olá tem um ícone diferente em comparação com tooother alertas. Clique nela tooview mais detalhes sobre este incidente.
+3. Observe que a descrição de incidentes de segurança tem um ícone diferente em comparação com outros alertas. Clique para exibir mais detalhes sobre o incidente.
 
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. Em Olá **incidente** folha, você verá mais detalhes sobre este incidente de segurança, que inclui a descrição completa, sua severidade (que nesse caso é alta), seu estado atual (nesse caso ele ainda é *ativo*, o que implica que o usuário Olá não tiver feito tooit uma ação - isso pode ser feito pelo clique com o botão direito no incidente Olá no hello **alertas de segurança** folha), Olá atacados recurso (neste caso *VM1*), Olá etapas de correção de incidente hello e no painel inferior de saudação você tem alertas de saudação que foram incluídos neste incidente. Se você quiser obter mais informações sobre cada alerta tooobtain, basta clicar nele e outra folha será aberta, conforme mostrado abaixo:
+4. Na folha **incidente**, você verá mais detalhes sobre esse incidente de segurança, que inclui uma descrição completa, sua gravidade (que nesse caso é alta), estado atual (nesse caso ainda é *ativo*, o que implica que o usuário não executou uma ação para ele - isso pode ser feito clicando com o botão direito no incidente na folha **Alertas de segurança**), recurso atacado (nesse caso *VM1*), as etapas de correção do incidente e no painel inferior, você tem os alertas que foram incluídos no incidente. Se você quiser obter mais informações sobre cada alerta, basta clicar nele e outra folha será aberta, como mostrado abaixo:
 
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig4.png)
 
-informações de saudação nesta folha variam de alerta de toohello de acordo. Leitura [toosecurity está respondendo e gerenciamento de alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) para obter mais informações sobre como toomanage esses alertas. Algumas considerações importantes sobre esse recurso:
+As informações nessa folha variam de acordo com o alerta. Leia [Gerenciamento e resposta aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) para saber mais sobre como gerenciar esses alertas. Algumas considerações importantes sobre esse recurso:
 
-* Um novo filtro permite que você toocustomize que tooincident sua exibição alertas somente, apenas, ou ambos.
-* Olá mesmo alerta pode existir como parte de um incidente (se aplicável), bem como toobe visível como um alerta autônomo.
+* Um novo filtro permite que você personalize para exibir para apenas Incidentes, somente Alertas ou ambos.
+* O mesmo alerta pode existir como parte de um Incidente (se aplicável), bem como para ser visível como um alerta autônomo.
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, você aprendeu como toouse Olá do recurso incidente de segurança na Central de segurança. toolearn mais sobre o Centro de segurança, consulte o seguinte hello:
+Neste documento, você aprendeu a usar os recursos de incidente de segurança na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Gerenciando e responder a alertas toosecurity na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
+* [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md)
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
-* [Gerenciando e responder a alertas toosecurity na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md)– localizar perguntas frequentes sobre como usar o serviço de saudação.
+* [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
+* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md)– encontre perguntas frequentes sobre como usar o serviço.
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.

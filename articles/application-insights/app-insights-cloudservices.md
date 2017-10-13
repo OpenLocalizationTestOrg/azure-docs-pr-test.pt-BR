@@ -1,5 +1,5 @@
 ---
-title: "aaaApplication Insights para serviços de nuvem do Azure | Microsoft Docs"
+title: "Application Insights para Serviços de Nuvem do Azure | Microsoft Docs"
 description: "Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights"
 services: application-insights
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: bwren
-ms.openlocfilehash: 6956ce423eea1e2cf387bd98250bae32d9501ed0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
-[Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Feedback Olá que obter sobre desempenho hello e a eficácia do seu aplicativo em Olá curinga, você pode fazer escolhas informadas sobre a direção de saudação do design de saudação em cada ciclo de vida de desenvolvimento.
+[Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Exemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -34,153 +34,153 @@ Você precisará de:
 * Developer Analytics Tools 7.10 ou posteriores
 
 ## <a name="quick-start"></a>Início rápido
-Olá toomonitor de maneira mais rápida e fácil que seu serviço de nuvem com o Application Insights é toochoose opção quando você publica seu tooAzure de serviço.
+A maneira mais rápida e fácil de monitorar seu serviço de nuvem com o Application Insights é escolher essa opção quando você publica seu serviço no Azure.
 
 ![Exemplo](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
 
-Este instrumentos opção contadores de seu aplicativo em tempo de execução fornecendo toda a telemetria Olá precisar toomonitor solicitações, exceções e suas dependências em sua função web como o desempenho de suas funções de trabalho. Qualquer rastreamentos de diagnóstico gerados pelo seu aplicativo também são enviados tooApplication Insights.
+Esta opção instrumenta o aplicativo em tempo de execução, oferecendo a você toda a telemetria necessária para monitorar solicitações, exceções e dependências na função web, bem como contadores de desempenho nas funções de trabalho. Os rastreamentos de diagnóstico gerados pelo aplicativo também são enviados para o Application Insights.
 
-Se isso for tudo o que você precisa, você está pronto! As próximas etapas são [exibição das métricas do seu aplicativo](app-insights-metrics-explorer.md), [consulta de seus dados com o Analytics](app-insights-analytics.md) e talvez a configuração de um [painel](app-insights-dashboards.md). Talvez você queira tooset backup [testes de disponibilidade](app-insights-monitor-web-app-availability.md) e [adicionar as páginas de código tooyour web](app-insights-javascript.md) toomonitor desempenho no navegador de saudação.
+Se isso for tudo o que você precisa, você está pronto! As próximas etapas são [exibição das métricas do seu aplicativo](app-insights-metrics-explorer.md), [consulta de seus dados com o Analytics](app-insights-analytics.md) e talvez a configuração de um [painel](app-insights-dashboards.md). Você talvez queira configurar [testes de disponibilidade](app-insights-monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](app-insights-javascript.md) para monitorar o desempenho no navegador.
 
 Mas você também pode obter mais opções:
 
-* Enviar dados de diferentes componentes e recursos de tooseparate de configurações de compilação.
+* Enviar dados de diferentes componentes e criar configurações para recursos separados.
 * Adicione telemetria personalizada do seu aplicativo.
 
-Se essas opções são de interesse tooyou, continue a leitura.
+Se essas opções interessam a você, continue lendo.
 
 ## <a name="sample-application-instrumented-with-application-insights"></a>Aplicativo de exemplo instrumentado com o Application Insights
-Dê uma olhada no [aplicativo de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) no qual Application Insights é adicionado tooa serviço de nuvem com duas funções de trabalho hospedadas no Azure. 
+Vejamos esse [aplicativo de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) no qual o Application Insights é adicionado a um serviço de nuvem com duas funções de trabalho hospedadas no Azure. 
 
-Os itens a seguir informa como tooadapt seu próprio serviço de nuvem do projeto no hello mesma maneira.
+O que se segue informa como adaptar seu próprio projeto de serviço de nuvem da mesma maneira.
 
 ## <a name="plan-resources-and-resource-groups"></a>Planejar recursos e grupos de recursos
-Telemetria de saudação do seu aplicativo é armazenada, analisada e exibida em um recurso do Azure do tipo do Application Insights. 
+A telemetria do aplicativo é armazenada, analisada e exibida em um recurso do Azure do tipo Application Insights. 
 
-Cada recurso pertence tooa grupo de recursos. Grupos de recursos são usados para gerenciar custos, para conceder acesso a membros de tooteam e toodeploy atualizações em uma única transação coordenada. Por exemplo, você poderia [gravar um script toodeploy](../azure-resource-manager/resource-group-template-deploy.md) um serviço de nuvem do Azure e seus recursos em uma operação de monitoramento do Application Insights.
+Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../azure-resource-manager/resource-group-template-deploy.md) um Serviço de Nuvem do Azure e seus recursos em uma operação de monitoramento do Application Insights.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-Olá recomendado é de esquema toocreate um recurso separado para cada componente do aplicativo - ou seja, cada função web e função de trabalho. Você pode analisar cada componente separadamente, mas pode criar um [painel](app-insights-dashboards.md) que reúne gráficos-chave Olá de todos os componentes de hello, para que você possa comparar e monitorá-los juntos. 
+O esquema recomendado é criar um recurso separado para cada componente do aplicativo - ou seja, cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas pode criar um [painel](app-insights-dashboards.md) que reúna os principais gráficos de todos os componentes, para que você possa compará-los e monitorá-los juntos. 
 
-Um esquema alternativo é toosend telemetria de saudação do toohello de mais de uma função mesmo recurso, mas [adicionar um item de telemetria de tooeach de propriedade de dimensão](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifica sua função de origem. Nesse esquema, gráficos de métricas, como exceções normalmente mostram uma agregação de contagens de saudação do hello diferentes funções, mas você pode segmentar gráfico Olá pelo identificador de função hello quando necessário. Pesquisas também podem ser filtradas por Olá mesma dimensão. Essa alternativa torna mais fácil tooview tudo no hello ao mesmo tempo, mas também pode causar confusão toosome entre as funções hello.
+É um esquema alternativo enviar a telemetria de mais de uma função para o mesmo recurso, mas [Adicionar uma propriedade de dimensão para cada item de telemetria](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifica sua função de origem. Nesse esquema, os gráficos de métricas, como exceções, normalmente mostram uma agregação das contagens das diferentes funções, mas é possível segmentar o gráfico pelo identificador de função, quando necessário. As pesquisas também podem ser filtradas na mesma dimensão. Essa alternativa torna um pouco mais fácil ver tudo ao mesmo tempo, mas também pode causar uma certa confusão entre as funções.
 
-Telemetria de navegador geralmente está incluída no hello mesmo recurso como sua função do servidor web.
+A telemetria do navegador geralmente é incluída no mesmo recurso que sua função Web do lado servidor.
 
-Colocar recursos do Application Insights Olá para diferentes componentes de saudação em um grupo de recursos. Isso torna fácil toomanage-los juntos. 
+Coloque os recursos do Application Insights para os diferentes componentes em um grupo de recursos. Isso facilita seu gerenciamento em conjunto. 
 
 ### <a name="separating-development-test-and-production"></a>A separação de desenvolvimento, teste e produção
-Se você estiver desenvolvendo eventos personalizados para o próximo recurso enquanto a versão anterior do hello está ao vivo, você deseja toosend Olá desenvolvimento telemetria tooa Application Insights recurso separado. Caso contrário, será difícil toofind sua telemetria de teste entre todos Olá tráfego do site ao vivo hello.
+Se você estiver desenvolvendo eventos personalizados para o próximo recurso enquanto a versão anterior estiver ativa, será recomendável enviar a telemetria de desenvolvimento para um recurso separado do Application Insights. Caso contrário, será difícil encontrar a telemetria de teste entre todo o tráfego do site ativo.
 
-tooavoid nessa situação, criar recursos separados para cada configuração de compilação ou 'carimbo' (desenvolvimento, teste, produção,...) do seu sistema. Colocar recursos Olá para cada configuração de compilação em um grupo de recursos separado. 
+Para evitar essa situação, crie recursos separados para cada configuração de compilação ou 'carimbo' (desenvolvimento, teste, produção,...) do sistema. Coloque os recursos para cada configuração de compilação em um grupo de recursos separado. 
 
-toosend Olá telemetria toohello os recursos adequados, você pode configurar Olá SDK do Application Insights para que ele escolhe uma chave de instrumentação diferentes dependendo da configuração de compilação de saudação. 
+Para enviar a telemetria para os recursos apropriados, você pode configurar o SDK do Application Insights para que ele escolha uma chave de instrumentação diferente, dependendo da configuração de compilação. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
-Se você decidir toocreate um recurso separado para cada função - talvez um separado é definido para cada configuração de build - e é mais fácil toocreate-los todos no portal do Application Insights de saudação. (Se você criar recursos muito, você pode [automatizar o processo de saudação](app-insights-powershell.md).
+Se você decidiu criar um recurso separado para cada função – e talvez um conjunto separado para cada configuração de build –, é mais fácil criar todos eles no portal do Application Insights. (Se você cria muitos recursos, pode [automatizar o processo](app-insights-powershell.md).
 
-1. Em Olá [portal do Azure][portal], criar um novo recurso do Application Insights. Para o tipo de aplicativo, escolha o aplicativo ASP.NET. 
+1. No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha o aplicativo ASP.NET. 
 
     ![Clique em Novo, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Observe que recurso é identificado por uma Chave de Instrumentação. Talvez seja necessário isso mais tarde, se você quiser toomanually configure ou verifique a configuração de saudação do hello SDK.
+2. Observe que recurso é identificado por uma Chave de Instrumentação. Talvez isso seja necessário mais tarde, se você quiser configurar ou verificar manualmente a configuração do SDK.
 
-    ![Clique em propriedades, selecione a chave de saudação e pressione ctrl + C](./media/app-insights-cloudservices/02-props.png) 
+    ![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar o diagnóstico do Azure para cada função
-Defina essa opção toomonitor seu aplicativo com o Application Insights. Para funções web, isso fornece monitoramento de desempenho, alertas e diagnóstico, bem como análise de uso. Para outras funções, você pode pesquisar e monitorar o diagnóstico do Azure, como reinicialização, contadores de desempenho e chamadas tooSystem.Diagnostics.Trace. 
+Defina esta opção para monitorar seu aplicativo com o Application Insights. Para funções web, isso fornece monitoramento de desempenho, alertas e diagnóstico, bem como análise de uso. Para outras funções, você pode pesquisar e monitorar o diagnóstico do Azure, como reinicialização, contadores de desempenho e chamadas para System.Diagnostics.Trace. 
 
-1. No Gerenciador de soluções do Visual Studio, em &lt;YourCloudService&gt;, funções, abra as propriedades de saudação de cada função.
-2. Em **configuração**, defina **enviar dados de diagnóstico tooApplication Insights** e selecione Olá recurso Application Insights apropriado que você criou anteriormente.
+1. No Visual Studio Solution Explorer, em &lt;SeuServiçoDeNuvem&gt;, Funções, abra as propriedades de cada função.
+2. Em **Configuração**, defina **Enviar dados de diagnóstico para o Application Insights** e selecione o recurso apropriado do Application Insights criado anteriormente.
 
-Se você tiver decidido toouse um recurso do Application Insights separado para cada configuração de compilação, selecione configuração Olá primeiro.
+Se você tiver optado por usar um recurso Application Insights separado para cada configuração de compilação, selecione primeiro a configuração.
 
-![Nas propriedades de saudação de cada função do Azure, configurar o Application Insights](./media/app-insights-cloudservices/configure-azure-diagnostics.png)
+![Nas propriedades de cada função do Azure, configure o Application Insights](./media/app-insights-cloudservices/configure-azure-diagnostics.png)
 
-Isso tem efeito de saudação de inserção suas chaves de instrumentação do Application Insights Olá arquivos denominados `ServiceConfiguration.*.cscfg`. ([Exemplo de código](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
+Isso tem o efeito de inserção de suas chaves de instrumentação do Application Insights nos arquivos chamados `ServiceConfiguration.*.cscfg`. ([Exemplo de código](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Se desejar que o nível de saudação toovary de informações de diagnóstico enviadas tooApplication Insights, você pode fazer isso [editando Olá `.cscfg` arquivos diretamente](app-insights-azure-diagnostics.md).
+Se desejar variar o nível de informações de diagnóstico enviadas para o Application Insights, faça isso [editando os arquivos `.cscfg` diretamente](app-insights-azure-diagnostics.md).
 
-## <a name="sdk"></a>Instalar Olá SDK em cada projeto
-Essa opção adiciona Olá capacidade tooadd comercial personalizada telemetria tooany função, para uma análise mais próxima de como seu aplicativo é usado e executa.
+## <a name="sdk"></a>Instalar o SDK em cada projeto
+Esta opção proporciona a capacidade de adicionar telemetria de negócios personalizados para qualquer função, para uma análise mais próxima de como seu aplicativo é usado e como é seu desempenho.
 
-No Visual Studio, configure Olá SDK do Application Insights para cada projeto de aplicativo de nuvem.
+No Visual Studio, configure o SDK do Application Insights para cada projeto de aplicativo de nuvem.
 
-1. **Funções Web**: clique com botão direito hello e escolha **configurar o Application Insights** ou **Adicionar > telemetria do Application Insights**.
+1. **Funções Web**: clique com o botão direito no projeto e escolha **Configurar o Application Insights** ou **Adicionar > Application Insights Telemetry**.
 
 2. **Funções de trabalho**: 
- * Clique com botão direito hello e selecione **gerenciar pacotes Nuget**.
+ * Clique com o botão direito no projeto e selecione **Gerenciar Pacotes Nuget**.
  * Adicione [Application Insights para Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Pesquise “Application Insights”](./media/app-insights-cloudservices/04-ai-nuget.png)
 
-3. Configure Olá SDK toosend dados toohello recurso do Application Insights.
+3. Configure o SDK para enviar dados ao recurso do Application Insights.
 
-    Em uma função de inicialização adequado, defina chave de instrumentação de saudação da configuração Olá no arquivo. cscfg de saudação:
+    Em uma função de inicialização adequada, defina a chave de instrumentação no parâmetro de configuração no arquivo .cscfg:
  
     ```C#
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
    
-    Faça isso para cada função em seu aplicativo. Consulte exemplos de saudação:
+    Faça isso para cada função em seu aplicativo. Veja os exemplos:
    
    * [Função Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
    * [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
    * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
-4. Conjunto Olá applicationinsights. config arquivo toobe sempre copiadas toohello diretório de saída. 
+4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída. 
    
-    (No arquivo. config de saudação, você verá mensagens para que você tooplace Olá instrumentação chave existe. No entanto, para aplicativos em nuvem é melhor tooset do arquivo. cscfg de saudação. Isso garante que função hello é identificada corretamente no portal de saudação).
+    (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la por meio do arquivo .cscfg. Isso garante que a função seja identificada corretamente no portal).
 
-#### <a name="run-and-publish-hello-app"></a>Executar e publicar o aplicativo hello
-Execute o aplicativo e entre no Azure. Recursos do Application Insights Olá abertos que você criou, e você verá os pontos de dados individuais que aparecem em [pesquisa](app-insights-diagnostic-search.md), e os dados agregados em [Explorer métrica](app-insights-metrics-explorer.md). 
+#### <a name="run-and-publish-the-app"></a>Executar e publicar o aplicativo
+Execute o aplicativo e entre no Azure. Abra os recursos do Application Insights que você criou, veja que os pontos de dados individuais aparecerem em [Pesquisa](app-insights-diagnostic-search.md) e os dados agregados no [Metrics Explorer](app-insights-metrics-explorer.md). 
 
-Adicionar mais telemetria - consulte Olá seções abaixo - e, em seguida, publicar seu aplicativo tooget ao vivo de diagnóstico e uso de comentários. 
+Adicione mais telemetria: confira as seções a seguir e publique seu aplicativo para obter comentários em tempo real sobre o diagnóstico e de uso. 
 
 #### <a name="no-data"></a>Não há dados?
-* Olá abrir [pesquisa] [ diagnostic] lado a lado, eventos de toosee individuais.
-* Use o aplicativo hello, páginas diferentes de abertura para que ele gera algumas telemetria.
+* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
+* Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
 * Aguarde alguns segundos e clique em Atualizar.
 * Consulte [Solução de problemas][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Exibir eventos de Diagnóstico do Azure
-Onde Olá toofind [diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) informações no Application Insights:
+Onde encontrar as informações de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) no Application Insights:
 
 * Os contadores de desempenho são exibidos como métricas personalizadas. 
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
 * Logs do aplicativo, logs de ETW e todos os logs de infraestrutura de diagnóstico são exibidos como rastreamentos.
 
-contadores de desempenho de toosee e contagens de eventos, abra [Metrics Explorer](app-insights-metrics-explorer.md) e adicionar um novo gráfico:
+Para ver os contadores de eventos e os contadores de desempenho, abra o [Metrics Explorer](app-insights-metrics-explorer.md) e adicione um novo gráfico:
 
 ![Dados de diagnóstico do Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Use [pesquisa](app-insights-diagnostic-search.md) ou um [consulta analítica](app-insights-analytics-tour.md) toosearch em Olá vários logs enviados pelo diagnóstico do Azure de rastreamento. Por exemplo, suponha que você tem uma exceção sem tratamento que causou uma função toocrash e reciclagem. Essas informações seriam mostradas em Olá aplicativo canal de Log de eventos Windows. Você pode usar pesquisa toolook em Olá erro de Log de eventos do Windows e obter o rastreamento de pilha completos Olá para exceção hello. Que ajudarão você a encontrar a causa raiz de saudação do problema de saudação.
+Use [Pesquisar](app-insights-diagnostic-search.md) em uma [consulta do Analytics](app-insights-analytics-tour.md) para pesquisar os vários logs de rastreamento enviados pelo Diagnóstico do Azure. Por exemplo, suponha que você tem uma exceção sem tratamento que causou a falha e reciclagem de uma Função. Essa informação será mostrada no canal do Aplicativo do Log de Eventos do Windows. É possível usar a Pesquisa para examinar o erro do Log de Eventos do Windows e obter o rastreamento de pilha completo da exceção. Isso ajudará você a encontrar a causa raiz do problema.
 
 ![Pesquisa de diagnóstico do Azure](./media/app-insights-cloudservices/25-wad.png)
 
 ## <a name="more-telemetry"></a>Mais telemetria
-Olá seções a seguir mostram como tooget a telemetria adicionais em diferentes aspectos do seu aplicativo.
+As seções a seguir mostram como obter a telemetria adicional de diferentes aspectos de seu aplicativo.
 
 ## <a name="track-requests-from-worker-roles"></a>Acompanhar as solicitações das funções de trabalho
-Em funções da web, Olá solicitações módulo automaticamente coleta dados sobre solicitações HTTP. Consulte Olá [MVCWebRole de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole) para obter exemplos de como você pode substituir o comportamento de coleção saudação padrão. 
+Nas funções web, o módulo de solicitações automaticamente coleta dados sobre solicitações HTTP. Consulte o [MVCWebRole de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole) para obter exemplos de como você pode substituir o comportamento de coleção padrão. 
 
-Você pode capturar o desempenho Olá das funções de tooworker chamadas rastreando-los no hello mesma maneira que as solicitações HTTP. No Application Insights, o tipo de telemetria de solicitação Olá mede uma unidade de trabalho nomeada do lado do servidor que pode ser atingiu o tempo e pode independentemente tenha êxito ou falha. Enquanto as solicitações HTTP são capturadas automaticamente pelo Olá SDK, você pode inserir suas próprias funções de tooworker código tootrack solicitações.
+Você pode capturar o desempenho das chamadas a funções de trabalho acompanhando-as da mesma maneira como faz com solicitações HTTP. No Application Insights, o tipo de telemetria Solicitação mede uma unidade de trabalho do servidor nomeada que pode ser cronometrada e ser bem-sucedida ou falhar de forma independente. Embora as solicitações HTTP sejam capturadas automaticamente pelo SDK, você pode inserir seu próprio código para acompanhar as solicitações para funções de trabalho.
 
-Consulte Olá dois exemplo trabalho funções tooreport instrumentado solicitações: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+Consulte as duas funções de trabalho de exemplo instrumentadas para solicitações de relatório: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Exceções
 Consulte [Monitoramento de exceções no Application Insights](app-insights-asp-net-exceptions.md) para obter informações sobre como você pode coletar exceções sem tratamento de diferentes tipos de aplicativos Web.
 
-função de web de exemplo Hello tem controladores MVC5 e API Web 2. Olá Olá duas exceções sem tratamento são capturadas com hello manipuladores a seguir:
+A função web de exemplo tem controladores MVC5 e API Web 2. As exceções sem tratamento das duas são capturadas com os seguintes manipuladores:
 
 * Configuração do [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) para controladores MVC5
 * Configuração do [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) para controladores da API Web 2
 
-Funções de trabalho, há duas maneiras tootrack exceções:
+Para funções de trabalho, há duas maneiras de acompanhar exceções:
 
 * TrackException(ex)
-* Se você tiver adicionado o pacote NuGet de ouvinte de rastreamento do hello Application Insights, você pode usar **Trace** toolog exceções. [Exemplo de código.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+* Se você tiver adicionado o pacote NuGet do ouvinte de rastreamento do Application Insights, poderá usar **System.Diagnostics.Trace** para registrar as exceções. [Exemplo de código.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
 
 ## <a name="performance-counters"></a>Contadores de desempenho
-Olá contadores a seguir é coletado por padrão:
+Os seguintes contadores são coletados por padrão:
 
     * \Process(??APP_WIN32_PROC??)\% Tempo do Processador
     * \Memória\Bytes Disponíveis
@@ -200,33 +200,33 @@ Para funções web, esses contadores também são coletados:
   ![Contadores de desempenho](./media/app-insights-cloudservices/OLfMo2f.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetria correlacionada para funções de trabalho
-É uma experiência avançada de diagnóstica, quando você pode ver quais led tooa falha ou a solicitação de alta latência. Com as funções da web, Olá entre que SDK configura automaticamente a correlação telemetria relacionada. Funções de trabalho, você pode usar um inicializador de telemetria personalizada tooset um atributo de contexto Operation.Id comum para todos os tooachieve de telemetria Olá isso. Isso permite que você toosee se o problema do hello latência/falha foi causado devido a dependência de tooa ou seu código em um relance! 
+É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. Isso permite ver se o problema de latência/falha foi causado devido a uma dependência ou ao código, rapidamente! 
 
 Faça assim:
 
-* Definir a Id de correlação de saudação em um CallContext conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando Olá ID da solicitação como id de correlação de saudação
-* Adicione uma implementação personalizada de TelemetryInitializer, tooset Olá Operation.Id toohello correlationId definido acima. Há um exemplo aqui: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Adicione o inicializador de telemetria personalizada de saudação. Você pode fazer isso no arquivo applicationinsights. config de hello, ou no código conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
+* Defina a ID de correlação em uma CallContext conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando a ID da solicitação como a id de correlação
+* Adicione uma implementação personalizada de TelemetryInitializer, para definir a Operation.Id com o conjunto de correlationId acima. Há um exemplo aqui: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Adicione o inicializador de telemetria personalizado. Você pode fazer isso no arquivo ApplicationInsights.config ou no código conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
 
-É isso! experiência do portal Hello está já conectada toohelp que você ver todos os respectivos telemetria rapidamente:
+É isso! A experiência do portal já está conectada para ajudá-lo a ver todas as telemetrias associadas rapidamente:
 
 ![Telemetria correlacionada](./media/app-insights-cloudservices/bHxuUhd.png)
 
 ## <a name="client-telemetry"></a>Telemetria do cliente
-[Adicionar Olá páginas de web do SDK de JavaScript tooyour] [ client] tooget baseados em navegador telemetria como contagens de exibição de página, tempos de carregamento de página, as exceções de script e toolet você escrever telemetria personalizada em seus scripts de página.
+[Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como contagens de exibição de página, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
-[Configurar testes da web] [ availability] toomake-se de que seu aplicativo permanece em tempo real e responsivo.
+[Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
 
 ## <a name="display-everything-together"></a>Exibir tudo juntos
-tooget uma visão geral do sistema, você pode colocar chave Olá gráficos de monitoramento juntos em um [painel](app-insights-dashboards.md). Por exemplo, você pode fixar solicitação hello e contagens de falha de cada função. 
+Para obter uma visão geral do sistema, você pode agrupar os gráficos de monitoramento da chave em um [painel](app-insights-dashboards.md). Por exemplo, você pode fixar as contagens de solicitação e de falha de cada função. 
 
 Se o sistema usa outros serviços do Azure, como o Stream Analytics, inclua seus gráficos de monitoramento também. 
 
-Se você tiver um aplicativo móvel do cliente, insira alguns eventos personalizados do código toosend em operações de chave de usuário e criar um [HockeyApp ponte](app-insights-hockeyapp-bridge-app.md). Criar consultas em [análise](app-insights-analytics.md) toodisplay Olá contagens dos eventos e fixá-los toohello painel.
+Se você tiver um aplicativo de cliente móvel, insira um código para enviar eventos personalizados sobre operações de chave de usuário e crie uma [ponte HockeyApp](app-insights-hockeyapp-bridge-app.md). Crie consultas no [Analytics](app-insights-analytics.md) para exibir a contagem de eventos e fixe-os ao painel.
 
 ## <a name="example"></a>Exemplo
-[exemplo Hello](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
+[O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
 Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
@@ -236,7 +236,7 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Configurar o envio de informações de tooApplication de diagnóstico do Azure](app-insights-azure-diagnostics.md)
+* [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizar a criação de recursos do Application Insights](app-insights-powershell.md)
 * [Automatizar o diagnóstico do Azure](app-insights-powershell-azure-diagnostics.md)
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)

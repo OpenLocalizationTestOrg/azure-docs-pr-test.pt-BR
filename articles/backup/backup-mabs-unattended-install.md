@@ -1,6 +1,6 @@
 ---
-title: "instalação de aaaSilent do servidor de Backup do Azure v2 | Microsoft Docs"
-description: "Use um toosilently de script do PowerShell instalar servidor de Backup do Azure v2. Esse tipo de instalação também é chamado de uma instalação autônoma."
+title: "Instalação silenciosa do Servidor de Backup do Azure v2 | Microsoft Docs"
+description: "Use um script do PowerShell para instalar silenciosamente o Servidor de Backup do Azure v2. Esse tipo de instalação também é chamado de uma instalação autônoma."
 services: backup
 documentationcenter: " "
 author: markgalioto
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/30/2017
 ms.author: markgal;masaran
-ms.openlocfilehash: 6b94b4a278bfcd5f8c5c363cb811bd8eec984243
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Executar uma instalação autônoma do Servidor de Backup do Azure v2
 
-Saiba como toorun uma instalação autônoma do servidor de Backup do Azure v2. 
+Saiba como executar uma instalação autônoma do Servidor de Backup do Azure v2. 
 
 Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do Azure v1.
 
 ## <a name="install-backup-server-v2"></a>Instalar o Servidor de Backup v2
 
-1. No servidor de saudação que hospeda o servidor de Backup do Azure v2, crie um arquivo de texto. (Você pode criar arquivo hello no bloco de notas ou em outro texto editor.) Salve o arquivo hello como MABSSetup.ini. 
+1. No servidor que hospeda o Servidor de Backup do Azure v2, crie um arquivo de texto. (Você pode criar o arquivo no Bloco de Notas ou em outro editor de texto.) Salve o arquivo como MABSSetup.ini. 
 
-2. Colar Olá código Olá MABSSetup.ini arquivo a seguir. Substituir o texto de saudação dentro de colchetes hello (\< \>) com valores do seu ambiente. Olá texto a seguir é um exemplo:
+2. Cole o código a seguir no arquivo MABSSetup.ini. Substitua o texto dentro dos colchetes (\< \>) com valores do seu ambiente. O texto a seguir é um exemplo:
 
   ```
   [OPTIONS]
@@ -51,22 +51,22 @@ Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do
   UseExistingSQL=<1/0 use or do not use existing SQL>
   ```
 
-3. Salve o arquivo hello. Em seguida, em um prompt de comando elevado no servidor de instalação hello, digite este comando:
+3. Salve o arquivo. Em seguida, em um prompt de comando com privilégios elevados no servidor de instalação, digite este comando:
 
   ```
   start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
   ```
 
-Você pode usar esses sinalizadores para a instalação de saudação:</br>
+Você pode usar esses sinalizadores para a instalação:</br>
 **/f**: .ini caminho do arquivo</br>
 **/l**: caminho do log</br>
 **/i**: caminho de instalação</br>
 **/x**: desinstalar o caminho</br>
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de instalar o servidor de Backup, saiba como tooprepare seu servidor, ou começar a proteger uma carga de trabalho.
+Depois de instalar o Servidor de Backup, saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho.
 
 - [Preparar as cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
-- [Usar o servidor de Backup tooback um servidor VMware](backup-azure-backup-server-vmware.md)
-- [Usar o servidor de Backup tooback o SQL Server](backup-azure-sql-mabs.md)
-- [Adicione o armazenamento de Backup modernos tooBackup Server](backup-mabs-add-storage.md)
+- [Usar o Servidor de Backup para fazer backup de um Servidor do VMware](backup-azure-backup-server-vmware.md)
+- [Usar o Servidor de Backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
+- [Adicionar Armazenamento de Backup Moderno para o Servidor de Backup](backup-mabs-add-storage.md)

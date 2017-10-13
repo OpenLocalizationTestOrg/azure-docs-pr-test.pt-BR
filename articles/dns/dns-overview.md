@@ -1,5 +1,5 @@
 ---
-title: aaaOverview do DNS do Azure | Microsoft Docs
+title: "Visão geral do DNS do Azure | Microsoft Docs"
 description: "Visão geral do Serviço de hospedagem de DNS no Microsoft Azure. Hospede seu domínio no Microsoft Azure."
 services: dns
 documentationcenter: na
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: a10f87c488356469e9c04aabde31129049563891
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3705457e4c90f8869496f7f5177531bd128d1057
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-dns-overview"></a>Visão geral do DNS do Azure
 
-Olá, sistema de nomes de domínio ou DNS, é responsável pela conversão (ou seja, resolver) um site ou serviço name tooits endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seu DNS registros usando Olá mesmo credenciais, APIs, ferramentas e cobrança como outros serviços do Azure.
+O sistema de nomes de domínio, ou DNS, é responsável por converter (ou seja, resolver) um nome do site ou serviço para seu endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
 
 ![Visão geral de DNS](./media/dns-overview/scenario.png)
 
 ## <a name="features"></a>Recursos
 
-* **Confiabilidade e desempenho** - domínios DNS no DNS do Azure são hospedados na rede global do Azure de servidores de nomes DNS. Usamos a difusão de rede para que cada consulta DNS for atendida, o servidor DNS mais próximo disponível para o hello. Isso fornece desempenho rápido e alta disponibilidade para seu domínio.
+* **Confiabilidade e desempenho** - domínios DNS no DNS do Azure são hospedados na rede global do Azure de servidores de nomes DNS. Podemos usar a rede Anycast, para que cada consulta DNS seja atendida pelo servidor DNS mais próximo disponível. Isso fornece desempenho rápido e alta disponibilidade para seu domínio.
 
-* **Integração perfeita** -serviço de DNS do Azure Olá pode ser usado toomanage registros de DNS para os serviços do Azure e pode ser usado tooprovide DNS para os recursos externos, bem. DNS do Azure é integrado no hello portal do Azure e usa Olá as mesmas credenciais, cobrança e contrato de suporte como os outros serviços do Azure.
+* **Integração perfeita** - o serviço de DNS do Azure pode ser usado para gerenciar os registros DNS para os serviços do Azure e também pode ser usado para fornecer o DNS para os recursos externos. O DNS do Azure é integrado no portal do Azure e usa as mesmas credenciais, cobrança e contrato de suporte que outros serviços do Azure.
 
-* **Segurança** -Olá serviço DNS do Azure baseia-se no Gerenciador de recursos do Azure. Sendo assim, ele aproveita recursos do Resource Manager, como o controle de acesso baseado em função, os logs de auditoria e o bloqueio de recursos. Seus domínios e registros podem ser gerenciados por meio de saudação portal do Azure, cmdlets do PowerShell do Azure, em Olá CLI do Azure de plataforma cruzada. Aplicativos que exigem o gerenciamento automático de DNS podem integrar saudação do serviço por meio de saudação API REST e SDKs.
+* **Segurança** - o serviço de DNS do Azure baseia-se no Azure Resource Manager, Azure Resource Manager. Sendo assim, ele aproveita recursos do Resource Manager, como o controle de acesso baseado em função, os logs de auditoria e o bloqueio de recursos. Seus domínios e registros podem ser gerenciados por meio do portal do Azure, cmdlets do Azure PowerShell e a CLI do Azure de plataforma cruzada. Aplicativos que requerem gerenciamento automático de DNS podem se integrar com o serviço por meio da API REST e dos SDKs.
 
-O DNS do Azure não dá suporte a compra de nomes de domínio. Se você quiser toopurchase domínios, é necessário toouse um registrador de nomes de domínio de terceiro. registrador Olá normalmente cobra uma pequena taxa anual. domínios Olá, em seguida, podem ser hospedados no Azure DNS para o gerenciamento de registros de DNS. Consulte [delegar tooAzure um domínio DNS](dns-domain-delegation.md) para obter detalhes.
+O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja adquirir domínios, será necessário usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
 ## <a name="pricing"></a>Preços
 
-Cobrança do DNS é com base no número de saudação de zonas DNS hospedadas no Azure e pelo número de saudação de consultas DNS. toolearn mais sobre preços visite [de preços do Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+O preço do Azure é baseado no número de zonas DNS hospedadas no Azure e o número de consultas DNS. Para saber mais sobre os preços, visite [Preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
 ## <a name="faq"></a>Perguntas frequentes
 
-Para perguntas frequentes sobre o DNS do Azure, consulte Olá [perguntas Frequentes do Azure DNS](dns-faq.md).
+Para ver as perguntas frequentes sobre o DNS do Azure, veja o [Perguntas frequentes do DNS do Azure](dns-faq.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as zonas e registros DNS visitando: [Visão geral de zonas e registros DNS](dns-zones-records.md).
 
-Saiba como muito[criar uma zona DNS](./dns-getstarted-create-dnszone-portal.md) no DNS do Azure.
+Saiba como [criar uma zona DNS](./dns-getstarted-create-dnszone-portal.md) no DNS do Azure.
 
-Saiba mais sobre alguns dos Olá outra chave [recursos de rede](../networking/networking-overview.md) do Azure.
+Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
 

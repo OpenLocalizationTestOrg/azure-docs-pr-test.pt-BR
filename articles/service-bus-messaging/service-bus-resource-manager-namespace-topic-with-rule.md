@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate assinatura de tópico do barramento de serviço do Azure e a regra usando o modelo do Gerenciador de recursos do Azure | Microsoft Docs"
+title: "Criar uma regra e assinatura de tópicos do Barramento de Serviço do Azure usando o modelo do Azure Resource Manager | Microsoft Docs"
 description: "Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: dbc46da8491aee4d0c73bd4db90c696008920df4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager
 
-Este artigo mostra como toouse um modelo do Gerenciador de recursos do Azure que cria um namespace de barramento de serviço com um tópico, a assinatura e a regra (filtro). Você aprenderá como toodefine quais recursos são implantados e como toodefine parâmetros que são especificados quando a implantação de saudação for executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo toomeet seus requisitos
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço com tópico, assinatura e regra (filtro). Você aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Para saber mais sobre as práticas e os padrões de convenções de nomenclatura de recursos do Azure, confira [Convenções de nomenclatura recomendandas para os recursos do Azure][Recommended naming conventions for Azure resources].
 
-Para o modelo completo de Olá, consulte Olá [namespace de barramento de serviço com o tópico, a assinatura e a regra] [ Service Bus namespace with topic, subscription, and rule] modelo.
+Para ver o modelo completo, veja o [Modelo de namespace do Barramento de Serviço com tópico, assinatura e regra][Service Bus namespace with topic, subscription, and rule].
 
 > [!NOTE]
-> saudação do Azure Resource Manager modelos a seguir está disponível para download e implantação.
+> Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 > 
 > * [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 > * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > 
-> toocheck para modelos de hello mais recentes, visite Olá [modelos de início rápido do Azure] [ Azure Quickstart Templates] galeria e pesquisa para o barramento de serviço.
+> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por Barramento de Serviço.
 > 
 > 
 
@@ -46,24 +46,24 @@ Para o modelo completo de Olá, consulte Olá [namespace de barramento de servi�
 
 Com este modelo, você implantará um namespace de Barramento de Serviço com tópico, assinatura e regra (filtro).
 
-Os [tópicos e as assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fornecem uma forma de comunicação de um para muitos, em um padrão de *publicação/assinatura*. Ao usar tópicos e assinaturas, componentes de um aplicativo distribuído não se comunicam diretamente com o outro, em vez disso, eles trocam mensagens por meio do tópico que atua como um intermediário. Um tópico de tooa de assinatura é semelhante a uma fila virtual que recebe cópias das mensagens que foram enviadas toohello tópico. Um filtro de assinatura permite que você toospecify quais mensagens enviadas tópico tooa deve aparecer dentro de uma assinatura de tópico específico.
+Os [tópicos e as assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fornecem uma forma de comunicação de um para muitos, em um padrão de *publicação/assinatura*. Ao usar tópicos e assinaturas, componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de tópico que age como um intermediário. Uma assinatura para um tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas ao tópico. Um filtro na assinatura permite que você especifique quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
 
 ## <a name="what-are-rules-filters"></a>O que são regras (filtros)?
 
-Em muitos cenários, as mensagens com características específicas precisam ser processadas de maneiras diferentes. tooenable isso, você pode configurar assinaturas toofind mensagens que têm propriedades específicas e, em seguida, executam propriedades de toothose modificações. Embora as assinaturas do barramento de serviço vejam todas as mensagens enviadas toohello tópico, você só pode copiar um subconjunto da fila de assinatura virtual de toohello mensagens. Isso é feito usando filtros de assinatura. toolearn mais informações sobre regras (filtros), consulte [regras e ações](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Em muitos cenários, as mensagens com características específicas precisam ser processadas de maneiras diferentes. Para habilitar isso, você pode configurar assinaturas para localizar as mensagens com as propriedades específicas e, em seguida, realizar determinadas modificações nessas propriedades. Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Isso é feito usando filtros de assinatura. Para saber mais sobre regras (filtros), consulte [Regras e ações](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
-toorun Olá implantação automaticamente, clique em Olá botão a seguir:
+Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar tooAzure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
+[![Implantar no Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
-No Gerenciador de recursos do Azure, você deve definir parâmetros para os valores desejados toospecify quando Olá modelo é implantado. modelo de saudação inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro hello. Você deve definir um parâmetro para os valores que variam com base no projeto Olá que estiver implantando ou com base no ambiente de saudação que você está implantando. Não defina parâmetros para valores que permanecem sempre Olá mesmo. Cada valor de parâmetro é usado em Olá modelo toodefine Olá recursos implantados.
+Com o Azure Resource Manager, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
-modelo de saudação define Olá parâmetros a seguir:
+O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-nome de saudação do hello toocreate de namespace de barramento de serviço.
+O nome do namespace do Barramento de Serviço a ser criado.
 
 ```json
 "serviceBusNamespaceName": {
@@ -72,7 +72,7 @@ nome de saudação do hello toocreate de namespace de barramento de serviço.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-nome de saudação do tópico de Olá criado no namespace de barramento de serviço hello.
+O nome do tópico criado no namespace do Barramento de Serviço.
 
 ```json
 "serviceBusTopicName": {
@@ -81,7 +81,7 @@ nome de saudação do tópico de Olá criado no namespace de barramento de servi
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-nome de saudação da assinatura de saudação criada no namespace de barramento de serviço hello.
+O nome da assinatura criada no namespace do Barramento de Serviço.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -89,7 +89,7 @@ nome de saudação da assinatura de saudação criada no namespace de barramento
 }
 ```
 ### <a name="servicebusrulename"></a>serviceBusRuleName
-nome de saudação do hello rule(filter) criado no namespace de barramento de serviço hello.
+O nome da regra (filtro) criada no namespace do Barramento de Serviço.
 
 ```json
    "serviceBusRuleName": {
@@ -97,14 +97,14 @@ nome de saudação do hello rule(filter) criado no namespace de barramento de se
   }
 ```
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-versão de API do barramento de serviço de saudação do modelo de saudação.
+A versão da API do Barramento de Serviço do modelo.
 
 ```json
 "serviceBusApiVersion": {
 "type": "string"
 }
 ```
-## <a name="resources-toodeploy"></a>Recursos toodeploy
+## <a name="resources-to-deploy"></a>Recursos a implantar
 Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com tópico, assinatura e regras.
 
 ```json
@@ -156,7 +156,7 @@ Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com t
     }]
 ```
 
-## <a name="commands-toorun-deployment"></a>Implantação de toorun de comandos
+## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -172,17 +172,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você criou e implantou recursos usando o Gerenciador de recursos do Azure, Aprenda como toomanage esses recursos exibindo estes artigos:
+Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
 
 * [Gerenciar o Barramento de Serviço do Azure](service-bus-management-libraries.md)
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
-* [Gerenciar recursos do barramento de serviço com hello Explorador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

@@ -1,6 +1,6 @@
 ---
-title: "aaaChange o ID de locatário Olá cofre da chave depois de mover uma assinatura | Microsoft Docs"
-description: "Saiba como ID de locatário Olá tooswitch para um cofre da chave depois que uma assinatura é movido locatário diferente tooa"
+title: "Alterar a ID de locatário do cofre de chaves de depois de mover uma assinatura | Microsoft Docs"
+description: "Saiba como mudar a ID de locatário para um cofre de chaves depois que uma assinatura é movida para um locatário diferente"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 4d0607208c61c57959439d2d0bd8feade4141fee
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f007dd4f877b48003cddcefa5f4321049853361
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar a ID de locatário do cofre de chaves depois de mover uma assinatura
-### <a name="q-my-subscription-was-moved-from-tenant-a-tootenant-b-how-do-i-change-hello-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: minha assinatura foi movida de locatário A tootenant B. Como alterar a ID de locatário Olá para o Cofre de chaves existente e definir as ACLs corretas para entidades no locatário B?
-Quando você cria um novo cofre de chave em uma assinatura, é associado automaticamente toohello ID de locatário de Active Directory do Azure padrão para essa assinatura. Todas as entradas de política de acesso também são toothis empatados ID de locatário. Quando você mover sua assinatura do Azure de locatário um tootenant B, a chave existente cofres não podem ser acessados por Olá entidades (usuários e aplicativos) toofix locatário B. esse problema, você precisa:
+### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: minha assinatura foi movida do locatário A para o locatário B. Como posso alterar a ID do locatário para o cofre de chaves existente e definir ACLs corretas para as entidades no locatário B?
+Quando você cria um novo cofre de chaves em uma assinatura, ele é vinculado automaticamente à ID de locatário do Azure Active Directory padrão para essa assinatura. Todas as entradas de política de acesso também são vinculadas a essa ID de locatário. Quando você move a assinatura do Azure do locatário A para o locatário B, os cofres de chaves existentes ficam inacessíveis para as entidades (usuários e aplicativos) no locatário B. Para corrigir esse problema, você precisa:
 
-* Alterar a ID de locatário Olá associado a todos os cofres de chave existentes no tootenant assinatura B.
+* Alterar a ID do locatário associada a todos os cofres de chaves existentes nessa assinatura para o locatário B.
 * Remover todas as entradas de política de acesso existentes.
 * Adicionar novas entradas de política de acesso que estão associadas ao locatário B.
 
-Por exemplo, se você tiver o Cofre de chaves 'myvault' em uma assinatura que foi movida de locatário A tootenant B, aqui como toochange hello ID do locatário para este cofre de chaves e remover as políticas de acesso antigo.
+Por exemplo, se você tiver o cofre de chaves 'myvault' em uma assinatura que foi movida do locatário A para o B, veja como mudar a ID de locatário para o cofre de chaves e remover as antigas políticas de acesso.
 
 <pre>
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
@@ -39,10 +39,10 @@ $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Como este cofre no locatário A antes de mover hello, Olá valor original de **$vault. Properties.TenantId** é um locatário, enquanto **(Get-AzureRmContext). Tenant.TenantId** é locatário B.
+Já que o cofre estava no locatário A antes da mudança, o valor original de **$vault. Properties.TenantId** é locatário A e **(Get-AzureRmContext).Tenant.TenantId** é locatário B.
 
-Agora que o cofre é associado com a ID de locatário correto do hello e entradas de política de acesso antigas são removidas, definir o acesso de novas entradas de diretiva com [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Agora que o cofre está associado à ID de locatário correta e as entradas de política de acesso antigas foram removidas, defina novas entradas de política de acesso com [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você tiver dúvidas sobre o Cofre de chaves do Azure, visite Olá [fóruns do Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Se você tiver dúvidas sobre o Cofre de Chaves do Azure, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

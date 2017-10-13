@@ -1,6 +1,6 @@
 ---
-title: aaaQuery em nuvem bancos de dados com esquemas diferentes | Microsoft Docs
-description: "como tooset as consultas de bancos de dados em partições verticais"
+title: Consulta entre bancos de dados na nuvem com esquemas diferentes | Microsoft Docs
+description: "como configurar consultas entre bancos de dados em partições verticais"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 1134e2e608128b7a9cac47ff35a22a11e6e5bc14
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
 ![Consultar tabelas em bancos de dados diferentes][1]
 
-Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas diferentes bancos de dados. Isso significa que esse esquema Olá é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. 
+Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas diferentes bancos de dados. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* usuário Olá deve ter a permissão ALTER ANY EXTERNAL DATA SOURCE. Essa permissão é incluída com a permissão ALTER DATABASE hello.
-* Permissões ALTER ANY EXTERNAL DATA SOURCE são necessários toorefer toohello subjacente da fonte de dados.
+* O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
+* As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
 ## <a name="overview"></a>Visão geral
 
 > [!NOTE]
-> Ao contrário de com o particionamento horizontal, essas instruções de DDL não dependem de definindo uma camada de dados com um mapa do fragmento pela biblioteca de cliente do banco de dados Elástico hello.
+> Ao contrário do particionamento horizontal, essas instruções DDL não dependem da definição de uma camada de dados com um mapa de fragmentos por meio da biblioteca de cliente do banco de dados elástico.
 >
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -41,7 +41,7 @@ Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra do escopo do banco de dados e credenciais
-Olá credencial é usada pelo Olá consulta Elástico tooconnect tooyour bancos de dados remotos.  
+A credencial é usada pela consulta elástica para se conectar aos bancos de dados remotos.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -49,7 +49,7 @@ Olá credencial é usada pelo Olá consulta Elástico tooconnect tooyour bancos 
     [;]
 
 > [!NOTE]
-> Certifique-se de que Olá `<username>` não incluir nenhum **"@servername"** sufixo. 
+> Verifique se o `<username>` não inclui nenhum sufixo **"@servername"**. 
 >
 
 ## <a name="create-external-data-sources"></a>Criar fontes de dados externas
@@ -64,11 +64,11 @@ Sintaxe:
                 ) [;] 
 
 > [!IMPORTANT]
-> parâmetro de tipo Hello deve ser definido muito**RDBMS**. 
+> O parâmetro TYPE deve ser definido como **RDBMS**. 
 >
 
 ### <a name="example"></a>Exemplo
-Olá, exemplo a seguir ilustra uso de saudação do hello instrução CREATE para fontes de dados externas. 
+O exemplo a seguir ilustra o uso da instrução CRIAR para fontes de dados externas. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -79,7 +79,7 @@ Olá, exemplo a seguir ilustra uso de saudação do hello instrução CREATE par
         CREDENTIAL= SqlUser 
     ); 
 
-lista de saudação tooretrieve atual fontes de dados externas: 
+Para recuperar a lista de fontes de dados externas atuais: 
 
     select * from sys.external_data_sources; 
 
@@ -111,33 +111,33 @@ Sintaxe:
            DATA_SOURCE = RemoteReferenceData 
     ); 
 
-saudação de exemplo a seguir mostra como tooretrieve Olá lista de tabelas externas do banco de dados atual hello: 
+O exemplo a seguir mostra como recuperar a lista de tabelas externas do banco de dados atual: 
 
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Comentários
-Consulta elástica estende Olá tabela externa sintaxe toodefine externo tabelas existentes que usam fontes de dados externas do tipo RDBMS. Uma definição de tabela externa para o particionamento vertical abrange Olá aspectos a seguir: 
+A consulta elástica estende a sintaxe de tabela externa existente para definir as tabelas externas que usam fontes de dados externas do tipo RDBMS. Uma definição de tabela externa para o particionamento vertical abrange os seguintes aspectos: 
 
-* **Esquema**: tabela externa de saudação DDL define um esquema que podem usar as consultas. esquema de saudação fornecida em sua definição de tabela externa deve toomatch esquema Olá tabelas Olá Olá banco de dados remoto onde os dados reais hello estão armazenados. 
-* **Referência de banco de dados remoto**: tabela externa de saudação DDL refere-se a fonte de dados externa tooan. fonte de dados externa Olá Especifica o nome de servidor lógico hello e nome de banco de dados do banco de dados remoto Olá onde são armazenados dados de tabela real hello. 
+* **Esquema**: a DDL da tabela externa define um esquema que pode ser usado pelas consultas. O esquema fornecido na definição da tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que os dados reais são armazenados. 
+* **Referência de banco de dados remoto**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor lógico e o nome do banco de dados remoto em que os dados da tabela real estão armazenados. 
 
-Tabelas externas do hello sintaxe toocreate usando uma fonte de dados externa, conforme descrito na seção anterior Olá, é o seguinte: 
+Com uma fonte de dados externa, como descrito na seção anterior, a sintaxe para criar tabelas externas é a seguinte: 
 
-cláusula DATA_SOURCE Olá define a fonte de dados externa da saudação (ou seja, Olá banco de dados remoto em caso de particionamento vertical) que é usado para a tabela externa hello.  
+A cláusula DATA_SOURCE define a fonte de dados externa (ou seja, o banco de dados remoto, no caso do particionamento vertical) que é usada para a tabela externa.  
 
-cláusulas SCHEMA_NAME e OBJECT_NAME Olá fornecem Olá capacidade toomap Olá externo definição tooa tabela em um esquema diferente no banco de dados remoto hello, ou tooa tabela com um nome diferente, respectivamente. Isso é útil se você quiser toodefine uma exibição de catálogo tooa tabela externa ou DMV em seu banco de dados remoto - ou qualquer outra situação em que nome da tabela remota Olá já existe localmente.  
+As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição da tabela externa para uma tabela em um esquema diferente no banco de dados remoto ou para uma tabela com um nome diferente, respectivamente. Isso será útil se você quiser definir uma tabela externa para uma exibição de catálogo ou DMV em seu banco de dados remoto – ou em qualquer outra situação em que o nome da tabela remota já esteja sendo usado localmente.  
 
-Olá instrução DDL a seguir descarta uma definição de tabela externa existente do catálogo local hello. Ele não afeta o banco de dados remoto hello. 
+A instrução DDL a seguir remove uma definição existente da tabela externa do catálogo do local. Ela não afeta o banco de dados remoto. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Permissões para CREATE/DROP TABLE externo**: permissões ALTER ANY EXTERNAL DATA SOURCE são necessários para a tabela externa DDL que também é necessário toorefer toohello fonte de dados.  
+**Permissões para CREATE/DROP EXTERNAL TABLE**: as permissões ALTER ANY EXTERNAL DATA SOURCE são necessárias para a DDL da tabela externa, o que também é necessário para fazer referência à fonte de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
-Os usuários com a tabela externa do acesso toohello automaticamente acessar tabelas remotas subjacentes de toohello na credencial Olá especificado na definição de fonte de dados externa hello. Você deve gerenciar cuidadosamente tabela externa do access toohello em ordem tooavoid maneira indesejada de elevação de privilégios por meio de credencial de saudação da fonte de dados externa hello. Regulares permissões do SQL podem ser usado tooGRANT ou tabela externa do REVOGAR acesso tooan como se fosse uma tabela normal.  
+Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Você deve gerenciar cuidadosamente o acesso à tabela externa para evitar a elevação indesejada de privilégios por meio da credencial da fonte de dados externa. Permissões de SQL regulares podem ser usadas para o acesso de GRANT ou REVOKE a uma tabela externa como se ela fosse uma tabela normal.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>Exemplo: consultando bancos de dados particionados verticalmente
-Olá consulta a seguir executa uma junção de três vias entre duas tabelas locais Olá para pedidos e linhas de ordem e tabela remota Olá para clientes. Este é um exemplo de caso de uso de dados de referência de Olá para consulta Elástico: 
+A consulta a seguir executa uma junção de três vias entre as duas tabelas locais para pedidos e linhas da pedido e a tabela remota para clientes. Este é um exemplo do caso de uso de dados de referência para a consulta elástica: 
 
     SELECT      
      c_id as customer,
@@ -155,14 +155,14 @@ Olá consulta a seguir executa uma junção de três vias entre duas tabelas loc
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
-Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto toohello fragmentos. Olá procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usado tooexecute procedimentos armazenados ou código T-SQL em bancos de dados remotos hello. Ele usa Olá parâmetros a seguir: 
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros: 
 
-* Nome da fonte de dados (nvarchar): nome de saudação da fonte de dados externa de saudação do tipo RDBMS. 
-* Consulta (nvarchar): toobe de consulta Olá T-SQL executado em cada fragmento. 
-* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para parâmetros de saudação usadas no parâmetro de consulta de saudação (como sp_executesql). 
+* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
+* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp_executesql). 
 * Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-Olá sp\_executar\_remota usa Olá fornecida na seguinte instrução T-SQL em bancos de dados remotos Olá Olá invocação parâmetros tooexecute Olá de fonte de dados externa. Ele usa credenciais Olá Olá dados externos fonte tooconnect toohello shardmap manager banco de dados e bancos de dados remotos hello.  
+O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados do gerenciador de mapa do fragmento e bancos de dados remotos.  
 
 Exemplo: 
 
@@ -173,11 +173,11 @@ Exemplo:
 
 
 ## <a name="connectivity-for-tools"></a>Conectividade de ferramentas
-Você pode usar tooconnect regular de cadeias de caracteres de conexão do SQL Server seu toodatabases de ferramentas de integração de BI e os dados no servidor de banco de dados SQL Olá com consulta elástica habilitado e tabelas externas definidas. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Em seguida, consulte banco de dados de consulta Elástico toohello e suas tabelas externas, assim como quaisquer outros dados do SQL Server se conectaria toowith sua ferramenta. 
+É possível usar cadeias de conexão regulares do SQL Server para conectar suas ferramentas de BI e de integração de dados a bancos de dados no servidor do Banco de Dados SQL que têm a consulta elástica habilitada e as tabelas externas definidas. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Em seguida, consulte o banco de dados de consulta elástica e suas tabelas externas como qualquer outro banco de dados do SQL Server ao qual você se conectaria com a sua ferramenta. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
-* Certifique-se de que esse banco de dados do ponto de extremidade de consulta Elástico Olá tem banco de dados do access toohello remoto por habilitar o acesso de serviços do Azure em sua configuração de firewall do banco de dados SQL. Também verifique se essa credencial Olá fornecido em dados externos Olá definição de fonte pode fazer logon no banco de dados remoto hello e tem a tabela remota do Olá Olá permissões tooaccess.  
-* Consulta elástica funciona melhor para consultas onde a maioria de computação Olá pode ser feita em bancos de dados remotos hello. Você normalmente obtém o melhor desempenho de consulta Olá com predicados de filtro seletivo que pode ser avaliada em bancos de dados remotos hello ou junções que podem ser executadas completamente no banco de dados remoto hello. Outros padrões de consulta podem precisar de tooload grandes quantidades de dados do banco de dados remoto hello e podem executar baixo desempenho. 
+* Verifique se o banco de dados do ponto de extremidade da consulta elástica recebeu acesso ao banco de dados remoto habilitando acesso para os Serviços do Azure em sua configuração de firewall do Banco de Dados SQL. Também verifique se a credencial fornecida na definição da fonte de dados externa pode fazer logon com êxito no banco de dados remoto e se ela tem as permissões para acessar a tabela remota.  
+* A consulta elástica funciona melhor para consultas em que a maior parte da computação pode ser realizada nos bancos de dados remotos. Normalmente, você obtém o melhor desempenho de consulta com predicados de filtro seletivo que podem ser avaliados nos bancos de dados remotos ou com junções que podem ser executadas por completo no banco de dados remoto. Outros padrões de consulta podem precisar carregar grandes quantidades de dados do banco de dados remoto e podem ter um desempenho insatisfatório. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

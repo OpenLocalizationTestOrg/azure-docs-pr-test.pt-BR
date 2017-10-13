@@ -1,6 +1,6 @@
 ---
-title: "aaaHow fazer informações trabalhadores adicionar tooAzure usuários da colaboração B2B do Active Directory? | Microsoft Docs"
-description: "Colaboração B2B permite que informações trabalhadores tooadd usuários de sua organização de tooAzure AD para acesso | Microsoft Docs"
+title: "Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory? | Microsoft Docs"
+description: "A colaboração B2B permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acesso | Microsoft Docs"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: efe9eab852ec93986f9d777f200f8f7dbfd18ad9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-do-information-workers-add-b2b-collaboration-users-tooazure-active-directory"></a>Como os operadores de informações adicionar tooAzure usuários da colaboração B2B do Active Directory?
+# <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory?
 
-Os operadores de informações podem usar Olá [painel de acesso do aplicativo](http://myapps.microsoft.com) tooadd B2B toogroups de usuários de colaboração e aplicativos que eles administram.
+Os operadores de informações podem usar o [Painel de Acesso do Aplicativo](http://myapps.microsoft.com) para adicionar usuários de colaboração B2B a aplicativos e grupos os quais administram.
 
-## <a name="information-workers-adding-b2b-collaboration-users-tooan-application"></a>Adicionar solicitação de tooan de usuários de colaboração B2B os operadores de informações
-Atribua B2B colaboração usuários tooan aplicativo como um operador de informações em uma organização parceira, conforme mostrado no seguinte Olá vídeo:
+## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Operadores de informação adicionando usuários de colaboração B2B a um aplicativo
+Atribua usuários de colaboração B2B a um aplicativo como um operador de informações em uma organização parceira, conforme mostrado no vídeo a seguir:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
-## <a name="information-workers-adding-b2b-collaboration-users-tooa-group"></a>Operadores de informações adicionando o grupo de tooa de usuários de colaboração B2B
+## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>Operadores de informação adicionando usuários de colaboração B2B a um grupo
 
-Os operadores de informações da mesma forma podem adicionar grupo tooan atribuído de usuários de colaboração de B2B que está habilitado para gerenciamento de grupo de autoatendimento.
+Os operadores de informação podem adicionar usuários de colaboração B2B de uma forma semelhante a um grupo atribuído e habilitado para gerenciamento de grupo de autoatendimento.
 > [!NOTE]
-> Não é possível adicionar o grupo dinâmico do B2B colaboração usuários tooa ou tooa que é sincronizado com o Active Directory no local.
+> Não é possível adicionar usuários de colaboração B2B a um grupo dinâmico ou a um grupo sincronizado com o Active Directory local.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -43,7 +43,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
-* [elementos de saudação do hello email de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
+* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
 * [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
 * [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)

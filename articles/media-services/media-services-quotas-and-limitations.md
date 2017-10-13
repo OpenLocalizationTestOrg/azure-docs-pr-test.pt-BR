@@ -1,5 +1,5 @@
 ---
-title: "aaaMedia cotas e limitações de serviços | Microsoft Docs"
+title: "Cotas e limitações dos Serviços de Mídia | Microsoft Docs"
 description: "Este tópico descreve as cotas e as limitações associadas aos Serviços de Mídia do Microsoft Azure."
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7cbbc36ee226e592e80925854fd54af1d672c15d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 16bebdda823869f5e98c16c3859543632fb07240
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 Este tópico descreve as cotas e as limitações associadas aos Serviços de Mídia do Microsoft Azure.

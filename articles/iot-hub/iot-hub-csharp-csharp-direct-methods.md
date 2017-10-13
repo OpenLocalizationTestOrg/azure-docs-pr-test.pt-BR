@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Azure IoT Hub direcionar métodos (.NET/.NET) | Microsoft Docs"
-description: "Como toouse Azure IoT Hub direta métodos. Use dispositivo IoT do Azure de saudação SDK para .NET tooimplement um aplicativo de dispositivo simulado que inclui um método direto e hello serviço IoT do Azure SDK para .NET tooimplement um aplicativo de serviço que invoca o método direto hello."
+title: "Usar métodos diretos do Hub IoT do Azure (.NET/.NET) | Microsoft Docs"
+description: "Como usar os métodos diretos do Hub IoT do Azure. Use o SDK do dispositivo IoT do Azure para .NET para implementar um aplicativo de dispositivo simulado que inclua um método direto e o SDK do serviço do Azure IoT para .NET para implementar um aplicativo de serviço que invoque o método direto."
 services: iot-hub
 documentationcenter: 
 author: dsk-2015
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: dkshir
-ms.openlocfilehash: d4fa093a99558ec6faf294c2583a14a722b9ac03
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9ce1fbebb6417c10618aa182e3c1d9ddf8132fb6
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="use-direct-methods-netnet"></a>Usar métodos diretos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-Neste tutorial, estamos indo toodevelop dois .NET os aplicativos de console:
+Neste tutorial, vamos desenvolver dois aplicativos de console .NET:
 
-* **CallMethodOnDevice**, um aplicativo de back-end, que chama um método no aplicativo do dispositivo simulado hello e exibe a resposta de saudação.
-* **SimulateDeviceMethods**, um aplicativo de console que simula um dispositivo conectado tooyour IoT hub com a identidade do dispositivo Olá criada anteriormente e responde toohello método chamado pela nuvem hello.
+* **CallMethodOnDevice**, um aplicativo de back-end que chama um método no aplicativo do dispositivo simulado e exibe a resposta.
+* **SimulateDeviceMethods**, um aplicativo de console que simula um dispositivo que se conecta ao seu hub IoT com a identidade do dispositivo criada anteriormente e responde ao método chamado pela nuvem.
 
 > [!NOTE]
-> artigo Olá [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre Olá SDKs IoT do Azure que você pode usar toobuild toorun ambos os aplicativos em dispositivos e o back-end da solução.
+> O artigo [SDKs de IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução.
 > 
 > 
 
-toocomplete neste tutorial, você precisa:
+Para concluir este tutorial, você precisará:
 
 * Visual Studio 2015 ou Visual Studio 2017.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
@@ -42,31 +42,31 @@ toocomplete neste tutorial, você precisa:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Identidade do dispositivo Olá toocreate programaticamente em vez disso, leia seção correspondente Olá Olá [conecte seu dispositivo simulado tooyour IoT hub que usando o .NET] [ lnk-device-identity-csharp] artigo.
+Se você deseja criar a identidade do dispositivo de forma programática, leia a seção correspondente no artigo [Conecte seu dispositivo simulado ao Hub IoT usando o .NET][lnk-device-identity-csharp].
 
 
 ## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
-Nesta seção, você deve criar um aplicativo de console .NET que responde tooa método chamado pela solução de saudação volta final.
+Nesta seção, você cria um aplicativo de console .NET que responde a um método chamado pelo back-end da solução.
 
-1. No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto toohello atual usando Olá **aplicativo de Console** modelo de projeto. Projeto de saudação do nome **SimulateDeviceMethods**.
+1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Dê ao projeto o nome de **SimulateDeviceMethods**.
    
     ![Novo aplicativo de dispositivo Visual C# Windows clássico][img-createdeviceapp]
     
-1. No Gerenciador de soluções, clique com botão direito Olá **SimulateDeviceMethods** do projeto e, em seguida, clique em **gerenciar pacotes NuGet...** .
-1. Em Olá **NuGet Package Manager** janela, selecione **procurar** e procure **microsoft.azure.devices.client**. Selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices.Client** empacotar e aceitar os termos de uso do hello. Este procedimento faz o download, instala e adiciona uma referência toohello [dispositivo IoT do Azure SDK] [ lnk-nuget-client-sdk] NuGet pacote e suas dependências.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulateDeviceMethods**, então em **Gerenciar Pacotes do NuGet…**.
+1. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar** e pesquise por **microsoft.azure.devices.client**. Selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Client** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do Dispositivo IoT do Azure][lnk-nuget-client-sdk] e suas dependências.
    
     ![Aplicativo de cliente de janela do Gerenciador de Pacotes NuGet][img-clientnuget]
-1. Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-1. Adicionar Olá toohello campos a seguir **programa** classe. Substitua o valor de espaço reservado de saudação com cadeia de conexão do dispositivo Olá observado na seção anterior hello.
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor de espaço reservado pela cadeia de conexão do dispositivo que você anotou na seção anterior.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
 
-1. Adicione Olá seguinte tooimplement Olá ao método direto no dispositivo hello:
+1. Adicione o seguinte para implementar o método direto no dispositivo:
 
         static Task<MethodResponse> WriteLineToConsole(MethodRequest methodRequest, object userContext)
         {
@@ -74,25 +74,25 @@ Nesta seção, você deve criar um aplicativo de console .NET que responde tooa 
             Console.WriteLine("\t{0}", methodRequest.DataAsJson);
             Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
 
-            string result = "'Input was written toolog.'";
+            string result = "'Input was written to log.'";
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
 
-1. Finalmente, adicione Olá toohello de código a seguir **principal** método tooopen Olá conexão tooyour IoT hub e inicializar Olá método ouvinte:
+1. Por fim, adicione o seguinte código ao método **Principal** para abrir a conexão para o hub IoT e inicializar o ouvinte do método:
    
         try
         {
-            Console.WriteLine("Connecting toohub");
+            Console.WriteLine("Connecting to hub");
             Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
             // setup callback for "writeLine" method
             Client.SetMethodHandlerAsync("writeLine", WriteLineToConsole, null).Wait();
-            Console.WriteLine("Waiting for direct method call\n Press enter tooexit.");
+            Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
             Console.ReadLine();
 
             Console.WriteLine("Exiting...");
 
-            // as a good practice, remove hello "writeLine" handler
+            // as a good practice, remove the "writeLine" handler
             Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
             Client.CloseAsync().Wait();
         }
@@ -102,38 +102,38 @@ Nesta seção, você deve criar um aplicativo de console .NET que responde tooa 
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-1. Olá Gerenciador de soluções do Visual Studio, com o botão direito sua solução e clique em **definir projetos de inicialização...** . Selecione **único projeto de inicialização**e, em seguida, selecione Olá **SimulateDeviceMethods** projeto no menu suspenso de saudação.        
+1. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização...**. Selecione **Projeto único de inicialização** e, em seguida, selecione o projeto **SimulateDeviceMethods** no menu suspenso.        
 
 > [!NOTE]
-> coisas tookeep simples, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como tentativas de conexão), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias][lnk-transient-faults].
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (tais como tentar conexão novamente), conforme sugerido no artigo do MSDN [Tratamento de Falhas Transitórias][lnk-transient-faults].
 > 
 > 
 
 ## <a name="call-a-direct-method-on-a-device"></a>Chama um método direto em um dispositivo
-Nesta seção, você deve criar um aplicativo de console .NET que chama um método no aplicativo do dispositivo simulado hello e, em seguida, exibe a resposta de saudação.
+Nesta seção, você cria um aplicativo de console do .NET que chama um método no dispositivo simulado e, em seguida, exibe a resposta.
 
-1. No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto toohello atual usando Olá **aplicativo de Console** modelo de projeto. Certifique-se de versão do .NET Framework Olá é 4.5.1 ou posterior. Projeto de saudação do nome **CallMethodOnDevice**.
+1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **CallMethodOnDevice**.
    
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createserviceapp]
-2. No Gerenciador de soluções, clique com botão direito Olá **CallMethodOnDevice** do projeto e, em seguida, clique em **gerenciar pacotes NuGet...** .
-3. Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello. Este procedimento faz o download, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CallMethodOnDevice** e clique em **Gerenciar Pacotes NuGet...**.
+3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
    
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
 
-4. Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:
+4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Adicionar Olá toohello campos a seguir **programa** classe. Substitua o valor de espaço reservado Olá Olá cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello.
+5. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
-6. Adicionar Olá após o método toohello **programa** classe:
+6. Adicione o seguinte método à classe **Programa** :
    
         private static async Task InvokeMethod()
         {
             var methodInvocation = new CloudToDeviceMethod("writeLine") { ResponseTimeout = TimeSpan.FromSeconds(30) };
-            methodInvocation.SetPayloadJson("'a line toobe written'");
+            methodInvocation.SetPayloadJson("'a line to be written'");
 
             var response = await serviceClient.InvokeDeviceMethodAsync("myDeviceId", methodInvocation);
 
@@ -141,38 +141,38 @@ Nesta seção, você deve criar um aplicativo de console .NET que chama um méto
             Console.WriteLine(response.GetPayloadAsJson());
         }
    
-    Este método invoca um método direto com o nome `writeLine` em Olá `myDeviceId` dispositivo. Em seguida, ele grava resposta Olá fornecida pelo dispositivo Olá no console de saudação. Observe como é possível toospecify um valor de tempo limite para Olá dispositivo toorespond.
-7. Finalmente, adicione Olá toohello linhas a seguir **principal** método:
+    Este método invoca um método direto com o nome `writeLine` no dispositivo `myDeviceId`. Em seguida, ele grava a resposta fornecida pelo dispositivo no console. Observe como é possível especificar um valor de tempo limite para a resposta do dispositivo.
+7. Por fim, adicione as seguintes linhas ao método **Main** :
    
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
         InvokeMethod().Wait();
-        Console.WriteLine("Press Enter tooexit.");
+        Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. Olá Gerenciador de soluções do Visual Studio, com o botão direito sua solução e clique em **definir projetos de inicialização...** . Selecione **único projeto de inicialização**e, em seguida, selecione Olá **CallMethodOnDevice** projeto no menu suspenso de saudação.
+1. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização...**. Selecione **Único projeto de inicialização**e, em seguida, selecione o projeto **CallMethodOnDevice** no menu suspenso.
 
-## <a name="run-hello-applications"></a>Executar aplicativos Olá
-Agora você está pronto toorun aplicativos de saudação.
+## <a name="run-the-applications"></a>Executar os aplicativos
+Agora você está pronto para executar os aplicativos.
 
-1. Execute o aplicativo de dispositivo de .NET Olá **SimulateDeviceMethods**. Ele deve iniciar a escuta para chamadas de método do seu Hub IoT: 
+1. Execute o aplicativo de dispositivo .NET **SimulateDeviceMethods**. Ele deve iniciar a escuta para chamadas de método do seu Hub IoT: 
 
     ![Execução de aplicativo de dispositivo][img-deviceapprun]
-1. Agora esse dispositivo hello está conectado e esperando para invocações de método, execute Olá .NET **CallMethodOnDevice** método do aplicativo tooinvoke hello no aplicativo do dispositivo simulado hello. Você deve ver a resposta do dispositivo Olá gravada no console de saudação.
+1. Agora que o dispositivo está conectado e aguardando chamadas de método, execute o aplicativo **CallMethodOnDevice** .NET para chamar o método no aplicativo do dispositivo simulado. Você deve ver a resposta do dispositivo escrita no console.
    
     ![Execução de aplicativo de serviço][img-serviceapprun]
-1. dispositivo Hello, em seguida, reage toohello método imprimindo esta mensagem:
+1. O dispositivo reage ao método imprimindo esta mensagem:
    
-    ![Método direto invocado no dispositivo Olá][img-directmethodinvoked]
+    ![Método direto invocado no dispositivo][img-directmethodinvoked]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, configurado um novo hub IoT no hello portal do Azure e, em seguida, criou uma identidade de dispositivo no registro de identidade do hub de IoT hello. Você usou esse dispositivo identidade tooenable Olá simulado dispositivo aplicativo tooreact toomethods invocado pela nuvem hello. Você também criou um aplicativo que chama métodos no dispositivo hello e exibe a resposta de saudação do dispositivo de saudação. 
+Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT. Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para reagir aos métodos invocados pela nuvem. Você também criou um aplicativo que invoca métodos no dispositivo e exibe a resposta do dispositivo. 
 
-toocontinue guia de Introdução com o IoT Hub e tooexplore outros cenários de IoT, consulte:
+Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 
 * [Introdução ao Hub IoT]
 * [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
 
-toolearn como tooextend seu método de solução e agenda IoT chama em vários dispositivos, consulte Olá [agenda e trabalhos de difusão] [ lnk-tutorial-jobs] tutorial.
+Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, confira o tutorial [Agendar e difundir trabalhos][lnk-tutorial-jobs].
 
 <!-- Images. -->
 [img-createdeviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-device-app.png

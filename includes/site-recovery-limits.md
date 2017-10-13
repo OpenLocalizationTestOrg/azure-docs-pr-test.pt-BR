@@ -1,5 +1,5 @@
 ---
-title: "aaaSite tabela de limites de recuperação"
+title: Tabela de limites do Site Recovery
 description: Descreve os limites do sistema para o Site Recovery.
 services: site recovery
 documentationcenter: NA
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 0a9f9e4e5f8a8d7d21abd9ba1d31704b351445fd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-Olá limites a seguir se aplicam a tooAzure recuperação de Site:
+Os seguintes limites se aplicam ao Azure Site Recovery:
 
 | IDENTIFICADOR DE LIMITE | LIMITE PADRÃO |
 | --- | --- | --- | --- |

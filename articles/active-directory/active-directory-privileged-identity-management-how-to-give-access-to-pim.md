@@ -1,6 +1,6 @@
 ---
-title: aaaHow toogive acesso tooPrivileged Identity Management - Azure | Microsoft Docs
-description: "Saiba como tooadd funções toousers com hello extensão do Azure Active Directory Privileged Identity Management para que eles possam PIM."
+title: Como conceder acesso ao Privileged Identity Management - Azure | Microsoft Docs
+description: "Saiba como adicionar funções a usuários com a extensão Azure Active Directory Privileged Identity Management para que possam gerenciar o PIM."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 5d99589af4af766e430d7cecd743ace752f63768
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="giving-access-toomanage-azure-ad-privileged-identity-management"></a>Fornecendo acesso toomanage Azure AD Privileged Identity Management
-administrador global Hello, que permite que o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter atribuições de função e acesso tooPIM. Entretanto, ninguém mais obtém acesso de gravação por padrão, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso somente leitura tooAzure AD PIM. toogive tooPIM de acesso, o usuário primeiro Olá pode atribuir outros toohello **administrador com privilégios de função** função. Essa atribuição deve ser feita no próprio PIM e não pode ser alterada por meio do PowerShell ou outros portais.
+# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Conceder acesso para gerenciamento do Azure AD Privileged Identity Management
+O administrador global que habilita o Azure AD PIM (Privileged Identity Management) para uma organização automaticamente obtém atribuições de função e acesso ao PIM. Entretanto, ninguém mais obtém acesso de gravação por padrão, incluindo outros administradores globais. Outros administradores globais, os administradores de segurança e leitores de segurança têm acesso somente leitura ao Azure AD PIM. Para fornecer acesso ao PIM, o primeiro usuário pode atribuir a outros usuários a função **Administrador com função com privilégios** . Essa atribuição deve ser feita no próprio PIM e não pode ser alterada por meio do PowerShell ou outros portais.
 
 > [!NOTE]
 > O gerenciamento do Azure AD PIM requer o Azure MFA. Como as contas da Microsoft não podem se registrar para o Azure MFA, um usuário que entra com uma conta da Microsoft não pode acessar o Azure AD PIM.
@@ -31,29 +31,29 @@ administrador global Hello, que permite que o Azure AD Privileged Identity Manag
 
 Certifique-se de que haja sempre pelo menos dois usuários em uma função de administrador de função com privilégios, no caso de um usuário estar bloqueado ou sua conta ser excluída.
 
-## <a name="give-another-user-access-toomanage-pim"></a>Dê toomanage acesso de outro usuário PIM
-1. Entrar toohello [portal do Azure](https://portal.azure.com/) e selecione hello **do Azure AD Privileged Identity Management** aplicativo no painel de saudação.
+## <a name="give-another-user-access-to-manage-pim"></a>Fornecer a outro usuário o acesso para gerenciar o PIM
+1. Entre no [Portal do Azure](https://portal.azure.com/) e selecione o aplicativo **Azure AD Privileged Identity Management** no painel.
 2. Selecione **Gerenciar funções com privilégios** > **Administrador com função com privilégios** > **Adicionar**.
    
     ![Adicionar administradores com função com privilégios – captura de tela][1]
-3. Na folha de usuários gerenciados adicionar Olá, etapa 1 já está concluída. A etapa 2, selecione **Selecione usuários** e pesquisa para o usuário Olá você deseja tooadd.
+3. Na folha Adicionar usuários gerenciados, a etapa 1 já foi concluída. Selecione a etapa 2, **Selecionar usuários** e pesquise o usuário que você deseja adicionar.
    
     ![Selecionar usuários – captura de tela][2]
-4. Selecione o usuário Olá Olá dos resultados da pesquisa e, em seguida, clique em **feito**.
-5. Clique em **Okey** toosave sua seleção. usuário Olá selecionado será exibido na lista de saudação de administradores com privilégios de função.
+4. Selecione o usuário nos resultados da pesquisa e clique em **Concluído**.
+5. Clique em **OK** para salvar sua seleção. O usuário que você selecionou aparecerá na lista de Administradores com função com privilégios.
    
-   * Sempre que você atribui um novo toosomeone de função, eles são automaticamente configurados como função de saudação tooactivate qualificados. Se você quiser toomake permanente na função hello, clique em usuário Olá na lista de saudação. Selecione **fazer perm** no menu de informações de usuário de saudação.
-6. Enviar link ao usuário Olá muito[guia de Introdução ao Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
+   * Sempre que você atribuir uma nova função a alguém, essa pessoa é automaticamente configurada como qualificada para ativar a função. Se você desejar torná-los permanentes na função, clique no usuário na lista. Selecione **tornar perm.** no menu de informações do usuário.
+6. Enviar ao usuário um link para a [Introdução ao Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
 ## <a name="remove-another-users-access-rights-for-managing-pim"></a>Remover direitos de acesso de outro usuário para o gerenciamento de PIM
-Antes de você remove da função de administrador com privilégios de função hello, sempre Certifique-se de haver dois usuários atribuídos tooit.
+Antes de remover alguém da função de administrador de função com privilégios, certifique-se de que ainda haverá dois usuários atribuídos a ela.
 
-1. No painel PIM hello, clique na função hello **administrador com privilégios de função**.  saudação de lista de usuários atualmente na função será exibida.
-2. Clique no usuário Olá na lista de saudação do usuário.
+1. No painel PIM, clique na função **Administrador com função com privilégios**.  A lista de usuários atualmente naquela função será exibida.
+2. Clique no usuário na lista de usuários.
 3. Clique em **Remover**.  Será exibida uma mensagem de confirmação.
-4. Clique em **Sim** tooremove usuário Olá função hello.
+4. Clique em **Sim** para remover o usuário da função.
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

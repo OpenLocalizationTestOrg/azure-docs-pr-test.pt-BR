@@ -1,6 +1,6 @@
 ---
-title: aaaHow tootroubleshoot Cache Redis do Azure | Microsoft Docs
-description: Saiba como tooresolve comum problemas com Cache Redis do Azure.
+title: Como solucionar problemas do Cache Redis do Azure | Microsoft Docs
+description: Saiba como solucionar problemas comuns do Cache Redis do Azure.
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-ms.openlocfilehash: 4e736fce2b6d5200a2a8d802f3f1384b63458cab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tootroubleshoot-azure-redis-cache"></a>Como tootroubleshoot Cache Redis do Azure
-Este artigo fornece orientação para solução Olá seguintes categorias de problemas de Cache Redis do Azure.
+# <a name="how-to-troubleshoot-azure-redis-cache"></a>Como solucionar problemas do Cache Redis do Azure
+Este artigo fornece orientações para solucionar as seguintes categorias de problemas do Cache Redis do Azure.
 
-* [Solução de problemas do cliente lado](#client-side-troubleshooting) - esta seção fornece diretrizes sobre como identificar e resolver problemas causados por aplicativo hello conectando tooAzure Cache Redis.
-* [Solução de problemas de lado do servidor](#server-side-troubleshooting) - esta seção fornece diretrizes sobre como identificar e resolver problemas causados saudação do lado do servidor de Cache Redis do Azure.
-* [Exceções de tempo limite de Stackexchange](#stackexchangeredis-timeout-exceptions) -esta seção fornece informações sobre solução de problemas ao usar o cliente do hello stackexchange. Redis.
+* [Solução de problemas do cliente](#client-side-troubleshooting) - esta seção fornece diretrizes sobre como identificar e resolver problemas causados pelo aplicativo que se conecta ao Cache Redis do Azure.
+* [Solução de problemas do servidor](#server-side-troubleshooting) - esta seção fornece diretrizes sobre como identificar e resolver problemas causados pelo servidor do Cache Redis do Azure.
+* [Exceções de tempo limite do StackExchange.Redis](#stackexchangeredis-timeout-exceptions) - esta seção fornece informações sobre como solucionar problemas ao usar o cliente StackExchange.Redis.
 
 > [!NOTE]
-> Várias das etapas neste guia de solução de problemas de saudação incluem instruções toorun comandos do Redis e monitorar várias métricas de desempenho. Para obter mais informações e instruções, consulte os artigos de Olá Olá [informações adicionais](#additional-information) seção.
+> Várias das etapas de solução de problemas neste guia incluem instruções para executar comandos do Redis e monitorar diversas métricas de desempenho. Para obter mais informações, consulte os artigos na seção [Informações adicionais](#additional-information) .
 > 
 > 
 
 ## <a name="client-side-troubleshooting"></a>Solução de problemas do cliente
-Esta seção discute problemas que ocorrem devido a uma condição em um aplicativo de cliente hello.
+Esta seção aborda a solução de problemas que ocorrem devido a alguma condição do aplicativo cliente.
 
-* [Pressão de memória no cliente Olá](#memory-pressure-on-the-client)
+* [Demanda de memória do cliente](#memory-pressure-on-the-client)
 * [Intermitência de tráfego](#burst-of-traffic)
 * [Alto nível de uso da CPU do cliente](#high-client-cpu-usage)
 * [Largura de banda do cliente ultrapassada](#client-side-bandwidth-exceeded)
 * [Solicitação/resposta grande](#large-requestresponse-size)
-* [Os dados com toomy no Redis?](#what-happened-to-my-data-in-redis)
+* [O que aconteceu com meus dados no Redis?](#what-happened-to-my-data-in-redis)
 
-### <a name="memory-pressure-on-hello-client"></a>Pressão de memória no cliente Olá
+### <a name="memory-pressure-on-the-client"></a>Demanda de memória do cliente
 #### <a name="problem"></a>Problema
-Pressão de memória na máquina do cliente Olá leva tooall tipos de problemas de desempenho que podem atrasar o processamento de dados que foi enviados por instância do Redis Olá sem atraso. Quando atinge a pressão de memória, o sistema Olá geralmente tem dados de toopage da memória de toovirtual de memória física que está no disco. Isso *a falha de página* causas Olá significativamente sistema tooslow para baixo.
+A demanda de memória no computador cliente leva a todo tipo de problemas de desempenho, que podem atrasar o processamento de dados que foram enviados pela instância do Redis sem nenhum atraso. Quando há grande demanda de memória, o sistema normalmente precisar paginar dados da memória física para a memória virtual que está no disco. Esse tipo de *falha de página* faz com que o sistema fique significativamente mais lento.
 
 #### <a name="measurement"></a>Medida
-1. Monitorar o uso de memória na máquina toomake-se de que não exceda a memória disponível. 
-2. Saudação de monitor `Page Faults/Sec` contador de desempenho. A maioria dos sistemas terá algumas falhas de página até mesmo durante a operação normal, portanto, fique atento a picos no contador de desempenho de falhas página que correspondem aos tempos limite.
+1. Monitorar o uso de memória no computador para certificar-se de que ele não ultrapasse a memória disponível. 
+2. Monitorar o contador de desempenho `Page Faults/Sec` . A maioria dos sistemas terá algumas falhas de página até mesmo durante a operação normal, portanto, fique atento a picos no contador de desempenho de falhas página que correspondem aos tempos limite.
 
 #### <a name="resolution"></a>Resolução
-Atualizar o cliente do maior cliente tooa tamanho da VM com mais memória ou examinar sua memória uso padrões tooreduce memória consuption.
+Atualizar o cliente para uma VM cliente maior com mais memória ou analisar seus padrões de uso de memória para reduzir o consumo de memória.
 
 ### <a name="burst-of-traffic"></a>Intermitência de tráfego
 #### <a name="problem"></a>Problema
-Picos de tráfego combinado com baixa `ThreadPool` configurações podem resultar em atrasos no processamento de dados já enviadas por Olá servidor Redis, mas ainda não consumidos no lado do cliente de saudação.
+A intermitência de tráfego, combinada com configurações de `ThreadPool` ruins, podem resultar em atrasos no processamento de dados que já foram enviados pelo servidor Redis, mas ainda não foram consumidos no lado do cliente.
 
 #### <a name="measurement"></a>Medida
-Monitor como suas estatísticas de `ThreadPool` mudam ao longo do tempo usando um código [como este](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Você também pode examinar Olá `TimeoutException` mensagem do stackexchange. Redis. Veja um exemplo:
+Monitor como suas estatísticas de `ThreadPool` mudam ao longo do tempo usando um código [como este](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Você também pode examinar a mensagem `TimeoutException` do StackExchange.Redis. Veja um exemplo:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-Olá acima mensagem, há vários problemas que são interessantes:
+Na mensagem acima, há várias questões interessantes:
 
-1. Observe que em Olá `IOCP` seção e hello `WORKER` seção que você tem um `Busy` valor maior que Olá `Min` valor. Isso significa que suas configurações de `ThreadPool` precisam de ajuste.
-2. Você também pode ver `in: 64221`. Isso indica que 64211 bytes foram recebidos na camada de soquete de kernel hello, mas ainda não foram lidas pelo aplicativo hello (por exemplo, Stackexchange). Normalmente, isso significa que seu aplicativo não está lendo dados de rede Olá rapidamente o servidor de saudação está enviando tooyou.
+1. Observe que, na seção `IOCP` e na seção `WORKER`, você tem um valor `Busy` que é maior que o valor `Min`. Isso significa que suas configurações de `ThreadPool` precisam de ajuste.
+2. Você também pode ver `in: 64221`. Isso indica que 64211 bytes foram recebidos na camada de soquete de kernel, mas ainda não foram lidos pelo aplicativo (por exemplo, StackExchange.Redis). Normalmente, isso significa que seu aplicativo não está lendo dados da rede na velocidade em que o servidor os está enviando para você.
 
 #### <a name="resolution"></a>Resolução
-Configurar seu [ThreadPool configurações](https://gist.github.com/JonCole/e65411214030f0d823cb) toomake-se de que o pool de threads será dimensionado rapidamente em cenários de disparo.
+Configurar suas [Configurações de ThreadPool](https://gist.github.com/JonCole/e65411214030f0d823cb) para certificar-se de que o pool de threads será escalado verticalmente rapidamente em cenários de intermitência.
 
 ### <a name="high-client-cpu-usage"></a>Alto nível de uso da CPU do cliente
 #### <a name="problem"></a>Problema
-Alto uso da CPU no cliente de saudação é uma indicação de que o sistema Olá não é possível acompanhar o trabalho Olá que foi solicitado que ele tooperform. Isso significa que o cliente Olá pode falhar tooprocess uma resposta do Redis de maneira oportuna, embora Redis enviou resposta de saudação muito rapidamente.
+Um alto nível de uso da CPU do cliente é uma indicação de que o sistema não é capaz de acompanhar o trabalho que foi solicitado a executar. Isso significa que o cliente pode deixar de processar uma resposta do Redis de forma oportuna, embora o Redis tenha enviado a resposta muito rapidamente.
 
 #### <a name="measurement"></a>Medida
-Olá monitor sistema ampla da CPU por meio de saudação Portal do Azure ou Olá associados contador de desempenho. Tenha cuidado não toomonitor *processo* CPU como um único processo pode ter baixa utilização da CPU Olá mesmo tempo que o sistema geral da CPU pode ser alta. Fique atento a picos de uso de CPU que correspondem aos tempos limite. Como resultado de alta utilização da CPU, você também poderá ver alto `in: XXX` valores em `TimeoutException` mensagens de erro, conforme descrito em Olá [intermitência de tráfego](#burst-of-traffic) seção.
+Monitorar o uso de CPU geral do sistema por meio do Portal do Azure ou do contador de desempenho associado. Tenha cuidado para não monitorar o uso de CPU do *processo* , porque um único processo pode representar pouco uso da CPU enquanto o uso de CPU do sistema geral pode ser alto. Fique atento a picos de uso de CPU que correspondem aos tempos limite. Como resultado do alto nível de uso da CPU, você também poderá ver valores altos de `in: XXX` em mensagens de erro `TimeoutException`, conforme descrito na seção [Intermitência de tráfego](#burst-of-traffic).
 
 > [!NOTE]
-> Stackexchange 1.1.603 e posteriores, inclui Olá `local-cpu` métrica em `TimeoutException` mensagens de erro. Certifique-se estiver usando a versão mais recente de saudação do hello [pacote NuGet Stackexchange](https://www.nuget.org/packages/StackExchange.Redis/). Há constantemente de bugs corrigidos no Olá código toomake-tootimeouts mais robusto para ter a versão mais recente da saudação é importante.
+> O StackExchange 1.1.603 e versões posteriores incluem a métrica `local-cpu` em mensagens de erro `TimeoutException`. Certifique-se de estar usando a versão mais recente do [Pacote NuGet do StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Constantemente são corrigidos bugs no código para torná-lo mais robusto com relação a tempos limite, de modo que ter a versão mais recente é importante.
 > 
 > 
 
 #### <a name="resolution"></a>Resolução
-Atualizar tooa maior tamanho da VM com maior capacidade de CPU ou investigar o que está causando picos de CPU. 
+Atualizar para uma VM maior, com mais capacidade de CPU, ou investigar o que está causando os picos de CPU. 
 
 ### <a name="client-side-bandwidth-exceeded"></a>Largura de banda do cliente ultrapassada
 #### <a name="problem"></a>Problema
-Computadores cliente com tamanhos diferentes têm limitações quanto à largura de banda de rede que têm disponível. Se o cliente Olá excede Olá largura de banda disponível, dados não serão processados no lado do cliente Olá rapidamente o servidor de saudação é enviá-la. Isso pode levar tootimeouts.
+Computadores cliente com tamanhos diferentes têm limitações quanto à largura de banda de rede que têm disponível. Se o cliente ultrapassar a largura de banda disponível, os dados não serão processados no lado do cliente tão rapidamente quanto o servidor os envia. Isso pode levar a tempos limite.
 
 #### <a name="measurement"></a>Medida
 Monitorar como seu uso de largura de banda muda ao longo do tempo usando um código [como este](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Observe que esse código pode não ser executado com êxito em alguns ambientes com permissões restritas (como sites do Azure).
@@ -98,9 +98,9 @@ Aumentar o tamanho da VM do cliente ou reduzir o consumo de largura de banda da 
 
 ### <a name="large-requestresponse-size"></a>Solicitação/resposta grande
 #### <a name="problem"></a>Problema
-Uma solicitação/resposta grande pode causar tempos limite. Por exemplo, suponha que o valor do tempo limite configurado no seu cliente seja de um segundo. Seu aplicativo solicita duas chaves (por exemplo, 'A' e 'B') no hello simultaneamente (usando Olá a mesma conexão de rede física). A maioria dos clientes oferecem suporte a "Pipelining" de solicitações, de modo que as solicitações de 'A' e 'B' são enviadas em Olá durante a transmissão toohello um servidor após Olá outros sem esperar por respostas de saudação. Olá servidor enviará respostas Olá novamente Olá mesmo pedido. Se a resposta 'A' é grande o suficiente, ele pode consomem a maior parte do tempo limite de saudação para solicitações subsequentes. 
+Uma solicitação/resposta grande pode causar tempos limite. Por exemplo, suponha que o valor do tempo limite configurado no seu cliente seja de um segundo. Seu aplicativo solicita duas chaves (por exemplo, "A" e "B") ao mesmo tempo (usando a mesma conexão de rede física). A maioria dos clientes dá suporte ao "pipelining" de solicitações, de modo que as duas solicitações, "A" e "B", sejam transmitidas ao servidor uma após a outra sem esperar pelas respostas. O servidor enviará as respostas na mesma ordem. Se a resposta "A" for grande o suficiente, ela poderá consumir a maior parte do tempo limite das solicitações subsequentes. 
 
-saudação de exemplo a seguir demonstra esse cenário. Nesse cenário, solicitação 'A' e 'B' são enviados rapidamente, servidor Olá começa a enviar respostas 'A' e 'B' rapidamente, mas devido a tempo de transferência de dados, 'B' presa atrás Olá outra solicitação e o tempo limite, mesmo que o servidor de saudação respondeu rapidamente.
+O exemplo a seguir demonstra esse cenário. No cenário, as solicitações "A" e "B" são enviadas rapidamente, o servidor começa a enviar respostas "A" e "B" rapidamente, mas, devido ao tempo para a transferência de dados, "B" fica preso atrás da outra solicitação e atinge o tempo limite, embora o servidor tenha respondido rapidamente.
 
     |-------- 1 Second Timeout (A)----------|
     |-Request A-|
@@ -112,87 +112,87 @@ saudação de exemplo a seguir demonstra esse cenário. Nesse cenário, solicita
 
 
 #### <a name="measurement"></a>Medida
-Este é um um toomeasure difícil. Basicamente, você tem tooinstrument seu cliente código tootrack grandes solicitações e respostas de. 
+Isso é difícil de medir. Basicamente, você precisa instrumentar o código do cliente para monitorar grandes solicitações e respostas. 
 
 #### <a name="resolution"></a>Resolução
-1. O Redis é otimizado para um grande número de valores pequenos, em vez de alguns valores grandes. Olá preferencial solução é toobreak backup de seus dados em valores menores relacionados. Consulte Olá [o que é o intervalo de tamanho Olá valor ideal para redis? Is 100KB too large? (Qual é o intervalo de tamanho ideal para o Redis? 100 KB é muito?)](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) para obter detalhes sobre por que valores menores são recomendados.
-2. Aumentar o tamanho de saudação da VM (para o cliente e servidor de Cache Redis), tooget de recursos de largura de banda maior, redução de dados transferidos vezes para respostas maior. Observe que obter mais largura de banda no servidor de saudação apenas ou apenas no cliente Olá pode não ser suficiente. Medir o uso de largura de banda e compará-la toohello recursos do tamanho de saudação do VM no momento.
-3. Aumentar o número de saudação do `ConnectionMultiplexer` objetos uso e solicitações de round-robin em conexões diferentes.
+1. O Redis é otimizado para um grande número de valores pequenos, em vez de alguns valores grandes. A solução preferida é dividir seus dados em valores menores relacionados. Consulte a postagem [What is the ideal value size range for redis? Is 100KB too large? (Qual é o intervalo de tamanho ideal para o Redis? 100 KB é muito?)](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) para obter detalhes sobre por que valores menores são recomendados.
+2. Aumentar o tamanho da VM (para o cliente e o servidor do Cache Redis) para obter mais recursos de largura de banda, reduzindo os tempos de transferência de dados para respostas maiores. Observe que obter mais largura de banda apenas no servidor ou apenas no cliente pode não ser suficiente. Meça o uso de largura de banda e compare-o com os recursos do tamanho da VM que você tem no momento.
+3. Aumentar o número de objetos `ConnectionMultiplexer` que você usa e fazer round robin das solicitações através de diferentes conexões.
 
-### <a name="what-happened-toomy-data-in-redis"></a>Os dados com toomy no Redis?
+### <a name="what-happened-to-my-data-in-redis"></a>O que aconteceu com meus dados no Redis?
 #### <a name="problem"></a>Problema
-Para determinados esperados dados toobe na minha instância de Cache Redis do Azure, mas ele não parece ser toobe existe.
+Eu esperava que certos dados estivessem em minha instância do Cache Redis do Azure, mas eles não parecem estar lá.
 
 #### <a name="resolution"></a>Resolução
-Consulte [quais dados toomy com Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para possíveis causas e resoluções.
+Consulte [What happened to my data in Redis? (O que aconteceu com meu dados no Redis?)](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para ver as possíveis causas e resoluções.
 
 ## <a name="server-side-troubleshooting"></a>Solução de problemas do servidor
-Esta seção discute problemas que ocorrem devido a uma condição no servidor de cache de saudação.
+Esta seção aborda a solução de problemas que ocorrem devido a alguma condição do servidor de cache.
 
-* [Pressão de memória no servidor de saudação](#memory-pressure-on-the-server)
+* [Demanda de memória do servidor](#memory-pressure-on-the-server)
 * [Alto nível de uso da CPU/carga de servidor](#high-cpu-usage-server-load)
 * [Largura de banda do servidor ultrapassada](#server-side-bandwidth-exceeded)
 
-### <a name="memory-pressure-on-hello-server"></a>Pressão de memória no servidor de saudação
+### <a name="memory-pressure-on-the-server"></a>Demanda de memória do servidor
 #### <a name="problem"></a>Problema
-Pressão de memória no lado do servidor de saudação leva tooall tipos de problemas de desempenho que podem atrasar o processamento de solicitações. Quando atinge a pressão de memória, o sistema Olá geralmente tem dados de toopage da memória de toovirtual de memória física que está no disco. Isso *a falha de página* causas Olá significativamente sistema tooslow para baixo. Há diversas causas possíveis para essa demanda de memória: 
+Uma grande demanda da memória do servidor acarreta todo tipo de problemas de desempenho, que podem atrasar o processamento de solicitações. Quando há grande demanda de memória, o sistema normalmente precisar paginar dados da memória física para a memória virtual que está no disco. Esse tipo de *falha de página* faz com que o sistema fique significativamente mais lento. Há diversas causas possíveis para essa demanda de memória: 
 
-1. Preencher toofull capacidade de cache da saudação com dados. 
-2. Redis está vendo a fragmentação de memória alta - frequentemente causada por armazenar objetos grandes (Redis é otimizado para um pequeno objetos - Consulte Olá [o que é o intervalo de tamanho Olá valor ideal para redis? Is 100KB too large?(Qual é o intervalo de tamanho ideal para o Redis? 100 KB é muito?)](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) para obter mais detalhes). 
+1. Você preencheu toda a capacidade do cache com dados. 
+2. O Redis está passando por uma grande fragmentação da memória, que frequentemente causada pelo armazenamento de objetos grandes (o Redis é otimizado para objetos pequenos. Consulte a postagem [What is the ideal value size range for redis? Is 100KB too large?(Qual é o intervalo de tamanho ideal para o Redis? 100 KB é muito?)](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) para obter mais detalhes). 
 
 #### <a name="measurement"></a>Medida
-O Redis expõe duas métricas que podem ajudá-lo a identificar esse problema. Olá primeiro é `used_memory` e Olá outros `used_memory_rss`. [Essas métricas](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) estão disponíveis em Olá Portal do Azure ou por meio de saudação [Redis informações](http://redis.io/commands/info) comando.
+O Redis expõe duas métricas que podem ajudá-lo a identificar esse problema. A primeira é `used_memory` e a outra é `used_memory_rss`. [Essas métricas](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) estão disponíveis no Portal do Azure ou por meio do comando [INFO do Redis](http://redis.io/commands/info).
 
 #### <a name="resolution"></a>Resolução
-Há várias alterações possíveis que você pode fazer uso de memória de manter toohelp Íntegro:
+Há várias alterações possíveis que você pode fazer para ajudar a manter a integridade do uso de memória:
 
 1. [Configurar uma política de memória](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e definir tempos de expiração em suas chaves. Observe que isso poderá não ser suficiente se você tiver fragmentação.
-2. [Configurar um valor reservado maxmemory](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) que é grande o suficiente toocompensate de fragmentação de memória.
+2. [Configurar um valor para maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) que seja grande o suficiente para compensar pela fragmentação da memória.
 3. Dividir os objetos grandes armazenados em cache em objetos menores relacionados.
-4. [Escala](cache-how-to-scale.md) tooa maior tamanho do cache.
-5. Se você estiver usando um [cache premium com cluster Redis habilitado](cache-how-to-premium-clustering.md) você pode [aumentar Olá número de fragmentos](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+4. [Dimensionar](cache-how-to-scale.md) para um tamanho de cache maior.
+5. Se estiver usando um [cache premium com o cluster Redis habilitado](cache-how-to-premium-clustering.md), você poderá [aumentar o número de fragmentos](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
 ### <a name="high-cpu-usage--server-load"></a>Alto nível de uso da CPU/carga de servidor
 #### <a name="problem"></a>Problema
-Alto uso da CPU pode significar que o do lado do cliente de saudação pode falhar tooprocess uma resposta do Redis de maneira oportuna, embora Redis enviou resposta de saudação muito rapidamente.
+Um alto nível de uso da CPU pode significar que o cliente pode deixar de processar uma resposta do Redis de forma oportuna, embora o Redis tenha enviado a resposta muito rapidamente.
 
 #### <a name="measurement"></a>Medida
-Olá monitor sistema ampla da CPU por meio de saudação Portal do Azure ou Olá associados contador de desempenho. Tenha cuidado não toomonitor *processo* CPU como um único processo pode ter baixa utilização da CPU Olá mesmo tempo que o sistema geral da CPU pode ser alta. Fique atento a picos de uso de CPU que correspondem aos tempos limite.
+Monitorar o uso de CPU geral do sistema por meio do Portal do Azure ou do contador de desempenho associado. Tenha cuidado para não monitorar o uso de CPU do *processo* , porque um único processo pode representar pouco uso da CPU enquanto o uso de CPU do sistema geral pode ser alto. Fique atento a picos de uso de CPU que correspondem aos tempos limite.
 
 #### <a name="resolution"></a>Resolução
-[Escala](cache-how-to-scale.md) tooa maior cache de camada com capacidade da CPU ou investigar o que está causando picos de CPU. 
+[Dimensionar](cache-how-to-scale.md) para uma camada de cache maior, com mais capacidade de CPU, ou investigar o que está causando os picos de CPU. 
 
 ### <a name="server-side-bandwidth-exceeded"></a>Largura de banda do servidor ultrapassada
 #### <a name="problem"></a>Problema
-Instâncias de cache com tamanhos diferentes têm limitações quanto à largura de banda de rede que têm disponível. Se o servidor de saudação excede a largura de banda disponível Olá, em seguida, dados não funcionará toohello cliente mais rapidamente. Isso pode levar tootimeouts.
+Instâncias de cache com tamanhos diferentes têm limitações quanto à largura de banda de rede que têm disponível. Se o servidor ultrapassar a largura de banda disponível, os dados não serão enviados ao cliente tão rapidamente. Isso pode levar a tempos limite.
 
 #### <a name="measurement"></a>Medida
-Você pode monitorar Olá `Cache Read` métrica, que é a quantidade de saudação de dados lidos do cache de saudação em Megabytes por segundo (MB/s) durante o intervalo de relatório especificado hello. Esse valor corresponde a largura de banda de rede de toohello usada por esse cache. Se você quiser tooset alertas para limites de largura de banda de rede de lado do servidor, você pode criá-los usando esse `Cache Read` contador. Compare seu leituras com valores hello [essa tabela](cache-faq.md#cache-performance) para Olá observado limites de largura de banda para o cache de vários tamanhos e as camadas de preços.
+Você pode monitorar a métrica `Cache Read` , que é a quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor corresponde à largura de banda de rede usada por esse cache. Se quiser configurar alertas para limites de largura de banda de rede no servidor, você poderá criá-los usando este contador `Cache Read` . Compare suas leituras com os valores [nesta tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e camadas de preços de cache.
 
 #### <a name="resolution"></a>Resolução
-Se estiver consistentemente próximo Olá observada máxima largura de banda para o tamanho do cache e de camada preços, considere [dimensionamento](cache-how-to-scale.md) tooa preços camada ou tamanho que tem a maior largura de banda de rede, usando os valores hello na [essa tabela](cache-faq.md#cache-performance) como um guia.
+Se você estiver consistentemente perto da largura de banda máxima observada para o tamanho do cache e o tipo de preço, considere [dimensionar](cache-how-to-scale.md) para um tamanho ou tipo de preço que tenha maior largura de banda de rede, usando os valores [nesta tabela](cache-faq.md#cache-performance) como guia.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceções de tempo limite do StackExchange.Redis
-O StackExchange.Redis usa uma configuração chamada `synctimeout` para operações síncronas, que tem um valor padrão de 1000 ms. Se não for concluída em uma chamada síncrona Olá estipulado tempo, Olá Stackexchange cliente gera um toohello semelhante de erro de tempo limite exemplo a seguir.
+O StackExchange.Redis usa uma configuração chamada `synctimeout` para operações síncronas, que tem um valor padrão de 1000 ms. Se uma chamada síncrona não for concluída no tempo determinado, o cliente do StackExchange.Redis gerará um erro de tempo limite semelhante ao exemplo a seguir.
 
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
 
 
-Essa mensagem de erro contém as métricas que podem ajudar a indicar toohello causa e possível a resolução do problema de saudação. Olá tabela a seguir contém detalhes sobre as métricas de mensagem de erro hello.
+Essa mensagem de erro contém métricas que podem ajudar a indicar a causa e a possível resolução do problema. A tabela a seguir contém detalhes sobre as métricas da mensagem de erro.
 
 | Métrica da mensagem de erro | Detalhes |
 | --- | --- |
-| inst |No último intervalo de tempo Olá: 0 comandos foram emitidos |
-| mgr |o Gerenciador de soquete Hello está executando `socket.select` que significa que ele está solicitando Olá SO tooindicate um soquete que tem algo toodo; basicamente: leitor Olá não está lendo ativamente de rede Olá porque ele não que há algo toodo |
+| inst |Na última fração de tempo: 0 comandos foram emitidos |
+| mgr |O gerenciador do soquete está executando `socket.select`, o que significa que ele está solicitando que o sistema operacional indique um soquete que tem algo a fazer. Basicamente, o leitor não está lendo ativamente da rede porque ele acha que não há nada a fazer. |
 | fila |Existem 73 operações em andamento no total |
-| qu |6 de operações em andamento de saudação estão na fila não enviado hello e não tiver sido escrito toohello saída de rede |
-| qs |67 das operações de em andamento foram enviadas toohello server, mas uma resposta ainda não está disponível. Olá resposta pode ser `Not yet sent by hello server` ou`sent by hello server but not yet processed by hello client.` |
-| qc |0 de operações em andamento de saudação viu respostas, mas não ainda foram marcados como concluídos devido toowaiting em loop de conclusão de saudação |
-| wr |Há um gravador active (que significa Olá 6 solicitações não enviadas não estão sendo ignoradas) bytes/activewriters |
-| mergulhar |Não há nenhum leitor ativo e zero bytes estão disponível toobe Olá NIC bytes/activereaders de leitura |
+| qu |6 das operações em andamento estão na fila de "não enviadas" e ainda não foram gravadas na rede de saída |
+| qs |67 das operações em andamento foram enviadas ao servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
+| qc |0 das operações em andamento viram respostas, mas ainda não foram marcados como concluídas devido a espera do loop de conclusão |
+| wr |Há um gravador ativo (ou seja, as 6 solicitações não enviadas não estão sendo ignoradas) bytes/activewriters |
+| mergulhar |Não há nenhum leitor ativo e zero bytes estão disponíveis para serem lidos no NIC bytes/activereaders |
 
-### <a name="steps-tooinvestigate"></a>Etapas tooinvestigate
-1. Como uma prática recomendada Verifique se você estiver usando Olá tooconnect padrão a seguir ao usar o cliente stackexchange. Redis de saudação.
+### <a name="steps-to-investigate"></a>Etapas para investigar
+1. Como uma prática recomendada, verifique se você está usando o seguinte padrão para se conectar usando o cliente do StackExchange.Redis.
 
     ```c#
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -210,26 +210,26 @@ Essa mensagem de erro contém as métricas que podem ajudar a indicar toohello c
     }
     ````
 
-    Para obter mais informações, consulte [conectar cache toohello usando Stackexchange](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+    Para saber mais, confira [Conectar-se ao cache usando StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
-1. Certifique-se de que seu Cache Redis do Azure e o aplicativo de cliente hello são Olá mesma região no Azure. Por exemplo, você pode conseguir tempos limite quando o cache está em Leste dos EUA, mas cliente Olá é no Oeste dos EUA e solicitação Olá não for concluída dentro de saudação `synctimeout` intervalo ou você pode conseguir tempos limite quando você estiver depurando em sua máquina de desenvolvimento local. 
+1. Verifique se o Cache Redis do Azure e o aplicativo cliente estão na mesma região no Azure. Por exemplo, você pode receber tempos limite quando o cache está no Leste dos EUA e o cliente está no Oeste dos EUA e a solicitação não é concluída dentro do intervalo de `synctimeout` , ou você pode receber tempos limite quando estiver depurando de seu computador de desenvolvimento local. 
    
-    Ele é altamente recomendado toohave cache de saudação e no cliente Olá Olá mesma região do Azure. Se você tiver um cenário que inclui chamadas entre regiões, você deve definir Olá `synctimeout` valor tooa de intervalo maior do que o intervalo de 1000 ms saudação padrão, incluindo um `synctimeout` propriedade na cadeia de conexão de saudação. Olá, exemplo a seguir mostra um trecho de cadeia de caracteres de conexão de cache Stackexchange com um `synctimeout` de 2000 ms.
+    É altamente recomendável ter o cache e o cliente na mesma região do Azure. Se tiver um cenário que inclua chamadas entre regiões, você deverá definir o intervalo de `synctimeout` como um valor maior que o intervalo de 1000 ms padrão, incluindo um propriedade `synctimeout` na cadeia de conexão. O exemplo a seguir mostra um trecho da cadeia de conexão do cache do StackExchange.Redis com um `synctimeout` de 2000 ms.
    
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
-2. Certifique-se estiver usando a versão mais recente de saudação do hello [pacote NuGet Stackexchange](https://www.nuget.org/packages/StackExchange.Redis/). Há constantemente de bugs corrigidos no Olá código toomake-tootimeouts mais robusto para ter a versão mais recente da saudação é importante.
-3. Se houver solicitações obtendo associados por limitações de largura de banda no servidor de saudação ou cliente, levará mais tempo para que eles toocomplete e, assim, causar tempos limite. toosee se o tempo limite devido toonetwork largura de banda no servidor de saudação, consulte [largura de banda do lado servidor excedida](#server-side-bandwidth-exceeded). toosee se o tempo limite devido tooclient a largura de banda de rede, consulte [largura de banda do lado cliente excedida](#client-side-bandwidth-exceeded).
-4. Você se a CPU associada no servidor de saudação ou no cliente de saudação?
+2. Certifique-se de estar usando a versão mais recente do [Pacote NuGet do StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Constantemente são corrigidos bugs no código para torná-lo mais robusto com relação a tempos limite, de modo que ter a versão mais recente é importante.
+3. Se houver solicitações restritas por limitações de largura de banda no servidor ou no cliente, levará mais tempo para conclui-las, o que resultará em tempos limite. Para ver se o seu tempo limite se deve à largura de banda de rede do servidor, consulte [Largura de banda do servidor ultrapassada](#server-side-bandwidth-exceeded). Para ver se o seu tempo limite se deve à largura de banda de rede do cliente, consulte [Largura de banda do cliente ultrapassada](#client-side-bandwidth-exceeded).
+4. Você está sendo limitado à CPU no servidor ou no cliente?
    
-   * Verifique se você estiver obtendo associar por CPU no cliente que pode causar Olá solicitação toonot processados na Olá `synctimeout` intervalo, provocando um tempo limite. Movendo tooa maior tamanho de cliente ou distribuir a carga de saudação pode ajudar a toocontrol isso. 
-   * Verifique se você estiver obtendo CPU associada no servidor de saudação monitorando Olá `CPU` [métrica de desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Solicitações recebidas enquanto o Redis é o limite de CPU pode fazer com que as solicitações tootimeout. tooaddress isso você pode distribuir Olá carregar por vários fragmentos em um cache premium ou atualizar o tamanho maior tooa ou camada de preços. Para obter mais informações, consulte [Largura de banda do servidor ultrapassada](#server-side-bandwidth-exceeded).
-5. Há comandos levando muito tempo tooprocess no servidor de saudação? Tempo executando comandos que estão demorando muito tempo tooprocess no servidor redis Olá pode causar tempos limite. Alguns exemplos de comandos de execução longa são `mget` com um grande número de chaves, `keys *` ou scripts lua mal escritos. Você pode conectar tooyour instância de Cache Redis do Azure usando o cliente do redis-cli hello ou usar Olá [Console Redis](cache-configure.md#redis-console) e execução hello [SlowLog](http://redis.io/commands/slowlog) toosee comando se houver solicitações demorando mais do que o esperado. O Servidor do Redis e o StackExchange.Redis são otimizados para várias solicitações pequenas, em vez de menos solicitações grandes. Dividir os dados em partes menores pode melhorar as coisa. 
+   * Verifique se você está sendo limitado pela CPU no cliente, o que pode fazer com que a solicitação não seja processada dentro do intervalo `synctimeout` , provocando um tempo limite. Mover para um tamanho de cliente maior ou distribuir a carga pode ajudar a controlar isso. 
+   * Verifique se você está sendo limitado pela CPU no servidor monitorando a [métrica de desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `CPU`. Solicitações recebidas enquanto o Redis está limitado à CPU podem fazer com que essas solicitações cheguem ao tempo limite. Para resolver isso, você pode distribuir a carga entre vários fragmentos em um cache premium ou atualizar para um tipo de preço ou tamanho maior. Para obter mais informações, consulte [Largura de banda do servidor ultrapassada](#server-side-bandwidth-exceeded).
+5. Há comandos que levam muito tempo para serem processados no servidor? Comandos de execução longa que levam muito tempo para serem processados no servidor do Redis podem resultar em tempos limite. Alguns exemplos de comandos de execução longa são `mget` com um grande número de chaves, `keys *` ou scripts lua mal escritos. Você pode se conectar à instância do Cache Redis do Azure usando o cliente redis-cli ou usar o [Console do Redis](cache-configure.md#redis-console) e executar o comando [SlowLog](http://redis.io/commands/slowlog) para ver se há solicitações que estão demorando mais do que o esperado. O Servidor do Redis e o StackExchange.Redis são otimizados para várias solicitações pequenas, em vez de menos solicitações grandes. Dividir os dados em partes menores pode melhorar as coisa. 
    
-    Para obter informações sobre como conectar o ponto de extremidade do Azure Redis Cache SSL toohello usando a cli do redis e stunnel, consulte Olá [anunciando provedor de estado de sessão ASP.NET a versão de visualização Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) postagem de blog. Para obter mais informações, consulte [SlowLog](http://redis.io/commands/slowlog).
-6. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor de saudação monitorando Olá `Redis Server Load` [métrica de desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis Olá foi ocupado, sem tempo ocioso, processamento de solicitações. toosee se determinadas solicitações faz backup de todos os recursos de servidor de saudação, execute Olá SlowLog comando, conforme descrito no parágrafo anterior hello. Para obter mais informações, consulte [Alto nível de uso da CPU/carga de servidor](#high-cpu-usage-server-load).
-7. Houve qualquer outro evento no lado do cliente de saudação que pode ter causado um blip rede? Verifique no cliente de saudação (web, função de trabalho ou um VM de Iaas) se ocorreu um evento como escalonar o número de saudação de instâncias de cliente para cima ou para baixo ou implantar uma nova versão do cliente de saudação ou dimensionamento automático está habilitado? Em nossos testes que descobrimos que o dimensionamento automático ou o dimensionamento para cima/baixo pode causar a conectividade de rede de saída pode ser perdida durante vários segundos. Código de Stackexchange é toosuch resiliente eventos e se conectará novamente. Durante esse tempo de reconexão quaisquer solicitações na fila de saudação podem atingir o tempo limite.
-8. Houve uma solicitação grande anterior várias solicitações pequeno toohello Redis Cache atingiu o tempo limite? Olá parâmetro `qs` erro Olá mensagem informa quantas solicitações foram enviadas do servidor de toohello cliente hello, mas ainda não processou uma resposta. Esse valor pode continuar crescendo porque o StackExchange.Redis usa uma única conexão TCP e só pode ler uma resposta por vez. Mesmo que a primeira operação de saudação atingiu o tempo limite, não impede que dados Olá sendo enviados para/do servidor de saudação e outras solicitações serão bloqueadas até que esse processo for concluído, fazendo com que o tempo limite. Uma solução é toominimize chance de saudação de tempos limite, garantindo que o cache é grande o suficiente para sua carga de trabalho e dividir valores grandes em partes menores. Outra solução possível é toouse um pool de `ConnectionMultiplexer` objetos no seu cliente e escolha Olá menos carregado `ConnectionMultiplexer` ao enviar uma nova solicitação. Isso deve impedir que um tempo limite único fazendo com que o tempo limite da tooalso outras solicitações.
-9. Se você estiver usando `RedisSessionStateprovider`, certifique-se de ter definido a tempo limite de novas tentativas de saudação corretamente. `retrytimeoutInMilliseconds` deve ser maior do que `operationTimeoutinMilliseonds`; caso contrário, não haverá novas tentativas. No exemplo a seguir de saudação `retrytimeoutInMilliseconds` é definido too3000. Para obter mais informações, consulte [provedor de estado de sessão do ASP.NET para Cache Redis do Azure](cache-aspnet-session-state-provider.md) e [como toouse Olá parâmetros de configuração do provedor de estado de sessão e o provedor de Cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+    Para obter informações sobre como se conectar ao ponto de extremidade SSL de Cache Redis do Azure usando redis-cli e stunnel, consulte a postagem de blog [Anunciando o provedor de estado de sessão ASP.NET para a versão de teste do Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) . Para obter mais informações, consulte [SlowLog](http://redis.io/commands/slowlog).
+6. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor monitorando a [métrica de desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Redis Server Load`. Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis está ocupado, sem tempo ocioso, processando de solicitações. Para ver se determinadas solicitações estão consumindo toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte [Alto nível de uso da CPU/carga de servidor](#high-cpu-usage-server-load).
+7. Houve qualquer outro evento no lado do cliente que possa ter causado um problema na rede? Verifique no cliente (Web, função de trabalho ou VM IaaS) se ocorreu algo como a alteração do número de instâncias de cliente ou a implantação de uma nova versão do cliente, ou se o dimensionamento automático está habilitado. Em nossos testes, descobrimos que o dimensionamento automático ou a escalar/reduzir horizontalmente pode fazer com que a conectividade de rede de saída seja perdida por alguns segundos. O código do StackExchange.Redis é resiliente a tais eventos e se reconectará. Durante esse tempo de reconexão, quaisquer solicitações na fila poderão atingir o tempo limite.
+8. Houve uma grande solicitação anterior a várias pequenas solicitações para o Cache Redis que atingiu o tempo limite? O parâmetro `qs` na mensagem de erro informa quantas solicitações foram enviadas do cliente ao servidor mas ainda não processaram uma resposta. Esse valor pode continuar crescendo porque o StackExchange.Redis usa uma única conexão TCP e só pode ler uma resposta por vez. Embora a primeira operação tenha atingido o tempo limite, isso não impede que dados sejam enviados/recebidos do servidor, e outras solicitações são bloqueadas até que isso seja concluído, causando tempos limite. Uma solução é minimizar a chance de tempos limite, garantindo que o cache seja grande o suficiente para sua carga de trabalho e dividindo valores grandes em partes menores. Outra solução possível é usar um pool de objetos `ConnectionMultiplexer` no seu cliente e escolher o `ConnectionMultiplexer` menos carregado ao enviar uma nova solicitação. Isso deve impedir que um único tempo limite faça com que outras solicitações também atinjam o tempo limite.
+9. Se você estiver usando `RedisSessionStateprovider`, certifique-se de que você configurou corretamente o tempo limite para novas tentativas. `retrytimeoutInMilliseconds` deve ser maior do que `operationTimeoutinMilliseonds`; caso contrário, não haverá novas tentativas. No exemplo a seguir, `retrytimeoutInMilliseconds` é definido como 3000. Para obter mais informações, consulte [Provedor de estado de sessão ASP.NET para Cache Redis do Azure](cache-aspnet-session-state-provider.md) e [Como usar os parâmetros de configuração do Provedor de estado de sessão e do Provedor de cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
       name="AFRedisCacheSessionStateProvider"
@@ -245,17 +245,17 @@ Essa mensagem de erro contém as métricas que podem ajudar a indicar toohello c
       retryTimeoutInMilliseconds="3000" />
 
 
-1. Verificar o uso de memória no servidor de Cache Redis do Azure Olá por [monitoramento](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de remoção está em vigor, o Redis começa removendo chaves quando `Used_Memory` atingir Olá tamanho do cache. Idealmente, `Used Memory RSS` deve ser apenas um pouco maior do que `Used memory`. Uma grande diferença significa que há fragmentação de memória (interna ou externa). Quando `Used Memory RSS` é menor que `Used Memory`, isso significa que parte da memória de cache Olá foram trocada por sistema operacional de saudação. Se isso ocorrer, você poderá esperar que haja algumas latências significativas. Porque Redis não tem controle sobre como suas alocações são mapeados toomemory páginas, alta `Used Memory RSS` geralmente é resultado de saudação de um aumento no uso de memória. Quando o Redis libera memória, memória Olá recebe volta toohello alocador e alocador Olá pode ou não pode oferecer Olá memória toohello back sistema. Pode haver uma discrepância entre hello `Used Memory` consumo de memória e o valor conforme relatado pelo sistema operacional de saudação. Ele pode ser devido fatos toohello memória foi usada e lançada por Redis, mas não fornecido toohello back sistema. toohelp reduzir problemas de memória, você pode executar Olá etapas a seguir.
+1. Verifique o uso de memória no servidor do Cache Redis do Azure [monitorando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de remoção estiver em vigor, o Redis começará a remover chaves quando `Used_Memory` atingir o tamanho do cache. Idealmente, `Used Memory RSS` deve ser apenas um pouco maior do que `Used memory`. Uma grande diferença significa que há fragmentação de memória (interna ou externa). Quando `Used Memory RSS` é menor que `Used Memory`, isso significa que parte da memória em cache foi trocada pelo sistema operacional. Se isso ocorrer, você poderá esperar que haja algumas latências significativas. Como o Redis não tem controle sobre como suas alocações são mapeadas para as páginas de memória, um valor alto de `Used Memory RSS` costuma ser o resultado de um aumento no uso de memória. Quando o Redis libera memória, a memória é dada de volta para o alocador e o alocador pode ou não pode fornecer a memória novamente ao sistema. Pode haver uma discrepância entre o valor de `Used Memory` e o consumo de memória, conforme relatado pelo sistema operacional. Isso pode ocorrer devido ao fato de a memória foi usada e liberada pelo Redis, mas não fornecida de volta para o sistema. Para ajudar a atenuar problemas de memória, você pode executar as etapas a seguir.
    
-   * Atualize o tamanho maior da saudação cache tooa para que você não estiver executando no limitações de memória no sistema de saudação.
-   * Definir tempos de expiração em chaves Olá para que os valores antigos são removidos de maneira proativa.
-   * Saudação de saudação do monitor `used_memory_rss` métrica de cache. Quando esse valor se aproximar o tamanho de saudação do seu cache, você está provavelmente toostart tiver problemas de desempenho. Distribua dados saudação por vários fragmentos se você estiver usando um cache premium, ou atualizar tooa maior tamanho do cache.
+   * Atualizar o cache para um tamanho maior para que você não tenha problemas com as limitações de memória no sistema.
+   * Definir tempos de expiração das chaves para que valores mais antigos sejam removidos de forma proativa.
+   * Monitorar a métrica de cache `used_memory_rss` . Quando esse valor se aproximar do tamanho de seu cache, provavelmente você começará a ver problemas de desempenho. Distribuir os dados em vários fragmentos se você estiver usando um cache premium ou atualizar para um tamanho de cache maior.
    
-   Para obter mais informações, consulte [pressão de memória no servidor de saudação](#memory-pressure-on-the-server).
+   Para obter mais informações, confira [Demanda de memória do servidor](#memory-pressure-on-the-server).
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Qual oferta e tamanho de Cache Redis devo usar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
-* [Como avaliar o desempenho e teste Olá desempenho de meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* [Como medir e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
-* [Como toomonitor Cache Redis do Azure](cache-how-to-monitor.md)
+* [Como monitorar o Cache Redis do Azure](cache-how-to-monitor.md)
 

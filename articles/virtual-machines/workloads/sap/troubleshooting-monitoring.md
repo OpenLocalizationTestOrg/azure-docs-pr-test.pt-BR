@@ -1,5 +1,5 @@
 ---
-title: "aaaTroubleshooting e monitoramento do SAP HANA no Azure (instâncias grandes) | Microsoft Docs"
+title: "Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs"
 description: "Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes)."
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,39 +14,39 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f1cd35820e227fd99af495431cd4b826aa53600
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tootroubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Como tootroubleshoot e monitor SAP HANA (instâncias grandes) no Azure
+# <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Como solucionar problemas e monitorar o SAP HANA (instâncias grandes) no Azure
 
 
 ## <a name="monitoring-in-sap-hana-on-azure-large-instances"></a>Monitoramento no SAP HANA no Azure (Instâncias Grandes)
 
-SAP HANA no Azure (instâncias grandes) não é diferente de qualquer outra implantação de IaaS — necessário toomonitor que Olá o sistema operacional e o aplicativo hello é isso e como elas consomem Olá recursos a seguir:
+SAP HANA no Azure (Instâncias Grandes) não é diferente de qualquer outra implantação IaaS — você precisa monitorar o que o sistema operacional e o aplicativo estão fazendo e como eles consomem os recursos a seguir:
 
 - CPU
 - Memória
 - Largura de banda de rede
 - Espaço em disco
 
-Como com as máquinas virtuais do Azure, você precisa toofigure se classes de recursos Olá citados acima são suficientes ou se eles obtenham esgotados. Aqui estão mais detalhes sobre cada uma das classes diferentes de saudação:
+Assim como ocorre com as Máquinas Virtuais do Azure, você precisa descobrir se as classes de recursos indicadas acima são suficientes, ou se elas se esgotam. Confira mais detalhes sobre cada uma das diferentes classes:
 
-**Consumo de recursos de CPU:** taxa de saudação SAP definido para determinadas cargas de trabalho em relação a HANA é imposto toomake-se de que deve ser suficiente recursos de CPU disponível toowork pelos dados de saudação que são armazenados na memória. No entanto, pode haver casos onde HANA consome muito da CPU ao executar consultas de conclusão toomissing índices ou problemas semelhantes. Isso significa que você deve monitorar o consumo de recursos de CPU de unidade de instância grande HANA hello, bem como recursos de CPU consumidos por serviços específicos de HANA hello.
+**Consumo de recursos de CPU:** a proporção que a SAP definiu para certas cargas de trabalho no HANA é aplicada para garantir a existência de recursos de CPU suficientes disponíveis para trabalhar com os dados armazenados na memória. No entanto, pode haver casos em que o HANA consome muita CPU executando consultas devido à ausência de índices ou problemas semelhantes. Isso significa que você deve monitorar o consumo de recursos de CPU da unidade de instância grande do HANA, bem como recursos de CPU consumidos por serviços específicos do HANA.
 
-**Consumo de memória:** é importante toomonitor de dentro do HANA, bem como fora do HANA na unidade de saudação. Dentro do HANA, monitore como dados saudação está consumindo HANA alocada memória em ordem toostay em Olá necessário dimensionar as diretrizes do SAP. Você também deseja toomonitor o consumo de memória em toomake nível de instância grande de saudação se software adicional instalado não-HANA não consomem muita memória e, portanto, concorre com HANA para a memória.
+**Consumo de memória:** é importante monitorar de dentro do HANA, bem como fora do HANA na unidade. Dentro do HANA, monitore como os dados estão consumindo memória alocada no HANA a fim de permanecer dentro das diretrizes de dimensionamento obrigatórias do SAP. Convém também monitorar o consumo de memória no nível da Instância Grande para certificar-se de que outros softwares não HANA instalados não consumam muita memória e, assim, compitam por memória com o HANA.
 
-**Largura de banda de rede:** gateway de rede virtual do Azure Olá é limitado em largura de banda de dados em movimento em Olá VNet do Azure, portanto, é útil dados de saudação toomonitor recebidos por todos os Olá VMs do Azure dentro de um toofigure VNet o quão distante você toohello limites de saudação do Azure Gateway SKU selecionada. Na unidade de instância grande HANA Olá, ele fazer sentido toomonitor entrada e saída de tráfego de rede bem e acompanhar tookeep de volumes de saudação que são tratadas ao longo do tempo.
+**Largura de banda de rede:** o gateway de VNet do Azure tem uma limitação de largura de banda para dados em movimentação para a VNet do Azure, portanto, é útil monitorar os dados recebidos por todas as VMs do Azure em uma VNet para descobrir o quão próximo você está dos limites do SKU do gateway do Azure selecionado. Na unidade de Instância Grande do HANA, também faz sentido monitorar o tráfego de rede de entrada e saída, além de controlar os volumes manipulados ao longo do tempo.
 
-**Espaço em disco:** normalmente, o consumo de espaço em disco aumenta ao longo do tempo. Há muitos motivos para isso, mas a maioria deles é: aumento no volume de dados, execução de backups do log de transações, armazenamento de arquivos de rastreamento e execução de instantâneos de armazenamento. Portanto, é importante toomonitor uso de espaço em disco e gerenciar o espaço de disco Olá associado Olá instância grande HANA unidade.
+**Espaço em disco:** normalmente, o consumo de espaço em disco aumenta ao longo do tempo. Há muitos motivos para isso, mas a maioria deles é: aumento no volume de dados, execução de backups do log de transações, armazenamento de arquivos de rastreamento e execução de instantâneos de armazenamento. Portanto, é importante monitorar o uso do espaço em disco e gerenciar o espaço em disco associado à Instância Grande do HANA.
 
 ## <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoramento e solução de problemas no lado do HANA
 
-Em ordem tooeffectively analisar problemas relacionados tooSAP HANA no Azure (instâncias grandes), é útil toonarrow para baixo da causa raiz de saudação de um problema. SAP publicou uma grande quantidade de documentação toohelp você.
+Para analisar efetivamente os problemas relacionados ao SAP HANA no Azure (Instâncias Grandes), é útil restringir a causa raiz do problema. O SAP publicou uma grande quantidade de documentação para ajudar você.
 
-Aplicável perguntas frequentes relacionadas tooSAP HANA desempenho pode ser encontrado no hello SAP observações a seguir:
+Perguntas frequentes aplicáveis relacionadas ao desempenho do SAP HANA podem ser encontradas nas seguintes Notas SAP a seguir:
 
 - [Nota SAP nº 2222200 – Perguntas frequentes: Rede SAP HANA](https://launchpad.support.sap.com/#/notes/2222200)
 - [Nota SAP nº 2100040 – Perguntas frequentes: CPU SAP HANA](https://launchpad.support.sap.com/#/notes/0002100040)
@@ -57,49 +57,49 @@ Aplicável perguntas frequentes relacionadas tooSAP HANA desempenho pode ser enc
 
 **Alertas do SAP HANA**
 
-Como uma primeira etapa, verifique os logs atuais de alerta de SAP HANA hello. SAP HANA Studio, vá muito**Console de administração: alertas: mostrar: todos os alertas**. Este guia mostrará todos os alertas do SAP HANA valores específicos (memória física livre, utilização da CPU, etc.) que estão fora da saudação definir mínimo e máximo limites. Por padrão, as verificações são atualizados automaticamente a cada 15 minutos.
+Como uma primeira etapa, verifique os logs de alerta atuais do SAP HANA. No SAP HANA Studio, acesse **Console de Administração: Alertas: Mostrar: todos os alertas**. Esta guia mostrará todos os alertas do SAP HANA para valores específicos (memória física livre, utilização de CPU etc.) que estão fora dos limites mínimo e máximo definidos. Por padrão, as verificações são atualizados automaticamente a cada 15 minutos.
 
-![No SAP HANA Studio, vá tooAdministration Console: alertas: mostrar: todos os alertas](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![No SAP HANA Studio, acesse Console de Administração: Alertas: Mostrar: todos os alertas](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 **CPU**
 
-Para um alerta foi disparado devido a configuração de limite de tooimproper, uma resolução é valor de padrão de toohello tooreset ou um valor de limite mais razoável.
+Para um alerta disparado devido à configuração incorreta do limite, uma resolução é redefinir para o valor padrão ou um valor de limite mais razoável.
 
-![Redefinir o valor padrão de toohello ou um valor de limite mais razoável](./media/troubleshooting-monitoring/image2-cpu-utilization.png)
+![Redefinir para o valor padrão ou para um valor de limite mais razoável](./media/troubleshooting-monitoring/image2-cpu-utilization.png)
 
-Olá alertas a seguir pode indicar problemas de recursos de CPU:
+Os alertas a seguir podem indicar problemas de recursos de CPU:
 
 - Uso de CPU Host (Alerta 5)
 - Operação de ponto de salvamento mais recente (Alerta 28)
 - Duração do ponto de salvamento (Alerta 54)
 
-Você pode observar o alto consumo de CPU em seu banco de dados do SAP HANA da saudação seguinte:
+Talvez você perceba o alto consumo de CPU em seu banco de dados SAP HANA em um dos seguintes:
 
 - O Alerta 5 (Uso de CPU Host) é emitido para o uso de CPU atual ou anterior
-- Olá exibido o uso da CPU na tela de visão geral de saudação
+- O uso de CPU exibido na tela de visão geral
 
-![Exibido o uso da CPU na tela de visão geral de saudação](./media/troubleshooting-monitoring/image3-cpu-usage.png)
+![Uso de CPU exibido na tela de visão geral](./media/troubleshooting-monitoring/image3-cpu-usage.png)
 
-gráfico de carga Olá pode mostrar o alto consumo de CPU ou alto consumo nas Olá anterior:
+O gráfico de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior:
 
-![gráfico de carga Olá pode mostrar o alto consumo de CPU ou alto consumo nas Olá anterior](./media/troubleshooting-monitoring/image4-load-graph.png)
+![O gráfico de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Um alerta disparado devido a utilização de CPU de toohigh pode ser causado por vários motivos, incluindo, mas não se limitando a: execução de determinadas transações, o carregamento de dados, o deslocamento de trabalhos de longa execução instruções SQL e o desempenho de consulta inválida (por exemplo, com BW em HANA cubos).
+Um alerta disparado devido à alta utilização de CPU pode ser causado por vários motivos, incluindo, mas sem limitação: execução de certas transações, carregamento de dados, travamento de trabalhos, instruções SQL de longa execução e desempenho ruim da consulta (por exemplo, com BW em cubos HANA).
 
-Consulte toohello [solução de problemas do SAP HANA: soluções e CPU relacionados faz com que o](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site para etapas de solução de problemas detalhada.
+Consulte o site [Solução de problemas do SAP HANA: causas e soluções relacionadas à CPU](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para obter etapas de solução de problemas detalhadas.
 
 **Sistema operacional**
 
-Um dos mais importantes de saudação verifica para SAP HANA no Linux é toomake se páginas enorme transparente estiver desabilitadas, consulte [2131662 de # nota SAP – transparente enorme páginas (THP) em servidores do SAP HANA](https://launchpad.support.sap.com/#/notes/2131662).
+Uma das verificações mais importantes para o SAP HANA no Linux é certificar-se de que Transparent Huge Pages estejam desabilitadas, consulte a [Nota SAP nº 2131662 – THP (Transparent Huge Pages) em servidores SAP HANA](https://launchpad.support.sap.com/#/notes/2131662).
 
-- Você pode verificar se páginas enorme transparente são habilitadas por meio de saudação Linux comando a seguir: **cat /sys/kernel/mm/transparent\_hugepage/habilitado**
-- Se _sempre_ é colocado entre colchetes, como a seguir, isso significa que páginas enorme transparente de saudação estão habilitadas: [sempre] madvise nunca; se _nunca_ é colocado entre colchetes, como a seguir, isso significa que Olá transparente Páginas enormes estão desabilitadas: sempre madvise [nunca]
+- Você pode verificar se o Transparent Huge Pages está habilitado por meio do seguinte comando do Linux: **cat /sys/kernel/mm/transparent\_hugepage/enabled**
+- Se _always_ estiver entre colchetes, conforme mostrado a seguir, significa que Transparent Huge Pages está habilitado: [always] madvise never; se _never_ estiver entre colchetes, conforme mostrado a seguir, significa que Transparent Huge Pages está desabilitado: always madvise [never]
 
-Olá Linux comando a seguir deve retornar nada: **rpm - qa | grep ulimit.** Se parecer que _ulimit_ está instalado, desinstale-o imediatamente.
+O comando Linux a seguir não deve retornar nada: **rpm -qa | grep ulimit.** Se parecer que _ulimit_ está instalado, desinstale-o imediatamente.
 
 **Memória**
 
-Você pode observar essa quantidade de saudação de memória alocada pelo Olá SAP HANA banco de dados é maior do que o esperado. Olá alertas a seguir indica problemas com alto uso da memória:
+Você pode observar que a quantidade de memória alocada pelo banco de dados SAP HANA é maior do que o esperado. Os alertas a seguir indicam problemas com alto uso da memória:
 
 - Uso de memória do host físico (Alerta 1)
 - Uso de memória do servidor de nomes (Alerta 12)
@@ -108,64 +108,64 @@ Você pode observar essa quantidade de saudação de memória alocada pelo Olá 
 - Uso de memória do armazenamento principal das tabelas do Repositório de Colunas (Alerta 45)
 - Arquivos de despejo em tempo de execução (Alerta 46)
 
-Consulte toohello [solução de problemas do SAP HANA: problemas de memória](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) site para etapas de solução de problemas detalhada.
+Consulte o site [Solução de problemas do SAP HANA: problemas de memória](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) para obter etapas de solução de problemas detalhadas.
 
 **Rede**
 
-Consulte também[2081065 de # nota SAP – Solucionando problemas de rede do SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e executar as etapas nesta nota da SAP de solução de problemas de rede de saudação.
+Consulte a [Nota SAP nº 2081065 – Solução de problemas de rede do SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e execute as etapas de solução de problemas de rede desta Nota SAP.
 
 1. Análise do tempo de ida e volta entre o cliente e servidor.
-  R. Executar script SQL Olá [ _HANA\_rede\_clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Execute o script SQL [_HANA\_Rede\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Análise da comunicação entre nós.
   R. Execute o script SQL [_HANA\_Rede\_Serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
-3. Execute o comando do Linux **ifconfig** (saída Olá mostra se quaisquer perdas de pacote estão ocorrendo).
+3. Execute o comando Linux **ifconfig** (a saída mostrará se ocorre quaisquer perdas de pacote).
 4. Execute o comando Linux **tcpdump**.
 
-Além disso, use o código-fonte aberto Olá [IPERF](https://iperf.fr/) ferramenta (ou semelhante) toomeasure desempenho de rede do aplicativo real.
+Além disso, use a ferramenta [IPERF](https://iperf.fr/) de código-fonte aberto (ou semelhante) para medir o desempenho real da rede do aplicativo.
 
-Consulte toohello [solução de problemas do SAP HANA: desempenho do sistema de rede e problemas de conectividade](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site para etapas de solução de problemas detalhada.
+Consulte o site [Solução de problemas do SAP HANA: problemas de desempenho e conectividade](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) para obter etapas de solução de problemas detalhadas.
 
 **Armazenamento**
 
-Da perspectiva do usuário final, um aplicativo (ou sistema hello como um todo) é executado lentamente, não está respondendo ou até mesmo pode parecer toohang se houver problemas com o desempenho de e/s. Em Olá **Volumes** guia SAP HANA Studio, você pode ver Olá anexado volumes e quais volumes são usadas por cada serviço.
+Da perspectiva do usuário final, um aplicativo (ou o sistema como um todo) é executado lentamente, não está respondendo ou parece até mesmo travar se houver problemas com o desempenho de E/S. Na guia **Volumes** no SAP HANA Studio, você pode ver os volumes conectados e quais volumes são usados por cada serviço.
 
-![Na guia de Volumes de saudação do SAP HANA Studio, você pode ver Olá anexado volumes e quais volumes são usadas por cada serviço](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
+![Na guia Volumes no SAP HANA Studio, você pode ver os volumes conectados e quais volumes são usados por cada serviço](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
-Na parte inferior de saudação da tela hello de que você pode ver os detalhes seus volumes anexados Olá volumes, como arquivos e estatísticas de e/s.
+Você pode ver detalhes dos volumes conectados na parte inferior da tela, como arquivos e estatísticas de E/S.
 
-![Na parte inferior de saudação da tela hello de que você pode ver os detalhes seus volumes anexados Olá volumes, como arquivos e estatísticas de e/s](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
+![Você pode ver detalhes dos volumes conectados na parte inferior da tela, como arquivos e estatísticas de E/S](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Consulte toohello [solução de problemas do SAP HANA: e/s relacionadas causas e soluções](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) e [solução de problemas do SAP HANA: disco relacionadas causas e soluções](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) site para etapas de solução de problemas detalhada.
+Consulte os sites [Solução de problemas de SAP HANA: Principais causas e soluções relacionadas à E/S](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) e [Solução de problemas de SAP HANA: Principais causas e soluções relacionadas ao disco](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) para obter as etapas de solução de problemas detalhadas.
 
 **Ferramentas de Diagnóstico**
 
 Execute uma Verificação de Integridade do SAP HANA por meio do HANA\_Configuration\_Minichecks. Essa ferramenta retorna possíveis problemas técnicos críticos que devem já ter sido gerados como alertas no SAP HANA Studio.
 
-Consulte também[1969700 de # nota SAP – conjunto de instrução SQL para o SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) e baixar Observação do hello SQL Statements.zip arquivo toothat anexado. Armazene esse arquivo. zip na unidade de disco rígido local hello.
+Consulte [Nota SAP nº1969700 – Coleta de instrução SQL para SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) e baixe o arquivo SQL Statements.zip anexado à nota. Armazene esse arquivo .zip no disco rígido local.
 
-No Studio do HANA SAP, em Olá **informações do sistema** guia, clique com botão direito no hello **nome** coluna e selecione **instruções SQL de importação**.
+No SAP HANA Studio, na guia **Informações do Sistema**, clique com o botão direito na coluna **Nome** e selecione **Importar Instruções SQL**.
 
-![No SAP HANA Studio, na guia de informações do sistema Olá, clique na coluna de nome hello e selecione instruções SQL de importação](./media/troubleshooting-monitoring/image7-import-statements-a.png)
+![No SAP HANA Studio, na guia Informações do Sistema, clique com o botão direito na coluna Nome e selecione Importar Instruções SQL](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
-Selecione Olá SQL Statements.zip arquivo armazenado localmente e uma pasta com instruções SQL correspondentes de saudação será importada. Neste ponto, Olá que várias verificações de diagnósticas diferentes podem ser executadas com essas instruções SQL.
+Selecione o arquivo SQL Statements.zip armazenado localmente, e uma pasta com instruções SQL correspondentes será importada. Neste ponto, as diversas verificações de diagnóstico podem ser executadas com essas instruções SQL.
 
-Por exemplo, os requisitos de largura de banda de replicação de sistema do SAP HANA tootest, clique Olá **largura de banda** instrução em **replicação: largura de banda** e selecione **abrir** no Console do SQL.
+Por exemplo, para testar os requisitos de largura de banda de replicação do sistema SAP HANA, clique com o botão direito na instrução **Largura de banda** em **Replicação: largura de banda** e selecione **Abrir** no Console do SQL.
 
-instrução de SQL completa Olá abre toobe de parâmetros de entrada (seção de modificação) permitindo alterado e, em seguida, é executado.
+A instrução SQL completa é aberta, permitindo que os parâmetros de entrada (seção de modificação) sejam alterados e, em seguida, executados.
 
-![instrução de SQL completa Olá abre toobe de parâmetros de entrada (seção de modificação) permitindo alterado e, em seguida, executado](./media/troubleshooting-monitoring/image8-import-statements-b.png)
+![A instrução SQL completa é aberta, permitindo que os parâmetros de entrada (seção de modificação) sejam alterados e, em seguida, executados](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Outro exemplo é com o botão direito em instruções de saudação em **replicação: Visão geral do**. Selecione **Execute** Olá no menu de contexto:
+Outro exemplo é clicar com o botão direito nas instruções em **Replicação: visão geral**. Selecione **Executar** no menu de contexto:
 
-![Outro exemplo é com o botão direito em instruções de saudação em replicação: Visão geral. Selecione executar no menu de contexto de saudação](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![Outro exemplo é clicar com o botão direito nas instruções em Replicação: visão geral. Selecione Executar no menu de contexto](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 Isso resulta em informações que ajudam com a solução de problemas:
 
 ![Isso resultará em informações que ajudam com a solução de problemas](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-Olá mesmo para HANA\_configuração\_Minichecks e verificar se há qualquer _X_ marcas no hello _C_ coluna (crítico).
+Faça o mesmo para as HANA\_Configuration\_Minichecks e verifique se há qualquer marca _X_ na coluna _C_ (Crítico).
 
 Exemplos de saída:
 
@@ -181,11 +181,11 @@ Exemplos de saída:
 
 ![HANA\_Services\_Statistics para informações de serviço do SAP HANA ](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**HANA\_configuração\_visão geral\_Rev110 +** para obter informações gerais sobre a instância do SAP HANA hello.
+**HANA\_Configuration\_Overview\_Rev110+** para informações gerais sobre a instância do SAP HANA.
 
-![HANA\_configuração\_visão geral\_Rev110 + para obter informações gerais sobre a instância do SAP HANA Olá](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+![HANA\_Configuration\_Overview\_Rev110+ para informações gerais sobre a instância do SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**HANA\_configuração\_parâmetros\_Rev70 +** toocheck parâmetros de SAP HANA.
+**HANA\_Configuration\_Parameters\_Rev70+** para verificar parâmetros do SAP HANA.
 
-![HANA\_configuração\_parâmetros\_Rev70 + toocheck parâmetros de SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+![HANA\_Configuration\_Parameters\_Rev70+ para verificar parâmetros do SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

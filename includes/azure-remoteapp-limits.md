@@ -13,7 +13,7 @@
 | Tempo limite de ociosidade |4 horas |
 | Tempo limite desconectado |4 horas |
 
-número de saudação de usuários é determinado pelo número de saudação de máquinas virtuais usadas para a coleção:
+O número de usuários é determinado pelo número de VMs usadas na sua coleção:
 
 * Básica = 16 usuários por VM
 * Padrão = 10 usuários por VM

@@ -1,6 +1,6 @@
 ---
-title: "aaaList todos os trabalhos de importação/exportação do Azure | MicrosoftDocs"
-description: "Saiba como toolist todos do serviço de importação/exportação do Azure saudação de trabalhos em uma assinatura."
+title: "Listar todos os trabalhos de Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba como listar todos os trabalhos do serviço de Importação/Exportação do Azure em uma assinatura."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 0e12bf3dc3f2084a1987ac362cf8d1041059543c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="enumerating-jobs-in-hello-azure-importexport-service"></a>Enumerando trabalhos em Olá serviço de importação/exportação do Azure
-tooenumerate todos os trabalhos em uma assinatura, chamada hello [listar trabalhos](/rest/api/storageimportexport/jobs#Jobs_List) operação. `List Jobs`Retorna uma lista de trabalhos, bem como Olá seguintes atributos:
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerando trabalhos no serviço de Importação/Exportação do Azure
+Para enumerar todos os trabalhos em uma assinatura, chame a operação [List Jobs](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` retorna uma lista de trabalhos, bem como os seguintes atributos:
 
--   tipo de saudação do trabalho (importação ou exportação)
+-   O tipo de trabalho (Importação ou Exportação)
 
--   estado atual do trabalho Olá
+-   O estado atual do trabalho
 
--   Olá conta de armazenamento associado do trabalho
+-   A conta de armazenamento associada ao trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usando a API REST do serviço de importação/exportação Olá](storage-import-export-using-the-rest-api.md)
+* [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)

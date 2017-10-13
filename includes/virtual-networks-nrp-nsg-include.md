@@ -1,28 +1,28 @@
 ## <a name="network-security-group"></a>Grupo de Segurança de Rede
-Um recurso NSG permite a criação de saudação do limite de segurança para cargas de trabalho, com a implementação de permissão e negação de regras. Essas regras podem ser aplicadas tooa VM, uma NIC ou uma sub-rede.
+Um recurso NSG habilita a criação de limite de segurança para cargas de trabalho, por meio de regras de permissão e recusa. Essas regras podem ser aplicadas a uma VM, NIC ou sub-rede.
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **sub-redes** |Lista de ids de subrede Olá NSG é aplicada ao. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |Lista de regras de segurança que compõem a saudação NSG |Veja [Regra de segurança](#Security-rule) abaixo |
+| **sub-redes** |Lista de IDS de sub-rede às quais o NSG é aplicado. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
+| **securityRules** |Lista de regras de segurança que compõem o NSG |Veja [Regra de segurança](#Security-rule) abaixo |
 | **defaultSecurityRules** |Lista de regras de segurança padrão presentes em cada NSG |Veja [Regras de segurança padrão](#Default-security-rules) abaixo |
 
 * **Regra de segurança** - um NSG um pode ter várias regras de segurança definidas. Cada regra pode permitir ou negar diferentes tipos de tráfego.
 
 ### <a name="security-rule"></a>Regra de segurança
-Uma regra de segurança é um recurso filho de um NSG que contém as propriedades de saudação abaixo.
+Uma regra de segurança é um recurso filho de um NSG que contém as propriedades abaixo.
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **description** |Descrição para a regra de saudação |Permitir tráfego de entrada para todas as VMs na sub-rede X |
-| **protocol** |Toomatch de protocolo para a regra de saudação |TCP, UDP ou * |
-| **sourcePortRange** |Origem toomatch de intervalo de porta para a regra de saudação |80, 100-200, * |
-| **destinationPortRange** |Toomatch de intervalo de porta de destino para a regra de saudação |80, 100-200, * |
-| **sourceAddressPrefix** |Toomatch de prefixo de endereço de origem para regra de saudação |10.10.10.1, 10.10.10.0/24, Rede Virtual |
-| **destinationAddressPrefix** |Toomatch de prefixo de endereço de destino para a regra de saudação |10.10.10.1, 10.10.10.0/24, Rede Virtual |
-| **direction** |Direção do tráfego toomatch para regra de saudação |entrada ou saída |
-| **prioridade** |Prioridade de regra de saudação. As regras são verificadas em ordem de prioridade, e depois que uma regra é aplicada, nenhuma outra regra é testada quanto à correspondência. |10, 100, 65000 |
-| **access** |Tipo de acesso tooapply se corresponder a regra de saudação |permitir ou negar |
+| **description** |Descrição da regra |Permitir tráfego de entrada para todas as VMs na sub-rede X |
+| **protocol** |Protocolo para fazer a correspondência da regra |TCP, UDP ou * |
+| **sourcePortRange** |Intervalo de portas de origem para fazer a correspondência da regra |80, 100-200, * |
+| **destinationPortRange** |Intervalo de portas de destino para fazer a correspondência da regra |80, 100-200, * |
+| **sourceAddressPrefix** |Prefixo de endereço de origem para fazer a correspondência da regra |10.10.10.1, 10.10.10.0/24, Rede Virtual |
+| **destinationAddressPrefix** |Prefixo de endereço de destino para fazer a correspondência da regra |10.10.10.1, 10.10.10.0/24, Rede Virtual |
+| **direction** |Direção do tráfego para fazer a correspondência da regra |entrada ou saída |
+| **prioridade** |Prioridade da regra. As regras são verificadas em ordem de prioridade, e depois que uma regra é aplicada, nenhuma outra regra é testada quanto à correspondência. |10, 100, 65000 |
+| **access** |Tipo de acesso a ser aplicado se a regra for correspondente |permitir ou negar |
 
 Exemplo de NSG no formato JSON:
 
@@ -69,9 +69,9 @@ Exemplo de NSG no formato JSON:
 
 ### <a name="default-security-rules"></a>Regras de segurança padrão
 
-Regras de segurança padrão têm Olá mesmas propriedades disponíveis nas regras de segurança. Elas existem tooprovide a conectividade básica entre os recursos que têm toothem NSGs aplicados. Certifique-se de que você sabe quais [regras de segurança padrão](../articles/virtual-network/virtual-networks-nsg.md#default-rules) existem.
+As regras de segurança padrão têm as mesmas propriedades disponíveis nas regras de segurança. Elas existem para fornecer a conectividade básica entre os recursos com NSGs aplicados. Certifique-se de que você sabe quais [regras de segurança padrão](../articles/virtual-network/virtual-networks-nsg.md#default-rules) existem.
 
 ### <a name="additional-resources"></a>Recursos adicionais
 * Obtenha mais informações sobre [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
-* Saudação de leitura [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para NSGs.
-* Saudação de leitura [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para regras de segurança.
+* Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para obter NSGs.
+* Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para obter regras de segurança.

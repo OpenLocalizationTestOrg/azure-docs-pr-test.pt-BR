@@ -1,6 +1,6 @@
 ---
-title: "problemas comuns de aaaHow tootroubleshoot durante a criação do VHD | Microsoft Docs"
-description: "Solução de problemas de toocommon respostas perguntas e problemas durante a criação do VHD."
+title: "Como solucionar problemas comuns durante a criação do VHD | Microsoft Docs"
+description: "Respostas a perguntas comuns de solução de problemas e problemas durante a criação do VHD."
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e4ff09a979bdf575badff2d33f2299abb17c947d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tootroubleshoot-common-issues-encountered-during-vhd-creation"></a>Como tootroubleshoot os problemas comuns encontrados durante a criação do VHD
-Este artigo é fornecida toohelp um publicador do Azure Marketplace e/ou coadministrador que pode enfrentar um problema ou dúvidas comuns ao publicar ou gerenciar suas soluções de máquina virtual.
+# <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Como solucionar problemas comuns encontrados durante a criação do VHD
+Este artigo é fornecido para ajudar um fornecedor e/ou coadministrador do Azure Marketplace que possa enfrentar um problema ou ter dúvidas comuns ao publicar ou gerenciar suas soluções de máquina virtual.
 
-1. Como alterar o nome de saudação do host Olá?
+1. Como posso alterar o nome do host?
    
-    Depois que a VM é criada, os usuários não é possível atualizar o nome de saudação do host de saudação.
-2. Como tooreset Olá serviços de área de trabalho remota ou sua senha de logon?
+    Após a criação da VM, os usuários não poderão atualizar o nome do host.
+2. Como redefinir o serviço de Área de Trabalho Remota ou sua senha de logon?
    
    * [Referência de VM do Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
    * [Referência de VM do Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
-3. Como toogenerate novo ssh certificados?
+3. Como posso gerar novos certificados ssh?
    
-   Consulte o link toohello: [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
-4. Como tooconfigure um certificado VPN aberto?
+   Consulte o link: [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+4. Como configurar um certificado VPN aberta?
    
-   Consulte o link toohello: [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
-5. O que é a política de suporte de saudação para executar o software de servidor da Microsoft no ambiente de máquina virtual do Microsoft Azure hello (uma infraestrutura como serviço)?
+   Consulte o link: [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
+5. Qual é a política de suporte para a execução de software de servidor da Microsoft no ambiente de máquina virtual do Microsoft Azure (uma infraestrutura como serviço)?
    
-   Consulte o link toohello: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+   Consulte o link: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 6. As máquinas virtuais têm algum identificador exclusivo?
    
    O Azure codifica a ID exclusiva da VM do Azure em cada VM. Consulte detalhes neste blog e na documentação.
-7. Em uma VM como gerenciar extensão do script personalizado Olá na tarefa de inicialização Olá?
+7. Em uma VM, como posso gerenciar a extensão de script personalizado na tarefa de inicialização?
    
-   Consulte o link toohello: [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
-8. Como toocreate uma VM do hello usando o portal do Azure Olá VHD carregado toopremium armazenamento?
+   Consulte o link: [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+8. Como criar uma VM no Portal do Azure usando o VHD carregado no armazenamento premium?
    
    Ainda não oferecemos suporte a essa funcionalidade.
-9. Um aplicativo de 32 bits com suporte no Azure Marketplace de Olá?
+9. Um aplicativo de 32 bits tem suporte no Azure Marketplace?
    
-   Consulte toohello link para obter detalhes sobre a política de suporte de saudação: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
-10. Sempre que estou tentando toocreate uma imagem do meu VHDs, recebo o erro Olá ". VHD já está registrado com o repositório de imagem como recurso hello"no PowerShell. Eu não criei qualquer imagem antes, nem encontrei qualquer imagem com esse nome no Azure. Como resolver isso?
+   Consulte o link para obter detalhes sobre a política de suporte: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+10. Sempre que estou tentando criar uma imagem de minhas VHDs, recebo o erro "O .VHD já está registrado no repositório de imagens como o recurso"no PowerShell. Eu não criei qualquer imagem antes, nem encontrei qualquer imagem com esse nome no Azure. Como resolver isso?
     
-    Isso geralmente acontecer se o usuário Olá provisionado uma VM nesse VHD e não há um bloqueio em que o VHD. Verifique se não há uma VM alocada a partir desse VHD. Se o erro de saudação persistir, gere um tíquete de suporte usando este link ou de saudação publicação portal relativas a esta (detalhes são fornecidos na resposta de saudação de pergunta 11).
+    Geralmente, isso acontece se o usuário provisionou uma VM a partir desse VHD e houver um bloqueio nesse VHD. Verifique se não há uma VM alocada a partir desse VHD. Se o erro persistir, gere um tíquete de suporte usando este link ou no portal de publicação (encontre os detalhes na resposta da pergunta 11).

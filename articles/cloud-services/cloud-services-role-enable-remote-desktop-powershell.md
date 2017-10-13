@@ -1,6 +1,6 @@
 ---
-title: "aaaEnable Conexão de área de trabalho remota para uma função nos serviços de nuvem do Azure usando o PowerShell"
-description: "Como tooconfigure do azure nuvem usando conexões de área de trabalho remota do PowerShell tooallow do aplicativo de serviço"
+title: "Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell"
+description: "Como configurar seu aplicativo de serviço de nuvem do Azure usando o PowerShell para permitir conexões de área de trabalho remota"
 services: cloud-services
 documentationcenter: 
 author: thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 3f46b014f29f1c0be0e1b485d2f0152424162bb2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
 > [!div class="op_single_selector"]
@@ -29,39 +29,39 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Área de trabalho remota permite que você tooaccess área de trabalho de saudação de uma função em execução no Azure. Você pode usar um tootroubleshoot de conexão de área de trabalho remota e diagnosticar problemas com seu aplicativo enquanto ele está em execução.
+A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
 
-Este artigo descreve como tooenable área de trabalho remota em suas funções de serviço de nuvem usando o PowerShell. Consulte [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) pré-requisitos Olá necessários para este artigo. PowerShell utiliza Olá extensão de área de trabalho remota para que você possa habilitar a área de trabalho remota após a implantação do aplicativo hello.
+Este artigo descreve como habilitar a área de trabalho remota em suas funções de serviço de nuvem usando o PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para os pré-requisitos necessários para este artigo. O PowerShell usa a Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota depois que o aplicativo for implantado.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurar a Área de Trabalho Remota por meio do PowerShell
-Olá [AzureServiceRemoteDesktopExtension conjunto](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet permite tooenable área de trabalho remota em funções especificadas ou todas as funções de sua implantação do serviço de nuvem. Olá cmdlet permite que você especifique hello nome de usuário e senha de usuário de desktop remoto Olá por meio de saudação *credencial* parâmetro que aceita um objeto PSCredential.
+O cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) permite habilitar a Área de Trabalho Remota em funções especificadas ou todas as funções da implantação do serviço de nuvem. O cmdlet permite que você especifique o nome de usuário e a senha para o usuário da área de trabalho remota por meio do parâmetro *Credential* , que aceita um objeto PSCredential.
 
-Se você estiver usando o PowerShell interativamente, você pode definir facilmente objeto PSCredential de saudação por chamada hello [Get-credenciais](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+Se estiver usando o PowerShell interativamente, você pode definir facilmente o objeto PSCredential chamando o cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
 
 ```
 $remoteusercredentials = Get-Credential
 ```
 
-Este comando exibe uma caixa de diálogo que permite a você tooenter Olá nome de usuário e senha do usuário remoto Olá de forma segura.
+Esse comando exibirá uma caixa de diálogo, permitindo que você insira o nome de usuário e a senha para o usuário remoto de modo seguro.
 
-Desde que o PowerShell Ajuda em cenários de automação, você também pode configurar Olá **PSCredential** objeto de forma que não exige interação do usuário. Primeiro, é necessário tooset uma senha segura. Começar com a especificação de uma senha de texto sem formatação convertê-lo a cadeia de caracteres segura tooa usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Em seguida você precisa tooconvert essa cadeia de caracteres segura em uma cadeia de caracteres criptografada padrão usando [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Agora você pode salvar esse arquivo de tooa de cadeia de caracteres criptografada padrão usando [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Já que o PowerShell ajuda em cenários de automação, você também pode configurar o objeto **PSCredential** de modo que não exija interação do usuário. Primeiro, você precisa configurar uma senha de segurança. Comece com a especificação de uma senha de texto sem formatação e converta-a em uma cadeia de caracteres segura usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Em seguida, você precisa converter essa cadeia de caracteres segura em uma cadeia de caracteres criptografada padrão usando [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Agora você pode salvar essa cadeia de caracteres criptografada padrão em um arquivo, usando [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
 
-Você também pode criar um arquivo de senha segura para que você não tenha tootype senha Olá sempre. Além disso, um arquivo de senha segura é melhor do que um arquivo de texto sem formatação. Use Olá PowerShell toocreate um arquivo de senha de segurança a seguir:
+Você também pode criar um arquivo de senha segura para que não precise digitar a senha em todas as ocasiões. Além disso, um arquivo de senha segura é melhor do que um arquivo de texto sem formatação. Use o PowerShell a seguir para criar um arquivo de senha de segurança:
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
 > [!IMPORTANT]
-> Ao definir senha Olá, certifique-se de que você atenda aos Olá [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
+> Ao definir a senha, atenda aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
 >
 >
 
-objeto de credencial toocreate saudação do arquivo de senha segura hello, você deve ler o conteúdo do arquivo hello e convertê-los tooa back proteger a cadeia de caracteres usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-Olá [conjunto AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet também aceita um *validade* parâmetro, que especifica um **DateTime** nos quais o usuário Olá vencimento da conta. Por exemplo, você pode definir Olá conta tooexpire alguns dias da saudação data e hora atuais.
+O cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) também aceita um parâmetro *Expiration* que especifica um **DateTime** (data e hora) em que a conta de usuário vai expirar. Por exemplo, você pode definir a conta a expirar em alguns dias após a data e hora atuais.
 
-Este exemplo do PowerShell mostra como tooset Olá extensão de área de trabalho remota em um serviço de nuvem:
+Este PowerShell de exemplo mostra como definir a Extensão de Área de Trabalho Remota em um serviço de nuvem:
 
 ```
 $servicename = "cloudservice"
@@ -71,12 +71,12 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-Você também pode especificar slot de implantação hello e funções que você deseja tooenable área de trabalho remota no. Se esses parâmetros não forem especificados, Olá habilita a área de trabalho remota em todas as funções hello **produção** slot de implantação.
+Você também pode especificar o slot de implantação e as funções em que deseja habilitar a área de trabalho remota. Se esses parâmetros não forem especificados, o cmdlet habilitará a área de trabalho remota em todas as funções no slot de implantação de **Produção** .
 
-Olá extensão da área de trabalho remota está associado uma implantação. Se você criar uma nova implantação do serviço de hello, você tem a área de trabalho remota tooenable em que a implantação. Se você desejar toohave área de trabalho remota habilitada, você deve considerar a integração de scripts do PowerShell Olá ao seu fluxo de trabalho de implantação.
+A extensão de Área de Trabalho Remota está associada uma implantação. Se você criar uma nova implantação para o serviço, precisará habilitar novamente a área de trabalho remota nessa implantação. Se você sempre quiser ter a área de trabalho remota habilitada em suas implantações, deverá considerar a integração dos scripts do PowerShell em seu fluxo de trabalho de implantação.
 
 ## <a name="remote-desktop-into-a-role-instance"></a>Área de Trabalho Remota em uma instância de função
-Olá [Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet é usado tooremote a área de trabalho em uma instância de função específica do seu serviço de nuvem. Você pode usar o hello *LocalPath* Olá toodownload de parâmetro RDP arquivo localmente. Ou você pode usar o hello *iniciar* tooaccess de caixa de diálogo de Conexão de área de trabalho remota parâmetro toodirectly inicialização Olá Olá instância de função do serviço de nuvem.
+O cmdlet [Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) é usado para a área de trabalho remota em uma instância de função específica do serviço de nuvem. Você pode usar o parâmetro *LocalPath* para baixar o arquivo RDP localmente. Ou você pode usar o parâmetro *Launch* para iniciar diretamente a caixa de diálogo Conexão de Área de Trabalho Remota para acessar a instância de função do serviço de nuvem.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
@@ -84,29 +84,29 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 
 ## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Verifique se a extensão de Área de Trabalho Remota está habilitada em um serviço
-Olá [AzureServiceRemoteDesktopExtension Get](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet exibe que área de trabalho remota está habilitada ou desabilitada em uma implantação de serviço. Olá cmdlet retorna o nome de usuário de saudação de usuário da área de trabalho remota hello e funções Olá Olá extensão de área de trabalho remota está habilitada para. Por padrão, isso ocorre no slot de implantação hello e você pode escolher Olá toouse em vez disso, o slot de preparo.
+O cmdlet [Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) exibe se a área de trabalho remota está habilitada ou desabilitada em uma implantação de serviço. O cmdlet retorna o nome de usuário para o usuário de área de trabalho remota e as funções nas quais a extensão de área de trabalho remota está habilitada. Por padrão, isso ocorre no slot de implantação e você pode optar por usar o slot de preparo em vez disso.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## <a name="remove-remote-desktop-extension-from-a-service"></a>Remover a extensão de Área de Trabalho Remota de um serviço
-Se você tiver habilitado a extensão de área de trabalho remota Olá em uma implantação e precisa tooupdate Olá configurações de área de trabalho remota, primeiro remova a extensão hello. E habilitá-lo novamente com novas configurações de saudação. Por exemplo, se você quiser tooset uma nova senha para a conta de usuário remoto hello ou Olá conta expirou. Isso é necessário nas implantações existentes que têm Olá extensão da área de trabalho remota habilitada. Para novas implantações, você pode simplesmente aplicar extensão Olá diretamente.
+Se você já tiver habilitado a extensão de área de trabalho remota em uma implantação e se precisar atualizar as configurações de área de trabalho remota, primeiro remova a extensão. E habilite-o novamente com as novas configurações. Por exemplo, se você deseja definir uma nova senha para a conta de usuário remoto ou se a conta tiver expirado. Isso é necessário em implantações existentes com a extensão de área de trabalho remota habilitada. Para as novas implantações, você pode simplesmente aplicar a extensão de forma direta.
 
-tooremove Olá remoto da área de trabalho extensão da implantação hello, você pode usar o hello [AzureServiceRemoteDesktopExtension remover](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet. Você pode especificar também slot de implantação de saudação e a função da qual você deseja que a extensão da área de trabalho remota do tooremove Olá.
+Para remover a extensão de área de trabalho remota de uma implantação, você poderá usar o cmdlet [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) . Você também pode especificar o slot de implantação e a função dos quais você deseja remover a extensão da área de trabalho remota.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
 > [!NOTE]
-> configuração de extensão do toocompletely remover hello, você deve chamar hello *remover* cmdlet com hello **UninstallConfiguration** parâmetro.
+> Para remover completamente a configuração de extensão, você deve chamar o cmdlet *remove* com o parâmetro **UninstallConfiguration** .
 >
-> Olá **UninstallConfiguration** parâmetro desinstala qualquer configuração de extensão que é o serviço toohello aplicado. Todas as configurações de extensão está associada a configuração do serviço hello. Olá chamada *remover* cmdlet sem **UninstallConfiguration** desassocia Olá <mark>implantação</mark> da configuração de extensão hello, assim, removendo efetivamente extensão de saudação. No entanto, a configuração da extensão Olá permanece associada ao serviço de saudação.
+> O parâmetro **UninstallConfiguration** desinstala qualquer configuração de extensão aplicada ao serviço. Todas as configurações de extensão estão associadas à configuração do serviço. Chamar o cmdlet *remove* sem **UninstallConfiguration** dissocia a <mark>implantação</mark> da configuração de extensão, removendo assim efetivamente a extensão. No entanto, a configuração de extensão permanece associada ao serviço.
 >
 >
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-[Como tooConfigure serviços de nuvem](cloud-services-how-to-configure.md)
-[serviços em nuvem perguntas Frequentes – área de trabalho remota](cloud-services-faq.md)
+[Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
+[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md)

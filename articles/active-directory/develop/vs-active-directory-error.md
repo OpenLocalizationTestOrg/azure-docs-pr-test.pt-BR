@@ -1,6 +1,6 @@
 ---
-title: "erros de toodiagnose aaaHow com hello Assistente de Conexão do Azure Active Directory"
-description: "Assistente de conexão do active directory Olá detectou um tipo de autenticação incompatível"
+title: "Como diagnosticar erros com o Assistente de Conexão do Azure Active Directory"
+description: "O Assistente de conexão do Active Directory detectou um tipo de autenticação incompatível"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,45 +15,45 @@ ms.topic: article
 ms.date: 03/05/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: f71c5b41457c0c8db05042e8d5f723e58ad11844
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="diagnosing-errors-with-hello-azure-active-directory-connection-wizard"></a>Diagnosticando erros com hello Assistente de Conexão do Azure Active Directory
-Ao detectar o código de autenticação anterior, o Assistente de saudação detectou um tipo de autenticação incompatível.   
+# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnosticando erros com o Assistente de Conexão do Azure Active Directory
+Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.   
 
 ## <a name="what-is-being-checked"></a>O que está sendo verificado?
-**Observação:** toocorrectly detectar anterior código de autenticação em um projeto, Olá projeto deve ser criado.  Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, compile o projeto novamente e repita a operação.
+**Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser compilado.  Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, compile o projeto novamente e repita a operação.
 
 ### <a name="project-types"></a>Tipos de projeto
-Assistente de Olá verifica o tipo de saudação do projeto que você desenvolve para que ele pode injetar a lógica de certo de autenticação de saudação no projeto de saudação.  Se houver qualquer controlador que deriva de `ApiController` no projeto hello, projeto de saudação é considerado um projeto WebAPI.  Se houver somente controladores que derivam de `MVC.Controller` no projeto hello, projeto de saudação é considerado um projeto MVC.  Não há suporte para qualquer outra coisa pelo Assistente de saudação.
+O assistente verifica o tipo de projeto que está sendo desenvolvido para que possa injetar a lógica de autenticação adequada ao projeto.  Se houver um controlador que deriva de `ApiController` no projeto, o projeto será considerado um projeto WebAPI.  Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC.  Qualquer outro item não tem suporte do assistente.
 
 ### <a name="compatible-authentication-code"></a>Código de autenticação compatível
-Assistente de saudação também verifica as configurações de autenticação que foi configuradas anteriormente com o Assistente de saudação ou que são compatíveis com o Assistente de saudação.  Se todas as configurações estiverem presentes, ele é considerado um caso reentrante e Olá wizard abre exibe configurações de saudação.  Se apenas algumas das configurações de saudação estiverem presentes, ele será considerado um caso de erro.
+O assistente também verifica se as configurações de autenticação configuradas anteriormente com o assistente são compatíveis com ele.  Se todas as configurações estiverem presentes, ele será considerado um caso reentrante e o assistente será aberto e exibirá as configurações.  Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
 
-Em um projeto MVC, Olá assistente verifica qualquer Olá configurações, que resultam do uso anterior do Assistente de saudação a seguir:
+Em um projeto do MVC, o assistente verifica qualquer uma das configurações a seguir, fruto do uso anterior do assistente:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Além disso, o Assistente de Olá verifica para qualquer Olá configurações em um projeto de API da Web, que resultam do uso anterior do Assistente de saudação a seguir:
+Além disso, o assistente verifica qualquer uma das configurações a seguir em um projeto de API da Web, fruto do uso anterior do assistente:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
 ### <a name="incompatible-authentication-code"></a>Código de autenticação incompatível
-Por fim, o Assistente de saudação tenta toodetect versões de código de autenticação que foram configuradas com as versões anteriores do Visual Studio. Se você recebeu esse erro, significa que seu projeto contém um tipo de autenticação incompatível. Assistente de saudação detecta Olá seguintes tipos de autenticação de versões anteriores do Visual Studio:
+Por fim, o assistente tenta detectar versões do código de autenticação que foram configuradas com versões anteriores do Visual Studio. Se você recebeu esse erro, significa que seu projeto contém um tipo de autenticação incompatível. O assistente detecta os seguintes tipos de autenticação de versões anteriores do Visual Studio:
 
 * Autenticação do Windows 
 * Contas Individuais de Usuário 
 * Contas organizacionais 
 
-toodetect a autenticação do Windows em um projeto MVC, Olá assistente procura Olá `authentication` elemento da sua **Web. config** arquivo.
+Para detectar a Autenticação do Windows em um projeto MVC, o assistente procura pelo elemento `authentication` de seu arquivo **web.config** .
 
 <pre>
     &lt;configuration&gt;
@@ -63,7 +63,7 @@ toodetect a autenticação do Windows em um projeto MVC, Olá assistente procura
     &lt;/configuration&gt;
 </pre>
 
-toodetect a autenticação do Windows em um projeto de API da Web, Olá assistente procura Olá `IISExpressWindowsAuthentication` elemento do seu projeto **. csproj** arquivo:
+Para detectar a Autenticação do Windows em um projeto da API da Web, o assistente procura pelo elemento `IISExpressWindowsAuthentication` do arquivo **.csproj** de seu projeto:
 
 <pre>
     &lt;Project&gt;
@@ -73,7 +73,7 @@ toodetect a autenticação do Windows em um projeto de API da Web, Olá assisten
     &lt;/Project&gt;
 </pre>
 
-autenticação de contas de usuário individuais toodetect, Olá assistente tem uma aparência para o elemento de pacote de saudação do seu **Packages** arquivo.
+Para detectar a autenticação de contas de usuário individual, o assistente procura o elemento de pacote de seu arquivo **Packages.config** .
 
 <pre>
     &lt;packages&gt;
@@ -81,7 +81,7 @@ autenticação de contas de usuário individuais toodetect, Olá assistente tem 
     &lt;/packages&gt;
 </pre>
 
-toodetect um formato antigo da autenticação de conta organizacional, Olá assistente procura Olá após o elemento de **Web. config**:
+Para detectar uma forma anterior de Autenticação de conta organizacional, o assistente procura o seguinte elemento **web.config**:
 
 <pre>
     &lt;configuration&gt;
@@ -91,7 +91,7 @@ toodetect um formato antigo da autenticação de conta organizacional, Olá assi
     &lt;/configuration&gt;
 </pre>
 
-tipo de autenticação do toochange Olá, remover o tipo de autenticação incompatível hello e execute o Assistente de saudação novamente.
+Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e execute o assistente novamente.
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 

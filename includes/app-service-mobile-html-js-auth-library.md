@@ -1,8 +1,8 @@
 ### <a name="server-auth"></a>Como autenticar com um provedor (fluxo de servidor)
-os aplicativos móveis toohave gerenciar o processo de autenticação de saudação em seu aplicativo, você deve registrar seu aplicativo com seu provedor de identidade. Em seguida, em seu serviço de aplicativo do Azure, você precisa tooconfigure Olá ID e segredo fornecida pelo seu provedor.
-Para obter mais informações, consulte o tutorial Olá [adicionar autenticação tooyour aplicativo](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
+Para que os Aplicativos Móveis gerenciem o processo de autenticação em seu aplicativo, é necessário registrá-los no provedor de identidade. Em seguida, no Serviço de Aplicativo do Azure, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor.
+Para obter mais informações, consulte o tutorial [Adicionar autenticação ao seu aplicativo](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Depois que você registrou o seu provedor de identidade, chamar hello `.login()` método com nome de saudação do seu provedor. Por exemplo, toologin com o Facebook usar Olá código a seguir:
+Depois de registrar seu provedor de identidade, chame o método `.login()` com o nome do seu provedor. Por exemplo, para fazer logon com o Facebook, use o código a seguir:
 
 ```
 client.login("facebook").done(function (results) {
@@ -12,16 +12,16 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-os valores válidos para o provedor de Olá Olá são 'aad', 'facebook', 'google', 'conta da Microsoft' e 'twitter'.
+Os valores válidos para o provedor são 'add', 'facebook', 'google', 'microsoftaccount' e 'twitter'.
 
 > [!NOTE]
-> Atualmente, a Autenticação do Google não funciona por meio de Fluxo de Servidor.  tooauthenticate com o Google, você deve usar um [método cliente fluxo](#client-auth).
+> Atualmente, a Autenticação do Google não funciona por meio de Fluxo de Servidor.  Para autenticar com o Google, você deve usar um [método de fluxo de cliente](#client-auth).
 
-Nesse caso, o serviço de aplicativo do Azure gerencia o fluxo de autenticação Olá OAuth 2.0.  Exibe a página de logon de saudação do provedor selecionado hello e gera um token de autenticação do serviço de aplicativo após o logon com êxito com o provedor de identidade hello. função de logon Hello, quando concluído, retorna um objeto JSON que expõe Olá ID de usuário e o serviço de aplicativo token de autenticação nos campos de identificação do usuário e authenticationToken hello, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire.
+Nesse caso, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth 2.0.  Ele exibe a página de logon do provedor selecionado e gera um token de autenticação do Serviço de Aplicativo após o logon bem-sucedido com o provedor de identidade. A função de logon, quando concluída, retorna um objeto JSON que expõe a ID do usuário e o token de autenticação do Serviço de Aplicativo nos campos userId e authenticationToken, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire.
 
 ###<a name="client-auth"></a>Como autenticar com um provedor (fluxo de cliente)
 
-Seu aplicativo pode também independentemente entre em contato com o provedor de identidade hello e forneça Olá retornado tooyour token do serviço de aplicativo para autenticação. Esse fluxo de cliente permite que você tooprovide uma experiência de logon único para usuários ou dados de usuário adicionais tooretrieve saudação do provedor de identidade.
+Seu aplicativo também pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado ao Serviço de Aplicativo para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
 
 #### <a name="social-authentication-basic-example"></a>Exemplo básico de autenticação social
 
@@ -38,11 +38,11 @@ client.login(
 });
 
 ```
-Este exemplo assume esse token Olá fornecido pelo provedor respectivos Olá SDK é armazenado na variável de token de saudação.
+Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável 'token'.
 
 #### <a name="microsoft-account-example"></a>Exemplo de conta da Microsoft
 
-Olá seguindo o exemplo usa Olá Live SDK, que oferece suporte a single-sign-on para aplicativos da Windows Store usando Account da Microsoft:
+O exemplo a seguir usa o Live SDK, que oferece suporte a logon único para aplicativos da Windows Store, usando a Conta da Microsoft:
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -59,11 +59,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-Este exemplo obtém um token do Live Connect, que é fornecido tooyour do serviço de aplicativo chamando a função de logon hello.
+Esse exemplo obtém um token do Live Connect, que é fornecido ao seu Serviço de Aplicativo chamando a função de logon.
 
-###<a name="auth-getinfo"></a>Como: obter informações sobre o usuário autenticado de saudação
+###<a name="auth-getinfo"></a>Como obter informações sobre o usuário autenticado
 
-informações de autenticação Olá podem ser recuperadas da saudação `/.auth/me` chamada de ponto de extremidade usando um HTTP com qualquer biblioteca AJAX.  Certifique-se de que você definir Olá `X-ZUMO-AUTH` token de autenticação do cabeçalho tooyour.  Olá token de autenticação é armazenado no `client.currentUser.mobileServiceAuthenticationToken`.  Por exemplo, toouse Olá busca API:
+As informações de autenticação podem ser obtidas no ponto de extremidade `/.auth/me` usando uma chamada HTTP com qualquer biblioteca do AJAX.  Certifique-se de definir o cabeçalho `X-ZUMO-AUTH` ao token de autenticação.  O token de autenticação está armazenado em `client.currentUser.mobileServiceAuthenticationToken`.  Por exemplo, para usar a API de busca:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -73,8 +73,8 @@ fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
-        // hello user object contains hello claims for hello authenticated user
+        // The user object contains the claims for the authenticated user
     });
 ```
 
-O Fetch está disponível como um [pacote npm](https://www.npmjs.com/package/whatwg-fetch) ou para download do navegador do [CDNJS](https://cdnjs.com/libraries/fetch). Você também pode usar outras informações de saudação de toofetch de API do AJAX ou jQuery.  Os dados são recebidos como um objeto JSON.
+O Fetch está disponível como um [pacote npm](https://www.npmjs.com/package/whatwg-fetch) ou para download do navegador do [CDNJS](https://cdnjs.com/libraries/fetch). Você também pode usar jQuery ou outra API AJAX para buscar as informações.  Os dados são recebidos como um objeto JSON.

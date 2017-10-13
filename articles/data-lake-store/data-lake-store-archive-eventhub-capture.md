@@ -1,6 +1,6 @@
 ---
-title: "dados aaaCapture dos Hubs de eventos no repositório Azure Data Lake | Microsoft Docs"
-description: "Dados do repositório do uso do Azure Data Lake toocapture dos Hubs de eventos"
+title: Capturar dados de Hubs de Eventos no Azure Data Lake Store | Microsoft Docs
+description: Use o Azure Data Lake Store Use para capturar dados de Hubs de Eventos
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -13,40 +13,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 09b17bd0b47043bd2c83dba72c01a8064f206a0a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-data-lake-store-toocapture-data-from-event-hubs"></a>Dados do repositório do uso do Azure Data Lake toocapture dos Hubs de eventos
+# <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Store Use para capturar dados de Hubs de Eventos
 
-Saiba como toouse dados do repositório Azure Data Lake toocapture recebeu por Hubs de eventos do Azure.
+Saiba como usar o Azure Data Lake Store para capturar dados recebidos pelos Hubs de Eventos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como um, ver toocreate [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md).
+* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
-*  **Um namespace dos Hubs de Eventos**. Para obter instruções, confira [Criar um namespace dos Hubs de Eventos](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Certifique-se de conta do repositório Data Lake hello e Olá Hubs de eventos namespace estão no hello mesma assinatura do Azure.
+*  **Um namespace dos Hubs de Eventos**. Para obter instruções, confira [Criar um namespace dos Hubs de Eventos](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Verifique se a conta do Data Lake Store e o namespace dos Hubs de Eventos estão na mesma assinatura do Azure.
 
 
-## <a name="assign-permissions-tooevent-hubs"></a>Atribuir permissões tooEvent Hubs
+## <a name="assign-permissions-to-event-hubs"></a>Atribuir permissões aos Hubs de Eventos
 
-Nesta seção, você criar uma pasta dentro de conta Olá onde você deseja toocapture Olá dados dos Hubs de eventos. Você também atribuir permissões Hubs tooEvent para que ele possa gravar dados em uma conta do repositório Data Lake. 
+Nesta seção, você criará uma pasta dentro da conta na qual você deseja capturar os dados dos Hubs de Eventos. Você também atribui permissões aos Hubs de Eventos para que eles possam gravar dados em uma conta do Data Lake Store. 
 
-1. Abrir conta de repositório Data Lake Olá onde você deseja que os dados toocapture dos Hubs de eventos e, em seguida, clique em **Data Explorer**.
+1. Abra a conta do Data Lake Store onde você deseja capturar dados dos Hubs de Eventos e, em seguida, clique em **Data Explorer**.
 
     ![Data explorer do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data explorer do Data Lake Store")
 
-2.  Clique em **nova pasta** e, em seguida, digite um nome para a pasta onde você deseja toocapture Olá dados.
+2.  Clique em **Nova Pasta** e digite um nome para a pasta onde você deseja capturar os dados.
 
     ![Criar uma nova pasta no Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Criar uma nova pasta no Data Lake Store")
 
-3. Atribua permissões na raiz de saudação do hello repositório Data Lake. 
+3. Atribua permissões na raiz do Data Lake Store. 
 
-    a. Clique em **Data Explorer**, selecione a raiz de saudação do hello conta do repositório Data Lake e, em seguida, clique em **acesso**.
+    a. Clique em **Data Explorer**, selecione a raiz da conta do Data Lake Store e, em seguida, clique em **Acesso**.
 
     ![Atribuir permissões para a raiz do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Atribuir permissões para a raiz do Data Lake Store")
 
@@ -56,15 +56,15 @@ Nesta seção, você criar uma pasta dentro de conta Olá onde você deseja tooc
     
     Clique em **Selecionar**.
 
-    c. Em **Atribuir Permissões**, clique em **Selecionar Permissões**. Definir **permissões** muito**Execute**. Definir **adicionar a** muito**essa pasta e todos os filhos**. Definir **adicionar como** muito**uma entrada de permissão de acesso e uma entrada de permissão padrão**.
+    c. Em **Atribuir Permissões**, clique em **Selecionar Permissões**. Defina **Permissões** como **Executar**. Defina **Adicionar a** como **Esta pasta e todas as filhas**. Defina **Adicionar como** como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**.
 
     ![Atribuir permissões para a raiz do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Atribuir permissões para a raiz do Data Lake Store")
 
     Clique em **OK**.
 
-4. Atribua permissões para pasta Olá na conta do repositório Data Lake onde você deseja toocapture dados.
+4. Atribua permissões para a pasta na conta do Data Lake Store onde você deseja capturar dados.
 
-    a. Clique em **Data Explorer**, selecione a pasta Olá na conta do repositório Data Lake do hello e, em seguida, clique em **acesso**.
+    a. Clique em **Data Explorer**, selecione a pasta na conta do Data Lake Store e, em seguida, clique em **Acesso**.
 
     ![Atribuir permissões para a pasta do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Atribuir permissões para a pasta do Data Lake Store")
 
@@ -74,52 +74,52 @@ Nesta seção, você criar uma pasta dentro de conta Olá onde você deseja tooc
     
     Clique em **Selecionar**.
 
-    c. Em **Atribuir Permissões**, clique em **Selecionar Permissões**. Definir **permissões** muito**leitura, gravação,** e **Execute**. Definir **adicionar a** muito**essa pasta e todos os filhos**. Finalmente, defina **adicionar como** muito**uma entrada de permissão de acesso e uma entrada de permissão padrão**.
+    c. Em **Atribuir Permissões**, clique em **Selecionar Permissões**. Defina **Permissões** como **Ler, Gravar** e **Executar**. Defina **Adicionar a** como **Esta pasta e todas as filhas**. Por fim, defina **Adicionar como** como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**.
 
     ![Atribuir permissões para a pasta do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Atribuir permissões para a pasta do Data Lake Store")
     
     Clique em **OK**. 
 
-## <a name="configure-event-hubs-toocapture-data-toodata-lake-store"></a>Configurar o repositório Hubs de eventos toocapture data tooData Lake
+## <a name="configure-event-hubs-to-capture-data-to-data-lake-store"></a>Configurar os Hubs de Eventos para capturar dados no Data Lake Store
 
-Nesta seção, você criará um Hub de Eventos dentro de um namespace de Hubs de Eventos. Você também pode configurar Olá Hub de eventos toocapture dados tooan conta do repositório Azure Data Lake. Esta seção pressupõe que você já criou um namespace dos Hubs de Eventos.
+Nesta seção, você criará um Hub de Eventos dentro de um namespace de Hubs de Eventos. Também configurará o Hub de Eventos para capturar os dados em uma conta do Azure Data Lake Store. Esta seção pressupõe que você já criou um namespace dos Hubs de Eventos.
 
-2. De saudação **visão geral** painel do namespace de Hubs de eventos de saudação, clique em **+ Hub de eventos**.
+2. No painel **Visão Geral** do namespace de Hubs de Eventos, clique em **+ Hub de Eventos**.
 
     ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Criar Hub de Eventos")
 
-3. Forneça a seguinte Olá valores tooconfigure Hubs de eventos toocapture dados tooData Lake repositório.
+3. Forneça os valores a seguir para configurar os Hubs de Eventos a fim de capturar dados no Data Lake Store.
 
     ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Criar Hub de Eventos")
 
-    a. Forneça um nome para Olá Hub de eventos.
+    a. Forneça um nome para o Hub de Eventos.
     
-    b. Neste tutorial, defina **contagem de partições** e **retenção de mensagem** toohello os valores padrão.
+    b. Para este tutorial, defina **Contagem de Partições** e **Retenção de Mensagem** com os valores padrão.
     
-    c. Definir **capturar** muito**em**. Saudação de conjunto **janela de tempo** (frequência toocapture) e **janela de tamanho** (toocapture de tamanho de dados). 
+    c. Defina **Capturar** como **Ativado**. Defina a **Janela de Tempo** (a frequência de captura) e **Janela de Tamanho** (tamanho dos dados para captura). 
     
-    d. Para **provedor capturar**, selecione **repositório Azure Data Lake** e selecione Olá Olá repositório Data Lake criado anteriormente. Para **Data Lake caminho**, digite nome de saudação da pasta de saudação criada na conta do repositório Data Lake do hello. Você só precisa de pasta de toohello tooprovide Olá caminho relativo.
+    d. Para **Provedor de Captura**, selecione **Azure Data Lake Store** e selecione o Data Lake Store criado anteriormente. Para **Caminho do Data Lake**, digite o nome da pasta que você criou na conta do Data Lake Store. Você só precisa fornecer o caminho relativo para a pasta.
 
-    e. Deixe Olá **formatos de nome de arquivo de captura do exemplo** toohello valor de padrão. Essa opção controla a estrutura de pasta de saudação que é criada na pasta de captura hello.
+    e. Deixe os **Formatos de nome de arquivo de captura de exemplo** como o valor padrão. Essa opção controla a estrutura de pastas criada sob a pasta de captura.
 
     f. Clique em **Criar**.
 
-## <a name="test-hello-setup"></a>Configuração de saudação do teste
+## <a name="test-the-setup"></a>Testar a configuração
 
-Agora você pode testar a solução Olá enviando dados toohello Hub de eventos do Azure. Siga as instruções de saudação em [enviar eventos de Hubs de eventos tooAzure](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Quando você começa a enviar dados hello, você vê os dados de saudação refletidos no repositório Data Lake usando a estrutura de pastas de saudação especificado. Por exemplo, verá uma estrutura de pasta, conforme mostrado no hello seguinte captura de tela, em seu repositório Data Lake.
+Agora, você pode testar a solução enviando dados para o Hub de Eventos do Azure. Siga as instruções em [Enviar eventos aos Hubs de Eventos do Azure](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Quando você começar a enviar os dados, verá os dados refletidos no Data Lake Store usando a estrutura de pastas que você especificou. Por exemplo, você verá uma estrutura de pastas, conforme mostra a seguinte captura de tela, em seu Data Lake Store.
 
 ![Exemplo de dados do Hub de Eventos no Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Exemplo de dados do Hub de Eventos no Data Lake Store")
 
 > [!NOTE]
-> Mesmo se você não tem mensagens recebidas para Hubs de eventos, Hubs de eventos grava arquivos vazios com apenas a cabeçalhos de saudação em Olá conta do repositório Data Lake. Olá arquivos são gravados no hello mesmo intervalo de tempo que você forneceu durante a criação de Hubs de eventos de saudação.
+> Mesmo se não houver mensagens chegando aos Hubs de Eventos, os Hubs de Eventos gravarão os arquivos vazios apenas com os cabeçalhos na conta do Data Lake Store. Os arquivos são gravados no mesmo intervalo de tempo fornecido durante a criação dos Hubs de Eventos.
 > 
 >
 
 ## <a name="analyze-data-in-data-lake-store"></a>Analisar dados no Repositório Data Lake
 
-Quando dados saudação estiverem no repositório Data Lake, você pode executar trabalhos analíticos tooprocess e situação dados de saudação. Consulte [USQL Avro exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como toodo esse usando análise Azure Data Lake.
+Quando os dados estiverem no Data Lake Store, você poderá executar trabalhos de análise para processar e juntar os dados. Confira [Exemplo de USQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazer isso usando o Azure Data Lake Analytics.
   
 
 ## <a name="see-also"></a>Consulte também
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-* [Copiar dados do repositório Azure armazenamento de Blobs tooData Lake](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md)

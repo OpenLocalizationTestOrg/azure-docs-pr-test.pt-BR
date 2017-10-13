@@ -1,5 +1,5 @@
 ---
-title: "aaaConfigure seguro LDAP (LDAPS) nos serviços de domínio do AD do Azure | Microsoft Docs"
+title: "Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs"
 description: "Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD"
 services: active-directory-ds
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 356b28f8392b0e203df9c81177ec842d52866c4f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5d46f376d46b8bbf3f93de57a7d4e31abdbcdb2f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
@@ -26,71 +26,71 @@ ms.lasthandoff: 10/06/2017
 Não deixe de concluir a [Tarefa 1 – obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## <a name="task-2---export-hello-secure-ldap-certificate-tooa-pfx-file"></a>Tarefa 2: exportar Olá seguro LDAP certificado tooa. Arquivo PFX
-Antes de começar essa tarefa, certifique-se de que você obteve o certificado LDAP seguro de saudação de uma autoridade de certificação pública ou criar um certificado autoassinado.
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2 – exportar o certificado LDAP seguro para um arquivo .PFX
+Antes de iniciar esta tarefa, verifique se você obteve o certificado LDAP seguro de sua autoridade de certificação pública ou se criou um certificado autoassinado.
 
-Executar Olá etapas a seguir, tooexport Olá LDAPS tooa do certificado. Arquivo PFX.
+Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PFX.
 
-1. Olá pressione **iniciar** e digite **R**. Em Olá **executar** caixa de diálogo, digite **mmc** e clique em **Okey**.
+1. Pressione o botão **Iniciar** e digite **R**. Na caixa de diálogo **Executar**, digite **mmc** e clique em **OK**.
 
-    ![Inicie o console do MMC Olá](./media/active-directory-domain-services-admin-guide/secure-ldap-start-run.png)
-2. Em Olá **User Account Control** , clique em **Sim** toolaunch MMC (Console de gerenciamento Microsoft) como administrador.
-3. De saudação **arquivo** menu, clique em **Adicionar/Remover Snap-in...** .
+    ![Iniciar o console do MMC](./media/active-directory-domain-services-admin-guide/secure-ldap-start-run.png)
+2. No prompt **Controle de Conta de Usuário**, clique em **SIM** para iniciar o MMC (Console de Gerenciamento Microsoft) como administrador.
+3. No menu **Arquivo**, clique em **Adicionar/Remover Snap-in...**.
 
-    ![Adicionar o console do snap-in tooMMC](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
-4. Em Olá **adicionar ou Remover Snap-ins** caixa de diálogo, selecione Olá **certificados** snap-in e clique em Olá **Adicionar >** botão.
+    ![Adicionar snap-in ao console do MMC](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
+4. Na caixa de diálogo **Adicionar ou Remover Snap-ins**, escolha o snap-in **Certificados** e clique no botão **Adicionar >**.
 
-    ![Adicionar certificados tooMMC snap-in do console](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin.png)
-5. Em Olá **snap-in de certificados** assistente, selecione **conta de computador** e clique em **próximo**.
+    ![Adicionar snap-in de certificados ao console do MMC](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin.png)
+5. No assistente do **Snap-in de certificados**, escolha **Conta de computador** e clique em **Avançar**.
 
     ![Adicionar snap-in de certificados à conta do computador](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-computer-account.png)
-6. Em Olá **Selecionar computador** , selecione **computador Local: (Olá computador em que este console está sendo executado)** e clique em **concluir**.
+6. Na página **Selecionar Computador**, escolha **Computador local: (o computador no qual este console está sendo executado)** e clique em **Concluir**.
 
     ![Adicionar snap-in de certificados - escolher computador](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-local-computer.png)
-7. Em Olá **adicionar ou Remover Snap-ins** caixa de diálogo, clique em **Okey** tooadd Olá certificados snap-in tooMMC.
+7. Na caixa de diálogo **Adicionar ou Remover Snap-ins**, clique em **OK** para adicionar o snap-in de certificados ao MMC.
 
-    ![Adicionar o certificados snap-in tooMMC - concluído](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
-8. Na janela do MMC hello, clique em tooexpand **raiz do Console**. Você deve ver Olá snap-in de certificados carregados. Clique em **certificados (computador Local)** tooexpand. Clique em Olá tooexpand **pessoal** nó, seguido por Olá **certificados** nó.
+    ![Adicionar snap-in de certificados ao MMC - concluído](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
+8. Na janela do MMC, clique para expandir **Raiz do Console**. Você deve ver o snap-in de Certificados carregado. Clique em **Certificados (Computador Local)** para expandir. Clique para expandir o nó **Pessoal**, seguido pelo nó **Certificados**.
 
     ![Abrir repositório de certificados pessoais](./media/active-directory-domain-services-admin-guide/secure-ldap-open-personal-store.png)
-9. Você deve ver o certificado autoassinado hello, criamos. Você pode examinar as propriedades de Olá Olá certificado tooensure Olá impressão digital de correspondências de que em janelas do PowerShell hello quando você criou o certificado de saudação.
-10. Selecione Olá certificado autoassinado e **clique direito**. No menu de atalho hello, selecione **todas as tarefas** e selecione **exportar...** .
+9. Você deve ver o certificado autoassinado que acabamos de criar. É possível examinar as propriedades do certificado para garantir que a impressão digital corresponda àquela relatada nas janelas do PowerShell quando você criou o certificado.
+10. Escolha o certificado autoassinado e **clique com o botão direito do mouse**. No menu de clique com o botão direito do mouse, escolha **Todas as Tarefas** e **Exportar...**.
 
     ![Exportar o certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
-11. Em Olá **Assistente para exportação de certificados**, clique em **próximo**.
+11. No **Assistente para Exportação de Certificados**, clique em **Avançar**.
 
     ![Assistente de Exportar certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
-12. Em Olá **Exportar chave privada** página, selecione **Sim, exportar a chave privada Olá**e clique em **próximo**.
+12. Na página **Exportar Chave Privada**, escolha **Sim, exporte a chave privada** e clique em **Avançar**.
 
     ![Chave privada de Exportar certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
     > [!WARNING]
-    > Você deve exportar chave privada de saudação junto com o certificado de saudação. Se você fornecer um PFX que contém a chave privada Olá certificado Olá, habilitar LDAP seguro para seu domínio gerenciado falhará.
+    > Você DEVE exportar a chave privada junto com o certificado. Se você fornecer um PFX que não contém a chave privada do certificado, a habilitação do LDAP seguro para seu domínio gerenciado falhará.
     >
     >
-13. Em Olá **formato do arquivo de exportação** página, selecione **troca de informações pessoais - PKCS #12 (. PFX)** como formato de arquivo de saudação do hello o certificado exportado.
+13. Na página **Exportar Formato de Arquivo**, escolha **Personal Information Exchange – PKCS #12 (.PFX)** como o formato de arquivo para o certificado exportado.
 
     ![Formato de arquivo de Exportar certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 
     > [!NOTE]
-    > Somente hello. Há suporte para o formato do arquivo PFX. Não exporte Olá toohello de certificado. Formato de arquivo CER.
+    > Somente o formato de arquivo .PFX tem suporte. Não exporte o certificado para o formato de arquivo .CER.
     >
     >
-14. Em Olá **segurança** página, selecione Olá **senha** opção e digite uma saudação tooprotect de senha. Arquivo PFX. Guarde essa senha, pois ele será necessário na próxima tarefa de saudação. Clique em **próximo** tooproceed.
+14. Na página **Segurança**, escolha a opção **Senha** e digite uma senha para proteger o arquivo .PFX. Guarde essa senha, pois ela será necessária na próxima tarefa. Clique em **Avançar** para continuar.
 
     ![Senha para exportação de certificado ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
-    > Anote essa senha. Necessário ao habilitar o LDAP seguro para este domínio gerenciado no [tarefa 3: habilitar o LDAP seguro para o domínio gerenciado Olá](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+    > Anote essa senha. Você precisará dela ao habilitar o LDAP seguro para este domínio gerenciado na [Tarefa 3 – habilitar o LDAP seguro para o domínio gerenciado](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
     >
     >
-15. Em Olá **tooExport arquivo** , especifique o nome do arquivo hello e o local onde deseja que o certificado de saudação tooexport.
+15. Na página **Arquivo a ser Exportado** , especifique o nome do arquivo e o local para onde você deseja exportar o certificado.
 
     ![Caminho para exportação de certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)
-16. No hello após a página, clique em **concluir** arquivo PFX do tooexport Olá certificado tooa. Você deve ver a caixa de diálogo de confirmação quando Olá certificado foi exportado.
+16. Na página seguinte, clique em **Concluir** para exportar o certificado para um arquivo PFX. Você verá o diálogo de confirmação quando o certificado tiver sido exportado.
 
     ![Exportar certificado concluído](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
 
 ## <a name="next-step"></a>Próxima etapa
-[Tarefa 3 - habilitar LDAP seguro para o domínio gerenciado Olá](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+[Tarefa 3 – habilitar o LDAP seguro para o domínio gerenciado](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

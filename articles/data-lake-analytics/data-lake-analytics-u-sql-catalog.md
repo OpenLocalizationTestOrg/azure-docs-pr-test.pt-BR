@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao catálogo de saudação U-SQL | Microsoft Docs"
-description: "Saiba como Olá toouse U-SQL do catálogo de dados e código tooshare."
+title: "Introdução ao catálogo do U-SQL | Microsoft Docs"
+description: "Saiba como usar o catálogo do U-SQL para compartilhar códigos e dados."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: edmaca
-ms.openlocfilehash: 559bb7a3879031eb290a3e82946d7bf42ac9f553
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-u-sql-catalog"></a>Introdução ao Olá catálogo U-SQL
+# <a name="get-started-with-the-u-sql-catalog"></a>Introdução ao Catálogo do U-SQL
 
 ## <a name="create-a-tvf"></a>Criar um TVF
 
-No script U-SQL de anterior hello, você repetida uso Olá tooread de EXTRAÇÃO de saudação mesmo arquivo de origem. Com hello U-SQL com valor de tabela TVF (função), você pode encapsular dados Olá para reutilização futura.  
+No script U-SQL anterior, você repetiu o uso de EXTRACT para ler do mesmo arquivo de origem. Com o TVF (função com valor de tabela) do U-SQL, você pode encapsular os dados para uma futura reutilização.  
 
-Olá, script a seguir cria uma TVF chamada `Searchlog()` no banco de dados de padrão de saudação e esquema:
+O seguinte script cria um TVF chamado `Searchlog()` no banco de dados e esquema padrão:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -57,7 +57,7 @@ RETURN;
 END;
 ```
 
-saudação de script a seguir mostra como toouse Olá TVF que foi definido no script anterior hello:
+O script a seguir mostra como usar o TVF definido no script anterior:
 
 ```
 @res =
@@ -69,16 +69,16 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/SerachLog-use-tvf.csv"
+    TO "/output/SerachLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-views"></a>Criar exibições
 
-Se você tiver uma expressão de consulta única, em vez de uma TVF você pode usar um modo SQL U tooencapsulate dessa expressão.
+Se você tiver uma única expressão de consulta, em vez de um TVF, poderá usar uma EXIBIÇÃO U-SQL para encapsular essa expressão.
 
-Olá, script a seguir cria uma exibição chamada `SearchlogView` no banco de dados de padrão de saudação e esquema:
+O seguinte script cria uma exibição chamada `SearchlogView` no banco de dados e esquema padrão:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -95,7 +95,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Olá script a seguir demonstra o uso de saudação do modo de exibição de saudação definido:
+O script a seguir demonstra o uso da exibição definida:
 
 ```
 @res =
@@ -107,15 +107,15 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/Searchlog-use-view.csv"
+    TO "/output/Searchlog-use-view.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-tables"></a>Criar tabelas
-Como com as tabelas de banco de dados relacional, com U-SQL você pode criar uma tabela com um esquema predefinido ou criar uma tabela que infere o esquema de saudação da consulta de saudação que preenche a tabela de saudação (também conhecido como CREATE TABLE AS SELECT ou CTAS).
+Assim como ocorre com tabelas de banco de dados relacional, com o U-SQL você pode criar uma tabela com um esquema predefinido ou criar uma tabela que infere o esquema da consulta que popula a tabela (também conhecido como CREATE TABLE AS SELECT ou CTAS).
 
-Crie um banco de dados e duas tabelas usando Olá script a seguir:
+Cria um banco de dados e duas tabelas pelo uso do script a seguir:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -147,9 +147,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Consultar tabelas
-Você pode consultar tabelas, como aqueles criados no script anterior hello, em Olá mesma maneira que você consultar arquivos de dados de saudação. Em vez de criar um conjunto de linhas por meio da EXTRAÇÃO, você agora pode consultar toohello nome da tabela.
+Você pode consultar tabelas como aquelas criadas no script anterior, da mesma maneira que consulta os arquivos de dados. Em vez de criar um conjunto de linhas usando EXTRACT, agora você pode simplesmente consultar o nome da tabela.
 
-tooread de tabelas hello, modifique o script de transformação de saudação que você usou anteriormente:
+Para ler das tabelas, modifique o script de transformação que você usou anteriormente:
 
 ```
 @rs1 =
@@ -166,13 +166,13 @@ GROUP BY Region;
     FETCH 5 ROWS;
 
 OUTPUT @res
-    too"/output/Searchlog-query-table.csv"
+    TO "/output/Searchlog-query-table.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
  >[!NOTE]
- >No momento, você não pode executar uma seleção em uma tabela em Olá mesmo script conforme Olá um em que você criou a tabela de saudação.
+ >Atualmente você não pode executar SELECT em uma tabela no mesmo script em que você criou tal tabela.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)

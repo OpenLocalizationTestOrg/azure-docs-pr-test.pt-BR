@@ -1,6 +1,6 @@
 ---
-title: aaaOverview de hello Azure evento Hubs de APIs do .NET Framework | Microsoft Docs
-description: "Um resumo de alguns dos Olá principais do .NET Framework do evento Hubs APIs de cliente."
+title: "Visão geral das APIs do .NET Framework dos Hubs de Eventos do Azure | Microsoft Docs"
+description: Um resumo de algumas das principais APIs de cliente .NET Framework de Hubs de Eventos.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: b0e12e43f91b025d7aa4ca03e664b9ff31b04097
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Visão geral da API do .NET Framework de Hubs de Eventos
-Este artigo resume algumas das chave Olá APIs de cliente do Framework .NET de Hubs de evento. Há duas categorias: APIs de gerenciamento e de tempo de execução. APIs de tempo de execução consistem em toosend de todas as operações necessárias e recebem uma mensagem. Operações de gerenciamento permitem toomanage um estado de entidade de Hubs de eventos, criação, atualização e exclusão de entidades.
+Este artigo resume algumas das principais APIs de cliente .NET Framework de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. As APIs de tempo de execução consistem de todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
-Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de execução. Para documentação de referência detalhadas sobre Olá APIs .NET, consulte Olá [.NET do barramento de serviço](/dotnet/api/microsoft.servicebus.messaging) e [API EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) referências.
+Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de execução. Para obter a documentação de referência detalhada sobre as APIs .NET, veja as referências [.NET do Barramento de Serviço](/dotnet/api/microsoft.servicebus.messaging) e [API EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>APIs de gerenciamento
-tooperform Olá operações de gerenciamento a seguir, você deve ter **gerenciar** permissões no namespace de Hubs de eventos hello:
+Para executar as seguintes operações de gerenciamento, você deve ter permissões para **Gerenciar** no namespace de Hubs de Eventos:
 
 ### <a name="create"></a>Criar
 ```csharp
-// Create hello event hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
@@ -62,7 +62,7 @@ var eventHubClient = EventHubClient.Create("Event Hub name");
 
 ### <a name="publish-message"></a>Publicar mensagem
 ```csharp
-// Create hello device/temperature metric
+// Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
 var data = new EventData(new byte[10]); // Byte array
 var data = new EventData(Stream); // Stream 
@@ -80,10 +80,10 @@ await client.SendAsync(data);
 
 ### <a name="create-consumer"></a>Criar consumidor
 ```csharp
-// Create hello Event Hubs client
+// Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get hello default consumer group
+// Get the default consumer group
 var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
@@ -109,11 +109,11 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>APIs de host do processador de eventos
-Essas APIs fornecem processos tooworker de resiliência que podem se tornar indisponíveis, distribuindo partições entre os trabalhadores disponíveis.
+Essas APIs fornecem resiliência aos processos de trabalho que podem se tornar indisponíveis, distribuindo partições entre os trabalhadores disponíveis.
 
 ```csharp
-// Checkpointing is done within hello SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use hello EventData.Offset value for checkpointing yourself, this value is unique per partition.
+// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
+// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
 var eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 var blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
@@ -122,11 +122,11 @@ var eventHubDescription = new EventHubDescription(EventHubName);
 var host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
 await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// tooclose
+// To close
 await host.UnregisterEventProcessorAsync();
 ```
 
-Olá [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface é definida da seguinte maneira:
+A interface [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) é definida da seguinte maneira:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -169,12 +169,12 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-toolearn mais informações sobre cenários de Hubs de eventos, consulte estes links:
+Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 
 * [O que é Hub de Eventos do Azure?](event-hubs-what-is-event-hubs.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 
-referências de API .NET Olá são aqui:
+As referências de API .NET estão aqui:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

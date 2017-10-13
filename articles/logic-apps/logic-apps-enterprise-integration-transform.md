@@ -1,6 +1,6 @@
 ---
-title: "dados XML aaaConvert com transformações - os aplicativos lógicos do Azure | Microsoft Docs"
-description: "Criar transformações ou mapps dados XML tooconvert entre formatos de aplicativos lógicos usando Olá Enterprise integração SDK"
+title: "Converter dados XML com transformações – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Criar transformações ou mapas para converter dados XML entre formatos em aplicativos lógicos usando o SDK do Enterprise Integration"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b56ec1072c5058d3aefc7f88ac9b2748ebe56456
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integração corporativa com transformações XML
 ## <a name="overview"></a>Visão geral
-conector de transformação de integração Olá corporativo converte dados de um formato de tooanother de formato. Por exemplo, você pode ter uma mensagem de entrada que contém Olá data atual no formato de YearMonthDay hello. Você pode usar um toobe do transformação tooreformat Olá data no formato de MonthDayYear Olá.
+O conector de Transformação da integração corporativa converte dados de um formato para outro formato. Por exemplo, talvez você tenha uma mensagem de entrada contendo a data atual no formato AnoMêsDia. Você pode usar uma transformação para reformatar a data para o formato MêsDiaAno.
 
 ## <a name="what-does-a-transform-do"></a>O que uma transformação faz?
-Uma transformação, que é também conhecido como um mapa, consiste em um esquema XML de origem (Olá de entrada) e um esquema XML de destino (saída Olá). Você pode usar funções internas diferentes toohelp manipular ou controlar dados Olá, incluindo manipulações de cadeia de caracteres, atribuições condicionais, expressões aritméticas, formatadores de tempo de data e até mesmo construções de loop.
+Uma Transformação, que também é conhecida como um mapa, é formada por um esquema XML de origem (entrada) e um esquema XML de destino (saída). Você pode usar funções internas diferentes para ajudar a manipular e controlar os dados, incluindo manipulações de cadeia de caracteres, atribuições condicionais, expressões aritméticas, formatadores do tempo de data e até mesmo construções em loop.
 
-## <a name="how-toocreate-a-transform"></a>Como toocreate uma transformação?
-Você pode criar um mapa de transformação/usando o Visual Studio de saudação [Enterprise integração SDK](https://aka.ms/vsmapsandschemas). Quando tiver terminado de criar e testar transformação hello, carregar transformação Olá em sua conta de integração. 
+## <a name="how-to-create-a-transform"></a>Como criar uma transformação?
+Você pode criar uma transformação/mapa usando o [SDK do Enterprise Integration](https://aka.ms/vsmapsandschemas)do Visual Studio. Após a conclusão da criação e do teste da transformação, carregue a transformação em sua conta de integração. 
 
-## <a name="how-toouse-a-transform"></a>Como toouse uma transformação
-Depois de carregar transformação/mapa Olá em sua conta de integração, você pode usar um aplicativo de lógica de toocreate. Olá lógica aplicativo executa transformações sempre que Olá lógica aplicativo é disparado (e não há conteúdo de entrada que precisa toobe transformado).
+## <a name="how-to-use-a-transform"></a>Como usar uma transformação
+Depois de carregar a transformação em sua conta de integração, você poderá usá-la para criar um Aplicativo lógico. O Aplicativo lógico executará suas transformações sempre que o Aplicativo lógico for acionado (e quando houver um conteúdo de entrada que exija transformação).
 
-**Aqui está Olá etapas toouse uma transformação**:
+**Estas são as etapas para usar uma transformação**:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Criar uma conta de integração e adicionar um mapa tooit  
+* Criar uma conta de integração e adicionar um mapa a ela  
 
-Agora que atentar dos pré-requisitos Olá, é hora toocreate sua lógica de aplicativo:  
+Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lógico:  
 
-1. Criar um aplicativo de lógica e [vinculá-lo a conta de integração de tooyour](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba toolink um aplicativo de conta tooa lógica da integração") que contém o mapa de saudação.
-2. Adicionar um **solicitação** gatilho tooyour lógica aplicativo  
+1. Crie um Aplicativo Lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico") que contém o mapa.
+2. Adicione um gatilho de **Solicitação** a seu Aplicativo lógico  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Adicionar Olá **transformação XML** ação selecionando primeiro **adicionar uma ação**   
+3. Adicione a ação **Transformar XML** selecionando primeiro **Adicionar uma ação**   
    ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Inserir palavra hello *transformar* em toofilter de caixa de pesquisa Olá todos Olá toohello ações um que você deseja toouse  
+4. Insira a palavra *transformação* na caixa de pesquisa para filtrar todas as ações para encontrar aquela que você deseja usar  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
-5. Selecione Olá **transformação XML** ação   
-6. Adicionar Olá XML **conteúdo** que você transformar. Você pode usar qualquer dados XML recebidos na solicitação Olá HTTP como Olá **conteúdo**. Neste exemplo, selecione corpo Olá de solicitação HTTP Olá que disparou o aplicativo lógico de saudação.
-7. Nome hello Select de saudação **mapa** que você queira a transformação de saudação do toouse tooperform. mapa de saudação já deve estar em sua conta de integração. Em uma etapa anterior, você já atribuiu sua lógica acesso tooyour integração conta do aplicativo que contém o mapa.      
+5. Selecione a ação **Transformar XML**   
+6. Adicione o **CONTEÚDO** XML que você transformar. Você pode usar quaisquer dados XML recebidos na solicitação HTTP como o **CONTEÚDO**. Neste exemplo, selecione o corpo da solicitação HTTP que disparou o Aplicativo Lógico.
+7. Selecione o nome do **MAPA** que você deseja usar para executar a transformação. O mapa já deve estar em sua conta de integração. Em uma etapa anterior, você já deu ao seu Aplicativo lógico acesso à sua conta de integração que contém o mapa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Salve seu trabalho   
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-Neste ponto, você já configurou seu mapa. Em um aplicativo do mundo real, convém toostore dados de saudação transformado em um aplicativo de LOB, como a equipe de vendas. Você pode facilmente como uma saída de saudação do toosend de ação do hello transformar tooSalesforce. 
+Neste ponto, você já configurou seu mapa. Em um aplicativo real, convém armazenar os dados transformados em um aplicativo LOB, como o SalesForce. Você pode adicionar facilmente uma ação para enviar a saída da transformação para o Salesforce. 
 
-Agora você pode testar sua transformação fazendo um ponto de extremidade HTTP de toohello de solicitação.  
+Agora você pode testar a ação de transformação fazendo uma solicitação ao ponto de extremidade HTTP.  
 
 ## <a name="features-and-use-cases"></a>Recursos e casos de uso
-* transformação de saudação criada em um mapa pode ser simple, como copiar um nome e endereço de um tooanother de documento. Ou, você pode criar transformações mais complexas usando operações Olá fora da caixa.  
+* A transformação criada em um mapa pode ser simples, como copiar um nome e endereço de um documento para outro. Ou você pode criar transformações mais complexas usando as operações de mapa prontas para uso.  
 * Várias operações ou funções de mapeamento estão disponíveis, incluindo cadeias de caracteres, funções de data e hora, e assim por diante.  
-* Você pode fazer uma cópia de dados direto entre esquemas de saudação. Olá que mapeador incluído no SDK do hello, isso é simple como desenhar uma linha que conecta os elementos Olá no esquema de origem de saudação com suas contrapartes no esquema de destino de saudação.  
-* Ao criar um mapa, você pode exibir uma representação gráfica de mapa hello, que mostra todas as relações de saudação e links que você criar.
-* Use Olá mapa de teste recurso tooadd uma mensagem XML de exemplo. Com um clique simple, você pode testar mapa Olá criado e consulte a saída de hello gerado.  
+* Você pode fazer uma cópia de dados direta entre os esquemas. No Mapeador incluído no SDK, isso é tão simples quanto desenhar uma linha que conecta os elementos no esquema de origem aos seus correspondentes no esquema de destino.  
+* Ao criar um mapa, você exibe uma representação gráfica do mapa, que mostra todas as relações e os links que você cria.
+* Use o recurso Testar Mapa para adicionar uma mensagem XML de exemplo. Com um simples clique, você pode testar o mapa que você criou e ver a saída gerada.  
 * Carregar mapas existentes  
-* Inclui suporte para o formato do XML de saudação.
+* Inclui suporte para o formato XML.
 
 ## <a name="learn-more"></a>Saiba mais
-* [Saiba mais sobre Olá Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise")  
+* [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")  
 

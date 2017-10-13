@@ -1,6 +1,6 @@
 ---
-title: aaaGeneric SQL Connector | Microsoft Docs
-description: "Este artigo descreve como conector do SQL genérico da Microsoft tooconfigure."
+title: "Conector do SQL Genérico | Microsoft Docs"
+description: "Este artigo descreve como configurar o conector SQL genérico da Microsoft."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,211 +14,211 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 2eab8f0894e83ab4738b9f2deb05b03cdc9a9d43
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica do conector SQL genérico
-Este artigo descreve Olá conector do SQL genérico. artigo Olá aplica toohello produtos a seguir:
+Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes produtos:
 
 * Microsoft Identity Manager 2016 (MIM2016)
 * Forefront Identity Manager 2010 R2 (FIM2010R2)
   * É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
-Para MIM2016 e FIM2010R2, Olá Connector está disponível como um download do hello [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
+Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-toosee esse conector em ação, consulte Olá [conector do SQL genérico passo a passo](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) artigo.
+Para ver esse conector em ação, consulte o artigo [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) .
 
-## <a name="overview-of-hello-generic-sql-connector"></a>Visão geral da saudação conector do SQL genérico
-Olá genérico SQL Connector permite que você toointegrate serviço de sincronização de saudação com um sistema de banco de dados que oferece conectividade ODBC.  
+## <a name="overview-of-the-generic-sql-connector"></a>Visão geral do conector SQL genérico
+O conector SQL genérico permite que você integre o serviço de sincronização com um sistema de banco de dados que oferece conectividade ODBC.  
 
-De uma perspectiva de alto nível, Olá recursos a seguir é suportado pela versão atual de saudação do conector hello:
+Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada |Olá conector é compatível com todos os drivers ODBC de 64 bits. Ela foi testada com a seguinte hello: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
+| Fonte de dados conectada |O conector é compatível com todos os drivers ODBC de 64 bits. Ele foi testado com o seguinte:  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de senha</li> |
 | Operações |<li>Importação completa e importação delta, exportação</li><li>Para exportar: Adicionar, Excluir, Atualizar e Substituir</li><li>Definir senha, alterar senha</li> |
 | Esquema |<li>Detecção dinâmica de objetos e atributos</li> |
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de usar o conector de saudação, verifique se que você tem o seguinte Olá no servidor de sincronização de saudação:
+Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
 * Drivers de cliente ODBC de 64 bits
 
 ### <a name="permissions-in-connected-data-source"></a>Permissões na fonte de dados conectada
-toocreate ou executar qualquer uma das tarefas de saudação com suporte no conector do SQL genérico, você deve ter:
+Para criar ou executar qualquer uma das tarefas com suporte no conector SQL genérico, você deve ter:
 
 * db_datareader
 * db_datawriter
 
 ### <a name="ports-and-protocols"></a>Portas e protocolos
-Para portas de saudação necessárias para Olá toowork de driver ODBC, consulte documentação do fornecedor do banco de dados de saudação.
+Para as portas necessárias ao funcionamento do driver ODBC, confira a documentação do fornecedor do banco de dados.
 
 ## <a name="create-a-new-connector"></a>Criar um novo conector
-tooCreate um conector do SQL genérico, na **serviço de sincronização** selecione **Management Agent** e **criar**. Selecione Olá **SQL genérico (Microsoft)** conector.
+Para criar um conector SQL genérico, em **Serviço de Sincronização** selecione **Agente de Gerenciamento** e **Criar**. Selecione o **Conector SQL genérico (Microsoft)** .
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/createconnector.png)
 
 ### <a name="connectivity"></a>Conectividade
-Olá conector usa um arquivo de DSN ODBC para conectividade. Criar o arquivo usando o DSN Olá **fontes de dados ODBC** encontrado no menu Iniciar, Olá em **ferramentas administrativas**. Na ferramenta administrativa do hello, criar um **DSN de arquivo** para que ele pode ser fornecido toohello conector.
+O conector usa um arquivo DSN ODBC para conectividade. Crie o arquivo DSN usando **Fontes de Dados ODBC** encontrado no menu Iniciar em **Ferramentas Administrativas**. A ferramenta administrativa, cria um **DSN de Arquivo** para que ele possa ser fornecido ao conector.
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
 
-tela de conectividade Hello é primeiro hello quando você cria um novo conector do SQL genérico. Você precisa primeiro Olá tooprovide informações a seguir:
+A tela Conectividade é a primeira quando você cria um novo conector SQL genérico. Primeiro, forneça as seguintes informações:
 
 * Caminho do arquivo DSN
 * Autenticação
   * Nome de usuário
   * Senha
 
-banco de dados de saudação deve dar suporte a um dos seguintes métodos de autenticação:
+O banco de dados deve dar suporte a um dos seguintes métodos de autenticação:
 
-* **Autenticação do Windows**: Olá autenticação de banco de dados usa o usuário de saudação do hello Windows credenciais tooverify. Olá nome de usuário/senha especificado é tooauthenticate usado com o banco de dados de saudação. Essa conta precisa de banco de dados de toohello de permissões.
-* **Autenticação do SQL**: Olá autenticação de banco de dados usa Olá nome de usuário/senha definida uma saudação conectividade tela tooconnect toohello banco de dados. Se você armazenar Olá nome de usuário/senha no arquivo DSN hello, credenciais de Olá fornecidas na tela de conectividade hello têm precedência.
-* **Autenticação de banco de dados SQL do Azure**: para obter mais informações, consulte [conectar tooSQL banco de dados, usando o Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md).
+* **Autenticação do Windows**: o banco de dados de autenticação usa as credenciais do Windows para verificar o usuário. O nome de usuário/senha especificados são usados para autenticar com o banco de dados. Essa conta precisa de permissões para o banco de dados.
+* **Autenticação do SQL**: o banco de dados de autenticação usa o nome de usuário/senha definido na tela Conectividade para se conectar ao banco de dados. Se você armazenar a nome de usuário/senha no arquivo DSN, as credenciais fornecidas na tela Conectividade terão precedência.
+* **Autenticação do banco de dados SQL do Azure**: para mais informações, veja [Conectar ao banco de dados SQL usando a autenticação do Azure Active Directory](../../sql-database/sql-database-aad-authentication.md).
 
-**DN é âncora**: se você selecionar essa opção, Olá DN também é usado como o atributo de âncora hello. Ele pode ser usado para uma implementação simples, mas também tem Olá limitação a seguir:
+**DN é Âncora**: se você selecionar esta opção, o DN também será usado como atributo de âncora. Ele pode ser usado para uma implementação simples, mas também tem as seguintes limitações:
 
-* O conector dá suporte a apenas um tipo de objeto. Portanto, qualquer referência só podem fazer referência a atributos Olá mesmo tipo de objeto.
+* O conector dá suporte a apenas um tipo de objeto. Portanto, qualquer atributo de referência só pode fazer referência ao mesmo tipo de objeto.
 
-**Tipo de exportação: Substituição de objeto**: durante a exportação, quando apenas alguns atributos foram alterados, todo objeto Olá com todos os atributos é exportado e substitui Olá objeto existente.
+**Tipo de Exportação: Substituir Objeto**: durante a exportação, quando apenas alguns atributos tiverem sido alteradas, o objeto inteiro com todos os atributos será exportado e substituirá o objeto existente.
 
 ### <a name="schema-1-detect-object-types"></a>Esquema 1 (Detectar tipos de objeto)
-Nessa página, você vai tooconfigure como Olá conector é contínuo toofind Olá diferentes tipos de objeto no banco de dados de saudação.
+Nesta página você configurará como o conector localizará tipos de objeto diferentes no banco de dados.
 
 Cada tipo de objeto é apresentado como uma partição e configurado ainda mais em **Configurar Partições e Hierarquias**.
 
 ![schema1a](./media/active-directory-aadconnectsync-connector-genericsql/schema1a.png)
 
-**Método de detecção do tipo de objeto**: Olá conector dá suporte a esses métodos de detecção do tipo de objeto.
+**Método de detecção do Tipo de objeto**: o conector dá suporte a esses métodos de detecção do tipo de objeto.
 
-* **O valor fixo**: fornecerá Olá a lista de tipos de objeto com uma lista separada por vírgulas. Por exemplo: `User,Group,Department`.  
+* **Valor Fixo**: forneça a lista de tipos de objeto como uma lista separada por vírgulas. Por exemplo: `User,Group,Department`.  
   ![schema1b](./media/active-directory-aadconnectsync-connector-genericsql/schema1b.png)
-* **Procedimento de tabela/exibição/armazenado**: fornecer nome de saudação do hello tabela/exibição/procedimento armazenado e, em seguida, nome da coluna Olá que fornece a lista de saudação de tipos de objeto. Se você usar um procedimento armazenado, em seguida, também fornecem parâmetros para ele no formato Olá **[nome]: [direção]: [valor]**. Fornece a cada parâmetro em uma linha separada (use Ctrl + Enter tooget uma nova linha).  
+* **Tabela/exibição/procedimento armazenado**: forneça o nome da tabela/exibição/procedimento armazenado e, em seguida, o nome da coluna que fornece a lista de tipos de objeto. Se você usar um procedimento armazenado, forneça também parâmetros para ele no formato **[Nome]:[Direção]:[Valor]**. Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha).  
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
-* **Consulta SQL**: essa opção permite que você tooprovide uma consulta SQL que retorna uma única coluna com tipos de objeto, por exemplo `SELECT [Column Name] FROM TABLENAME`. Olá retornado a coluna deve ser do tipo cadeia de caracteres (varchar).
+* **Consulta SQL**: essa opção permite que você forneça uma consulta SQL que retorna uma única coluna com tipos de objeto, por exemplo, `SELECT [Column Name] FROM TABLENAME`. A coluna retornada deve ser do tipo cadeia de caracteres (varchar).
 
 ### <a name="schema-2-detect-attribute-types"></a>Esquema 2 (Detectar tipos de atributo)
-Nessa página, você vai tooconfigure Olá como nomes de atributos e tipos serão toobe detectado. Opções de configuração de saudação são listadas para cada tipo de objeto detectado na página anterior do hello.
+Nesta página, você configurará como os nomes e tipos de atributos serão detectados. As opções de configuração são listadas para cada tipo de objeto detectado na página anterior.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
 
-**Método de detecção do tipo de atributo**: Olá conector dá suporte a esses métodos de detecção do tipo de atributo com cada tipo de objeto detectado na tela 1 do esquema.
+**Método de detecção do tipo de atributo**: o conector dá suporte a esses métodos de detecção do tipo de atributo com cada tipo de objeto detectado na tela Esquema 1.
 
-* **Procedimento de tabela/exibição/armazenado**: fornecer nome de saudação do hello tabela/exibição/procedimento armazenado que deve ser nomes de atributo Olá toofind usado. Se você usar um procedimento armazenado, em seguida, também fornecem parâmetros para ele no formato Olá **[nome]: [direção]: [valor]**. Fornece a cada parâmetro em uma linha separada (use Ctrl + Enter tooget uma nova linha). nomes de atributo de saudação toodetect em um atributo com vários valores, forneça uma lista separada por vírgulas de tabelas ou exibições. Não haverá suporte para cenários de valores múltiplos quando a tabela pai e filho tiverem os mesmos nomes de coluna.
-* **Consulta SQL**: essa opção permite que você tooprovide uma consulta SQL que retorna uma única coluna com nomes de atributo, por exemplo `SELECT [Column Name] FROM TABLENAME`. Olá retornado a coluna deve ser do tipo cadeia de caracteres (varchar).
+* **Tabela/exibição/procedimento armazenado**: forneça o nome da tabela/exibição/procedimento armazenado que deve ser usado para localizar nomes de atributo. Se você usar um procedimento armazenado, forneça também parâmetros para ele no formato **[Nome]:[Direção]:[Valor]**. Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha). Para detectar nomes de atributo em um atributo de valores múltiplos, forneça uma lista separada por vírgulas de tabelas ou exibições. Não haverá suporte para cenários de valores múltiplos quando a tabela pai e filho tiverem os mesmos nomes de coluna.
+* **Consulta SQL**: essa opção permite que você forneça uma consulta SQL que retorna uma única coluna com nomes de atributo, por exemplo, `SELECT [Column Name] FROM TABLENAME`. A coluna retornada deve ser do tipo cadeia de caracteres (varchar).
 
 ### <a name="schema-3-define-anchor-and-dn"></a>Esquema 3 (Definir âncora e DN)
-Esta página permite que você tooconfigure a âncora e atributo DN para cada tipo de objeto detectado. Você pode selecionar vários atributos toomake Olá âncora exclusiva.
+Esta página permite que você configure a âncora e o atributo DN para cada tipo de objeto detectado. Você pode selecionar vários atributos para tornar a âncora exclusiva.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
 
 * Atributos de valores múltiplos e boolianos não são listados.
-* Mesmo atributo não pode usar para o DN e âncora, a menos que **DN é âncora** selecionada na página de conectividade de saudação.
-* Se **DN é âncora** está selecionada na página de conectividade Olá, esta página requer o único atributo Olá DN. Esse atributo será usado também como atributo de âncora hello.
+* O mesmo atributo não pode usar DN e âncora, a menos que **DN é Âncora** seja selecionado na página Conectividade.
+* Se **DN é Âncora** estiver selecionado na página Conectividade, esta página só solicitará o atributo DN. Esse atributo será usado também como o atributo de âncora.
 
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Esquema 4 (Definir tipo de atributo, referência e direção)
-Esta página permite que você tooconfigure o tipo de atributo hello, como inteiro, binário ou boolianos e direção para cada atributo. Todos os atributos da página **Esquema 2** estão listados como atributos de valores múltiplos.
+Essa página permite que você configure o tipo de atributo, como inteiro, binário ou Booliano, e a direção para cada atributo. Todos os atributos da página **Esquema 2** estão listados como atributos de valores múltiplos.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
 
-* **Tipo de dados**: toomap Olá atributo tipo toothose tipos conhecidos pelo mecanismo de sincronização de saudação usados. padrão de saudação é Olá toouse mesmo tipo, conforme detectado no esquema SQL hello, mas DateTime e referência não são facilmente detectáveis. Para aqueles, você precisa toospecify **DateTime** ou **referência**.
-* **Direção**: você pode definir Olá atributo direção tooImport, exportar ou ImportExport. ImportExport é o padrão.
+* **DataType**: usado para mapear o tipo de atributo para os tipos conhecidos do mecanismo de sincronização. O padrão é usar o mesmo tipo, conforme detectado no esquema SQL, mas DateTime e referência não são facilmente detectáveis. Para esses você precisa especificar **DateTime** ou **Referência**.
+* **Direção**: você pode definir a direção do atributo para Importar, Exportar ou ImportExport. ImportExport é o padrão.
 
 ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Observações:
 
-* Se um tipo de atributo não é detectável pelo Olá conector, ele usa o tipo de dados de cadeia de caracteres de saudação.
-* **Tabelas aninhadas** podem ser consideradas tabelas de banco de dados de uma coluna. Oracle armazena linhas de saudação de uma tabela aninhada em nenhuma ordem específica. No entanto, ao recuperar a tabela aninhada Olá em uma variável de PL/SQL, linhas de saudação recebem subscritos consecutivos, começando em 1. Que retorna linhas de tooindividual de acesso de matriz.
-* **VARRYS** não há suporte para o conector de saudação.
+* Se um tipo de atributo não for detectável pelo conector, ele usará o tipo de dados String.
+* **Tabelas aninhadas** podem ser consideradas tabelas de banco de dados de uma coluna. O Oracle armazena as linhas de uma tabela aninhada sem nenhuma ordem específica. No entanto, quando você recupera a tabela aninhada em uma variável de PL/SQL, as linhas recebem subscritos consecutivos, começando em 1. Que lhe dá acesso do tipo matriz a linhas individuais.
+* **VARRYS** não têm suporte no conector.
 
 ### <a name="schema-5-define-partition-for-reference-attributes"></a>Esquema 5 (Definir partição para atributos de referência)
 Nesta página você configura todos os atributos de referência a cuja partição (tipo de objeto) um atributo está se referindo.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
 
-Se você usar **DN é âncora**, você deve usar Olá mesmo tipo de objeto Olá um você está referenciando de. Não é possível referenciar outro tipo de objeto.
+Se você usar **DN é âncora**, deverá usar o mesmo tipo de objeto do qual está fazendo referência. Não é possível referenciar outro tipo de objeto.
 
 >[!NOTE]
-Iniciando atualização de março de 2017 Olá agora é uma opção para "*" quando essa opção for escolhida, em seguida, todos os tipos de membro possíveis serão importados.
+A partir da atualização de março de 2017 há uma opção para "*" e quando essa opção é escolhida todos os tipos de membro possíveis serão importados.
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- A partir de maio de 2017 hello "*" também conhecido como **qualquer opção** foi alterado toosupport importar e exportar o fluxo. Se você quiser que esta opção toouse sua tabela/exibição múltiplos devem ter um atributo que contém o tipo de objeto hello.
+ Desde maio de 2017 o "*" também conhecido como **qualquer opção** foi alterado para dar suporte ao fluxo de importação e exportação. Se você quiser usar essa opção, a exibição/tabela de vários valores deve ter um atributo que contém o tipo de objeto.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 
- </br> Se "*" é selecionado e o nome de saudação da coluna de saudação com tipo de objeto Olá também deve ser especificado.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
+ </br> Se "*" for selecionado, o nome da coluna com o tipo de objeto também deverá ser especificado.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
-Após a importação, você verá algo semelhante imagem toohello abaixo:
+Após a importação você verá algo semelhante à imagem a seguir:
 
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
 
 
 
 ### <a name="global-parameters"></a>Parâmetros Globais
-página de parâmetros globais Hello é usado tooconfigure importação de Delta, o formato de data/hora e o método de senha.
+A página Parâmetros Globais é usada para configurar importação Delta, formato de data/hora e método de senha.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
 
 
-Olá conector do SQL genérico dá suporte a saudação métodos a seguir para importação de Delta:
+O conector SQL genérico dá suporte aos seguintes métodos de importação Delta:
 
 * **Gatilho**: consulte [Gerar exibições de Delta usando gatilhos](https://technet.microsoft.com/library/cc708665.aspx).
-* **Marca d'água**: uma abordagem genérica que pode ser usada com qualquer banco de dados. consulta de marca d'água Olá é previamente preenchida com base no fornecedor de banco de dados de saudação. Uma coluna de marca-d'água deve estar presente em cada tabela/exibição usada. Esta coluna deve controlar inserções e atualizações de tabelas de toohello como e seus dependentes (múltiplos ou filho) tabelas. relógios Olá entre o serviço de sincronização e o servidor de banco de dados de saudação devem ser sincronizados. Caso contrário, algumas entradas na importação de delta Olá podem ser omitidas.  
+* **Marca d'água**: uma abordagem genérica que pode ser usada com qualquer banco de dados. A consulta de marca-d'água será preenchida com base no fornecedor do banco de dados. Uma coluna de marca-d'água deve estar presente em cada tabela/exibição usada. Essa coluna deve controlar inserções e atualizações para as tabelas e suas tabelas dependentes (de valores múltiplos ou filho). Os relógios entre o serviço de sincronização e o servidor de banco de dados devem ser sincronizados. Caso contrário, algumas entradas na importação delta podem ser omitidas.  
   Limitação:
   * A estratégia de marca-d'água não dá suporte a exclusão de objetos.
 * **Instantâneo**(funciona somente com o Microsoft SQL Server) [Gerando exibições de Delta usando instantâneos](https://technet.microsoft.com/library/cc720640.aspx)
 * **Acompanhamento de alterações**(funciona somente com o Microsoft SQL Server) [About Acompanhamento de alterações](https://msdn.microsoft.com/library/bb933875.aspx)  
   Limitações:
-  * Atributo DN & de âncora devem ser parte da chave primária para o objeto selecionado do hello na tabela de saudação.
+  * Atributo de âncora e DN devem ser parte da chave primária para o objeto selecionado na tabela.
   * Consulta SQL não tem suporte durante importação e exportação com acompanhamento de alterações.
 
-**Parâmetros adicionais**: especificar Olá fuso horário do banco de dados do servidor que indica onde o servidor de banco de dados está localizado. Esse valor é usado toosupport Olá vários formatos de data e hora de atributos.
+**Parâmetros adicionais**: especifique o fuso horário do servidor de banco de dados que indica o local em que o servidor de banco de dados está localizado. Esse valor é usado para dar suporte aos vários formatos de atributos de data e hora.
 
-Olá conector sempre armazena a data e a data e hora no formato UTC. toocorrectly de toobe capaz de converter vezes e date de hello, Olá fuso horário do servidor de banco de dados de saudação e formato Olá usado deve ser especificado. formato de saudação deve ser expressos em formato .net.
+O conector sempre armazena data e data e hora no formato UTC. Para converter corretamente datas e horas, o fuso horário do servidor de banco de dados e o formato usado devem ser especificados. O formato deve ser expresso no formato .Net.
 
-Durante a exportação, todos os atributos de tempo de data devem ser fornecido toohello conector no formato de hora UTC.
+Durante a exportação, todos os atributos de data e hora devem ser fornecidos ao conector no formato de hora UTC.
 
 ![globalparameters2](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters2.png)
 
-**Configuração de senha**: conector Olá fornece recursos de sincronização de senha e dá suporte a definir e alterar a senha.
+**Configuração de senha**: o conector fornece recursos de sincronização de senha e dá suporte a definição e alteração de senha.
 
-Olá conector fornece dois métodos de sincronização de senha toosupport:
+O conector fornece dois métodos para dar suporte à sincronização de senha:
 
-* **Procedimento armazenado**: esse método requer dois procedimentos armazenados toosupport conjunto e alterar a senha. Digite todos os parâmetros para adicionar e alterar a operação de saudação de senha em **definir senha SP** e **alterar senha SP** parâmetros respectivamente como por exemplo abaixo.
+* **Procedimento armazenado**: esse método requer dois procedimentos armazenados para dar suporte a definição e alteração de senha. Digite todos os parâmetros para adicionar e alterar a operação de senha em **Definir procedimento armazenado de senha** e **Alterar parâmetros de procedimento armazenado de senha** como nos exemplos abaixo.
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-* **Extensão de senha**: esse método requer a DLL de extensão de senha (necessário tooprovide Olá nome da DLL de extensão que está implementando Olá [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Assembly de extensão de senha deve ser colocado na pasta de extensão para que o conector de saudação pode carregar Olá DLL em tempo de execução.
+* **Extensão de senha**: este método requer DLL de extensão de senha (você precisa fornecer o nome DLL de extensão que está implementando a interface [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) ). O assembly de extensão de senha deve ser colocado na pasta de extensão para que o conector possa carregar a DLL no tempo de execução.
   ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
-Você também tem tooenable Olá gerenciamento de senha em Olá **extensão configurar** página.
+Você também deve habilitar o Gerenciamento de senhas na página **Configurar Extensão** .
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
 
-### <a name="configure-partitions-and-hierarchies"></a>Configurar partições e hierarquias
-Na página partições e hierarquias hello, selecione todos os tipos de objeto. Cada tipo de objeto está em sua própria partição.
+### <a name="configure-partitions-and-hierarchies"></a>Configurar Partições e Hierarquias
+Na página de partições e hierarquias, selecione todos os tipos de objeto. Cada tipo de objeto está em sua própria partição.
 
 ![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)
 
-Você também pode substituir valores hello definidos no hello **conectividade** ou **parâmetros globais** página.
+Você também pode substituir os valores definidos na página **Conectividade** ou **Parâmetros Globais**.
 
 ![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)
 
 ### <a name="configure-anchors"></a>Configurar Âncoras
-Esta página é somente leitura como âncora de saudação já foi definida. Olá atributo de âncora selecionado é sempre anexado com tooensure de tipo de objeto Olá ele permanece exclusivo em todos os tipos de objeto.
+Esta página é somente leitura, pois a âncora já foi definida. O atributo de âncora selecionado sempre é acrescentado com o tipo de objeto para garantir que ele permaneça exclusivo em todos os tipos de objeto.
 
-![âncoras](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
+![ancoras](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
 
 ## <a name="configure-run-step-parameter"></a>Configurar parâmetros da etapa de execução
-Essas etapas são configuradas no hello perfis de execução em Olá conector. Essas configurações Olá real trabalho de importação e exportação de dados.
+Essas etapas são configuradas em perfis de execução do conector. Essas configurações fazem o trabalho real de importar e exportar dados.
 
 ### <a name="full-and-delta-import"></a>Importação completa e Delta
 O conector SQL genérico oferece suporte a importação completa e Delta usando estes métodos genérico:
@@ -231,25 +231,25 @@ O conector SQL genérico oferece suporte a importação completa e Delta usando 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabela/Exibição**  
-atributos de múltiplos tooimport para um objeto, você tem nome de tabela/exibição separada por vírgulas de saudação tooprovide **exibições da tabela nome com valores múltiplos** e condições de junção do respectivos em Olá **dacondiçãodejunção**com a tabela pai de saudação.
+Para importar atributos de valores múltiplos de um objeto, você precisa fornecer o nome de tabela/exibição separados por vírgulas em **Nome de tabela/exibições de valores múltiplos** e as respectivas condições de junção em **Condição de junção** com a tabela principal.
 
-Exemplo: Que você deseja que o objeto de funcionário Olá tooimport e todos os seus atributos com valores múltiplos. Há duas tabelas chamadas Funcionário (tabela principal) e Departamento (valores múltiplos).
-Olá a seguir:
+Exemplo: você deseja importar o objeto de funcionário e todos os seus atributos de valores múltiplos. Há duas tabelas chamadas Funcionário (tabela principal) e Departamento (valores múltiplos).
+Faça o seguinte:
 
 * Digite **Funcionário** em **Tabela/Exibição/SP**.
 * Digite Departamento em **Nome da tabela/exibições de valores múltiplos**.
-* Tipo de condição de junção Olá entre funcionários e departamento no **condição de junção**, por exemplo `Employee.DEPTID=Department.DepartmentID`.
+* Digite a condição de junção entre Funcionário e Departamento em **Condição de Junção**, por exemplo, `Employee.DEPTID=Department.DepartmentID`.
   ![runstep2](./media/active-directory-aadconnectsync-connector-genericsql/runstep2.png)
 
 **Procedimentos armazenados**  
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
-* Se você tiver muitos dados, é recomendável paginação tooimplement com os procedimentos armazenados.
-* Para a paginação de toosupport de procedimento armazenado, você precisa tooprovide índice do começo e o índice do fim. Consulte: [Paginação eficiente em grandes quantidades de dados](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndex e @EndIndex são substituídos em tempo de execução pelo respectivo valor do tamanho de página configurado na página **Configurar Etapa**. Por exemplo, quando conector Olá recupera a primeira página e tamanho de página de saudação é definido 500, tal situação @StartIndex seria 1 e @EndIndex 500. Esses valores aumentar ao conector recupera as páginas subsequentes e alterar Olá @StartIndex & @EndIndex valor.
-* tooexecute de procedimento armazenado com parâmetros, forneça parâmetros Olá `[Name]:[Direction]:[Value]` formato. Insira cada parâmetro em uma linha separada (Use Ctrl + Enter tooget uma nova linha).
-* O conector do SQL genérico também dá suporte à operação de importação de Servidores Vinculados no Microsoft SQL Server. Se as informações devem ser recuperadas de uma tabela no servidor vinculado, tabela deve ser fornecida no formato de saudação:`[ServerName].[Database].[Schema].[TableName]`
-* O conector SQL genérico só dá suporte a objetos com estrutura semelhante (nome de alias e tipo de dados) entre informações de etapas de execução e detecção de esquema. Se tiver selecionado Olá objeto de esquema e as informações fornecidas na etapa de execução é diferente e o conector do SQL é toosupport não é possível esse tipo de cenários.
+* Se você tem muitos dados, é recomendável implementar a paginação com os procedimentos armazenados.
+* Para o procedimento armazenado der suporte à paginação, forneça o Índice inicial e o final. Consulte: [Paginação eficiente em grandes quantidades de dados](https://msdn.microsoft.com/library/bb445504.aspx).
+* @StartIndex e @EndIndex são substituídos em tempo de execução pelo respectivo valor do tamanho de página configurado na página **Configurar Etapa**. Por exemplo, quando o conector recupera a primeira página e o tamanho da página é definido como 500, nessa situação @StartIndex é 1 e @EndIndex é 500. Esses valores aumentam quando o conector recupera páginas subsequentes e altera o valor de @StartIndex e @EndIndex.
+* Para executar o procedimento armazenado com parâmetros, forneça os parâmetros no formato `[Name]:[Direction]:[Value]` . Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha).
+* O conector do SQL genérico também dá suporte à operação de importação de Servidores Vinculados no Microsoft SQL Server. Se informações precisarem ser recuperadas de uma Tabela no servidor Vinculado, a Tabela deverá ser fornecida no formato: `[ServerName].[Database].[Schema].[TableName]`
+* O conector SQL genérico só dá suporte a objetos com estrutura semelhante (nome de alias e tipo de dados) entre informações de etapas de execução e detecção de esquema. Se o objeto selecionado do esquema e as informações fornecidas na etapa de execução forem diferentes, o conector do SQL será não poderá dar suporte a esse tipo de cenário.
 
 **Consulta SQL**  
 ![runstep4](./media/active-directory-aadconnectsync-connector-genericsql/runstep4.png)
@@ -257,18 +257,18 @@ Olá a seguir:
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
 
 * Consultas com vários conjuntos de resultados não têm suporte.
-* Consulta SQL dá suporte a Olá paginação e fornece o início e término índice como uma variável toosupport a paginação.
+* A consulta SQL dá suporte a paginação e fornece o índice inicial e final como uma variável para dar suporte à paginação.
 
 ### <a name="delta-import"></a>Importação de delta
 ![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
 
 A configuração de Importação de Delta exige alguma configuração adicional, em comparação com a Importação Completa.
 
-* Se você escolher a abordagem de gatilho ou instantâneo Olá as alterações delta na tootrack, em seguida, fornecer banco de dados de uma tabela de histórico ou instantâneo em **nome de banco de dados de tabela de histórico ou instantâneo** caixa.
-* Você também precisa tooprovide condição de junção entre a tabela de histórico e a tabela pai, por exemplo`Employee.ID=History.EmployeeID`
-* transação de saudação tootrack na tabela de pai Olá Olá da tabela de histórico, você deve fornecer o nome de coluna de saudação que contém informações de operação da saudação (Adicionar/atualizar/excluir).
-* Se você escolher a marca d'água tootrack as alterações delta, em seguida, forneça o nome de coluna de saudação que contém informações de operação de saudação em **nome de coluna de marca d'água**.
-* Olá **alterar o atributo de tipo** coluna é necessária para o tipo de alteração de saudação. Esta coluna é uma alteração que ocorre na tabela primária Olá mapeada ou tooa da tabela de valores múltiplos alterar tipo na exibição de delta hello. Esta coluna pode conter o tipo de alteração de Modify_Attribute Olá para alteração do nível de atributo ou adicionar, modificar ou excluir alterar para um tipo de alteração do nível de objeto. Se for diferente do valor de padrão de saudação adicionar, modificar ou excluir, em seguida, você pode definir esses valores usando essa opção.
+* Se você escolher a abordagem de instantâneo ou gatilho para acompanhar as alterações delta, forneça banco de dados de uma tabela de histórico ou instantâneo na caixa **Nome de banco de dados de Instantâneo ou tabela de Histórico** .
+* Você também precisa fornecer a condição de junção entre a tabela de histórico e tabela principal, por exemplo, `Employee.ID=History.EmployeeID`
+* Para controlar a transação na tabela principal da tabela de histórico, você deve fornecer o nome da coluna que contém as informações da operação (Adicionar/Atualizar/Excluir).
+* Se você escolher a Marca d'água para acompanhar as alterações delta, forneça o nome da coluna que contém as informações de operação em **Nome de Coluna de Marca d'água**.
+* A coluna **alterar atributo de tipo** é necessária para o tipo de alteração. Essa coluna mapeia uma alteração que ocorre na tabela primária ou tabela de valores múltiplos para um tipo de alteração na exibição de delta. Esta coluna pode conter o tipo de alteração Modify_Attribute para a alteração de nível de atributo ou um tipo de alteração Adicionar, Modificar ou Excluir, para um tipo de alteração de nível de objeto. Se for algo diferente do valor padrão de Adicionar, Modificar ou Excluir, você poderá definir esses valores usando essa opção.
 
 ### <a name="export"></a>Exportação
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
@@ -281,28 +281,28 @@ O conector SQL genérico oferece suporte à exportação usando quatro métodos:
 * Consulta SQL
 
 **Tabela/Exibição**  
-Se você escolher Olá opção de tabela/exibição, conector hello gera Olá respectivas consultas toodo Olá exportação.
+se você escolher a opção de Tabela/Exibição, o conector gerará as respectivas consultas para fazer a Exportação.
 
 **Procedimentos armazenados**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
 
-Se você escolher a opção de procedimento armazenado hello, exportação requer três diferentes armazenado procedimentos tooperform inserir/atualizar/excluir operações.
+Se você escolher a opção de Procedimento Armazenado, a Exportação exigirá três procedimentos armazenados diferentes para executar operações Inserir/Atualizar/Excluir.
 
-* **Adicionar nome de SP**: This SP será executada se qualquer objeto vem tooconnector para inserção na tabela respectivos hello.
-* **Atualizar nome SP**: This SP será executada se qualquer objeto vem tooconnector para atualização na tabela respectivos hello.
-* **Excluir o nome de SP**: This SP será executada se qualquer objeto vem tooconnector para exclusão na tabela respectivos hello.
-* Atributo selecionado do esquema de saudação usado como um procedimento de toohello armazenado do valor de parâmetro. Por exemplo, `EmployeeName: INPUT: @EmployeeName` (EmployeeName está selecionado no esquema de conector hello e conector Olá substitui o respectivo valor de saudação durante o processo de exportação)
-* toorun de procedimento armazenado com parâmetros, forneça parâmetros em `[Name]:[Direction]:[Value]` formato. Insira cada parâmetro em uma linha separada (Use Ctrl + Enter tooget uma nova linha).
+* **Adicionar nome do SP**: esse SP será executado se houver objetos para inserção no conector, na respectiva tabela.
+* **Atualizar nome do SP**: esse SP será executado se houver objetos para atualização no conector, na respectiva tabela.
+* **Excluir nome do SP**: esse SP será executado se houver objetos para exclusão no conector, na respectiva tabela.
+* Atributo selecionado do esquema usado como um valor de parâmetro para o procedimento armazenado. Por exemplo, `EmployeeName: INPUT: @EmployeeName` (NomeFuncionário está selecionado no esquema do conector, e o conector substitui o respectivo valor durante a exportação)
+* Para executar o procedimento armazenado com parâmetros, forneça os parâmetros no formato `[Name]:[Direction]:[Value]` . Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha).
 
 **SQL query**  
 ![runstep9](./media/active-directory-aadconnectsync-connector-genericsql/runstep9.png)
 
-Se você escolher a opção de consulta SQL hello, exportação requer que três diferentes consultas tooperform inserir/atualizar/excluir operações.
+Se você escolher a opção de consulta SQL, a Exportação exigirá três consultas diferentes para executar operações Inserir/Atualizar/Excluir.
 
-* **Consulta INSERT**: esta consulta é executada se qualquer objeto vem tooconnector para inserção na tabela respectivos hello.
-* **Consulta atualização**: esta consulta é executada se qualquer objeto vem tooconnector para atualização na tabela respectivos hello.
-* **Consulta exclusão**: esta consulta é executada se qualquer objeto vem tooconnector para exclusão na tabela respectivos hello.
-* Atributo selecionado do esquema Olá usada como uma consulta de toohello de valor de parâmetro, por exemplo`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* **Consulta Insert**: essa consulta será executada se houver objetos para inserção no conector, na respectiva tabela.
+* **Consulta Update**: esta consulta será executada se houver objetos para atualização no conector, na respectiva tabela.
+* **Consulta Delete**: esta consulta será executada se houver objetos para exclusão no conector, na respectiva tabela.
+* Atributo selecionado do esquema, usado como um valor de parâmetro na consulta, por exemplo, `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-* Para obter informações sobre como o log tooenable tootroubleshoot Olá conector, consulte Olá [como tooEnable o rastreamento ETW para conectores](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

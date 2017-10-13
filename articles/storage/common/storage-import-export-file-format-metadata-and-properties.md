@@ -1,6 +1,6 @@
 ---
-title: formato de arquivo aaaAzure importar/exportar metadados e propriedades | Microsoft Docs
-description: "Saiba como toospecify metadados e propriedades para um ou mais blobs que fazem parte de uma importação ou exportação de trabalho."
+title: "Formato de arquivo de propriedades e metadados da Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba como especificar metadados e propriedades para um ou mais blobs que fazem parte de um trabalho de importação ou exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bb13c1f1a27baea77298cb224970cd521d02d8c0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação do Azure
-É possível especificar metadados e propriedades para um ou mais blobs como parte de um trabalho de importação ou exportação. tooset metadados ou propriedades para blobs que está sendo criados como parte de um trabalho de importação, você fornecer um arquivo de metadados ou propriedades na unidade de disco rígido Olá contendo Olá toobe de dados importado. Para um trabalho de exportação, propriedades e os metadados são gravadas tooa metadados ou propriedades de arquivo que está incluído no disco rígido de saudação retornado tooyou.  
+É possível especificar metadados e propriedades para um ou mais blobs como parte de um trabalho de importação ou exportação. Para definir metadados ou propriedades para blobs criados como parte de um trabalho de importação, você fornece um arquivo de metadados ou de propriedades no disco rígido que contém os dados a serem importados. Para um trabalho de exportação, os metadados e as propriedades são gravados em um arquivo de metadados ou de propriedades incluído no disco rígido retornado para você.  
   
 ## <a name="metadata-file-format"></a>Formato de arquivo de metadados  
-formato de saudação de um arquivo de metadados é o seguinte:  
+O formato de um arquivo de metadados é o seguinte:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -37,11 +37,11 @@ formato de saudação de um arquivo de metadados é o seguinte:
   
 |Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
-|`Metadata`|Elemento raiz|elemento de raiz Olá Olá do arquivo de metadados.|  
-|`metadata-name`|Cadeia de caracteres|Opcional. elemento XML de saudação especifica o nome de saudação de metadados de saudação blob hello e seu valor Especifica o valor de saudação da configuração de metadados de saudação.|  
+|`Metadata`|Elemento raiz|O elemento raiz do arquivo de metadados.|  
+|`metadata-name`|Cadeia de caracteres|Opcional. O elemento XML especifica o nome dos metadados do blob e seu valor especifica o valor da configuração dos metadados.|  
   
 ## <a name="properties-file-format"></a>Formato de arquivo de propriedades  
-formato de saudação de um arquivo de propriedades é o seguinte:  
+O formato de um arquivo de propriedades é o seguinte:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -59,15 +59,15 @@ formato de saudação de um arquivo de propriedades é o seguinte:
   
 |Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
-|`Properties`|Elemento raiz|elemento raiz de saudação do arquivo de propriedades de saudação.|  
-|`Last-Modified`|Cadeia de caracteres|Opcional. Olá hora da última modificação para blob hello. Somente para trabalhos de exportação.|  
-|`Etag`|Cadeia de caracteres|Opcional. Olá valor ETag do blob. Somente para trabalhos de exportação.|  
-|`Content-Length`|Cadeia de caracteres|Opcional. tamanho de saudação do blob Olá em bytes. Somente para trabalhos de exportação.|  
-|`Content-Type`|Cadeia de caracteres|Opcional. tipo de conteúdo de saudação do blob hello.|  
-|`Content-MD5`|Cadeia de caracteres|Opcional. Olá hash MD5 do blob.|  
-|`Content-Encoding`|Cadeia de caracteres|Opcional. Olá conteúdo do blob de codificação.|  
-|`Content-Language`|Cadeia de caracteres|Opcional. Olá idioma do conteúdo do blob.|  
-|`Cache-Control`|Cadeia de caracteres|Opcional. sequência de controle de cache Olá blob hello.|  
+|`Properties`|Elemento raiz|O elemento raiz do arquivo de propriedades.|  
+|`Last-Modified`|Cadeia de caracteres|Opcional. A hora da última modificação do blob. Somente para trabalhos de exportação.|  
+|`Etag`|Cadeia de caracteres|Opcional. O valor da Etag do blob. Somente para trabalhos de exportação.|  
+|`Content-Length`|Cadeia de caracteres|Opcional. O tamanho do blob em bytes. Somente para trabalhos de exportação.|  
+|`Content-Type`|Cadeia de caracteres|Opcional. O tipo de conteúdo do blob.|  
+|`Content-MD5`|Cadeia de caracteres|Opcional. O hash MD5 do blob.|  
+|`Content-Encoding`|Cadeia de caracteres|Opcional. A codificação do conteúdo do blob.|  
+|`Content-Language`|Cadeia de caracteres|Opcional. O idioma do conteúdo do blob.|  
+|`Cache-Control`|Cadeia de caracteres|Opcional. A cadeia de caracteres de controle de cache do blob.|  
 
 ## <a name="next-steps"></a>Próximas etapas
 

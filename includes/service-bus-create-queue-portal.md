@@ -1,17 +1,17 @@
 Verifique se você já criou um namespace do Barramento de Serviço, como mostrado [aqui][namespace-how-to].
 
-1. Faça logon no toohello [portal do Azure][azure-portal].
-2. No painel de navegação à esquerda de saudação do portal de saudação, clique em **Service Bus** (se você não vir **Service Bus**, clique em **mais serviços**).
-3. Clique em Olá namespace em que você gostaria que toocreate fila de saudação. Nesse caso, é **nstest1**.
+1. Faça logon no [Portal do Azure][azure-portal].
+2. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Mais serviços**).
+3. Clique no namespace no qual você gostaria de criar a fila. Nesse caso, é **nstest1**.
    
     ![Criar uma fila][createqueue1]
-4. Em Olá **namespace de barramento de serviço** folha, selecione **filas**, em seguida, clique em **adicionar fila**.
+4. Na folha **Namespace do Barramento de Serviço**, selecione **Filas** e clique em **Adicionar fila**.
    
     ![Selecionar Filas][createqueue2]
-5. Digite hello **nome de fila** e deixe Olá outros valores com os padrões.
+5. Insira o **Nome da Fila** e deixe os outros valores com os padrões.
    
     ![Selecionar Nova][createqueue3]
-6. Na parte inferior de saudação da folha de saudação, clique em **criar**.
+6. Na parte inferior da folha, clique em **Criar**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

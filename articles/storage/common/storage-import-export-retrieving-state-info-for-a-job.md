@@ -1,6 +1,6 @@
 ---
-title: "informações de estado aaaRetrieving para um trabalho de importação/exportação do Azure | Microsoft Docs"
-description: "Saiba como tooobtain informações de estado de trabalhos do serviço de importação/exportação do Microsoft Azure."
+title: "Recuperando informações de estado para um trabalho de Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba como obter informações de estado para trabalhos do serviço de Importação/Exportação do Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: cbc35660519573d92f641924ac0025c9e577d69b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperação de informações de estado para um trabalho de Importação/Exportação
-Você pode chamar hello [obter trabalho](/rest/api/storageimportexport/jobs#Jobs_Get) informações de tooretrieve operação sobre importar e exportar trabalhos. Olá informações retornadas incluem:
+Você pode chamar a operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) para recuperar informações sobre trabalhos de importação e de exportação. As informações retornadas incluem:
 
--   status atual de saudação do trabalho hello.
+-   O estado atual do trabalho.
 
--   porcentagem aproximada de saudação que cada trabalho foi concluído.
+-   A porcentagem de conclusão aproximada de cada trabalho.
 
--   estado atual de saudação de cada unidade.
+-   O estado atual de cada unidade.
 
 -   URIs para blobs que contêm logs de erros e informações de log detalhadas (se habilitado).
 
-Olá, seções a seguir explicam informações de hello retornadas por Olá `Get Job` operação.
+As seções a seguir explicam as informações retornadas pela operação `Get Job`.
 
 ## <a name="job-states"></a>Estados do trabalho
-tabela de saudação e diagrama de estado Olá abaixo descrevem estados Olá transição de um trabalho durante seu ciclo de vida. estado atual de saudação do trabalho de saudação pode ser determinado por chamada hello `Get Job` operação.
+A tabela e o diagrama de estado a seguir descrevem os estados pelos quais passam um trabalho durante seu ciclo de vida. O estado atual do trabalho pode ser determinado chamando a operação `Get Job`.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
 
-Olá tabela a seguir descreve cada estado que um trabalho pode passar.
+A tabela a seguir descreve cada estado pelos quais um trabalho pode passar.
 
 |Estado do trabalho|Descrição|
 |---------------|-----------------|
-|`Creating`|Depois de você chamar a operação Put Job de saudação, um trabalho é criado e seu estado é definido muito`Creating`. Durante a saudação trabalho Olá `Creating` estado, Olá serviço de importação/exportação supõe Olá unidades não foram enviadas toohello Datacenter. Um trabalho pode permanecer no hello `Creating` estado backup tootwo semanas, após o qual ele é excluído automaticamente pelo serviço de saudação.<br /><br /> Se você chamar a operação Update Job Properties de saudação durante trabalho Olá Olá `Creating` de estado, Olá trabalho permanece Olá `Creating` estado e Olá tempo limite de intervalo é redefinição tootwo semanas.|
-|`Shipping`|Depois que você enviar seu pacote, você deve chamar hello Update Job Properties operação update Olá o estado do trabalho de saudação muito`Shipping`. Olá, estado de envio pode ser definido somente se hello `DeliveryPackage` (transportadora e o número de controle) e hello `ReturnAddress` propriedades definidas para o trabalho de saudação.<br /><br /> trabalho de saudação permanecerá no estado de envio Olá para backup tootwo semanas. Se duas semanas tiverem passado e Olá unidades não tiverem sido recebidas, operadores de serviço de importação/exportação Olá serão notificados.|
-|`Received`|Depois que todas as unidades tiverem sido recebidas no data center de hello, estado do trabalho Olá será definido toohello estado recebido.|
-|`Transferring`|Depois de saudação unidades tiverem sido recebidas no data center de saudação e pelo menos uma unidade tiver iniciado o processamento, estado do trabalho Olá será definido toohello `Transferring` estado. Consulte Olá `Drive States` seção abaixo para obter informações detalhadas.|
-|`Packaging`|Depois que todas as unidades tiverem concluído o processamento, Olá trabalho será colocado no hello `Packaging` estado até que Olá unidades sejam enviadas toohello back cliente.|
-|`Completed`|Depois que todas as unidades foram enviadas toohello back cliente, se Olá trabalho foi concluído sem erros, em seguida, Olá trabalho será definido toohello `Completed` estado. Olá trabalho será automaticamente excluído após 90 dias no hello `Completed` estado.|
-|`Closed`|Depois que todas as unidades foram enviadas toohello back cliente, se houve erros durante o processamento de saudação do trabalho de saudação, em seguida, Olá trabalho será definido toohello `Closed` estado. Olá trabalho será automaticamente excluído após 90 dias no hello `Closed` estado.|
+|`Creating`|Depois de chamar a operação Put Job, um trabalho é criado e seu estado é definido como `Creating`. Enquanto o trabalho está no estado `Creating`, o serviço de importação/exportação considera que as unidades não foram enviadas para o data center. Um trabalho pode permanecer no estado `Creating` por até duas semanas; depois disso é excluído automaticamente pelo serviço.<br /><br /> Se você chamar a operação Update Job Properties enquanto o trabalho está no estado `Creating`, ele permanecerá no estado `Creating` e o intervalo limite será redefinido para mais duas semanas.|
+|`Shipping`|Depois de enviar seu pacote, você deve chamar a operação Update Job Properties para atualizar o estado do trabalho para `Shipping`. O estado de envio pode ser definido somente se `DeliveryPackage` (transportadora e número de rastreamento) e as propriedades `ReturnAddress` tiverem sido definidas para o trabalho.<br /><br /> O trabalho permanecerá no estado Shipping por até duas semanas. Se duas semanas tiverem passado e as unidades não tiverem sido recebidas, os operadores do serviço de importação/exportação serão notificados.|
+|`Received`|Depois que todas as unidades forem recebidas no data center, o estado do trabalho será definido como Received (Recebido).|
+|`Transferring`|Depois que as unidades forem recebidas no data center e pelo menos uma unidade tiver iniciado o processamento, o estado do trabalho será definido como `Transferring`. Consulte a seção `Drive States` abaixo para saber mais.|
+|`Packaging`|Depois que todas as unidades tiverem concluído o processamento, o trabalho será colocado no estado `Packaging` até que as unidades sejam enviadas para o cliente.|
+|`Completed`|Depois que todas as unidades forem enviadas para o cliente, se o trabalho for concluído sem erros, será definido com o estado `Completed`. O trabalho será excluído automaticamente após 90 dias no estado `Completed`.|
+|`Closed`|Depois que todas as unidades forem enviadas para o cliente, se houver erros durante o processamento do trabalho, será definido o estado `Closed`. O trabalho será excluído automaticamente após 90 dias no estado `Closed`.|
 
-Você pode cancelar um trabalho somente em determinados estados. Um trabalho cancelado ignora a etapa de cópia de dados hello, porém segue Olá mesmo transições de estado como um trabalho que não foi cancelado.
+Você pode cancelar um trabalho somente em determinados estados. Um trabalho cancelado ignora a etapa de cópia de dados, caso contrário, ele segue as mesmas transições de estado de um trabalho que não foi cancelado.
 
-Olá tabela a seguir descreve os erros que podem ocorrer para cada estado do trabalho, bem como efeito Olá no trabalho hello quando ocorre um erro.
+A tabela a seguir descreve os erros que podem ocorrer para cada estado do trabalho, bem como o efeito sobre o trabalho quando ocorre um erro.
 
 |Estado do trabalho|Evento|Resolução/Próximas etapas|
 |---------------|-----------|------------------------------|
-|`Creating or Undefined`|Uma ou mais unidades para um trabalho chegaram, mas Olá trabalho não está em Olá `Shipping` estado ou há um registro de trabalho Olá no serviço de saudação.|equipe de operações do serviço de importação/exportação de Hello serão tentam toocontact Olá cliente toocreate ou atualizar o trabalho de saudação com o trabalho de saudação de toomove informações necessárias para a frente.<br /><br /> Se Olá equipe de operações não é possível toocontact Prezado cliente dentro de duas semanas, a equipe de operações de Olá tentará tooreturn Olá unidades.<br /><br /> No caso de Olá Olá unidades não podem ser retornadas e Olá cliente não pode ser contatado, Olá unidades serão destruídas em 90 dias com segurança.<br /><br /> Observe que um trabalho não pode ser processado até que seu estado é atualizado muito`Shipping`.|
-|`Shipping`|pacote de saudação para um trabalho não foi recebido por mais de duas semanas.|equipe de operações de saudação notificará o cliente de saudação do pacote de saudação ausente. Com base na resposta do cliente Olá, equipe de operações de saudação serão estender Olá intervalo toowait para Olá pacote tooarrive, ou cancelar o trabalho de saudação.<br /><br /> No evento Olá cliente Olá não pode ser contatado ou não responder dentro de 30 dias, equipe de operações de saudação iniciará o trabalho de saudação toomove ação de saudação `Shipping` diretamente estado toohello `Closed` estado.|
-|`Completed/Closed`|Olá unidades nunca atingiu o endereço do remetente hello ou foram danificadas na remessa (aplica-se o trabalho de exportação tooan somente).|Se Olá unidades não chegarem remetente hello, Prezado cliente deve primeiro chamada hello obter trabalho operação ou verificar o status do trabalho Olá no hello tooensure portal que Olá unidades foram enviadas. Se Olá unidades foram enviadas, cliente Olá deve contatar Olá envio provedor tootry e localize Olá unidades.<br /><br /> Se Olá unidades são danificadas durante a remessa, o cliente Olá talvez queira toorequest outro trabalho de exportação, ou blobs ausentes do download hello.|
-|`Transferring/Packaging`|O trabalho tem um endereço de remetente incorreto ou ausente.|equipe de operações de saudação tentará alcançar toohello pessoa de contato para o endereço correto do Olá Olá trabalho tooobtain.<br /><br /> No evento Olá cliente Olá não pode ser alcançado, Olá unidades serão destruídas com segurança em 90 dias.|
-|`Creating / Shipping/ Transferring`|Uma unidade que não aparecem na lista de saudação do toobe unidades importado está incluída no envio do pacote de saudação.|Hello unidades adicionais não serão processadas e serão retornadas toohello cliente quando Olá trabalho seja concluído.|
+|`Creating or Undefined`|Uma ou mais unidades para um trabalho chegaram, mas o trabalho não está no estado `Shipping` ou não há registro do trabalho no serviço.|A equipe de operações do serviço de importação/exportação tentará contatar o cliente para criar ou atualizar o trabalho com as informações necessárias para prosseguir.<br /><br /> Se a equipe de operações não puder entrar em contato com o cliente dentro de duas semanas, tentará devolver as unidades.<br /><br /> Se as unidades não puderem ser retornadas e o cliente não puder ser contatado, as unidades serão destruídas com segurança em 90 dias.<br /><br /> Observe que um trabalho não pode ser processado até que seu estado seja atualizado para `Shipping`.|
+|`Shipping`|O pacote de um trabalho não chegou em até duas semanas.|A equipe de operações notificará o cliente do pacote ausente. Com base na resposta do cliente, a equipe de operações estenderá o intervalo de espera pelo pacote ou cancelará o trabalho.<br /><br /> No caso de o cliente não poder ser contatado ou não responder dentro de 30 dias, a equipe de operações iniciará a ação para mover o trabalho do estado `Shipping` diretamente para o estado `Closed`.|
+|`Completed/Closed`|As unidades nunca chegaram ao endereço do remetente ou foram danificadas durante o envio (aplica-se somente a um trabalho de exportação).|Se as unidades não chegarem ao endereço de retorno, o cliente deve primeiro chamar a operação Get Job ou verificar o status do trabalho no portal para garantir que as unidades foram enviadas. Se as unidades foram enviadas, o cliente deverá contatar o provedor de envio para tentar localizar as unidades.<br /><br /> Se as unidades forem danificadas durante a remessa, o cliente talvez queira solicitar outro trabalho de exportação ou baixar os blobs ausentes.|
+|`Transferring/Packaging`|O trabalho tem um endereço de remetente incorreto ou ausente.|A equipe de operações tentará falar com a pessoa de contato para o trabalho a fim de obter o endereço correto.<br /><br /> No caso de o cliente não poder ser contatado, as unidades serão destruídas com segurança em 90 dias.|
+|`Creating / Shipping/ Transferring`|Uma unidade que não aparece na lista de unidades a serem importadas está incluída no pacote de envio.|As unidades adicionais não serão processadas e serão retornadas ao cliente quando o trabalho for concluído.|
 
 ## <a name="drive-states"></a>Estados da unidade
-tabela de saudação e diagrama de saudação abaixo descrevem Olá ciclo de vida de uma unidade individual como ela passa por um trabalho de importação ou exportação. Você pode recuperar o estado atual da unidade Olá Olá chamada `Get Job` operação e inspecionando Olá `State` elemento de saudação `DriveList` propriedade.
+A tabela e o diagrama a seguir descrevem o ciclo de vida de uma unidade individual conforme ela passa por um trabalho de importação ou exportação. Você pode obter o estado atual da unidade chamando a operação `Get Job` e analisando o elemento `State` da propriedade `DriveList`.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
 
-Olá tabela a seguir descreve cada estado de uma unidade pode passar.
+A tabela a seguir descreve cada estado pelos quais uma unidade pode passar.
 
 |Estado da unidade|Descrição|
 |-----------------|-----------------|
-|`Specified`|Para um trabalho de importação, quando Olá trabalho é criado com hello operação Put Job, estado de saudação inicial para uma unidade é hello `Specified` estado. Para um trabalho de exportação, desde que nenhuma unidade foi especificada quando o trabalho de saudação é criado, estado inicial de unidade de saudação é hello `Received` estado.|
-|`Received`|unidade de saudação passa toohello `Received` estado quando hello operador do serviço de importação/exportação tiver processado unidades Olá recebidas do hello envio da empresa para um trabalho de importação. Para um trabalho de exportação, o estado inicial de unidade de saudação é hello `Received` estado.|
-|`NeverReceived`|unidade de saudação moverá toohello `NeverReceived` estado quando hello chega de pacote para um trabalho, mas pacote hello não contém a unidade de saudação. Uma unidade também pode mover esse estado se foram duas semanas desde que o serviço de saudação recebeu informações de envio de saudação, mas o pacote hello ainda não tiver chegado no data center de saudação.|
-|`Transferring`|Uma unidade moverá toohello `Transferring` estado quando hello serviço começa tootransfer dados Olá unidade tooWindows armazenamento do Azure.|
-|`Completed`|Uma unidade moverá toohello `Completed` estado quando o serviço de saudação tiver transferido com êxito todos os dados de saudação sem erros.|
-|`CompletedMoreInfo`|Uma unidade moverá toohello `CompletedMoreInfo` estado quando serviço Olá encontrou alguns problemas ao copiar dados de ou unidade de toohello. informações de saudação podem incluir erros, avisos ou mensagens informativas sobre substituição de blobs.|
-|`ShippedBack`|unidade de saudação moverá toohello `ShippedBack` estado quando ela foi enviada do endereço do remetente de toohello Olá data center de volta.|
+|`Specified`|Para um trabalho de importação, quando o trabalho é criado com a operação Put Job, o estado inicial para uma unidade é `Specified`. Para um trabalho de exportação, como nenhuma unidade é especificada quando o trabalho é criado, o estado inicial da unidade é `Received`.|
+|`Received`|A unidade passa para o estado `Received` quando o operador do serviço de importação/exportação tiver processado as unidades que foram recebidas da empresa transportadora para um trabalho de importação. Para um trabalho de exportação, o estado inicial da unidade é `Received`.|
+|`NeverReceived`|A unidade passará para o estado `NeverReceived` quando o pacote de um trabalho chegar, mas não contiver a unidade. Uma unidade também pode passar para esse estado se tiver passado duas semanas desde que o serviço recebeu as informações de envio, mas o pacote ainda não foi entregue no data center.|
+|`Transferring`|Uma unidade passará para o estado `Transferring` quando o serviço começar a transferir dados da unidade para o armazenamento do Windows Azure.|
+|`Completed`|Uma unidade passará para o estado `Completed` quando o serviço tiver transferido com êxito todos os dados sem erros.|
+|`CompletedMoreInfo`|Uma unidade passará para o estado `CompletedMoreInfo` quando o serviço encontrar alguns problemas ao copiar dados de ou para a unidade. As informações podem incluir erros, avisos ou mensagens informativas sobre a substituição de blobs.|
+|`ShippedBack`|A unidade passará para o estado `ShippedBack` quando for enviada do data center para o endereço de retorno.|
 
-Olá tabela a seguir descreve Olá estados de falha de unidade e Olá ações executadas para cada estado.
+A tabela a seguir descreve os estados de falha de unidade e as ações executadas para cada estado.
 
 |Estado da unidade|Evento|Resolução/Próxima etapa|
 |-----------------|-----------|-----------------------------|
-|`NeverReceived`|Uma unidade que está marcada como `NeverReceived` (porque ela não foi recebida como parte da remessa do trabalho Olá) chega em outra remessa.|equipe de operações de saudação moverá Olá unidade toohello `Received` estado.|
-|`N/A`|Uma unidade que não faz parte de qualquer trabalho chega no data center de saudação como parte de outro trabalho.|unidade de saudação será marcada como uma unidade adicional e será retornada toohello cliente quando Olá trabalho associado com o pacote original Olá estiver concluído.|
+|`NeverReceived`|Uma unidade que está marcada como `NeverReceived` (porque não foi recebida como parte da remessa do trabalho) chega em outra remessa.|A equipe de operações moverá a unidade para o estado `Received`.|
+|`N/A`|Uma unidade que não é parte de qualquer trabalho chega no data center como parte de outro trabalho.|A unidade será marcada como uma unidade adicional e será retornada ao cliente quando o trabalho associado ao pacote original for concluído.|
 
 ## <a name="faulted-states"></a>Estados com falha
-Quando um trabalho ou a unidade não tooprogress normalmente por meio de seu ciclo de vida esperado, Olá trabalho ou a unidade será movida para um `Faulted` estado. Nesse ponto, equipe de operações de saudação entrará em contato com o cliente Olá por email ou telefone. Uma vez Olá problema for resolvido, Olá falha de trabalho ou unidade será retirada Olá `Faulted` estado e movidos para Olá apropriada estado.
+Quando um trabalho ou uma unidade não puder progredir normalmente por seu ciclo de vida esperado, o trabalho ou a unidade será movido para o estado `Faulted`. Nesse ponto, a equipe de operações entrará em contato com o cliente por email ou telefone. Quando o problema for resolvido, o trabalho ou a unidade em falha passará do estado `Faulted` para o estado apropriado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usando a API REST do serviço de importação/exportação Olá](storage-import-export-using-the-rest-api.md)
+* [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)

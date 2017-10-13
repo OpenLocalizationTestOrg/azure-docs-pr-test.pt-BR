@@ -1,6 +1,6 @@
 ---
-title: "AAA \"não pode acessar esse erro de aplicativo corporativo usando um aplicativo de Proxy de aplicativo | Microsoft Docs\""
-description: Como acesso comuns tooresolve problemas com aplicativos de Proxy de aplicativo do Azure AD.
+title: "Erro “Não é Possível Acessar este Aplicativo Corporativo” ao usar um aplicativo do Proxy de Aplicativo | Microsoft Docs"
+description: Como resolver problemas comuns de acesso com aplicativos do Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,101 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 490b106b7d774ee43fc076cc5d082997a1df85e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 78ff8763a461162cbcfa04c6a86123973271928a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
-Este artigo ajuda tootroubleshoot problemas comuns que quando você vir um erro "Este aplicativo corporativo não pode ser acessado" em um aplicativo de Proxy de aplicativo do Azure AD.
+Este artigo irá ajudá-lo a solucionar problemas comuns enfrentados ao se deparar com um erro "Este aplicativo corporativo não pode ser acessado" em um aplicativo de Proxy de Aplicativo do Azure AD.
 
 ## <a name="overview"></a>Visão geral
-Quando você vir esse erro, a página Olá também compartilhar um código de status. Esse código é provavelmente uma das seguintes hello:
+Ao se deparar com esse erro, a página também comartilha um código de status. Esse código provavelmente é um dos seguintes:
 
--   **Tempo limite do gateway**: Olá serviço Proxy de aplicativo é o conector de saudação do tooreach não é possível. Isso geralmente indica um problema com a atribuição de conector hello, conector em si ou Olá regras de conector de saudação do sistema de rede.
+-   **Tempo Limite de Gateway**: O serviço do Proxy da Aplicativo não consegue alcançar o conector. Isso normalmente indica um problema com a atribuição do conector, o próprio conector ou as regras de rede do conector.
 
--   **Gateway incorreto**: conector Olá é o aplicativo de back-end hello tooreach não é possível. Isso pode indicar um erro de configuração de aplicativo hello.
+-   **Gateway Incorreto**: O conector não consegue alcançar o aplicativo back-end. Isso pode indicar uma configuração incorreta do aplicativo.
 
--   **Proibido**: Olá usuário não está autorizado tooaccess Olá aplicativo. Isso pode acontecer quando o usuário Olá não está atribuído a toohello aplicativo no Azure Active Directory, ou se no back-end de Olá Olá usuário não tem aplicativo de hello tooaccess permissão.
+-   **Proibido**: O usuário não está autorizado a acessar o aplicativo. Isso pode acontecer quando o usuário não está atribuído ao aplicativo no Azure Active Directory ou, se no back-end o usuário não tiver permissão para acessar o aplicativo.
 
-código de saudação toofind, examine o texto de saudação na Olá inferior esquerda da mensagem de saudação do erro para o campo de "Código de Status" Olá. Além disso, procure as anotações final Olá muito Olá página com dicas adicionais.
+Para localizar o código observe no texto, na parte inferior esquerda da mensagem de erro, o campo "Código de Status". Além disso, procure por notas na parte inferior da página com dicas adicionais.
 
    ![Erro de tempo limite de gateway](./media/application-proxy/connection-problem.png)
 
-Para obter detalhes sobre como tootroubleshoot Olá causa desses erros e obter mais detalhes sobre as correções sugeridas, consulte Olá seção correspondente.
+Para obter detalhes sobre como solucionar a causa raiz desses erros e obter mais detalhes sobre as correções sugeridas, consulte a seção correspondente abaixo.
 
 ## <a name="gateway-timeout-errors"></a>Erros de Tempo limite de gateway
 
-Um tempo limite de gateway ocorre quando o serviço Olá tenta tooreach conector de saudação e é a janela de tempo limite de saudação toowithin não é possível. Isso normalmente é causado por um aplicativo atribuído tooa grupo com nenhum trabalho conectores ou algumas portas exigidas pelo Olá conector não estiverem abertas.
+Um tempo limite de gateway ocorre quando o serviço tenta alcançar o conector e não é possível dentro da janela de tempo limite. Isso geralmente é causado por um aplicativo atribuído a um Grupo de Conectores sem conectores funcionando ou, algumas portas exigidas pelo Conector não estão abertas.
 
 
 ## <a name="bad-gateway-errors"></a>Erros de gateway incorreto
 
-Um erro de gateway incorreto indica que esse conector Olá é o aplicativo de back-end hello tooreach não é possível. Certifique-se de que você tenha publicado o aplicativo correto hello. Incorreções comuns que causam esse erro:
+Um erro de gateway incorreto indica que o conector não consegue alcançar o aplicativo back-end. certifique-se de que você publicou o aplicativo correto. Incorreções comuns que causam esse erro:
 
--   Um erro de digitação ou erro no URL interna Olá
+-   Um erro de digitação ou erro na URL interna
 
--   Publicando não raiz de saudação do aplicativo hello. Por exemplo, publicação <http://expenses/reimbursement> mas tentando tooaccess <http://expenses>
+-   Não publicar a raiz do aplicativo. Por exemplo, publicar <http://expenses/reimbursement> mas tentar acessar <http://expenses>
 
--   Problemas de configuração de delegação restrita de Kerberos (KCD) Olá
+-   Problemas com a configuração Delegação Restrita de Kerberos (KCD)
 
--   Problemas com o aplicativo de back-end hello
+-   Problemas com o aplicativo back-end
 
 ## <a name="forbidden-errors"></a>Erros proibidos
 
-Se você vir um erro proibido, usuário Olá não recebeu toohello aplicativo. Isso pode ser no Azure Active Directory ou no aplicativo de back-end hello.
+Se você se deparar com um erro proibido, significa que o usuário não foi atribuído ao aplicativo. Isso pode ser no Azure Active Directory ou no aplicativo back-end.
 
-toolearn como o aplicativo de toohello tooassign usuários no Azure, consulte Olá [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Para saber como atribuir usuários ao aplicativo no Azure, consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
 
-Se você confirmar que o usuário Olá recebe toohello aplicativo no Azure, verifique a configuração de usuário Olá no aplicativo de back-end hello. Se você estiver usando Delegação Restrita de Kerberos/Autenticação Integrada do Windows, será possível ver nossa página Solucionar problemas de KCD para obter algumas diretrizes.
+Se você confirmar que o usuário está atribuído ao aplicativo no Azure, verifique a configuração do usuário no aplicativo back-end. Se você estiver usando Delegação Restrita de Kerberos/Autenticação Integrada do Windows, será possível ver nossa página Solucionar problemas de KCD para obter algumas diretrizes.
 
-## <a name="check-hello-applications-internal-url"></a>Verifique a URL interna do aplicativo hello
+## <a name="check-the-applications-internal-url"></a>Verificar a URL interna do aplicativo
 
-Como uma primeira etapa rápida, verifique Verifique e corrija as URL interna Olá abrindo o aplicativo hello por meio de **aplicativos empresariais**, em seguida, selecionando Olá **Proxy de aplicativo** menu. Se que este é o URL de interno correto do hello, Olá usado do seu aplicativo de saudação do tooaccess de rede local.
+Como uma primeira etapa rápida, verifique novamente e corrija a URL interna, abrindo o aplicativo pelo **Aplicativos Empresariais** e, em seguida, selecionando o menu **Proxy de Aplicativo**. Verifique se essa é a URL interna correta, a usada na sua rede local para acessar o aplicativo.
 
-## <a name="check-hello-application-is-assigned-tooa-working-connector-group"></a>Verifique o aplicativo hello recebe tooa conector de grupo de trabalho
+## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Verificar se o aplicativo está atribuído a um Grupo de Conectores de trabalho
 
-aplicativo de hello tooverify recebe tooa conector de grupo de trabalho:
+Para verificar se o aplicativo está atribuído a um Grupo de Conectores de trabalho:
 
-1.  Abra o aplicativo hello no portal de saudação indo muito**Active Directory do Azure**, clicando em **aplicativos empresariais**, em seguida, **todos os aplicativos.** Abra o aplicativo hello e selecione **Proxy de aplicativo** no menu esquerdo hello.
+1.  Abra o aplicativo no portal, acessando o **Azure Active Directory**, clicando em **Aplicativos Empresariais** e, em seguida, em **Todos os Aplicativos.** Abra o aplicativo e, em seguida, selecione **Proxy de aplicativo** no menu esquerdo.
 
-2.  Examine o campo de grupo de saudação. Se não há nenhum conector ativo no grupo de Olá, você verá um aviso. Se você não vir todos os avisos, passe muito "Verifique se todas as portas necessárias estão na lista de permissões".
+2.  Analise o campo Grupo de Conectores. Se não houver conectores ativos no grupo, você verá um aviso. Se nenhuma aviso for exibido, vá para "verificar se todas as portas exigidas estão na lista de permissões".
 
-3.  Se isso for Olá grupo errado, use Olá suspensa grupo correto do tooselect Olá e confirmar que você não verá mais todos os avisos. Se isso for Olá se destina a grupo, clique em página de Olá Olá aviso mensagem tooopen com o gerenciamento de conector.
+3.  Se esse for o Grupo de Conectores errado, use o menu suspenso para selecionar o grupo correto e confirme se nenhum aviso é exibido. Se esse for o Grupo de Conectores pretendido, clique na mensagem de aviso para abrir a página com o gerenciamento do Conector.
 
-4.  Aqui, há alguns toodrill maneiras em adicional:
+4.  A partir daqui, há algumas maneiras de aprofundar-se ainda mais:
 
-  * Mover um conector para active para grupo de saudação: se você tiver um conector para active que deve pertencer toothis grupo e tem o aplicativo de back-end de destino de toohello de linha de visão, você pode mover Olá conector para o grupo Olá atribuído. toodo, clique em Olá conector. No campo de "Grupo" Olá, usar grupo correto do Olá Olá tooselect da lista suspensa e clique em Salvar.
+  * Mover um Conector ativo para o grupo: Se você tiver um Conector ativo que deveria pertencer a esse grupo e tiver linha de visão para o aplicativo back-end de destino, será possível mover o Conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
 
-  * Baixar um novo conector para esse grupo: nesta página, você pode obter o link de saudação muito[baixar um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). necessidades de conector Olá toobe instalado em um computador com o aplicativo de back-end toohello linha direta de visão e geralmente é posicionado no hello mesmo servidor que o aplicativo hello. Olá Use baixar toodownload de link de conector um conector para o computador de destino de saudação. Em seguida, clique Olá conector e use hello "Grupo" suspensa toomake-se de que o grupo correto toohello pertence.
+  * Baixar um novo Conector para esse grupo: Nessa página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). O Conector precisa ser instalado em uma máquina com linha de visão direta para o aplicativo back-end e ele geralmente é colocado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
 
-  * Investigar um conector inativo: se um conector mostra como inativo, é possível tooreach Olá serviço. Normalmente, isso é devido a toosome necessárias portas que estão sendo bloqueadas. toosolve esse problema, a mudança na muito "Verifique se todas as portas necessárias estão na lista de permissões".
+  * Investigar um conector inativo: Se um conector mostrar como inativo, ele não conseguirá alcançar o serviço. Isso geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, avance para "verificar se todas as portas exigidas estão na lista de permissões".
 
-Depois de usar essas etapas aplicativo hello de tooensure é grupo tooa atribuído ao trabalho conectores, aplicativo de saudação do teste novamente. Se ele ainda não está funcionando, continue toohello próxima seção.
+Após usar essas etapas para garantir que o aplicativo está atribuído a um grupo com Conectores funcionando, teste o aplicativo novamente. Se ainda não estiver funcionando, continue na próxima seção.
 
 ## <a name="check-all-required-ports-are-whitelisted"></a>Verifique se todas as portas exigidas estão na lista de permissões
 
-tooverify todas as necessárias portas estão abertas, consulte nossa documentação sobre a abertura de portas. Se todos os Olá portas necessárias estejam abertas, mova toohello próxima seção.
+Para verificar se todas as exigidas portas estão abertas, consulte nossa documentação sobre a abertura de portas. Se todas as portas exigidas estiver abertas, siga para a próxima seção.
 
 ## <a name="check-for-other-connector-errors"></a>Verifique se há outros Erros de Conectores
 
-Se nenhum dos Olá acima resolvê-Olá, Olá próxima etapa é toolook para problemas ou erros com hello conector em si. Você pode ver alguns erros comuns no hello [documento de solução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
+Se nenhuma das opções acima resolver o problema, a próxima etapa será procurar problemas ou erros do próprio conector. É possível ver alguns erros comuns no [Documento de solução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Você também pode examinar diretamente Olá conector logs tooidentify erros. Muitas das nossas mensagens de erro ser capaz de tooshare recomendações mais específicas para correções. toolearn como logs de saudação tooview, consulte [nossa documentação de conectores](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
+Você também pode examinar diretamente os logs do Conector para identificar quaisquer erros. Muitas de nossas mensagens de erro podem compartilhar recomendações mais específicas para correções. Para saber como exibir os logs, consulte [nossa documentação de conectores](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Resoluções Adicionais
 
-Se Olá acima não corrigir o problema de hello, há algumas causas possíveis diferentes. problema de saudação tooidentify:
+Se os itens acima não corrigirem o problema, há algumas causas possíveis diferentes. Para identificar o problema:
 
-Se seu aplicativo for configurado toouse Windows IWA (autenticação integrada), teste Olá aplicativo sem logon único. Caso contrário, mova o parágrafo seguinte toohello. aplicativo de hello toocheck sem logon único, abra o aplicativo por meio de **aplicativos corporativos,** e vá toohello **Single Sign-On** menu. Saudação de alteração lista suspensa de "Autenticação integrada do Windows" muito "logon único do AD do Azure desabilitado". 
+Se seu aplicativo é configurado para usar a Autenticação Integrada do Windows (IWA), teste o aplicativo sem logon único. Se não, avance para o próximo parágrafo. Para verificar o aplicativo sem logon único, abra o aplicativo pelo **Aplicativos Empresariais,** e vá para o menu **Logon Único**. Altere a lista suspensa de “Autenticação Integrada do Windows ” para “Logon único do Azure AD desabilitado”. 
 
-Agora, abra um navegador e tente o aplicativo de hello tooaccess novamente. Você deve ser solicitado para autenticação e entrar no aplicativo hello. Se isso funcionar, o problema de saudação é com a configuração de delegação restrita de Kerberos (KCD) Olá habilita logon único hello. Consulte a página de KCD solucionar problemas de saudação.
+Agora, abra um navegador e tente acessar o aplicativo novamente. Você deve ser solicitado a fazer autenticação e entrar no aplicativo. Se isso funcionar, significa que o problema é com a configuração de Delegação Restrita de Kerberos (KCD) que habilita o logon único. Consulte a página Solucionar Problemas de KCD.
 
-Se você continuar erro de saudação toosee, vá toohello máquina onde Olá Connector é instalado, abra um navegador e tente tooreach Olá URL interna usada para o aplicativo hello. Olá Connector atua como outro cliente de saudação mesma máquina. Se você não conseguir acessar o aplicativo hello, investigue por que a máquina seja aplicativo hello de tooreach não é possível, ou usar um conector em um servidor que é capaz de tooaccess Olá aplicativo.
+Se você continuar vendo o erro, vá para o computador no qual o Conector está instalado, abra um navegador e tente alcançar a URL interna usada para o aplicativo. O Conector atua como outro cliente do mesmo computador. Se você não conseguir alcançar o aplicativo, investigue por que esse computador não consegue alcançar o aplicativo ou use um conector em um servidor que possa acessar o aplicativo.
 
-Se você pode acessar o aplicativo hello dessa máquina, toolook para problemas ou erros com hello conector em si. Você pode ver alguns erros comuns no hello [documento de solução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). Você também pode examinar diretamente Olá conector logs tooidentify erros. Muitas das nossas mensagens de erro ser capaz de tooshare recomendações mais específicas para correções. toolearn como logs de saudação tooview, consulte [nossa documentação de conectores](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
+Se você pode alcançar o aplicativo do computador, pesquise problemas ou erros com o próprio Conector. É possível ver alguns erros comuns no [Documento de solução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). Você também pode examinar diretamente os logs do Conector para identificar quaisquer erros. Muitas de nossas mensagens de erro podem compartilhar recomendações mais específicas para correções. Para saber como exibir os logs, consulte [nossa documentação de conectores](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)

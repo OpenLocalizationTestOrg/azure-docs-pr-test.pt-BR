@@ -1,6 +1,6 @@
 ---
-title: alertas de log de atividade de aaaCreate | Microsoft Docs
-description: "Ser notificado por email, SMS e webhook quando ocorrem determinados eventos no log de atividades de saudação."
+title: Criar alertas do log de atividades | Microsoft Docs
+description: Seja notificado por SMS, webhook e email quando ocorrerem determinados eventos no log de atividades.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,118 +14,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: ba0716cc12a0b3a0024ee5562a025f3f153f8982
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts"></a>Criar alertas do log de atividades
 
 ## <a name="overview"></a>Visão geral
-Alertas de log de atividade são alertas que ativar quando um novo evento de log de atividade que ocorre atender às condições de saudação especificadas no alerta de saudação. Eles são recursos do Azure e, portanto, podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos em Olá portal do Azure. Este artigo apresenta conceitos de saudação dos alertas de log de atividade. Em seguida, mostra como toouse Olá tooset portal do Azure a um alerta em eventos de log de atividade.
+Os alertas de log de atividades são alertas ativados quando ocorre um novo evento de log de atividades que corresponde às condições especificadas no alerta. Eles são recursos do Azure e, portanto, podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Ele então mostra como usar o portal do Azure para configurar um alerta em eventos do log de atividades.
 
-Normalmente, você cria os alertas de log de atividade tooreceive notificações quando:
+Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
-* Alterações específicas ocorrem em recursos na sua assinatura do Azure, grupos de recursos tooparticular geralmente no escopo ou recursos. Por exemplo, convém toobe notificado quando qualquer máquina virtual em myProductionResourceGroup é excluída. Ou, talvez você queira toobe notificado se quaisquer novas funções forem atribuídas tooa usuário em sua assinatura.
-* Ocorre um evento de integridade do serviço. Eventos de integridade do serviço incluem uma notificação de incidentes e eventos de manutenção que se aplicam a tooresources em sua assinatura.
+* As alterações específicas nos recursos de sua assinatura do Azure, normalmente com escopo para recursos ou grupos de recursos específicos. Por exemplo, convém ser notificado quando qualquer máquina virtual em myProductionResourceGroup for excluída. Ou você pode receber uma notificação se quaisquer funções novas forem atribuídas a um usuário em sua assinatura.
+* Ocorre um evento de integridade do serviço. Os eventos de integridade de serviço incluem uma notificação de incidentes e eventos de manutenção que se aplicam aos recursos em sua assinatura.
 
-Em ambos os casos, um alerta do log de atividade monitora apenas eventos na assinatura Olá no qual Olá alerta é criado.
+Em ambos os casos, o alerta do log de atividades só monitorará eventos na assinatura na qual o alerta foi criado.
 
-Você pode configurar um alerta de log de atividade com base em qualquer propriedade de nível superior no objeto JSON de saudação para um evento de log de atividade. No entanto, o portal de saudação mostra opções mais comuns de saudação:
+Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON de um evento do log de atividades. No entanto, o portal mostra as opções mais comuns:
 
-- **Categoria**: Administrativa, Integridade do Serviço, Dimensionamento Automático e Recomendação. Para obter mais informações, consulte [visão geral do log de atividades do Azure Olá](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). toolearn mais informações sobre eventos de integridade do serviço, consulte [receber alertas de log de atividade em notificações de serviço](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Categoria**: Administrativa, Integridade do Serviço, Dimensionamento Automático e Recomendação. Para saber mais, veja [Visão geral do log de atividades](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Para saber mais sobre os eventos de integridade do serviço, veja [Receber alertas do log de atividades em notificações de serviço](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Grupo de recursos**
 - **Recurso**
 - **Tipo de recurso**
-- **Nome da operação**: nome de operação de controle de acesso baseado em função do recurso Gerenciador hello.
-- **Nível de**: Olá nível de severidade do evento hello (detalhado, informativo, aviso, erro ou crítico).
-- **Status**: status de saudação do evento hello, normalmente iniciados, falhou ou foi bem-sucedida.
-- **Evento iniciado por**: Olá também conhecido como "chamador". endereço de email de saudação ou identificador de Active Directory do Azure do usuário de saudação que realizou a operação de saudação.
+- **Nome da operação**: nome da operação de Controle de Acesso Baseado em Função do Resource Manager.
+- **Nível**: o nível de gravidade do evento (Detalhado, Informativo, Aviso, Erro ou Crítico).
+- **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
+- **Evento iniciado por**: também conhecido como o "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
 >[!NOTE]
->Você deve especificar pelo menos duas das Olá precedem critérios em seu alerta, com uma categoria de saudação. Você não pode criar um alerta que é ativado sempre que um evento é criado nos logs de atividade de saudação.
+>Você deve especificar pelo menos dois dos critérios anteriores em seu alerta, sendo que um deve ser a categoria. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
 >
 >
 
-Quando um alerta de log de atividades é ativado, ele usa uma ação toogenerate ações ou notificações de grupo. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. receptores de saudação podem ser referenciados de vários toocentralize de alertas e agrupe seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
+Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
 
 * Use um grupo existente no seu alerta do log de atividades. 
 * Crie um novo grupo de ações. 
 
-toolearn mais sobre grupos de ação, consulte [criar e gerenciar grupos de ação no portal do Azure de saudação](monitoring-action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações no portal do Azure](monitoring-action-groups.md).
 
-toolearn mais sobre as notificações de integridade do serviço, consulte [receber alertas de log de atividade sobre as notificações de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
+Para saber mais sobre as notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-hello-azure-portal"></a>Criar um alerta em um evento de log de atividade com um novo grupo de ação usando Olá portal do Azure
-1. Em Olá [portal](https://portal.azure.com), selecione **Monitor**.
+## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta em um evento do log de atividades com um novo grupo de ações usando o portal do Azure
+1. No [portal](https://portal.azure.com), selecione **Monitor**.
 
-    ![saudação de serviço do "Monitor"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Em Olá **log de atividades** seção, selecione **alertas**.
+    ![O serviço “Monitor”](./media/monitoring-activity-log-alerts/home-monitor.png)
+2. Na seção **Log de atividades**, selecione **Alertas**.
 
-    ![Guia de "Alertas" Hello](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Selecione **adicionar alerta do log de atividade**e preencha os campos de saudação.
+    ![A guia “Alertas”](./media/monitoring-activity-log-alerts/alerts-blades.png)
+3. Selecione **Adicionar alerta do log de atividades** e preencha os campos.
 
-4. Insira um nome no hello **nome do log de atividade alerta** caixa e selecione um **descrição**.
+4. Insira um nome na caixa **Nome do log de atividades alerta** e selecione uma **Descrição**.
 
-    ![Olá comando "Adicionar alerta do log de atividade"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+    ![O comando "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. Olá **assinatura** caixa autofills com sua assinatura atual. Esta assinatura está Olá um no qual grupo de ação de saudação é salvo. recurso de alerta de saudação é implantado toothis assinatura e monitores log eventos de atividade dele.
+5. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é aquela na qual o grupo de ação é salvo. O recurso de alerta é implantado nessa assinatura e monitora os eventos do log de atividades dela.
 
-    ![caixa de diálogo "Adicionar alerta do log de atividade" Hello](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+    ![A caixa de diálogo "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Selecione Olá **grupo de recursos** no qual Olá recursos de alerta é criado. Isso não é um grupo de recursos de saudação que é monitorado pelo alerta hello. Em vez disso, é grupo de recursos de saudação onde o recurso de alerta de saudação está localizado.
+6. Selecione o **Grupo de recursos** no qual o recurso de alerta é criado. Esse não é o grupo de recursos monitorado pelo alerta. Em vez disso, é o grupo de recursos onde se encontra o recurso de alerta.
 
-7. Opcionalmente, selecione uma **categoria de evento** toomodify Olá filtros adicionais que são mostrados. Para eventos administrativos, filtros de saudação incluem **grupo de recursos**, **recurso**, **tipo de recurso**, **nome da operação**, **Nível**, **Status**, e **evento iniciado por**. Esses valores identificam quais eventos este alerta deverá monitorar.
+7. Opcionalmente, selecione uma **Categoria de evento** para modificar os filtros adicionais que são mostrados. Para eventos administrativos, os filtros incluem **Grupo de recursos**, **Recurso**, **Ripo de recurso**, **Nome da operação**, **Nível**, **Status** e **Evento iniciado por**. Esses valores identificam quais eventos este alerta deverá monitorar.
 
     >[!NOTE]
-    >Você deve especificar pelo menos um dos Olá precedem critérios em seu alerta. Você não pode criar um alerta que é ativado sempre que um evento é criado nos logs de atividade de saudação.
+    >Você deve especificar pelo menos um dos critérios anteriores em seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
     >
     >
 
-8. Insira um nome no hello **nome do grupo de ação** caixa e, em seguida, digite um nome em hello **nome curto** caixa. nome curto de saudação é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
+8. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 
-9.  Defina uma lista de ações, fornecendo da ação hello:
+9.  Defina uma lista de ações fornecendo os seguintes dados da ação:
 
-    a. **Nome**: insira o nome da ação hello, alias ou identificador.
+    a. **Nome**: insira o nome, o alias ou o identificador da ação.
 
     b. **Tipo de Ação**: selecione SMS, email ou webhook.
 
-    c. **Detalhes**: com base no tipo de ação de hello, insira um número de telefone, endereço de email ou webhook URI.
+    c. **Detalhes**: de acordo com o tipo de ação escolhido, insira um número de telefone, um endereço de email ou um URI de webhook.
 
-10. Selecione **Okey** toocreate alerta de saudação.
+10. Selecione **OK** para criar o alerta.
 
-alerta de saudação leva alguns minutos toofully se propague e, em seguida, se tornar ativa. Ele dispara quando os critérios do alerta Olá correspondem a novos eventos.
+O alerta leva alguns minutos para se propagar totalmente e então se tornar ativo. Ele dispara quando novos eventos correspondem aos critérios do alerta.
 
-Para obter mais informações, consulte [esquema de webhook Olá compreender usada em alertas de log de atividade](monitoring-activity-log-alerts-webhook.md).
+Para saber mais, veja [Noções básicas sobre o esquema de webhook usado em alertas do log de atividades](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->o grupo de ação Olá definido nessas etapas é reutilizável de um grupo existente de ação para todas as definições de alerta futuras.
+>O grupo de ações definido nessas etapas é reutilizável, como um grupo de ação existente, para todas as definições de alerta futuras.
 >
 >
 
-## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-hello-azure-portal"></a>Criar um alerta em um evento de log de atividade para um grupo existente, usando Olá portal do Azure
-1. Siga as etapas 1 a 7 em Olá anterior seção toocreate o alerta de log de atividade.
+## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Criar um alerta em um evento do log de atividades para um grupo de ações existente usando o portal do Azure
+1. Siga as etapas 1 a 7 na seção anterior para criar o alerta do log de atividades.
 
-2. Em **notificar**, selecione Olá **existente** botão do grupo de ação. Selecione um grupo existente na lista de saudação.
+2. Em **Notificar via**, selecione o botão Grupo de ações **existente**. Selecione um grupo de ações existente na lista.
 
-3. Selecione **Okey** toocreate alerta de saudação.
+3. Selecione **OK** para criar o alerta.
 
-alerta de saudação leva alguns minutos toofully se propague e, em seguida, se tornar ativa. Ele dispara quando os critérios do alerta Olá correspondem a novos eventos.
+O alerta leva alguns minutos para se propagar totalmente e então se tornar ativo. Ele dispara quando novos eventos correspondem aos critérios do alerta.
 
 ## <a name="manage-your-alerts"></a>Gerenciar seus alertas
 
-Depois de criar um alerta, ele está visível na seção de alertas de saudação da folha de Monitor de saudação. Selecione o alerta de saudação desejado toomanage para:
+Depois de criar um alerta, ele ficará visível na seção Alertas da folha Monitor. Selecione o alerta que você deseja gerenciar:
 
 * Edite-o.
 * Exclua-o.
-* Desabilitar ou habilitá-lo, se você desejar tootemporarily parar ou continuar a receber notificações de alerta de saudação.
+* Desabilite-o ou habilite-o, se desejar interromper temporariamente ou continuar recebendo notificações do alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Obtenha uma [visão geral dos alertas](monitoring-overview-alerts.md).
 - Saiba mais sobre [limitação de taxa de notificação](monitoring-alerts-rate-limiting.md).
-- Saudação de revisão [webhook alerta esquema do log de atividade](monitoring-activity-log-alerts-webhook.md).
+- Examine o [esquema do webhook de alertas de log de atividades](monitoring-activity-log-alerts-webhook.md).
 - Saiba mais sobre [grupos de ação](monitoring-action-groups.md).  
 - Saiba mais sobre as [notificações de integridade do serviço](monitoring-service-notifications.md).
-- Criar um [atividade todas as operações de mecanismo de dimensionamento automático em sua assinatura de alerta toomonitor log](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- Criar um [atividade todas as operações de escala-em/expansão de dimensionamento automático com falha em sua assinatura de alerta toomonitor log](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Crie um [alerta de log de atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Crie um [alerta de log de atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).

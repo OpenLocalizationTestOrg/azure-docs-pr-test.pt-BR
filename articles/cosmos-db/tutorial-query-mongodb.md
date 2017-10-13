@@ -1,6 +1,6 @@
 ---
-title: "Cosmos do Azure DB: Como tooquery usando Olá API DocumentDB? | Microsoft Docs"
-description: Saiba mais sobre o tooquery com hello API DocumentDB para o banco de dados do Azure Cosmos
+title: 'Azure Cosmos DB: Como consulta usando a API do DocumentDB? | Microsoft Docs'
+description: Aprenda a consulta com a API do DocumentDB para o Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: e3e5a49f7510942bcfb15330e5f86c5dd8b1e5d9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="azure-cosmos-db-how-tooquery-with-api-for-mongodb"></a>Cosmos do Azure DB: Como tooquery com a API para o MongoDB?
+# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Como consultar com a API para MongoDB?
 
-Olá banco de dados do Azure Cosmos [API para o MongoDB](mongodb-introduction.md) dá suporte a [consultas de shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+A [API para MongoDB](mongodb-introduction.md) do Azure Cosmos DB oferece suporte a [consultas do shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-Este artigo aborda Olá tarefas a seguir: 
+Este artigo aborda as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Consultar dados com o MongoDB
 
 ## <a name="sample-document"></a>Exemplo de documento
 
-consultas de saudação neste artigo usam Olá documento de exemplo a seguir.
+As consultas neste artigo usam o seguinte exemplo de documento.
 
 ```json
 {
@@ -64,7 +64,7 @@ consultas de saudação neste artigo usam Olá documento de exemplo a seguir.
 ```
 ## <a id="examplequery1"></a>Exemplo de consulta 1 
 
-Dado documento família de exemplo de hello acima, retorna documentos de saudação em que o campo de id de saudação corresponde de consulta a seguir Olá `WakefieldFamily`.
+Com base no exemplo de documento de família acima, a consulta a seguir retorna os documentos cujo campo de id corresponde a `WakefieldFamily`.
 
 **Consulta**
     
@@ -114,7 +114,7 @@ Dado documento família de exemplo de hello acima, retorna documentos de saudaç
 
 ## <a id="examplequery2"></a>Exemplo de consulta 2 
 
-consulta seguinte Olá retorna todos os filhos de saudação da família de saudação. 
+A próxima consulta retorna todos os filhos da família. 
 
 **Consulta**
     
@@ -147,7 +147,7 @@ consulta seguinte Olá retorna todos os filhos de saudação da família de saud
 
 ## <a id="examplequery3"></a>Exemplo de consulta 3 
 
-consulta seguinte Olá retorna todas as famílias de saudação que são registradas. 
+A próxima consulta retorna todas as famílias registradas. 
 
 **Consulta**
     
@@ -156,7 +156,7 @@ consulta seguinte Olá retorna todas as famílias de saudação que são registr
 
 ## <a id="examplequery4"></a>Exemplo de consulta 4
 
-consulta seguinte Olá retorna todas as famílias de saudação que não estão registradas. 
+A próxima consulta retorna todas as famílias que não estão registradas. 
 
 **Consulta**
     
@@ -200,7 +200,7 @@ consulta seguinte Olá retorna todas as famílias de saudação que não estão 
 
 ## <a id="examplequery5"></a>Exemplo de consulta 5
 
-consulta seguinte Olá retorna todas as famílias de saudação que não estão registradas e o estado é NY. 
+A próxima consulta retorna todas as famílias que não estão registradas e cujo estado é NY. 
 
 **Consulta**
     
@@ -246,7 +246,7 @@ consulta seguinte Olá retorna todas as famílias de saudação que não estão 
 
 ## <a id="examplequery6"></a>Exemplo de consulta 6
 
-consulta seguinte Olá retorna todas as famílias de saudação onde notas filhos são 8.
+A próxima consulta retorna todas as famílias das quais as notas dos filhos seja 8.
 
 **Consulta**
   
@@ -291,7 +291,7 @@ consulta seguinte Olá retorna todas as famílias de saudação onde notas filho
 
 ## <a id="examplequery7"></a>Exemplo de consulta 7
 
-consulta seguinte Olá retorna todas as famílias de saudação em que o tamanho da matriz de filhos é 3.
+A próxima consulta retorna todas as famílias das quais o tamanho da matriz de filhos seja três.
 
 **Consulta**
   
@@ -299,16 +299,16 @@ consulta seguinte Olá retorna todas as famílias de saudação em que o tamanho
 
 **Resultados**
 
-Nenhum resultado retornará, pois não temos mais de dois filhos. Somente quando o parâmetro é 2 essa consulta será bem-sucedida e retornar documento completo hello.
+Nenhum resultado retornará, pois não temos mais de dois filhos. Somente quando o parâmetro for dois essa consulta será bem-sucedida e retornará o documento completo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez a seguir hello:
+Neste tutorial, você fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu como tooquery usando o MongoDB 
+> * Aprendeu a consultar usando o MongoDB 
 
-Você pode continuar toolearn tutorial do próximo toohello como toodistribute seus dados globalmente.
+Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seus dados globalmente.
 
 > [!div class="nextstepaction"]
 > [Distribuir os dados globalmente](tutorial-global-distribution-documentdb.md)

@@ -1,5 +1,5 @@
 ---
-title: aaaApplication telemetria Insights no CodeLens do Visual Studio | Microsoft Docs
+title: Application Insights Telemetry no Visual Studio CodeLens | Microsoft Docs
 description: "Acesse rapidamente a solicitação do Application Insights e a telemetria de exceções com o CodeLens no Visual Studio."
 services: application-insights
 documentationcenter: .net
@@ -13,69 +13,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
-ms.openlocfilehash: e812aa48f2a67eea860e7ecde341855763bb8a8b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 20933afab55043ccc5ce908c04c6e4a7a28e3538
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
-Métodos no código de saudação do seu aplicativo web podem ser anotados com a telemetria sobre exceções de tempo de execução e tempos de resposta de solicitação. Se você instalar [Azure Application Insights](app-insights-overview.md) em seu aplicativo, telemetria Olá aparece no Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) -Olá anotações na parte superior de saudação de cada função em que você está acostumado tooseeing úteis informações como o número de saudação da função de saudação locais são referenciadas ou Olá última pessoa que editou.
+Métodos no código de seu aplicativo Web podem ser anotados com telemetria sobre exceções de tempo de execução e tempos de resposta de solicitação. Se você instalar o [Application Insights do Azure](app-insights-overview.md) em seu aplicativo, a telemetria aparecerá no Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) -as anotações na parte superior de cada função em que você está acostumado a ver informações úteis, como o número de casas em que a função é referenciada ou a última pessoa que o editou.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
 > [!NOTE]
-> Application Insights no CodeLens está disponível no Visual Studio 2015 atualização 3 e posterior ou com a versão mais recente de saudação do [extensão de ferramentas de análise do desenvolvedor](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens está disponível em Olá edições Enterprise e Professional do Visual Studio.
+> O Application Insights no CodeLens está disponível no Visual Studio 2015 Atualização 3 e posterior ou com a versão mais recente da [extensão de Ferramentas de Análise de Desenvolvedor](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). O CodeLens está disponível nas edições Enterprise e Professional do Visual Studio.
 > 
 > 
 
-## <a name="where-toofind-application-insights-data"></a>Onde toofind dados do Application Insights
-Procure a telemetria do Application Insights em indicadores de CodeLens Olá dos métodos de solicitação público de saudação do seu aplicativo web. Os indicadores do CodeLens são mostrados acima do método e outras declarações no código do C# e do Visual Basic. Se os dados do Application Insights estiverem disponíveis para um método, você verá indicadores para solicitações e exceções, como "100 solicitações, falha de 1%" ou "10 exceções". Clique em um indicador do CodeLens para obter mais detalhes. 
+## <a name="where-to-find-application-insights-data"></a>Onde localizar os dados do Application Insights
+Procure a telemetria do Application Insights nos indicadores do CodeLens dos métodos públicos de solicitação do aplicativo Web. Os indicadores do CodeLens são mostrados acima do método e outras declarações no código do C# e do Visual Basic. Se os dados do Application Insights estiverem disponíveis para um método, você verá indicadores para solicitações e exceções, como "100 solicitações, falha de 1%" ou "10 exceções". Clique em um indicador do CodeLens para obter mais detalhes. 
 
 > [!TIP]
-> Solicitação do Application Insights e indicadores de exceção podem levar alguns segundos extras tooload depois outros indicadores CodeLens aparecem.
+> Os indicadores de solicitação e exceção do Application Insights podem levar alguns segundos extras para serem carregados após outros indicadores do CodeLens aparecerem.
 > 
 > 
 
 ## <a name="exceptions-in-codelens"></a>Exceções em CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-indicador de CodeLens exceção Olá mostra o número de saudação de exceções que ocorreram no hello últimas 24 horas da saudação 15 a maioria das exceções que ocorrem com frequência em seu aplicativo durante esse período, durante o processamento de solicitação de saudação servido pelo método hello.
+O indicador de exceção do CodeLens mostra o número de exceções que ocorreram nas últimas 24 horas das 15 exceções mais frequentes no aplicativo durante esse período, enquanto processa a solicitação fornecida pelo método.
 
-toosee mais detalhes, clique em indicador de CodeLens Olá exceções:
+Para obter mais detalhes, clique no indicador de exceções do CodeLens:
 
-* alteração da porcentagem de saudação no número de exceções de saudação últimas 24 horas relativo toohello anterior de 24 horas
-* Escolha **vá toocode** toonavigate toohello código-fonte para a função hello gerar exceção Olá
-* Escolha **pesquisa** tooquery Olá de todas as instâncias dessa exceção que ocorreram nas últimas 24 horas
-* Escolha **tendência** tooview uma visualização de tendência para ocorrências dessa exceção na Olá últimas 24 horas
-* Escolha **exibir todas as exceções nesse aplicativo** tooquery Olá de todas as exceções que ocorreram nas últimas 24 horas
-* Escolha **explorar as tendências de exceção** tooview uma visualização de tendência para todas as exceções que ocorreram no hello últimas 24 horas. 
+* A alteração de porcentagem no número de exceções das últimas 24 horas em relação às 24 horas anteriores
+* Escolha **Ir para código** para navegar até o código-fonte da função que está lançando a exceção
+* Escolha **Pesquisar** para consultar todas as instâncias dessa exceção que ocorreram nas últimas 24 horas
+* Escolha **Tendência** para exibir uma visualização de tendência das ocorrências dessa exceção nas últimas 24 horas
+* Escolha **Exibir todas as exceções neste aplicativo** para consultar todas as exceções que ocorreram nas últimas 24 horas
+* Escolha **Explorar tendências de exceção** para exibir uma visualização de tendências de todas as exceções que ocorreram nas últimas 24 horas. 
 
 > [!TIP]
-> Se você vir "0 exceções" em CodeLens, mas você sabe que deve haver exceções, verifique toomake se o recurso do Application Insights à direita de saudação é selecionado na CodeLens. tooselect outro recurso, clique com botão direito no seu projeto no Gerenciador de soluções do hello e escolha **Application Insights > Escolher fonte de telemetria**. CodeLens é mostrada apenas para Olá 15 a maioria das exceções que ocorrem com frequência em seu aplicativo em Olá últimas 24 horas, portanto, se uma exceção é Olá frequentemente mais de 16 ou menos, você verá "0 exceções." Exceções de modos de exibição do ASP.NET não podem aparecer em métodos de saudação do controlador que gerou os modos de exibição.
+> Se você vir "0 exceções" no CodeLens, mas souber que deve haver exceções, verifique se o recurso do Application Insights correto está selecionado no CodeLens. Para selecionar outro recurso, clique no projeto no Gerenciador de Soluções e escolha **Application Insights > Escolher Fonte de Telemetria**. O CodeLens só é exibido para as 15 exceções que ocorreram com mais frequência no aplicativo nas últimas 24 horas. Assim, se uma exceção for a 16ª mais frequente ou menos, você verá "0 exceções". Exceções de exibições do ASP.NET podem não aparecer nos métodos de controlador que geraram essas exibições.
 > 
 > [!TIP]
-> Se vir "? exceções"em CodeLens, você precisa tooassociate que sua conta do Azure com o Visual Studio ou suas credenciais de conta do Azure pode ter expirado. Em ambos os casos, clique em "? exceções"e escolha **adicionar uma conta...**  tooenter suas credenciais.
+> Se vir "? exceções"no CodeLens, você precisará associar sua conta do Azure ao Visual Studio, ou suas credenciais de conta do Azure podem ter expirado. Em ambos os casos, clique em "? exceções"e escolha **Adicionar uma conta...** para inserir suas credenciais.
 > 
 > 
 
 ## <a name="requests-in-codelens"></a>Solicitações no CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
-Hello solicitação mostra de indicador CodeLens Olá número de HTTP solicitações que foram atendidas por um método no hello após 24 horas, além de porcentagem Olá dessas solicitações que falharam.
+A solicitação de indicador do CodeLens mostra o número de solicitações HTTP que foram atendidas por um método nas últimas 24 horas, mais a porcentagem de solicitações que falharam.
 
-toosee mais detalhes, clique em Olá solicitações CodeLens indicador:
+Para obter mais detalhes, clique nas solicitações no indicador do CodeLens:
 
-* Olá alterações no número de solicitações, solicitações com falha e tempos de resposta médio absoluto e percentual sobre Olá após 24 horas em comparação comparadas toohello anteriores a 24 horas
-* confiabilidade de saudação do método hello, calculado como Olá porcentagem de solicitações que não falhou em Olá últimas 24 horas
-* Escolha **pesquisa** solicitações ou solicitações com falha tooquery todos Olá solicitações (falhas) que ocorreram em Olá últimas 24 horas
-* Escolha **tendência** tooview uma visualização de tendência para solicitações, solicitações com falha ou médio de resposta vezes em Olá últimas 24 horas.
-* Escolha o nome de saudação do hello recurso do Application Insights no canto superior esquerdo de saudação da exibição de detalhes do hello CodeLens toochange qual recurso é a origem de saudação para dados de CodeLens.
+* As alterações absolutas e percentuais no número de solicitações, solicitações com falha e tempos de resposta médios nas últimas 24 horas em comparação com as 24 horas anteriores
+* A confiabilidade do método, calculada como a porcentagem de solicitações que não falharam nas últimas 24 horas
+* Escolha **Pesquisar** para solicitações ou solicitações com falha para consultar todas as solicitações (com falha) que ocorreram nas últimas 24 horas
+* Escolha **Tendência** para exibir uma visualização de tendências de solicitações, solicitações com falha ou tempos de resposta médios nas últimas 24 horas.
+* Escolha o nome do recurso do Application Insights no canto superior esquerdo da exibição de detalhes do CodeLens para alterar o recurso que é a fonte de dados do CodeLens.
 
 ## <a name="next"></a>Próximas etapas
 |  |  |
 | --- | --- |
-| **[Trabalhando com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com botão direito hello e escolha o Application Insights, pesquisa](./media/app-insights-visual-studio-codelens/34.png) |
+| **[Trabalhando com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
-| **[Trabalhando com o portal do Application Insights Olá](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
+| **[Trabalhando com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
 

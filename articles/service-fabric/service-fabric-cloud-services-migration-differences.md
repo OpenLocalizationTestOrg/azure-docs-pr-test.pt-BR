@@ -1,6 +1,6 @@
 ---
-title: "aaaDifferences entre serviços de nuvem e malha do serviço | Microsoft Docs"
-description: "Uma visão geral conceitual para a migração de aplicativos de serviços de nuvem tooService malha."
+title: "Diferenças entre os Serviços de Nuvem e o Service Fabric | Microsoft Docs"
+description: "Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: bbc5ef4fe0fe1b0da55454cb6b766925030198fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 26c0256f6fa299551d92e9bcd058ca359d8c85b3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="learn-about-hello-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças de saudação entre serviços de nuvem e malha do serviço antes de migrar aplicativos.
-Microsoft Azure Service Fabric é uma plataforma de aplicativos de nuvem de última geração Olá para aplicativos distribuídos altamente escalonáveis, altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
+# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
+O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
 
-Este é um aplicativo de toomigrating Guia introdutório de serviços de nuvem tooService malha. Ele se concentra principalmente nas diferenças de arquitetura e de design entre os Serviços de Nuvem e o Service Fabric.
+Este é um guia introdutório para migrar aplicativos dos Serviços de Nuvem para o Service Fabric. Ele se concentra principalmente nas diferenças de arquitetura e de design entre os Serviços de Nuvem e o Service Fabric.
 
 ## <a name="applications-and-infrastructure"></a>Aplicativos e infraestrutura
-Uma diferença fundamental entre serviços de nuvem e malha do serviço é a relação de saudação entre VMs, cargas de trabalho e aplicativos. Uma carga de trabalho aqui é definida como código Olá gravar tooperform uma tarefa específica ou fornecer um serviço.
+Uma diferença fundamental entre os Serviços de Nuvem e o Service Fabric é a relação entre as VMs, as cargas de trabalho e os aplicativos. Aqui, uma carga de trabalho é definida como o código que você escreve para executar uma tarefa específica ou fornecer um serviço.
 
-* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.** código de saudação que você escreve é tooa firmemente acopladas instância VM, como uma função Web ou trabalho. toodeploy uma carga de trabalho em serviços de nuvem é toodeploy uma ou instâncias de VM mais carga de trabalho Olá execução. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
+* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.** O código que você escreve está acoplado a uma instância de VM, como uma função de trabalho ou Web. A implantação de uma carga de trabalho nos Serviços de Nuvem é a implantação de uma ou mais instâncias de VM que executam a carga de trabalho. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
 
 ![Topologia e aplicativos dos Serviços de Nuvem][1]
 
-* **O Service Fabric é sobre como implantar aplicativos tooexisting VMs ou máquinas que executam o serviço de malha no Windows ou Linux.** Serviços de saudação que gravar estão completamente separados do hello subjacente de infraestrutura, que é abstraída pela plataforma de aplicativo do Service Fabric hello, portanto, um aplicativo pode ser implantado toomultiple ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo hello Service Fabric. Vários aplicativos podem ser implantado tooa único cluster do Service Fabric.
+* **O Service Fabric diz respeito à implantação de aplicativos em máquinas virtuais existentes ou computadores que executam o Service Fabric no Windows ou no Linux.** Os serviços que você escreve são completamente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicativo Service Fabric, para que um aplicativo possa ser implantado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo Service Fabric. Vários aplicativos podem ser implantados em um único cluster do Service Fabric.
 
 ![Topologia e aplicativos Service Fabric][2]
 
 O Service Fabric em si é uma camada de plataforma de aplicativo que é executada no Windows ou no Linux, enquanto os Serviços de Nuvem são um sistema para a implantação de VMs gerenciadas pelo Azure com cargas de trabalho anexadas.
-modelo de aplicativo do Service Fabric Olá tem uma série de vantagens:
+O modelo de aplicativo Service Fabric tem uma série de vantagens:
 
-* Rapidez na implantação. A criação de instâncias da VM pode ser demorada. Na malha do serviço, as VMs são implantadas somente quando tooform um cluster que hospeda Olá plataforma de aplicativo de malha do serviço. Daí em diante, os pacotes de aplicativos podem ser implantado toohello cluster muito rapidamente.
-* Hospedagem de alta densidade. Nos Serviços de Nuvem, uma VM de função de trabalho hospeda uma carga de trabalho. No Service Fabric, aplicativos são independentes das VMs Olá que execução-los, que significa que você pode implantar um grande número de aplicativos tooa pequeno número de máquinas virtuais, que pode reduzir o custo geral para implantações maiores.
-* Olá Service Fabric plataforma pode ser executada em qualquer lugar que tem máquinas do Windows Server ou Linux, se ele está Azure ou no local. plataforma de saudação fornece uma camada de abstração pela infraestrutura subjacente Olá para que seu aplicativo possa ser executados em ambientes diferentes. 
-* Gerenciamento de aplicativo distribuído. O Service Fabric é uma plataforma que não apenas hospeda aplicativos distribuídos, mas também o ajuda a gerenciar o ciclo de vida independentemente Olá hospeda a VM ou do ciclo de vida da máquina.
+* Rapidez na implantação. A criação de instâncias da VM pode ser demorada. No Service Fabric, as VMs são implantadas somente uma vez para formar um cluster que hospeda a plataforma de aplicativo Service Fabric. Daí em diante, os pacotes de aplicativos podem ser implantados no cluster rapidamente.
+* Hospedagem de alta densidade. Nos Serviços de Nuvem, uma VM de função de trabalho hospeda uma carga de trabalho. No Service Fabric, os aplicativos são separados das VMs que as executam, o que significa que você pode implantar um grande quantidade de aplicativos em uma pequena quantidade de VMs, podendo reduzir o custo geral de implantações maiores.
+* A plataforma Service Fabric pode ser executada em qualquer lugar que tenha computadores com Windows Server ou Linux, seja do Azure ou locais. A plataforma fornece uma camada de abstração sobre a infraestrutura subjacente para que seu aplicativo possa ser executado em diferentes ambientes. 
+* Gerenciamento de aplicativo distribuído. O Service Fabric é uma plataforma que não apenas hospeda aplicativos distribuídos, mas também ajuda a gerenciar o ciclo de vida, independentemente do ciclo de vida da VM de hospedagem ou do computador.
 
 ## <a name="application-architecture"></a>Arquitetura do aplicativo
-Olá arquitetura de um aplicativo de serviços de nuvem geralmente inclui várias dependências de serviço externo, como o barramento de serviço, tabela do Azure e armazenamento de Blob, SQL, Redis e outros toomanage Olá estado e os dados de um aplicativo e a comunicação entre Web e funções de trabalho em uma implantação de serviços de nuvem. Um exemplo de um aplicativo de Serviços de Nuvem completo pode ter esta aparência:  
+A arquitetura de um aplicativo de Serviços de Nuvem geralmente inclui várias dependências de serviço externo, como o Barramento de Serviço, Armazenamento de Tabelas e de Blobs do Azure, SQL, Redis e outros para gerenciar o estado e os dados de um aplicativo e a comunicação entre funções de trabalho e Web em uma implantação de Serviços de Nuvem. Um exemplo de um aplicativo de Serviços de Nuvem completo pode ter esta aparência:  
 
 ![Arquitetura dos Serviços de Nuvem][9]
 
-Aplicativos de serviço de malha também podem escolher toouse Olá mesmo serviços externos em um aplicativo completo. Usando este exemplo de arquitetura de serviços de nuvem, o caminho de migração mais simples do hello de serviços de nuvem tooService malha é tooreplace somente implantação do hello serviços de nuvem com um aplicativo de malha do serviço, mantendo Olá Olá a mesma arquitetura geral. Olá Web e funções de trabalho podem ser serviços sem monitoração de estado de malha de porta tooService com alterações mínimas de código.
+Os aplicativos Service Fabric também podem optar por usar os mesmos serviços externos em um aplicativo completo. Usando essa arquitetura de exemplo de Serviços de Nuvem, o caminho de migração mais simples dos Serviços de Nuvem para o Service Fabric é substituir apenas a implantação de Serviços de Nuvem por um aplicativo Service Fabric, mantendo a arquitetura geral dele. As funções de trabalho e Web podem ser portadas para serviços sem estado do Service Fabric com o mínimo de alterações de código.
 
 ![Arquitetura do Service Fabric após migração simples][10]
 
-Neste estágio, o sistema de saudação deve continuar toowork Olá mesmo de antes. Aproveitando os recursos de serviço com estado do Service Fabric, os armazenamentos de estado externos podem ser internalizados como serviços com estado, quando for o caso. Isso é mais envolvido que uma migração simple de serviços Web e funções de trabalho tooService malha sem monitoração de estado, pois ele requer a criação de serviços personalizados que fornecem aplicativos de tooyour funcionalidade equivalente como serviços externos Olá foram antes. Olá vantagens de fazer isso: 
+Neste estágio, o sistema deve continuar a trabalhar como antes. Aproveitando os recursos de serviço com estado do Service Fabric, os armazenamentos de estado externos podem ser internalizados como serviços com estado, quando for o caso. Isso é mais complicado que uma migração simples de funções de trabalho e Web para serviços sem estado do Service Fabric, pois ele requer a criação de serviços personalizados que fornecem funcionalidade equivalente ao seu aplicativo, como os serviços externos faziam antes. Os benefícios de se fazer isso incluem: 
 
 * Removendo dependências externas 
-* Unificar Olá implantação, gerenciamento e modelos de atualização. 
+* Unificar a implantação, gerenciamento e modelos de atualização. 
 
 Uma arquitetura de exemplo resultante da internalização desses serviços poderia ter esta aparência:
 
@@ -66,32 +66,32 @@ Uma arquitetura de exemplo resultante da internalização desses serviços poder
 A maioria dos aplicativos do Serviço de Nuvem consistem em mais de uma camada. Da mesma forma, um aplicativo Service Fabric consiste em mais de um serviço (normalmente muitos serviços). Dois modelos comuns de comunicação têm comunicação direta e por meio de armazenamento durável externo.
 
 ### <a name="direct-communication"></a>Comunicação direta
-Com a comunicação direta, as camadas podem se comunicar diretamente por meio do ponto de extremidade exposto por cada camada. Em ambientes sem monitoração de estado, como serviços de nuvem, essa significa selecionar uma instância de uma função VM, ou aleatoriamente ou carga de round-robin toobalance e conexão tooits ponto de extremidade diretamente.
+Com a comunicação direta, as camadas podem se comunicar diretamente por meio do ponto de extremidade exposto por cada camada. Em ambientes sem estado, como os Serviços de Nuvem, isso significa selecionar uma instância de uma função VM, aleatoriamente ou round-robin, para balancear a carga e conectar-se diretamente ao seu ponto de extremidade.
 
 ![Comunicação direta dos Serviços de Nuvem][5]
 
- A comunicação direta é um modelo de comunicação comum no Service Fabric. a principal diferença Olá entre serviços de nuvem e malha do serviço está em serviços de nuvem conectar tooa VM, enquanto na malha do serviço a serviço tooa se conectar. Essa é uma distinção importante por duas razões:
+ A comunicação direta é um modelo de comunicação comum no Service Fabric. A principal diferença entre o Service Fabric e os Serviços de Nuvem é que você se conectar a uma máquina virtual, ao passo que no Service Fabric você se conecta a um serviço. Essa é uma distinção importante por duas razões:
 
-* Os serviços do Service Fabric não são toohello associada VMs que hospedam-los; serviços pode mover-se no cluster hello e são na verdade, toomove esperado ao redor por vários motivos: recursos de balanceamento, failover, atualizações de aplicativos e infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora. 
+* Os serviços no Service Fabric não são associados às VMs que os hospedam. Os serviços podem mover-se pelo cluster e, na verdade, é o que se espera por vários motivos: balanceamento de recursos, failover, atualizações de aplicativos e da infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora. 
 * Uma VM no Service Fabric pode hospedar vários serviços, cada um com pontos de extremidade exclusivos.
 
-Malha do serviço fornece um mecanismo de descoberta de serviço, chamado hello Naming Service, que pode ser usado tooresolve endereços de ponto de extremidade dos serviços. 
+O Service Fabric fornece um mecanismo de descoberta de serviço chamado Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços. 
 
 ![Comunicação direta do Service Fabric][6]
 
 ### <a name="queues"></a>Filas
-Um mecanismo de comunicação comum entre camadas em ambientes sem monitoração de estado, como serviços de nuvem é toouse um toodurably de fila de armazenamento externo armazenar tarefas de trabalho de uma camada tooanother. Um cenário comum é uma camada da web que envia os trabalhos tooan fila do Azure ou o barramento de serviço em que instâncias de função de trabalho podem remover da fila e processar trabalhos de saudação.
+Um mecanismo de comunicação comum entre camadas em ambientes sem estado, como os Serviços de Nuvem, é o uso de uma fila de armazenamento externo para armazenar permanentemente as tarefas de trabalho de uma camada para outra. Um cenário comum é uma camada da Web que envia os trabalhos para uma fila do Azure ou Barramento de Serviço, onde as instâncias de função de trabalho podem remover os trabalhos da fila e processá-los.
 
 ![Comunicação em fila dos Serviços de Nuvem][7]
 
-saudação do mesmo modelo de comunicação pode ser usado na malha do serviço. Isso pode ser útil ao migrar um tooService de aplicativo de serviços de nuvem existente malha. 
+O mesmo modelo de comunicação pode ser usado no Service Fabric. Isso pode ser útil ao migrar um aplicativo dos Serviços de Nuvem existente para o Service Fabric. 
 
 ![Comunicação direta do Service Fabric][8]
 
 ## <a name="next-steps"></a>Próximas etapas
-Olá caminho de migração mais simples de serviços de nuvem tooService malha é tooreplace somente hello implantação de serviços de nuvem com um aplicativo de serviço de malha, mantendo Olá arquitetura geral do seu aplicativo aproximadamente Olá mesmo. Olá artigo a seguir fornece uma guia toohelp converter um tooa serviço sem monitoração de estado de malha do serviço Web ou função de trabalho.
+O caminho de migração mais simples dos Serviços de Nuvem para o Service Fabric é substituir apenas a implantação dos Serviços de Nuvem por um aplicativo Service Fabric, mantendo a arquitetura geral dele. O artigo a seguir fornece um guia para ajudar a converter uma função de trabalho ou Web em um serviço sem estado do Service Fabric.
 
-* [Migração simples: converter um tooa serviço sem monitoração de estado de malha do serviço Web ou função de trabalho](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+* [Migração simples: converter uma função de trabalho ou Web em um serviço sem estado do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

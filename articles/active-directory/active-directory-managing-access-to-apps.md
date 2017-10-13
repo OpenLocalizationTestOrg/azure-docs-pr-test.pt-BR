@@ -1,6 +1,6 @@
 ---
-title: aaaManaging tooapps de acesso usando o Azure AD | Microsoft Docs
-description: "Descreve como o Active Directory do Azure permite que as organizações toospecify Olá aplicativos toowhich cada usuário tem acesso."
+title: Gerenciando o acesso a aplicativos que usam o Azure AD | Microsoft Docs
+description: "Descreve como o Active Directory do Azure permite que as organizações especifiquem os aplicativos aos quais cada usuário tem acesso."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: b9461b7a1cc8913cd8fb4a4ce0778afe03274935
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 46e001b440802e0d5d16b7cf75344c7b9ce6fad3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="managing-access-tooapps"></a>Gerenciando acesso tooapps
-Gerenciamento de acesso em andamento, avaliação de uso e relatórios continuam toobe um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico com tootake uma função ativa em andamento no gerenciamento de aplicativos de tooyour de acesso. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Geralmente, decisão de atribuição de saudação é tomador de decisão do toobe pretendido delegado toohello business, exigir aprovação antes de IT torna Olá atribuição.  Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). Integração de saudação e desenvolvimento de regra tendem toobe especializada e caro. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
+# <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
+Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou a assistência técnica deve ter uma função ativa contínua no gerenciamento de acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Frequentemente, a decisão de atribuição deve ser delegada ao tomador de decisões comerciais, exigindo sua aprovação antes de a TI fazer a atribuição.  Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). A integração e o desenvolvimento de regras tendem a ser especializados e caros. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
 
 ## <a name="how-does-azure-active-directory-help"></a>Como o Active Directory do Azure ajuda?
- Gerenciamento do Azure AD oferece suporte a amplo acesso para aplicativos configurados, permitindo que as organizações tooeasily obter políticas de acesso correto Olá desde a atribuição automática, com base em atributo (cenários de ABAC ou RBAC) por meio da delegação e incluindo gerenciamento de administrador. Com o AD do Azure você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento de um único aplicativo e podem até mesmo usar novamente as regras de gerenciamento entre aplicativos com hello mesmo públicos.
+ O AD do Azure oferece suporte a gerenciamento de acesso abrangente para aplicativos configurados, permitindo que as organizações obtenham facilmente as políticas de acesso corretas desde a atribuição automática, com base em atributo (cenários de ABAC ou RBAC) por meio da delegação e incluindo gerenciamento de administradores. Com o AD do Azure, você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento de um único aplicativo e pode até reutilizar regras de gerenciamento entre aplicativos com o mesmo público.
 
 * [Adicionando aplicativos novos ou existentes](active-directory-sso-integrate-saas-apps.md)
 
  A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais:
 
-* **Atribuição individual** TI um administrador com permissões de Administrador Global do diretório pode selecionar contas de usuário individuais e conceder a eles acesso toohello aplicativo.
-* **A atribuição baseada em grupo (paga somente do AD do Azure)** TI um administrador com permissões de Administrador Global do diretório pode atribuir um aplicativo de toohello de grupo. Acesso de usuários específicos é determinado pelo se eles são membros do grupo de saudação em tempo de saudação tentativa de aplicativo de hello tooaccess. Em outras palavras, um administrador pode efetivamente criar uma regra de atribuição informando "qualquer membro atual da saudação atribuída grupo tem acesso toohello aplicativo". Usando essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do Azure AD, incluindo [grupos dinâmicos baseados em atributo](active-directory-accessmanagement-manage-groups.md), grupos de sistema externo (por exemplo, Active Directory local ou Workday) ou grupos gerenciados de autoatendimento ou gerenciados pelo administrador. Um único grupo pode ser facilmente atribuído toomultiple aplicativos, garantindo que os aplicativos com a afinidade de atribuição podem compartilhar as regras de atribuição, reduzindo a complexidade geral do gerenciamento de hello. Observe que esse grupo aninhado associações não têm suporte para a atribuição baseada em grupo tooapplications neste momento.
+* **Atribuição individual** Um administrador de TI com permissões de Administrador Global de diretório pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo.
+* **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com permissões de Administrador Global de diretório pode atribuir um grupo ao aplicativo. O acesso de usuários específicos é determinado dependendo se eles são membros do grupo no momento em que tenta acessar o aplicativo. Em outras palavras, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Usando essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do Azure AD, incluindo [grupos dinâmicos baseados em atributo](active-directory-accessmanagement-manage-groups.md), grupos de sistema externo (por exemplo, Active Directory local ou Workday) ou grupos gerenciados de autoatendimento ou gerenciados pelo administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral. Por favor, note que associações de grupo aninhadas não têm suporte para atribuição com base em grupo de aplicativos atualmente.
 
 Usando esses dois modos de atribuição, os administradores podem obter qualquer abordagem de gerenciamento de atribuição desejada.
 
-Com o AD do Azure, uso e relatórios de atribuição é totalmente integrada, habilitar administradores tooeasily relatório em estado de atribuição, erros de atribuição e uso do mesmo.
+Com o AD do Azure, relatórios de atribuição e uso são totalmente integrados, permitindo que os administradores facilmente criem relatórios sobre estado da atribuição, erros de atribuição e até mesmo uso.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Atribuição de aplicativo complexo com o AD do Azure
-Considere um aplicativo como o Salesforce. Em muitas organizações, a equipe de vendas é usada principalmente por organizações de marketing e vendas hello. Em geral, membros da equipe de marketing de saudação tem altamente privilegiado tooSalesforce de acesso, enquanto os membros da equipe de vendas Olá tem acesso limitado. Em muitos casos, uma população amplo de operadores de informações ter restringido o acesso toohello aplicativo. Regras de toothese exceções complicam as coisas. Ele geralmente é prerrogativa de saudação do hello marketing ou vendas liderança toogrant de equipes acesso a um usuário ou alterar suas funções independentemente dessas regras genéricas.
+Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente por departamentos de marketing e vendas. Geralmente, membros da equipe de marketing têm acesso altamente privilegiado ao Salesforce, enquanto os membros da equipe de vendas têm acesso limitado. Em muitos casos, uma grande população de operadores de informações tem acesso restrito ao aplicativo. Exceções a essas regras complicam as coisas. Geralmente é privilégio das equipes de liderança de marketing ou vendas conceder acesso a um usuário ou alterar suas funções independentemente dessas regras genéricas.
 
-Com o AD do Azure, aplicativos como o Salesforce podem ser pré-configurados para logon único (SSO) e provisionamento automatizado. Depois da configuração do aplicativo hello, um administrador pode levar Olá ação única toocreate e atribuir grupos apropriados hello. Neste exemplo, um administrador pode executar Olá atribuições a seguir:
+Com o AD do Azure, aplicativos como o Salesforce podem ser pré-configurados para logon único (SSO) e provisionamento automatizado. Quando o aplicativo é configurado, um administrador pode realizar a ação única de criar e atribuir os grupos apropriados. Neste exemplo, um administrador pode executar as atribuições a seguir:
 
-* [Grupos dinâmicos](active-directory-accessmanagement-manage-groups.md) pode ser definido tooautomatically representar todos os membros de equipes de marketing e vendas de saudação usando atributos como departamento ou função:
+* [grupos dinâmicos](active-directory-accessmanagement-manage-groups.md) podem ser definidos para representar automaticamente todos os membros das equipes de marketing e vendas usando atributos como o departamento ou a função:
   
-  * Todos os membros de grupos de marketing seriam atribuídos a função "marketing" toohello no Salesforce
-  * Todos os membros de vendas da equipe grupos seriam atribuídos a função "vendas" toohello no Salesforce. Um ajuste adicional pode usar vários grupos que representam as equipes de vendas regionais toodifferent Salesforce funções atribuídas.
-* mecanismo de exceção Olá tooenable, um grupo de autoatendimento foi criado para cada função. Por exemplo, o grupo de "Exceção de marketing de vendas" de saudação pode ser criado como um grupo de autoatendimento. grupo de saudação pode ser atribuído a função de marketing de vendas toohello e equipe de liderança Olá marketing pode ser feita proprietários. Membros da equipe de liderança marketing Olá podem adicionar ou remover usuários, definir uma política de junção, ou até mesmo aprovar ou negar toojoin de solicitações de usuários individuais. Isso é suportado por meio de uma experiência adequada ao operador de informações que não exige treinamento especializado para os proprietários ou membros.
+  * Todos os membros de grupos de marketing seriam atribuídos à função de "marketing" no Salesforce
+  * Todos os membros dos grupos da equipe de vendas seriam atribuídos à função de "vendas" no Salesforce. Um ajuste adicional poderia usar vários grupos que representam equipes de vendas regionais que são atribuídos a funções diferentes no Salesforce.
+* Para habilitar o mecanismo de exceção, um grupo de autoatendimento poderia ser criado para cada função. Por exemplo, o grupo "exceção de marketing do Salesforce" pode ser criado como um grupo de autoatendimento. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser definida como proprietária. Membros da equipe de liderança de marketing podem adicionar ou remover usuários, definir uma política de associação ou até mesmo aprovar ou negar as solicitações de usuários individuais para ingressar. Isso é suportado por meio de uma experiência adequada ao operador de informações que não exige treinamento especializado para os proprietários ou membros.
 
-Nesse caso, todos os usuários atribuídos seria tooSalesforce provisionado automaticamente, conforme elas são grupos adicionados toodifferent que sua atribuição de função deve ser atualizada no Salesforce. Os usuários seriam capaz de toodiscover e acessar a equipe de vendas por meio do painel de acesso de aplicativo do Microsoft hello, os clientes da web do Office, ou até mesmo navegando pela página de logon de Salesforce organizacional tootheir. Os administradores seria tooeasily capaz de exibir uso e atribuição de status usando os relatórios do AD do Azure.
+Nesse caso, todos os usuários atribuídos poderiam ser provisionados automaticamente no Salesforce. Como são adicionados a grupos diferentes, sua atribuição de função seria atualizada no Salesforce. Os usuários poderiam descobrir e acessar o Salesforce por meio do painel de acesso de aplicativos Microsoft, clientes do Office na web ou até mesmo navegando para sua página de logon organizacional do Salesforce. Os administradores poderiam exibir facilmente o status de atribuição e uso usando os relatórios do AD do Azure.
 
-Os administradores podem empregar [acesso condicional do Azure AD](active-directory-conditional-access.md) tooset as políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo hello e até mesmo autenticação multifator ou o acesso ao dispositivo requisitos tooachieve em vários casos.
+Os administradores podem empregar o [acesso condicional do AD do Azure](active-directory-conditional-access.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
 ## <a name="how-can-i-get-started"></a>Como posso começar?
 Primeiro, se você ainda não estiver usando o AD do Azure e for um administrador de TI:
@@ -60,7 +60,7 @@ Primeiro, se você ainda não estiver usando o AD do Azure e for um administrado
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
 * [Atribuição de grupo](active-directory-accessmanagement-self-service-group-management.md)
-* Adicionar aplicativos tooAzure AD
+* Adicionando aplicativos ao AD do Azure
 * Introdução à atribuição
 * Perguntas frequentes sobre a atribuição de aplicativo
 * [Painel/relatórios de uso de aplicativo](active-directory-passwords-get-insights.md)

@@ -1,6 +1,6 @@
 ---
-title: aaaRecover dados de um servidor de Backup do Azure | Microsoft Docs
-description: "Recuperar dados Olá você protegeu Cofre de serviços de recuperação de tooa do Cofre de toothat registrado qualquer servidor de Backup do Azure."
+title: Recuperar dados de um Servidor de Backup do Azure | Microsoft Docs
+description: "Recupere os dados que você protegeu em um cofre dos Serviços de Recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre."
 services: backup
 documentationcenter: 
 author: nkolli1
@@ -14,93 +14,93 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 74847880e646c3c4f198afe318f1db30363d137a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Servidor de Backup do Azure
-Você pode usar dados de saudação do servidor de Backup do Azure toorecover que tiver feito backup tooa que Cofre de serviços de recuperação. processo de saudação para fazer assim é integrado ao console de gerenciamento do Azure Backup Server hello e é semelhante toohello recuperação fluxo de trabalho para outros componentes de Backup do Azure.
+Você pode usar o Servidor de Backup do Azure para recuperar os dados de que fez backup em um cofre dos Serviços de Recuperação. O processo para fazer isso é integrado ao console de gerenciamento do Servidor de Backup do Azure e é semelhante ao fluxo de trabalho de recuperação para outros componentes do Backup do Azure.
 
 > [!NOTE]
-> Este artigo se aplica a [System Center Data Protection Manager 2012 R2 com UR7 ou posterior] (https://support.microsoft.com/en-us/kb/3065246), combinada com hello [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent).
+> Este artigo se aplica ao [System Center Data Protection Manager R2 2012 com UR7 ou posterior] (https://support.microsoft.com/en-us/kb/3065246) combinado ao [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent).
 >
 >
 
-toorecover dados de um servidor de Backup do Azure:
+Para recuperar dados de um Servidor de Backup do Azure:
 
-1. De saudação **recuperação** guia da saudação console de gerenciamento do servidor de Backup do Azure, clique em **'Adicionar DPM externo'** (no hello superior esquerda da tela hello).   
+1. Na guia **Recuperação** do console de gerenciamento do Servidor de Backup do Azure, clique em **“Adicionar DPM Externo”** (no canto superior esquerdo da tela).   
     ![Adicionar DPM externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
-2. Download novo **credenciais de cofre** do cofre Olá associado Olá **Azure Backup Server** onde dados hello está sendo recuperados, escolha hello Azure Backup Server Olá lista de servidores de Backup do Azure registrado no cofre de serviços de recuperação de saudação e fornecer Olá **senha de criptografia** associada ao servidor de saudação cujos dados estão sendo recuperados.
+2. Baixe as novas **credenciais do cofre** no cofre associado ao **Servidor de Backup do Azure** cujos dados serão recuperados, escolha o Servidor de Backup do Azure na lista de Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação e forneça a **senha de criptografia** associada ao servidor cujos dados serão recuperados.
 
     ![Credenciais do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
    > [!NOTE]
-   > Somente servidores de Backup do Azure associado Olá mesmo Cofre de registro pode recuperar dados.
+   > Somente os Servidores de Backup do Azure associados ao mesmo cofre de registro podem recuperar dados um do outro.
    >
    >
 
-    Após hello Azure Backup Server externo com êxito adicionado, você pode procurar dados de saudação do servidor externo hello e hello Azure Backup Server local da saudação **recuperação** guia.
-3. Olá disponível lista de servidores de produção protegidos pelo hello Azure Backup Server externo e selecionar fonte de dados apropriada hello.
+    Depois que o Servidor de Backup do Azure externo é adicionado com êxito, você pode procurar os dados do servidor externo e do Servidor de Backup do Azure local na guia **Recuperação**.
+3. Procure a lista de servidores de produção protegidos pelo Servidor de Backup do Azure externo disponíveis e selecione a fonte de dados apropriada.
 
     ![Procurar o servidor DPM externo](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
-4. Selecione **Olá mês e ano** de saudação **pontos de recuperação** lista suspensa, selecione Olá necessário **data recuperação** para quando o ponto de recuperação Olá foi Olá criado e selecione **Tempo de recuperação**.
+4. Selecione **o mês e o ano** da lista suspensa **Pontos de recuperação**, selecione a **Data de recuperação** de quando o ponto de recuperação foi criado e selecione o **Tempo de recuperação**.
 
-    É exibida uma lista de arquivos e pastas no painel inferior hello, o que pode ser pesquisado e recuperado tooany local.
+    Uma lista de arquivos e pastas será exibida no painel inferior, que pode ser pesquisado e recuperado em qualquer local.
 
     ![Pontos de recuperação de servidor DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Clique com botão direito item apropriado hello e clique em **recuperar**.
+5. Clique com o botão direito do mouse no item apropriado e clique em **Recuperar**.
 
     ![Recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Saudação de revisão **recuperar seleção**. Verificar dados saudação e tempo de cópia de backup hello está sendo recuperado, bem como origem de saudação do qual a cópia de backup Olá foi criada. Se a seleção Olá estiver incorreta, clique em **Cancelar** ponto de recuperação apropriado toonavigate back toorecovery guia tooselect. Se a seleção de saudação estiver correta, clique em **próximo**.
+6. Examine **Recuperar seleção**. Verifique a data e a hora da cópia de backup que está sendo recuperada, bem como a fonte da qual a cópia de backup foi criada. Se a seleção estiver incorreta, clique em **Cancelar** para voltar à guia de recuperação e selecionar o ponto de recuperação apropriado. Se a seleção estiver correta, clique em **Avançar**.
 
     ![Resumo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
-7. Selecione **recuperar o local alternativo tooan**. **Procurar** toohello o local correto para a recuperação de saudação.
+7. Selecione **Recuperar em um local alternativo**. **Navegue** até o local correto para a recuperação.
 
     ![Local alternativo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. Escolha opção Olá relacionada muito**criar cópia**, **ignorar**, ou **substituir**.
+8. Escolha a opção relacionada a **criar cópia**, **Ignorar** ou **Substituir**.
 
-   * **Criar cópia** -cria uma cópia do arquivo hello, se houver uma colisão de nomes.
-   * **Ignorar** - se não houver uma colisão de nomes, não se recupera arquivo hello que deixa o arquivo original hello.
-   * **Substituir** - se não houver uma colisão de nomes, substituirá a cópia existente de saudação do arquivo hello.
+   * **Criar cópia** – cria uma cópia do arquivo em caso de colisão de nomes.
+   * **Ignorar** – se não houver uma colisão de nomes, não recuperará o arquivo que mantém o arquivo original.
+   * **Substituir** – se houver uma colisão de nomes, substitui a cópia existente do arquivo.
 
-     Escolha a opção apropriada Olá muito**restaurar segurança**. Você pode aplicar configurações de segurança Olá Olá do computador de destino onde os dados hello está sendo recuperados ou configurações de segurança de saudação que estavam tooproduct aplicável ao tempo Olá Olá ponto de recuperação foi criado.
+     Escolha a opção apropriada para **Restaurar a segurança**. Você pode aplicar as configurações de segurança do computador de destino onde os dados serão recuperados ou as configurações de segurança que eram aplicáveis ao produto no momento em que o ponto de recuperação foi criado.
 
-     Identificar se um **notificação** é enviado, após a conclusão bem-sucedida da recuperação de saudação.
+     Identifique se uma **Notificação** será enviada quando a recuperação for concluída com êxito.
 
      ![Notificações de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. Olá **resumo** tela lista opções Olá escolhidas até o momento. Depois de clicar em **'Recuperar'**, dados de saudação são recuperado toohello apropriado no local.
+9. A tela **Resumo** lista as opções escolhidas até agora. Após você clicar em **“Recuperar”**, os dados serão recuperados para o local adequado.
 
     ![Resumo de opções de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
    > [!NOTE]
-   > trabalho de recuperação de saudação pode ser monitorado no hello **monitoramento** guia de hello Azure Backup Server.
+   > O trabalho de recuperação pode ser monitorado na guia **Monitoramento** do Servidor de Backup do Azure.
    >
    >
 
     ![Recuperação de monitoramento](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. Você pode clicar em **limpar DPM externo** em Olá **recuperação** guia de modo de exibição do DPM server tooremove saudação do servidor DPM externo de saudação do hello.
+10. Você pode clicar em **Limpar DPM Externo** na guia **Recuperação** do servidor DPM para remover o modo de exibição do servidor DPM externo.
 
     ![Limpar o DPM externo](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>Solucionando problemas de mensagens de erro
 | Nº | Mensagem de erro | Etapas para solucionar problemas |
 |:---:|:--- |:--- |
-| 1. |Este servidor não está registrado toohello cofre especificado pela credencial do cofre hello. |**Causa:** esse erro aparece quando o arquivo de credencial de cofre Olá selecionado não pertence toohello Cofre de serviços de recuperação associados com o servidor de Backup do Azure no qual Olá uma tentativa de recuperação. <br> **Resolução:** arquivo de credencial de cofre Download Olá de Olá dos serviços de recuperação cofre toowhich Olá Azure Backup Server está registrado. |
-| 2. |O dados recuperáveis Olá não estão disponíveis ou o servidor de saudação selecionado não é um servidor DPM. |**Causa:** sem outros servidores de Backup do Azure toohello registrado recuperação Cofre de serviços, não há servidores Olá ainda não tiveram carregado Olá metadados ou servidor de saudação selecionado não é um servidor de Backup do Azure (também conhecido como Windows Server ou Windows Client). <br> **Resolução:** se houver outro Cofre de serviços de recuperação de toohello registrados servidores de Backup do Azure, certifique-se de que hello mais recente do Azure Backup agent está instalado. <br>Se houver outro Cofre de serviços de recuperação de toohello registrados servidores de Backup do Azure, aguarde um dia após o processo de recuperação de saudação de toostart de instalação. tarefa noturna Olá carregará Olá metadados para todos os toocloud de backups Olá protegido. dados de saudação estarão disponíveis para recuperação. |
-| 3. |Nenhum outro servidor DPM é registrado toothis cofre. |**Causa:** não há nenhum outro servidor de Backup do Azure que são registrados toohello cofre do qual Olá recuperação está sendo tentada.<br>**Resolução:** se houver outro Cofre de serviços de recuperação de toohello registrados servidores de Backup do Azure, certifique-se de que hello mais recente do Azure Backup agent está instalado.<br>Se houver outro Cofre de serviços de recuperação de toohello registrados servidores de Backup do Azure, aguarde um dia após o processo de recuperação de saudação de toostart de instalação. tarefa noturna Olá carrega metadados Olá toocloud de todos os backups protegido. dados de saudação estarão disponíveis para recuperação. |
-| 4. |Olá senha de criptografia fornecida não corresponde à senha associada à saudação servidor a seguir:**<server name>** |**Causa:** Olá senha de criptografia usada no processo de saudação de criptografar dados de saudação do servidor de saudação do Azure Backup dados de que está sendo recuperados não coincide com senha de criptografia Olá fornecida. Agente de saudação é dados de saudação toodecrypt não é possível. Olá, portanto, a recuperação falhará.<br>**Resolução:** forneça Olá exata mesma senha de criptografia associada hello Azure Backup Server cujos dados estão sendo recuperados. |
+| 1. |Este servidor não está registrado no cofre especificado nas credenciais do cofre. |**Causa:** este erro aparece quando o arquivo de credencial do cofre selecionado não pertence ao cofre dos Serviços de Recuperação associado ao Servidor de Backup do Azure em que ocorre a tentativa de recuperação. <br> **Resolução:** baixe o arquivo de credencial de cofre do cofre dos Serviços de Recuperação em que o Servidor de Backup do Azure está registrado. |
+| 2. |Os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM. |**Causa:** não há outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação ou os servidores ainda não carregaram os metadados ou o servidor selecionado é não um Servidor de Backup do Azure (também conhecido como Windows Server ou Windows Client). <br> **Resolução:** se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, verifique se o agente do Backup do Azure mais recente está instalado. <br>Se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. A tarefa noturna carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
+| 3. |Nenhum outro servidor DPM está registrado no cofre. |**Causa:** não há nenhum outro Servidor de Backup do Azure registrado no cofre em que a recuperação está sendo tentada.<br>**Resolução:** se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, verifique se o agente do Backup do Azure mais recente está instalado.<br>Se houver outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
+| 4. |A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor: **<server name>** |**Causa:** a senha de criptografia usada no processo de criptografia de dados dos dados do Servidor de Backup do Azure que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao Servidor de Backup do Azure cujos dados serão recuperados. |
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Por que não consigo adicionar um servidor DPM externo após instalar o UR7 e o agente de Backup do Azure mais recente?
 
-Para hello servidores DPM com fontes de dados que são protegidos toohello nuvem (por meio de um pacote cumulativo de atualizações anteriores ao atualizar o pacote cumulativo de atualizações 7), você deve esperar pelo menos um dia após a instalação Olá UR7 e agente de Backup do Azure mais recente, toostart **server adicionar DPM externo** . Olá um dia o período de tempo é necessário tooupload Olá metadados de saudação tooAzure de grupos de proteção de DPM. Metadados do grupo de proteção é carregado Olá primeira vez por meio de um trabalho noturno.
+Para os servidores DPM com fontes de dados protegidas na nuvem (usando um pacote cumulativo de atualizações anterior ao Pacote de Cumulativo de Atualizações 7), é necessário aguardar pelo menos um dia após instalar o UR7 e o agente de Backup do Azure mais recente para começar a **Adicionar servidor DPM externo**. O período de um dia é necessário para carregar os metadados dos grupos de proteção do DPM no Azure. Os metadados do grupo de proteção são carregados na primeira vez por meio de um trabalho noturno.
 
-### <a name="what-is-hello-minimum-version-of-hello-microsoft-azure-recovery-services-agent-needed"></a>O que é a versão mínima de saudação do agente de serviços de recuperação do Microsoft Azure Olá necessário?
+### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Qual é a versão mínima necessária do agente dos Serviços de Recuperação do Microsoft Azure?
 
-versão mínima de saudação do agente de serviços de recuperação do Microsoft Azure hello ou agente de Backup do Azure, necessária tooenable esse recurso é 2.0.8719.0.  versão do agente de saudação tooview: Abra o painel de controle  **>**  itens do painel de controle de todos os  **>**  programas e recursos  **>**  Agente de serviços de recuperação do Microsoft Azure. Se a versão Olá é menor que 2.0.8719.0, baixe e instale Olá [agente mais recente do Backup do Azure](https://go.microsoft.com/fwLink/?LinkID=288905).
+A versão mínima do agente dos Serviços de Recuperação do Microsoft Azure ou do agente de Backup do Azure necessária para habilitar esse recurso é 2.0.8719.0.  Para exibir a versão do agente: abra o Painel de Controle **>** Todos os Itens do Painel de Controle **>** Programas e recursos **>** Agente dos Serviços de Recuperação do Microsoft Azure. Se a versão for anterior à 2.0.8719.0, baixe e instale o [agente do Backup do Azure mais recente](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 ![Limpar o DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 

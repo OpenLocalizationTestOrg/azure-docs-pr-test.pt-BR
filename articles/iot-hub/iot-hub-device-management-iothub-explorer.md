@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gerenciamento de dispositivo IoT com o Gerenciador de Hub IOT | Microsoft Docs
-description: "Use a ferramenta CLI de Gerenciador de Hub IOT de saudação para gerenciamento de dispositivos do Azure IoT Hub, apresentando métodos diretos hello e opções de gerenciamento do hello duas propriedades desejadas."
+title: Gerenciamento de dispositivos IoT do Azure com o iothub-explorer | Microsoft Docs
+description: "Use a ferramenta da CLI iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: e0a5e6120db5c4fb12f7f8b605a56e0e4aad9217
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usar o iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure
 
@@ -27,21 +27,21 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Gerenciador de Hub IOT](https://github.com/azure/iothub-explorer) é uma ferramenta CLI que são executados em um identidades de dispositivo de toomanage do computador host no registro do hub IoT. Ela vem com opções de gerenciamento que você pode usar tooperform várias tarefas.
+O [iothub-explorer](https://github.com/azure/iothub-explorer) é uma ferramenta da CLI executada em um computador host para gerenciar identidades de dispositivo no Registro do Hub IoT. Ela é fornecida com opções de gerenciamento que podem ser usadas para executar várias tarefas.
 
 | Opção de gerenciamento          | Tarefa                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Métodos diretos             | Tornar um dispositivo para atuar como iniciar ou parar o envio de mensagens ou a reinicialização do dispositivo hello.                                        |
-| Propriedades desejadas do gêmeo    | Colocar um dispositivo em alguns estados, como definir um LED toogreen ou configuração de telemetria Olá enviar intervalo (minutos) too30.         |
-| Propriedades relatadas do gêmeo   | Obter Olá relatou o estado de um dispositivo. Por exemplo, o dispositivo Olá relata Olá que LED estiver piscando agora.                                    |
-| Marcações do gêmeo                  | Armazenar os metadados específicos do dispositivo na nuvem hello. Por exemplo, Olá local de implantação de uma máquina de vendas.                         |
-| Mensagens da nuvem para o dispositivo   | Dispositivo de tooa de notificações de envio. Por exemplo, "é muito provável que toorain hoje. Não se esqueça de um conjunto de toobring."              |
-| Consultas de dispositivo gêmeo        | Consulta tooretrieve de twins todos os dispositivos com condições arbitrárias, como identificar os dispositivos de saudação que estão disponíveis para uso. |
+| Métodos diretos             | Faça com que um dispositivo comece ou pare de enviar mensagens ou seja reinicializado.                                        |
+| Propriedades desejadas do gêmeo    | Coloque um dispositivo em alguns estados, como definir um LED como verde ou definir o intervalo de envio de telemetria como 30 minutos.         |
+| Propriedades relatadas do gêmeo   | Obtenha o estado relatado de um dispositivo. Por exemplo, o dispositivo relata que o LED está piscando no momento.                                    |
+| Marcações do gêmeo                  | Armazene os metadados específicos do dispositivo na nuvem. Por exemplo, o local de implantação de uma máquina de vendas.                         |
+| Mensagens da nuvem para o dispositivo   | Envie notificações para um dispositivo. Por exemplo, “É muito provável que chova hoje. Não se esqueça de levar um guarda-chuva”.              |
+| Consultas de dispositivo gêmeo        | Consulte todos os dispositivos gêmeos para recuperar aqueles com condições arbitrárias, como identificar os dispositivos que estão disponíveis para uso. |
 
-Para obter mais explicações sobre as diferenças de saudação e orientação sobre como usar essas opções, consulte [orientação de comunicação do dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) e [orientação de comunicação de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md).
+Para obter explicações mais detalhadas sobre as diferenças e diretrizes sobre como usar essas opções, consulte [Diretrizes de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) e [Diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
 > [!NOTE]
-> Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). IoT Hub mantém duas um dispositivo de cada dispositivo que se conecta tooit. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
+> Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -53,16 +53,16 @@ Execute o iothub-explorer com várias opções de gerenciamento.
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- Tutorial [configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluída que abrange Olá requisitos a seguir:
+- Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um hub IoT do Azure em sua assinatura.
-  - Um aplicativo cliente que envia o hub do mensagens tooyour IoT do Azure.
-- Verifique se que o dispositivo está em execução com o aplicativo de cliente hello durante este tutorial.
+  - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
+- Verifique se o dispositivo está sendo executado com o aplicativo cliente durante este tutorial.
 - iothub-explorer, [Instalar iothub-explorer](https://github.com/azure/iothub-explorer) no computador de desenvolvimento.
 
-## <a name="connect-tooyour-iot-hub"></a>Conecte tooyour IoT hub
+## <a name="connect-to-your-iot-hub"></a>Conectar ao seu Hub IoT
 
-Conecte-se tooyour IoT hub executando Olá comando a seguir:
+Conecte-se ao seu Hub IoT executando o seguinte comando:
 
 ```bash
 iothub-explorer login <your IoT hub connection string>
@@ -70,13 +70,13 @@ iothub-explorer login <your IoT hub connection string>
 
 ## <a name="use-iothub-explorer-with-direct-methods"></a>Usar o iothub-explorer com métodos diretos
 
-Invocar Olá `start` método hello dispositivo toosend mensagens tooyour IoT hub de aplicativos executando Olá comando a seguir:
+Invoque o método `start` no aplicativo do dispositivo para enviar mensagens para o Hub IoT executando o seguinte comando:
 
 ```bash
 iothub-explorer device-method <your device Id> start
 ```
 
-Invocar Olá `stop` método hello dispositivo aplicativo toostop enviar mensagens tooyour IoT hub executando Olá comando a seguir:
+Invoque o método `stop` no aplicativo do dispositivo para parar de enviar mensagens para o Hub IoT executando o seguinte comando:
 
 ```bash
 iothub-explorer device-method <your device Id> stop
@@ -84,7 +84,7 @@ iothub-explorer device-method <your device Id> stop
 
 ## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Usar o iothub-explorer com as propriedades desejadas do gêmeo
 
-Definir um intervalo de propriedade desejados = 3000 executando Olá comando a seguir:
+Defina um intervalo de propriedade desejado = 3000 executando o seguinte comando:
 
 ```bash
 iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
@@ -94,23 +94,23 @@ Essa propriedade pode ser lida pelo dispositivo.
 
 ## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Usar o iothub-explorer com as propriedades relatadas do gêmeo
 
-Obtenham hello relatadas propriedades de dispositivo de saudação executando Olá comando a seguir:
+Obtenha as propriedades relatadas do dispositivo executando o seguinte comando:
 
 ```bash
 iothub-explorer get-twin <your device id>
 ```
 
-Uma das propriedades de saudação é $metadata. $lastUpdated que mostra Olá última vez em que o dispositivo envia ou recebe uma mensagem.
+Uma das propriedades é $metadata.$lastUpdated, que mostra a última vez que esse dispositivo enviou ou recebeu uma mensagem.
 
 ## <a name="use-iothub-explorer-with-twins-tags"></a>Usar o iothub-explorer com marcações do gêmeo
 
-Exibir marcas hello e propriedades de dispositivo de saudação executando Olá comando a seguir:
+Exiba as marcações e as propriedades do dispositivo executando o seguinte comando:
 
 ```bash
 iothub-explorer get-twin <your device id>
 ```
 
-Adicionar uma função de campo = dispositivo toohello de temperatura e umidade executando Olá comando a seguir:
+Adicione uma função de campo = temperature&humidity ao dispositivo executando o seguinte comando:
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
@@ -119,23 +119,23 @@ iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Usar o iothub-explorer para enviar mensagens da nuvem para o dispositivo
 
-Envie um dispositivo de toohello de mensagem "Hello World" executando Olá comando a seguir:
+Envie uma mensagem “Olá, mundo” para o dispositivo executando o seguinte comando:
 
 ```bash
 iothub-explorer send <device-id> "Hello World"
 ```
 
-Consulte [usar o Gerenciador de Hub IOT toosend e receber mensagens entre o dispositivo e o IoT Hub](iot-hub-explorer-cloud-device-messaging.md) para um cenário real de usar esse comando.
+Consulte [Usar o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT](iot-hub-explorer-cloud-device-messaging.md) para obter um cenário real do uso desse comando.
 
 ## <a name="use-iothub-explorer-with-device-twins-queries"></a>Usar o iothub-explorer com consultas de dispositivos gêmeos
 
-Dispositivos com uma marca de função de consulta = 'temperatura e umidade' executando Olá comando a seguir:
+Consulte dispositivos com uma marcação de função = 'temperature&humidity' executando o seguinte comando:
 
 ```bash
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-Consultar todos os dispositivos, exceto aqueles com uma marca de função = 'temperatura e umidade' executando Olá comando a seguir:
+Consulte todos os dispositivos, exceto aqueles com uma marcação de função = 'temperature&humidity', executando o seguinte comando:
 
 ```bash
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
@@ -143,6 +143,6 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu como toouse hub IOT-explorer com várias opções de gerenciamento.
+Você aprendeu a usar o iothub-explorer com várias opções de gerenciamento.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

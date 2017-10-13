@@ -1,6 +1,6 @@
 ---
-title: aaaCapture uma imagem de uma VM do Linux | Microsoft Docs
-description: "Saiba como toocapture uma imagem de uma baseados em Linux do Azure máquina virtual (VM) criados com o modelo de implantação clássico hello."
+title: Capturar uma imagem de uma VM do Linux | Microsoft Docs
+description: "Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure baseada em Linux criada com o modelo de implantação clássico."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 33c4059d5bb919a86bdc3492abca540750f365ed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocapture-a-classic-linux-virtual-machine-as-an-image"></a>Como uma máquina de virtual do Linux clássica como uma imagem de toocapture
+# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Como capturar uma máquina virtual clássica do Linux como uma imagem
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Saiba como muito[executar essas etapas usando o modelo do Gerenciador de recursos de saudação](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Este artigo mostra como toocapture uma máquina de virtual do Azure (VM) clássica executando o Linux como uma imagem toocreate outras máquinas virtuais. Esta imagem inclui o disco do sistema operacional hello e discos de dados anexados toohello VM. Não inclui a configuração de rede, portanto, você precisa tooconfigure que quando você cria Olá outra VM da imagem de saudação.
+Este artigo mostra como capturar uma VM (máquina virtual) do Azure clássica executando o Linux como uma imagem para criar outras máquinas virtuais. Esta imagem inclui o disco do sistema operacional e discos de dados anexados à VM. Ele não inclui a configuração de rede, então você precisará configurá-la quando criar as outras VMs por meio da imagem.
 
-Repositórios do Azure Olá imagem em **imagens**, junto com as imagens que você carregou. Para saber mais sobre imagens, confira [Sobre imagens da Máquina Virtual no Azure][About Virtual Machine Images in Azure].
+O Azure armazena a imagem em **Imagens**, juntamente com quaisquer imagens carregadas. Para saber mais sobre imagens, confira [Sobre imagens da Máquina Virtual no Azure][About Virtual Machine Images in Azure].
 
 ## <a name="before-you-begin"></a>Antes de começar
-Essas etapas pressupõem que você já criou uma VM do Azure usando o modelo de implantação clássico hello e sistema de operacional de saudação configurado, incluindo anexar discos de dados. Se você precisar toocreate uma VM, leia [como tooCreate uma máquina Virtual Linux][How tooCreate a Linux Virtual Machine].
+Essas etapas pressupõem que você já criou uma VM do Azure usando o modelo de implantação clássico e configurou o sistema operacional, incluindo a anexação dos discos de dados. Se você precisar criar uma VM, leia [Como criar uma máquina virtual do Linux][How to Create a Linux Virtual Machine].
 
-## <a name="capture-hello-virtual-machine"></a>Capturar a máquina virtual de saudação
-1. [Conecte-se a VM do toohello](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando um cliente SSH de sua escolha.
-2. Na janela SSH hello, digite Olá comando a seguir. saudação de saída de `waagent` podem variar um pouco dependendo da versão de saudação do utilitário:
+## <a name="capture-the-virtual-machine"></a>Capturar a máquina virtual
+1. [Conecte-se à VM](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando um cliente SSH de sua escolha.
+2. Na janela SSH, digite o comando a seguir. A saída de `waagent` pode variar um pouco dependendo da versão do utilitário:
 
     ```bash
     sudo waagent -deprovision+user
     ```
 
-    Olá comando anterior tentativas tooclean sistema de saudação e torná-lo adequado para reprovisionamento. Essa operação fará Olá tarefas a seguir:
+    O comando anterior tenta limpar o sistema e torná-lo adequado para o reprovisionamento. Essa operação realiza as seguintes tarefas:
 
-   * Remove as chaves de host do SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração de saudação)
+   * Remove as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
    * Limpa a configuração de servidor de nomes em /etc/resolv.conf
-   * Olá remove `root` senha de usuário de/etc/sombra (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração de saudação)
+   * Remove a senha do usuário `root` de /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração)
    * Remove concessões de cliente DHCP em cache
-   * Redefine toolocalhost.localdomain de nome de host
-   * Exclui a conta de usuário provisionado última hello (obtida /var/lib/waagent) **e dados associados**.
+   * Reinicia o nome de host para localdomain.localdomain
+   * Exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) **e dados associados**.
 
      > [!NOTE]
-     > Desprovisionamento exclui arquivos e dados muito "generalizar" hello imagem. Somente execute esse comando em uma máquina virtual que você pretende toocapture como um novo modelo de imagem. Eles não garantem imagem Olá seja limpo de todas as informações confidenciais ou é adequada para partes de toothird de redistribuição.
+     > O desprovisionamento exclui arquivos e dados para “generalizar” a imagem. Execute este comando apenas em uma VM que você deseja capturar como um novo modelo de imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
 
-3. Tipo **y** toocontinue. Você pode adicionar Olá `-force` parâmetro tooavoid essa etapa de confirmação.
-4. Tipo **Exit** cliente SSH tooclose hello.
-
-   > [!NOTE]
-   > Olá etapas restantes supõem que você já tiver [instalado Olá CLI do Azure](../../../cli-install-nodejs.md) no computador cliente. Olá todas as etapas a seguir também pode ser feito no hello [portal do Azure](http://portal.azure.com).
-
-5. No computador cliente, abra CLI do Azure e logon tooyour assinatura do Azure. Para obter detalhes, leia [conectar tooan assinatura do Azure do hello CLI do Azure](../../../xplat-cli-connect.md).
+3. Digite **y** para continuar. Você pode adicionar o parâmetro `-force` para evitar esta etapa de confirmação.
+4. Digite **Exit** para fechar o cliente SSH.
 
    > [!NOTE]
-   > No portal do Azure de Olá, faça logon no portal de toohello.
+   > As etapas restantes presumem que você já [instalou a CLI do Azure](../../../cli-install-nodejs.md) no computador cliente. Todas as etapas a seguir também podem ser executadas no [Portal do Azure](http://portal.azure.com).
+
+5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure da CLI do Azure](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > Faça logon no portal do Azure.
 
 6. Verifique se você está no modo de Gerenciamento de Serviços:
 
@@ -69,45 +69,45 @@ Essas etapas pressupõem que você já criou uma VM do Azure usando o modelo de 
     azure config mode asm
     ```
 
-7. Desligar Olá VM já desprovisionada. Olá exemplo a seguir é desligado Olá VM denominada `myVM`:
+7. Desligar a VM já desprovisionada. O exemplo a seguir desliga a VM chamada `myVM`:
 
     ```azurecli
     azure vm shutdown myVM
     ```
-   Se necessário, você pode exibir uma lista Olá todas as máquinas virtuais criadas na sua assinatura usando`azure vm list`
+   Se necessário, é possível exibir uma lista de todas as VMs criadas na sua assinatura usando `azure vm list`
 
    > [!NOTE]
-   > Se você estiver usando Olá portal do Azure, selecione Olá VM e clique em **parar** desligar Olá VM.
+   > Se você estiver usando o portal do Azure, selecione a VM e clique em **Parar** para desligar a VM.
 
-8. Quando Olá VM é interrompido, capture a imagem de saudação. Olá capturas de exemplo a seguir Olá VM denominada `myVM` e cria uma imagem generalizada chamada `myNewVM`:
+8. Quando a VM é interrompida, capture a imagem. O exemplo a seguir captura a VM denominada `myVM` e cria uma imagem generalizada chamada `myNewVM`:
 
     ```azurecli
     azure vm capture -t myVM myNewVM
     ```
 
-    Olá `-t` subcomando exclusões Olá máquina virtual original.
+    O subcomando `-t` exclui a máquina virtual original.
 
     > [!NOTE]
-    > Em Olá portal do Azure, você pode capturar uma imagem selecionando **imagem** no menu de hub hello. Você precisa Olá toosupply informações Olá imagem a seguir: nome do grupo de recursos, local, tipo de sistema operacional e caminho de blob de armazenamento.
+    > No portal do Azure, você pode capturar uma imagem selecionando **Imagem** no menu de hub. Você precisará fornecer as seguintes informações para a imagem: nome, grupo de recursos, local, tipo do sistema operacional e caminho de blob de armazenamento.
 
-9. Olá nova imagem está agora disponível na lista de saudação de imagens que podem ser tooconfigure de usados qualquer nova VM. Você pode exibi-lo com o comando hello:
+9. A nova imagem agora está disponível na lista de imagens que podem ser usadas para configurar qualquer nova VM. Você pode exibi-la com o comando:
 
    ```azurecli
    azure vm image list
    ```
 
-   Em Olá [portal do Azure](http://portal.azure.com), Olá nova imagem aparecerá em Olá **imagens da VM (clássico)** que pertence a toohello **de computação** serviços. Você pode acessar **imagens da VM (clássico)** clicando _mais serviços_ na parte inferior de saudação do hello Azure lista de serviço e, em seguida, verificando Olá **de computação** serviços.   
+   No [portal do Azure](http://portal.azure.com), a nova imagem é exibida nas **Imagens de VM (clássico)** que pertencem aos serviços de **Computação**. É possível acessar as **Imagens de VM (clássico)** clicando em _Mais serviços_ na parte inferior da lista de serviços do Azure e, em seguida, verificando os serviços de **Computação**.   
 
    ![Captura de imagem bem-sucedida](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-imagem de saudação está pronto toobe usado toocreate VMs. Você pode usar o comando CLI do Azure de saudação `azure vm create` e o nome de imagem Olá fonte criado por você. Para obter mais informações, consulte [usando Olá CLI do Azure com o modelo de implantação clássico](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+A imagem está pronta para ser usada para criar VMs. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você criou. Para obter mais informações, consulte [Usando a CLI do Azure com o modelo de implantação Clássico](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-Como alternativa, use Olá [portal do Azure](http://portal.azure.com) toocreate uma VM personalizada usando Olá **imagem** método hello a seleção de imagem e você criou. Para obter mais informações, consulte [como tooCreate uma VM personalizada][How tooCreate a Custom Virtual Machine].
+Como alternativa, use o [Portal do Azure](http://portal.azure.com) para criar uma VM personalizada usando o método **Imagem** e selecionando a imagem que você criou. Para obter mais informações, consulte [Como criar uma VM personalizada][How to Create a Custom Virtual Machine].
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How tooCreate a Custom Virtual Machine]:create-custom.md
-[How tooAttach a Data Disk tooa Virtual Machine]:attach-disk.md
-[How tooCreate a Linux Virtual Machine]:create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom.md
+[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
+[How to Create a Linux Virtual Machine]:create-custom.md

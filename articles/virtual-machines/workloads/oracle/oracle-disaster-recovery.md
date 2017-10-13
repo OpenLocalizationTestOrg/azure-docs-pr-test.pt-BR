@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview de um cenário de recuperação de desastres do Oracle em seu ambiente do Azure | Microsoft Docs"
+title: "Visão geral de um cenário de recuperação de desastre do Oracle no ambiente do Azure | Microsoft Docs"
 description: "Um cenário de recuperação de desastre do banco de dados Oracle Database 12c no ambiente do Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.openlocfilehash: 1fa69e1ba044b46b27695fec92fd9ca82df796f7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
@@ -29,71 +29,71 @@ ms.lasthandoff: 10/06/2017
 
 
 ## <a name="goals"></a>Metas
-- Design topologia hello e configuração que atendem aos seus requisitos de recuperação de desastres.
+- Projetar a topologia e a configuração para atender aos seus requisitos de recuperação de desastre.
 
 ## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Cenário 1: Sites primário e de recuperação de desastre no Azure
 
-Um cliente tem um Oracle de banco de dados conjunto de backup no site primário hello. Um site de recuperação de desastre está em uma região diferente. Prezado cliente usa o Oracle Data Guard para recuperação rápida entre esses sites. site primário Olá também tem um banco de dados secundário para emissão de relatórios e outros usos. 
+Um cliente tem uma configuração de banco de dados Oracle no site primário. Um site de recuperação de desastre está em uma região diferente. O cliente usa o Oracle Data Guard para recuperação rápida entre esses sites. O site primário também tem um banco de dados secundário para relatórios e outros usos. 
 
 ### <a name="topology"></a>Topologia
 
-Aqui está um resumo da saudação configuração do Azure:
+Veja aqui um resumo da configuração do Azure:
 
 - Dois sites (um site primário e um site de recuperação de desastre)
 - Duas redes virtuais
 - Dois bancos de dados Oracle com Data Guard (primário e em espera)
 - Dois bancos de dados Oracle com Golden Gate ou Data Guard (somente site primário)
-- Dois serviços de aplicativo, um primário e no site de saudação DR
-- Um *conjunto de disponibilidade,* que é usada para o serviço de banco de dados e aplicativo no site primário Olá
-- Um jumpbox em cada site, o que restringe o acesso a rede privada toohello e só permite entrar por um administrador
+- Dois serviços de aplicativos, um principal e um site de recuperação de desastre
+- Um *conjunto de disponibilidade* usado para o banco de dados e para o serviço de aplicativo no site primário
+- Um jumpbox em cada site, que restringe o acesso à rede privada, permitindo que somente o administrador se conecte
 - Um jumpbox, um serviço de aplicativo, um banco de dados e um gateway de VPN em sub-redes separadas
 - O NSG imposto em sub-redes de aplicativo e do banco de dados
 
-![Captura de tela da página de topologia Olá DR](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Site primário local e site de recuperação de desastre no Azure
 
-Um cliente tem uma configuração de banco de dados Oracle local (site primário). Um site de recuperação de desastre reside no Azure. O Oracle Data Guard é usado para recuperação rápida entre esses sites. site primário Olá também tem um banco de dados secundário para emissão de relatórios e outros usos. 
+Um cliente tem uma configuração de banco de dados Oracle local (site primário). Um site de recuperação de desastre reside no Azure. O Oracle Data Guard é usado para recuperação rápida entre esses sites. O site primário também tem um banco de dados secundário para relatórios e outros usos. 
 
 Há duas abordagens para essa configuração.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-hello-firewall"></a>Abordagem 1: A conexão direta entre local e o Azure, a necessidade de abrir as portas TCP no firewall Olá 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Abordagem 1: Conexões diretas entre o local e o Azure, é necessário abrir as portas TCP no firewall 
 
-Não é recomendável conexões diretas porque eles expõem Olá toohello de portas TCP fora do mundo.
+Nós não recomendamos conexões diretas, pois expõem as portas TCP para o mundo exterior.
 
 #### <a name="topology"></a>Topologia
 
-A seguir está um resumo de hello a instalação do Azure:
+Veja aqui um resumo da configuração do Azure:
 
 - Um site de recuperação de desastre 
 - Uma rede virtual
 - Um banco de dados Oracle com Data Guard (ativo)
-- Serviço de um aplicativo no site de saudação DR
-- Um jumpbox, que restringe o acesso a rede privada toohello e só permite entrar por um administrador
+- Um serviço de aplicativo no site de recuperação de desastre
+- Um Jumpbox, que restringe o acesso à rede privada, permitindo que somente o administrador se conecte
 - Um jumpbox, um serviço de aplicativo, um banco de dados e um gateway de VPN em sub-redes separadas
 - O NSG imposto em sub-redes de aplicativo e do banco de dados
-- A porta TCP 1521 (ou uma porta definidos pelo usuário) de entrada de um tooallow de regra de política/NSG
-- Uma NSG/regra de política toorestrict somente Olá IP endereço/endereços locais (banco de dados ou aplicativo) tooaccess Olá rede virtual
+- Uma política/regra de NSG para permitir entrada na porta TCP 1521 (ou uma porta definida pelo usuário)
+- Adicione a política/regra de NSG para restringir somente endereços IP/locais (BD ou aplicativo) para acessarem a rede virtual
 
-![Captura de tela da página de topologia Olá DR](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Método 2: VPN Site a site
 A VPN site a site é uma abordagem melhor. Para saber mais sobre como configurar uma VPN, veja [Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologia
 
-A seguir está um resumo de hello a instalação do Azure:
+Veja aqui um resumo da configuração do Azure:
 
 - Um site de recuperação de desastre 
 - Uma rede virtual 
 - Um banco de dados Oracle com Data Guard (ativo)
-- Serviço de um aplicativo no site de saudação DR
-- Um jumpbox, que restringe o acesso a rede privada toohello e só permite entrar por um administrador
+- Um serviço de aplicativo no site de recuperação de desastre
+- Um Jumpbox, que restringe o acesso à rede privada, permitindo que somente o administrador se conecte
 - Um jumpbox, um serviço de aplicativo, um banco de dados e um gateway de VPN ficam em sub-redes separadas
 - O NSG imposto em sub-redes de aplicativo e do banco de dados
 - Conexão VPN site a site entre sites locais e o Azure
 
-![Captura de tela da página de topologia Olá DR](./media/oracle-disaster-recovery/oracle_topology_03.png)
+![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
 ## <a name="additional-reading"></a>Leitura adicional
 

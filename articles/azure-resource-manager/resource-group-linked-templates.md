@@ -1,6 +1,6 @@
 ---
-title: "modelos de aaaLink para implantação do Azure | Microsoft Docs"
-description: "Descreve como toouse vinculados modelos em um toocreate de modelo do Azure Resource Manager uma solução de modelo modular. Mostra como os valores de parâmetros toopass, especificar um arquivo de parâmetro e criados dinamicamente as URLs."
+title: "Vincular modelos para implantação do Azure | Microsoft Docs"
+description: "Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b935b1810db5ce894d009403cd4bb945cab34ba7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Usando modelos vinculados ao implantar os recursos do Azure
-De dentro de um modelo do Azure Resource Manager, você pode vincular tooanother modelo, que permite que você toodecompose sua implantação em um conjunto de modelos de destino, a finalidade específica. Assim como com a decomposição de um aplicativo em várias classes de código, a decomposição oferece benefícios em termos de teste, reutilização e legibilidade.  
+Em um modelo do Azure Resource Manager, você pode vincular a outro modelo, o que permite decompor sua implantação em um conjunto de modelos orientados para fins específicos. Assim como com a decomposição de um aplicativo em várias classes de código, a decomposição oferece benefícios em termos de teste, reutilização e legibilidade.  
 
-Você pode passar parâmetros de um modelo vinculado do modelo principal tooa e esses parâmetros diretamente podem mapear tooparameters ou variáveis expostos pelo Olá chamando o modelo. modelo vinculado Olá também pode passar um modelo de origem da variável toohello back saída, habilitando uma troca de dados bidirecional entre os modelos.
+Você pode passar parâmetros de um modelo principal a um modelo vinculado e esses parâmetros podem corresponder diretamente aos parâmetros ou variáveis expostos pelo modelo de chamada. O modelo vinculado também pode passar uma variável de saída de volta para o modelo de origem, permitindo uma troca de dados bidirecional entre os modelos.
 
-## <a name="linking-tooa-template"></a>Vinculando tooa modelo
-Você cria um vínculo entre dois modelos com a adição de um recurso de implantação no modelo principal Olá pontos toohello modelo vinculado. Definir Olá **templateLink** toohello propriedade URI de modelo vinculada hello. Você pode fornecer valores de parâmetro de modelo vinculada Olá diretamente em seu modelo ou em um arquivo de parâmetro. Olá, exemplo a seguir usa Olá **parâmetros** propriedade toospecify diretamente um valor de parâmetro.
+## <a name="linking-to-a-template"></a>Vinculando a um modelo
+Para criar um vínculo entre dois modelos, adicione um recurso de implantação no modelo principal que aponta para o modelo vinculado. Defina a propriedade **templateLink** como o URI do modelo vinculado. Você pode fornecer valores de parâmetro para o modelo vinculado diretamente em seu modelo ou em um arquivo de parâmetro. O exemplo a seguir usa a propriedade **parameters** para especificar um valor de parâmetro diretamente.
 
 ```json
 "resources": [ 
@@ -48,13 +48,13 @@ Você cria um vínculo entre dois modelos com a adição de um recurso de implan
 ] 
 ```
 
-Como outros tipos de recurso, você pode definir dependências entre modelo vinculado hello e outros recursos. Portanto, quando outros recursos requerem um valor de saída de modelo vinculada hello, você pode fazer se o modelo vinculado Olá foi implantado antes delas. Ou, quando o modelo vinculado Olá depende de outros recursos, você pode verificar se que outros recursos são implantados antes de modelo vinculada hello. Você pode recuperar um valor de um modelo vinculado com hello sintaxe a seguir:
+Assim como outros tipos de recurso, você pode definir dependências entre o modelo vinculado e outros recursos. Portanto, quando outros recursos exigirem um valor de saída do modelo vinculado, você poderá ter certeza de que o modelo vinculado foi implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, você poderá verificar se outros recursos foram implantados antes do modelo vinculado. Você pode recuperar um valor de um modelo vinculado com a seguinte sintaxe:
 
 ```json
 "[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
-Olá serviço Gerenciador de recursos deve ser modelo vinculada do tooaccess capaz de saudação. Você não pode especificar um arquivo local ou um arquivo que está disponível apenas em sua rede local para o modelo vinculado hello. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é tooplace seu modelo vinculado em uma conta de armazenamento e use hello URI para esse item, como mostrado no exemplo a seguir de saudação:
+O serviço do Resource Manager deve ser capaz de acessar o modelo vinculado. Você não pode especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local para o modelo vinculado. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item, conforme mostra o exemplo a seguir:
 
 ```json
 "templateLink": {
@@ -63,9 +63,9 @@ Olá serviço Gerenciador de recursos deve ser modelo vinculada do tooaccess cap
 }
 ```
 
-Embora o modelo vinculado Olá deve estar disponível externamente, não precisa toobe toohello disponível público. Você pode adicionar sua conta de armazenamento particular de tooa de modelo que é proprietário da conta de armazenamento tooonly acessível hello. Em seguida, você deve criar um acesso de tooenable token de assinatura (SAS) de acesso compartilhado durante a implantação. Você adiciona esse toohello token SAS URI para o modelo vinculado hello. Para ver as etapas para configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md). 
+Embora o modelo vinculado precise estar disponível externamente, ele não precisa estar disponível para o público. Você pode adicionar o modelo a uma conta de armazenamento privada que pode ser acessada somente pelo proprietário da conta de armazenamento. Em seguida, você cria um token SAS (assinatura de acesso compartilhado) para permitir o acesso durante a implantação. Você pode adicionar esse token SAS ao URI para o modelo vinculado. Para ver as etapas para configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md). 
 
-saudação de exemplo a seguir mostra um modelo de pai modelo tooanother links. modelo vinculado Olá é acessado com um token SAS que é passado como um parâmetro.
+O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo vinculado é acessado com um token SAS que é transmitido como um parâmetro.
 
 ```json
 "parameters": {
@@ -87,14 +87,14 @@ saudação de exemplo a seguir mostra um modelo de pai modelo tooanother links. 
 ],
 ```
 
-Mesmo que o token de saudação é passado como uma cadeia de caracteres segura, hello URI do modelo de saudação vinculado, incluindo o token SAS Olá, é registrado em operações de implantação de saudação. exposição de toolimit, definir uma expiração de token de saudação.
+Embora o token seja transmitido como uma cadeia de caracteres segura, o URI do modelo vinculado, incluindo o token SAS, é registrado nas operações de implantação. Para limitar a exposição, defina uma expiração para o token.
 
-O Resource Manager trata cada modelo vinculado como uma implantação separada. Histórico de implantação Olá Olá para grupo de recursos, você verá implantações separadas para pai hello e modelos aninhados.
+O Resource Manager trata cada modelo vinculado como uma implantação separada. No histórico de implantações do grupo de recursos, você verá implantações separadas para o modelo pai e os modelos aninhados.
 
 ![histórico de implantações](./media/resource-group-linked-templates/linked-deployment-history.png)
 
-## <a name="linking-tooa-parameter-file"></a>Arquivo de parâmetro tooa de vinculação
-Olá próximo exemplo usa Olá **parametersLink** arquivo de parâmetro propriedade toolink tooa.
+## <a name="linking-to-a-parameter-file"></a>Vinculando a um arquivo de parâmetro
+O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arquivo de parâmetro.
 
 ```json
 "resources": [ 
@@ -117,12 +117,12 @@ Olá próximo exemplo usa Olá **parametersLink** arquivo de parâmetro propried
 ] 
 ```
 
-Olá URI valor Olá parâmetro vinculado arquivo não pode ser um arquivo local e deve incluir **http** ou **https**. arquivo de parâmetro Hello também pode ser limitado tooaccess por meio de um token SAS.
+O valor do URI para o arquivo de parâmetro vinculado não pode ser um arquivo local e deve incluir **http** ou **https**. O arquivo de parâmetro também pode ter o acesso limitado por meio de um token SAS.
 
-## <a name="using-variables-toolink-templates"></a>Usando variáveis toolink modelos
-exemplos anteriores Olá mostraram valores codificados de URL para links de modelo hello. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem quando ao trabalhar com um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL base para o modelo principal hello e, em seguida, criar dinamicamente URLs para modelos de saudação vinculado dessa URL base. benefício de saudação dessa abordagem é, você pode facilmente mover ou bifurcação de modelo de saudação porque você só precisa de variável estática do toochange Olá no modelo principal hello. modelo principal Olá passa Olá correto de que URIs em toda a saudação decomposto modelo.
+## <a name="using-variables-to-link-templates"></a>Usando variáveis para vincular modelos
+Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem quando ao trabalhar com um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. A vantagem dessa abordagem é mover ou bifurcar o modelo, pois você precisa alterar a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
 
-Olá exemplo a seguir mostra como toouse uma toocreate URL base duas URLs para vinculam modelos (**sharedTemplateUrl** e **vmTemplate**). 
+O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**). 
 
 ```json
 "variables": {
@@ -132,7 +132,7 @@ Olá exemplo a seguir mostra como toouse uma toocreate URL base duas URLs para v
 }
 ```
 
-Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) tooget Olá URL base para o modelo atual hello e usar essa URL de saudação do tooget para outros modelos de saudação mesmo local. Essa abordagem é útil se o local do modelo for alterado (talvez devido tooversioning) ou deseja tooavoid rígido URLs no arquivo de modelo de saudação de codificação. 
+Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado (talvez devido a controle de versão) ou para evitar embutir URLs no arquivo de modelo. 
 
 ```json
 "variables": {
@@ -141,9 +141,9 @@ Você também pode usar [deployment()](resource-group-template-functions-deploym
 ```
 
 ## <a name="complete-example"></a>Exemplo completo
-Olá modelos de exemplo a seguir mostra uma organização simplificada de modelos vinculados tooillustrate vários conceitos Olá neste artigo. Ele pressupõe que foram adicionados modelos Olá toohello mesmo contêiner em uma conta de armazenamento com acesso público desativado. modelo vinculado Olá passa um modelo principal do valor toohello back Olá **gera** seção.
+Os exemplos de modelos a seguir mostram uma disposição simplificada de modelos vinculados para ilustrar vários conceitos neste artigo. Ela pressupõe que os modelos tenham sido adicionados ao mesmo contêiner em uma conta de armazenamento com acesso público desativado. O modelo vinculado transmite um valor de volta para o modelo principal na seção **outputs** .
 
-Olá **parent.json** arquivo consiste em:
+O arquivo **parent.json** consiste em:
 
 ```json
 {
@@ -175,7 +175,7 @@ Olá **parent.json** arquivo consiste em:
 }
 ```
 
-Olá **helloworld.json** arquivo consiste em:
+O arquivo **helloworld.json** consiste em:
 
 ```json
 {
@@ -193,7 +193,7 @@ Olá **helloworld.json** arquivo consiste em:
 }
 ```
 
-No PowerShell, obter um token para o contêiner de saudação e implantar modelos de saudação com:
+No PowerShell, você obtém um token para o contêiner e implanta os modelos com:
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -202,7 +202,7 @@ $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-No 2.0 do CLI do Azure, obter um token para o contêiner de saudação e implantar modelos de saudação com hello código a seguir:
+Na CLI do Azure 2.0, você obtém um token para o contêiner e implanta os modelos com o código a seguir:
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -226,6 +226,6 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* toolearn sobre Olá definindo a ordem de implantação Olá para seus recursos, consulte [definem as dependências em modelos do Gerenciador de recursos do Azure](resource-group-define-dependencies.md)
-* toolearn como um recurso de toodefine mas criar muitas instâncias do mesmo, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md)
+* Para saber mais sobre como definir a ordem de implantação para seus recursos, confira [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md)
+* Para saber como definir um recurso, mas criando várias instâncias dele, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 

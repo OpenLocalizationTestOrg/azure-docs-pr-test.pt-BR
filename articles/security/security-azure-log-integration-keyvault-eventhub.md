@@ -1,6 +1,6 @@
 ---
-title: logs de aaaIntegrate do Cofre de chaves do Azure usando os Hubs de eventos | Microsoft Docs
-description: "Tutorial que fornece as etapas necessárias de saudação toomake Cofre de chaves logs disponível tooa SIEM usando a integração de Log do Azure"
+title: Integrar logs do Azure Key Vault usando os Hubs de Eventos | Microsoft Docs
+description: "Tutorial que fornece as etapas necessárias para disponibilizar os logs do Key Vault para um SIEM usando a integração de log do Azure"
 services: security
 author: barclayn
 manager: MBaldwin
@@ -11,30 +11,30 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: ada2fc846cc6bf09e12cc2c016815b27afef0d50
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de log do Azure: processar eventos do Azure Key Vault usando Hubs de Eventos
 
-Você pode usar a integração do Azure Log tooretrieve registrado eventos e torná-los disponíveis tooyour segurança informações e eventos (SIEM) sistema de gerenciamento de. Este tutorial mostra um exemplo de como a integração do Azure Log pode ser usado tooprocess logs adquiridas por meio de Hubs de eventos do Azure.
+Você pode usar a Integração de Log do Azure para recuperar eventos registrados e disponibilizá-los ao seu SIEM (sistema de informações de segurança e gerenciamento de evento). Este tutorial mostra um exemplo de como a Integração de Log do Azure pode ser usada para processar os logs adquiridos por meio de Hubs de Eventos do Azure.
  
-Use este tutorial tooget familiarizado com como o trabalho de integração de Log do Azure e Hubs de eventos juntos seguindo Olá etapas de exemplo e entender como cada etapa dá suporte à solução de saudação. Em seguida, você pode executar o que você aprendeu aqui toocreate toosupport suas próprias etapas requisitos exclusivos da sua empresa.
+Use este tutorial para se familiarizar com a forma como a Integração de Log do Azure e os Hubs de Eventos funcionam juntos, seguindo as etapas de exemplo e assim entender como cada etapa dá suporte à solução. Em seguida, você poderá pegar o que aprendeu aqui para criar suas próprias etapas para dar suporte a requisitos exclusivos da sua empresa.
 
 >[!WARNING]
-etapas de saudação e os comandos neste tutorial não são toobe pretendido copiados e colados. Elas são apenas exemplos. Não use comandos do PowerShell hello "como está" em seu ambiente dinâmico. Você deve personalizá-los com base em seu ambiente exclusivo.
+As etapas e comandos neste tutorial não devem ser copiados e colados. Elas são apenas exemplos. Não use os comandos do PowerShell "no estado em que se encontram" em seu ambiente dinâmico. Você deve personalizá-los com base em seu ambiente exclusivo.
 
 
-Este tutorial orienta você pelo processo de saudação de colocar o hub de eventos de tooan conectado de atividade de Cofre de chaves do Azure e torná-lo disponível como JSON arquivos tooyour SIEM sistema. Você pode configurar os arquivos JSON de saudação do SIEM sistema tooprocess.
+Este tutorial orienta você no processo de fazer com que a atividade do Azure Key Vault seja registrada em um hub de eventos e disponibilizada como arquivos JSON para o seu sistema SIEM. Em seguida, você pode configurar o sistema SIEM para processar os arquivos JSON.
 
 >[!NOTE]
->A maioria das etapas neste tutorial Olá envolve configurar cofres de chaves, contas de armazenamento e hubs de eventos. as etapas específicas de integração do Azure Log Olá são final Olá deste tutorial. Não execute estas etapas em um ambiente de produção. Elas servem apenas para um ambiente de laboratório. Você deve personalizar as etapas de saudação antes de usá-los em produção.
+>A maioria das etapas deste tutorial envolve a configuração de cofres de chaves, contas de armazenamento e hubs de eventos. As etapas específicas da integração de log do Azure estão no final deste tutorial. Não execute estas etapas em um ambiente de produção. Elas servem apenas para um ambiente de laboratório. Personalize-as antes de usá-las em produção.
 
-As informações fornecidas ao longo de ajuda de maneira Olá que entender motivos Olá atrás de cada etapa. Artigos de tooother links fornecem mais detalhes sobre determinados tópicos.
+As informações fornecidas ao longo do processo ajudam você a entender as razões por trás de cada etapa. Links para outros artigos fornecem mais detalhes sobre determinados tópicos.
 
-Para obter mais informações sobre os serviços de saudação mencionadas neste tutorial, consulte: 
+Para obter mais informações sobre os serviços que este tutorial menciona, consulte: 
 
 - [Cofre da Chave do Azure](../key-vault/key-vault-whatis.md)
 - [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md)
@@ -43,116 +43,116 @@ Para obter mais informações sobre os serviços de saudação mencionadas neste
 
 ## <a name="initial-setup"></a>Configuração inicial
 
-Antes de concluir as etapas de saudação neste artigo, você precisa seguir hello:
+Antes de concluir as etapas neste artigo, você precisará do seguinte:
 
 1. Uma assinatura do Azure e uma conta nessa assinatura com direitos de administrador. Se você não tem uma assinatura, você pode criar um [conta gratuita](https://azure.microsoft.com/free/).
  
-2. Um sistema com toohello de acesso à internet que atenda aos requisitos de saudação para a integração do Azure Log de instalação. sistema Olá pode estar em um serviço de nuvem ou hospedado no local.
+2. Um sistema com acesso à Internet que atenda aos requisitos para a instalação da integração de log do Azure. O sistema pode estar em um serviço de nuvem ou hospedado localmente.
 
-3. [Integração de log do Azure](https://www.microsoft.com/download/details.aspx?id=53324) instalada. tooinstall-lo:
+3. [Integração de log do Azure](https://www.microsoft.com/download/details.aspx?id=53324) instalada. Para instalá-la:
 
-   a. Use a área de trabalho remota tooconnect toohello sistema mencionado na etapa 2.   
-   b. Copie o sistema de toohello de instalador de integração do Azure Log hello. Você pode [baixar arquivos de instalação Olá](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Iniciar o instalador hello e aceite Olá Microsoft Software License Terms.   
-   d. Se você fornecerá informações de telemetria, deixe a caixa de seleção hello. Se você preferir enviar não tooMicrosoft de informações de uso, desmarque a caixa de seleção de saudação.
+   a. Use a Área de Trabalho Remota para conectar-se ao sistema mencionado na etapa 2.   
+   b. Copie o instalador da integração de log do Azure no sistema. Você pode [baixar os arquivos de instalação](https://www.microsoft.com/download/details.aspx?id=53324).   
+   c. Inicie o instalador e aceite os Termos de Licença para Software Microsoft.   
+   d. Se você vai fornecer informações de telemetria, deixe a caixa de seleção marcada. Se você preferir não enviar informações de uso à Microsoft, desmarque a caixa de seleção.
    
-   Para obter mais informações sobre a integração do Log do Azure e como tooinstall, consulte [integração de Log do Azure com o log de diagnóstico do Azure e o encaminhamento de eventos do Windows](security-azure-log-integration-get-started.md).
+   Para obter mais informações sobre a integração de log do Azure e como instalá-la, consulte [Integração de Log do Azure com log de Diagnóstico do Azure e Encaminhamento de Eventos do Windows](security-azure-log-integration-get-started.md).
 
-4. versão mais recente do PowerShell Hello.
+4. A versão mais recente do PowerShell.
  
-   Se você tem o Windows Server 2016 instalado, você tem, no mínimo, o PowerShell 5.0. Se estiver usando outra versão do Windows Server, pode ser que você tenha uma versão anterior do PowerShell instalada. Você pode verificar a versão de hello inserindo ```get-host``` em uma janela do PowerShell. Se você não tiver o PowerShell 5.0 instalado, você poderá [baixá-lo](https://www.microsoft.com/download/details.aspx?id=50395).
+   Se você tem o Windows Server 2016 instalado, você tem, no mínimo, o PowerShell 5.0. Se estiver usando outra versão do Windows Server, pode ser que você tenha uma versão anterior do PowerShell instalada. Você pode verificar a versão digitando ```get-host``` em uma janela do PowerShell. Se você não tiver o PowerShell 5.0 instalado, você poderá [baixá-lo](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   Depois de ter pelo menos PowerShell 5.0, você pode continuar a versão mais recente do tooinstall hello:
+   Depois de ter pelo menos o PowerShell 5.0, você continuar para instalar a versão mais recente:
    
-   a. Em uma janela do PowerShell, digite Olá ```Install-Module Azure``` comando. Conclua as etapas de instalação hello.    
-   b. Digite hello ```Install-Module AzureRM``` comando. Conclua as etapas de instalação hello.
+   a. Em uma janela do PowerShell, insira o comando ```Install-Module Azure```. Conclua as etapas de instalação.    
+   b. Insira o comando ```Install-Module AzureRM```. Conclua as etapas de instalação.
 
    Para obter mais informações, consulte [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Criar elementos de suporte da infraestrutura
 
-1. Abra uma janela do PowerShell com privilégios elevados e vá muito**C:\Program Files\Microsoft Azure Log integração**.
-2. Importe Olá AzLog cmdlets executando o script hello LoadAzLogModule.ps1. Digite hello `.\LoadAzLogModule.ps1` comando. (Olá aviso ". \" nesse comando.) Você deverá ver algo assim:</br>
+1. Abra uma janela do PowerShell com privilégios elevados e acesse **c:\Program Files\Microsoft Azure Log Integration**.
+2. Importe os cmdlets do AzLog executando o script LoadAzLogModule.ps1. Insira o comando `.\LoadAzLogModule.ps1`. (Observe o ".\" nesse comando.) Você deverá ver algo assim:</br>
 
    ![Lista de módulos carregados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Digite hello `Login-AzureRmAccount` comando. Na janela de logon hello, insira as informações de credencial de Olá para assinatura de saudação que você usará para este tutorial.
+3. Insira o comando `Login-AzureRmAccount`. Na janela de logon, insira as informações de credenciais da assinatura que você usará para este tutorial.
 
    >[!NOTE]
-   >Se isso for Olá pela primeira vez que você estiver fazendo o logon em tooAzure desta máquina, você verá uma mensagem sobre a permissão de dados de uso do Microsoft toocollect do PowerShell. É recomendável que você habilite a coleta de dados porque ele será usado tooimprove PowerShell do Azure.
+   >Se esta for a primeira vez que você está fazendo logon no Azure neste computador, você verá uma mensagem sobre permitir que a Microsoft colete dados de uso do PowerShell. É recomendável que você habilite essa coleta de dados porque ela será usada para melhorar o Azure PowerShell.
 
-4. Após a autenticação bem-sucedida, você está conectado e ver informações Olá Olá captura de tela a seguir. Anote o nome da assinatura Olá ID e a assinatura, porque eles são necessários toocomplete etapas mais tarde.
+4. Após a autenticação bem-sucedida, você estará conectado e verá as informações da seguinte captura de tela. Anote a ID da assinatura e o nome da assinatura, porque eles são necessários para concluir etapas posteriores.
 
    ![Janela do PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Crie variáveis toostore valores que serão usados posteriormente. Insira cada Olá PowerShell linhas a seguir. Talvez seja necessário tooadjust Olá valores toomatch seu ambiente.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (O nome da sua assinatura pode ser diferente. Você poderá ver isso como parte da saída de saudação do comando anterior hello.)
-    - ```$location = 'West US'```(Essa variável será local de saudação toopass usado onde recursos devem ser criados. Você pode alterar essa variável toobe qualquer local de sua escolha.)
+5. Crie variáveis para armazenar valores que serão usados posteriormente. Insira cada uma das seguintes opções nas linhas do PowerShell. Talvez seja necessário ajustar os valores de acordo com seu ambiente.
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (O nome da sua assinatura pode ser diferente. Você pode ver isso como parte da saída do comando anterior.)
+    - ```$location = 'West US'``` (Essa variável será usada para passar o local em que os recursos devem ser criados. Você pode alterar essa variável para qualquer outro local da sua escolha.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(Olá nome pode ser qualquer, mas ele deve conter apenas letras minúsculas e números).
-    - ``` $storageName = $name```(Essa variável será usada para o nome de conta de armazenamento hello.)
-    - ```$rgname = $name ```(Essa variável será usada para o nome do grupo de recursos hello.)
-    - ``` $eventHubNameSpaceName = $name```(Esse é o nome de saudação do namespace de hub de eventos de saudação).
-6. Especifique a assinatura de saudação que você estará trabalhando com:
+    - ``` $name = 'azlogtest' + $random``` (O nome pode ser qualquer um, contanto que tenha apenas letras minúsculas e números).
+    - ``` $storageName = $name``` (Essa variável será usada para o nome da conta de armazenamento).
+    - ```$rgname = $name ``` (Essa variável será usada para o nome do grupo de recursos).
+    - ``` $eventHubNameSpaceName = $name``` (Esse é o nome do namespace do hub de eventos).
+6. Especifique a assinatura com a qual você trabalhará:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
 7. Crie um grupo de recursos:
     
     ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
     
-   Se você inserir `$rg` neste ponto, você deve ver a saída de tela de toothis semelhante:
+   Se inserir `$rg` neste momento, você verá uma saída semelhante à essa captura de tela:
 
    ![Saída após a criação de um grupo de recursos](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
-8. Crie uma conta de armazenamento que será usado tookeep rastrear informações de estado:
+8. Crie uma conta de armazenamento que será usada para manter controle sobre as informações de estado:
     
     ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
-9. Crie um namespace de hub de eventos de saudação. Isso é necessário toocreate um hub de eventos.
+9. Crie o namespace do hub de eventos. Isso é necessário para criar um hub de eventos.
     
     ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
-10. Obter Olá ID da regra que será usado com o provedor de insights hello:
+10. Obtenha a ID da regra que será usada com o provedor de informações:
     
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
-11. Obter todos os possíveis locais do Azure e adicione a variável de tooa de nomes de saudação que pode ser usado em uma etapa posterior:
+11. Obtenha todos os possíveis locais do Azure e adicione os nomes a uma variável que possa ser usada em uma etapa posterior:
     
     a. ```$locationObjects = Get-AzureRMLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Se você inserir `$locations` neste ponto, você verá nomes de local de saudação sem informações adicionais de saudação retornadas por Get-AzureRmLocation.
+    Se você inserir `$locations` nesse momento, verá os nomes de local sem as informações adicionais retornadas pelo Get-AzureRmLocation.
 12. Criar um perfil de log do Azure Resource Manager: 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Para obter mais informações sobre Olá perfil de registro do Azure, consulte [visão geral da saudação Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Para obter mais informações sobre o perfil de log do Azure, consulte [Visão geral do Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 > [!NOTE]
-> Você pode obter uma mensagem de erro ao tentar toocreate um perfil de registro. Em seguida, você pode revisar documentação Olá para Get-AzureRmLogProfile e remover AzureRmLogProfile. Se você executar Get-AzureRmLogProfile, você pode ver informações sobre o perfil do log de saudação. Você pode excluir o perfil de log existente da saudação inserindo Olá ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` comando.
+> Você poderá obter uma mensagem de erro ao tentar criar um perfil de log. Em seguida, você poderá examinar a documentação para o Get-AzureRmLogProfile e o Remove-AzureRmLogProfile. Se você executar o Get-AzureRmLogProfile, verá as informações sobre o perfil de log. Você pode excluir o perfil de log existente inserindo o comando ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```.
 >
 >![Erro de perfil do Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
 
-1. Crie Cofre de chaves de saudação:
+1. Crie o cofre de chaves:
 
    ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
-2. Configure o log para o Cofre de chaves hello:
+2. Configure o registro em log para o cofre de chaves:
 
    ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
 ## <a name="generate-log-activity"></a>Gerar atividade de log
 
-Solicitações necessário toobe enviado tooKey atividade de log de toogenerate do cofre. Ações como geração de chaves, armazenamento de segredos ou leitura de segredos do Key Vault criarão entradas de log.
+As solicitações precisam ser enviados para o Key Vault para gerar a atividade de log. Ações como geração de chaves, armazenamento de segredos ou leitura de segredos do Key Vault criarão entradas de log.
 
-1. Exibir chaves de armazenamento atual da saudação:
+1. Exibir as chaves de armazenamento atuais:
     
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 2. Gerar uma nova **key2**:
     
    ```New-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
-3. Exibir chaves Olá novamente e veja que **key2** contém um valor diferente:
+3. Exibir as chaves novamente e ver que **key2** tem um valor diferente:
     
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
-4. Definir e ler um segredo toogenerate entradas de log adicionais:
+4. Definir e ler um segredo para gerar entradas de log adicionais:
     
    a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
@@ -161,19 +161,19 @@ Solicitações necessário toobe enviado tooKey atividade de log de toogenerate 
 
 ## <a name="configure-azure-log-integration"></a>Configurar a integração de log do Azure
 
-Agora que você configurou o hub de eventos do hello elementos necessários toohave registro de Cofre de chaves tooan todos, é necessário tooconfigure integração do Azure Log:
+Agora que você configurou todos os elementos necessários para que o Key Vault registre em log em um hub de eventos, você precisa configurar a integração de log do Azure:
 
 1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
 2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 3. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 4. ``` $storagekey = $storagekeys[0].Value```
 
-Execute o comando de AzLog de saudação para cada hub de eventos:
+Execute o comando AzLog para cada hub de eventos:
 
 1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
 2. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
-Após um minuto ou de execução Olá dois últimos comandos, você deve ver os arquivos JSON que está sendo gerados. Você pode confirmar que monitoramento Olá diretório **C:\users\AzLog\EventHubJson**.
+Após um minuto ou mais de execução dos dois últimos comandos, você verá os arquivos JSON sendo gerados. Você pode confirmar isso pelo monitoramento do diretório **C:\users\AzLog\EventHubJson**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

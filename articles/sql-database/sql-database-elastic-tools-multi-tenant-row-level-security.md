@@ -1,6 +1,6 @@
 ---
-title: "aplicativos de locatário aaaMulti com segurança em nível de linha e ferramentas de banco de dados Elástico"
-description: "Saiba como ferramentas de banco de dados Elástico toouse junto com o nível de linha segurança toobuild um aplicativo com uma camada de dados altamente escalonáveis no banco de dados SQL que oferece suporte a fragmentos de multilocatários."
+title: "Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha"
+description: "Saiba como usar as ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável no Banco de Dados SQL que dá suporte a fragmentos multilocatários."
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
 documentationcenter: 
@@ -15,59 +15,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
-ms.openlocfilehash: e00076a8db4a295374993aedd49f2318bd4d701d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
-[Ferramentas de banco de dados Elástico](sql-database-elastic-scale-get-started.md) e [RLS (segurança) de nível de linha](https://msdn.microsoft.com/library/dn765131) oferecem um conjunto avançado de recursos de forma flexível e eficiente dimensionar a camada de dados de saudação de um aplicativo multilocatário com o banco de dados do SQL Azure. Confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para saber mais. 
+As [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e a [RLS (segurança em nível de linha)](https://msdn.microsoft.com/library/dn765131) oferecem um conjunto avançado de funcionalidades para escalar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure de maneira flexível e eficiente. Confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para saber mais. 
 
-Este artigo ilustra como toouse toobuild de juntos essas tecnologias um aplicativo com uma camada de dados altamente escalonável que dá suporte a fragmentos de multilocatários, usando **ADO.NET SqlClient** e/ou **doEntityFramework**.  
+Este artigo ilustra como usar essas tecnologias em conjunto para criar um aplicativo com uma camada de dados altamente escalonável e que dá suporte a fragmentos multilocatários, usando o **ADO.NET SqlClient** e/ou o **Entity Framework**.  
 
-* **Ferramentas de banco de dados Elástico** permite que os desenvolvedores tooscale camada de dados de saudação de um aplicativo por meio de práticas de fragmentação padrão do setor, usando um conjunto de bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos com usando Olá Elástico biblioteca de cliente do banco de dados ajuda a automatizar e simplificar muitas das tarefas de base Olá geralmente associadas a fragmentação. 
-* **Segurança em nível de linha** permite que os dados de toostore de desenvolvedores para vários locatários no mesmo banco de dados usando toofilter de políticas de segurança as linhas que não pertencem toohello locatário executando uma consulta de saudação. Centralizando a lógica de acesso com a RLS dentro do banco de dados hello, em vez no aplicativo hello, simplifica a manutenção e reduz o risco de saudação de erro como a base de código de um aplicativo cresce. 
+* **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandir a camada de dados de um aplicativo por meio de práticas de fragmentação padrão do setor usando um conjunto de bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos usando a Biblioteca Cliente do Banco de Dados Elástico ajuda a automatizar e simplificar muitas das tarefas infraestruturais normalmente associadas à fragmentação. 
+* **segurança em nível de linha** permite aos desenvolvedores armazenar dados para vários locatários no mesmo banco de dados usando políticas de segurança para filtrar linhas que não pertencem ao locatário que está executando uma consulta. Centralizar a lógica de acesso com RLS no banco de dados, em vez de no aplicativo, simplifica a manutenção e reduz o risco de erros conforme a base de código de um aplicativo é expandida. 
 
-Usando esses recursos juntos, um aplicativo pode se beneficiar de ganhos de eficiência e economia de custo ao armazenar os dados para vários locatários em Olá mesmo banco de dados de fragmento. Em Olá mesmo tempo, um aplicativo ainda tem Olá flexibilidade toooffer isolado, fragmentos de único locatário para locatários "premium" que necessitam de garantias de desempenho mais rígidas como fragmentos multilocatários não garantem a distribuição de recursos igual entre locatários.  
+Ao usar esses recursos em conjunto, um aplicativo pode desfrutar de ganhos de eficiência e economia de custo armazenando dados para vários locatários no mesmo banco de dados de fragmentos. Ao mesmo tempo, um aplicativo ainda terá a flexibilidade para oferecer fragmentos isolados de um locatário para locatários "premium" que exigem garantias de desempenho mais rígidas, já que os fragmentos multilocatários não garantem a distribuição uniforme dos recursos entre os locatários.  
 
-Em resumo, Olá da biblioteca do cliente do banco de dados Elástico [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) APIs conectar-se automaticamente locatários toohello fragmento corretas banco de dados que contém sua chave de fragmentação (geralmente um "TenantId"). Uma vez conectado, uma política de segurança RLS no banco de dados de saudação garante que os locatários possam acessar somente linhas que contêm seu TenantId. Presume-se que todas as tabelas contêm um tooindicate de coluna TenantId quais linhas pertencem tooeach locatário. 
+Em resumo, as APIs de [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) da biblioteca cliente do banco de dados elástico são conectadas automaticamente ao banco de dados de fragmentos correto que contém sua chave de fragmentação (geralmente um "TenantId"). Após o estabelecimento da conexão, uma política de segurança RLS no banco de dados garante que os locatários possam acessar somente as linhas que contêm seu TenantId. Presume-se que todas as tabelas contenham uma coluna TenantId para indicar quais linhas pertencem a cada locatário. 
 
 ![Arquitetura de aplicativo de blog][1]
 
-## <a name="download-hello-sample-project"></a>Baixe o projeto de exemplo hello
+## <a name="download-the-sample-project"></a>Baixar o projeto de exemplo
 ### <a name="prerequisites"></a>Pré-requisitos
 * Usar o Visual Studio (2012 ou superior) 
 * Criar três Bancos de Dados SQL do Azure 
 * Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](http://go.microsoft.com/?linkid=9888163)
-  * Preencha as informações de saudação para seus bancos de dados no início de saudação do **Program.cs** 
+  * Preencha as informações dos seus bancos de dados no início do **Program.cs** 
 
-Este projeto estende Olá um descritos em [Elástico ferramentas de banco de dados do SQL Azure - integração do Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmento de multilocatário. Ele cria um aplicativo de console simples para a criação de blogs e postagens, com quatro locatários e dois fragmentos de multilocatário bancos de dados conforme ilustrado na Olá acima do diagrama. 
+Esse projeto expande o descrito em [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Integração com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. Ele cria um aplicativo de console simples para a criação de blogs e postagens, com quatro locatários e dois bancos de dados de fragmentos multilocatários, conforme é ilustrado no diagrama acima. 
 
-Compilar e executar o aplicativo hello. Isso irá inicializar o Gerenciador do mapa de fragmentos de ferramentas de banco de dados Elástico hello e Olá executar testes a seguir: 
+Compile e execute o aplicativo. Isso inicializará o gerenciador de mapas de fragmentos das ferramentas de banco de dados elástico e executará os seguintes testes: 
 
 1. Usando o Entity Framework e o LINQ, crie um novo blog e exiba todos os blogs para cada locatário
 2. Usando o ADO.NET SqlClient, exiba todos os blogs para um locatário
-3. Tente tooinsert um blog para Olá locatário errado tooverify que um erro será lançado  
+3. Tente inserir um blog para o locatário errado para verificar se um erro será gerado  
 
-Observe que como RLS ainda não foi habilitado em bancos de dados de fragmento hello, cada um desses testes revela um problema: locatários são toosee capaz de blogs que não pertencem toothem e aplicativo hello não será impedido de inserir um blog para locatário errado hello. Olá restante deste artigo descreve como tooresolve esses problemas impondo locatário isolamento com a RLS. Há duas etapas: 
+Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmentos, cada um desses testes revela um problema: locatários podem ver blogs que não pertencem a eles e o aplicativo não é impedido de inserir um blog para o locatário errado. O restante deste artigo descreve como resolver esses problemas impondo o isolamento de locatários com RLS. Há duas etapas: 
 
-1. **Camada de aplicativo**: modificar o código do aplicativo hello tooalways conjunto Olá TenantId atual em Olá SESSION_CONTEXT depois de abrir uma conexão. projeto de exemplo Hello já tenha feito isso. 
-2. **Camada de dados**: criar uma política de segurança RLS em cada toofilter de banco de dados de fragmento linhas com base em Olá TenantId armazenadas em SESSION_CONTEXT. Você precisará toodo isso para cada um dos seus bancos de dados de fragmento, caso contrário linhas em fragmentos multilocatários não serão filtradas. 
+1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir a TenantId atual em SESSION_CONTEXT depois de abrir uma conexão. O projeto de exemplo já fez isso. 
+2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION_CONTEXT. Você precisará fazer isso para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas. 
 
-## <a name="step-1-application-tier-set-tenantid-in-hello-sessioncontext"></a>Camada de aplicativo da etapa 1): definir TenantId em Olá SESSION_CONTEXT
-Depois de conectar tooa fragmento banco de dados usando dados da biblioteca de cliente do banco de dados Elástico Olá que APIs de roteamentos dependentes, aplicativo hello ainda precisa de banco de dados de saudação de tootell quais TenantId está usando essa conexão para que uma política de segurança RLS pode filtrar linhas pertencente tooother locatários. Olá toopass de maneira recomendada essas informações são toostore Olá TenantId atual para essa conexão em Olá [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Observação: como alternativa, você pode usar [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), mas SESSION_CONTEXT é uma opção melhor, pois é mais fácil toouse, retorna nulo por padrão e dá suporte a pares chave-valor.)
+## <a name="step-1-application-tier-set-tenantid-in-the-sessioncontext"></a>Etapa 1) Camada de aplicativo: definir a TenantId em SESSION_CONTEXT
+Depois de se conectar a um banco de dados de fragmentos usando dados da biblioteca cliente do banco de dados elástico que depende de APIs de roteamento, o aplicativo ainda precisa informar o banco de dados qual TenantId está usando essa conexão para que uma política de segurança RLS possa filtrar linhas pertencentes a outros locatários. A maneira recomendada para passar essa informação é armazenar a TenantId atual dessa conexão em [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Observação: como alternativa, use também [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), mas SESSION_CONTEXT é uma opção melhor porque é mais fácil de usar, retorna NULL por padrão e dá suporte aos pares chave-valor.)
 
 ### <a name="entity-framework"></a>Entity Framework
-Para aplicativos usando o Entity Framework, abordagem mais fácil de saudação é Olá tooset SESSION_CONTEXT em Olá ElasticScaleContext substituir descrito em [roteamento dependente de dados usando EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Antes de retornar conexão Olá orientada por meio do roteamento dependente de dados, criar e executar um SqlCommand que define 'TenantId' em Olá SESSION_CONTEXT toohello shardingKey especificado para essa conexão. Dessa forma, você só precisa toowrite código depois tooset Olá SESSION_CONTEXT. 
+Para os aplicativos que usam o Entity Framework, a abordagem mais fácil é definir SESSION_CONTEXT na substituição de ElasticScaleContext descrita em [Roteamento dependente de dados usando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Antes de retornar a conexão negociada por meio do roteamento dependente de dados, simplesmente crie e execute um SqlCommand que define 'TenantId' em SESSION_CONTEXT para o shardingKey especificado para essa conexão. Dessa maneira, só é preciso gravar o código uma vez para definir SESSION_CONTEXT. 
 
 ```
 // ElasticScaleContext.cs 
 // ... 
-// C'tor for data dependent routing. This call will open a validated connection routed toohello proper 
-// shard by hello shard map manager. Note that hello base class c'tor call will fail for an open connection 
-// if migrations need toobe done and SQL credentials are used. This is hello reason for hello  
-// separation of c'tors into hello DDR case (this c'tor) and hello internal c'tor for new shards. 
+// C'tor for data dependent routing. This call will open a validated connection routed to the proper 
+// shard by the shard map manager. Note that the base class c'tor call will fail for an open connection 
+// if migrations need to be done and SQL credentials are used. This is the reason for the  
+// separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards. 
 public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
     : base(OpenDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */)
 {
@@ -78,13 +78,13 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
     // No initialization
     Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-    // Ask shard map toobroker a validated connection for hello given key
+    // Ask shard map to broker a validated connection for the given key
     SqlConnection conn = null;
     try
     {
         conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT tooshardingKey tooenable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
@@ -105,7 +105,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Agora Olá SESSION_CONTEXT é definido automaticamente com hello especificado TenantId sempre que é invocado ElasticScaleContext: 
+Agora, o SESSION_CONTEXT será automaticamente definido com a TenantId especificada sempre que ElasticScaleContext for chamado: 
 
 ```
 // Program.cs 
@@ -127,24 +127,24 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
-Para aplicativos usando ADO.NET SqlClient hello recomendada abordagem é toocreate uma função de wrapper em torno de ShardMap.OpenConnectionForKey() que define automaticamente 'TenantId' no hello SESSION_CONTEXT toohello corrigir TenantId antes de retornar um conexão. tooensure que sempre é possível definir SESSION_CONTEXT, você só deve abrir as conexões usando essa função de wrapper.
+Para os aplicativos que usam o ADO.NET SqlClient, a abordagem recomendada é criar uma função de wrapper em torno de ShardMap.OpenConnectionForKey() que define automaticamente 'TenantId' em SESSION_CONTEXT para a TenantId correta antes de retornar uma conexão. Para garantir que SESSION_CONTEXT seja sempre definido, você só deve abrir conexões usando essa função de wrapper.
 
 ```
 // Program.cs
 // ...
 
-// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with hello correct
+// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with the correct
 // tenantId before returning a connection. As a best practice, you should only open connections using this 
-// method tooensure that SESSION_CONTEXT is always set before executing a query.
+// method to ensure that SESSION_CONTEXT is always set before executing a query.
 public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
 {
     SqlConnection conn = null;
     try
     {
-        // Ask shard map toobroker a validated connection for hello given key
+        // Ask shard map to broker a validated connection for the given key
         conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT tooshardingKey tooenable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", tenantId);
@@ -186,15 +186,15 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 ## <a name="step-2-data-tier-create-row-level-security-policy"></a>Etapa 2) Camada de dados: criar política de segurança no nível da linha
-### <a name="create-a-security-policy-toofilter-hello-rows-each-tenant-can-access"></a>Criar linhas de que cada locatário pode acessar de uma saudação de toofilter de política de segurança
-Agora que o aplicativo hello é definir SESSION_CONTEXT com hello TenantId atual antes de consultar, uma política de segurança RLS pode filtrar consultas e excluir linhas que têm um TenantId diferente.  
+### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que cada locatário pode acessar
+Agora que o aplicativo está definindo SESSION_CONTEXT com a TenantId atual antes de consultar, uma política de segurança RLS pode filtrar as consultas e excluir as linhas que têm uma TenantId diferente.  
 
-O RLS é implementado no T-SQL: uma função definida pelo usuário define a lógica de acesso a saudação e uma política de segurança associado a essa função tooany número de tabelas. Para este projeto, função hello simplesmente verificará se Olá aplicativo (em vez de algum outro usuário do SQL) é o banco de dados de toohello conectado, e esse Olá 'TenantId' armazenado em Olá SESSION_CONTEXT corresponde Olá TenantId de uma determinada linha. Um predicado de filtro permitirá linhas que atendem estas condições toopass por filtro Olá para consultas SELECT, UPDATE e DELETE; e um predicado de block impedirá linhas que violam essas condições sejam inseridos ou atualizados. Se não tiver sido definido SESSION_CONTEXT, ela retornará que NULL e nenhuma linha será visível ou a capacidade de toobe inserido. 
+A RLS é implementada no T-SQL: uma função definida pelo usuário define a lógica de acesso e uma política de segurança associa essa função a qualquer quantidade de tabelas. Para este projeto, a função simplesmente verificará se o aplicativo (em vez de outro usuário do SQL) está conectado ao banco de dados e se a 'TenantId' armazenada em SESSION_CONTEXT corresponde à TenantId de uma determinada linha. Um predicado de filtro permitirá que as linhas que atendem a essas condições passem no filtro para as consultas SELECT, UPDATE e DELETE; e um predicado de bloco impedirá que as linhas que violam essas condições sejam inseridas ou atualizadas com INSERT ou UPDATE, respectivamente. Se SESSION_CONTEXT não tiver sido definido, retornará NULL e nenhuma linha será visível ou poderá ser inserida. 
 
-tooenable RLS, execute Olá T-SQL a seguir em todos os fragmentos usando o Visual Studio (SSDT), SSMS, ou Olá script do PowerShell incluído no projeto hello (ou se você estiver usando [trabalhos do banco de dados Elástico](sql-database-elastic-jobs-overview.md), você pode usá-lo em execução tooautomate desse T-SQL em todos os fragmentos): 
+Para habilitar a RLS, execute o seguinte comando do T-SQL em todos os fragmentos usando Visual Studio (SSDT), SSMS ou o script do PowerShell incluído no projeto (ou, se você estiver usando [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md), você poderá usá-lo para automatizar a execução desse T-SQL em todos os fragmentos): 
 
 ```
-CREATE SCHEMA rls -- separate schema tooorganize RLS objects 
+CREATE SCHEMA rls -- separate schema to organize RLS objects 
 GO
 
 CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
@@ -202,7 +202,7 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult          
-        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- hello user in your application’s connection string (dbo is only for demo purposes!)         
+        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
         AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
 GO
 
@@ -215,13 +215,13 @@ GO
 ```
 
 > [!TIP]
-> Para projetos mais complexos que precisam de predicado de saudação tooadd em centenas de tabelas, você pode usar um procedimento armazenado auxiliar que gera automaticamente uma política de segurança adicionando um predicado em todas as tabelas em um esquema. Consulte [tabelas de tooall aplicar segurança de nível de linha - script auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
+> Para os projetos mais complexos que precisam adicionar o predicado a centenas de tabelas, você poderá usar um procedimento auxiliar armazenado que gera uma política de segurança automaticamente adicionando um predicado a todas as tabelas em um esquema. Confira [Apply Row-Level Security to all tables - helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) (Aplicar segurança no nível de linha a todas as tabelas – script auxiliar (blog)).  
 > 
 > 
 
-Agora se você executar o aplicativo de exemplo hello novamente, locatários serão capaz de toosee somente as linhas que pertencem a toothem. Além disso, o aplicativo hello não é possível inserir linhas que pertencem a tootenants diferente de banco de dados do hello toohello conectado no momento um fragmento e ele não é possível atualizar linhas visíveis toohave um TenantId diferente. Se o aplicativo hello tentativas toodo ou, um DbUpdateException será gerado.
+Agora, se você executar novamente o aplicativo de exemplo, os locatários poderão ver apenas as linhas que pertencem a eles. Além disso, o aplicativo não poderá inserir as linhas que pertencem aos locatários diferentes dos atualmente conectados ao banco de dados de fragmentos e não poderá atualizar as linhas visíveis com uma TenantId diferente. Se o aplicativo tentar qualquer uma dessas operações, será gerado um DbUpdateException.
 
-Se você adicionar uma nova tabela posteriormente, simplesmente ALTER Olá a política de segurança e adicione os predicados de filtro e bloqueio na nova tabela de saudação: 
+Se você adicionar uma nova tabela posteriormente, bastará alterar com ALTER a política de segurança e adicionar predicados de filtro e bloco à nova tabela: 
 
 ```
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
@@ -230,11 +230,11 @@ ALTER SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-### <a name="add-default-constraints-tooautomatically-populate-tenantid-for-inserts"></a>Adicionar padrão popular de restrições tooautomatically TenantId para inserções
-Você pode colocar um padrão popular de restrição em cada tabela tooautomatically Olá TenantId com hello valor armazenado atualmente em SESSION_CONTEXT ao inserir linhas. Por exemplo: 
+### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Adicionar restrições padrão para preencher automaticamente o TenantId para INSERTs
+Você pode colocar uma restrição padrão em cada tabela para preencher automaticamente a TenantId com o valor armazenado atualmente em SESSION_CONTEXT ao inserir as linhas. Por exemplo: 
 
 ```
--- Create default constraints tooauto-populate TenantId with hello value of SESSION_CONTEXT for inserts 
+-- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
     ADD CONSTRAINT df_TenantId_Blogs      
     DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
@@ -246,7 +246,7 @@ ALTER TABLE Posts
 GO 
 ```
 
-Agora o aplicativo hello não precisa toospecify um TenantId ao inserir linhas: 
+Agora, o aplicativo não precisa especificar um TenantId ao inserir linhas: 
 
 ```
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
@@ -261,12 +261,12 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Se você usar restrições padrão para um projeto do Entity Framework, é recomendável que você não incluir coluna de TenantId Olá no seu modelo de dados EF. Isso ocorre porque as consultas de Entity Framework fornecem valores padrão que substituirão as restrições de padrão de saudação criadas no T-SQL que usam SESSION_CONTEXT automaticamente. projeto de exemplo de restrições de padrão de toouse no hello, por exemplo, você deve remover a TenantId do DataClasses.cs (e executar Add-Migration Olá Package Manager Console) e tooensure use T-SQL que Olá campo só existe nas tabelas de banco de dados de saudação. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados. 
+> Se você usar restrições padrão para um projeto do Entity Framework, é recomendável não incluir a coluna TenantId em seu modelo de dados do EF. Isso ocorre porque as consultas do Entity Framework fornecem automaticamente os valores padrão que substituirão as restrições padrão criadas no T-SQL que usa o SESSION_CONTEXT. Para usar restrições padrão no projeto de exemplo, por exemplo, você deve remover TenantId de DataClasses.cs (e executar Add-Migration no Console do Gerenciador de Pacotes) e usar o T-SQL para garantir que o campo só exista nas tabelas do banco de dados. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados. 
 > 
 > 
 
-### <a name="optional-enable-a-superuser-tooaccess-all-rows"></a>(Opcional) Habilitar todas as linhas de uma tooaccess de "superusuário"
-Alguns aplicativos podem ser toocreate "superusuário" quem pode acessar todas as linhas, por exemplo, em ordem tooenable relatórios em todos os locatários em todos os fragmentos ou operações de divisão/mesclagem tooperform em fragmentos que envolvem mover linhas de locatário entre bancos de dados. tooenable isso, você deve criar um novo usuário SQL ("superusuário" neste exemplo) em cada banco de dados de fragmento. Em seguida, altere a política de segurança de saudação com uma nova função de predicado que permite que esse usuário tooaccess todas as linhas:
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Habilitar um "superusuário" acessar todas as linhas
+Alguns aplicativos talvez queiram criar um "superusuário" que pode acessar todas as linhas, por exemplo, para permitir a emissão de relatórios em todos os locatários em todos os fragmentos ou para executar operações de divisão/mesclagem em fragmentos que envolvem a movimentação de linhas de locatário entre bancos de dados. Para habilitar isso, você deve criar um novo usuário do SQL ("superusuário" neste exemplo) em cada banco de dados do fragmento. Em seguida, altere a política de segurança com uma nova função de predicado que permite que esse usuário acesse todas as linhas:
 
 ```
 -- New predicate function that adds superuser logic
@@ -286,7 +286,7 @@ AS
         )
 GO
 
--- Atomically swap in hello new predicate function on each table
+-- Atomically swap in the new predicate function on each table
 ALTER SECURITY POLICY rls.tenantAccessPolicy
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
     ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
@@ -296,12 +296,12 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Manutenção 
-* **Adicionando novos fragmentos**: você deve executar Olá T-SQL script tooenable RLS em quaisquer novos fragmentos, caso contrário, consultas sobre esses fragmentos não serão filtradas.
-* **Adicionando novas tabelas**: você deve adicionar um filtro e bloquear a política de segurança de predicado toohello em todos os fragmentos sempre que uma nova tabela é criada, caso contrário, consultas na nova tabela de saudação não serão filtradas. Isso pode ser automatizado usando um gatilho DDL, conforme descrito em [aplicar segurança de nível de linha toonewly criado automaticamente tabelas (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+### <a name="maintenance"></a>Manutenção
+* **Adicionando novos fragmentos**: você deve executar o script T-SQL para habilitar a RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
+* **Adicionando novas tabelas**: você deve adicionar predicados de filtro e bloco à política de segurança em todos os fragmentos sempre que uma nova tabela for criada; do contrário, as consultas na nova tabela não serão filtradas. Isso pode ser automatizado usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
-Ferramentas de banco de dados Elástico e segurança em nível de linha podem ser usado tooscale junto camada de dados de um aplicativo com suporte para vários locatários e único locatário fragmentos. Multilocatários fragmentos podem ser usados toostore dados com mais eficiência (principalmente em casos em que um grande número de locatários têm apenas algumas linhas de dados), ao único locatário fragmentos podem ser usados toosupport premium locatários com isolamento e desempenho mais rígida requisitos.  Para obter mais informações, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131). 
+Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos.  Para obter mais informações, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
@@ -311,7 +311,7 @@ Ferramentas de banco de dados Elástico e segurança em nível de linha podem se
 * [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
-Para dúvidas, entre em contato toous em Olá [Fórum do banco de dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para solicitações de recurso, adicione-toohello [Fórum de comentários do banco de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png

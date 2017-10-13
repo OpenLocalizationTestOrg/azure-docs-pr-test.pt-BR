@@ -1,6 +1,6 @@
 ---
-title: "domínio personalizado do conteúdo tooa aaaMap CDN do Azure | Microsoft Docs"
-description: "Saiba como o domínio personalizado tooa de conteúdo toomap CDN do Azure."
+title: "Mapear o conteúdo da CDN do Azure para um domínio personalizado | Microsoft Docs"
+description: "Saiba como mapear o conteúdo da CDN do Azure para um domínio personalizado."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d3ee77297f1dd7dbf31a9391191cc2910fbd2cee
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="map-azure-cdn-content-tooa-custom-domain"></a>Mapear o domínio personalizado do Azure CDN tooa conteúdo
-Você pode mapear um ponto de extremidade CDN do domínio personalizado tooa em ordem toouse seu próprio nome de domínio em URLs toocached conteúdo em vez de usar um subdomínio de azureedge.net.
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Conteúdo da CDN do Azure para um domínio personalizado
+Você pode mapear um domínio personalizado para um ponto de extremidade da CDN para usar seu próprio nome de domínio em URLs para o conteúdo armazenado em cache, em vez de usar um subdomínio do azureedge.net.
 
-Há toomap de duas maneiras de domínio personalizado tooa ponto de extremidade CDN:
+Há duas maneiras de mapear seu domínio personalizado para um ponto de extremidade da CDN.
 
-1. [Crie um registro CNAME com seu registrador de domínio e mapear seu domínio e subdomínio toohello CDN ponto de extremidade personalizado](#register-a-custom-domain-for-an-azure-cdn-endpoint).
+1. [Criar um registro CNAME com o registrador de domínios e mapear o domínio e subdomínio personalizados para o ponto de extremidade da CDN](#register-a-custom-domain-for-an-azure-cdn-endpoint).
    
-    Um registro CNAME é um recurso DNS que mapeia um domínio de origem, como `www.contosocdn.com` ou `cdn.contoso.com`, tooa domínio de destino. Nesse caso, o domínio de origem de saudação é seu domínio e subdomínio personalizados (um subdomínio, como **www** ou **cdn** é sempre necessário). domínio de destino Olá é o ponto de extremidade CDN.  
+    Um registro CNAME é um recurso DNS que mapeia um domínio de origem, como `www.contosocdn.com` ou `cdn.contoso.com`, para um domínio de destino. Nesse caso, o domínio de origem é o seu domínio e subdomínio personalizados (um subdomínio, como **Web** ou **cdn** é sempre necessário). O domínio de destino é o ponto de extremidade da CDN.  
    
-    processo de saudação do mapeamento de domínio personalizado tooyour ponto de extremidade CDN no entanto, pode resultar em um breve período de tempo de inatividade para o domínio de saudação enquanto você estiver registrando o domínio de saudação em Olá Portal do Azure.
+    O processo de mapeamento de seu domínio personalizado para o ponto de extremidade da CDN pode, no entanto, resultar em um breve período de inatividade para o domínio, enquanto você está registrando o domínio no Portal do Azure.
 2. [Adicionar uma etapa de registro intermediária com **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
    
-    Se seu domínio personalizado no momento está dando suporte a um aplicativo com um contrato de nível de serviço (SLA) que não requer que não haja nenhum tempo de inatividade, você pode usar o hello Azure **cdnverify** tooprovide subdomínio um registro intermediário etapa para que os usuários serão tooaccess capaz de seu domínio durante Olá DNS mapeando ocorra.  
+    Se atualmente o seu domínio personalizado oferecer suporte a um aplicativo com um contrato de nível de serviço (SLA) que não permita um tempo de inatividade, então você pode usar o subdomínio **cdnverify** do Azure para fornecer uma etapa intermediária de registro para que os usuários possam acessar seu domínio durante o mapeamento do DNS.  
 
-Depois de registrar seu domínio personalizado usando uma saudação acima procedimentos, você desejará muito[verificar esse subdomínio personalizado Olá faz referência a seu ponto de extremidade CDN](#verify-that-the-custom-subdomain-references-your-cdn-endpoint).
+Depois de registrar seu domínio personalizado usando um dos procedimentos acima, [verifique se o subdomínio personalizado referencia seu ponto de extremidade da CDN](#verify-that-the-custom-subdomain-references-your-cdn-endpoint).
 
 > [!NOTE]
-> Você deve criar um registro CNAME com seu toomap do registrador de domínio domínio toohello ponto de extremidade CDN. Os registros CNAME mapeiam subdomínios específicos como `www.contoso.com` ou `cdn.contoso.com`. Não é possível toomap um domínio de raiz de tooa registro CNAME, como `contoso.com`.
+> Você deve criar um registro CNAME com seu registrador de domínios para mapear o domínio para o ponto de extremidade da CDN. Os registros CNAME mapeiam subdomínios específicos como `www.contoso.com` ou `cdn.contoso.com`. Não é possível mapear um registro CNAME a um domínio raiz, como `contoso.com`.
 > 
-> Um subdomínio só pode ser associado a um ponto de extremidade da CDN. Olá registro CNAME que você cria roteará todo o tráfego endereçado toohello subdomínio toohello especificado o ponto de extremidade.  Por exemplo, se você associar `www.contoso.com` ao ponto de extremidade da sua CDN, não poderá associá-lo a outros pontos de extremidade do Azure, como um ponto de extremidade de conta de armazenamento ou um ponto de extremidade de serviço de nuvem. No entanto, você pode usar outros subdomínios de saudação mesmo domínio para pontos de extremidade de serviço diferente. Você também pode mapear outros subdomínios toohello mesmo ponto de extremidade CDN.
+> Um subdomínio só pode ser associado a um ponto de extremidade da CDN. O registro CNAME que você criar roteará todo o tráfego endereçado ao subdomínio para o ponto de extremidade especificado.  Por exemplo, se você associar `www.contoso.com` ao ponto de extremidade da sua CDN, não poderá associá-lo a outros pontos de extremidade do Azure, como um ponto de extremidade de conta de armazenamento ou um ponto de extremidade de serviço de nuvem. No entanto, você pode usar outros subdomínios do mesmo domínio para pontos de extremidade de serviço diferentes. Você também pode mapear outros subdomínios para o mesmo ponto de extremidade da CDN.
 > 
-> Para **CDN do Azure da Verizon** pontos de extremidade (Standard e Premium), observe que está ocupando muito**90 minutos** nós de borda tooCDN toopropagate alterações de domínio personalizado.
+> Para pontos de extremidade da **CDN do Azure CDN da Verizon** (Standard e Premium), observe pode demorar até **90 minutos** para que as suas alterações de domínio personalizado sejam propagadas para os nós de borda da CDN.
 > 
 > 
 
 ## <a name="register-a-custom-domain-for-an-azure-cdn-endpoint"></a>Registrar um domínio personalizado para um ponto de extremidade da CDN do Azure
-1. Faça logon no hello [Portal do Azure](https://portal.azure.com/).
-2. Clique em **procurar**, em seguida, **CDN perfis**, Olá, em seguida, o perfil CDN com ponto de extremidade Olá você deseja que o domínio personalizado do toomap tooa.  
-3. Em Olá **perfil CDN** folha, clique em ponto de extremidade CDN Olá com a qual você deseja que o subdomínio de saudação tooassociate.
-4. Na parte superior de saudação da folha de ponto de extremidade de saudação, clique em Olá **adicionar um domínio personalizado** botão.  Em Olá **adicionar um domínio personalizado** folha, você verá nome de host do ponto de extremidade hello, derivado do ponto de extremidade CDN, toouse na criação de um novo registro CNAME. formato de saudação do endereço de nome de host Olá aparecerá como  **&lt;EndpointName >. azureedge.net**.  Você pode copiar este toouse de nome de host na criação de registro CNAME hello.  
-5. Navegue de site do registrador de domínio tooyour e localize a seção Olá para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
-6. Localize seção Olá para gerenciar CNAMEs. Você pode ter a página de configurações avançadas de tooan toogo e procure palavras Olá CNAME, Alias ou subdomínios.
-7. Criar um novo registro CNAME que mapeie o subdomínio escolhido (por exemplo, **www** ou **cdn**) toohello nome do host fornecido no hello **adicionar um domínio personalizado** folha. 
-8. Retornar toohello **adicionar um domínio personalizado** folha e insira seu domínio personalizado, incluindo o subdomínio hello, na caixa de diálogo de saudação. Por exemplo, digite o nome de domínio Olá no formato de saudação `www.contoso.com` ou `cdn.contoso.com`.   
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **Procurar**, em **Perfis CDN** e no perfil CDN com o ponto de extremidade que você deseja mapear para um domínio personalizado.  
+3. Na folha **Perfil CDN** , clique no ponto de extremidade da CDN ao qual você deseja associar o subdomínio.
+4. Na parte superior da folha de ponto de extremidade, clique no botão **Adicionar Domínio Personalizado** .  Na folha **Adicionar um domínio personalizado** , você verá o nome do host do ponto de extremidade, derivado do ponto de extremidade da CDN, a ser usado para criar um novo registro CNAME. O formato do endereço do nome do host aparecerá como **&lt;EndpointName>.azureedge.net**.  Você pode copiar esse nome de host para usá-lo ao criar o registro CNAME.  
+5. Navegue até o site do registrador do domínio e localize a seção para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
+6. Localize a seção de gerenciamento de CNAMEs. Talvez você precise acessar uma página de configurações avançadas e procurar as palavras CNAME, Alias ou Subdomínios.
+7. Crie um novo registro CNAME que mapeie o subdomínio escolhido (por exemplo, **www** ou **cdn**) para o nome de host fornecido na folha **Adicionar domínios personalizados**. 
+8. Retorne à folha **Adicionar domínios personalizados** e insira seu domínio personalizado, incluindo o subdomínio, na caixa de diálogo. Por exemplo, insira o nome de domínio no formato `www.contoso.com` ou `cdn.contoso.com`.   
    
-   Azure verificará a existência de registro de CNAME Olá Olá nome de domínio inserido. Se Olá CNAME estiver correto, seu domínio personalizado será validado.  Para **CDN do Azure da Verizon** pontos de extremidade (Standard e Premium), pode levar até too90 minutos para nós de borda do CDN tooall do domínio personalizado configurações toopropagate, no entanto.  
+   O Azure verificará se o registro CNAME existe para o nome de domínio que você digitou. Se o CNAME estiver correto, seu domínio personalizado será validado.  No entanto, para pontos de extremidade da **CDN do Azure da Verizon** (Standard e Premium), pode levar até 90 minutos para que as configurações de domínio personalizado sejam propagadas para todos os nós de borda da CDN.  
    
-   Observe que, em alguns casos, ele pode levar tempo para Olá CNAME toopropagate registro tooname servidores em Olá Internet. Se o domínio não for validado imediatamente, e você acredita Olá registro CNAME está correto, em seguida, aguarde alguns minutos e tente novamente.
+   Observe que, em alguns casos, pode levar algum tempo para que o registro CNAME se propague para servidores de nomes na Internet. Se seu domínio não for validado imediatamente e você achar que o registro CNAME está correto, aguarde alguns minutos e tente novamente.
 
-## <a name="register-a-custom-domain-for-an-azure-cdn-endpoint-using-hello-intermediary-cdnverify-subdomain"></a>Registrar um domínio personalizado para um ponto de extremidade CDN do Azure usando o subdomínio intermediário cdnverify de saudação
-1. Faça logon no hello [Portal do Azure](https://portal.azure.com/).
-2. Clique em **procurar**, em seguida, **CDN perfis**, Olá, em seguida, o perfil CDN com ponto de extremidade Olá você deseja que o domínio personalizado do toomap tooa.  
-3. Em Olá **perfil CDN** folha, clique em ponto de extremidade CDN Olá com a qual você deseja que o subdomínio de saudação tooassociate.
-4. Na parte superior de saudação da folha de ponto de extremidade de saudação, clique em Olá **adicionar um domínio personalizado** botão.  Em Olá **adicionar um domínio personalizado** folha, você verá nome de host do ponto de extremidade hello, derivado do ponto de extremidade CDN, toouse na criação de um novo registro CNAME. formato de saudação do endereço de nome de host Olá aparecerá como  **&lt;EndpointName >. azureedge.net**.  Você pode copiar este toouse de nome de host na criação de registro CNAME hello.
-5. Navegue de site do registrador de domínio tooyour e localize a seção Olá para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
-6. Localize seção Olá para gerenciar CNAMEs. Você pode ter a página de configurações avançadas de tooan toogo e procurar palavras Olá **CNAME**, **Alias**, ou **subdomínios**.
-7. Criar um novo registro CNAME e forneça um alias de subdomínio que inclui a saudação **cdnverify** subdomínio. Por exemplo, o subdomínio de saudação que você especificar estará no formato de saudação **cdnverify.www** ou **cdnverify.cdn**. Forneça o nome de host hello, que é o ponto de extremidade CDN, no formato de saudação **cdnverify.&lt; EndpointName >. azureedge.net**. O mapeamento de DNS deve ser parecido com: `cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
-8. Retornar toohello **adicionar um domínio personalizado** folha e insira seu domínio personalizado, incluindo o subdomínio hello, na caixa de diálogo de saudação. Por exemplo, digite o nome de domínio Olá no formato de saudação `www.contoso.com` ou `cdn.contoso.com`. Observe que, nesta etapa, você precisa não subdomínio Olá toopreface **cdnverify**.  
+## <a name="register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain"></a>Registrar um domínio personalizado para um ponto de extremidade da CDN do Azure usando o subdomínio intermediário cdnverify.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **Procurar**, em **Perfis CDN** e no perfil CDN com o ponto de extremidade que você deseja mapear para um domínio personalizado.  
+3. Na folha **Perfil CDN** , clique no ponto de extremidade da CDN ao qual você deseja associar o subdomínio.
+4. Na parte superior da folha de ponto de extremidade, clique no botão **Adicionar Domínio Personalizado** .  Na folha **Adicionar um domínio personalizado** , você verá o nome do host do ponto de extremidade, derivado do ponto de extremidade da CDN, a ser usado para criar um novo registro CNAME. O formato do endereço do nome do host aparecerá como **&lt;EndpointName>.azureedge.net**.  Você pode copiar esse nome de host para usá-lo ao criar o registro CNAME.
+5. Navegue até o site do registrador do domínio e localize a seção para criar registros DNS. Você pode encontrá-lo em uma seção como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**.
+6. Localize a seção de gerenciamento de CNAMEs. Talvez você precise acessar uma página de configurações avançadas e procurar as palavras **CNAME**, **Alias** ou **Subdomínios**.
+7. Crie um novo registro CNAME e forneça um alias de subdomínio que inclua o subdomínio **cdnverify** . Por exemplo, o subdomínio especificado estará no formato **cdnverify.www** ou **cdnverify.cdn**. Em seguida, forneça o nome de host, que é o seu ponto de extremidade da CDN, no formato **cdnverify.&lt;NomeDoPontoDeExtremidade>.azureedge.net**. O mapeamento de DNS deve ser parecido com: `cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
+8. Retorne à folha **Adicionar domínios personalizados** e insira seu domínio personalizado, incluindo o subdomínio, na caixa de diálogo. Por exemplo, insira o nome de domínio no formato `www.contoso.com` ou `cdn.contoso.com`. Observe que, nessa etapa, você não precisa prefaciar o subdomínio com **cdnverify**.  
    
-    Azure verificará a existência de registro de CNAME Olá Olá cdnverify nome de domínio inserido.
-9. Neste ponto, seu domínio personalizado foi verificado pelo Azure, mas o domínio tooyour do tráfego ainda não está sendo roteado tooyour ponto de extremidade CDN. Depois de aguardar longo o suficiente toopropagate de configurações de domínio personalizado de saudação tooallow toohello CDN borda nós (90 minutos para **CDN do Azure da Verizon**, 1 a 2 minutos para **Azure CDN do Akamai**), retornar tooyour DNS site do registrador e criar outro registro CNAME que mapeie o subdomínio tooyour ponto de extremidade CDN. Por exemplo, especifique o subdomínio Olá **www** ou **cdn**, e Olá hostname como  **&lt;EndpointName >. azureedge.net**. Com essa etapa, o registro de saudação do seu domínio personalizado está concluído.
-10. Por fim, você pode excluir o registro CNAME Olá criado usando **cdnverify**, pois ele foi necessário apenas como uma etapa intermediária.  
+    O Azure verificará se o registro CNAME existe para o nome de domínio cdnverify que você inseriu.
+9. Nesse ponto, seu domínio personalizado foi verificado pelo Azure, mas o tráfego para seu domínio ainda não está sendo roteado para seu ponto de extremidade da CDN. Após aguardar tempo suficiente para permitir que as configurações de domínio personalizado sejam propagadas para os nós de borda da CDN (90 minutos para a **CDN do Azure da Verizon**, 1 a 2 minutos para a **CDN do Azure da Akamai**), volte ao site do registrador do seu DNS e crie outro registro CNAME que mapeie o seu subdomínio ao seu ponto de extremidade CDN. Por exemplo, especifique o subdomínio como **www** ou **cdn** e o nome de host como **&lt;NomeDoPontoDeExtremidade>.azureedge.net**. Com essa etapa, o registro do seu domínio personalizado está concluído.
+10. Por fim, você pode excluir o Registro CNAME criado usando **cdnverify**, já que ele era necessário apenas como uma etapa intermediária.  
 
-## <a name="verify-that-hello-custom-subdomain-references-your-cdn-endpoint"></a>Verifique se que esse subdomínio personalizado Olá referencia seu ponto de extremidade CDN
-* Depois de concluir o registro de saudação do seu domínio personalizado, você pode acessar o conteúdo armazenado em cache no ponto de extremidade CDN usando o domínio personalizado hello.
-  Primeiro, certifique-se de que você tem conteúdo público armazenado em cache no ponto de extremidade de saudação. Por exemplo, se o ponto de extremidade CDN estiver associado uma conta de armazenamento, Olá CDN armazene conteúdo em cache em contêineres de blob público. domínio personalizado do tootest hello, certifique-se de que o contêiner está definido acesso público de tooallow e que ele contém pelo menos um blob.
-* No seu navegador, navegue toohello endereço de blob hello usando o domínio personalizado hello. Por exemplo, se seu domínio personalizado é `cdn.contoso.com`, blob armazenado em cache do tooa Olá URL será semelhante toohello URL a seguir: http://cdn.contoso.com/mypubliccontainer/acachedblob.jpg
+## <a name="verify-that-the-custom-subdomain-references-your-cdn-endpoint"></a>verifique se o subdomínio personalizado referencia seu ponto de extremidade da CDN
+* Depois de concluir o registro de seu domínio personalizado, você pode acessar o conteúdo armazenado em cache no ponto de extremidade da CDN usando o domínio personalizado.
+  Primeiro, verifique se você tem conteúdo público armazenado em cache no ponto de extremidade. Por exemplo, se o ponto de extremidade da CDN estiver associado a uma conta de armazenamento, a CDN armazenará conteúdo em cache em contêineres de blobs públicos. Para testar o domínio personalizado, verifique se o contêiner está definido para permitir acesso público e se contém pelo menos um blob.
+* Em seu navegador, navegue até o endereço do blob usando o domínio personalizado. Por exemplo, se seu domínio personalizado for `cdn.contoso.com`, a URL para um blob armazenado em cache será semelhante à seguinte URL: http://cdn.contoso.com/mypubliccontainer/acachedblob.jpg
 
 ## <a name="see-also"></a>Consulte também
-[Como tooEnable Olá Content Delivery Network (CDN) do Azure](cdn-create-new-endpoint.md)  
+[Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](cdn-create-new-endpoint.md)  
 

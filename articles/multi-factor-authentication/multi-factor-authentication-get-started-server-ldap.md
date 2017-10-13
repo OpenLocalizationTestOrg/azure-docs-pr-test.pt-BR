@@ -1,6 +1,6 @@
 ---
-title: "aaaLDAP autenticação e o servidor Azure MFA | Microsoft Docs"
-description: "Isso é a página de autenticação do Azure multi-factor Olá ajudará na implantação de autenticação LDAP e o servidor Azure multi-Factor Authentication."
+title: "Autenticação LDAP e Servidor Azure MFA | Microsoft Docs"
+description: "Essa é a página Azure Multi-Factor Authentication que auxiliará na implantação de autenticação LDAP e do servidor Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.openlocfilehash: 17a26b57dbf6afa2fcfdb3d19c5b5ba2987a9f79
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e Servidor de Autenticação Multifator do Azure
-Por padrão, Olá servidor Azure multi-Factor Authentication é configurado tooimport ou sincronizar usuários do Active Directory. No entanto, pode ser configurado toobind toodifferent LDAP diretórios, como um diretório ADAM ou controlador de domínio do Active Directory específico. Quando conectado tooa diretório via LDAP, Olá servidor Azure multi-Factor Authentication pode agir como um autenticações de tooperform de proxy LDAP. Ele também permite Olá uso de ligação LDAP como um destino RADIUS, para pré-autenticação de usuários com a autenticação do IIS ou autenticação principal no portal do usuário hello Azure MFA.
+Por padrão, o Servidor do Azure Multi-Factor Authentication é configurado para importar ou sincronizar usuários do Active Directory. No entanto, ele pode ser configurado para associar a diferentes diretórios LDAP, como um diretório ADAM ou controlador de domínio específico do Active Directory. Quando conectado a um diretório via LDAP, o Servidor de Autenticação Multifator do Azure pode atuar como um proxy LDAP e realizar autenticações. Ele também permite o uso da associação LDAP como um destino RADIUS para pré-autenticação dos usuários com a Autenticação do IIS ou autenticação principal no portal de usuário do Azure MFA.
 
-toouse Azure multi-Factor Authentication como um proxy LDAP, insira Olá servidor Azure multi-Factor Authentication entre o cliente LDAP de saudação (por exemplo, o dispositivo de VPN, o aplicativo) e o servidor de diretório LDAP hello. Olá servidor Azure multi-Factor Authentication deve ser configurado toocommunicate com servidores de saudação do cliente e o diretório LDAP de saudação. Nessa configuração, hello servidor Azure multi-Factor Authentication aceita solicitações LDAP dos aplicativos e servidores do cliente e encaminha-toohello destino LDAP directory toovalidate Olá primárias credenciais do servidor. Se o diretório LDAP de saudação valida credenciais primárias hello, Azure multi-Factor Authentication realiza uma verificação de identidade segundo e envia uma resposta ao cliente toohello back LDAP. autenticação completa Olá só terá sucesso se autenticação do servidor LDAP hello e verificação de segundo etapa Olá bem-sucedida.
+Para usar a Autenticação Multifator do Azure como um proxy LDAP, insira o Servidor de Autenticação Multifator do Azure entre o cliente LDAP (por exemplo, aplicativo, dispositivo VPN) e o servidor do diretório LDAP. O Servidor de Autenticação Multifator do Azure deve ser configurado para se comunicar com servidores do cliente e com o diretório LDAP. Nessa configuração, o servidor Azure Multi-Factor Authentication aceita solicitações LDAP dos aplicativos e servidores clientes e os encaminha para o servidor de diretório LDAP de destino para validar as credenciais principais. Se o diretório LDAP validar as credenciais primárias, a Autenticação Multifator do Azure executará a segunda verificação de identidade e enviará uma resposta de volta ao cliente LDAP. Toda a autenticação só será bem-sucedida se a autenticação do servidor LDAP e a verificação de segunda etapa forem bem-sucedidas.
 
 ## <a name="configure-ldap-authentication"></a>Configurar a autenticação LDAP
-autenticação de LDAP tooconfigure, Olá instalar servidor Azure multi-Factor Authentication em um servidor Windows. Use Olá procedimento a seguir:
+Para configurar a autenticação LDAP, instale o servidor Azure Multi-Factor Authentication em um servidor Windows. Use este procedimento:
 
 ### <a name="add-an-ldap-client"></a>Adicionar um cliente LDAP
 
-1. No hello servidor Azure multi-Factor Authentication, selecione o ícone de autenticação LDAP de saudação no menu esquerdo hello.
-2. Verificar Olá **habilitar autenticação LDAP** caixa de seleção.
+1. No Servidor de Autenticação Multifator do Azure, selecione o ícone Autenticação LDAP no menu à esquerda.
+2. Marque a caixa de seleção **Habilitar Autenticação LDAP**.
 
    ![Autenticação LDAP](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
 
-3. Olá clientes guia, altere a porta TCP hello e a porta SSL se Olá serviço LDAP do Azure multi-Factor Authentication deve associar toolisten portas toonon padrão para solicitações LDAP.
-4. Se você planejar toouse LDAPS do cliente de saudação toohello servidor Azure multi-Factor Authentication, um certificado SSL deve ser instalado em Olá mesmo servidor como servidor MFA. Clique em **procurar** toohello próximo SSL certificado caixa e selecione toouse um certificado de conexão segura hello.
+3. Na guia Clientes, altere a porta TCP e a porta SSL se o serviço LDAP da Autenticação Multifator do Azure tiver que se associar às portas não padrão para escutar solicitações LDAP.
+4. Se você planejar usar LDAPS do cliente para o Servidor de Autenticação Multifator do Azure, um certificado SSL deverá ser instalado no mesmo servidor que o Servidor de MFA. Clique em **Procurar** ao lado da caixa de certificado SSL e selecione um certificado a ser usado para a conexão segura.
 5. Clique em **Adicionar**.
-6. Na caixa de diálogo Adicionar cliente LDAP hello, insira o endereço IP de saudação do dispositivo hello, servidor ou aplicativo que autentica toohello servidor e um nome de aplicativo (opcional). nome do aplicativo Hello aparece em relatórios do Azure multi-Factor Authentication e pode ser exibido em mensagens de autenticação SMS ou do aplicativo móvel.
-7. Verificar Olá **correspondência de usuários exigir Azure multi-Factor Authentication** caixa se todos os usuários foram ou serão importados para hello servidor e verificação de etapa tootwo de assunto. Se um número significativo de usuários ainda não foi importado no servidor de saudação e/ou está isento da verificação em duas etapas, deixe a caixa de saudação desmarcada. Consulte o arquivo de Ajuda do servidor MFA Olá para obter informações adicionais sobre esse recurso.
+6. Na caixa de diálogo Adicionar Cliente LDAP, digite o endereço IP do dispositivo, do servidor ou do aplicativo que fará a autenticação para o Servidor e um nome de Aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
+7. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure**  se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado para o Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada. Consulte o arquivo de ajuda Servidor de MFA para obter informações adicionais sobre esse recurso.
 
-Repita essas etapas tooadd mais clientes LDAP.
+Repita estas etapas para adicionar outros clientes LDAP.
 
-### <a name="configure-hello-ldap-directory-connection"></a>Configurar a conexão de diretório LDAP Olá
+### <a name="configure-the-ldap-directory-connection"></a>Configurar a conexão do diretório LDAP
 
-Quando as autenticações de LDAP configurado tooreceive hello Azure multi-Factor Authentication, ele deverá proxy esses diretório LDAP toohello autenticações. Portanto, o guia de destino de Olá exibe somente um único esmaecidas opção toouse um destino LDAP.
+Quando o Azure multi-Factor Authentication é configurado para receber autenticações LDAP, ele deve fazer o proxy dessas autenticações para o diretório LDAP. Portanto, o guia Destino exibe apenas uma única opção esmaecida para usar um destino LDAP.
 
-1. Olá tooconfigure conexão de diretório LDAP, clique em Olá **integração de diretórios** ícone.
-2. Na guia Configurações de saudação, selecione Olá **usar configuração LDAP específica** botão de opção.
+1. Para configurar a conexão do diretório LDAP, clique no ícone **Integração de Diretórios**.
+2. Na guia Configurações, selecione o botão de opção **Usar configuração de LDAP específica**.
 3. Selecione **Editar...**
-4. Na caixa de diálogo Editar configuração de LDAP hello, preencha os campos de saudação com hello informações necessárias tooconnect toohello LDAP directory. Descrições dos campos de saudação são incluídas no arquivo de Ajuda do servidor Azure multi-Factor Authentication hello.
+4. Na caixa de diálogo Editar Configuração de LDAP, popule os campos com as informações exigidas para se conectar ao diretório LDAP. As descrições dos campos estão incluídas no arquivo de ajuda do servidor da Autenticação Multifator do Azure.
 
     ![Integração de diretórios](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
 
-5. Testar conexão de LDAP Olá clicando Olá **teste** botão.
-6. Se o teste de conexão LDAP Olá foi bem-sucedido, clique em Olá **Okey** botão.
-7. Clique em Olá **filtros** Olá na guia servidor está pré-configurado tooload contêineres, grupos de segurança e usuários do Active Directory. Se o diretório LDAP diferente de tooa de associação, você provavelmente precisará filtros de saudação tooedit exibidos. Clique em Olá **ajuda** link para obter mais informações sobre os filtros.
-8. Clique em Olá **atributos** Olá na guia servidor está pré-configurado toomap atributos do Active Directory.
-9. Se você estiver associando tooa outro diretório ou toochange Olá pré-configurado mapeamentos de atributos LDAP, clique em **editar...**
-10. Na caixa de diálogo Editar atributos hello, modificar mapeamentos de atributos LDAP Olá para seu diretório. Nomes de atributo podem ser digitados ou selecionados clicando Olá **...** campo de tooeach próximo botão. Clique em Olá **ajuda** link para obter mais informações sobre atributos.
-11. Clique em Olá **Okey** botão.
-12. Clique em Olá **configurações da empresa** ícone e selecione Olá **resolução de nome de usuário** guia.
-13. Se você estiver se conectando tooActive diretório de um servidor ingressado no domínio, deixe Olá **identificadores de segurança (SIDs) usar o Windows para correspondência de nomes de usuário** botão de opção selecionado. Caso contrário, selecione Olá **atributo de identificador exclusivo de usar LDAP para correspondência de nomes de usuário** botão de opção. 
+5. Teste a conexão LDAP clicando no botão **Testar**.
+6. Se o teste de conexão LDAP foi bem-sucedido, clique no botão **OK**.
+7. Clique na guia **Filtros**. O Servidor está pré-configurado para carregar contêineres, usuários e grupos de segurança do Active Directory. Se estiver se associando a um diretório LDAP diferente, provavelmente será necessário editar os filtros exibidos. Clique no link **Ajuda** para saber mais sobre filtros.
+8. Clique na guia **Atributos** . O servidor está pré-configurado para mapear os atributos do Active Directory.
+9. Se você estiver se associando a um diretório LDAP diferente ou para alterar os mapeamentos de atributos pré-configurados, clique no botão **Editar…**
+10. Na caixa de diálogo Editar Atributos, modifique os mapeamentos de atributos LDAP para seu diretório. Os nomes de atributo podem ser digitados ou selecionados clicando no botão **...** ao lado de cada campo. Clique no link **Ajuda** para saber mais sobre atributos.
+11. Clique no botão **OK**.
+12. Em seguida, clique no ícone **Configurações da Empresa** e selecione a guia **Resolução de Nome de Usuário**.
+13. Se estiver se conectando ao Active Directory de um servidor ingressado em domínio, deixe o botão de opção **Usar os identificadores de segurança do Windows (SIDs) para nomes de usuário correspondentes** selecionado. Caso contrário, selecione o botão de opção **Usar atributo de identificador exclusivo LDAP para correspondência de nomes de usuário**. 
 
-Olá quando **atributo de identificador exclusivo de usar LDAP para correspondência de nomes de usuário** botão de opção é selecionada, Olá servidor Azure multi-Factor Authentication tenta tooresolve cada nome de usuário tooa o identificador exclusivo no diretório LDAP de saudação. Uma pesquisa LDAP é executada em Olá Username atributos definidos em Olá integração de diretórios -> guia atributos. Quando um usuário é autenticado, o nome de usuário de saudação é resolvido toohello o identificador exclusivo no diretório LDAP de saudação. Identificador exclusivo da saudação é usado para o usuário Olá correspondente no arquivo de dados do Azure multi-Factor Authentication hello. Isso permite comparações que não diferenciam maiúsculas de minúsculas, bem como formatos de nome de usuário curtos e longos.
+Quando o botão de opção **Usar atributo de identificador exclusivo LDAP para correspondência de nomes de usuário** selecionado, o Servidor de Autenticação Multifator do Azure tenta resolver cada nome de usuário para um identificador exclusivo no diretório LDAP. Uma pesquisa LDAP é executada nos atributos de nome de usuário definidos na guia Integração do Diretório -> Atributos. Quando um usuário é autenticado, o nome de usuário é resolvido para o identificador exclusivo no diretório LDAP. O identificador exclusivo é usado para combinar ao usuário no arquivo de dados de Autenticação Multifator do Azure. Isso permite comparações que não diferenciam maiúsculas de minúsculas, bem como formatos de nome de usuário curtos e longos.
 
-Depois de concluir essas etapas, Olá servidor MFA escuta em portas de saudação configurada para solicitações de acesso LDAP de saudação configurado clientes e age como um proxy para as solicitações toohello diretório LDAP para autenticação.
+Depois de concluir essas etapas, o Servidor de MFA começará a escutar nas portas configuradas solicitações de acesso LDAP dos clientes configurados e atuará como proxy para essas solicitações ao diretório LDAP para autenticação.
 
 ## <a name="configure-ldap-client"></a>Configurar cliente LDAP
-Olá tooconfigure cliente LDAP, use as diretrizes de saudação:
+Para configurar o cliente LDAP, use as diretrizes:
 
-* Configure seu dispositivo, o servidor ou o aplicativo tooauthenticate via LDAP toohello servidor Azure multi-Factor Authentication como se fosse seu diretório LDAP. Use Olá mesmo configurações que normalmente usaria tooconnect diretamente tooyour diretório LDAP, exceto pelo nome do servidor de saudação ou endereço IP, que será da saudação servidor Azure multi-Factor Authentication.
-* Configurar Olá LDAP tempo limite too30-60 de segundos para que haja tempo toovalidate Olá as credenciais de usuário com o diretório LDAP de hello, executar uma verificação de segundo etapa hello, receber a resposta e responder a solicitação de acesso LDAP toohello.
-* Se estiver usando LDAPS, hello dispositivo ou o servidor faz consultas LDAP de saudação deve confiar Olá certificado SSL instalado no servidor Azure multi-Factor Authentication da saudação.
+* Configure seu dispositivo, servidor ou aplicativo para autenticar via LDAP para o Servidor de Autenticação Multifator do Azure como se fosse seu diretório LDAP. Use as mesmas configurações que normalmente usa para se conectar diretamente ao diretório LDAP, exceto o nome do servidor ou endereço IP que será o Servidor de Autenticação Multifator do Azure.
+* Configure o tempo limite LDAP para 30 a 60 segundos de modo que haja tempo para validar as credenciais do usuário com o diretório LDAP, executar a verificação de segunda etapa, receber a resposta e responder à solicitação de acesso LDAP.
+* Se estiver usando LDAPS, o dispositivo ou o servidor que faz as consultas LDAP deve confiar no certificado SSL instalado no servidor Azure Multi-Factor Authentication.
 

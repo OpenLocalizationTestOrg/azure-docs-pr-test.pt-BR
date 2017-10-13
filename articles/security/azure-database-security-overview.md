@@ -1,6 +1,6 @@
 ---
-title: "Visão geral de segurança de banco de dados aaaAzure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos recursos de segurança de banco de dados do Azure hello."
+title: "Visão geral de segurança do banco de dados do Azure | Microsoft Docs"
+description: "Este artigo fornece uma visão geral dos recursos de segurança do banco de dados do Azure."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.openlocfilehash: 13f14b99d15800e85e9906a9d167eb0adf2135de
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
 A segurança é uma das principais preocupações durante o gerenciamento de bancos de dados e sempre foi uma prioridade para o Banco de Dados SQL do Azure. O Banco de Dados SQL do Azure dá suporte à segurança de conexão com regras de firewall e criptografia da conexão. Ele dá suporte à autenticação com nome de usuário e senha e a Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory. A autorização usa o controle de acesso baseado em função.
 
-Banco de dados do SQL Azure oferece suporte à criptografia executando criptografia em tempo real e a descriptografia de bancos de dados, backups associados e arquivos de log de transações em repouso sem exigir alterações toohello aplicativo.
+O Banco de Dados SQL do Azure dá suporte à criptografia executando criptografia e descriptografia em tempo real de banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
 
-A Microsoft fornece maneiras adicionais tooencrypt dados da empresa:
+A Microsoft fornece maneiras adicionais para criptografar os dados da empresa:
 
--   Nível de célula colunas específicas de tooencrypt de criptografia ou até mesmo células de dados com diferentes chaves de criptografia.
+-   Criptografia no nível de célula para criptografar colunas específicas ou até mesmo células de dados com chaves de criptografia diferentes.
 -   Se você precisar de um Módulo de Segurança de Hardware ou do gerenciamento central da hierarquia de chaves de criptografia, considere o uso do Azure Key Vault com o SQL Server em uma VM do Azure.
--   Sempre criptografado (atualmente na visualização) torna tooapplications transparente de criptografia e permite que os clientes tooencrypt os dados confidenciais em aplicativos de cliente sem compartilhar as chaves de criptografia de saudação com banco de dados SQL.
+-   O Always Encrypted (atualmente, em versão prévia) torna a criptografia transparente para os aplicativos e permite que os clientes criptografem dados confidenciais em aplicativos cliente sem compartilhar as chaves de criptografia com o Banco de Dados SQL.
 
-Auditoria de banco de dados SQL do Azure permite que as empresas toorecord eventos tooan auditoria logon armazenamento do Azure. Auditoria de banco de dados SQL também se integra com análises e relatórios do Microsoft Power BI toofacilitate drill-down.
+A Auditoria do Banco de Dados SQL do Azure permite que as empresas registrem eventos no Armazenamento do Azure de um logon de auditoria. A Auditoria do Banco de Dados SQL também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados.
 
- Bancos de dados do SQL Azure podem ser totalmente protegido toosatisfy mais normas ou requisitos de segurança, como HIPAA, ISO 27001/27002 e PCI DSS nível 1, entre outros. Uma lista atual das certificações de conformidade de segurança está disponível em Olá [site do Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/services/).
+ Os bancos de dados SQL do Azure podem ser totalmente protegidos para atender a maioria dos requisitos regulamentares ou de segurança, como HIPAA, ISO 27001/27002 e PCI DSS Nível 1, entre outros. Uma lista atual das certificações de conformidade de segurança está disponível no [site da Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/services/).
 
-Este artigo explica fundamentos de saudação de proteção de bancos de dados SQL do Microsoft Azure para estruturada, tabela e dados relacionais. Em particular, este artigo mostrará uma introdução aos recursos de proteção de dados, de controle de acesso e de monitoramento proativo.
+Este artigo explica os conceitos básicos de proteção de Bancos de Dados SQL do Microsoft Azure para Dados Estruturados, de Tabela e Relacionais. Em particular, este artigo mostrará uma introdução aos recursos de proteção de dados, de controle de acesso e de monitoramento proativo.
 
-Este artigo de visão geral de segurança de banco de dados do Azure enfoca Olá áreas a seguir:
+Este artigo de Visão geral da segurança do Banco de Dados do Azure tem como foco as seguintes áreas:
 
 -   Proteger dados
 -   Controle de acesso
@@ -56,52 +56,52 @@ Nesta seção, vamos falar sobre:
 -   Criptografia em repouso
 -   Criptografia em uso (Cliente)
 
-Para outra maneiras tooencrypt seus dados, considere:
+Para outras maneiras de criptografar seus dados, considere:
 
--   [Criptografia em nível de célula](https://msdn.microsoft.com/library/ms179331.aspx) tooencrypt colunas específicas ou mesmo células de dados com diferentes chaves de criptografia.
+-   [Criptografia no nível de célula](https://msdn.microsoft.com/library/ms179331.aspx) para criptografar colunas específicas ou até mesmo células de dados com diferentes chaves de criptografia.
 -   Se você precisar de um Módulo de Segurança de Hardware ou do gerenciamento central de sua hierarquia de chaves de criptografia, considere o uso do [cofre da chave do Azure com o SQL Server em uma VM do Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 
 ### <a name="encryption-in-motion"></a>Criptografia em movimento
 
-Um problema comum para todos os aplicativos cliente/servidor é necessário Olá privacidade como movem dados em redes públicas e privadas. Se mover em uma rede de dados não são criptografados, há possibilidade de saudação que podem ser capturado e roubado por usuários não autorizados. Ao lidar com os serviços de banco de dados, você precisa toomake-se de que os dados são criptografados entre Olá banco de dados cliente e servidor, bem como entre servidores de banco de dados que se comunicam entre si e com aplicativos de camada intermediária.
+Um problema comum para todos os aplicativos cliente/servidor é a necessidade de privacidade, conforme os dados são transmitidos em redes públicas e privadas. Se a movimentação de dados em uma rede não for criptografada, haverá a possibilidade de que eles sejam capturados e roubados por usuários não autorizados. Ao lidar com serviços de banco de dados, você precisa verificar se os dados são criptografados entre o cliente de banco de dados e o servidor, bem como entre servidores de banco de dados que se comunicam entre si e com aplicativos de camada intermediária.
 
-Um problema ao administrar uma rede é proteger os dados que estão sendo enviados entre aplicativos em uma rede não confiável. Você pode usar [TLS/SSL](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) tooauthenticate servidores e clientes e usá-lo tooencrypt mensagens entre partes Olá autenticado.
+Um problema ao administrar uma rede é proteger os dados que estão sendo enviados entre aplicativos em uma rede não confiável. Você pode usar o [TLS/SSL](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) para autenticar servidores e clientes e, em seguida, usá-lo para criptografar mensagens entre as partes autenticadas.
 
-No processo de autenticação hello, um cliente TLS/SSL envia um servidor TLS/SSL tooa e servidor de saudação responde com informações de saudação servidor Olá precisa tooauthenticate em si. saudação de cliente e servidor executam uma troca adicional de chaves de sessão e Olá extremidades da caixa de diálogo de autenticação. Quando a autenticação é concluída, comunicação segura SSL pode começar entre o servidor de saudação e cliente de saudação usando chaves de criptografia simétrica de saudação que são estabelecidas durante o processo de autenticação hello.
+No processo de autenticação, um cliente TLS/SSL envia uma mensagem para um servidor TLS/SSL e o servidor responde com as informações de que o servidor precisa para se autenticar. O cliente e o servidor executam uma troca adicional de chaves da sessão e a caixa de diálogo de autenticação é encerrada. Quando a autenticação é concluída, a comunicação protegida por SSL pode ser iniciada entre o servidor e o cliente usando as chaves de criptografia simétricas estabelecidas durante o processo de autenticação.
 
-Todas as conexões tooAzure banco de dados SQL exigir criptografia SSL/TLS () em todas as vezes enquanto os dados são tooand "em trânsito" do banco de dados de saudação. O SQL Azure usa os clientes e servidores de tooauthenticate TLS/SSL e use-a como tooencrypt mensagens entre partes Olá autenticado. Na cadeia de caracteres de conexão do seu aplicativo, você deve especificar a conexão de saudação tooencrypt parâmetros e não tootrust Olá certificado do servidor (Isso é feito para você se você copiar a cadeia de conexão sem Olá Portal clássico do Azure), Olá caso contrário, a conexão será Não verificar a identidade de saudação do servidor de saudação e estará suscetíveis ataques de muito "man-in-the-middle". Para hello driver ADO.NET, por exemplo, esses parâmetros de cadeia de caracteres de conexão Encrypt = True e TrustServerCertificate = False.
+Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) todo o tempo que os dados estiverem "em trânsito", entrando e saindo do banco de dados. O SQL Azure usa o TLS/SSL para autenticar servidores e clientes e, em seguida, usa-o para criptografar mensagens entre as partes autenticadas. Na cadeia de conexão do aplicativo, você deve especificar os parâmetros para criptografar a conexão e para não confiar no certificado do servidor (isso será feito para você se você copiar a cadeia de conexão do Portal Clássico do Azure); caso contrário, a conexão não verificará a identidade do servidor e estará suscetível a ataques “man-in-the-middle”. Para o driver do ADO.NET, por exemplo, esses parâmetros da cadeia de conexão são Encrypt=True e TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
-Você pode tomar várias precauções toohelp Olá seguro banco de dados, como a criação de um sistema seguro, criptografando ativos confidenciais e criando um firewall em torno dos servidores de banco de dados de saudação. No entanto, em um cenário em que a mídia física hello (como unidades ou fitas de backup) é roubada, um terceiro mal-intencionado pode apenas restaurar ou anexar o banco de dados de saudação e procurar dados saudação.
+Você pode adotar várias precauções para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados. No entanto, em um cenário em que a mídia física (como unidades ou fitas de backup) é roubada, uma entidade mal-intencionada pode simplesmente restaurar ou anexar o banco de dados e procurar os dados.
 
-Uma solução tooencrypt Olá contém dados confidenciais no banco de dados de saudação e protege as chaves de hello são usadas tooencrypt Olá dados com um certificado. Isso impede que alguém sem as chaves de saudação usando dados hello, mas esse tipo de proteção deve ser planejado.
+Uma solução é criptografar os dados confidenciais no banco de dados e proteger as chaves usadas para criptografar os dados com um certificado. Isso impede que alguém sem as chaves use os dados, mas esse tipo de proteção deve ser planejado.
 
-toosolve dar suporte a esse problema, o SQL Server e SQL Azure [criptografia de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). A TDE criptografa os arquivos de dados do SQL Server e do Banco de Dados SQL do Azure, conhecidos como dados de criptografia em repouso.
+Para resolver esse problema, o SQL Server e o SQL do Azure dão suporte à [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). A TDE criptografa os arquivos de dados do SQL Server e do Banco de Dados SQL do Azure, conhecidos como dados de criptografia em repouso.
 
-Criptografia de dados transparente de banco de dados SQL do Azure ajuda a proteger contra a ameaça de saudação de atividades mal-intencionadas executando criptografia em tempo real e a descriptografia de banco de dados hello, backups associados e arquivos de log de transações em repouso sem exigir alterações aplicativo de toohello.  
+A Transparent Data Encryption do Banco de Dados SQL do Azure ajuda a proteger contra a ameaça de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.  
 
-Ela criptografa o armazenamento de saudação de um banco de dados inteiro usando uma chave de criptografia de banco de dados de saudação de chamada de chave simétrica. No banco de dados SQL, a chave de criptografia de banco de dados de saudação é protegido por um certificado de servidor interno. certificado de saudação do servidor interno é exclusivo para cada servidor de banco de dados SQL.
+A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado de servidor interno é exclusivo para cada servidor de Banco de Dados SQL.
 
-Se um banco de dados estiver em uma relação de GeoDR, ele será protegido por outra chave em cada servidor. Se dois bancos de dados são conectado toohello mesmo servidor, eles compartilham Olá mesmo certificado interno. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
+Se um banco de dados estiver em uma relação de GeoDR, ele será protegido por outra chave em cada servidor. Se dois bancos de dados estiverem conectados ao mesmo servidor, eles compartilharão o mesmo certificado interno. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
 
 ### <a name="encryption-in-use-client"></a>Criptografia em uso (cliente)
 
-A maioria das violações de dados envolvem o roubo de saudação de dados essenciais, como números de cartão de crédito ou informações de identificação pessoal. Bancos de dados podem ser um tesouro escondido de informações confidenciais. Eles podem conter dados pessoais dos clientes, informações confidenciais sobre a concorrência e propriedade intelectual. Dados perdidos ou roubados, especialmente dados do cliente, podem resultar em danos à marca, desvantagem competitiva e multas graves – até mesmo processos judiciais.
+A maioria das violações de dados envolve o roubo de dados críticos, como números de cartão de crédito ou informações de identificação pessoal. Bancos de dados podem ser um tesouro escondido de informações confidenciais. Eles podem conter dados pessoais dos clientes, informações confidenciais sobre a concorrência e propriedade intelectual. Dados perdidos ou roubados, especialmente dados do cliente, podem resultar em danos à marca, desvantagem competitiva e multas graves – até mesmo processos judiciais.
 
 ![Always Encrypted](./media/azure-databse-security-overview/azure-database-fig1.png)
 
-[Sempre criptografado](https://msdn.microsoft.com/library/mt163865.aspx) é um recurso projetado tooprotect dados confidenciais, como números de cartão de crédito ou de identificação Nacional (por exemplo, números de previdência social), armazenado em bancos de dados do banco de dados SQL ou SQL Server. Sempre criptografado permite que os clientes tooencrypt os dados confidenciais em aplicativos de cliente e nunca revele toohello chaves de criptografia Olá mecanismo de banco de dados (banco de dados SQL ou SQL Server).
+O [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) é um recurso criado para proteger dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server. Esse recurso permite que os clientes criptografem dados confidenciais em aplicativos clientes e nunca revelem as chaves de criptografia para o mecanismo de banco de dados (Banco de dados SQL ou SQL Server).
 
-Sempre criptografado fornece uma separação entre aqueles que possuem dados saudação (e podem exibi-lo) e aqueles que gerenciam dados de saudação (mas não devem ter acesso). Ao garantir que os administradores de banco de dados local, operadores de banco de dados em nuvem ou outros com altos privilégios, mas os usuários não autorizados, não é possível acessar dados criptografado de saudação,
+O Always Encrypted fornece uma separação entre os proprietários dos dados (e que podem exibi-los) de quem gerencia os dados (mas que não devem ter acesso). Ao garantir que os administradores de banco de dados locais, operadores de banco de dados na nuvem ou outros usuários com altos privilégios, mas não autorizados, não podem acessar os dados criptografados,
 
-Além disso, sempre criptografado torna tooapplications transparente de criptografia. Um driver habilitado para sempre criptografado instalado no computador do cliente Olá para que pode criptografar e descriptografar dados confidenciais no aplicativo de cliente hello automaticamente. Olá driver criptografa dados Olá colunas confidenciais antes de passar Olá dados toohello mecanismo de banco de dados e reconfigura automaticamente as consultas para que o aplicativo de toohello hello semântica são preservados. Da mesma forma, o driver Olá transparente descriptografa os dados armazenados em colunas de banco de dados criptografados contidas nos resultados da consulta.
+Além disso, o Always Encrypted torna a criptografia transparente para aplicativos. Um driver habilitado para o Always Encrypted instalado no computador cliente, de modo que ele possa criptografar e descriptografar dados confidenciais automaticamente no aplicativo cliente. O driver criptografa os dados em colunas confidenciais antes de passá-los para o Mecanismo de Banco de Dados e reescreve as consultas automaticamente para que a semântica do aplicativo seja preservada. Da mesma forma, o driver descriptografa os dados de maneira transparente, armazenados em colunas de banco de dados criptografadas, contidas nos resultados da consulta.
 
 ## <a name="access-control"></a>Controle de acesso
-tooprovide segurança, o banco de dados SQL controla o acesso com regras de firewall limitando conectividade por endereço IP, os mecanismos de autenticação que requerem usuários tooprove sua identidade e mecanismos de autorização, limitando os usuários toospecific ações e dados.
+Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos.
 
 ### <a name="database-access"></a>Acesso ao banco de dados
 
-Proteção de dados começa com controle de acesso tooyour dados. Olá datacenter hospedar seus dados gerencia o acesso físico, enquanto você pode configurar a segurança toomanage firewall na camada de rede hello. Você também pode controlar o acesso, configurar logons para autenticação e definir permissões para funções de servidor e de banco de dados.
+A proteção de dados começa com o controle do acesso aos dados. O datacenter que hospeda os dados gerencia o acesso físico, embora seja possível configurar um firewall para gerenciar a segurança na camada de rede. Você também pode controlar o acesso, configurar logons para autenticação e definir permissões para funções de servidor e de banco de dados.
 
 Nesta seção, vamos falar sobre:
 
@@ -111,27 +111,27 @@ Nesta seção, vamos falar sobre:
 
 #### <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall
 
-O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. toohelp proteger seus dados, firewalls impedir que todos os servidores de banco de dados do access tooyour até que você especifique quais computadores têm permissão. firewall de saudação concede acesso toodatabases com base em Olá endereços IP de cada solicitação de origem. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
-Olá [banco de dados do SQL Azure](https://azure.microsoft.com/services/sql-database/) serviço está disponível somente pela porta TCP 1433. tooaccess um banco de dados SQL do seu computador, verifique se o firewall do computador cliente permite a comunicação TCP de saída na porta TCP 1433. Se não for necessário a outros aplicativos, bloqueie as conexões de entrada na porta TCP 1433.
+O serviço [Banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) só está disponível por meio da porta TCP 1433. Para acessar um Banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Se não for necessário a outros aplicativos, bloqueie as conexões de entrada na porta TCP 1433.
 
 #### <a name="authentication"></a>Autenticação
 
-Autenticação do banco de dados SQL refere-se toohow provar sua identidade ao conectar-se o banco de dados toohello. O Banco de Dados SQL dá suporte a dois tipos de autenticação:
+A autenticação do banco de dados SQL refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:
 
--   **Autenticação do SQL:** uma conta de logon único é criada quando é criada uma instância lógica do SQL, chamado hello conta de assinante do banco de dados SQL. Essa conta é conectada usando a [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de usuário e senha). Essa conta é que um administrador na instância de servidor lógico hello e em todos os bancos de dados do usuário conectado toothat instância. permissões de saudação do hello conta do assinante não podem ser restritas. Só pode existir uma dessas contas.
--   **Azure autenticação do Active Directory:** [autenticação do Active Directory do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de conexão tooMicrosoft banco de dados do SQL Azure e SQL Data Warehouse usando as identidades no Active Directory do Azure ( AD do Azure). Isso permite que você toocentrally gerenciar identidades de usuários de banco de dados.
+-   **Autenticação do SQL:** uma conta de logon único é criada quando uma instância lógica do SQL é criada, chamada Conta de Assinante do Banco de Dados SQL. Essa conta é conectada usando a [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de usuário e senha). Essa conta é um administrador na instância do servidor lógico e em todos os bancos de dados do usuário conectados a essa instância. As permissões da Conta de assinante não podem ser restringidas. Só pode existir uma dessas contas.
+-   **Autenticação do Azure Active Directory:** [a autenticação do Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de conexão com o Banco de Dados SQL do Microsoft Azure e o SQL Data Warehouse usando identidades no Azure AD (Azure Active Directory). Isso permite gerenciar as identidades de usuários de banco de dados de maneira centralizada.
 
 ![Autenticação](./media/azure-databse-security-overview/azure-database-fig2.png)
 
  As vantagens da autenticação do Azure Active Directory incluem:
-  - Ele fornece uma autenticação de servidor tooSQL alternativo.
-  - Ele também ajuda a interromper a proliferação de saudação de identidades de usuário entre os servidores de banco de dados e permite a rotação de senha em um único lugar.
+  - Ele fornece uma alternativa para autenticação do SQL Server.
+  - Também ajuda a acabar com a proliferação de identidades de usuário entre servidores de banco de dados e permite a rotação de senha em um único lugar.
   - Gerencie permissões de banco de dados usando grupos externos (Azure Active Directory).
   - Pode eliminar o armazenamento de senhas, permitindo a autenticação integrada do Windows e outras formas de autenticação às quais o Active Directory do Azure dá suporte.
 
 #### <a name="authorization"></a>Autorização
-[Autorização](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) toowhat de refere-se um usuário pode fazer em um banco de dados do SQL Azure, e isso é controlado pelo banco de dados da sua conta de usuário [associações de função](https://msdn.microsoft.com/library/ms189121) e [permissões no nível do objeto](https://msdn.microsoft.com/library/ms191291.aspx). A autorização é o processo de saudação de determinar quais recursos podem ser protegidos pode acessar uma entidade de segurança e quais operações são permitidas para esses recursos.
+[Autorização](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) refere-se ao que um usuário pode fazer em um Banco de Dados SQL do Azure e isso é controlado pelas [associações a uma função](https://msdn.microsoft.com/library/ms189121) de banco de dados e pelas [permissões no nível de objeto](https://msdn.microsoft.com/library/ms191291.aspx) da conta de usuário. A autorização é o processo usado para determinar quais recursos protegíveis podem ser acessados por uma entidade de segurança e quais operações são permitidas para esses recursos.
 
 ### <a name="application-access"></a>Acesso a aplicativos
 
@@ -141,79 +141,79 @@ Nesta seção, vamos falar sobre:
 -   Segurança em nível de linha
 
 #### <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos
-Um representante do serviço em um call center pode identificar os chamadores usando vários dígitos de seu número de previdência social ou número de cartão de crédito, mas esses dados itens não devem ser totalmente expostos toohello representante.
+Um representante de serviço em um call center pode identificar os chamadores por vários dígitos de seus números do seguro social ou do cartão de crédito, mas esses itens de dados não devem ser totalmente expostos para o representante de serviço.
 
-Uma regra de mascaramento pode ser definida se mascarar todos exceto Olá últimos quatro dígitos de qualquer número de previdência social ou número de cartão de crédito no conjunto de resultados de saudação de qualquer consulta.
+Uma regra de mascaramento pode ser definida para mascarar tudo menos os quatro últimos dígitos de qualquer número do seguro social ou o número de cartão de crédito no conjunto de resultados de qualquer consulta.
 
 ![Mascaramento de dados dinâmicos](./media/azure-databse-security-overview/azure-database-fig3.png)
 
-Como outro exemplo, uma máscara de dados apropriado pode ser definido tooprotect dados de informações de identificação pessoal (PII), para que um desenvolvedor pode consultar os ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
+Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger os dados de informações de identificação pessoal (PII), de forma que um desenvolvedor possa consultar os ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
 
-[Banco de dados dinâmico mascaramento de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando-os usuários privilegiados toonon. Mascaramento de dados dinâmicos é suportado para a versão V12 de saudação do banco de dados do SQL Azure.
+A [Máscara de Dados Dinâmicos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais por meio da máscara dos dados para usuários sem privilégios. O mascaramento de dados dinâmicos tem suporte para a versão V12 do Banco de Dados SQL do Azure.
 
-[Mascaramento de dados dinâmicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ajuda a impedir que os dados de toosensitive de acesso não autorizado, permitindo que você toodesignate quanto da saudação dados confidenciais tooreveal com impacto mínimo sobre a camada de aplicativo hello. É um recurso de segurança baseado em políticas que oculta os dados confidenciais de saudação no conjunto de resultados de saudação de uma consulta em relação aos campos do banco de dados designados, enquanto Olá dados no banco de dados de saudação não são alterados.
+A [máscara de dados dinâmicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que você designe a quantidade de dados confidenciais a ser revelada, com impacto mínimo sobre a camada de aplicativo. É um recurso de segurança baseado em políticas que oculta os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designado, enquanto os dados no banco de dados não são alterados.
 
 
 > [!Note]
-> Mascaramento de dados dinâmicos pode ser configurado por Olá administrador de banco de dados, administrador do servidor ou funções de diretor de segurança.
+> A Máscara de dados dinâmica pode ser configurada através de funções do administração do banco de dados do Azure, administrador do servidor ou responsável pela segurança.
 
 #### <a name="row-level-security"></a>Segurança em nível de linha
-Outro requisito de segurança comum para bancos de dados multilocatários é a [Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131.aspx). Esse recurso permite que você toocontrol toorows de acesso em uma tabela de banco de dados com base em características de saudação do usuário Olá executando uma consulta (por exemplo, grupo associação ou contexto de execução).
+Outro requisito de segurança comum para bancos de dados multilocatários é a [Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131.aspx). Esse recurso permite controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário que executa uma consulta (por exemplo, uma associação a um grupo ou um contexto de execução).
 
 ![Segurança em nível de linha](./media/azure-databse-security-overview/azure-database-fig4.png)
 
-lógica de restrição de acesso de saudação é localizado na camada de banco de dados de saudação em vez de longe dos dados de saudação em outra camada de aplicativo. sistema de banco de dados de saudação aplica restrições de acesso de saudação toda vez que acesso a dados é tentado em qualquer nível. Isso torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície de saudação do seu sistema de segurança.
+A lógica de restrição de acesso está localizada na camada do banco de dados, em vez de estar longe dos dados em outra camada de aplicativo. O sistema do banco de dados aplica as restrições de acesso sempre que houver uma tentativa de acessar esses dados em qualquer camada. Isso torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície do sistema de segurança.
 
-A segurança em nível de linha introduz o controle de acesso baseado em predicado. Ele apresenta uma avaliação centralizada, flexível e baseada em predicado que pode levar em consideração metadados ou quaisquer outros critérios Olá administrador determina conforme apropriada. predicado de saudação é usado como um critério toodetermine ou não usuário Olá tem Olá apropriado acessar toohello dados com base em atributos de usuário. O controle de acesso baseado em rótulo pode ser implementado usando o controle de acesso baseado em predicado.
+A segurança em nível de linha introduz o controle de acesso baseado em predicado. Ela apresenta uma avaliação flexível, centralizada e baseada em predicado que pode levar em consideração metadados ou outros critérios que o administrador determinar apropriados. O predicado é usado como critério para determinar se o usuário tem o acesso apropriado aos dados com base nos atributos de usuário. O controle de acesso baseado em rótulo pode ser implementado usando o controle de acesso baseado em predicado.
 
 ## <a name="proactive-monitoring"></a>Monitoramento proativo
 O Banco de Dados SQL protege os dados fornecendo funcionalidades de **auditoria** e **detecção de ameaças**.
 
 ### <a name="auditing"></a>Auditoria
-Auditoria de banco de dados SQL aumenta sua capacidade toogain percepção eventos e as alterações que ocorrem no banco de dados do hello, incluindo atualizações e consultas em dados hello.
+A Auditoria do Banco de Dados SQL aumenta a capacidade de obter informações sobre eventos e as alterações que ocorrem no banco de dados, incluindo atualizações e consultas nos dados.
 
-[Auditoria de banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) rastreia eventos de banco de dados e grava o log de auditoria tooan em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria permite e facilita a padrões de toocompliance aderência mas não garante conformidade.
+A [Auditoria do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) acompanha eventos de banco de dados e grava-os em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria permite e facilita a adoção de padrões de conformidade, mas não garante a conformidade.
 
 A auditoria de Banco de Dados SQL permite:
 
--   **Retenha** uma trilha de auditoria dos eventos selecionados. Você pode definir categorias de banco de dados ações toobe auditado.
--   **Relate** sobre a atividade do banco de dados. Você pode usar relatórios pré-configurados e um tooget painel iniciada rapidamente com a atividade e o relatório de eventos.
+-   **Retenha** uma trilha de auditoria dos eventos selecionados. Definir categorias de ações de banco de dados a ser auditadas.
+-   **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
 -   **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
 Há dois métodos de Auditoria:
 
--   **Auditoria de blob** -os logs são gravados tooAzure armazenamento de Blob. Esse é um método de auditoria mais recente, que fornece desempenho maior, dá suporte à auditoria do nível de objeto de granularidade mais alta e é mais econômico.
--   **Auditoria de tabela** -tooAzure o armazenamento de tabela os logs são gravados.
+-   **Auditoria de blob** – os logs são gravados no Armazenamento de Blobs do Azure. Esse é um método de auditoria mais recente, que fornece desempenho maior, dá suporte à auditoria do nível de objeto de granularidade mais alta e é mais econômico.
+-   **Auditoria de tabela** – os logs são gravados no Armazenamento de Tabelas do Azure.
 
 ### <a name="threat-detection"></a>Detecção de ameaças
-A [detecção de ameaças do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) detecta atividades suspeitas que indicam possíveis ameaças à segurança. A detecção de ameaças permite toorespond toosuspicious eventos no banco de dados do hello como inclusões de SQL, conforme elas ocorrem. Ele fornece alertas e permite o uso de saudação de auditoria do banco de dados SQL Azure tooexplore eventos suspeitos hello.
+A [detecção de ameaças do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) detecta atividades suspeitas que indicam possíveis ameaças à segurança. A detecção de ameaças permite responder a eventos suspeitos no banco de dados, como Injeções de SQL, conforme elas ocorrem. Ela fornece alertas e permite o uso da Auditoria do Banco de Dados SQL do Azure para explorar os eventos suspeitos.
 
 ![Detecção de ameaças](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-Por exemplo, injeção de SQL é um Olá Web aplicativo problemas de segurança comuns em Olá Internet, os aplicativos usados tooattack controladas por dados. Os invasores tirar proveito de aplicativo vulnerabilidades tooinject de instruções SQL mal-intencionadas nos campos de entrada do aplicativo, serem violados ou modificar dados no banco de dados de saudação.
+Por exemplo, a injeção de SQL é um dos problemas comuns de segurança do aplicativo da Web na Internet, usada para atacar os aplicativos orientados a dados. Os invasores aproveitam as vulnerabilidades do aplicativo para inserir instruções SQL mal-intencionadas nos campos de entrada do aplicativo, violando ou modificando os dados no banco de dados.
 
-Os agentes de segurança ou outros administradores designados podem obter uma notificação imediata sobre atividades suspeitas de banco de dados conforme eles ocorrem. Cada notificação fornece detalhes de atividade suspeita hello e recomenda como toofurther investigar e reduzir a ameaça de saudação.        
+Os agentes de segurança ou outros administradores designados podem obter uma notificação imediata sobre atividades suspeitas de banco de dados conforme eles ocorrem. Cada notificação fornece detalhes da atividade suspeita e recomenda como investigar e minimizar a ameaça.        
 
 ## <a name="centralized-security-management"></a>Gerenciamento de segurança centralizado
 
-[Central de segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda a evitar, detectar e responder toothreats. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+A [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-[Central de segurança](https://docs.microsoft.com/azure/security-center/security-center-sql-database) ajuda a proteger dados no banco de dados SQL, fornecendo a visibilidade de segurança de saudação de todos os servidores e bancos de dados. Com a Central de Segurança, você pode:
+A [Central de Segurança](https://docs.microsoft.com/azure/security-center/security-center-sql-database) ajuda você a proteger os dados no Banco de Dados SQL, fornecendo visibilidade sobre a segurança de todos os servidores e bancos de dados. Com a Central de Segurança, você pode:
 
 -   Definir políticas de criptografia e auditoria do Banco de Dados SQL.
--   Monitorar a segurança de saudação de recursos de banco de dados SQL em todas as suas assinaturas.
+-   Monitore a segurança dos recursos de Banco de Dados SQL em todas as suas assinaturas.
 -   Identifique e corrija rapidamente problemas de segurança.
 -   Integre os alertas da [detecção de ameaças do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 -   A Central de segurança dá suporte ao acesso baseado em função.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 
-Hello Azure Marketplace é um mercado de aplicativos e serviços online que permite que empresas emergentes e software independentes (ISVs) fornecedores toooffer seus clientes de tooAzure soluções em torno de Olá, mundo.
-Hello Azure Marketplace combina ecossistemas de parceiro do Microsoft Azure em uma única plataforma unificada toobetter atende nossos clientes e parceiros. Clique em [aqui](https://azuremarketplace.microsoft.com/marketplace/apps?search=Database%20Security&page=1) tooglance disponível no local do Azure do mercado de produtos de segurança de banco de dados.
+O Azure Marketplace é um marketplace online de aplicativos e serviços que permite que empresas em fase inicial e ISVs (fornecedores independentes de software) ofereçam suas soluções aos clientes do Azure no mundo todo.
+O Azure Marketplace combina ecossistemas de parceiros do Microsoft Azure em uma única plataforma unificada, para melhor atender nossos clientes e parceiros. Clique [aqui](https://azuremarketplace.microsoft.com/marketplace/apps?search=Database%20Security&page=1) para ver os produtos de segurança de banco de dados disponíveis no Azure Marketplace.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como [Proteger o Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
 - Saiba mais sobre a [Central de Segurança do Azure e o serviço Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
-- toolearn mais sobre a detecção de ameaças, consulte [detecção de ameaças do banco de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
-- mais, consulte toolearn [desempenho de banco de dados SQL melhorar](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
+- Para saber mais sobre a detecção de ameaças, consulte [Detecção de ameaças do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- Para saber mais, consulte [Melhorar o desempenho do banco de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 

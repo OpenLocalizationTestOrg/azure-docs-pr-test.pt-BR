@@ -1,6 +1,6 @@
 ---
-title: "os serviços do Service Fabric aaaPartitioning | Microsoft Docs"
-description: "Descreve como os serviços com monitoração de estado toopartition Service Fabric. Partições permite o armazenamento de dados em máquinas locais Olá para que dados e computação podem ser dimensionados em conjunto."
+title: "Particionar serviços do Service Fabric | Microsoft Docs"
+description: "Descreve como particionar os serviços com estado do Service Fabric. As partições permitem o armazenamento de dados em computadores locais para que dados e computação sejam dimensionados juntos."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,132 +14,132 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 6ead48716c08f4212535202ee69d169067d5c6d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric
-Este artigo fornece uma introdução toohello conceitos básicos de particionamento serviços confiáveis do Azure Service Fabric. Olá código-fonte usado no artigo Olá também está disponível em [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Este artigo fornece uma introdução aos conceitos básicos de particionamento de Reliable Services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Particionamento
-O particionamento não é exclusivo tooService malha. Na verdade, é um padrão núcleo da criação de serviços escalonáveis. Em um sentido mais amplo, podemos pensar em particionamento como um conceito de divisão do estado (dados) e de computação de desempenho e escalabilidade de tooimprove acessível unidades menor. Uma forma bem conhecida de particionamento é o [particionamento de dados][wikipartition], também conhecido como fragmentação.
+O particionamento não é exclusivo para o Service Fabric. Na verdade, é um padrão núcleo da criação de serviços escalonáveis. Em um sentido mais amplo, podemos pensar em particionamento como um conceito de divisão de estado (dados) e computar unidades menores acessíveis para melhorar o desempenho e a escalabilidade. Uma forma bem conhecida de particionamento é o [particionamento de dados][wikipartition], também conhecido como fragmentação.
 
 ### <a name="partition-service-fabric-stateless-services"></a>Particionar serviços sem estado do Service Fabric
 Para serviços sem estado, você pode pensar em uma partição como uma unidade lógica que contém uma ou mais instâncias de um serviço. A Figura 1 mostra um serviço sem estado com cinco instâncias distribuídas em um cluster usando uma partição.
 
 ![Serviço sem estado](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Há realmente dois tipos de soluções de serviço sem estado. Hello primeiro um é um serviço que mantém seu estado externamente, por exemplo em um banco de dados do SQL Azure (como um site que armazena dados e informações de sessão Olá). Olá, um segundo é somente para computação serviços (como miniaturas uma calculadora ou imagem) que não gerencia qualquer estado persistente.
+Há realmente dois tipos de soluções de serviço sem estado. O primeiro é um serviço que mantém o estado externamente, por exemplo, em um banco de dados SQL do Azure (como um site que armazena dados e informações de sessão). A segunda são serviços apenas de computação (como uma calculadora ou a criação de miniaturas imagem) que não gerenciam nenhum estado persistente.
 
-Em ambos os casos o particionamento de um serviço sem estado é um cenário muito raro – a escalabilidade e disponibilidade normalmente são obtidas pela adição de mais instâncias. Olá somente tempo tooconsider várias partições para instâncias de serviço sem monitoração de estado é quando você precisa do roteamento especial do toomeet solicitações.
+Em ambos os casos o particionamento de um serviço sem estado é um cenário muito raro – a escalabilidade e disponibilidade normalmente são obtidas pela adição de mais instâncias. As únicas vezes em que você deve considerar várias partições para instâncias de serviço sem estado é quando precisar atender a solicitações especiais de roteamento.
 
-Por exemplo, considere um caso em que os usuários com IDs de um determinado intervalo só devem ser atendidos por uma instância de determinado serviço. Outro exemplo de quando é possível particionar um serviço sem monitoração de estado é quando você tiver um back-end realmente particionado (por exemplo, um SQL banco de dados fragmentado) e você deseja toocontrol qual instância de serviço deve gravar toohello fragmentos do banco de dados – ou realizar outro trabalho de preparação em Olá serviço sem monitoração de estado que exige Olá mesmo informações de particionamento como é usado em Olá back-end. Esses tipos de cenários também podem ser resolvidos de diferentes maneiras e não exigem, necessariamente, particionamento de serviço.
+Por exemplo, considere um caso em que os usuários com IDs de um determinado intervalo só devem ser atendidos por uma instância de determinado serviço. Outro exemplo de quando é possível particionar um serviço sem estado é quando você tem um back-end realmente particionado (por exemplo, um banco de dados SQL fragmentado) e você deseja controlar qual instância de serviço deve gravar o fragmento do banco de dados ou executar outras tarefas de preparação dentro do serviço sem estado que requer as mesmas informações de particionamento como usadas no back-end. Esses tipos de cenários também podem ser resolvidos de diferentes maneiras e não exigem, necessariamente, particionamento de serviço.
 
-Olá restante deste passo a passo se concentra nos serviços de monitoração de estado.
+O restante deste passo a passo se concentra nos serviços sem estado.
 
 ### <a name="partition-service-fabric-stateful-services"></a>Particionar serviços com estado do Service Fabric
-Service Fabric torna fácil toodevelop serviços escalonáveis de monitoração de estado, oferecendo uma maneira de primeira classe toopartition estado (dados). Conceitualmente, você pode pensar em uma partição de um serviço com monitoração de estado como uma unidade de escala que é altamente confiável por meio de [réplicas](service-fabric-availability-services.md) que são distribuídos e equilibrada em Olá nós em um cluster.
+A Malha de Serviço facilita o desenvolvimento serviços com estado escalonáveis, oferecendo uma ótima forma para o estado de partição (dados). Conceitualmente, uma partição de um serviço com estado é uma unidade de escala altamente confiável por meio de [réplicas](service-fabric-availability-services.md) distribuídas e balanceadas entre os nós de um cluster.
 
-No contexto de saudação do serviços de malha do serviço com monitoração de estado refere-se toohello o processo de determinar que uma partição de serviço é responsável por uma parte do estado de conclusão Olá do serviço de saudação. (Conforme mencionado anteriormente, uma partição é um conjunto de [réplicas](service-fabric-availability-services.md)). Uma grande vantagem do Service Fabric é que ele coloca partições Olá em nós diferentes. Isso permite que o limite de recurso do nó de tooa toogrow. Como dados saudação crescer, aumento de partições e do Service Fabric redistribui partições em nós. Isso garante a saudação continuação uso eficiente dos recursos de hardware.
+No contexto dos serviços com estado do Service Fabric, o particionamento se refere ao processo de determinar que uma partição de serviço específica é responsável por uma parte do estado completo do serviço. (Conforme mencionado anteriormente, uma partição é um conjunto de [réplicas](service-fabric-availability-services.md)). Uma grande vantagem do Service Fabric é que ele coloca as partições em nós diferentes. Isso permite aumentar o limite de recursos do nó. Conforme os dados precisam crescer, as partições crescem e o Service Fabric redistribui as partições entre os nós. Isso garante o uso contínuo eficiente dos recursos de hardware.
 
-toogive você, por exemplo, digamos que você comece com um cluster de nó 5 e um serviço que é configurado toohave 10 partições e um destino de três réplicas. Nesse caso, Service Fabric deve equilibrar e distribuir réplicas Olá em cluster hello – e acabar com dois [réplicas](service-fabric-availability-services.md) por nó.
-Se você precisar agora tooscale nós de too10 cluster hello, Service Fabric seria reequilibrar Olá primário [réplicas](service-fabric-availability-services.md) em todos os nós de 10. Da mesma forma, se você voltar too5 nós em escala, Service Fabric seria reequilibrar todas as réplicas de saudação em nós Olá 5.  
+Para dar um exemplo, digamos que você comece com um cluster de cinco nós e um serviço configurado para ter 10 partições e um destino de três réplicas. Nesse caso, o Service Fabric deveria balancear e distribuir as réplicas no cluster e – você acabaria com duas [réplicas](service-fabric-availability-services.md) principais por nó.
+Caso você precise escalar horizontalmente nosso cluster para 10 nós, o Service Fabric rebalanceará as [réplicas](service-fabric-availability-services.md) principais entre todos os 10 nós. Da mesma forma, se você dimensionar para cinco nós, o Service Fabric rebalanceará todas as réplicas entre todos os cinco nós.  
 
-Figura 2 mostra a distribuição de saudação de 10 partições antes e depois de dimensionamento do cluster hello.
+A Figura 2 mostra a distribuição de 10 partições antes e depois do dimensionamento do cluster.
 
 ![Serviço com estado](./media/service-fabric-concepts-partitioning/partitions.png)
 
-Como resultado, Olá expansão é obtido desde que as solicitações de clientes são distribuídas entre computadores, é melhor desempenho geral do aplicativo hello e contenção no toochunks de acesso de dados é reduzida.
+Como resultado a expansão é atingida pois as solicitações de clientes são distribuídas entre computadores, o desempenho geral do aplicativo é aprimorado e a contenção no acesso a partes de dados é reduzida.
 
 ## <a name="plan-for-partitioning"></a>Plano de particionamento
-Antes de implementar um serviço, você deve sempre considerar Olá estratégia é necessário tooscale-out de particionamento. Há maneiras diferentes, mas todos eles se concentrar no que aplicativo hello precisa tooachieve. Contexto Olá neste artigo, vamos considerar alguns Olá aspectos mais importantes.
+Antes de implementar um serviço, sempre considere a estratégia de particionamento necessária para escalar horizontalmente. Há maneiras diferentes, mas todas elas voltadas para o que o aplicativo precisa atingir. Para o contexto deste artigo, vamos considerar alguns dos aspectos mais importantes.
 
-Uma boa abordagem é toothink sobre estrutura de saudação do estado de saudação que precisa toobe particionada, como primeira etapa de saudação.
+Uma boa abordagem é pensar sobre a estrutura do estado que precisará ser particionado como a primeira etapa.
 
-Veja abaixo um exemplo simples Se você fosse toobuild um serviço para uma pesquisa countywide, você pode criar uma partição de cada cidade no município de saudação. Em seguida, você pode armazenar Olá votos para cada pessoa cidade Olá na partição de saudação corresponde toothat cidade. A Figura 3 ilustra um conjunto de pessoas e hello cidade em que eles residem.
+Veja abaixo um exemplo simples Se você fosse criar um serviço em uma pesquisa regional, poderia criar uma partição de cada cidade na região. Em seguida, poderia armazenar os votos para cada pessoa na cidade na partição que corresponde à cidade. A Figura 3 ilustra um conjunto de pessoas e a cidade em que residem.
 
 ![Partição simples](./media/service-fabric-concepts-partitioning/cities.png)
 
-Como a população de saudação de cidades varia muito, você pode acabar com algumas partições que contêm muitos dados (por exemplo, Seattle) e outras partições com muito pouco estado (por exemplo, Kirkland). Então, qual é o impacto de saudação de partições com quantidades irregulares de estado?
+Como a população das cidades varia muito, você poderia acabar com algumas partições que contêm muitos dados (por exemplo, Seattle) e outras partições com muito pouco estado (por exemplo, Kirkland). Então, qual é o impacto de ter partições com quantidades irregulares de estado?
 
-Se você pensar sobre o exemplo hello novamente, você pode ver facilmente que partição Olá que contém a saudação votos para Seattle obterão mais tráfego que Kirkland Olá um. Por padrão, o Service Fabric torna-se de que há sobre Olá mesmo número de réplicas primárias e secundárias em cada nó. Assim, você pode acabar com nós que hospedam réplicas que atendem a mais tráfego e outras que atendem a menos tráfego. Preferencialmente deseje tooavoid ativa e frios pontos como isso em um cluster.
+Se você pensar sobre o exemplo novamente, poderá facilmente ver que a partição que contém os votos de Seattle obterá mais tráfego do que a de Kirkland. Por padrão, o Service Fabric garante que haja aproximadamente o mesmo número de réplicas primárias e secundárias em cada nó. Assim, você pode acabar com nós que hospedam réplicas que atendem a mais tráfego e outras que atendem a menos tráfego. Você deve, de preferência, evitar pontos altos e baixos assim em um cluster.
 
-Em ordem tooavoid isso, você deve fazer duas coisas, de um ponto de vista particionamento:
+Para evitar isso, você deve realizar duas ações do ponto de vista de particionamento:
 
-* Tente o estado de saudação toopartition para que ele é distribuído uniformemente entre todas as partições.
-* Relatório de carga de cada uma das réplicas Olá para o serviço de saudação. (Para obter informações sobre como fazer isso, leia este artigo sobre [métricas e carga](service-fabric-cluster-resource-manager-metrics.md)). Malha do serviço fornecem a carga de tooreport de recurso Olá consumida por serviços, como a quantidade de memória ou o número de registros. Com base nas métricas de saudação relatadas, o Service Fabric detecta que algumas partições estão servindo cargas mais altas que outros e redistribui cluster Olá pela movimentação réplicas toomore adequado nós, para que geral nenhum nó está sobrecarregado.
+* Tente particionar o estado que ele seja distribuído igualmente entre todas as partições.
+* Relatar carga de cada uma das réplicas para o serviço. (Para obter informações sobre como fazer isso, leia este artigo sobre [métricas e carga](service-fabric-cluster-resource-manager-metrics.md)). A Service Fabric oferece a capacidade de relatar a carga consumida por serviços, como a quantidade de memória ou o número de registros. Com base nas métricas relatadas, o Service Fabric detecta que algumas partições estão atendendo a cargas mais altas que outras e faz um novo balanceamento do cluster, movendo réplicas para nós mais adequados de modo que, no geral, nenhum nó seja sobrecarregado.
 
-Às vezes, você não tem como saber quantos dados haverá em uma determinada partição. Uma recomendação geral é toodo ambos – primeiro, adotando uma estratégia de particionamento que se espalha dados saudação uniformemente entre partições hello e, segundo, pelo relatório de carga.  método primeiro Hello impede situações descritas no hello votação de exemplo, enquanto Olá segundo ajuda a suavizar temporárias diferenças no access ou carga ao longo do tempo.
+Às vezes, você não tem como saber quantos dados haverá em uma determinada partição. Uma recomendação geral é realizar ambas as ações – primeiro, adotar uma estratégia de particionamento que distribua os dados uniformemente entre as partições; segundo, relatar a carga.  O primeiro método impede as situações descritas no exemplo de votação, enquanto o segundo ajuda a amenizar diferenças temporárias no acesso ou carga ao longo do tempo.
 
-Outro aspecto do planejamento de partição é número correto de saudação de toochoose de toobegin de partições com.
+Outro aspecto do planejamento de partição é escolher o número correto de partições para começar.
 Do ponto de vista do Service Fabric, não há nada que impeça começar com um número de partições maior do o previsto para o cenário.
-Na verdade, supondo que o número máximo de saudação de partições é uma abordagem válida.
+Na verdade, suponha que o número máximo de partições seja uma abordagem válida.
 
-Em casos raros, você acabará precisando de mais partições do que escolheu inicialmente. Como você não pode alterar a contagem de partição Olá após o fato de hello, você precisaria tooapply algumas abordagens de partição avançadas, como criar uma nova instância de serviço da saudação mesmo tipo de serviço. Também é necessário tooimplement alguma lógica do lado do cliente que roteia Olá solicitações toohello instância de serviço correto, com base no conhecimento do lado do cliente que deve manter o código do cliente.
+Em casos raros, você acabará precisando de mais partições do que escolheu inicialmente. Como você não pode alterar a contagem de partições após o fato, precisará aplicar algumas abordagens de partição avançadas, como criar uma nova instância de serviço do mesmo tipo de serviço. Você também precisaria implementar alguma lógica no lado do cliente que encaminhe as solicitações para a instância de serviço correta, com base no conhecimento do lado do cliente que o seu código de cliente deve manter.
 
-Outra consideração de planejamento de particionamento é recursos de computação disponíveis hello. Como estado de saudação precisa toobe acessados e armazenados, você está toofollow associada:
+Outra consideração de planejamento de particionamento são os recursos disponíveis do computador. Como o estado precisa ser acessado e armazenados, você deve fazer o seguinte:
 
 * Limites de largura de banda de rede
 * Limites de memória do sistema
 * Limites de armazenamento de disco
 
-O que acontece se você tiver restrições de recursos em um cluster em execução? resposta de saudação é que você pode expandir simplesmente Olá cluster tooaccommodate Olá novos requisitos.
+O que acontece se você tiver restrições de recursos em um cluster em execução? A resposta é que você pode simplesmente escalar horizontalmente o cluster para acomodar os novos requisitos.
 
-[Guia de planejamento de capacidade de saudação](service-fabric-capacity-planning.md) oferece orientação sobre como toodetermine quantos nós de cluster precisa.
+[O guia de planejamento de capacidade](service-fabric-capacity-planning.md) oferece orientação sobre como determinar a quantidade necessária de nós no cluster.
 
 ## <a name="get-started-with-partitioning"></a>Introdução ao particionamento
-Esta seção descreve como tooget iniciada com o particionamento de seu serviço.
+Esta seção descreve como começar com o particionamento do seu serviço.
 
 O Service Fabric oferece uma variedade de três esquemas de partição:
 
 * Intervalo de particionamento (também conhecido como UniformInt64Partition).
 * Particionamento nomeado. Aplicativos que usam esse modelo geralmente têm dados em bucket, dentro de um conjunto limitado. Alguns exemplos comuns de campos de dados usados como chaves de partição nomeada seriam regiões, códigos postais, grupos de clientes ou outros limites de negócios.
-* Particionamento de singleton. Partições de singleton normalmente são usadas quando o serviço Olá não requer qualquer roteamento adicional. Por exemplo, serviços sem estado usam esse esquema de particionamento por padrão.
+* Particionamento de singleton. Partições de singleton normalmente são usadas quando o serviço não requer qualquer roteamento adicional. Por exemplo, serviços sem estado usam esse esquema de particionamento por padrão.
 
-Os esquemas de particionamento Singleton e Nomeado são formulários especiais de partições de intervalos. Por padrão, modelos do Visual Studio Olá para uso do Service Fabric alcance particionamento, conforme é Olá um mais comuns e úteis. Olá restante deste artigo se concentra no esquema de particionamento intervalos hello.
+Os esquemas de particionamento Singleton e Nomeado são formulários especiais de partições de intervalos. Por padrão os modelos do Visual Studio para o Service Fabric usam o particionamento nomeado, já que é o mais comum e o mais útil. O restante deste artigo se concentra no esquema de particionamento por intervalo.
 
 ### <a name="ranged-partitioning-scheme"></a>Esquema de particionamento por intervalos
-Isso é usado toospecify um número inteiro (identificadas por uma chave baixa e alta chave) de intervalo e um número de partições (n). Ele cria partições n, cada responsáveis por um subintervalo sem sobreposição de saudação geral de intervalo de chave de partição. Por exemplo, um esquema de particionamento por intervalos com uma chave baixa de 0, uma chave de alta de 99 e uma contagem de 4 criaria quatro partições, conforme mostrado abaixo.
+Usado para especificar um intervalo inteiro (identificado por uma chave alta e uma chave baixa) e um várias partições (n). Cria n partições, cada uma responsável por um subintervalo sem sobreposição do intervalo de chave de partição geral. Por exemplo, um esquema de particionamento por intervalos com uma chave baixa de 0, uma chave de alta de 99 e uma contagem de 4 criaria quatro partições, conforme mostrado abaixo.
 
 ![Particionamento por intervalos](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
-Uma abordagem comum é toocreate um hash com base em uma chave exclusiva no conjunto de dados de saudação. Alguns exemplos comuns de chaves seriam um número de identificação de veículo (VIN), uma ID de funcionário ou uma cadeia de caracteres exclusiva. Usando essa chave exclusiva, você poderia, em seguida, gerar um código hash, o intervalo de chave de saudação do módulo, toouse como sua chave. Você pode especificar hello superior e limites inferiores da saudação chave intervalo permitido.
+Uma abordagem comum é criar um hash com base em uma chave exclusiva dentro do conjunto de dados. Alguns exemplos comuns de chaves seriam um número de identificação de veículo (VIN), uma ID de funcionário ou uma cadeia de caracteres exclusiva. Usando essa chave exclusiva, você criaria um código de hash longo, o módulo do intervalo de chaves, para usar como sua chave. Você pode especificar os limites superior e inferior do intervalo de chave permitido.
 
 ### <a name="select-a-hash-algorithm"></a>Selecionar um algoritmo de hash
-Uma parte importante de hash é selecionar o algoritmo de hash. Uma consideração é se o objetivo de saudação é chaves semelhante de toogroup próximos um do outro (hash confidenciais localidade) – ou se a atividade deve ser distribuída em larga escala em todas as partições (hash de distribuição), que é mais comum.
+Uma parte importante de hash é selecionar o algoritmo de hash. Uma consideração é se o objetivo é agrupar chaves semelhantes próximas umas das outras (hash sensível à localidade) ou se a atividade precisa ser distribuída amplamente em todas as partições (hash de distribuição), que é o mais comum.
 
-características de saudação de um algoritmo de hash de distribuição BOM são que é fácil toocompute, ele tem poucos conflitos e distribui chaves Olá uniformemente. Um bom exemplo de um algoritmo de hash eficiente é hello [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) algoritmo de hash.
+As características de um bom algoritmo de hash de distribuição são facilidade de computar, poucas colisões e distribuição uniforme de chaves. Um bom exemplo de algoritmo de hash eficiente é o algoritmo de hash [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) .
 
-Um bom recurso para obter opções de algoritmo hash geral código é hello [página da Wikipédia sobre funções de hash](http://en.wikipedia.org/wiki/Hash_function).
+Um bom recurso para opções gerais de algoritmo de código de hash é [a página do Wikipedia sobre funções de hash](http://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Criar um serviço com estado com várias partições
-Vamos criar seu primeiro serviço com estado confiável com várias partições. Neste exemplo, você criará um aplicativo muito simples, onde você deseja toostore todos os sobrenomes que começam com hello mesmo letra no hello mesma partição.
+Vamos criar seu primeiro serviço com estado confiável com várias partições. Neste exemplo, você criará um aplicativo muito simples no qual deseja armazenar todos os sobrenomes que começam com a mesma letra na mesma partição.
 
-Antes de gravar qualquer código, você precisa toothink sobre partições hello e chaves de partição. Você precisa 26 partições (uma para cada letra no alfabeto Olá), mas e sobre Olá chaves baixa e alta?
-Como desejamos literalmente toohave uma partição por letra, podemos usar 0 como chave baixa hello e 25 como chave de alta hello, como cada letra é sua própria chave.
+Antes de escrever qualquer código, você precisa pensar sobre as chaves de partição e partições. Você precisa de 26 partições (uma para cada letra no alfabeto), mas e quanto às chaves baixas e altas?
+Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 como a chave baixa e 25 como a chave alta, já que cada letra é sua própria chave.
 
 > [!NOTE]
-> Este é um cenário simplificado, como na realidade distribuição Olá seria irregular. Último nomes que começam com letras hello "S" ou "M" são mais comuns que Olá aqueles começando com "X" ou "Y".
+> Esse é um cenário simplificado, pois, na realidade, a distribuição seria irregular. Sobrenomes começando com a letra “S” ou “M” são mais comuns do que os que começam com “X” ou “Y”.
 > 
 > 
 
 1. Abra **Visual Studio** > **Arquivo** > **Novo** > **Projeto**.
-2. Em Olá **novo projeto** caixa de diálogo caixa, escolha o aplicativo de serviço de malha hello.
-3. Chame projeto hello "AlphabetPartitions".
-4. Em Olá **criar um serviço** caixa de diálogo caixa, escolha **com monitoração de estado** de serviço e chamá-lo "Alphabet.Processing" conforme mostrado na imagem de saudação abaixo.
+2. Na caixa de diálogo **Novo Projeto** escolha um aplicativo do Service Fabric.
+3. Dê ao projeto o nome de “AlphabetPartitions”.
+4. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Com Estado** e dê a ele o nome “Alphabet.Processing”, como mostra a imagem abaixo.
        ![Caixa de diálogo Novo serviço no Visual Studio][1]
 
   <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
 
-5. Defina o número de saudação de partições. Arquivo de Applicationmanifest.xml de saudação abrir localizado no Olá ApplicationPackageRoot pasta Olá AlphabetPartitions projeto e atualize Olá parâmetro Processing_PartitionCount too26 conforme mostrado abaixo.
+5. Defina o número de partições. Abra o arquivo Applicationmanifest.xml localizado na pasta ApplicationPackageRoot do projeto AlphabetPartitions e atualize o parâmetro Processing_PartitionCount para 26, conforme mostrado abaixo.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    Você também precisa Olá tooupdate LowKey e HighKey propriedades de elemento StatefulService Olá Olá ApplicationManifest.xml, conforme mostrado abaixo.
+    Você também deve atualizar as propriedades LowKey e HighKey do elemento StatefulService no ApplicationManifest.xml, como mostrado abaixo.
    
     ```xml
     <Service Name="Processing">
@@ -148,25 +148,25 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
       </StatefulService>
     </Service>
     ```
-6. Para Olá toobe de serviço acessível, abra um ponto de extremidade em uma porta, adicionando o elemento de ponto de extremidade de saudação do ServiceManifest.xml (localizado na pasta de PackageRoot Olá) para Olá Alphabet.Processing serviço conforme mostrado abaixo:
+6. Para que o serviço fique acessível, abra um ponto de extremidade em uma porta adicionando o elemento de ponto de extremidade do ServiceManifest.xml (localizado na pasta PackageRoot) para o serviço Alphabet.Processing, conforme mostrado abaixo:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
    
-    Agora o serviço de saudação é configurado toolisten tooan ponto de extremidade interno com 26 partições.
-7. Em seguida, você precisa toooverride Olá `CreateServiceReplicaListeners()` método da classe de processamento de saudação.
+    Agora o serviço está configurado para escutar um ponto de extremidade interno com 26 partições.
+7. Em seguida, substitua o método `CreateServiceReplicaListeners()` da classe Processing.
    
    > [!NOTE]
-   > Para este exemplo, supomos que você esteja usando um HttpCommunicationListener simples. Para obter mais informações sobre a comunicação de serviço confiável, consulte [modelo de comunicação de serviço confiável Olá](service-fabric-reliable-services-communication.md).
+   > Para este exemplo, supomos que você esteja usando um HttpCommunicationListener simples. Para obter mais informações sobre comunicação de Reliable Service, consulte [O modelo de comunicação de Reliable Service](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Um padrão recomendado para a URL de saudação que uma réplica escuta em é Olá formato a seguir: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
-    Portanto, você tooconfigure sua toolisten de ouvinte de comunicação em pontos de extremidade correto hello e com esse padrão.
+8. Um padrão recomendado para a URL que escuta uma réplica é o seguinte formato: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+    Assim, você deseja configurar o ouvinte de comunicação para escutar nos pontos de extremidade corretos e com esse padrão.
    
-    Várias réplicas do serviço podem ser hospedadas em Olá mesmo computador, para que esse endereço precisa toobe toohello exclusivo réplica. Isso é porque a ID de partição + ID de réplica na URL de saudação. HttpListener pode escutar em vários endereços Olá que mesma porta como prefixo da URL Olá é exclusivo.
+    Várias réplicas do serviço podem ser hospedadas no mesmo computador, portanto, esse endereço deve ser exclusivo para a réplica. É por isso que a ID de partição + ID da réplica estão na URL. HttpListener pode escutar em vários endereços na mesma porta, se o prefixo de URL for exclusivo.
    
-    Olá que GUID extra há um caso avançada em réplicas secundárias também escutam solicitações somente leitura. Quando esse for o caso de Olá, você deseja toomake-se de que um novo endereço exclusivo é usado durante a transição de endereço de saudação toosecondary primário tooforce clientes toore resolver. '+' é usado como o endereço de saudação aqui para que hello réplica escuta em todos os códigos de saudação hosts disponíveis (IP, FQDM, localhost, etc.) abaixo mostra um exemplo.
+    O GUID extra existe para um caso avançado em que as réplicas secundárias também escutam solicitações de somente leitura. Quando esse for o caso, você deve certificar-se de que um novo endereço exclusivo é usado durante a transição do principal para o secundário para forçar os clientes a resolver o endereço novamente. '+' é usado como o endereço aqui para que a réplica escute em todos os hosts disponíveis (IP, FQDM, localhost etc.) O código abaixo mostra um exemplo.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -192,9 +192,9 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     }
     ```
    
-    Também vale a pena observar que Olá publicado URL é ligeiramente diferente do prefixo de URL escutando hello.
-    URL de escuta Olá recebe tooHttpListener. Olá que publicado URL é Olá que é publicado toohello serviço de nomenclatura do Service Fabric, que é usado para descoberta de serviço. Os clientes pedirão esse endereço por meio desse serviço de descoberta. endereço de saudação que os clientes obtêm necessidades toohave Olá real IP ou FQDN do nó de saudação em ordem tooconnect. Portanto, você precisa tooreplace '+' com hello do nó IP ou FQDN conforme mostrado acima.
-9. Olá última etapa é Olá tooadd lógica toohello serviço conforme mostrado abaixo de processamento.
+    Também vale a pena observar que a URL publicada é ligeiramente diferente do prefixo da URL de escuta.
+    A URL de escuta é dada ao HttpListener. A URL publicada é a URL que será publicada para o Serviço de Nomenclatura da Malha de Serviço, que é usado para descoberta de serviço. Os clientes pedirão esse endereço por meio desse serviço de descoberta. O endereço que os clientes obtêm precisa ter o IP ou o FQDN do nó real para se conectar. Por isso, você precisa substituir '+' pelo IP ou FQDN do nó conforme mostrado acima.
+9. A última etapa é adicionar a lógica de processamento ao serviço, conforme mostrado abaixo.
    
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -238,19 +238,19 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     }
     ```
    
-    `ProcessInternalRequest`Leituras Olá valores de parâmetro usado de cadeia de caracteres do Olá consulta toocall Olá partição e chamadas `AddUserAsync` dicionário confiável do tooadd Olá lastname toohello `dictionary`.
-10. Vamos adicionar um toosee de projeto do serviço sem monitoração de estado toohello como você pode chamar uma partição específica.
+    `ProcessInternalRequest` lê os valores do parâmetro de cadeia de caracteres da consulta usada para chamar a partição e chama `AddUserAsync` para adicionar o sobrenome ao dicionário confiável `dictionary`.
+10. Vamos adicionar um serviço sem estado ao projeto para ver como você pode chamar uma partição específica.
     
-    Esse serviço serve como uma interface simples da web que aceita Olá lastname como um parâmetro de cadeia de caracteres de consulta, determina a chave de partição hello e envia toohello Alphabet.Processing serviço para processamento.
-11. Em Olá **criar um serviço** caixa de diálogo caixa, escolha **sem monitoração de estado** de serviço e chamá-lo "Alphabet.Web" conforme mostrado abaixo.
+    Esse serviço serve como uma interface web simples que aceita lastname como um parâmetro de cadeia de caracteres de consulta, determina a chave de partição e envia-o para o serviço Alphabet.Processing para processamento.
+11. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Sem Estado** e dê a ele o nome de "Alphabet.Web", como mostrado abaixo.
     
     ![Captura de tela de serviço sem estado](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-12. Atualize informações de ponto de extremidade Olá no hello ServiceManifest.xml de saudação Alphabet.WebApi serviço tooopen uma porta, conforme mostrado abaixo.
+12. Atualize as informações de ponto de extremidade no ServiceManifest.xml do serviço Alphabet.WebApi para abrir uma porta, conforme mostrado abaixo.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-13. É necessário tooreturn uma coleção de ServiceInstanceListeners na classe Olá Web. Novamente, você pode escolher tooimplement um HttpCommunicationListener simple.
+13. Você precisa retornar uma coleção de ServiceInstanceListeners na classe Web. Novamente, você pode optar por implementar um HttpCommunicationListener simples.
     
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -259,14 +259,14 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     }
     private ICommunicationListener CreateInputListener(ServiceContext context)
     {
-        // Service instance's URL is hello node's IP & desired port
+        // Service instance's URL is the node's IP & desired port
         EndpointResourceDescription inputEndpoint = context.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
         string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
         var uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Agora, é necessário tooimplement lógica de processamento de saudação. Olá chamadas HttpCommunicationListener `ProcessInputRequest` quando chegar a uma solicitação. Vamos em frente e adicione Olá código abaixo.
+14. Agora você precisa implementar a lógica de processamento. O HttpCommunicationListener chama `ProcessInputRequest` quando chega uma solicitação. Vamos prosseguir e adicionar o código a abaixo.
     
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -290,7 +290,7 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
             string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     
             output = String.Format(
-                    "Result: {0}. <p>Partition key: '{1}' generated from hello first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
+                    "Result: {0}. <p>Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
                     result,
                     partitionKey,
                     firstLetterOfLastName,
@@ -304,7 +304,7 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
         {
             if (output != null)
             {
-                output = output + "added tooPartition: " + primaryReplicaAddress;
+                output = output + "added to Partition: " + primaryReplicaAddress;
                 byte[] outBytes = Encoding.UTF8.GetBytes(output);
                 response.OutputStream.Write(outBytes, 0, outBytes.Length);
             }
@@ -312,7 +312,7 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     }
     ```
     
-    Vamos ver o passo a passo. código de Olá lê a primeira letra de saudação do parâmetro de cadeia de caracteres de consulta Olá `lastname` em char. Em seguida, ele determina a chave de partição Olá para essa letra de subtraindo o valor hexadecimal de saudação do `A` do valor hexadecimal de saudação da primeira letra dos hello sobrenomes.
+    Vamos ver o passo a passo. O código lê a primeira letra do parâmetro da cadeia de caracteres de consulta `lastname` dentro de um char. Isso determina a chave de partição para essa letra, subtraindo o valor hexadecimal de `A` do valor hexadecimal da primeira letra do último nome.
     
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -321,19 +321,19 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     ```
     
     Lembre-se de que, neste exemplo, estamos usando 26 partições com uma chave de partição por partição.
-    Em seguida, podemos obter partição de serviço Olá `partition` para essa chave usando Olá `ResolveAsync` método hello `servicePartitionResolver` objeto. `servicePartitionResolver` é definido como
+    Em seguida, obtemos a partição de serviço `partition` para essa chave usando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    Olá `ResolveAsync` URI de serviço do método leva hello, chave de partição hello e um token de cancelamento como parâmetros. Olá URI do serviço para o serviço de processamento de saudação é `fabric:/AlphabetPartitions/Processing`. Em seguida, podemos obter ponto de extremidade de saudação da partição hello.
+    O método `ResolveAsync` usa o URI do serviço, a chave da partição e um token de cancelamento como parâmetros. O URI do serviço para o serviço de processamento é `fabric:/AlphabetPartitions/Processing`. Em seguida, obtemos o ponto de extremidade da partição.
     
     ```CSharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
-    Finalmente, criar URL de ponto de extremidade hello mais querystring hello e chamar o serviço de processamento de saudação.
+    Por fim, criamos a URL do ponto de extremidade mais a querystring e chamamos o serviço de processamento.
     
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
@@ -345,8 +345,8 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
     string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     ```
     
-    Depois de processamento Olá, podemos gravar saída Olá novamente.
-15. Olá última etapa é o serviço de saudação tootest. O Visual Studio usa parâmetros do aplicativo para implantação local e na nuvem. serviço de saudação tootest com 26 partições localmente, você precisa Olá tooupdate `Local.xml` arquivo na pasta de ApplicationParameters saudação do projeto de AlphabetPartitions hello, conforme mostrado abaixo:
+    Após a conclusão do processamento, podemos gravar a saída de volta.
+15. A última etapa é testar o serviço. O Visual Studio usa parâmetros do aplicativo para implantação local e na nuvem. Para testar o serviço com 26 partições localmente, atualize o arquivo `Local.xml` na pasta ApplicationParameters do projeto AlphabetPartitions, como mostrado abaixo:
     
     ```xml
     <Parameters>
@@ -354,17 +354,17 @@ Como desejamos literalmente toohave uma partição por letra, podemos usar 0 com
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-16. Depois de concluir a implantação, você pode verificar o serviço hello e todas as suas partições em Olá Service Fabric Explorer.
+16. Depois de concluir a implantação, você pode verificar o serviço e todas as respectivas partições no Gerenciador do Service Fabric.
     
     ![Captura de tela do Gerenciador do Service Fabric](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. Em um navegador, você pode testar Olá lógica de particionamento, inserindo `http://localhost:8081/?lastname=somename`. Você verá que cada sobrenome que inicia com hello a mesma letra está sendo armazenada no hello mesma partição.
+17. Insira `http://localhost:8081/?lastname=somename`em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra está sendo armazenado na mesma partição.
     
     ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-código-fonte inteira saudação do exemplo hello está disponível em [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre os conceitos de malha do serviço, consulte o seguinte hello:
+Para obter informações sobre os conceitos de malha do serviço, consulte:
 
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
 * [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)

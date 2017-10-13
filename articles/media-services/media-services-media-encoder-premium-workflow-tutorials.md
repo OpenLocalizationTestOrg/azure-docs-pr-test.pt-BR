@@ -1,6 +1,6 @@
 ---
-title: "tutoriais de fluxo de trabalho Premium de codificador de mídia aaaAvanced"
-description: "Este documento contém instruções passo a passo que mostram como tooperform avançado tarefas de fluxo de trabalho Premium de codificador de mídia e também como toocreate fluxos de trabalho complexos com o Designer de fluxo de trabalho."
+title: "Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium"
+description: "Este documento contém instruções passo a passo que mostram como executar tarefas avançadas com o Fluxo de trabalho do Codificador de Mídia Premium e também como criar fluxos de trabalho complexos com o Designer de Fluxo de Trabalho."
 services: media-services
 documentationcenter: 
 author: xstof
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 641bd1be3bd795b5e138fa7ffdf299ff6710904e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
 ## <a name="overview"></a>Visão geral
-Este documento contém instruções passo a passo que mostram como fluxos de trabalho toocustomize com **Designer de fluxo de trabalho**. Você pode encontrar os arquivos de fluxo de trabalho real Olá [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
+Este documento contém instruções passo a passo que mostram como personalizar fluxos de trabalho com o **Designer de Fluxo de Trabalho**. Encontre os arquivos de fluxo de trabalho [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>SUMÁRIO
-Olá seguintes tópicos é abordado:
+Os tópicos a seguir serão abordados:
 
 * [Codificando MXF em um MP4 de taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
   * [Iniciando um novo fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
-  * [Usando Olá entrada de arquivo de mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
+  * [Usando a Entrada do Arquivo de Mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
   * [Inspecionando fluxos de mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
   * [Adicionando um codificador de vídeo para geração de arquivo .MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
-  * [Fluxo de áudio Olá codificação](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
+  * [Codificando o fluxo de áudio](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
   * [Multiplexando fluxos de áudio e de vídeo em um contêiner MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
-  * [Gravar o arquivo MP4 de saudação](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
-  * [Criar um ativo de serviços de mídia do arquivo de saída Olá](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
-  * [Saudação de teste terminar o fluxo de trabalho localmente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
+  * [Gravando o arquivo MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
+  * [Criando um Ativo dos Serviços de Mídia do arquivo de saída](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
+  * [Testar o fluxo de trabalho concluído localmente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
 * [Codificando MXF em MP4s com várias taxas bits - empacotamento dinâmico habilitado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
   * [Adicionando uma ou mais saídas MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
-  * [Configurar nomes de saída do arquivo hello](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
+  * [Configurando os nomes de saída do arquivo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
   * [Adicionando uma Trilha de Áudio separada](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
-  * [Adicionando hello. Arquivo SMIL ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
+  * [Adicionando o arquivo SMIL .ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Codificando MXF em MP4 com várias taxas de bit - plano gráfico aprimorado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Tooenhance de visão geral do fluxo de trabalho](#workflow-overview-to-enhance)
+  * [Visão geral do fluxo de trabalho para aprimoramento](#workflow-overview-to-enhance)
   * [Convenções de nomenclatura do arquivo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
-  * [Propriedades de componente na raiz de fluxo de trabalho de saudação de publicação](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
+  * [Publicando as propriedades do componente na raiz do fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Faça com que os nomes de arquivo de saída gerados dependam dos valores de propriedade publicados](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
-* [Adicionando a saída de MP4 toomultibitrate miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Miniaturas de tooadd de visão geral do fluxo de trabalho para](#workflow-overview-to-add-thumbnails-to)
+* [Adicionando miniaturas à saída MP4 com várias taxas de bit](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
+  * [Visão geral do fluxo de trabalho para adição de miniaturas](#workflow-overview-to-add-thumbnails-to)
   * [Adicionando codificação JPG](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Lidando com a conversão de espaço de cor](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
-  * [Miniaturas de saudação de gravação](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
+  * [Gravando as miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
   * [Detectando erros em um fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
   * [Fluxo de trabalho concluído](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
 * [Corte baseado em tempo da saída MP4 com várias taxas de bits](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
-  * [Toostart de visão geral do fluxo de trabalho adicionando restrições para](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
-  * [Usando Olá filtro de fluxo](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
+  * [Visão geral do fluxo de trabalho para começar a adição do corte](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
+  * [Usando o corte de fluxo](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
   * [Fluxo de trabalho concluído](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
-* [Apresentando o hello componente script](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
+* [Introdução ao componente com script](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
   * [Criando scripts em um fluxo de trabalho: hello world](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
 * [Corte baseado em quadro da saída MP4 com várias taxas de bits](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
-  * [Plano gráfico toostart visão geral sobre a adição de corte para](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
-  * [Usando Olá Clip lista XML](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
-  * [Modificando a lista de saudação do clipe de um componente script](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
+  * [Visão geral do plano gráfico para começar a adição do corte](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
+  * [Como usar o XML da lista de clipes](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
+  * [Modificando a lista de clipes de um componente com script](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
   * [Adicionando uma propriedade de conveniência ClippingEnabled](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a id="MXF_to_MP4"></a>Codificando MXF em um MP4 de taxa de bits única
@@ -72,7 +72,7 @@ Neste passo a passo, criaremos um arquivo MP4 de taxa de bits única com áudio 
 ### <a id="MXF_to_MP4_start_new"></a>Iniciando um novo fluxo de trabalho
 Abra o Designer de Fluxo de Trabalho e selecione "Arquivo" - "Novo Espaço de Trabalho" - "Transcodificar Esquema"
 
-Olá novo fluxo de trabalho mostrará 3 elementos:
+O novo fluxo de trabalho mostrará três elementos:
 
 * Arquivo de Origem Principal
 * XML da Lista de Clipes
@@ -82,108 +82,108 @@ Olá novo fluxo de trabalho mostrará 3 elementos:
 
 *Novo fluxo de trabalho de codificação*
 
-### <a id="MXF_to_MP4_with_file_input"></a>Usando Olá entrada de arquivo de mídia
-Em ordem tooaccept nosso arquivo de mídia de entrada, uma começa com a adição de um componente de entrada de arquivo de mídia. tooadd um fluxo de trabalho toohello de componente, procure-a na caixa de pesquisa de repositório hello e arrastar entrada hello desejado no painel de designer do hello. Faça isso para Olá entrada de arquivo de mídia e conecte Olá arquivo fonte primário componente toohello Filename pino de entrada de saudação entrada de arquivo de mídia.
+### <a id="MXF_to_MP4_with_file_input"></a>Usando a Entrada do Arquivo de Mídia
+Para aceitar nosso arquivo de mídia de entrada, é necessário começar com a adição de um componente de Entrada do Arquivo de Mídia. Para adicionar um componente ao fluxo de trabalho, procure-o na caixa de pesquisa do Repositório e arraste a entrada desejada até o painel do designer. Faça isso com a Entrada do Arquivo de Mídia e conecte o componente de Arquivo de Origem Principal ao pino de entrada Nome de arquivo na Entrada do Arquivo de Mídia.
 
 ![Entrada do Arquivo de Mídia conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
 *Entrada do Arquivo de Mídia conectado*
 
-Para que possa fazer muito mais do que, primeiro precisaremos designer de fluxo de trabalho toohello tooindicate o arquivo de exemplo gostaríamos toouse toodesign nosso fluxo de trabalho. toodo assim, clique em segundo plano do painel designer hello e procure a propriedade de arquivo de origem primário Olá no painel de propriedade direito hello. Clique no ícone de pasta hello e selecione Olá desejado arquivo tootest Olá fluxo de trabalho. Assim que isso for feito, o componente de entrada de arquivo de mídia Olá inspecionar o arquivo hello e preencher sua saída pins tooreflect Olá arquivo, que ele inspecionado.
+Antes de podermos fazer mais do que isso, precisaremos indicar ao designer de fluxo de trabalho qual arquivo de exemplo desejamos usar para criar nosso fluxo de trabalho. Para fazer isso, clique no plano de fundo do painel do designer e procure pela propriedade do Arquivo de Origem Principal no painel de propriedades do lado direito. Clique no ícone de pasta e selecione o arquivo com o qual deseja testar o fluxo de trabalho. Assim que isso for feito, o componente de Entrada do Arquivo de Mídia inspecionará o arquivo e preencherá seus pinos de saída para refletir o arquivo inspecionado por ele.
 
 ![Entrada do Arquivo de Mídia preenchida](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
 *Entrada do Arquivo de Mídia preenchida*
 
-Enquanto isso Especifica com qual entrada que gostaríamos toowork com, ela não informa ainda em que a saída de hello codificado deve ir para. Semelhante Olá toohow principal arquivo de origem foi configurado, configure Olá propriedade da variável de pasta de saída, logo abaixo.
+Embora isso especifique com qual entrada queremos trabalhar, não informa ainda para onde a saída codificada deve ir. Assim como o Arquivo de Origem Principal foi configurado, configure a propriedade da Variável da pasta de saída, logo abaixo.
 
 ![Propriedades de Entrada e Saída configuradas](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
 *Propriedades de Entrada e Saída configuradas*
 
 ### <a id="MXF_to_MP4_streams"></a>Inspecionando fluxos de mídia
-Geralmente é preferível tooknow fluxo Olá aparência desse flui pelo fluxo de trabalho de saudação. tooinspect um fluxo em qualquer ponto no fluxo de trabalho hello, basta clicar uma saída ou entrada de pin em qualquer um dos componentes de saudação. Nesse caso, tente clicar em Olá pino de saída de vídeo descompactado da nossa entrada de arquivo de mídia. Uma caixa de diálogo será aberta que permite que o vídeo de saída de hello tooinspect.
+Com frequência, convém saber como é o fluxo que percorre o fluxo de trabalho. Para inspecionar um fluxo em qualquer ponto do fluxo de trabalho, basta clicar em um pino de saída ou de entrada em qualquer um dos componentes. Nesse caso, tente clicar no pino de saída Vídeo Descompactado em nossa Entrada do Arquivo de Mídia. Uma caixa de diálogo será aberta permitindo a inspeção do vídeo de saída.
 
-![Inspecionando pino de saída de vídeo descompactado Olá](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
+![Inspeção do pino de saída Vídeo Descompactado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
-*Inspecionando pino de saída de vídeo descompactado Olá*
+*Inspeção do pino de saída Vídeo Descompactado*
 
 Em nosso caso, ele nos informa, por exemplo, que estamos lidando com uma entrada de 1920 x 1080 a 24 quadros por segundo em uma amostragem de 4:2:2 de um vídeo de quase 2 minutos.
 
 ### <a id="MXF_to_MP4_file_generation"></a>Adicionando um codificador de vídeo para geração de arquivo .MP4
-Observe que, agora, um pino de saída Vídeo Descompactado e vários pinos de saída Áudio Descompactados estão disponíveis para uso em nossa Entrada do Arquivo de Mídia. Em ordem tooencode Olá vídeo de entrada, precisamos de um componente de codificação - nesse caso para gerar. Arquivos MP4.
+Observe que, agora, um pino de saída Vídeo Descompactado e vários pinos de saída Áudio Descompactados estão disponíveis para uso em nossa Entrada do Arquivo de Mídia. Para codificar o vídeo de entrada, precisamos de um componente de codificação - nesse caso, para geração de arquivos .MP4.
 
-tooencode Olá tooH.264 do fluxo de vídeo, adicione a superfície do designer de toohello Olá AVC codificador de vídeo componente. Esse componente recebe um fluxo de vídeo descompactado como entrada e fornece um fluxo de vídeo compactado AVC em seu pino de saída.
+Para codificar o fluxo de vídeo para H.264, adicione o componente do Codificador de Vídeo AVC à superfície do designer. Esse componente recebe um fluxo de vídeo descompactado como entrada e fornece um fluxo de vídeo compactado AVC em seu pino de saída.
 
 ![Codificador AVC desconectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
 *Codificador AVC desconectado*
 
-Suas propriedades determinam como exatamente Olá codificação acontece. Vamos dar uma olhada em algumas Olá configurações mais importantes:
+Suas propriedades determinam como a codificação ocorre exatamente. Vamos analisar algumas das configurações mais importantes:
 
-* Largura de saída e a altura de saída: esses determinam a resolução de saudação do vídeo Olá codificado. Em nosso caso, usaremos 640 x 360
-* Taxa de quadros: quando toopassthrough conjunto será apenas adotar a taxa de quadros de origem Olá, é possível toooverride esta aqui. Observe que essa conversão de taxa de quadros não tem compensação de movimento.
-* Nível e perfil: eles determinam perfil Olá AVC e nível. tooconveniently obter mais informações sobre Olá diferentes níveis e os perfis, clique em ícone de ponto de interrogação Olá no componente de codificador de vídeo AVC hello e página de ajuda de saudação mostrará mais detalhes sobre cada um dos níveis de saudação. Em nosso exemplo, vamos Escolher perfil principal no nível 3.2 (padrão de saudação).
+* Largura da Saída e Altura da Saída: determinam a resolução do vídeo codificado. Em nosso caso, usaremos 640 x 360
+* Taxa de Quadros: quando definida como passagem, adotará a taxa de quadros de origem, mas é possível substituir isso. Observe que essa conversão de taxa de quadros não tem compensação de movimento.
+* Perfil e Nível: determinam o perfil e o nível do AVC. Para saber mais sobre os diferentes níveis e perfis de forma conveniente, clique no ícone de interrogação no componente do Codificador de vídeo AVC e a página de Ajuda mostrará mais detalhes sobre cada um dos níveis. Em nosso exemplo, usaremos Perfil Principal no nível 3.2 (o padrão).
 * Modo de Controle de Taxa e Taxa de bits (kbps): em nosso cenário, optamos por uma saída de taxa de bits constante (CBR) de 1200 kbps
-* Formato de vídeo: trata-se Olá VUI (informações de uso do vídeo) que é gravado no fluxo de h. 264 hello (informações sobre o que pode ser usado por uma exibição de saudação do decodificador tooenhance, mas não essencial toocorrectly decodificar):
+* Formato de Vídeo: trata-se da VUI (Informação de Uso do Vídeo) gravada no fluxo H.264 (informações que podem ser usadas por um decodificador para melhorar a exibição, mas que não são essenciais para decodificar corretamente):
 * NTSC (normalmente para os Estados Unidos ou o Japão, usando 30 qps)
 * PAL (normalmente para a Europa, usando 25 qps)
-* Modo de Tamanho de GOP: configuraremos o Tamanho de GOP Fixo para nossos objetivos com um Intervalo de Chave de dois segundos com GOPs Fechados. Isso assegura a compatibilidade com hello que fornece serviços de mídia do empacotamento dinâmico do Azure.
+* Modo de Tamanho de GOP: configuraremos o Tamanho de GOP Fixo para nossos objetivos com um Intervalo de Chave de dois segundos com GOPs Fechados. Isso garante a compatibilidade com o empacotamento dinâmico fornecido pelos Serviços de Mídia do Azure.
 
-toofeed nossa codificador AVC, conectar pino de saída de vídeo descompactado saudação do hello entrada de arquivo de mídia componente toohello vídeo descompactado pino de entrada do codificador Olá AVC.
+Para alimentar nosso codificador de AVC, conecte o pino de saída Vídeo Descompactado do componente de Entrada de arquivo de mídia ao pino de entrada Vídeo Descompactado do codificador de AVC.
 
 ![Codificador AVC conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
 
 *Codificador Principal de AVC conectado*
 
-### <a id="MXF_to_MP4_audio"></a>Fluxo de áudio Olá codificação
-Neste ponto, podemos ter codificado vídeo mas fluxo de áudio descompactados original Olá ainda precisa toobe compactado. Para isso vamos com AAC codificação por Olá componente AAC codificador (Dolby). Adicione-o fluxo de trabalho toohello.
+### <a id="MXF_to_MP4_audio"></a>Codificando o fluxo de áudio
+Neste ponto, codificamos o vídeo, mas o fluxo de áudio descompactado original ainda precisa ser compactado. Para isso, usaremos a codificação AAC do componente Codificador AAC (Dolby). Adicione-o ao fluxo de trabalho.
 
 ![Codificador AVC desconectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
 *Codificador AAC desconectado*
 
-Agora há uma incompatibilidade: há apenas um único descompactado áudio entrado pin de saudação AAC codificador enquanto mais do que provavelmente Olá entrada de arquivo de mídia terá dois descompactados disponíveis de fluxo de áudio: uma para Olá deixado canal de áudio e outro para Olá Certo. (Se você estiver lidando com som surround, serão seis canais). Portanto, não é possível toodirectly conecte áudio Olá da fonte de entrada de arquivo de mídia Olá codificador de áudio Olá AAC. componente AAC Hello espera um fluxo de áudio chamado "intercalado": um único fluxo que tem ambos Olá esquerda e hello canais corretos intercalados entre si. Já sabemos do nosso arquivo de mídia de origem que faixas de áudio em qual posição na origem hello, podemos gerar esse fluxo de áudio Intercalado com hello corretamente recebem posições locutor para a esquerda e direita.
+Agora há uma incompatibilidade: há apenas um pino de entrada áudio descompactado no Codificador AAC, enquanto é bem provável que a Entrada do Arquivo de Mídia tenha fluxos de áudio descompactados diferentes disponíveis: um para o canal de áudio esquerdo e outro para o direito. (Se você estiver lidando com som surround, serão seis canais). Portanto, não é possível conectar diretamente o áudio da origem da Entrada do arquivo de mídia no codificador de áudio AAC. O componente AAC espera um chamado fluxo de áudio chamado "intercalado": um único fluxo que possui os canais esquerdo e direito intercalados entre si. Quando soubermos de nosso arquivo de mídia de origem quais faixas de áudio estão em determinada posição na origem, poderemos gerar esse fluxo de áudio intercalado com as posições de alto-falante corretamente atribuídas para os lados esquerdo e direito.
 
-Primeiro um desejará toogenerated um fluxo intercalado de canais de áudio de origem Olá necessário. componente de Interleaver de fluxo de áudio de saudação tratará isso para nós. Adicioná-lo toohello de fluxo de trabalho e se conectar a saídas de áudio de saudação do hello entrada de arquivo de mídia para ele.
+Primeiro, convém gerar um fluxo intercalado dos canais de áudio de origem exigidos. O componente Intercalador do Fluxo de Áudio tratará disso para nós. Adicione-o ao fluxo de trabalho e conecte as saídas de áudio da Entrada do Arquivo de Mídia nele.
 
 ![Intercalador do fluxo de áudio conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
 
 *Intercalador do fluxo de áudio conectado*
 
-Agora que temos um fluxo de áudio intercalado, ainda não especificamos onde tooassign Olá esquerdo ou direito dos alto-falantes posições à. Em ordem toospecify isso, podemos aproveitar Olá locutor cedente de posição.
+Agora que temos um fluxo de áudio intercalado, ainda não especificamos a qual local devemos atribuir as posições esquerda ou direita do alto-falante. Para especificar isso, podemos usar o Atribuidor de posição de alto-falante.
 
 ![Adicionando um Atribuidor de Posição do Alto-falante](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-speaker-position-assigner.png)
 
 *Adicionando um Atribuidor de Posição do Alto-falante*
 
-Configurar Olá locutor posição cedente para uso com um fluxo de entrada estéreo por meio de um filtro de predefinição de codificador de "Custom" e Olá canal predefinido chamado "2.0 (L, R)". (Isso atribuirá Olá locutor esquerdo posição toochannel 1 e Olá locutor certa posição toochannel 2.)
+Configure o Atribuidor de Posição de Alto-falante para uso com um fluxo de entrada estéreo por meio de um Filtro de Predefinição do Codificador "Personalizado" e da Predefinição de Canal chamada "2.0 (L, R)". (Isso atribuirá a posição do alto-falante esquerdo ao canal 1, e a posição do alto-falante direito ao canal 2).
 
-Conecte a saída de saudação do toohello entrada locutor posição cedente Olá Olá AAC codificador. Em seguida, conte-Olá AAC codificador toowork com um "2.0 (L, R)" canal predefinidos, para que ele saiba toodeal com áudio estéreo como entrada.
+Conecte a saída do Atribuidor de Posição do Alto-falante à entrada do Codificador AAC. Em seguida, instrua o Codificador AAC a trabalhar com uma Predefinição de Canal "2.0 (L, R)", para que ele saiba lidar com o áudio estéreo como uma entrada.
 
 ### <a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexando fluxos de áudio e de vídeo em um contêiner MP4
-Com base em nosso fluxo de vídeo codificado em AVC e em nosso fluxo de áudio codificado em AAC, podemos capturar ambos em um contêiner .MP4. processo de saudação de combinação de fluxos diferentes em uma única é chamado de "multiplexação" (ou "muxing"). Nesse caso, está intercalação hello e Olá vídeo fluxos de áudio em uma única coerente. Pacote de MP4. componente de saudação que coordena isso para um. Olá multiplexador ISO MPEG-4 é chamado de contêiner MP4. Adicione uma superfície de designer toohello e conecte Olá AVC codificador de vídeo e entradas de tooits AAC codificador hello.
+Com base em nosso fluxo de vídeo codificado em AVC e em nosso fluxo de áudio codificado em AAC, podemos capturar ambos em um contêiner .MP4. O processo de mistura de fluxos diferentes em um único fluxo é chamado de "multiplexação" (ou "muxing"). Nesse caso, estamos intercalando os fluxos de áudio e de vídeo em um único pacote .MP4 coerente. O componente que coordena isso para um contêiner .MP4 é chamado de Multiplexador ISO MPEG-4. Adicione esse componente à superfície do designer e conecte o Codificador de vídeo AVC e o Codificador AAC às suas entradas.
 
 ![Multiplexador MPEG4 conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
 *Multiplexador MPEG4 conectado*
 
-### <a id="MXF_to_MP4_writing_mp4"></a>Gravar o arquivo MP4 de saudação
-Ao gravar um arquivo de saída, o componente de saída de arquivo hello é usado. Podemos pode se conectar esta saída toohello de saudação multiplexador ISO MPEG-4 para que a saída é gravada toodisk. toodo, conectar Olá contêiner (MPEG-4) pin toohello gravação entrado pino de saída de hello arquivo de saída.
+### <a id="MXF_to_MP4_writing_mp4"></a>Gravando o arquivo MP4
+O componente Saída do Arquivo é usado durante a gravação de um arquivo de saída. Podemos conectá-lo à saída do Multiplexador ISO MPEG-4 para que sua saída seja gravada em disco. Para fazer isso, conecte o pino de saída Contêiner (MPEG-4) ao pino de entrada Gravação do Arquivo de Saída.
 
 ![Saída do arquivo conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
 
 *Saída do arquivo conectado*
 
-Olá nome do arquivo que será usado é determinado pelo Olá propriedade de arquivo. Enquanto essa propriedade pode ser codificado tooa valor, um provavelmente desejarão tooset-lo por meio de uma expressão em vez disso.
+O nome do arquivo que será usado é determinado pela propriedade Arquivo. Embora essa propriedade possa ser codificada para um determinado valor, convém defini-la por meio de uma expressão.
 
-fluxo de trabalho toohave Olá determinar automaticamente a saída de hello arquivo de propriedade de nome de uma expressão, clique em Olá botão próximo toohello nome de arquivo (ícone de pasta próximo toohello). No hello menu suspenso e selecione "Expressão". Isso abrirá o editor de expressão hello. Limpe o conteúdo de saudação do editor de saudação primeiro.
+Para que o fluxo de trabalho determine automaticamente a propriedade de nome do Arquivo de saída a partir de uma expressão, clique no botão ao lado do Nome do arquivo (ao lado do ícone de pasta). No menu suspenso, selecione "Expressão". Isso abrirá o editor de expressão. Primeiro, limpe o conteúdo do editor.
 
 ![Editor de expressão vazio](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
 *Editor de expressão vazio*
 
-editor de expressão Olá permite tooenter qualquer valor literal, combinado com uma ou mais variáveis. As variáveis começam com um sinal de cifrão. Conforme você pressionar a tecla de $ de hello, editor de saudação mostrará uma caixa suspensa com uma opção de variáveis disponíveis. Em nosso caso, usaremos uma combinação de variável de diretório de saída de hello e variável de nome de arquivo base de entrada hello:
+O editor de expressão permite a inserção de qualquer valor literal, combinado com uma ou mais variáveis. As variáveis começam com um sinal de cifrão. Quando você pressiona a tecla $, o editor mostra uma caixa suspensa com as variáveis disponíveis para sua escolha. Em nosso caso, usaremos uma combinação da variável do diretório de saída e da variável básica de nome do arquivo de entrada:
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
 
@@ -192,98 +192,98 @@ editor de expressão Olá permite tooenter qualquer valor literal, combinado com
 *Editor de expressão preenchido*
 
 > [!NOTE]
-> Em ordem toosee ver um arquivo de saída do seu trabalho de codificação no Azure, você deve fornecer um valor no editor de expressão hello.
+> Para ver um arquivo de saída de seu trabalho de codificação no Azure, você deve fornecer um valor no editor de expressão.
 >
 >
 
-Quando você confirmar expressão Olá atingindo okey, janela de propriedade Olá visualizará toowhat valor Olá arquivo propriedade resolve neste momento.
+Quando você confirma a expressão clicando em ok, a janela de propriedade mostra para que valor a propriedade Arquivo é resolvida neste momento.
 
 ![Diretório de saída de resolução da Expressão do Arquivo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
 
 *Diretório de saída de resolução da Expressão do Arquivo*
 
-### <a id="MXF_to_MP4_asset_from_output"></a>Criar um ativo de serviços de mídia do arquivo de saída Olá
-Enquanto estamos foram gravadas, um arquivo de saída de MP4, ainda precisamos tooindicate este arquivo pertence toohello ativo quais serviços de mídia irá gerar como resultado da execução deste fluxo de trabalho de saída. toothis final, o nó de arquivo/ativo de saída Olá na tela de fluxo de trabalho de saudação é usado. Todos os arquivos de entrada para esse nó se tornará parte do hello resultante do Azure Media Services ativo.
+### <a id="MXF_to_MP4_asset_from_output"></a>Criando um Ativo dos Serviços de Mídia do arquivo de saída
+Embora tenhamos escrito um arquivo de saída MP4, ainda precisamos indicar que este arquivo pertence ao ativo de saída que os Serviços de Mídia gerarão como resultado da execução deste fluxo de trabalho. Para essa finalidade, usamos o nó Arquivo/Ativo de Saída na tela do fluxo de trabalho. Todos os arquivos recebidos nesse nó farão parte do ativo resultante dos Serviços de Mídia do Azure.
 
-Conecte-se Olá saída de arquivo componente toohello ativo/arquivo de saída componente toofinish Olá fluxo de trabalho.
+Conecte o componente Saída do Arquivo ao componente Arquivo/Ativo de Saída para concluir o fluxo de trabalho.
 
 ![Fluxo de trabalho concluído](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
 
 *Fluxo de trabalho concluído*
 
-### <a id="MXF_to_MP4_test"></a>Saudação de teste terminar o fluxo de trabalho localmente
-tootest Olá fluxo de trabalho localmente, pressione o botão de reprodução de Olá na barra de ferramentas de saudação na parte superior da saudação. Quando o fluxo de trabalho Olá terminar a execução, inspecione saída Olá gerada na pasta de saída de saudação configurada. Você verá Olá terminar o arquivo de saída de MP4 que foi codificado Olá MXF entrada do arquivo de origem.
+### <a id="MXF_to_MP4_test"></a>Testar o fluxo de trabalho concluído localmente
+Para testar o fluxo de trabalho localmente, pressione o botão Executar na barra de ferramentas superior. Após a conclusão da execução do fluxo de trabalho, inspecione a saída gerada na pasta de saída configurada. Você verá o arquivo de saída MP4 concluído que foi codificado a partir do arquivo de origem de entrada MXF.
 
 ## <a id="MXF_to_MP4_with_dyn_packaging"></a>Codificação do MXF em MP4 - empacotamento dinâmico com várias taxas bits habilitado
 Neste passo a passo, criaremos um conjunto de arquivos MP4 com várias taxas de bits e áudio codificado em AAC a partir de um único arquivo de entrada .MXF.
 
-Quando uma saída de ativo de múltiplas taxas de bits for desejada para uso em combinação com recursos de empacotamento dinâmico Olá oferecidos pelo Azure Media Services, vários arquivos MP4 com alinhamento GOP de cada uma taxa de bits diferente e a resolução precisará toobe gerado. Assim, Olá toodo [MXF codificação em uma taxa de bits única MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) passo a passo fornece um bom ponto de partida.
+Quando houver o desejo por uma saída de ativo com várias taxas de bit para uso junto com os recursos de Empacotamento dinâmico oferecidos pelos Serviços de Mídia do Azure, será necessário gerar vários arquivos MP4 alinhados com GOP de cada taxa de bits e resolução diferentes. Para fazer isso, o passo a passo [Codificação do MXF em um MP4 de taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) fornece um bom ponto de partida.
 
 ![Como iniciar o fluxo de trabalho](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
 *Como iniciar o fluxo de trabalho*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Adicionando uma ou mais saídas MP4
-Cada arquivo MP4 em nosso ativo resultante dos Serviços de Mídia do Azure oferecerá suporte a uma taxa de bits e resolução diferentes. Vamos adicionar um ou mais MP4 saída arquivos toohello fluxo de trabalho.
+Cada arquivo MP4 em nosso ativo resultante dos Serviços de Mídia do Azure oferecerá suporte a uma taxa de bits e resolução diferentes. Vamos adicionar um ou mais arquivos de saída MP4 ao fluxo de trabalho.
 
-toomake-se de que temos todos os codificadores de vídeos criados com Olá mesmas configurações, é mais conveniente tooduplicate Olá codificador de vídeo AVC já existente e configure outra combinação de resolução e taxa de bits (vamos adicionar um 960 x 540 25 quadros por segundo 2,5 Mbps). codificador existente do tooduplicate hello, cópia colá-lo na superfície de designer hello.
+Para termos certeza de que todos os nossos codificadores de vídeo foram criados com as mesmas configurações, é mais conveniente duplicar o Codificador de vídeo AVC já existente e configurar outra combinação de resolução e taxa de bits (vamos adicionar uma de 960 x 540 a 25 quadros por segundo a 2,5 Mbps). Para duplicar o codificador existente, copie e cole-o na superfície do designer.
 
-Conecte-se Olá pino de saída de vídeo descompactado da saudação entrada de arquivo de mídia em nosso novo componente AVC.
+Conecte o pino de saída Vídeo Descompactado da Entrada do Arquivo de Mídia ao nosso novo componente AVC.
 
 ![Segundo codificador AVC conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
 
 *Segundo codificador AVC conectado*
 
-Agora adapte configuração Olá para toooutput de codificador AVC nosso novo 960 x 540 a 2,5 Mbps. (Use as propriedades "Largura de saída", "Altura de saída" e "Taxa de bits (kbps)" para isso).
+Agora, adapte a configuração de nosso novo codificador AVC para a saída 960 x 540 a 2,5 Mbps. (Use as propriedades "Largura de saída", "Altura de saída" e "Taxa de bits (kbps)" para isso).
 
-Considerando que desejamos toouse ativo resultante do hello junto com o empacotamento dinâmico do Azure Media Services, Olá ponto de extremidade de streaming necessidades toobe capaz de gerar desses arquivos MP4 fragmentos HLS/fragmentado MP4/DASH que são exatamente alinhado tooeach outro de forma que os clientes que estiver alternando entre diferentes taxas de bits obtém uma único smooth contínua áudio e vídeo experiência. toomake que acontecem, precisamos tooensure que, nas propriedades de saudação do codificadores AVC está definido Olá tamanho GOP ("grupo de imagens") para os dois arquivos MP4 too2 segundos, que podem ser feitos por:
+Considerando que queremos usar o ativo resultante junto com o empacotamento dinâmico dos Serviços de Mídia do Azure, o ponto de extremidade de streaming precisa ser capaz de gerar a partir dos fragmentos MP4/DASH HLS/Fragmentados desses arquivos MP4, que são exatamente alinhados entre si de uma maneira que os clientes que alternam entre taxas de bits diferentes obtenham uma experiência de vídeo e áudio contínua e suave. Para fazer isso acontecer, precisamos garantir que o tamanho do GOP ("grupo de imagens") dos dois arquivos MP4 seja definido como dois segundos nas propriedades dos codificadores AVC, o que pode ser feito da seguinte forma:
 
-* Definindo o tamanho de GOP Olá GOP tamanho modo tooFixed e
-* segundos de tootwo de intervalo de quadro chave Hello.
-* também definir Olá GOP IDR controle tooClosed GOP tooensure GOP todos está aguardando em seus próprios sem dependências
+* Definindo o Modo de Tamanho do GOP como o tamanho GOP Fixo e
+* O Intervalo de Quadro Principal como dois segundos.
+* Além disso, defina o Controle IDR do GOP como GOP Fechado a fim de garantir que todos os GOPs fiquem ativos sem dependências
 
-toomake nossa toounderstand conveniente de fluxo de trabalho, renomear o codificador de AVC primeiro Olá muito "codificador de vídeo AVC 640x360 1200kbps" e Olá codificador do segundo AVC "codificador de vídeo AVC 960 x 540 kbps 2500".
+Para facilitar a compreensão de nosso o fluxo de trabalho, renomeie o primeiro codificador AVC como "Codificador de Vídeo AVC 640 x 360 1200 kbps" e o segundo codificador AVC como"Codificador de Vídeo AVC 960 x 540 2500 kbps".
 
-Agora, adicione um segundo Multiplexador ISO MPEG-4 e uma segunda Saída de arquivo. Conecte Olá multiplexador toohello novo AVC codificador e verifique se que a saída é direcionada para Olá saída de arquivo. Também se conectar Olá AAC codificador de áudio saída toohello nova entrada da multiplexador. Olá saída de arquivo por sua vez pode ser conectado toohello ativo/arquivo de saída nó tooadd-toohello ativo de serviços de mídia que será criado.
+Agora, adicione um segundo Multiplexador ISO MPEG-4 e uma segunda Saída de arquivo. Conecte o multiplexador ao novo codificador AVC e certifique-se de que sua saída seja direcionada para o Arquivo de saída. Conecte também a saída do codificador de áudio AAC à entrada do novo multiplexador. A Saída do arquivo, por sua vez, pode ser conectada ao nó Arquivo/Ativo de Saída a fim de adicioná-la ao Ativo dos Serviços de Mídia que será criado.
 
 ![Segundo Muxer e Saída do arquivo conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-muxer-file-output-connected.png)
 
 *Segundo Muxer e Saída do arquivo conectado*
 
-Para compatibilidade com o empacotamento dinâmico dos serviços de mídia do Azure, configure a contagem de tooGOP de modo de bloco de saudação do multiplexador ou duração e defina Olá GOPs por too1 parte. (Isso deve ser o padrão de hello.)
+Para manter a compatibilidade com o empacotamento dinâmico dos Serviços de Mídia do Azure, configure Modo de Partes do multiplexador para contagem ou duração de GOP e defina os GOPs por parte como 1. (Esse deve ser o padrão).
 
 ![Modos de parte do muxer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-muxer-chunk-modes.png)
 
 *Modos de parte do muxer*
 
-Observação: talvez você queira toorepeat esse processo para qualquer taxa de bits e resolução de combinações de toohave adicionado toohello saída de ativo.
+Observação: convém repetir esse processo para qualquer outra combinação de resolução e taxa de bits que você deseja adicionar à saída do ativo.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Configurar nomes de saída do arquivo hello
-Temos mais de um ativo de saída de arquivo único adicionado toohello. Isso fornece uma saudação-se de necessidade toomake nomes de arquivos para cada Olá saída arquivos são diferentes uns dos outros e talvez até mesmo se aplica uma convenção de nomenclatura de arquivo portanto fica claro saudação do nome de arquivo que você está lidando com.
+### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Configurando os nomes de saída do arquivo
+Mais de um arquivo foi adicionado ao ativo de saída. Com isso, é necessário se certificar de que os nomes de arquivo de cada um dos arquivos de saída sejam diferentes uns dos outros, e talvez até mesmo aplicar uma convenção de nomenclatura de arquivo para que fique claro, a partir do nome do arquivo, com o você está lidando.
 
-Nomenclatura de arquivos de saída pode ser controlado por meio de expressões no designer de saudação. Abrir o painel de propriedade Olá para um dos componentes de saída de arquivo hello e abrir editor de expressão de saudação do hello propriedade de arquivo. Nosso primeiro arquivo de saída foi configurado por meio de saudação expressão a seguir (consulte o tutorial Olá para indo de [taxa de bits única saída MP4 do MXF tooa](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
+A nomenclatura de saída do arquivo pode ser controlada por meio de expressões no designer. Abra o painel de propriedades de um dos componentes de Saída do arquivo, e abra o editor de expressão para a propriedade Arquivo. Nosso primeiro arquivo de saída foi configurado por meio da seguinte expressão (consulte o tutorial para ir de um [MXF para uma saída MP4 taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
 
-Isso significa que nossa filename é determinada por duas variáveis: Olá saída toowrite directory no e hello nome base do arquivo de origem. antiga Olá é exposta como uma propriedade na raiz de fluxo de trabalho hello e Olá esta última é determinada pelo arquivo de entrada hello. Observe que esse diretório de saída Olá é usada para teste local. Essa propriedade será substituída pelo mecanismo de fluxo de trabalho hello quando o fluxo de trabalho de saudação é executado pelo processador de mídia com base em nuvem Olá nos serviços de mídia do Azure.
-toogive ambos os arquivos de nossa saída uma saída consistente de nomenclatura, alteração Olá primeiro arquivo nomenclatura expressão para:
+Isso significa que nosso nome de arquivo é determinado por duas variáveis: o diretório de saída para gravação e o nome base do arquivo de origem. O primeiro é exposto como uma propriedade na raiz do fluxo de trabalho, e o último é determinado pelo arquivo de entrada. Observe que o diretório de saída é usado para teste local; essa propriedade será substituída pelo mecanismo de fluxo de trabalho, quando o fluxo de trabalho for executado pelo processador de mídia baseado em nuvem nos Serviços de Mídia do Azure.
+Para atribuir aos nossos dois arquivos de saída uma nomenclatura de saída consistente, altere a primeira expressão de nomenclatura de arquivo para:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
 
-e o segundo Olá para:
+e a segunda para:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-Execução de um teste intermediário toomake-se de que ambos os arquivos de saída de MP4 gerados corretamente.
+Execute uma execução de teste intermediária para se certificar de que os dois arquivos de saída MP4 foram gerados corretamente.
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Adicionando uma Trilha de Áudio separada
-Como veremos mais tarde quando geramos uma toogo de arquivo. ISM com os arquivos de saída de MP4, nós também exigirá um arquivo MP4 somente de áudio como faixa de áudio Olá para nosso streaming adaptável. toocreate esse arquivo, adicione um fluxo de trabalho do muxer adicionais toohello (ISO-MPEG-4 multiplexador) e conecte-se o pino de saída do codificador do hello AAC com seu pin de entrada para acompanhar 1.
+Como veremos posteriormente ao gerarmos um arquivo .ism para acompanhar nossos arquivos de saída MP4, também precisaremos de um arquivo MP4 somente de áudio como a trilha de áudio para nosso streaming adaptável. Para criar esse arquivo, adicione outro muxer ao fluxo de trabalho (Multiplexador ISO-MPEG-4) e conecte o pino de saída do codificador AAC ao seu pino de entrada para a Trilha 1.
 
 ![Muxer de áudio adicionado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
 
 *Muxer de áudio adicionado*
 
-Criar um fluxo de saída do arquivo de saída componente toooutput Olá terceiro de saudação muxer e configure a expressão de nomenclatura de arquivo hello como:
+Crie um terceiro componente de Saída do arquivo para mostrar o fluxo de saída do muxer e configurar a expressão de nomenclatura do arquivo como:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
 
@@ -291,8 +291,8 @@ Criar um fluxo de saída do arquivo de saída componente toooutput Olá terceiro
 
 *Criação de Saída do arquivo pelo muxer de áudio*
 
-### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionando hello. Arquivo SMIL ISM
-Para toowork de empacotamento dinâmico Olá em combinação com os dois MP4 arquivos (e Olá somente de áudio MP4) em nosso ativo do Media Services, também é necessário um arquivo de manifesto (também chamado de arquivo "SMIL": linguagem de integração de multimídia sincronizada). Esse arquivo indica tooAzure Media Services quais arquivos MP4 estão disponíveis para empacotamento dinâmico e que esses tooconsider para streaming de áudio hello. Um arquivo de manifesto típico para um conjunto de MP4s com um único fluxo de áudio tem a seguinte aparência:
+### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionando o arquivo SMIL .ISM
+Para o empacotamento dinâmico funcionar junto com os dois arquivos MP4 (e com o MP4 somente de áudio) em nosso ativo dos Serviços de Mídia, também precisamos de um arquivo de manifesto (também chamado de arquivo "SMIL": Linguagem de integração de multimídia sincronizada). Esse arquivo indica aos Serviços de Mídia do Azure quais são os arquivos MP4 que estão disponíveis para empacotamento dinâmico e quais deles devem ser considerados para o streaming de áudio. Um arquivo de manifesto típico para um conjunto de MP4s com um único fluxo de áudio tem a seguinte aparência:
 
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
@@ -309,70 +309,70 @@ Para toowork de empacotamento dinâmico Olá em combinação com os dois MP4 arq
       </body>
     </smil>
 
-arquivo. ISM de saudação contém dentro de uma instrução switch, tooeach uma referência de arquivos individuais de vídeo de MP4 hello e além de arquivo de áudio toothose também uma (ou mais) faz referência a tooan MP4 que contém apenas o áudio hello.
+O arquivo .ism contém uma instrução switch, uma referência a cada um dos arquivos de vídeo MP4 individuais e também uma (ou mais) referências de arquivo de áudio para um MP4 que contém apenas o áudio.
 
-Gerar arquivo de manifesto de saudação para nosso conjunto de MP4 pode ser feito por meio de um componente chamado hello "AMS manifesto gravador". toouse, arraste-o para a superfície de saudação e conecte-se o hello "De gravação concluído" pinos de saída de hello três arquivos de saída componentes toohello AMS gravador de manifesto de entrada. Certifique-se de que tooconnect Olá saída Olá AMS manifesto gravador toohello ativo/arquivo de saída.
+A geração do arquivo de manifesto para nosso conjunto de MP4s pode ser realizada por meio de um componente chamado de "Gravador de Manifesto AMS". Para usá-lo, arraste-o para a superfície e conecte os pinos de saída "Gravação Concluída" dos três componentes de Saída de arquivo com a entrada do Gravador de Manifesto AMS. Em seguida, conecte a saída do Gravador de Manifesto AMS ao Arquivo/Ativo de Saída.
 
-Assim como acontece com os outros componentes de saída de arquivo, configure o nome de saída de arquivo hello. ISM com uma expressão:
+Assim como nossos outros componentes de saída do arquivo, configure o nome de saída do arquivo .ism com uma expressão:
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
 
-Nosso fluxo de trabalho concluído é semelhante a saudação abaixo:
+Nosso fluxo de trabalho concluído é semelhante ao seguinte:
 
-![Fluxo de trabalho MP4 toomultibitrate de terminar de MXF](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
+![Fluxo de trabalho concluído de MXF para MP4 com várias taxas de bit](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
 
-*Fluxo de trabalho MP4 toomultibitrate de terminar de MXF*
+*Fluxo de trabalho concluído de MXF para MP4 com várias taxas de bit*
 
 ## <a id="MXF_to__multibitrate_MP4"></a>Codificando MXF em MP4 com várias taxas de bit - plano gráfico aprimorado
-Em Olá [passo a passo de fluxo de trabalho anterior](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) que vimos como um único ativo de entrada MXF pode ser convertido em um ativo de saída com arquivos MP4 com múltiplas taxas de bits, um arquivo MP4 somente de áudio e um arquivo de manifesto para uso em conjunto com a mídia do Azure Serviços de empacotamento dinâmico.
+No [passo a passo do fluxo de trabalho anterior](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) vimos como um único ativo de entrada MXF pode ser convertido em um ativo de saída com arquivos MP4 com várias taxas de bits, um arquivo MP4 somente áudio e um arquivo de manifesto para uso em conjunto com o empacotamento dinâmico dos Serviços de Mídia do Azure.
 
-Este passo a passo mostrará como alguns aspectos de saudação podem ser aprimorados e torna mais conveniente.
+Este passo a passo mostrará como alguns dos aspectos podem ser aprimorados e tornados mais convenientes.
 
-### <a id="MXF_to_multibitrate_MP4_overview"></a>Tooenhance de visão geral do fluxo de trabalho
-![Multibitrate MP4 tooenhance de fluxo de trabalho](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
+### <a id="MXF_to_multibitrate_MP4_overview"></a>Visão geral do fluxo de trabalho para aprimoramento
+![Fluxo de trabalho de MP4 com várias taxas de bit para aprimoramento](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
-*Multibitrate MP4 tooenhance de fluxo de trabalho*
+*Fluxo de trabalho de MP4 com várias taxas de bit para aprimoramento*
 
 ### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Convenções de nomenclatura do arquivo
-Fluxo de trabalho anterior Olá especificamos uma expressão simples como base Olá para gerar nomes de arquivo de saída. Temos alguns duplicação embora: todos os componentes de arquivo de saída individuais Olá Olá essa expressão especificada.
+No fluxo de trabalho anterior especificamos uma expressão simples como base para a geração de nomes de arquivo de saída. No entanto, temos algumas duplicações: todos os componentes individuais do arquivo de saída especificaram essa expressão.
 
-Por exemplo, nosso componente de saída de arquivo para o arquivo de vídeo primeiro Olá é configurado com esta expressão:
+Por exemplo, nosso componente de saída de arquivo para o primeiro arquivo de vídeo está configurado com esta expressão:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
 
-Tempo para Olá segunda saída de vídeo, temos uma expressão como:
+Enquanto no segundo vídeo de saída, temos uma expressão como esta:
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-Não seria mais claro, menos propenso a erros e mais conveniente se pudéssemos remover algumas essas duplicações e tornar as coisas mais configuráveis? Felizmente, podemos: recursos de expressão do designer de saudação em combinação com propriedades personalizadas da saudação capacidade toocreate em nosso raiz de fluxo de trabalho fornece uma camada adicional de conveniência.
+Não seria mais claro, menos propenso a erros e mais conveniente se pudéssemos remover algumas essas duplicações e tornar as coisas mais configuráveis? Felizmente, podemos fazer isso: os recursos de expressão do designer em combinação com a capacidade de criar propriedades personalizadas na raiz de nosso fluxo de trabalho nos proporcionará um pouco mais de conveniência.
 
-Vamos supor que estamos será unidade de configuração de nome de arquivo do hello taxas de bits de arquivos MP4 individuais de saudação. Essas taxas de bits, irá visar tooconfigure em um centro colocar (em raiz de saudação do nosso gráfico), de onde eles serão acessada geração de nome de arquivo de tooconfigure e a unidade. toodo isso, vamos começar com a publicação de propriedade de taxa de bits Olá de ambos os raiz de toohello AVC codificadores de nosso fluxo de trabalho para que ele se tornará acessível de ambos os raiz hello, bem como codificadores Olá AVC. (Mesmo se for exibido em dois pontos diferentes, haverá apenas um valor subjacente).
+Vamos supor que obteremos a configuração de nome do arquivo com base nas taxas de bits dos arquivos MP4 individuais. Nosso objetivo é configurar essas taxas de bit em um local central (na raiz de nosso gráfico), de onde poderão ser acessadas para configurar e realizar a geração de nome de arquivo. Para fazer isso, começamos publicando a propriedade de taxa de bits a partir dos dois codificadores AVC até a raiz de nosso fluxo de trabalho, de modo que fique acessível a partir da raiz e dos codificadores AVC. (Mesmo se for exibido em dois pontos diferentes, haverá apenas um valor subjacente).
 
-### <a id="MXF_to__multibitrate_MP4_publishing"></a>Propriedades de componente na raiz de fluxo de trabalho de saudação de publicação
-Abra o codificador de AVC primeiro hello, vá toohello propriedade de taxa de bits (kbps) e na lista suspensa de saudação selecione publicar.
+### <a id="MXF_to__multibitrate_MP4_publishing"></a>Publicando as propriedades do componente na raiz do fluxo de trabalho
+Abra o primeiro codificador AVC, vá até a propriedade Taxa de bits (kbps) e, no menu suspenso, selecione Publicar.
 
-![Propriedade de taxa de bits Olá publicação](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
+![Publicando a propriedade de taxa de bits](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
 
-*Propriedade de taxa de bits Olá publicação*
+*Publicando a propriedade de taxa de bits*
 
-Configurar Olá publicar diálogo toopublish toohello raiz do nosso gráfico de fluxo de trabalho, com um nome publicado de "video1bitrate" e um nome de exibição legível de "Taxa de bits do vídeo 1". Configure um nome do grupo personalizado chamado "Taxas de Bits de Streaming" e toque em Publicar.
+Configure a caixa de diálogo Publicar para publicar a raiz do nosso gráfico de fluxo de trabalho, com o nome publicado de "video1bitrate" e um nome de exibição legível de "Taxa de Bits do Vídeo 1". Configure um nome do grupo personalizado chamado "Taxas de Bits de Streaming" e toque em Publicar.
 
-![Propriedade de taxa de bits Olá publicação](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
+![Publicando a propriedade de taxa de bits](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
 
 *Caixa de diálogo de publicação para a propriedade de taxa de bits*
 
-Olá repetição mesmo para a propriedade de taxa de bits de saudação do hello segundo codificador AVC e nomeie-o "video2bitrate" com um nome de exibição de "Taxa de bits do vídeo 2", no hello mesma personalizado de grupo "Streaming taxas de bits".
+Repita o mesmo para a propriedade de taxa de bits do segundo codificador AVC e nomeie-o como "video2bitrate" com um nome de exibição de "Taxas de Bits do Vídeo 2", no mesmo grupo personalizado "Taxas de Bits de Streaming".
 
-Se nós agora inspecionar as propriedades de fluxo de trabalho raiz hello, veremos nosso grupo personalizado com hello aparecem duas propriedades publicadas. Ambos são refletir o valor de saudação de seu respectiva AVC codificador de taxa de bits.
+Se agora inspecionarmos as propriedades raiz do fluxo de trabalho, veremos nosso grupo personalizado com as duas propriedades publicados em exibição. Ambas refletem o valor de suas respectivas taxas de bits do codificador AVC.
 
 ![Propriedades de taxa de bits publicadas na raiz do fluxo de trabalho](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-bitrate-props-on-workflow-root.png)
 
-Sempre que desejamos tooaccess essas propriedades de código ou de uma expressão, podemos fazer isso como este:
+Sempre que quisermos acessar essas propriedades a partir do código ou de uma expressão, poderemos fazer isso da seguinte maneira:
 
-* no código embutido de um componente logo abaixo raiz Olá: node.getPropertyAsString('.. / video1bitrate', null)
+* no código embutido de um componente logo abaixo da raiz: node.getPropertyAsString('../video1bitrate',null)
 * em uma expressão: ${ROOT_video1bitrate}
 
-Vamos concluir o grupo de "Streaming taxas de bits" hello publicando nosso faixa de áudio de taxa de bits nele também. Em Propriedades Olá Olá AAC codificador, procure a configuração de taxa de bits de saudação e selecione publicar na Olá suspensa próxima tooit. Publicar toohello raiz do gráfico de saudação com nome "audio1bitrate" e exibir o nome "Taxa de bits de áudio 1" em nosso grupo personalizado "Streaming taxas de bits".
+Vamos concluir o grupo "Taxas de Bits de Streaming" publicando também a taxa de bits de nossa trilha de áudio. Nas propriedades do Codificador AAC, procure pela configuração de Taxa de bits e selecione Publicar no menu suspenso ao lado dela. Publique na raiz do gráfico com o nome "audio1bitrate" e exiba o nome "Taxa de Bits do Áudio 1" em nosso grupo personalizado "Taxas de Bits de Streaming".
 
 ![Caixa de diálogo de publicação para a taxa de bits de áudio](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
 
@@ -382,148 +382,148 @@ Vamos concluir o grupo de "Streaming taxas de bits" hello publicando nosso faixa
 
 *Propriedades de áudio e vídeos resultantes na raiz*
 
-Observe que a alteração de qualquer um desses três valores também configura novamente e alterações Olá componentes do respectivos Olá são vinculados com valores (e, quando publicados do).
+Observe que a alteração de qualquer um desses três valores também reconfigura e altera os valores nos respectivos componentes aos quais estão vinculados (e dos quais foram publicados).
 
 ### <a id="MXF_to__multibitrate_MP4_output_files"></a>Faça com que os nomes de arquivo de saída gerados dependam dos valores de propriedade publicados
-Em vez de codificar os nomes de arquivo gerado, podemos agora alterar nossa expressão de nome de arquivo em cada um dos toorely de componentes de saída de arquivo hello nas propriedades de taxa de bits Olá que acabou de ser publicados na raiz do gráfico de saudação. Começando com nossa primeira saída de arquivo, localizar a propriedade de arquivo hello e editar a expressão hello como este:
+Em vez de codificar nossos nomes de arquivo gerados, podemos mudar nossa expressão de nome de arquivo em cada um dos componentes de Arquivo de saída, a fim de depender das propriedades de taxa de bits que acabamos de publicar na raiz do gráfico. Começando com nossa primeira saída de arquivo, encontre a propriedade Arquivo e edite a expressão da seguinte forma:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
 
-parâmetros diferentes de saudação nesta expressão podem ser acessados e inseridos ao atingir o sinal de cifrão Olá teclado Olá enquanto estiver na janela de expressão de saudação. Um dos parâmetros disponíveis Olá é nossa propriedade video1bitrate que são publicados anteriormente.
+Os parâmetros diferentes nessa expressão podem ser acessados e inseridos pressionando o sinal de cifrão no teclado enquanto estiver na janela de expressão. Um dos parâmetros disponíveis é nossa propriedade video1bitrate que publicamos anteriormente.
 
 ![Acessando parâmetros dentro de uma expressão](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
 
 *Acessando parâmetros dentro de uma expressão*
 
-Olá mesmo para saída de arquivo hello para nosso vídeo segundo:
+Faça o mesmo para a saída de arquivo de nosso segundo vídeo:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
 
-e para a saída de arquivo somente de áudio hello:
+e para a saída do arquivo somente de áudio:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
 
-Se alterarmos agora Olá a taxa de bits para qualquer um dos arquivos de áudio ou vídeo hello, codificador do respectivos Olá será reconfigurado e convenção de nomes de arquivos com base em taxas de bits hello será cumprida automático.
+Se agora alterarmos a taxa de bits de qualquer um dos arquivos de áudio ou de vídeo, o respectivo codificador será reconfigurado e a convenção de nomenclatura de arquivos com base na taxa de bits será respeitada automaticamente.
 
-## <a id="thumbnails_to__multibitrate_MP4"></a>Adicionando a saída de MP4 toomultibitrate miniaturas
-A partir de um fluxo de trabalho que gera [uma saída como MP4 de uma entrada de MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), podemos agora verá em Adicionar saída de toohello de miniaturas.
+## <a id="thumbnails_to__multibitrate_MP4"></a>Adicionando miniaturas à saída MP4 com várias taxas de bit
+Começando em um fluxo de trabalho que gera [uma saída MP4 com várias taxas de bit a partir de uma entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), agora vamos analisar como adicionar miniaturas à saída.
 
-### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Miniaturas de tooadd de visão geral do fluxo de trabalho para
-![Multibitrate MP4 toostart de fluxo de trabalho do](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
+### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Visão geral do fluxo de trabalho para adição de miniaturas
+![Fluxo de trabalho de MP4 com várias taxas de bit para começar](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
 
-*Multibitrate MP4 toostart de fluxo de trabalho do*
+*Fluxo de trabalho de MP4 com várias taxas de bit para começar*
 
 ### <a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Adicionando codificação JPG
-núcleo de saudação do nosso geração de miniaturas serão componente de codificador de JPG hello, toooutput capaz de arquivos. JPG.
+A essência de nossa geração de miniaturas será o componente Codificador de JPG, capaz de gerar arquivos JPG.
 
 ![Codificador de JPG](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
 *Codificador de JPG*
 
-No entanto diretamente não foi possível conectar nosso fluxo de vídeo descompactado da saudação entrada de arquivo de mídia no codificador JPG hello. Em vez disso, ele espera toobe entregue quadros individuais. Isso, podemos fazer através do componente de entrada do quadro de vídeo hello.
+No entanto, não podemos conectar diretamente nosso fluxo de Vídeo Descompactado da Entrada do Arquivo de Mídia para o codificador de JPG. Em vez disso, ele espera receber quadros individuais. Isso podemos fazer por meio do componente Portão de quadro do vídeo.
 
-![Conectar-se um codificador JPG quadro portão toohello](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
+![Conectando um portão de quadro ao codificador de JPG](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
 
-*Conectar-se um codificador JPG quadro portão toohello*
+*Conectando um portão de quadro ao codificador de JPG*
 
-Portão de quadro Hello quando cada tantos segundos ou quadros permite toopass um quadro de vídeo. tempo de intervalo e hello de saudação deslocamento com que isso ocorre é configurável nas propriedades de saudação.
+O portão de quadro permite, uma vez a cada vários segundos ou quadros, a passagem de um quadro de vídeo. O intervalo e o deslocamento de tempo com base no qual isso ocorre pode ser configurado nas propriedades.
 
 ![Propriedades do Portão de Quadro do Vídeo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-video-frame-gate-properties.png)
 
 *Propriedades do Portão de Quadro do Vídeo*
 
-Vamos criar uma miniatura de cada minuto, definindo Olá modo tooTime (segundos) e Olá too60 de intervalo.
+Vamos criar uma miniatura a cada minuto definindo o modo como Tempo (segundos) e o Intervalo como 60.
 
 ### <a id="thumbnails_to__multibitrate_MP4_color_space"></a>Lidando com a conversão de espaço de cor
-Embora seria parecer lógico pins de vídeo descompactado do portão de quadro hello e hello entrada de arquivo de mídia agora podem ser conectados, obteremos um aviso se fazer isso.
+Embora pareça lógico que os pinos de Vídeo Descompactado do portão de quadro e a Entrada do Arquivo de Mídia possam ser conectados agora, receberíamos um aviso se fizéssemos isso.
 
 ![Erro no espaço de cor de entrada](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
 
 *Erro no espaço de cor de entrada*
 
-Isso ocorre porque a forma Olá no qual cor informações são representadas em nosso original bruto descompactado fluxo de vídeo, provenientes de nosso MXF é diferente do que Olá codificador de JPG está esperando. Mais especificamente, uma chamada "espaço de cores" de "RGB" ou "Cinza" é esperado tooflow no. Isso significa que o fluxo de vídeo de entrada do que Olá vídeo quadro portão precisará toohave uma conversão aplicada primeiro sobre o seu espaço de cor.
+Isso ocorre por que a maneira com a qual as informações de cores são representadas em nosso fluxo original bruto de vídeo descompactado, provenientes de nosso MXF, é diferente do esperado pelo Codificador de JPG. Mais especificamente, algo chamado "espaço de cores" de "RGB" ou "Escala de cinza" é esperado. Isso significa que o fluxo de vídeo de entrada do Portão de Quadro do Vídeo precisará ter uma conversão aplicada com relação a seu espaço de cores.
 
-Arraste a saudação de fluxo de trabalho Olá conversor de espaço de cor - Intel e conectá-lo tooour portão de quadro.
+Arraste o Conversor de Espaço de Cor - Intel até o fluxo de trabalho e conecte-o ao nosso portão de quadro.
 
 ![Conexão de um Conversor de Espaço de Cor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-color-space-convertor.png)
 
 *Conexão de um Conversor de Espaço de Cor*
 
-Na janela de propriedades hello, escolha entrada hello BGR 24 Olá predefinição de lista.
+Na janela Propriedades, selecione a entrada BGR 24 na lista de Predefinições.
 
-### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Miniaturas de saudação de gravação
-Diferente do nosso vídeo de MP4, Olá codificador de JPG componente resultará em mais de um arquivo. Em ordem toodeal com isso, um componente de cena pesquisa JPG arquivo gravador pode ser usado: ele se miniaturas JPG entradas hello e gravar, cada nome de arquivo que está sendo o sufixo por um número diferente. (número de saudação normalmente indicando o número de saudação de segundos/unidades no fluxo de saudação que Olá miniatura foi obtido de.)
+### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Gravando as miniaturas
+Diferente do nossos vídeos MP4, o componente do Codificador de JPG produzirá mais de um arquivo. Para lidar com isso, é possível usar um componente de Gravador de arquivo JPG de Pesquisa de cena: ele usará as miniaturas JPG recebidas e as gravará, com cada nome de arquivo recebendo como sufixo um número diferente. (O número normalmente indicando o número de segundos/unidades no fluxo do qual a miniatura foi extraída).
 
-![Olá apresentando o gravador de arquivo JPG cena pesquisa](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
+![Apresentação do Gravador de arquivo JPG de Pesquisa de cena](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
-*Olá apresentando o gravador de arquivo JPG cena pesquisa*
+*Apresentação do Gravador de arquivo JPG de Pesquisa de cena*
 
-Configurar a propriedade do caminho da pasta de saída de hello com expressão Olá: ${ROOT_outputWriteDirectory}
+Configure a propriedade Caminho da pasta de saída com a expressão: ${ROOT_outputWriteDirectory}
 
-e Olá a propriedade com o prefixo de nome de arquivo:
+e a propriedade Prefixo de nome de arquivo com:
 
     ${ROOT_sourceFileBaseName}_thumb_
 
-prefixo de saudação determinará como arquivos em miniatura Olá estão sendo nomeados. Eles serão ser sufixo com um número indicando Olá posição da miniatura no fluxo de saudação.
+O prefixo determinará como os arquivos de miniatura estão sendo chamados. Eles receberão um sufixo com um número indicando a posição da miniatura no fluxo.
 
 ![Propriedades do Gravador de arquivo JPG de Pesquisa de cena](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
 *Propriedades do Gravador de arquivo JPG de Pesquisa de cena*
 
-Conecte-se nó do hello o gravador de arquivo JPG cena pesquisa toohello ativo/arquivo de saída.
+Conecte o Gravador de arquivo JPG de Pesquisa de Cena ao nó Arquivo/Ativo de Saída.
 
 ### <a id="thumbnails_to__multibitrate_MP4_errors"></a>Detectando erros em um fluxo de trabalho
-Conecte-se a entrada Olá Olá cor espaço conversor toohello bruto descompactados saída de vídeo. Agora, execute um teste local para o fluxo de trabalho de saudação. Há um fluxo de trabalho de Olá boas chances de repente parará a execução e indicar com um contorno vermelho no componente de saudação que encontrou um erro:
+Conecte a entrada do conversor de espaço de cor à saída de vídeo descompactado bruto. Agora execute um teste local no fluxo de trabalho. Há uma boa chance de a execução do fluxo de trabalho parar de repente e indicar com um contorno vermelho no componente que encontrou um erro:
 
 ![Erro no Conversor de Espaço de Cor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
 
 *Erro no Conversor de Espaço de Cor*
 
-Clique em ícone de "E" hello pouco vermelha no canto superior direito de saudação do hello conversor de espaço de cor componente toosee o que é o motivo de saudação Falha na tentativa de codificação de saudação.
+Clique no pequeno ícone "E" vermelho no canto superior direito do componente Conversor de Espaço de Cor para ver o motivo pelo qual a tentativa de codificação falhou.
 
 ![Caixa de diálogo do erro no Conversor de Espaço de Cor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error-dialog.png)
 
 *Caixa de diálogo do erro no Conversor de Espaço de Cor*
 
-Na verdade, como você pode ver, Olá entrada espaço de cor padrão para o conversor de espaço de cor Olá tem rec601 toobe para nossa conversão solicitada de YUV tooRGB. Aparentemente, nosso fluxo não indica que é rec601. (Rec 601 é um padrão de codificação de sinais de vídeo analógicos entrelaçados no formato de vídeo digital. Ele especifica uma região ativa cobrindo 720 amostras de luminosidade e 360 exemplos de crominância por linha. cor Olá codificação sistema é conhecido como YCbCr 4:2:2.)
+Na verdade, como você pode ver, o padrão do espaço de cor recebido para o conversor de espaço de cor deve ser rec601 para nossa conversão solicitada de YUV para RGB. Aparentemente, nosso fluxo não indica que é rec601. (Rec 601 é um padrão de codificação de sinais de vídeo analógicos entrelaçados no formato de vídeo digital. Ele especifica uma região ativa cobrindo 720 amostras de luminosidade e 360 exemplos de crominância por linha. O sistema de codificação de cores é conhecido como YCbCr 4:2:2).
 
-toofix isso, será indicamos nos metadados de saudação do nosso fluxo que estamos lidando com conteúdo rec601. toodo, então, vamos usar um componente do atualizador de tipo de dados de vídeo, colocaremos entre nossos bruto fonte e hello cor espaço componente de conversão. Esse atualizador de tipo de dados permite atualização manual de saudação de certos dados vídeos propriedades de tipo. Configurá-lo tooindicate um padrão de espaço de cor de "Rec 601". Isso fará com que fluxo de Olá Olá atualizador de tipo de dados de vídeo tootag com espaço de cor hello "Rec 601" se não houver nenhum espaço de cor foi definido. (Ela não substituirá todos os metadados existentes, a menos que a caixa de seleção de substituição de saudação foi verificada.)
+Para corrigir isso, indicaremos nos metadados de nosso fluxo que estamos lidando com conteúdo rec601. Para fazer isso, usaremos um componente Atualizador de tipo de dados de vídeo, que colocaremos entre nossa origem bruta e o componente de conversão de espaço de cor. Esse atualizador de tipo de dados permite a atualização manual de determinadas propriedades de tipo de dados de vídeo. Configure-o para indicar um Padrão de espaço de cor de "Rec 601". Isso fará com que o Atualizador de Tipo de Dados do Vídeo marque o fluxo com o espaço de cores "Rec 601", caso ainda não exista um espaço de cores definido. (Ele não substituirá os metadados existentes, a menos que a caixa de seleção Substituir tenha sido marcada).
 
-![Atualizando o espaço de cor padrão em Olá atualizador de tipo de dados](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
+![Atualizando o padrão de espaço de cores com o Atualizador de tipo de dados](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
-*Atualizando o espaço de cor padrão em Olá atualizador de tipo de dados*
+*Atualizando o padrão de espaço de cores com o Atualizador de tipo de dados*
 
 ### <a id="thumbnails_to__multibitrate_MP4_finish"></a>Fluxo de trabalho concluído
-Agora que nossa nosso fluxo de trabalho for concluído, faça outra toosee de execução de teste passar por ele.
+Agora que nosso fluxo de trabalho foi concluído, realize outro teste de execução para vê-lo passar.
 
 ![Fluxo de trabalho concluído para várias saídas mp4 com miniaturas](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
 *Fluxo de trabalho concluído para várias saídas mp4 com miniaturas*
 
 ## <a id="time_based_trim"></a>Corte baseado em tempo da saída MP4 com várias taxas de bits
-A partir de um fluxo de trabalho que gera [uma saída como MP4 de uma entrada de MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), podemos agora verá para cortar o vídeo de origem de saudação com base em carimbos de data / hora.
+Começando em um fluxo de trabalho que gera [uma saída MP4 com várias taxas de bit a partir de uma entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), agora vamos analisar como cortar o vídeo de origem com base em carimbos de data e hora.
 
-### <a id="time_based_trim_start"></a>Toostart de visão geral do fluxo de trabalho adicionando restrições para
-![Iniciar a remoção de tooadd de fluxo de trabalho para](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
+### <a id="time_based_trim_start"></a>Visão geral do fluxo de trabalho para começar a adição do corte
+![Iniciando o fluxo de trabalho para adição do corte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
 
-*Iniciar a remoção de tooadd de fluxo de trabalho para*
+*Iniciando o fluxo de trabalho para adição do corte*
 
-### <a id="time_based_trim_use_stream_trimmer"></a>Usando Olá filtro de fluxo
-componente de filtro de fluxo Olá permite a partir de saudação tootrim e final de um fluxo de entrada se basear em informações de tempo (em segundos, minutos,...). filtro de saudação não oferece suporte a quadros de corte.
+### <a id="time_based_trim_use_stream_trimmer"></a>Usando o corte de fluxo
+O componente Corte de Fluxo permite cortar o início e o final de um fluxo de entrada com base em informações de tempo (segundos, minutos...). O corte não oferece suporte ao corte baseado em quadros.
 
 ![Corte de fluxo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
 *Corte de fluxo*
 
-Em vez de vincular codificadores Olá AVC e alto-falantes posição cedente toohello entrada do arquivo de mídia diretamente, colocaremos entre esses filtro de fluxo de saudação. (Uma para o sinal de vídeo hello e outro para o sinal de áudio intercaladas hello.)
+Em vez de vincular diretamente os codificadores AVC e o atribuidor de posição de alto-falante à Entrada do Arquivo de Mídia, colocaremos entre eles o corte de fluxo. (Um para o sinal de vídeo e outro para o sinal de áudio intercalado).
 
 ![Como colocar o Corte de fluxo entre eles](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-put-stream-trimmer-in-between.png)
 
 *Como colocar o Corte de fluxo entre eles*
 
-Vamos configurar filtro de saudação para que somente Processaremos vídeo e áudio entre 15 e 60 segundos no vídeo de saudação.
+Vamos configurar o corte para processarmos apenas o vídeo e o áudio entre 15 e 60 segundos do vídeo.
 
-Vá toohello propriedades de filtro de fluxo de vídeo de hello e configurar as propriedades de hora de término (60 s) e hora de início (15 anos). toomake se ambos os nossos filtro de áudio e vídeo está sempre toohello configurado mesmo começar e terminar valores, publicaremos esses raiz toohello de fluxo de trabalho de saudação.
+Acesse as propriedades do Corte de fluxo de vídeo e configure as propriedades de Hora de início (15 s) e Hora de término (60 s). Para termos certeza de que o corte de áudio e de vídeo estará sempre configurado com os mesmos valores de início e de término, os publicaremos na raiz do fluxo de trabalho.
 
 ![Publicar a propriedade de hora de início do Corte de Fluxo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
@@ -537,15 +537,15 @@ Vá toohello propriedades de filtro de fluxo de vídeo de hello e configurar as 
 
 *Publicar o diálogo da propriedade para a hora de término*
 
-Se nós agora inspecionar raiz de saudação do nosso fluxo de trabalho, ambas as propriedades será claramente exibido e configuráveis a partir daí.
+Se agora inspecionarmos a raiz de nosso fluxo de trabalho, as duas propriedades estarão claramente em exibição e poderão ser configuradas a partir daí.
 
 ![Propriedades publicadas disponíveis na raiz](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
 
 *Propriedades publicadas disponíveis na raiz*
 
-Abrir as propriedades de corte de saudação do filtro de áudio Olá agora e configurar horários de início e de término com uma expressão que se refere a toohello publicado propriedades na raiz de saudação do nosso fluxo de trabalho.
+Agora, abra as propriedades de corte do corte de áudio e configure os horários de início e de término com uma expressão que faça referência às propriedades publicadas na raiz de nosso fluxo de trabalho.
 
-Para a hora de início de corte de áudio hello:
+Para a hora de início do corte de áudio:
 
     ${ROOT_TrimmingStartTime}
 
@@ -558,52 +558,52 @@ e para a hora de término:
 
 *Fluxo de trabalho concluído*
 
-## <a id="scripting"></a>Apresentando o hello componente script
-Componentes de script podem executar scripts arbitrários durante as fases de execução de saudação do nosso fluxo de trabalho. Há quatro scripts diferentes que podem ser executados, cada um com características específicas e seu próprios lugar no ciclo de vida do fluxo de trabalho hello:
+## <a id="scripting"></a>Introdução ao componente com script
+Os componentes com script podem executar scripts aleatórios durante as fases de execução de nosso fluxo de trabalho. Há quatro scripts diferentes que podem ser executados, cada um com características específicas e seus próprios lugares no ciclo de vida do fluxo de trabalho:
 
 * **commandScript**
 * **realizeScript**
 * **processInputScript**
 * **lifeCycleScript**
 
-documentação de saudação do hello componente script vai em mais detalhes para cada Olá acima. Em [Olá seguinte seção](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), Olá **realizeScript** componente script é usado tooconstruct um xml cliplist imediatamente hello quando Olá será iniciado. Esse script é chamado durante a instalação do componente hello, que ocorre apenas uma vez no ciclo de vida.
+A documentação do Componente com Script mostra mais detalhes sobre cada um dos scripts acima. Na [seção a seguir](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), o componente com script **realizeScript** é usado para construir dinamicamente um xml de lista de clipes quando o fluxo de trabalho é iniciado. Esse script é chamado durante a configuração do componente, que ocorre apenas uma vez em seu ciclo de vida.
 
 ### <a id="scripting_hello_world"></a>Criando scripts em um fluxo de trabalho: hello world
-Arraste um componente script a superfície do designer hello e renomeá-lo (por exemplo, "SetClipListXML").
+Arraste um Componente com Script para a superfície do designer e renomeie-o (por exemplo, "DefinirXMLDeListaDeClipes").
 
 ![Adicionando um Componente com Script](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
 *Adicionando um Componente com Script*
 
-Quando você inspecionar as propriedades de saudação do hello componente script, Olá quatro tipos diferentes de script serão mostrados, cada script diferentes tooa configurável.
+Quando você inspeciona as propriedades do Componente com Script, os quatro tipos diferentes de script são exibidos, cada um configurável para outro script.
 
 ![Propriedades do Componente com Script](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
 *Propriedades do Componente com Script*
 
-Limpe Olá processInputScript e abrir editor de saudação do hello realizeScript. Agora estão configurados e pronto toostart de script.
+Limpe o processInputScript e abra o editor para o realizeScript. Agora, estamos configurados e prontos para começar a criar scripts.
 
-Os scripts são escritos em Groovy, uma linguagem de script compilada dinamicamente para plataforma Java Olá que mantém a compatibilidade com Java. Na verdade, grande parte do código Java é um código Groovy válido.
+Os scripts são escritos em Groovy, uma linguagem de script compilada dinamicamente para a plataforma Java que mantém a compatibilidade com Java. Na verdade, grande parte do código Java é um código Groovy válido.
 
-Vamos escrever um script groovy do simples hello world no contexto de saudação do nosso realizeScript. Insira o seguinte Olá no editor de saudação:
+Vamos escrever um script Groovy simples de olá, mundo no contexto de nosso realizeScript. Digite o seguinte no editor:
 
     node.log("hello world");
 
-Agora, realize um teste local. Após essa execução inspecionar (por meio da guia sistema Olá Olá componente script) Olá propriedade Logs.
+Agora, realize um teste local. Após essa execução, inspecione a propriedade Logs (por meio da guia Sistema no Componente com Script).
 
 ![Saída do log de Hello world](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
 
 *Saída do log de Hello world*
 
-objeto de nó de Hello, podemos chamar o método de log hello, refere-se tooour atual "nó" ou componente Olá nós estiver scrip em. Assim, cada componente tem Olá capacidade toooutput registrando dados, disponíveis por meio da guia de sistema de saudação. Nesse caso, estamos saída Olá literal de cadeia de caracteres "Olá, mundo". Toounderstand importante aqui é que isso pode ser toobe uma ferramenta de depuração inestimável, oferecendo informações sobre o script hello está realmente fazer.
+O objeto do nó no qual chamamos o método faz referência ao nosso "nó" atual, ou ao componente no qual estivermos gerando o script. Assim, cada componente tem a capacidade de gerar dados de log, disponíveis na guia Sistema. Nesse caso, mostramos a cadeia de caracteres literal "hello world". É importante entender aqui que essa pode ser uma ferramenta de depuração valiosa, fornecendo informações sobre o que o script está realmente fazendo.
 
-De dentro de nosso ambiente de script, também temos acesso tooproperties em outros componentes. Tente o seguinte:
+De dentro de nosso ambiente de script, também temos acesso às propriedades de outros componentes. Tente o seguinte:
 
     //inspect current node:
     def nodepath = node.getNodePath();
     node.log("this node path: " + nodepath);
 
-    //walking up tooother nodes:
+    //walking up to other nodes:
     def parentnode = node.getParentNode();
     def parentnodepath = parentnode.getNodePath();
     node.log("parent node path: " + parentnodepath);
@@ -613,67 +613,67 @@ De dentro de nosso ambiente de script, também temos acesso tooproperties em out
     def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null);
     node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
 
-Nossa janela de log nos mostrará Olá a seguir:
+Nossa janela de log mostrará o seguinte:
 
 ![Saída de log para acessar os caminhos do nó](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
 
 *Saída de log para acessar os caminhos do nó*
 
 ## <a id="frame_based_trim"></a>Corte baseado em quadro da saída MP4 com várias taxas de bits
-A partir de um fluxo de trabalho que gera [uma saída como MP4 de uma entrada de MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), podemos agora verá para cortar o vídeo de origem de saudação com base na contagem de quadros.
+Começando em um fluxo de trabalho que gera [uma saída MP4 com várias taxas de bit a partir de uma entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), agora vamos analisar como cortar o vídeo de origem com base em contagens de quadro.
 
-### <a id="frame_based_trim_start"></a>Plano gráfico toostart visão geral sobre a adição de corte para
-![Fluxo de trabalho toostart adicionando restrições para](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
+### <a id="frame_based_trim_start"></a>Visão geral do plano gráfico para começar a adição do corte
+![Fluxo de trabalho para começar a adição do corte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
 
-*Fluxo de trabalho toostart adicionando restrições para*
+*Fluxo de trabalho para começar a adição do corte*
 
-### <a id="frame_based_trim_clip_list"></a>Usando Olá Clip lista XML
-Todos os tutoriais de fluxo de trabalho anterior, usamos o componente de entrada de arquivo de mídia hello como nossa fonte de entrada de vídeo. Para este cenário específico, usaremos componente de origem da lista de clipe Olá em vez disso. Observe que isso não deve ser a forma preferida de saudação do trabalho; usar somente Olá Clip fonte da lista quando houver um motivo real toodo assim (como no hello abaixo caso, em que estamos fazendo uso dos recursos de fragmentação de lista de clipe Olá).
+### <a id="frame_based_trim_clip_list"></a>Como usar o XML da lista de clipes
+Em todos os tutoriais de fluxo de trabalho anteriores, usamos o componente de Entrada do Arquivo de Mídia como nossa fonte de entrada de vídeo. No entanto, para este cenário específico, usaremos o componente de Origem da Lista de Clipes. Observe que essa não é a melhor maneira de trabalhar; use a Origem da Lista de Clipes apenas quando houver um motivo para isso (como no caso abaixo, onde estamos usando os recursos de corte de lista de clipes).
 
-tooswitch do nosso toohello de entrada de arquivo de mídia Clip fonte da lista, arraste o componente de origem da lista de clipe Olá na superfície de design de saudação e conecte-se Olá Clip lista XML pin toohello Clip lista XML do designer de fluxo de trabalho de saudação. Isso deve preencher Olá Clip fonte da lista com os pins de saída, de acordo com o vídeo de entrada tooour. Agora conectar os pins não compactado de áudio e vídeo descompactado Olá de Olá Olá Clip lista origem toohello respectivos AVC codificadores e Interleaver de fluxo de áudio. Agora remova Olá entrada de arquivo de mídia.
+Para alternar de nossa Entrada do Arquivo de Mídia para a Origem de lista de clipes, arraste o componente Origem de lista de clipes para a superfície de design e conecte o pino XML da lista de clipes ao nó XML da lista de clipe do designer de fluxo de trabalho. Isso deve preencher a Origem da Lista de Clipes com os pinos de saída, de acordo com o nosso vídeo de entrada. Agora conecte os pinos de Vídeo Descompactado e Áudio Descompactados da Origem da Lista de Clipes aos respectivos Codificadores AVC e Intercalador de fluxo de áudio. Agora remova a Entrada do Arquivo de Mídia.
 
-![Substituído Olá entrada de arquivo de mídia com hello clipe de lista de origem](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
+![A Entrada do Arquivo de Mídia foi substituída pela Origem da Lista de Clipes](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
-*Substituído Olá entrada de arquivo de mídia com hello clipe de lista de origem*
+*A Entrada do Arquivo de Mídia foi substituída pela Origem da Lista de Clipes*
 
-componente de origem da lista de clipe Olá toma como entrada um XML de lista"Clip". Ao selecionar Olá tootest de arquivo de origem com localmente, esse xml de lista de clipe é preenchido automaticamente para você.
+O componente Origem da Lista de Clipes recebe como entrada um "XML de lista de clipes". Ao selecionar o arquivo de origem para testar localmente, esse xml de lista de clipes é preenchido automaticamente para você.
 
 ![Propriedade XML de lista de clipes preenchida automaticamente](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
 
 *Propriedade XML de lista de clipes preenchida automaticamente*
 
-Procurando mais detalhadamente xml de toohello, isso é como ele se parece com:
+Analisando um pouco mais de perto o xml, ele se parece com o seguinte:
 
 ![Diálogo Editar lista de clipes](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-edit-clip-list-dialog.png)
 
 *Diálogo Editar lista de clipes*
 
-No entanto, isso não refletem recursos Olá Olá clip lista XML. Uma opção que temos é tooadd um elemento "Trim" em Olá vídeo e áudio fonte, como este:
+No entanto, isso não reflete os recursos do xml da lista de clipes. Uma opção que temos é adicionar um elemento "Corte" à origem do áudio e do vídeo, da seguinte forma:
 
-![Adicionando uma lista de clipe toohello elemento trim](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
+![Adicionando um elemento de corte à lista de clipes](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
 
-*Adicionando uma lista de clipe toohello elemento trim*
+*Adicionando um elemento de corte à lista de clipes*
 
-Se você modificar o xml de lista de clipe hello como acima e executar um teste local, você verá o vídeo Olá corretamente foi cortado entre 10 e 20 segundos no vídeo de saudação.
+Se você modificar o xml da lista de clipes da forma indicada acima e executar um teste local, você verá o vídeo corretamente cortado entre 10 e 20 segundos do vídeo.
 
-Toowhat contrary acontece quando você fizer uma execução local, embora, esse xml cliplist mesmo não teria Olá mesmo efeito quando aplicado a um fluxo de trabalho é executado no Azure Media Services. Quando é iniciado do codificador do Azure Premium, Olá cliplist xml é gerado sempre que novamente, com base em codificação de saudação de arquivo de entrada hello trabalho foi atribuído. Isso significa que qualquer alteração que fazemos no xml de saudação Infelizmente poderia ser substituída.
+Ao contrário do que acontece quando você realiza uma execução local, esse mesmo xml de lista de clipes não teria o mesmo efeito quando aplicado em um fluxo de trabalho executado nos Serviços de Mídia do Azure. Quando o Codificador Premium do Azure é iniciado, o xml de lista de clipes é gerado periodicamente com base no arquivo de entrada recebido pelo trabalho de codificação. Isso significa que qualquer alteração feita no xml seria infelizmente substituída.
 
-toocounter Olá cliplist xml ser apagado quando um trabalho de codificação é iniciado, podemos novamente gerar-Olá imediatamente após o início de saudação do nosso fluxo de trabalho. Essas ações personalizadas podem ser realizadas por meio do que é chamado de "Componente de script". Para obter mais informações, consulte [Introducing Olá componente script](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
+Para combater a limpeza do xml de lista de clipes quando um trabalho de codificação é iniciado, podemos gerar isso novamente de forma dinâmica logo após o início de nosso fluxo de trabalho. Essas ações personalizadas podem ser realizadas por meio do que é chamado de "Componente de script". Para saber mais, confira [Introdução ao Componente com Script](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
 
-Arraste um componente script a superfície do designer hello e renomeá-lo muito "SetClipListXML".
+Arraste um Componente com Script para a superfície do designer e renomeie-o como "DefinirXMLDeListaDeClipes".
 
 ![Adicionando um Componente com Script](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
 *Adicionando um Componente com Script*
 
-Quando você inspecionar as propriedades de saudação do hello componente script, Olá quatro tipos diferentes de script serão mostrados, cada script diferentes tooa configurável.
+Quando você inspeciona as propriedades do Componente com Script, os quatro tipos diferentes de script são exibidos, cada um configurável para outro script.
 
 ![Propriedades do Componente com Script](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
 *Propriedades do Componente com Script*
 
-### <a id="frame_based_trim_modify_clip_list"></a>Modificando a lista de saudação do clipe de um componente script
-Antes de novamente, podemos gravar Olá cliplist xml que é gerado durante a inicialização do fluxo de trabalho, precisaremos conteúdo e a propriedade do toohave acesso toohello cliplist xml. Podemos fazer isso da seguinte forma:
+### <a id="frame_based_trim_modify_clip_list"></a>Modificando a lista de clipes de um componente com script
+Antes de podermos reescrever o xml de lista de clipes gerado durante a inicialização do fluxo de trabalho, precisaremos de acesso à propriedade e ao conteúdo do xml de lista de clipes. Podemos fazer isso da seguinte forma:
 
     // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
@@ -683,7 +683,7 @@ Antes de novamente, podemos gravar Olá cliplist xml que é gerado durante a ini
 
 *Lista de clipes recebida registrada em log*
 
-Primeiro, precisamos toodetermine uma maneira de qual ponto até o ponto em que desejamos tootrim Olá vídeo. toomake esse usuário de menos técnico toohello conveniente de fluxo de trabalho Olá publicar raiz de toohello duas propriedades do gráfico de saudação. toodo isso, clique com botão direito superfície do designer hello e selecione "Adicionar propriedade":
+Primeiro, precisamos de um meio para determinar em quais pontos queremos cortar o vídeo. Para tornar isso conveniente para o usuário menos técnico do fluxo de trabalho, publique duas propriedades na raiz do gráfico. Para fazer isso, clique com o botão direito do mouse na superfície do designer e selecione "Adicionar Propriedade":
 
 * Primeira propriedade: "ClippingTimeStart" do tipo: "TIMECODE"
 * Segunda propriedade: "ClippingTimeEnd" do tipo: "TIMECODE"
@@ -696,11 +696,11 @@ Primeiro, precisamos toodetermine uma maneira de qual ponto até o ponto em que 
 
 *Propriedades da hora de corte publicadas na raiz do fluxo de trabalho*
 
-Configure ambos os valor adequado de tooa propriedades:
+Configure as duas propriedades com um valor adequado:
 
-![Configurar Olá propriedades de início e término de recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
+![Configurar as propriedades de início de término do corte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
 
-*Configurar Olá propriedades de início e término de recorte*
+*Configurar as propriedades de início de término do corte*
 
 Agora, em nosso script, podemos acessar as duas propriedades, da seguinte maneira:
 
@@ -715,9 +715,9 @@ Agora, em nosso script, podemos acessar as duas propriedades, da seguinte maneir
 
 *Janela do log mostrando o início e o término do corte*
 
-Vamos analisar cadeias de caracteres de código de tempo de saudação em um formulário toouse mais conveniente, usando uma expressão regular simple:
+Vamos analisar as cadeias de código de tempo com uma forma de uso mais conveniente, usando uma expressão regular simples:
 
-    //parse hello start timing:
+    //parse the start timing:
     def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
     startregresult.matches();
     def starttimecode = startregresult.group(1);
@@ -725,7 +725,7 @@ Vamos analisar cadeias de caracteres de código de tempo de saudação em um for
     def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse hello end timing:
+    //parse the end timing:
     def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
     endregresult.matches();
     def endtimecode = endregresult.group(1);
@@ -737,23 +737,23 @@ Vamos analisar cadeias de caracteres de código de tempo de saudação em um for
 
 *Janela do log com a saúda do código de tempo analisado*
 
-Com essas informações à mão, agora podemos modificar início de Olá Olá cliplist xml tooreflect e horários de término para Olá desejado recorte precisas de quadro do filme hello.
+Com essas informações em mãos, podemos modificar o xml de lista de clipes para refletir as horas de início e de término para o corte preciso de quadro desejado do filme.
 
-![Elementos de corte script código tooadd](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
+![Código de script para adicionar elementos de corte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
 
-*Elementos de corte script código tooadd*
+*Código de script para adicionar elementos de corte*
 
-Isso foi feito por meio de operações de manipulação de cadeia de caracteres normais. xml de lista de clipe modificado resultante Hello será gravado toohello clipListXML propriedade na raiz de fluxo de trabalho Olá por meio do método "setProperty" hello. janela de log Olá após a execução de outro teste nos mostrariam Olá a seguir:
+Isso foi feito por meio de operações de manipulação de cadeia de caracteres normais. O xml da lista de clipes modificado resultante é gravado novamente na propriedade clipListXML na raiz do fluxo de trabalho por meio do método "setProperty". A janela de log, após a execução de outro teste, nos mostraria o seguinte:
 
-![Lista de clipe resultante Olá registro](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
+![Registrando em log a lista de clipes resultante](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
 
-*Lista de clipe resultante Olá registro*
+*Registrando em log a lista de clipes resultante*
 
-Faça um toosee de execução de teste como fluxos de áudio e vídeo de saudação tem sido cortados. Como você fará mais de uma execução de teste com valores diferentes para pontos de corte hello, você observará que aqueles serão não levadas em conta porém! motivo Olá é designer hello, ao contrário de saudação do Azure em tempo de execução, faz não substituição Olá cliplist xml cada execução. Isso significa que somente hello primeira vez que você definiu hello e pontos, fará com que Olá xml tootransform, todos Olá outras vezes, a cláusula de proteção (se (clipListXML.indexOf ("<trim>") = = -1)) impedirá o fluxo de trabalho de saudação de adicionar outro trim elemento quando já há uma presente.
+Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do tempo de execução do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que apenas a primeira vez em que você definir os pontos de entrada e saída causará uma transformação do xml. Em todas as outras vezes, nossa cláusula de proteção (if(clipListXML.indexOf("<trim>") == -1)) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já houver um presente.
 
-toomake nosso fluxo de trabalho conveniente tootest localmente, é melhor adicionar algum código de manutenção de casa que verifica se um elemento de corte já estiver presente. Nesse caso, estamos pode removê-lo antes de continuar modificando Olá xml com os novos valores de saudação. Em vez de usar manipulações de cadeia de caracteres simples, é mais seguro provavelmente toodo isso por meio do objeto xml real do modelo de análise.
+Para tornar o teste local do fluxo de trabalho mais conveniente, é melhor adicionarmos algum código de manutenção que verifica se um elemento de corte já está presente. Em caso positivo, podemos removê-lo antes de continuar por meio da modificação do xml com os novos valores. Em vez de usar manipulações de cadeia de caracteres simples, provavelmente será mais seguro fazer isso por meio da análise do modelo de objeto xml real.
 
-Antes que possamos adicionar esse código no entanto, vamos precisar tooadd que um número de instruções de importação no hello início do nosso script primeiro:
+Antes de podermos adicionar esse código, precisamos adicionar algumas instruções de importação ao início do nosso script:
 
     import javax.xml.parsers.*;
     import org.xml.sax.*;
@@ -764,15 +764,15 @@ Antes que possamos adicionar esse código no entanto, vamos precisar tooadd que 
     import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
 
-Depois disso, podemos adicionar Olá necessário código de limpeza:
+Depois disso, podemos adicionar o código de limpeza necessário:
 
-    //for local testing: delete any pre-existing trim elements from hello clip list xml by parsing hello xml into a DOM:
+    //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
     InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
-    //find hello trim element inside videoSource and audioSource and remove it if it exists already:
+    //find the trim element inside videoSource and audioSource and remove it if it exists already:
     XPath xpath = XPathFactory.newInstance().newXPath();
     String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
@@ -784,34 +784,34 @@ Depois disso, podemos adicionar Olá necessário código de limpeza:
         elementsToDelete.add(e);
     }
 
-    node.log("about toodelete any existing trim nodes");
-     //delete hello trim nodes:
+    node.log("about to delete any existing trim nodes");
+     //delete the trim nodes:
     elementsToDelete.each{
         e -> e.getParentNode().removeChild(e);
     };
     node.log("deleted any existing trim nodes");
 
-    //serialize hello modified clip list xml dom into a string:
+    //serialize the modified clip list xml dom into a string:
     def transformer = TransformerFactory.newInstance().newTransformer();
     StreamResult result = new StreamResult(new StringWriter());
     DOMSource source = new DOMSource(dom);
     transformer.transform(source, result);
     clipListXML = result.getWriter().toString();
 
-Esse código vai acima ponto Olá em que adicionamos Olá elementos trim toohello cliplist xml.
+Esse código fica logo acima do ponto no qual podemos adicionar os elementos de corte ao xml da lista de clipes.
 
-Neste ponto, podemos executar e modificar nosso fluxo de trabalho como tempo quanto queremos tendo alterações Olá aplicadas nunca.    
+Neste ponto, podemos executar e modificar nosso fluxo de trabalho o quanto quisermos enquanto as alterações são aplicadas sempre.    
 
 ### <a id="frame_based_trim_clippingenabled_prop"></a>Adicionando uma propriedade de conveniência ClippingEnabled
-Como você pode não querer sempre toohappen corte, vamos finalizar nosso fluxo de trabalho adicionando um conveniente sinalizador booliano que indica se deseja ou não podemos tooenable cortar / recorte.
+Como você não quer que o corte ocorra sempre, vamos finalizar nosso fluxo de trabalho adicionando um sinalizador booliano conveniente que indica se queremos ou não permitir o corte/recorte.
 
-Assim como antes, publicar uma nova raiz de toohello de propriedade de nosso fluxo de trabalho chamado "ClippingEnabled" do tipo "Booleano".
+Assim como antes, publique uma nova propriedade na raiz de nosso fluxo de trabalho chamada "ClippingEnabled" do tipo "BOOLEAN".
 
 ![Propriedade publicada para habilitar o recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
 
 *Propriedade publicada para habilitar o recorte*
 
-Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentação é necessária e decidir se nossa lista de clipe como tal precisa toobe modificado ou não.
+Com a cláusula de proteção simples abaixo, podemos verificar se o corte é necessário e decidir se nossa lista de clipes precisa ser modificada ou não.
 
     //check if clipping is required:
     def clippingrequired = node.getProperty("../ClippingEnabled");
@@ -841,7 +841,7 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
     def clipstart = node.getProperty("../ClippingTimeStart").toString();
     def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
-    //parse hello start timing:
+    //parse the start timing:
     def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
     startregresult.matches();
     def starttimecode = startregresult.group(1);
@@ -849,7 +849,7 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
     def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse hello end timing:
+    //parse the end timing:
     def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
     endregresult.matches();
     def endtimecode = endregresult.group(1);
@@ -859,14 +859,14 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
     node.log("framerate end is: " + endframerate);
 
     //for local testing: delete any pre-existing trim elements
-    //from hello clip list xml by parsing hello xml into a DOM:
+    //from the clip list xml by parsing the xml into a DOM:
 
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
     InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
-    //find hello trim element inside videoSource and audioSource and remove it if it exists already:
+    //find the trim element inside videoSource and audioSource and remove it if it exists already:
     XPath xpath = XPathFactory.newInstance().newXPath();
     String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
@@ -878,14 +878,14 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
         elementsToDelete.add(e);
     }
 
-    node.log("about toodelete any existing trim nodes");
-    //delete hello trim nodes:
+    node.log("about to delete any existing trim nodes");
+    //delete the trim nodes:
     elementsToDelete.each{ e ->
         e.getParentNode().removeChild(e);
     };
     node.log("deleted any existing trim nodes");
 
-    //serialize hello modified clip list xml dom into a string:
+    //serialize the modified clip list xml dom into a string:
     def transformer = TransformerFactory.newInstance().newTransformer();
     StreamResult result = new StreamResult(new StringWriter());
     DOMSource source = new DOMSource(dom);
@@ -902,7 +902,7 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
         return;
     }
 
-    //add trim elements toocliplist xml
+    //add trim elements to cliplist xml
     if ( clipListXML.indexOf("<trim>") == -1 )
     {
         //trim video
@@ -923,7 +923,7 @@ Com hello abaixo cláusula de guarda simples, podemos verificar se a fragmentaç
 ## <a name="also-see"></a>Consulte também
 [Apresentando a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Como tooUse Premium de codificação no Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Como usar a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Codificando conteúdo sob demanda com os Serviços de Mídia do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 

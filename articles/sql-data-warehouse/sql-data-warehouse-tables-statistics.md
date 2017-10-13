@@ -1,5 +1,5 @@
 ---
-title: "aaaManaging estatísticas em tabelas no Data Warehouse SQL | Microsoft Docs"
+title: "Gerenciamento de estatísticas em tabelas no SQL Data Warehouse | Microsoft Docs"
 description: "Introdução às estatísticas em tabelas no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: c9521dc47891f68d124e77a53e2e15d03275caaa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,37 +33,37 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Hello mais SQL Data Warehouse sabe sobre seus dados, hello mais rápido ele poderá executar consultas em relação aos dados.  Olá maneira que indicam o SQL Data Warehouse sobre seus dados, é coletar estatísticas sobre os dados.  Têm estatísticas em seus dados é uma das coisas mais importantes Olá você pode fazer toooptimize suas consultas.  Estatísticas ajudam SQL Data Warehouse criar Olá o plano ideal de suas consultas.  Isso ocorre porque a consulta do SQL Data Warehouse Olá otimizador tem um custo com base em otimizador.  Ou seja, ele compara o custo de saudação de vários planos de consulta e então escolhe Olá plano com hello menor custo, que também deve ser o plano de saudação que executará hello mais rápido.
+Quanto mais o SQL Data Warehouse sabe sobre seus dados, mais rápido ele pode executar consultas neles.  A maneira com a qual você informa o SQL Data Warehouse sobre seus dados é coletando estatísticas sobre seus dados.  Ter estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas.  As estatísticas ajudam o SQL Data Warehouse a criar o plano ideal para suas consultas.  Isso porque o otimizador de consulta do SQL Data Warehouse é um otimizador baseado em custo.  Ou seja, ele compara o custo de vários planos de consulta e depois escolhe o plano com o menor custo, que também deverá ser o plano com execução mais rápida.
 
-As estatísticas podem ser criadas em uma única coluna, várias colunas ou em um índice de uma tabela.  As estatísticas são armazenadas em um histograma que captura o intervalo de saudação e a seletividade dos valores.  Isso é de particular interesse quando as necessidades de otimizador Olá tooevaluate junções, GROUP BY, HAVING e cláusulas WHERE em uma consulta.  Por exemplo, se o otimizador Olá estima que date de hello você está filtrando em sua consulta retornará 1 linha, ele pode escolher um diferentes planejar que se ele estimativas que data você selecionou irá retornar 1 milhão de linhas.  Durante a criação de estatísticas é extremamente importante, é igualmente importante que estatísticas *com precisão* refletem Olá o estado atual da tabela de saudação.  Com estatísticas atualizadas, você garante que um bom plano é selecionado pelo otimizador hello.  planos de saudação criados pelo otimizador Olá só são tão boas quanto as estatísticas de saudação em seus dados.
+As estatísticas podem ser criadas em uma única coluna, várias colunas ou em um índice de uma tabela.  As estatísticas são armazenadas em um histograma que captura o intervalo e a seletividade dos valores.  Isso é particularmente interessante quando o otimizador precisa avaliar cláusulas JOIN, GROUP BY, HAVING e WHERE em uma consulta.  Por exemplo, se o otimizador estimar que a data usada para filtrar sua consulta retornará 1 linha, ele poderá escolher um plano muito diferente do que se estimar que a data selecionada retornará 1 milhão de linhas.  Embora a criação de estatísticas seja extremamente importante, é igualmente importante que as estatísticas reflitam com *precisão* o estado atual da tabela.  Ter estatísticas atualizadas garante a seleção de um bom plano pelo otimizador.  Os planos criados pelo otimizador são tão bons quanto as estatísticas sobre seus dados.
 
-processo de saudação de criação e atualização de estatísticas é atualmente um processo manual, mas é toodo muito simple.  Isso é diferente do SQL Server, que cria e atualiza automaticamente as estatísticas em colunas e índices únicos.  Usando informações de saudação abaixo, você pode automatizar muito gerenciamento Olá de estatísticas de saudação em seus dados. 
+NO momento, o processo de criação e atualização de estatísticas é um processo manual, mas é muito simples.  Isso é diferente do SQL Server, que cria e atualiza automaticamente as estatísticas em colunas e índices únicos.  Ao usar as informações a seguir, você pode automatizar bastante o gerenciamento das estatísticas em seus dados. 
 
 ## <a name="getting-started-with-statistics"></a>Introdução às estatísticas
- Criando estatísticas por amostra em cada coluna é uma maneira fácil tooget iniciado com estatísticas.  Como é igualmente importante tookeep estatísticas atualizadas, uma abordagem conservadora pode ser tooupdate estatísticas diariamente ou após cada carga. Sempre há compensações entre desempenho e Olá custo toocreate e atualizar as estatísticas.  Se você achar que está levando muito toomaintain todas as estatísticas, convém tootry toobe mais seletivo sobre as colunas que têm estatísticas ou as colunas que precisa frequentes de atualização.  Por exemplo, convém colunas de data tooupdate diariamente, conforme novos valores podem ser adicionados em vez de após cada carga. Novamente, você obterá Olá maior benefício fazendo com que as estatísticas em colunas envolvidas em junções, GROUP BY, HAVING e cláusulas WHERE.  Se você tiver uma tabela com uma grande quantidade de cláusula SELECT de colunas que são usadas somente em hello, estatísticas nessas colunas não podem ajudar e gastos um pouco mais tooidentify de esforço somente colunas Olá onde as estatísticas serão útil, pode reduzir Olá tempo toomaintain estatísticas .
+ Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar a usar as estatísticas.  Como é igualmente importante manter estatísticas atualizadas, pode ser uma abordagem conservadora atualizar as estatísticas diariamente ou após cada carregamento. Sempre há compensações entre o desempenho e o custo para a criação e a atualização das estatísticas.  Se você achar que está demorando muito para manter todas as estatísticas, convém tentar ser mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de uma atualização frequente.  Por exemplo, convém atualizar diariamente as colunas de datas, pois novos valores podem ser adicionados, e não após cada carregamento. Novamente, você terá mais benefícios se tiver estatísticas em colunas envolvidas em cláusulas JOINs, GROUP BY, HAVING e WHERE.  Se você tiver uma tabela com muitas colunas que são usadas somente na cláusula SELECT, as estatísticas nessas colunas não serão úteis, e gastar um pouco mais de esforço para identificar apenas as colunas nas quais as estatísticas serão úteis pode reduzir o tempo de manutenção das estatísticas.
 
 ## <a name="multi-column-statistics"></a>Estatísticas de várias colunas
-Além disso toocreating estatísticas em colunas únicas, você pode achar que suas consultas se beneficiam de estatísticas de várias colunas.  Estatísticas de várias colunas são estatísticas criadas em uma lista de colunas.  Elas incluem estatísticas de coluna única na primeira coluna de saudação na lista hello, além de algumas informações de correlação entre colunas chamado densidades.  Por exemplo, se você tiver uma tabela que une tooanother em duas colunas, você pode achar que SQL Data Warehouse poderá otimizar melhor plano de saudação que ele entenda a relação de saudação entre duas colunas.   As estatísticas de várias colunas podem melhorar o desempenho de consulta de algumas operações como junções compostas e agrupar por.
+Além de criar estatísticas em colunas únicas, talvez você perceba que suas consultas se beneficiariam de estatísticas em várias colunas.  Estatísticas de várias colunas são estatísticas criadas em uma lista de colunas.  Elas incluem estatísticas sobre uma única coluna na primeira coluna da lista, além de algumas informações de correlação entre colunas chamadas de densidades.  Por exemplo, se você tiver uma tabela que se une a outras duas colunas, você perceberá que o SQL Data Warehouse pode otimizar ainda mais o plano se ele compreender a relação entre as duas colunas.   As estatísticas de várias colunas podem melhorar o desempenho de consulta de algumas operações como junções compostas e agrupar por.
 
 ## <a name="updating-statistics"></a>Atualização de estatísticas
-Atualizar as estatísticas é uma parte importante de sua rotina de gerenciamento de banco de dados.  Quando altera a distribuição de saudação de dados no banco de dados de saudação, estatísticas necessário toobe atualizado.  As estatísticas desatualizadas levará o desempenho ideal de toosub de consulta.
+Atualizar as estatísticas é uma parte importante de sua rotina de gerenciamento de banco de dados.  Quando a distribuição dos dados no banco de dados é alterada, as estatísticas precisam ser atualizadas.  Estatísticas desatualizadas resultarão em um desempenho de consulta abaixo do ideal.
 
-Uma prática recomendada é tooupdate estatísticas em colunas de data por dia à medida que novas datas são adicionadas.  Cada novas linhas de tempo são carregados no data warehouse de hello, datas de carga novo ou transação são adicionados. Esses alteram Olá distribuição de dados e faça estatísticas Olá desatualizadas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente nunca talvez seja necessário toobe atualizado, como a distribuição de saudação de valores geralmente não são alterados. Supondo que a distribuição de saudação é constante entre os clientes, adicionar nova variação de tabela toohello linhas não vai toochange a distribuição de dados hello. No entanto, se o data warehouse contém apenas um país e você exibir dados de um país, resultando em dados de vários países que estão sendo armazenados, definitivamente necessário tooupdate estatísticas na coluna de país hello.
+Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas.  Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente talvez nunca tenham de ser atualizadas, já que a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse contiver apenas um país e se você exibir dados de um país, resultando em dados de vários países sendo armazenados, definitivamente será necessário atualizar as estatísticas na coluna país.
 
-Uma saudação primeiro perguntas tooask quando uma consulta de solução de problemas, "são Olá estatísticas atualizadas?"
+Uma das primeiras perguntas a serem feitas durante a solução de uma consulta é, "As estatísticas estão atualizadas?"
 
-Essa pergunta não é aquele que podem ser respondidas por idade Olá dos dados de saudação. Um objeto de estatísticas toodate backup pode ser muito antigo se não houve nenhuma toohello alteração material dados subjacentes. Quando Olá número de linhas alterado substancialmente ou há uma alteração material na distribuição de saudação de valores para uma determinada coluna *, em seguida,* é tooupdate das estatísticas.  
+Essa questão não pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser muito antigo se não haja nenhuma alteração material nos dados subjacentes. Quando o número de linhas tiver mudado substancialmente ou se houver uma alteração material na distribuição dos valores de uma determinada coluna, *será necessário* atualizar as estatísticas.  
 
 Para referência, o **SQL Server** (não o SQL Data Warehouse) atualiza automaticamente as estatísticas para estas situações:
 
-* Se você tiver zero linhas na tabela hello, quando você adiciona linhas, você obterá uma atualização automática de estatísticas
-* Quando você adiciona a tabela de tooa mais de 500 linhas começando com menos de 500 linhas (por exemplo, no início você tiver 499 e, em seguida, adicione 500 linhas tooa totalizando 999 linhas), você receberá uma atualização automática 
-* Quando tiver mais de 500 linhas terá tooadd 500 linhas adicionais + 20% do tamanho de saudação da tabela Olá antes de você verá uma atualização automática em estatísticas de saudação
+* Se você não tiver nenhuma linha na tabela, quando adicionar linhas, obterá uma atualização automática das estatísticas
+* Quando você adicionar mais de 500 linhas a uma tabela, começando com menos de 500 linhas (por exemplo, no início você tem 499 e, em seguida, adiciona 500 linhas para ter um total de 999 linhas), obterá uma atualização automática 
+* Quando você tiver mais de 500 linhas, terá de adicionar outras 500 linhas mais 20% do tamanho da tabela antes de ver uma atualização automática nas estatísticas
 
-Como não há nenhum toodetermine DMV se os dados na tabela de saudação foi alterado desde Olá últimas estatísticas de tempo foram atualizadas, saber a idade de saudação de estatísticas pode fornecer com parte da imagem de saudação.  Você pode usar o hello toodetermine Olá última vez em que as estatísticas de consulta a seguir onde atualizado em cada tabela.  
+Como não há nenhuma DMV para determinar se os dados da tabela foram alterados desde que a última vez em que as estatísticas foram atualizadas, saber a idade das estatísticas pode fornecer uma parte da cena.  Você pode usar a consulta a seguir para determinar a última vez que suas estatísticas foram atualizadas em cada tabela.  
 
 > [!NOTE]
-> Lembre-se de que se houver uma alteração substancial na distribuição de saudação de valores para uma determinada coluna, você deve atualizar as estatísticas independentemente Olá a última vez em que eles foram atualizados.  
+> Lembre-se de que se houver uma mudança substancial na distribuição dos valores para uma determinada coluna, você deverá atualizar as estatísticas, independentemente da última vez em que elas foram atualizadas.  
 > 
 > 
 
@@ -94,35 +94,35 @@ WHERE
     st.[user_created] = 1;
 ```
 
-As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Cada novas linhas de tempo são carregados no data warehouse de hello, datas de carga novo ou transação são adicionados. Esses alteram Olá distribuição de dados e faça estatísticas Olá desatualizadas.  Por outro lado, as estatísticas em uma coluna de gênero em uma tabela de cliente nunca talvez seja necessário toobe atualizado. Supondo que a distribuição de saudação é constante entre os clientes, adicionar nova variação de tabela toohello linhas não vai toochange a distribuição de dados hello. No entanto, se o data warehouse contém apenas um sexo e uma nova resulta de requisito em vários gêneros, definitivamente necessário tooupdate estatísticas na coluna de sexo hello.
+As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas.  Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
 
 Para obter mais explicações, veja [Estatísticas][Statistics] no MSDN.
 
 ## <a name="implementing-statistics-management"></a>Implementação do gerenciamento de estatísticas
-Geralmente é uma boa ideia tooextend seus dados ao carregar tooensure de processo que as estatísticas são atualizadas no hello fim do carregamento de saudação. saudação de carga de dados é quando tabelas com mais frequência alterar seu tamanho e/ou sua distribuição de valores. Portanto, este é um lugar lógico tooimplement alguns processos de gerenciamento.
+Geralmente, convém estender os processos de carregamento de dados a fim de garantir que as estatísticas estejam atualizadas ao final do carregamento. É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. Portanto, esse é um momento lógico para implementar alguns processos de gerenciamento.
 
-Para atualizar as estatísticas durante o processo de carregamento hello, alguns princípios são fornecidos abaixo:
+Veja abaixo alguns princípios importantes para atualizar as estatísticas durante o processo de carregamento:
 
-* Certifique-se de que cada tabela carregada tenha pelo menos um objeto de estatísticas atualizado. Este Olá atualizações tabelas informações de tamanho (contagem de linha e página) como parte da atualização de estatísticas de saudação.
+* Certifique-se de que cada tabela carregada tenha pelo menos um objeto de estatísticas atualizado. Isso atualiza as informações de tamanho da tabela (contagem de linhas e contagem de páginas) como parte da atualização de estatísticas.
 * Concentre-se em colunas que participam de cláusulas JOIN, GROUP BY, ORDER BY e DISTINCT
-* Considere atualizar "crescente chave" colunas, como transações mais frequentemente esses valores não serão incluídos no histograma de estatísticas de saudação datas.
+* Considere uma atualização mais frequentes das colunas de "chave crescente", por exemplo, datas de transação, pois esses valores não serão incluídos no histograma de estatísticas.
 * Considere atualizar as colunas de distribuição estática com menos frequência.
 * Lembre-se de que cada objeto de estatística é atualizado em série. Simplesmente implementar `UPDATE STATISTICS <TABLE_NAME>` talvez não seja ideal, especialmente para tabelas mais amplas com muitos objetos de estatísticas.
 
 > [!NOTE]
-> Para obter mais detalhes sobre [crescente chave] consulte o white paper de modelo de estimativa de cardinalidade toohello SQL Server 2014.
+> Para obter mais detalhes sobre [chave crescente], confira o white paper sobre modelo de estimativa de cardinalidade do SQL Server 2014.
 > 
 > 
 
 Para obter mais explicações, veja [Estimativa de cardinalidade][Cardinality Estimation] no MSDN.
 
 ## <a name="examples-create-statistics"></a>Exemplos: criar estatísticas
-Estes exemplos mostram como toouse várias opções para a criação de estatísticas. Opções de saudação que você usa para cada coluna dependem de como Olá coluna será usada em consultas e características de saudação de seus dados.
+Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
 
 ### <a name="a-create-single-column-statistics-with-default-options"></a>R. Criar estatísticas de coluna única com opções padrão
-toocreate estatísticas em uma coluna, basta fornecer um nome de objeto de estatísticas de saudação e saudação da coluna de saudação.
+Para criar estatísticas em uma coluna, basta fornecer um nome para o objeto de estatísticas e o nome da coluna.
 
-Essa sintaxe usa todas as opções padrão de saudação. Por padrão, o SQL Data Warehouse amostras 20 por cento da tabela de saudação ao criar estatísticas.
+Esta sintaxe usa todas as opções padrão. Por padrão, o SQL Data Warehouse utiliza uma amostragem de 20 por cento da tabela ao criar estatísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -135,9 +135,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
 ### <a name="b-create-single-column-statistics-by-examining-every-row"></a>B. Criar estatísticas de coluna única examinando cada linha
-taxa de amostragem saudação padrão de 20% é suficiente para a maioria das situações. No entanto, você pode ajustar a taxa de amostragem de saudação.
+A taxa de amostragem padrão de 20 por cento é suficiente para a maioria das situações. No entanto, você pode ajustar essa taxa de amostragem.
 
-saudação de toosample completa da tabela, use a seguinte sintaxe:
+Para usar toda a tabela como amostragem, use a seguinte sintaxe:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
@@ -149,56 +149,56 @@ Por exemplo:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### <a name="c-create-single-column-statistics-by-specifying-hello-sample-size"></a>C. Criar estatísticas de coluna única, especificando o tamanho do exemplo hello
-Como alternativa, você pode especificar o tamanho do exemplo hello como uma porcentagem:
+### <a name="c-create-single-column-statistics-by-specifying-the-sample-size"></a>C. Criar estatísticas de coluna única, especificando o tamanho da amostra
+Como alternativa, você pode especificar o tamanho da amostra como uma porcentagem:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### <a name="d-create-single-column-statistics-on-only-some-of-hello-rows"></a>D. Criar estatísticas de coluna única em apenas algumas das linhas de saudação
-Outra opção, você pode criar estatísticas em uma parte das linhas de saudação em sua tabela. Isso é chamado de estatística filtrada.
+### <a name="d-create-single-column-statistics-on-only-some-of-the-rows"></a>D. Criar estatísticas de coluna única em apenas algumas das linhas
+Outra opção é criar estatísticas em uma parte das linhas na tabela. Isso é chamado de estatística filtrada.
 
-Por exemplo, você pode usar as estatísticas filtradas quando você planejar tooquery uma partição específica de uma grande tabela particionada. Ao criar estatísticas em Olá somente valores de partição, precisão de saudação das estatísticas de saudação melhorar e, portanto, melhorar o desempenho da consulta.
+Por exemplo, ao planejar consultar uma partição específica de uma grande tabela particionada, você pode usar as estatísticas filtradas. Ao criar estatísticas apenas nos valores de partição, a precisão das estatísticas melhora e, portanto, o desempenho da consulta também.
 
-Este exemplo cria estatísticas em um intervalo de valores. valores Hello facilmente podem ser definido pelo intervalo de saudação toomatch de valores em uma partição.
+Este exemplo cria estatísticas em um intervalo de valores. Os valores podem ser facilmente definidos de acordo com o intervalo de valores em uma partição.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
-> Para Olá tooconsider de Otimizador de consulta usando estatísticas filtradas quando escolhe um plano de consulta distribuída hello, consulta Olá deve se ajustar dentro definição Olá Olá do objeto de estatísticas. Usando o exemplo anterior hello, Olá da consulta em que a cláusula precisa toospecify col1 valores entre 2000101 e 20001231.
+> Para que o otimizador de consulta considere usar estatísticas filtradas ao escolher o plano de consulta distribuída, a consulta deve ser adequada à definição do objeto de estatísticas. Usando o exemplo anterior, a cláusula WHERE da consulta precisa especificar valores col1 entre 2000101 e 20001231.
 > 
 > 
 
-### <a name="e-create-single-column-statistics-with-all-hello-options"></a>E. Criar estatísticas de coluna única com todas as opções de saudação
-Naturalmente, você pode combinar as opções de saudação juntos. exemplo Hello abaixo cria um objeto de estatísticas filtradas com um tamanho de amostra personalizado:
+### <a name="e-create-single-column-statistics-with-all-the-options"></a>E. Criar estatísticas de coluna única com todas as opções
+Obviamente, você pode combinar as opções. O exemplo abaixo cria um objeto de estatísticas filtradas com um tamanho de amostra personalizado:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Para obter referência completa hello, consulte [CREATE STATISTICS] [ CREATE STATISTICS] no MSDN.
+Para obter a referência completa, veja [CREATE STATISTICS][CREATE STATISTICS] no MSDN.
 
 ### <a name="f-create-multi-column-statistics"></a>F. Criar estatísticas de várias colunas
-toocreate estatísticas de várias colunas, simplesmente use exemplos anteriores hello, mas especificar mais colunas.
+Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, mas especificar mais colunas.
 
 > [!NOTE]
-> histograma Hello, que é usada tooestimate o número de linhas no resultado de consulta hello, só está disponível para Olá primeira coluna listada na definição de objeto de estatísticas de saudação.
+> O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
 > 
 > 
 
-Neste exemplo, o histograma hello está em *produto\_categoria*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_c\ategory*:
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_c\ategory*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Como há uma correlação entre *produto\_categoria* e *produto\_sub\_categoria*, um estado de várias coluna pode ser útil se essas colunas são acessadas em Olá simultaneamente.
+Como há uma correlação entre *product\_category* e *product\_sub\_category*, uma estatística de várias colunas pode ser útil se essas colunas forem acessadas ao mesmo tempo.
 
-### <a name="g-create-statistics-on-all-hello-columns-in-a-table"></a>G. Criar estatísticas em todas as colunas de saudação em uma tabela
-Estatísticas de uma maneira toocreate são tooissues comandos CREATE STATISTICS depois de criar a tabela de saudação.
+### <a name="g-create-statistics-on-all-the-columns-in-a-table"></a>G. Criar estatísticas em todas as colunas em uma tabela
+É uma maneira de criar estatísticas é emitir comandos CREATE STATISTICS depois de criar a tabela.
 
 ```sql
 CREATE TABLE dbo.table1
@@ -218,10 +218,10 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="h-use-a-stored-procedure-toocreate-statistics-on-all-columns-in-a-database"></a>H. Usar estatísticas de toocreate um procedimento armazenado em todas as colunas em um banco de dados
-SQL Data Warehouse não tem um equivalente de procedimento armazenado do sistema muito [] de [sp_create_stats] no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas de banco de dados de saudação que ainda não tenha estatísticas.
+### <a name="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. Use um procedimento armazenado para criar estatísticas em todas as colunas em um banco de dados
+O SQL Data Warehouse não tem um procedimento armazenado no sistema equivalente a [sp_create_stats][] no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
 
-Isso ajudará você a começar com o design do banco de dados. Sinta-se livre tooadapt-tooyour precisa.
+Isso ajudará você a começar com o design do banco de dados. Fique à vontade para adaptá-lo às suas necessidades.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -304,20 +304,20 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-toocreate estatísticas em todas as colunas na tabela de saudação com esse procedimento, simplesmente chamar o procedimento de saudação.
+Para criar estatísticas em todas as colunas na tabela com esse procedimento, simplesmente chame o procedimento.
 
 ```sql
 prc_sqldw_create_stats;
 ```
 
 ## <a name="examples-update-statistics"></a>Exemplos: atualizar as estatísticas
-estatísticas de tooupdate, você pode:
+Para atualizar as estatísticas, você pode:
 
-1. Atualizar um objeto de estatísticas. Especifique o nome de saudação do hello desejar tooupdate do objeto de estatísticas.
-2. Atualizar todos os objetos de estatísticas em uma tabela. Especifique o nome de saudação da tabela de saudação em vez de um objeto de estatísticas específicas.
+1. Atualizar um objeto de estatísticas. Especifique o nome do objeto de estatísticas que você deseja atualizar.
+2. Atualizar todos os objetos de estatísticas em uma tabela. Especifique o nome da tabela em vez de um objeto de estatísticas específico.
 
 ### <a name="a-update-one-specific-statistics-object"></a>R. Atualizar um objeto de estatísticas específico
-Use Olá sintaxe tooupdate um objeto de estatísticas específicas a seguir:
+Use a sintaxe a seguir para atualizar um objeto de estatísticas específico:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
@@ -329,10 +329,10 @@ Por exemplo:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Atualizando objetos de estatísticas específico, você pode minimizar Olá tempo e recursos de estatísticas de toomanage necessária. Isso requer que algumas considerado, porém, tooupdate objetos de estatísticas recomendada toochoose hello.
+Ao atualizar objetos de estatísticas específicos, você pode minimizar o tempo e os recursos necessários para o gerenciamento de estatísticas. No entanto, isso exige um pouco de planejamento para escolher os melhores objetos de estatísticas para atualizar.
 
 ### <a name="b-update-all-statistics-on-a-table"></a>B. Atualizar todas as estatísticas em uma tabela
-Isso mostra um método simples para a atualização de todos os objetos de estatísticas de saudação em uma tabela.
+O código abaixo mostra um método simples para atualizar todos os objetos de estatísticas em uma tabela.
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -344,19 +344,19 @@ Por exemplo:
 UPDATE STATISTICS dbo.table1;
 ```
 
-Essa instrução é fácil toouse. Apenas lembre-se isso atualizará todas as estatísticas na tabela de saudação e, portanto, pode realizar mais trabalho do que o necessário. Se o desempenho de saudação não for um problema, isso é definitivamente maneira mais fácil e mais completa Olá tooguarantee estatísticas estão atualizadas.
+Esta instrução é fácil de usar. Lembre-se de que isso atualizará todas as estatísticas na tabela e, portanto, pode executar mais trabalho do que o necessário. Se o desempenho não for um problema, essa é definitivamente a maneira mais fácil e completa de garantir a atualização das estatísticas.
 
 > [!NOTE]
-> Ao atualizar todas as estatísticas em uma tabela, o SQL Data Warehouse faz uma tabela de saudação toosample verificação para cada estatísticas. Se Olá tabela for grande, tem várias colunas e estatísticas, talvez seja mais eficiente tooupdate individuais as estatísticas com base na necessidade.
+> Ao atualizar todas as estatísticas em uma tabela, o SQL Data Warehouse realiza uma verificação da tabela para coletar amostragens para cada estatística. Se a tabela for grande, tiver muitas colunas e estatísticas, talvez seja mais eficiente para atualizar estatísticas individuais com base na necessidade.
 > 
 > 
 
-Para uma implementação de um `UPDATE STATISTICS` procedimento consulte Olá [tabelas temporárias] [ Temporary] artigo. método de implementação de saudação é ligeiramente diferente toohello `CREATE STATISTICS` procedimento acima, mas o resultado final de saudação é Olá mesmo.
+Para a implementação de um procedimento `UPDATE STATISTICS`, leia o artigo [Tabelas Temporárias][Temporary]. O método de implementação é ligeiramente diferente para o procedimento `CREATE STATISTICS` acima, mas o resultado final é o mesmo.
 
-Para obter a sintaxe completa de hello, consulte [Update Statistics] [ Update Statistics] no MSDN.
+Para obter a sintaxe completa, veja [Atualizar estatísticas][Update Statistics] no MSDN.
 
 ## <a name="statistics-metadata"></a>Metadados de estatísticas
-Há várias exibição do sistema e funções que você pode usar toofind informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas pode estar desatualizado usando toosee de função de estatísticas-date de hello quando as estatísticas foram criadas ou atualizadas de última.
+Há várias funções e exibições do sistema que você pode usar para localizar informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas está desatualizado usando a função stats-date para ver quando as estatísticas foram criadas ou atualizadas pela última vez.
 
 ### <a name="catalog-views-for-statistics"></a>Exibições de catálogo para as estatísticas
 Essas exibições do sistema fornecem informações sobre estatísticas:
@@ -364,10 +364,10 @@ Essas exibições do sistema fornecem informações sobre estatísticas:
 | Exibição de catálogo | Descrição |
 |:--- |:--- |
 | [sys.columns][sys.columns] |Uma linha para cada coluna. |
-| [sys.objects][sys.objects] |Uma linha para cada objeto no banco de dados de saudação. |
-| [sys.schemas][sys.schemas] |Uma linha para cada esquema no banco de dados de saudação. |
+| [sys.objects][sys.objects] |Uma linha para cada objeto no banco de dados. |
+| [sys.schemas][sys.schemas] |Uma linha para cada esquema no banco de dados. |
 | [sys.stats][sys.stats] |Uma linha para cada objeto de estatísticas. |
-| [sys.stats_columns][sys.stats_columns] |Uma linha para cada coluna no objeto de estatísticas de saudação. Links de volta toosys.columns. |
+| [sys.stats_columns][sys.stats_columns] |Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
 | [sys.tables][sys.tables] |Uma linha para cada tabela (inclui tabelas externas). |
 | [sys.table_types][sys.table_types] |Uma linha para cada tipo de dados. |
 
@@ -376,11 +376,11 @@ Essas funções de sistema são úteis para trabalhar com estatísticas:
 
 | Função de sistema | Descrição |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Última atualização do objeto de estatísticas de saudação de data. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Fornece informações de resumo de nível e detalhadas sobre distribuição de saudação de valores conforme entendido pelo objeto de estatísticas de saudação. |
+| [STATS_DATE][STATS_DATE] |Data da última atualização do objeto de estatísticas. |
+| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Fornece informações detalhadas e resumidas sobre a distribuição de valores, conforme entendido pelo objeto de estatísticas. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar colunas de estatísticas e funções em uma exibição
-Essa exibição recupera colunas relacionadas juntas toostatistics e os resultados da função do hello [STATS_DATE()] [].
+Essa exibição une as colunas relacionadas às estatísticas e os resultados da função [STATS_DATE()][].
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -419,13 +419,13 @@ AND     st.[user_created] = 1
 ```
 
 ## <a name="dbcc-showstatistics-examples"></a>Exemplos de DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() mostra dados de saudação mantidos em um objeto de estatísticas. Esses dados estão divididos em três partes.
+DBCC SHOW_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes.
 
 1. Cabeçalho
 2. Vetor de densidade
 3. Histograma
 
-Olá cabeçalho metadados sobre estatísticas de saudação. histograma Olá exibe a distribuição de saudação de valores na primeira coluna chave Olá Olá do objeto de estatísticas. vetor de densidade Olá mede a correlação entre colunas. SQLDW calcula as estimativas de cardinalidade com qualquer um dos dados de saudação no objeto de estatísticas de saudação.
+Os metadados de cabeçalho sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna de chave do objeto de estatísticas. O vetor de densidade mede a correlação entre colunas. O SQLDW calcula as estimativas de cardinalidade com os dados no objeto de estatísticas.
 
 ### <a name="show-header-density-and-histogram"></a>Mostrar cabeçalho, densidade e histograma
 Este exemplo simples mostra as três partes de um objeto de estatísticas.
@@ -441,7 +441,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
 ### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Mostrar uma ou mais partes de DBCC SHOW_STATISTICS();
-Se você só está interessado em ver partes específicas, use Olá `WITH` cláusula e especificar quais partes que você deseja toosee:
+Se você só estiver interessado em ver partes específicas, use a cláusula `WITH` e especifique quais partes deseja ver:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
@@ -454,18 +454,18 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## <a name="dbcc-showstatistics-differences"></a>Diferenças do DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() mais estritamente é implementado no SQL Data Warehouse em comparação com tooSQL Server.
+DBCC SHOW_STATISTICS() é implementado mais estritamente no SQL Data Warehouse comparado ao SQL Server.
 
 1. Não há suporte para recursos não documentados
 2. Não é possível usar Stats_stream
 3. Não é possível associar os resultados para subconjuntos específicos de dados de estatísticas, por exemplo, (STAT_HEADER JOIN DENSITY_VECTOR)
 4. NO_INFOMSGS não pode ser definido para a supressão de mensagem
 5. Não é possível usar colchetes em nomes de estatísticas
-6. Não é possível usar objetos de estatísticas de tooidentify de nomes de coluna
+6. Não é possível usar nomes de coluna para identificar objetos de estatísticas
 7. Não há suporte para o erro personalizado 2767
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais detalhes, veja [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no MSDN.  toolearn mais, consulte os artigos de saudação em [visão geral da tabela][Overview], [tipos de dados de tabela][Data Types], [distribuir uma tabela] [ Distribute], [Indexando uma tabela][Index], [particionar uma tabela] [ Partition] e [ Tabelas temporárias][Temporary].  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].  
+Para obter mais detalhes, veja [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no MSDN.  Para saber mais, consulte os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados da tabela][Data Types], [Distribuição de uma tabela][Distribute], [Indexação de uma tabela][Index], [Particionamento de uma tabela][Partition] e [Tabelas temporárias][Temporary].  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 

@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a>endereço IP do gateway da rede local de saudação toomodify - nenhuma conexão de gateway
+### <a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
 
-Use toomodify de exemplo hello um gateway de rede local que não tem uma conexão de gateway. Ao modificar esse valor, você também pode modificar os prefixos de endereço de saudação em Olá simultaneamente.
+Use o exemplo para modificar um gateway de rede local que não tenha uma conexão de gateway. Ao modificar esse valor, você também pode modificar os prefixos do endereço ao mesmo tempo.
 
-1. Em Olá recursos de Gateway de rede Local, em Olá **configurações** seção, clique em **configuração**.
-2. Em Olá **endereço IP** caixa, modifique o endereço IP hello.
-3. Clique em **salvar** toosave configurações de saudação.
+1. No recurso Gateway de Rede Local, na seção **Configurações**, clique em **Configuração**.
+2. Na caixa **Endereço IP**, modifique o endereço IP.
+3. Clique em **Salvar** para salvar as configurações.
 
-### <a name="gwipwithconnection"></a>toomodify Olá local de rede gateway endereço IP do gateway - existente de conexão de gateway
+### <a name="gwipwithconnection"></a>Para modificar o endereço IP do gateway de rede local- conexão de gateway existente
 
-toomodify um gateway de rede local que tem uma conexão, você precisa de conexão de saudação do toofirst remover. Após a conexão de saudação for removido, você pode modificar o endereço IP do gateway de saudação e recriar uma nova conexão. Você também pode modificar os prefixos de endereço de saudação em Olá simultaneamente. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar o endereço IP do gateway hello, gateway VPN Olá toodelete não é necessário. Você só precisa de conexão de saudação tooremove.
+Para modificar um gateway de rede local com uma conexão, você precisa primeiro remover a conexão. Após a conexão ser removida, você pode modificar o endereço IP do gateway e recriar uma nova conexão. Você também pode modificar os prefixos do endereço ao mesmo tempo. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar o endereço IP de gateway, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
  
-#### <a name="1-remove-hello-connection"></a>1. Remova conexão hello.
+#### <a name="1-remove-the-connection"></a>1. Remova a conexão.
 
-1. Em Olá recursos de Gateway de rede Local, em Olá **configurações** seção, clique em **conexões**.
-2. Clique em Olá **...**  na linha de saudação para conexão hello, em seguida, clique em **excluir**.
-3. Clique em **salvar** toosave suas configurações.
+1. No recurso de Gateway de Rede Local, na seção **Configurações**, clique em **Conexões**.
+2. Clique em **...** na linha para a conexão e então clique em **Excluir**.
+3. Para salvar suas configurações, clique em **Salvar** .
 
-#### <a name="2-modify-hello-ip-address"></a>2. Modifique o endereço IP hello.
+#### <a name="2-modify-the-ip-address"></a>2. Modifique o endereço IP.
 
-Você também pode modificar os prefixos de endereço de saudação em Olá simultaneamente.
+Você também pode modificar os prefixos do endereço ao mesmo tempo.
 
-1. Em Olá **endereço IP** caixa, modifique o endereço IP hello.
-2. Clique em **salvar** toosave configurações de saudação.
+1. Na caixa **Endereço IP**, modifique o endereço IP.
+2. Clique em **Salvar** para salvar as configurações.
 
-#### <a name="3-recreate-hello-connection"></a>3. Recrie a conexão de saudação.
+#### <a name="3-recreate-the-connection"></a>3. Recrie a conexão.
 
-1. Navegue toohello Gateway de rede Virtual para sua rede virtual. (Não hello Gateway de rede Local.)
-2. Em Olá Gateway de rede Virtual, no hello **configurações** seção, clique em **conexões**.
-3. Clique em Olá **+ adicionar** tooopen Olá **Adicionar conexão** folha.
+1. Navegue até o Gateway de Rede Virtual para sua rede virtual. (Não o Gateway de Rede Local).
+2. No Gateway de Rede Virtual, na seção **Configurações**, clique em **Conexões**.
+3. Clique em **+ Adicionar** para abrir a folha **Adicionar conexão**.
 4. Recrie sua conexão.
-5. Clique em **Okey** toocreate conexão de saudação.
+5. Clique em **OK** para criar a conexão.

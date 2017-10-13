@@ -1,4 +1,4 @@
-O Azure oferece Olá SKUs de gateway VPN a seguir:
+O Azure oferece os seguintes SKUs de gateway de VPN:
 
 |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **Conexões<br>P2S** | **Parâmetro de comparação<br>de taxa de transferência total** |
 |---       | ---                             | ---                    | ---                         |
@@ -8,8 +8,8 @@ O Azure oferece Olá SKUs de gateway VPN a seguir:
 |**Básico** | Máx. 10                         | Máx. 128               | 100 Mbps                    | 
 |          |                                 |                        |                             | 
 
-- O parâmetro de comparação da taxa de transferência total se baseia nas medidas de vários túneis agregados por meio de um único gateway. Não é uma taxa de transferência garantida devido a condições de tráfego tooInternet e seus comportamentos de aplicativo.
+- O parâmetro de comparação da taxa de transferência total se baseia nas medidas de vários túneis agregados por meio de um único gateway. Não é uma taxa de transferência garantida devido às condições de tráfego de Internet e seus comportamentos de aplicativo.
 
-- Obter informações sobre preços podem ser encontradas no hello [preços](https://azure.microsoft.com/pricing/details/vpn-gateway) página.
+- Encontre informações sobre preços na página [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway) .
 
-- Informações de SLA (contrato de nível de serviço) podem ser encontradas em Olá [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) página.
+- As informações de SLA (contrato de nível de serviço) podem ser encontradas na página [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/).

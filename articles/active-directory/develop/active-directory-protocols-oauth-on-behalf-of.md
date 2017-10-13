@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure AD serviço tooservice auth usando OAuth 2.0 especificação em nome de rascunho | Microsoft Docs"
-description: "Este artigo descreve como toouse HTTP mensagens tooimplement autenticação de serviço tooservice usando Olá OAuth 2.0 no nome de fluxo."
+title: "Autenticação de serviço para serviço do Azure AD usando a especificação de rascunho em nome de OAuth2.0 | Microsoft Docs"
+description: "Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo em nome de do OAuth2.0."
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 55b7fcfe6c0223bddedd8d8fa2defcb5769b43c2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# Chamadas de serviço tooservice usando a identidade do usuário delegado em hello em nome de fluxo
-Olá fluxo do nome do OAuth 2.0 serve caso de uso de saudação onde um aplicativo invoca um serviço/API da web, que por sua vez deve toocall outro serviço/API da web. ideia Olá é toopropagate Olá delegada a identidade do usuário e permissões por meio da cadeia de solicitações de saudação. Olá serviço de camada intermediária toomake autenticado solicitações toohello downstream do serviço, ele precisa toosecure um token de acesso do Azure Active Directory (AD do Azure), em nome de usuário de saudação.
+# Chamadas de serviço para serviço a identidade do usuário delegado no fluxo em nome de
+O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo chama um serviço/API Web, que por sua vez precisa chamar outro serviço/API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso do Azure AD (Azure Active Directory) em nome do usuário.
 
 ## Diagrama do fluxo em nome de
-Suponha que esse usuário Olá tenha sido autenticado em um aplicativo usando Olá [fluxo de concessão de código de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md). Neste ponto, o aplicativo hello tem um token de acesso (um token) com declarações do usuário hello e o consentimento tooaccess Olá intermediária API da web (A API). Agora, A API precisa toomake uma solicitação autenticada toohello downstream web API (API B).
+Suponha que o usuário tenha sido autenticado em um aplicativo usando o [fluxo de concessão de código de autorização OAuth 2.0](active-directory-protocols-oauth-code.md). Neste ponto, o aplicativo tem um token de acesso (token A) com as declarações do usuário e o consentimento para acessar a API Web de camada intermediária (API A). Agora, a API A precisa fazer uma solicitação autenticada para a API Web downstream (API B).
 
-etapas de saudação seguir constituem o fluxo de saudação em nome de e são explicadas com ajuda Olá Olá diagrama a seguir.
+As etapas a seguir constituem o fluxo em nome de e são explicadas com a ajuda do diagrama a seguir.
 
 ![Fluxo Em nome de do OAuth2.0](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. aplicativo de cliente Hello torna tooAPI uma solicitação com a token Olá
-2. A API autentica toohello ponto de extremidade de emissão de tokens do AD do Azure e solicita um token tooaccess API B.
-3. ponto de extremidade de emissão de token de AD do Azure Olá valida as credenciais de API A com um token e problemas hello token de acesso para API B (token B).
-4. o token de saudação B é definido no cabeçalho de autorização de saudação da saudação solicitação tooAPI B.
-5. Dados de saudação protegido recursos são retornados pela API B.
+1. O aplicativo cliente faz uma solicitação para API A com o token A.
+2. A API A se autentica no ponto de extremidade de emissão de token do Azure AD e solicita um token para acessar a API B.
+3. O ponto de extremidade de emissão de token do Azure AD valida as credenciais da API com o token A e emite o token de acesso para a API B (token B).
+4. O token B é definido no cabeçalho de autorização da solicitação para a API B.
+5. Os dados do recurso protegido são retornados pela API B.
 
-## Registrar o aplicativo hello e serviço no AD do Azure
-Registre o aplicativo de cliente hello e o serviço de camada intermediária Olá no AD do Azure.
-### Registrar o serviço de camada intermediária Olá
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. Na barra superior do hello, clique em sua conta e em Olá **diretório** , escolha um locatário do Active Directory Olá onde você deseja tooregister seu aplicativo.
-3. Clique em **mais serviços** Olá navegação à esquerda e escolha **Active Directory do Azure**.
+## Registrar o aplicativo e o serviço no Azure AD
+Registre o aplicativo cliente e o serviço de camada intermediária no Azure AD.
+### Registrar o serviço de camada intermediária
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
+3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e escolha **Novo registro do aplicativo**.
-5. Insira um nome amigável para o aplicativo hello e selecione o tipo de aplicativo hello. Com base no tipo de aplicativo hello conjunto Olá URL de entrada ou a URL de redirecionamento toohello URL base. Clique em **criar** aplicativo hello de toocreate.
-6. Ainda na Olá portal do Azure, escolha o seu aplicativo e clique em **configurações**. No menu de configurações de saudação, escolha **chaves** e adicionar uma chave - selecione uma duração de chave do ano 1 ou 2 anos. Quando você salvar esta página, o valor de chave hello serão exibidos, copie e salve o valor Olá em um local seguro - você vai precisar essa chave posterior tooconfigure Olá configurações do aplicativo em sua implementação - esse valor de chave não será exibido novamente, nem recuperáveis por qualquer outros meios, portanto, o registro-lo assim que ela é visível do hello Portal do Azure.
+5. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo. Com base no tipo de aplicativo, defina a URL de entrada ou URL de redirecionamento para a URL base. Clique em **Criar** para criar o aplicativo.
+6. Ainda no Portal do Azure, escolha o seu aplicativo e clique em **Configurações**. No menu Configurações, escolha **Chaves** e adicione uma chave – selecione uma duração de chave de 1 ou 2 anos. Quando você salvar esta página, o valor da chave será exibido; copie e salve o valor em um local seguro – você precisará dessa chave posteriormente para definir as configurações de aplicativo em sua implementação – esse valor de chave não será exibido novamente, nem será recuperável por qualquer outro meio, portanto, registre-o assim que ele ficar visível no Portal do Azure.
 
-### Registrar o aplicativo de cliente hello
-1. Entrar toohello [portal do Azure](https://portal.azure.com).
-2. Na barra superior do hello, clique em sua conta e em Olá **diretório** , escolha um locatário do Active Directory Olá onde você deseja tooregister seu aplicativo.
-3. Clique em **mais serviços** Olá navegação à esquerda e escolha **Active Directory do Azure**.
+### Registrar o aplicativo cliente
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
+3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e escolha **Novo registro do aplicativo**.
-5. Insira um nome amigável para o aplicativo hello e selecione o tipo de aplicativo hello. Com base no tipo de aplicativo hello conjunto Olá URL de entrada ou a URL de redirecionamento toohello URL base. Clique em **criar** aplicativo hello de toocreate.
-6. Configurar permissões para o seu aplicativo - no menu de configurações de saudação, escolha Olá **as permissões necessárias** seção, clique em **adicionar**, em seguida, **selecionar uma API**e tipo hello nome do serviço de camada intermediária Olá na caixa de texto de saudação. Em seguida, clique em **Selecionar Permissões** e selecione 'Acessar *nome do serviço*'.
+5. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo. Com base no tipo de aplicativo, defina a URL de entrada ou URL de redirecionamento para a URL base. Clique em **Criar** para criar o aplicativo.
+6. Configurar Permissões para o seu aplicativo – no menu Configurações, escolha a seção **Permissões necessárias**, clique em **Adicionar**, depois em **Selecionar uma API** e digite o nome do serviço de camada intermediária na caixa de texto. Em seguida, clique em **Selecionar Permissões** e selecione 'Acessar *nome do serviço*'.
 
 ### Configurar aplicativos cliente conhecidos
-Nesse cenário, o serviço de camada intermediária Olá não tem nenhuma interação tooobtain Olá de usuário do usuário consentimento tooaccess Olá downstream API. Portanto, Olá opção toogrant acesso toohello downstream API deve ser apresentado inicial como parte da etapa de consentimento Olá durante a autenticação.
-tooachieve, etapas a seguir Olá abaixo de registro do aplicativo do cliente Olá ligação tooexplicitly no AD do Azure com o registro do serviço de camada intermediária hello, que mescla exigido pelo cliente hello e de camada intermediária em uma única caixa de diálogo de consentimento de Olá Olá.
-1. Navegue toohello registro de serviço de camada intermediária e clique em **manifesto** editor de manifesto do tooopen hello.
-2. No manifesto hello, localize Olá `knownClientApplications` propriedade de matriz e adicionar Olá ID do cliente do aplicativo de cliente hello como um elemento.
-3. Salve o manifesto de saudação clicando Olá botão Salvar.
+Nesse cenário, o serviço de camada intermediária não tem nenhuma interação do usuário para obter o consentimento do usuário para acessar a API downstream. Portanto, a opção de conceder acesso à API downstream deve ser apresentada antecipadamente como parte da etapa de consentimento durante a autenticação.
+Para fazer isso, siga as etapas abaixo para associar explicitamente o registro do aplicativo cliente no Azure AD com o registro do serviço de camada intermediária, que mescla o consentimento requerido pelo cliente e pela camada intermediária em uma única caixa de diálogo.
+1. Navegue até o registro do serviço de camada intermediária e clique em **Manifesto** para abrir o editor de manifesto.
+2. No manifesto, localize a propriedade de matriz `knownClientApplications` e, em seguida, adicione a ID do Cliente do aplicativo cliente como um elemento.
+3. Salve o manifesto clicando no botão salvar.
 
-## Solicitação de token de acesso do serviço tooservice
-toorequest um token de acesso, fazer um ponto de extremidade HTTP POST toohello específico de locatário do AD do Azure com hello parâmetros a seguir.
+## Solicitação de token de acesso de serviço para serviço
+Para solicitar um token de acesso, use um HTTP POST para o ponto de extremidade do Azure AD específico do locatário com os parâmetros a seguir.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-Há dois casos, dependendo se o aplicativo de cliente hello escolhe toobe protegido por um segredo compartilhado ou um certificado.
+Há dois casos, dependendo se o aplicativo cliente escolhe a ser protegida por um segredo compartilhado ou um certificado.
 
 ### Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
-Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço a serviço contém Olá parâmetros a seguir:
+Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório | tipo de saudação da solicitação de token hello. Para uma solicitação usando um JWT, o valor de saudação deve ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| asserção |obrigatório | valor Olá Olá token usado na solicitação de saudação. |
-| client_id |obrigatório | Olá ID do aplicativo atribuído serviço chamada toohello durante o registro com o Azure AD. Olá toofind ID do aplicativo no hello Portal de gerenciamento do Azure, clique em **do Active Directory**, clique em diretório hello e, em seguida, clique em nome do aplicativo hello. |
-| client_secret |obrigatório | chave de saudação registrada para Olá chamando o serviço no AD do Azure. Esse valor foi observado no tempo de saudação do registro. |
-| recurso |obrigatório | Olá URI de ID do aplicativo da saudação (recurso seguro) do serviço de recebimento. Olá toofind URI de ID do aplicativo no hello Portal de gerenciamento do Azure, clique em **do Active Directory**, clique em diretório hello, clique em nome do aplicativo hello **todas as configurações** e, em seguida, clique em **propriedades** . |
-| requested_token_use |obrigatório | Especifica como a solicitação de saudação deve ser processada. Olá em nome de fluxo, o valor de saudação deve ser **on_behalf_of**. |
-| scope |obrigatório | Lista de escopos para solicitação de token Olá separada por espaço. Para o OpenID Connect, Olá escopo **openid** deve ser especificado.|
+| grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| asserção |obrigatório | O valor do token usado na solicitação. |
+| client_id |obrigatório | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory**, no diretório e depois no nome do aplicativo. |
+| client_secret |obrigatório | A chave registrada para o serviço de chamada no Azure AD. Esse valor deve ter sido observado no momento do registro. |
+| recurso |obrigatório | O URI da ID do Aplicativo do serviço Web de recebimento (recurso protegido). Para localizar o URI de ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory** e depois no diretório, no nome do aplicativo, em **Todas as configurações** e em **Propriedades**. |
+| requested_token_use |obrigatório | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
+| scope |obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para OpenID Connect, a **openid** do escopo deve ser especificada.|
 
 #### Exemplo
-Olá HTTP POST a seguir solicita um token de acesso para API da web de https://graph.windows.net hello. Olá `client_id` identifica Olá serviço que solicita o token de acesso de saudação.
+O HTTP POST a seguir solicita um token de acesso para a API Web https://graph.windows.net. O `client_id` identifica o serviço que solicita o token de acesso.
 
 ```
 // line breaks for legibility only
@@ -104,23 +104,23 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### Segundo caso: solicitação de token de acesso com um certificado
-Uma solicitação de token de acesso de serviço a serviço com um certificado contém Olá parâmetros a seguir:
+Uma solicitação de token de acesso de serviço para serviço com certificado contém estes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório | tipo de saudação da solicitação de token hello. Para uma solicitação usando um JWT, o valor de saudação deve ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| asserção |obrigatório | valor Olá Olá token usado na solicitação de saudação. |
-| client_id |obrigatório | Olá ID do aplicativo atribuído serviço chamada toohello durante o registro com o Azure AD. Olá toofind ID do aplicativo no hello Portal de gerenciamento do Azure, clique em **do Active Directory**, clique em diretório hello e, em seguida, clique em nome do aplicativo hello. |
-| client_assertion_type |obrigatório |Olá valor deve ser`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que você precisa toocreate e entrar com hello certificado registrado como credenciais para o seu aplicativo.  Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) toolearn como tooregister seu formato de certificado e hello declaração hello.|
-| recurso |obrigatório | Olá URI de ID do aplicativo da saudação (recurso seguro) do serviço de recebimento. Olá toofind URI de ID do aplicativo no hello Portal de gerenciamento do Azure, clique em **do Active Directory**, clique em diretório hello, clique em nome do aplicativo hello **todas as configurações** e, em seguida, clique em **propriedades** . |
-| requested_token_use |obrigatório | Especifica como a solicitação de saudação deve ser processada. Olá em nome de fluxo, o valor de saudação deve ser **on_behalf_of**. |
-| scope |obrigatório | Lista de escopos para solicitação de token Olá separada por espaço. Para o OpenID Connect, Olá escopo **openid** deve ser especificado.|
+| grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| asserção |obrigatório | O valor do token usado na solicitação. |
+| client_id |obrigatório | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory**, no diretório e depois no nome do aplicativo. |
+| client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo.  Leia mais sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e saber sobre o formato da asserção.|
+| recurso |obrigatório | O URI da ID do Aplicativo do serviço Web de recebimento (recurso protegido). Para localizar o URI de ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory** e depois no diretório, no nome do aplicativo, em **Todas as configurações** e em **Propriedades**. |
+| requested_token_use |obrigatório | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
+| scope |obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para OpenID Connect, a **openid** do escopo deve ser especificada.|
 
-Observe que os parâmetros de saudação quase Olá igual ao caso de saudação da solicitação de saudação o por segredo compartilhado exceto que o parâmetro de client_secret hello é substituído por dois parâmetros: um client_assertion_type e client_assertion.
+Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro client_secret ser substituído por dois parâmetros: um client_assertion_type e uma client_assertion.
 
 #### Exemplo
-Olá HTTP POST a seguir solicita um token de acesso para Olá https://graph.windows.net API da web com um certificado. Olá `client_id` identifica Olá serviço que solicita o token de acesso de saudação.
+O HTTP POST a seguir solicita um token de acesso à API Web https://graph.windows.net com um certificado. O `client_id` identifica o serviço que solicita o token de acesso.
 
 ```
 // line breaks for legibility only
@@ -139,22 +139,22 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Resposta de token de acesso do serviço tooservice
-Uma resposta bem-sucedida é uma resposta JSON OAuth 2.0 com hello parâmetros a seguir.
+## Resposta de token de acesso de serviço para serviço
+Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a seguir.
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor do tipo de token de saudação. Olá somente tipo de AD do Azure oferece suporte a **portador**. Para obter mais informações sobre tokens de portador, consulte Olá [estrutura de autorização do OAuth 2.0: uso de Token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |escopo de saudação de acesso concedido em um token de saudação. |
-| expires_in |comprimento de saudação do token de acesso de saudação do tempo é válido (em segundos). |
-| expires_on |tempo de saudação quando o token de acesso de saudação expira. Data de saudação é representada como número de saudação de segundos de 1970-01-01T0:0:0Z UTC até o tempo de expiração de saudação. Esse valor é usado toodetermine o tempo de vida de Olá de tokens em cache. |
-| recurso |Olá URI de ID do aplicativo da saudação (recurso seguro) do serviço de recebimento. |
-| access_token |token de acesso solicitado Hello. Olá chamando o serviço pode usar esse serviço de recebimento toohello tooauthenticate token. |
-| id_token |token de id solicitada Hello. Olá chamando o serviço pode usar a tooverify Olá identidade do usuário e iniciar uma sessão de usuário de saudação. |
-| refresh_token |token de atualização de saudação para Olá solicitou o token de acesso. Olá chamando o serviço pode usar esse token toorequest outro token de acesso após a expiração do token de acesso atual hello. |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |O escopo do acesso concedido no token. |
+| expires_in |O período de tempo pelo qual o token de acesso é válido (em segundos). |
+| expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
+| recurso |O URI da ID do Aplicativo do serviço Web de recebimento (recurso protegido). |
+| access_token |O token de acesso solicitado. O serviço de chamada pode usar esse token para se autenticar no serviço de recebimento. |
+| id_token |O token de ID solicitado. O serviço de chamada pode usar isso para verificar a identidade do usuário e iniciar uma sessão com o usuário. |
+| refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada poderá usar esse token para solicitar outro token de acesso depois que o token de acesso atual expirar. |
 
 ### Exemplo de resposta de êxito
-Hello exemplo a seguir mostra uma solicitação de tooa de resposta de êxito de um token de acesso para API da web de https://graph.windows.net hello.
+O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token de acesso para a API Web https://graph.windows.net.
 
 ```
 {
@@ -172,12 +172,12 @@ Hello exemplo a seguir mostra uma solicitação de tooa de resposta de êxito de
 ```
 
 ### Exemplo de resposta de erro
-Uma resposta de erro é retornada pelo ponto de extremidade de token do AD do Azure durante a tentativa de tooacquire um token de acesso para a API de downstream hello, se a API de downstream Olá tem uma política de acesso condicional, como autenticação multifator definido nele. o serviço de camada intermediária Olá deve superfície este aplicativo de cliente de toohello de erro para que o aplicativo de cliente hello pode fornecer a política de acesso condicional saudação do toosatisfy de interação de usuário hello.
+Uma resposta de erro é retornada pelo ponto de extremidade de token do Azure AD durante a tentativa de adquirir um token de acesso para a API downstream, se a API downstream tem definida nela uma política de acesso condicional, assim como autenticação multifator. O serviço de camada intermediária deve revelar esse erro para o aplicativo cliente de modo que este possa fornecer a interação do usuário para satisfazer a política de acesso condicional.
 
 ```
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due tooa configuration change made by your administrator, or because you moved tooa new location, you must enroll in multi-factor authentication tooaccess 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -186,8 +186,8 @@ Uma resposta de erro é retornada pelo ponto de extremidade de token do AD do Az
 }
 ```
 
-## Use Olá Olá de tooaccess token de acesso protegido de recurso
-Agora o serviço de camada intermediária Olá pode usar toohello de solicitações de token toomake adquiridos acima autenticado Olá downstream web API, por configuração de token de saudação em hello `Authorization` cabeçalho.
+## Usar o token de acesso para acessar o recurso protegido
+Agora, o serviço de camada intermediária pode usar o token adquirido acima para fazer solicitações autenticadas para a API Web downstream, definindo o token no cabeçalho `Authorization`.
 
 ### Exemplo
 ```
@@ -197,6 +197,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 ```
 
 ## Próximas etapas
-Saiba mais sobre o protocolo de saudação OAuth 2.0 e outra autenticação de tooservice serviço de maneira de tooperform, usando as credenciais do cliente.
-* [Serviço tooservice autenticação usando a concessão de credenciais de cliente OAuth 2.0 no AD do Azure](active-directory-protocols-oauth-service-to-service.md)
+Saiba mais sobre o protocolo OAuth 2.0 e outra maneira de executar autenticação de serviço para serviço usando as credenciais do cliente.
+* [Autenticação de serviço para serviço usando a concessão de credenciais de cliente OAuth 2.0 no Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md)

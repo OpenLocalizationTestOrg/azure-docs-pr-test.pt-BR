@@ -1,6 +1,6 @@
 ---
-title: aaaHPC pacote de cluster com o Active Directory do Azure | Microsoft Docs
-description: Saiba como toointegrate uma 2016 do HPC Pack cluster no Azure com o Active Directory do Azure
+title: Cluster HPC Pack com o Azure Active Directory | Microsoft Docs
+description: Saiba como integrar um cluster HPC Pack 2016 no Azure ao Azure Active Directory
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,66 +13,66 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 11/14/2016
 ms.author: danlep
-ms.openlocfilehash: 0806e544a468e27ca0567e18c55554811584fbc5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Gerenciar um cluster HPC Pack no Azure usando o Azure Active Directory
 O [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) dá suporte à integração com o [Azure AD](../../active-directory/index.md) (Azure Active Directory) para administradores que implantam um cluster HPC Pack no Azure.
 
 
 
-Siga as etapas de saudação neste artigo para as seguintes tarefas de nível alto de saudação: 
+Siga as etapas neste artigo para as seguintes tarefas de alto nível: 
 * Integrar manualmente o cluster HPC Pack ao locatário do Azure AD
 * Gerenciar e agendar trabalhos no cluster HPC Pack no Azure 
 
-Integrar uma solução de cluster de HPC Pack com o Azure AD segue as etapas padrão toointegrate outros aplicativos e serviços. Este artigo pressupõe que você esteja familiarizado com o gerenciamento básico de usuários no Azure AD. Para obter mais informações e em segundo plano, consulte Olá [documentação do Active Directory do Azure](../../active-directory/index.md) e Olá seção a seguir.
+A integração de uma solução de cluster HPC Pack ao Azure AD segue as etapas padrão para integrar outros aplicativos e serviços. Este artigo pressupõe que você esteja familiarizado com o gerenciamento básico de usuários no Azure AD. Para obter mais informações e detalhes, confira a [documentação do Azure Active Directory](../../active-directory/index.md) e a seção a seguir.
 
 ## <a name="benefits-of-integration"></a>Vantagens da integração
 
 
-Azure Active Directory (AD do Azure) é um multilocatário baseado em nuvem identidades e diretórios serviço de gerenciamento que fornece acesso de logon único (SSO) toocloud soluções.
+O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidades e multilocatário baseado em nuvem diretórios que fornece acesso SSO (logon único) a soluções de nuvem.
 
-Integração de um cluster de HPC Pack com o Azure AD pode ajudá-lo a atingir Olá seguintes metas:
+A integração de um cluster HPC Pack ao Azure AD pode ajudá-lo a atingir as seguintes metas:
 
-* Remova controlador de domínio do Active Directory tradicional de saudação do cluster de HPC Pack hello. Isso pode ajudar a reduzir os custos de saudação de manutenção de cluster Olá se isso não é necessário para sua empresa e o processo de implantação de saudação acelerar.
-* Aproveitar Olá benefícios que são colocados pelo AD do Azure a seguir:
+* Remover o controlador de domínio do Active Directory tradicional do cluster HPC Pack. Isso poderá ajudar a reduzir os custos de manutenção do cluster se isso não for necessário para sua empresa, bem como acelerar o processo de implantação.
+* Aproveitar os seguintes benefícios oferecidos pelo Azure AD:
     *   Logon único 
-    *   Usando uma identidade do AD local para o cluster de HPC Pack Olá no Azure 
+    *   Usar uma identidade do AD local para o cluster HPC Pack no Azure 
 
     ![Ambiente do Azure Active Directory](./media/hpcpack-cluster-active-directory/aad.png)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Cluster HPC Pack 2016 implantado em máquinas virtuais do Azure** - para obter as etapas, confira [Implantar um cluster HPC Pack 2016 no Azure](hpcpack-2016-cluster.md). Você precisa nome DNS de saudação do nó principal hello e credenciais de saudação de um administrador de cluster para concluir as etapas neste artigo hello.
+* **Cluster HPC Pack 2016 implantado em máquinas virtuais do Azure** - para obter as etapas, confira [Implantar um cluster HPC Pack 2016 no Azure](hpcpack-2016-cluster.md). Você precisa do nome DNS do nó principal e as credenciais de um administrador de cluster para concluir as etapas neste artigo.
 
   > [!NOTE]
   > Não há suporte à integração do Azure Active Directory nas versões do HPC Pack anteriores ao HPC Pack 2016.
 
 
 
-* **Computador cliente** -você precisa de um Windows ou Windows Server cliente computador executado muito HPC Pack utilitários de cliente. Se você desejar somente toouse Olá HPC Pack portal web ou trabalhos de toosubmit da API REST, você pode usar qualquer computador cliente de sua escolha.
+* **Computador cliente** - você precisa de um computador cliente Windows ou Windows Server para executar utilitários clientes do HPC Pack. Se você quiser usar a API REST ou o portal da Web do Pacote HPC para enviar trabalhos, poderá usar qualquer computador cliente de sua escolha.
 
-* **Utilitários de cliente do HPC Pack** -instalar utilitários de cliente do HPC Pack Olá no computador do cliente hello, usando o pacote de instalação gratuita Olá disponível da saudação Microsoft Download Center.
+* **Utilitários clientes do HPC Pack** - instale os utilitários clientes do HPC Pack no computador cliente, usando o pacote de instalação gratuita disponível no Centro de Download da Microsoft.
 
 
-## <a name="step-1-register-hello-hpc-cluster-server-with-your-azure-ad-tenant"></a>Etapa 1: Registrar o servidor de cluster HPC Olá com seu locatário do AD do Azure
-1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **do Active Directory** em Olá menus à esquerda e clique em diretório desejado de saudação em sua assinatura. Você deve ter recursos de tooaccess de permissão no diretório de saudação.
+## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>Etapa 1: registrar o servidor de cluster HPC no locatário do Azure AD
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
+2. Clique em **Active Directory** no menu à esquerda e clique no diretório desejado em sua assinatura. Você deve ter permissão para acessar recursos no diretório.
 3. Clique em **Usuários** e verifique se há contas de usuário já criadas ou configuradas.
-4. Clique em **Aplicativos** > **Adicionar** e clique em **Adicionar um aplicativo que minha organização está desenvolvendo**. Digite hello informações no Assistente de saudação a seguir:
+4. Clique em **Aplicativos** > **Adicionar** e clique em **Adicionar um aplicativo que minha organização está desenvolvendo**. Insira as seguintes informações no assistente:
     * **Nome** - HPCPackClusterServer
     * **Tipo** - selecione **Aplicativo Web e/ou API Web**
-    * **URL de logon**- Olá URL base para o exemplo hello, por padrão`https://hpcserver`
-    * **URI da ID do aplicativo** - `https://<Directory_name>/<application_name>`. Substituir `<Directory_name`> com hello nome completo do seu locatário do AD do Azure, por exemplo, `hpclocal.onmicrosoft.com`e substitua `<application_name>` com nome hello escolhido anteriormente.
+    * **URL de logon** - a URL base para o exemplo, que, por padrão, é `https://hpcserver`
+    * **URI da ID do aplicativo** - `https://<Directory_name>/<application_name>`. Substitua `<Directory_name`> pelo nome completo do locatário do Azure AD, por exemplo, `hpclocal.onmicrosoft.com` e substitua `<application_name>` pelo nome escolhido anteriormente.
 
-5. Depois que o aplicativo hello foi adicionado, clique em **configurar**. Configure Olá propriedades a seguir:
+5. Depois que o aplicativo for adicionado, clique em **Configurar**. Configure as seguintes propriedades:
     * Selecione **Sim** para **O aplicativo é multilocatário**
-    * Selecione **Sim** para **usuário atribuição necessário tooaccess aplicativo**.
+    * Selecione **Sim** para **Atribuição de usuário necessária para acessar o aplicativo**.
 
-6. Clique em **Salvar**. Quando o salvamento for concluído, clique em **Gerenciar Manifesto**. Essa ação baixa o arquivo de JavaScript Object Notation (JSON). Editar saudação baixado manifesto Localizando Olá `appRoles` definindo e adicionando Olá função de aplicativo a seguir:
+6. Clique em **Salvar**. Quando o salvamento for concluído, clique em **Gerenciar Manifesto**. Essa ação baixa o arquivo de JavaScript Object Notation (JSON). Edite o manifesto baixado localizando a configuração `appRoles` e adicionando a seguinte função de aplicativo:
     ```json
     "appRoles": [
         {
@@ -99,38 +99,38 @@ Integração de um cluster de HPC Pack com o Azure AD pode ajudá-lo a atingir O
         }
     ],
     ```
-7. Salve o arquivo hello. No portal de saudação, clique em **gerenciar manifesto** > **carregar manifesto**. Em seguida, você pode carregar manifesto editado hello.
-8. Clique em **Usuários**, selecione um usuário e clique em **Atribuir**. Atribua um usuário de toohello Olá funções disponíveis (HpcUsers ou HpcAdminMirror). Repita essa etapa com outros usuários no diretório de saudação. Para obter informações sobre os usuários de cluster, confira [Gerenciar usuários de cluster](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
+7. Salve o arquivo. No portal, clique em **Gerenciar Manifesto** > **Carregar Manifesto**. Em seguida, você pode carregar o manifesto editado.
+8. Clique em **Usuários**, selecione um usuário e clique em **Atribuir**. Atribua uma das funções disponíveis (HpcUsers ou HpcAdminMirror) ao usuário. Repita essa etapa com outros usuários no diretório. Para obter informações sobre os usuários de cluster, confira [Gerenciar usuários de cluster](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
    > [!NOTE] 
-   > toomanage usuários, é recomendável usar folha de visualização do Azure Active Directory Olá em Olá [portal do Azure](https://portal.azure.com).
+   > Para gerenciar usuários, é recomendável usar a folha de visualização do Azure Active Directory no [portal do Azure](https://portal.azure.com).
    >
 
 
-## <a name="step-2-register-hello-hpc-cluster-client-with-your-azure-ad-tenant"></a>Etapa 2: Registrar o cliente de cluster HPC Olá com seu locatário do AD do Azure
+## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>Etapa 2: registrar o cliente de cluster HPC no locatário do Azure AD
 
-1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **do Active Directory** em Olá menus à esquerda e clique em diretório desejado de saudação em sua assinatura. Você deve ter recursos de tooaccess de permissão no diretório de saudação.
-3. Clique em **Aplicativos** > **Adicionar** e clique em **Adicionar um aplicativo que minha organização está desenvolvendo**. Digite hello informações no Assistente de saudação a seguir:
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
+2. Clique em **Active Directory** no menu à esquerda e clique no diretório desejado em sua assinatura. Você deve ter permissão para acessar recursos no diretório.
+3. Clique em **Aplicativos** > **Adicionar** e clique em **Adicionar um aplicativo que minha organização está desenvolvendo**. Insira as seguintes informações no assistente:
 
     * **Nome** - HPCPackClusterClient
     * **Tipo** – selecione **Aplicativo Cliente Nativo**
     * **URI de redirecionamento** - `http://hpcclient`
 
-4. Depois que o aplicativo hello foi adicionado, clique em **configurar**. Saudação de cópia **ID do cliente** valor e salve-o. Você precisará dele mais tarde ao configurar o aplicativo.
+4. Depois que o aplicativo for adicionado, clique em **Configurar**. Copie o valor de **ID do cliente** e salve-o. Você precisará dele mais tarde ao configurar o aplicativo.
 
-5. Em **permissões tooother aplicativos**, clique em **Adicionar aplicativo**. Pesquisar e adicionar o aplicativo de HpcPackClusterServer hello (criado na etapa 1).
+5. Em **Permissões para outros aplicativos**, clique em **Adicionar aplicativo**. Pesquisar e adicionar o aplicativo HpcPackClusterServer (criado na Etapa 1).
 
-6. Em Olá **permissões delegadas** lista suspensa, selecione **HpcClusterServer acesso**. Em seguida, clique em **Salvar**.
+6. No menu suspenso **Permissões Delegadas**, selecione **Acessar HpcClusterServer**. Em seguida, clique em **Salvar**.
 
 
-## <a name="step-3-configure-hello-hpc-cluster"></a>Etapa 3: Configurar o cluster HPC Olá
+## <a name="step-3-configure-the-hpc-cluster"></a>Etapa 3: configurar o cluster HPC
 
-1. Conecte-se toohello HPC Pack 2016 o nó principal no Azure.
+1. Conecte-se ao nó principal do HPC Pack 2016 no Azure.
 
 2. Inicie o HPC PowerShell.
 
-3. Execute Olá comando a seguir:
+3. Execute o comando a seguir:
 
     ```powershell
 
@@ -138,12 +138,12 @@ Integração de um cluster de HPC Pack com o Azure AD pode ajudá-lo a atingir O
     ```
     onde
 
-    * `AADTenant`Especifica o nome do locatário do AD do Azure hello, como`hpclocal.onmicrosoft.com`
-    * `AADClientAppId`Especifica a ID do cliente Olá para o aplicativo hello criado na etapa 2.
+    * `AADTenant` especifica o nome do locatário do Azure AD, como `hpclocal.onmicrosoft.com`
+    * `AADClientAppId` especifica a ID do cliente para o aplicativo criado na Etapa 2.
 
-4. Reinicie o serviço de HpcSchedulerStateful hello.
+4. Reinicie o serviço HpcSchedulerStateful.
 
-    Em um cluster com vários nós de cabeçalho, você pode executar Olá comandos do PowerShell a seguir na Olá nó principal tooswitch Olá réplica primária para o serviço de HpcSchedulerStateful hello:
+    Em um cluster com vários nós principais, você pode executar os seguintes comandos do PowerShell no nó principal para alternar a réplica principal para o serviço HpcSchedulerStateful:
 
     ```powershell
     Connect-ServiceFabricCluster
@@ -152,19 +152,19 @@ Integração de um cluster de HPC Pack com o Azure AD pode ajudá-lo a atingir O
 
     ```
 
-## <a name="step-4-manage-and-submit-jobs-from-hello-client"></a>Etapa 4: Gerenciar e enviar trabalhos de cliente Olá
+## <a name="step-4-manage-and-submit-jobs-from-the-client"></a>Etapa 4: gerenciar e enviar trabalhos do cliente
 
-utilitários de cliente tooinstall Olá HPC Pack em seu computador, baixe os arquivos de instalação HPC Pack 2016 (instalação completa) de saudação Microsoft Download Center. Quando você começar a instalação hello, escolha a opção de instalação de saudação para Olá **utilitários de cliente do HPC Pack**.
+Para instalar os utilitários do Pacote HPC no computador cliente, baixe os arquivos de instalação do Pacote HPC 2016 (instalação completa) pelo Centro de Download da Microsoft. Quando você começar a instalação, escolha a opção de instalação dos **utilitários cliente do Pacote HPC**.
 
-tooprepare Olá cliente computador, instale o certificado de Olá usado durante a [instalação de cluster HPC](hpcpack-2016-cluster.md) no computador do cliente de saudação. Usar o Windows padrão de certificado gerenciamento procedimentos tooinstall Olá certificado público toohello **certificados – usuário atual** > **autoridades de certificação raiz confiáveis** armazenar. 
+Para preparar o computador cliente, instale o certificado usado durante a [instalação do cluster HPC](hpcpack-2016-cluster.md) no computador cliente. Use procedimentos padrão de gerenciamento de certificados do Windows para instalar o certificado público no repositório **Certificados – usuário atual** > **Autoridades de Certificação Raiz Confiáveis**. 
 
-Agora execute comandos do HPC Pack hello ou use toosubmit Olá GUI do Gerenciador de trabalho do HPC Pack e gerenciar trabalhos de cluster usando a conta de saudação do AD do Azure. Para opções de envio de trabalho, consulte [cluster de HPC enviar trabalhos tooan HPC Pack no Azure](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
+Agora você pode executar os comandos do HPC Pack ou usar a GUI do Gerenciador de trabalhos do HPC Pack para enviar e gerenciar trabalhos de cluster usando a conta do Azure AD. Para obter as opções de envio de trabalhos, consulte [Enviar trabalhos HPC de um computador local para um cluster HPC Pack implantado no Azure](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE]
-> Quando você tentar cluster de HPC Pack de toohello tooconnect no Azure para Olá primeira vez, uma janela pop-up será exibida. Insira seu toolog de credenciais do AD do Azure no. Olá token, em seguida, é armazenado em cache. Posterior cluster toohello de conexões no uso do Azure Olá token armazenado em cache, a menos que as alterações de autenticação ou hello armazenado em cache é limpo.
+> Quando você tenta se conectar ao cluster HPC Pack no Azure pela primeira vez, uma janela pop-up é exibida. Insira suas credenciais do Azure AD para fazer logon. O token é armazenado em cache. Conexões posteriores ao cluster no Azure usam o token em cache, a menos que a autenticação seja alterada ou o cache seja limpo.
 >
   
-Por exemplo, depois de concluir as etapas anteriores hello, você pode consultar para trabalhos de um cliente local da seguinte maneira:
+Por exemplo, após concluir as etapas anteriores, você pode consultar trabalhos de um cliente local da seguinte maneira:
 
 ```powershell 
 Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Owner <Azure AD account>
@@ -172,9 +172,9 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ## <a name="useful-cmdlets-for-job-submission-with-azure-ad-integration"></a>Cmdlets úteis para envio de trabalhos com a integração do Azure AD 
 
-### <a name="manage-hello-local-token-cache"></a>Gerenciar o cache de token local Olá
+### <a name="manage-the-local-token-cache"></a>Gerenciar o cache de token local
 
-HPC Pack 2016 fornece dois novos cmdlets do PowerShell HPC cache de token local toomanage hello. Esses cmdlets são úteis para envio de trabalhos de forma não interativa. Consulte Olá exemplo a seguir:
+O HPC Pack 2016 fornece dois novos cmdlets do PowerShell HPC para gerenciar o cache de token local. Esses cmdlets são úteis para envio de trabalhos de forma não interativa. Veja os exemplos a seguir:
 
 ```powershell
 Remove-HpcTokenCache
@@ -184,11 +184,11 @@ $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force
 Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler https://<Azure load balancer DNS name> 
 ```
 
-### <a name="set-hello-credentials-for-submitting-jobs-using-hello-azure-ad-account"></a>Definir credenciais hello para enviar trabalhos usando a conta de saudação do AD do Azure 
+### <a name="set-the-credentials-for-submitting-jobs-using-the-azure-ad-account"></a>Definir as credenciais para enviar trabalhos usando a conta do Azure AD 
 
-Às vezes, talvez você queira toorun trabalho de saudação em usuário de cluster HPC hello (para um cluster HPC ingressado no domínio, executar como um usuário de domínio; para um cluster HPC ingressado no domínio, executar como um usuário local no nó de cabeçalho Olá).
+Às vezes, é recomendável executar o trabalho no usuário do cluster HPC (para um cluster HPC ingressado em domínio, execute como um usuário de domínio; para um cluster HPC não ingressado em domínio, execute como um usuário local no nó de cabeçalho).
 
-1. Use Olá credenciais de saudação tooset comandos a seguir:
+1. Use os seguintes comandos para definir as credenciais:
 
     ```powershell
     $localUser = “<username>”
@@ -202,7 +202,7 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
     Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name>
     ```
 
-2. Em seguida, envie o trabalho de saudação da seguinte maneira. Olá/tarefa do trabalho é executado em $localUser em nós de computação hello.
+2. Depois, envie o trabalho da maneira a seguir. O trabalho/tarefa é executado em $localUser nos nós de computação.
 
     ```powershell
     $emptycreds = New-Object System.Management.Automation.PSCredential ($localUser, (new-object System.Security.SecureString))
@@ -214,11 +214,11 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds
     ```
     
-   Se `–Credential` não for especificado com `Submit-HpcJob`, Olá trabalho ou tarefa é executado em um usuário mapeado local como Olá conta AD do Azure. (cluster HPC Olá cria um usuário local com o mesmo nome como Olá tarefa de saudação do AD do Azure conta toorun de saudação.)
+   Se `–Credential` não for especificado com `Submit-HpcJob`, o trabalho ou a tarefa será executado em um usuário mapeado local como a conta do Azure AD. (O cluster HPC cria um usuário local com o mesmo nome que a conta do Azure AD para executar a tarefa.)
     
-3. Definir dados estendidos de saudação conta AD do Azure. Isso é útil ao executar um trabalho MPI em nós do Linux usando a conta de saudação do AD do Azure.
+3. Defina dados estendidos para a conta do Azure AD. Isso é útil ao executar um trabalho MPI em nós do Linux usando a conta do Azure AD.
 
-   * Definir dados estendidos para Olá própria conta do AD do Azure
+   * Definir dados estendidos para a própria conta do Azure AD
 
       ```powershell
       Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser

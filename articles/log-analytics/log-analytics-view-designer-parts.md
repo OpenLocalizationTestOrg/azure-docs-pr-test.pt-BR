@@ -1,6 +1,6 @@
 ---
-title: "referência de aaaPart do Designer de exibição na análise de logs do OMS | Microsoft Docs"
-description: "Designer de exibição na análise de Log permite que você toocreate personalizado modos de exibição no console do OMS Olá que contêm diferentes visualizações de dados no repositório do OMS hello. Este artigo fornece uma referência de configurações de saudação para cada uma das partes de visualização de saudação disponível toouse em exibições personalizadas."
+title: "Referência da parte do Criador de Modos de Exibição no OMS Log Analytics | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,179 +14,179 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.openlocfilehash: 6a19a451cf4cefd2fa5c94e6f61d812c4f820f73
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referência da parte de visualização do Designer de modos de exibição do Log Analytics
-Olá Designer de exibição de análise de Log permite que você toocreate modos de exibição personalizados no console do OMS Olá que contêm diferentes visualizações de dados de repositório do OMS hello. Este artigo fornece uma referência de configurações de saudação para cada uma das partes de visualização de saudação disponível toouse em exibições personalizadas.
+O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados do repositório do OMS. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de modo de exibição:
 
-* [Exibir Designer](log-analytics-view-designer.md) -visão geral da saudação Designer de exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de bloco](log-analytics-view-designer-tiles.md) -referência de configurações de saudação de cada Olá blocos toouse disponível em exibições personalizadas.
+* [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
+* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas.
 
 >[!NOTE]
-> Se o seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), consultas em todos os modos de exibição devem ser gravada em Olá [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho de saudação será automtically convertido.
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
-Olá, tabela a seguir descreve Olá diferentes tipos de blocos disponíveis no hello Designer de exibição.  Olá seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
+A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de modos de exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 
 | Tipo de exibição | Descrição |
 |:--- |:--- |
-| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de pesquisa de log.  usuário Olá pode clicar em cada consulta toodisplay seus resultados. |
-| [Número e lista](#number-amp-list-part) |O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo. |
-| [Dois números e lista](#two-numbers-amp-list-part) |O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo. |
-| [Rosca e lista](#donut-amp-list-part) |O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  rosca Olá exibe graficamente os resultados de registros de três principais hello. |
-| [Duas linhas do tempo e lista](#two-timelines-amp-list-part) |Cabeçalho exibe Olá resultados de consultas de dois de log ao longo do tempo, como gráficos de coluna com um texto explicativo exibindo um único número resumidos de uma coluna de valor em uma consulta de log.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo. |
+| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de pesquisa de log.  O usuário pode clicar em cada consulta para exibir seus resultados. |
+| [Número e lista](#number-amp-list-part) |O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Dois números e lista](#two-numbers-amp-list-part) |O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Rosca e lista](#donut-amp-list-part) |O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais. |
+| [Duas linhas do tempo e lista](#two-timelines-amp-list-part) |O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão exibindo um único número resumido de uma coluna de valor em uma consulta de log.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Informações](#information-part) |O cabeçalho exibe texto estático e um link opcional.  A lista exibe um ou mais itens com texto estático e o título. |
-| [Gráfico de linhas, balão e lista](#line-chart-callout-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo. |
-| [Gráfico de linhas e lista](#line-chart-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo. |
+| [Gráfico de linhas, balão e lista](#line-chart-callout-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Gráfico de linhas e lista](#line-chart-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Pilha de parte de gráficos de linha](#stack-of-line-charts-part) |Exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo. |
 
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
-Exibe uma lista de consultas de pesquisa de log.  usuário Olá pode clicar em cada consulta toodisplay seus resultados.  exibição de saudação incluirá uma única consulta por padrão, e você pode clicar em **+ consulta** consultas adicionais tooadd.
+Exibe uma lista de consultas de pesquisa de log.  O usuário pode clicar em cada consulta para exibir seus resultados.  O modo de exibição incluirá uma única consulta por padrão e você pode clicar em **+ Consulta** para incluir consultas adicionais.
 
 ![Lista da exibição de consultas](media/log-analytics-view-designer/view-list-queries.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Title |Toodisplay de texto na parte superior de saudação do modo de exibição de saudação. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| Filtros pré-selecionados |Lista delimitada por vírgulas de tooinclude propriedades no painel de filtro à esquerda do hello quando o usuário Olá seleciona uma consulta. |
-| Modo de renderização |Exibição inicial exibida quando a consulta hello está selecionada.  usuário Olá pode selecionar qualquer modos de exibição disponíveis após a abertura de consulta de saudação. |
+| Title |Texto a ser exibido na parte superior da exibição. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| Filtros pré-selecionados |Lista delimitada por vírgulas de propriedades para incluir no painel de filtro esquerdo quando o usuário seleciona uma consulta. |
+| Modo de renderização |Exibição inicial que aparece quando a consulta é selecionada.  O usuário pode selecionar qualquer exibição disponível depois de abrir a consulta. |
 | **Consultas** | |
-| Consulta de pesquisa |Toorun de consulta. |
-| Nome amigável |Nome de usuário do hello consulta toodisplay toohello. |
+| Consulta de pesquisa |Consulta a executar. |
+| Nome amigável |Nome descritivo da consulta para exibir para o usuário. |
 
 ## <a name="number--list-part"></a>Parte de número e lista
-O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo.
+O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Lista da exibição de consultas](media/log-analytics-view-designer/view-number-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do modo de exibição de saudação. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a ser exibido na parte superior da exibição. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Título** | |
-| Legenda |Toodisplay de texto na parte superior de saudação do cabeçalho de saudação. |
-| Consultar |Consulta toorun para cabeçalho hello.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
+| Legenda |Texto a ser exibido na parte superior do cabeçalho. |
+| Consultar |Consulta a executar para o cabeçalho.  A contagem do número de registros retornados pela consulta será exibida. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Olá primeiro duas propriedades para hello dez primeiros registros nos resultados de hello serão exibidos.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  As barras são criadas automaticamente com base no valor relativo de saudação de coluna numérica hello.<br><br>Use o comando de classificação de saudação no hello consultar toosort Olá os registros na lista de saudação.  saudação de usuário pode clicar consulte Olá de todos os toorun de consulta e retornar todos os registros. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Separador de Valor e Nome |Delimitador de caractere, se você quiser que a propriedade de texto de saudação tooparse em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  As duas primeiras propriedades para os dez primeiros registros nos resultados serão exibidas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando Classificar na consulta para classificar os registros na lista.  O usuário pode clicar em Ver tudo para executar a consulta e retornar todos os registros. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="two-numbers--list-part"></a>Parte de dois números e lista
-O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo.
+O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de dois números e lista](media/log-analytics-view-designer/view-two-numbers-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do modo de exibição de saudação. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a ser exibido na parte superior da exibição. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Título** | |
-| Legenda |Toodisplay de texto na parte superior de saudação do cabeçalho de saudação. |
-| Consultar |Consulta toorun para cabeçalho hello.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
+| Legenda |Texto a ser exibido na parte superior do cabeçalho. |
+| Consultar |Consulta a executar para o cabeçalho.  A contagem do número de registros retornados pela consulta será exibida. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Olá primeiro duas propriedades para hello dez primeiros registros nos resultados de hello serão exibidos.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  As barras são criadas automaticamente com base no valor relativo de saudação de coluna numérica hello.<br><br>Use o comando de classificação de saudação no hello consultar toosort Olá os registros na lista de saudação.  saudação de usuário pode clicar consulte Olá de todos os toorun de consulta e retornar todos os registros. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Operação |Operação tooperform para Olá Minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere, se você quiser que a propriedade de texto de saudação tooparse em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  As duas primeiras propriedades para os dez primeiros registros nos resultados serão exibidas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando Classificar na consulta para classificar os registros na lista.  O usuário pode clicar em Ver tudo para executar a consulta e retornar todos os registros. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="donut--list-part"></a>Parte de rosca e lista
-O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  rosca Olá exibe graficamente os resultados de registros de três principais hello.
+O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais.
 
 ![Exibição de rosca e lista](media/log-analytics-view-designer/view-donut-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Cabeçalho** | |
-| Title |Toodisplay de texto na parte superior de saudação do cabeçalho de saudação. |
-| Subtítulo |Texto toodisplay em Olá título na parte superior de saudação do cabeçalho de saudação. |
+| Title |Texto a ser exibido na parte superior do cabeçalho. |
+| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
 | **Rosca** | |
-| Consultar |Consulta toorun para rosca hello.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico. |
+| Consultar |Consulta a executar para a rosca.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico. |
 | **Rosca** |**> Centro** |
-| Texto |Toodisplay de texto em valor hello dentro Olá rosca. |
-| Operação |Olá tooperform operação em Olá propriedade toosummarize tooa único valor.<br><br>-Soma: Adicione valores de saudação de todos os registros.<br>-Percentual: Porcentagem Olá registros retornados pelos valores de saudação do **resultar valores usados na operação do Centro** toohello total de registros na consulta de saudação. |
-| Valores de resultado usados na operação do centro |Opcionalmente, clique em Olá tooadd de sinal de mais um ou mais valores.  resultados de saudação de consulta hello serão toorecords limitado com valores de propriedade Olá que você especificar.  Se nenhum valor for adicionado, todos os registros são incluídos na consulta de saudação. |
+| Texto |Texto a exibir abaixo do valor dentro da rosca. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<br><br>– Soma: adicionar os valores de todos os registros.<br>– Porcentagem: porcentagem dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta. |
+| Valores de resultado usados na operação do centro |Opcionalmente, clique no sinal de adição para adicionar um ou mais valores.  Os resultados da consulta serão limitados aos registros com os valores de propriedade que você especificar.  Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
-| Cor 1<br>Cor 2<br>Cor 3 |Selecione cor Olá Olá Olá valores exibidos na rosca Olá. |
+| Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores exibidos na rosca. |
 | **Opções adicionais** |**> Mapeamento de Cores Avançado** |
-| Valor do campo |Nome de saudação do tipo de um campo toodisplay-lo como uma cor diferente se ele está incluído no rosca hello. |
-| Cor |Selecione a cor de saudação para campo exclusivo hello. |
+| Valor do campo |Digite o nome de um campo para exibi-lo como uma cor diferente se ele estiver incluído na rosca. |
+| Cor |Selecione a cor do campo exclusivo. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Operação |Operação tooperform para Olá Minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere, se você quiser que a propriedade de texto de saudação tooparse em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="two-timelines--list-part"></a>Parte de duas linhas do tempo e lista
-Cabeçalho exibe Olá resultados de consultas de dois de log ao longo do tempo, como gráficos de coluna com um texto explicativo exibindo um único número resumidos de uma coluna de valor em uma consulta de log.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo.
+O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão exibindo um único número resumido de uma coluna de valor em uma consulta de log.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de duas linhas do tempo e lista](media/log-analytics-view-designer/view-two-timelines-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Primeiro gráfico<br>Segundo gráfico** | |
-| Legenda |Toodisplay de texto em texto explicativo de saudação primeira série de saudação. |
-| Cor |Cor toouse para colunas de saudação na série de saudação. |
-| Consultar |Consulta toorun primeira série de saudação.  Contagem de saudação do número de saudação de registros em cada intervalo de tempo será representada por colunas de saudação do gráfico. |
-| Operação |Olá tooperform operação Olá valor toosummarize tooa único valor da propriedade de texto explicativo de saudação.<br><br>-Soma: A soma do valor de saudação de todos os registros.<br>-Média: Média do valor de saudação de todos os registros.<br>-Último exemplo: O valor do último intervalo de saudação incluído no gráfico de saudação.<br>-O primeiro exemplo: O valor do primeiro intervalo de saudação incluído no gráfico de saudação.<br>-Contagem: Contagem de todos os registros retornados pela consulta hello. |
+| Legenda |Texto exibido sob o balão para a primeira série. |
+| Cor |Cor a ser usada para as colunas na série. |
+| Consultar |Consulta a executar para a primeira série.  A contagem do número de registros em cada intervalo de tempo será representada pelas colunas do gráfico. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Soma: soma dos valores de todos os registros.<br>– Média: média do valor de todos os registros.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Primeira Amostra: o valor do primeiro intervalo incluído no gráfico.<br>– Contagem: contagem de todos os registros retornados pela consulta. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Operação |Operação tooperform para Olá Minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="information-part"></a>Parte de informações
 O cabeçalho exibe texto estático e um link opcional.  A lista exibe um ou mais itens com texto estático e o título.
@@ -196,92 +196,92 @@ O cabeçalho exibe texto estático e um link opcional.  A lista exibe um ou mais
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| Cor |Cor de plano de fundo do cabeçalho de saudação. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| Cor |Cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
-| Imagem |Toodisplay de arquivo de imagem no cabeçalho de saudação. |
-| Rótulo |Toodisplay de texto no cabeçalho de saudação. |
+| Imagem |Arquivo de imagem a ser exibida no cabeçalho. |
+| Rótulo |Texto a ser exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
 | Rótulo |Texto do link. |
 | Url |URL do link. |
 | **Itens de Informações** | |
-| Title |Toodisplay de texto de título de cada item. |
-| Conteúdo |Toodisplay de texto para cada item. |
+| Title |Texto a ser exibido para o título de cada item. |
+| Conteúdo |Texto a ser exibido para cada item. |
 
 ## <a name="line-chart-callout--list-part"></a>Parte de gráfico de linhas, balão e lista
-O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo.
+O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de gráfico de linhas, balão e lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Cabeçalho** | |
-| Title |Toodisplay de texto na parte superior de saudação do cabeçalho de saudação. |
-| Subtítulo |Texto toodisplay em Olá título na parte superior de saudação do cabeçalho de saudação. |
+| Title |Texto a ser exibido na parte superior do cabeçalho. |
+| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
 | **Gráfico de Linhas** | |
-| Consultar |Toorun de consulta para o gráfico de linha de saudação.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave.  Se a consulta Olá usa Olá **intervalo** palavra-chave e Olá eixo x do gráfico de saudação usará esse intervalo de tempo.  Se a consulta Olá não incluir Olá **intervalo** intervalos de palavra-chave e por hora são usados para Olá eixo x. |
+| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Balão** |
-| Título do balão |Texto toodisplay acima do valor de texto explicativo hello. |
-| Nome da Série |Valor da propriedade de saudação série toouse para o valor de texto explicativo hello.  Se nenhuma série for fornecido, todos os registros da consulta hello são usados. |
-| Operação |Olá tooperform operação Olá valor toosummarize tooa único valor da propriedade de texto explicativo de saudação.<br><br>-Média: Média do valor de saudação de todos os registros.<br>-Contagem de contagem de todos os registros retornados pela consulta hello.<br>-Último exemplo: O valor do último intervalo de saudação incluído no gráfico de saudação.<br>-Max: O valor de máximo de intervalos de saudação incluídos no gráfico de saudação.<br>-Mín: O valor de mínimo de intervalos de saudação incluídos no gráfico de saudação.<br>-Soma: A soma do valor de saudação de todos os registros. |
+| Título do balão |Texto a ser exibido acima do valor do balão. |
+| Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão.  Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Média: média do valor de todos os registros.<br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico.<br>– Mín.: o valor mínimo dos intervalos incluídos no gráfico.<br>– Soma: soma dos valores de todos os registros. |
 | **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione toouse uma escala logarítmica de saudação eixo y. |
-| Unidades |Especifique unidades Olá Olá valores retornados pela consulta hello.  Essas informações são rótulos toodisplay usadas no gráfico de saudação que indica os tipos de valor hello e, opcionalmente, para converter valores hello.  Olá tipo de unidade Especifica Olá categoria da unidade hello e define os valores de tipo de unidade atual de saudação que estão disponíveis.  Se você selecionar um valor em Converter toothen Olá numérico valores são convertidos de saudação unidade atual tipo toohello Convert tootype. |
-| Rótulo Personalizado |Texto toodisplay Olá eixo Y próxima toohello rótulo para o tipo de unidade de saudação.  Se nenhum nome for especificado, somente o tipo de unidade de saudação é exibido. |
+| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
+| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Operação |Operação tooperform para Olá Minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere, se você quiser que a propriedade de texto de saudação tooparse em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="line-chart--list-part"></a>Parte de gráfico de linhas e lista
-O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  Lista exibe o saudação dez primeiros resultados de uma consulta com um gráfico que indica o valor relativo de saudação de uma coluna numérica ou as alterações ao longo do tempo.
+O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  A lista exibe os dez primeiros resultados de uma consulta com um gráfico indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de gráfico de linhas e lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
-| Usar Ícone |Selecione a exibição do ícone Olá toohave. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione para que o ícone seja exibido. |
 | **Cabeçalho** | |
-| Title |Toodisplay de texto na parte superior de saudação do cabeçalho de saudação. |
-| Subtítulo |Texto toodisplay em Olá título na parte superior de saudação do cabeçalho de saudação. |
+| Title |Texto a ser exibido na parte superior do cabeçalho. |
+| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
 | **Gráfico de Linhas** | |
-| Consultar |Toorun de consulta para o gráfico de linha de saudação.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave.  Se a consulta Olá usa Olá **intervalo** palavra-chave e Olá eixo x do gráfico de saudação usará esse intervalo de tempo.  Se a consulta Olá não incluir Olá **intervalo** intervalos de palavra-chave e por hora são usados para Olá eixo x. |
+| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione toouse uma escala logarítmica de saudação eixo y. |
-| Unidades |Especifique unidades Olá Olá valores retornados pela consulta hello.  Essas informações são rótulos toodisplay usadas no gráfico de saudação que indica os tipos de valor hello e, opcionalmente, para converter valores hello.  Olá tipo de unidade Especifica Olá categoria da unidade hello e define os valores de tipo de unidade atual de saudação que estão disponíveis.  Se você selecionar um valor em Converter toothen Olá numérico valores são convertidos de saudação unidade atual tipo toohello Convert tootype. |
-| Rótulo Personalizado |Texto toodisplay Olá eixo Y próxima toohello rótulo para o tipo de unidade de saudação.  Se nenhum nome for especificado, somente o tipo de unidade de saudação é exibido. |
+| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
+| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Lista** | |
-| Consultar |Toorun de consulta para a lista de saudação.  Contagem de saudação do número de saudação de registros retornados pela consulta hello será exibida. |
-| Ocultar gráfico |Selecione toodisable Olá gráfico toohello direito de coluna numérica hello. |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras de saudação ou Minigráficos. |
-| Operação |Operação tooperform para Olá Minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere, se você quiser que a propriedade de texto de saudação tooparse em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
+| Ocultar gráfico |Selecione para desabilitar o gráfico à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Cor |Cor das barras ou minigráficos. |
+| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
+| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
+| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
 | **Lista** |**> Títulos de coluna** |
-| Nome |Toodisplay de texto na parte superior de saudação da primeira coluna Olá da lista de saudação. |
-| Valor |Toodisplay de texto na parte superior de saudação da segunda coluna Olá da lista de saudação. |
+| Nome |Texto a ser exibido na parte superior da primeira coluna da lista. |
+| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione limites tooenable.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
 
 ## <a name="stack-of-line-charts-part"></a>Pilha de parte de gráficos de linha
 Exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo.
@@ -291,57 +291,57 @@ Exibe três gráficos de linhas separados com várias séries de uma consulta de
 | Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Toodisplay de texto na parte superior de saudação do hello lado a lado. |
-| Novo Grupo |Selecione toocreate um novo grupo na exibição de saudação iniciar no modo de exibição atual hello. |
-| ícone |Arquivo toodisplay próximo toohello resultado no cabeçalho de saudação da imagem. |
+| Título do Grupo |Texto a exibir na parte superior do bloco. |
+| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**> Cabeçalho** |
-| Title |Toodisplay de texto na parte superior de saudação do gráfico de saudação. |
-| Subtítulo |Texto toodisplay em Olá título na parte superior de saudação do gráfico de saudação. |
+| Title |Texto a ser exibido na parte superior do gráfico. |
+| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do gráfico. |
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**Gráfico de Linhas** |
-| Consultar |Toorun de consulta para o gráfico de linha de saudação.  propriedade primeiro Olá deve ser um valor e hello segunda propriedade text um valor numérico.  Isso é normalmente uma consulta que usa Olá **medidas** resultados toosummarize de palavra-chave.  Se a consulta Olá usa Olá **intervalo** palavra-chave e Olá eixo x do gráfico de saudação usará esse intervalo de tempo.  Se a consulta Olá não incluir Olá **intervalo** intervalos de palavra-chave e por hora são usados para Olá eixo x. |
+| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione toouse uma escala logarítmica de saudação eixo y. |
-| Unidades |Especifique unidades Olá Olá valores retornados pela consulta hello.  Essas informações são rótulos toodisplay usadas no gráfico de saudação que indica os tipos de valor hello e, opcionalmente, para converter valores hello.  Olá tipo de unidade Especifica Olá categoria da unidade hello e define os valores de tipo de unidade atual de saudação que estão disponíveis.  Se você selecionar um valor em Converter toothen Olá numérico valores são convertidos de saudação unidade atual tipo toohello Convert tootype. |
-| Rótulo Personalizado |Texto toodisplay Olá eixo Y próxima toohello rótulo para o tipo de unidade de saudação.  Se nenhum nome for especificado, somente o tipo de unidade de saudação é exibido. |
+| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
+| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 
 ## <a name="common-settings"></a>Configurações comuns
-Olá seções a seguir descreve partes do configurações comuns tooseveral visualização.
+As seções a seguir descrevem as configurações comuns para várias partes de visualização.
 
 ### <a name="name-value-separator">Separador de valor e nome</a>
-Delimitador de caractere, se você quiser tooparse propriedade de texto de saudação de uma consulta de lista em vários valores.  Se você especificar um delimitador, você pode fornecer nomes para cada campo separado por Olá mesmo delimitador na caixa de nome de saudação.
+Delimitador de caractere único se você desejar analisar a propriedade de texto de uma consulta de lista em vários valores.  Se você especificar um delimitador, poderá fornecer nomes para cada campo separado pelo mesmo delimitador na caixa Nome.
 
-Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*.  Você pode especificar – para Olá nome & separador de valor e *City Building* para Olá nome.  Isso analisaria cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
+Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*.  Você poderia especificar – para o Separador de Valor e nome e *Cidade–Edifício* para o Nome.  Isso analisaria cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="navigation-query">Consulta de navegação</a>
-Consultar toorun ao usuário Olá seleciona um item na lista de saudação.  Use *{item selecionado}* tooinclude sintaxe Olá item que Olá selecionado pelo usuário.
+Consulta a executar quando o usuário seleciona um item na lista.  Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.
 
-Por exemplo, se hello consulta tem uma coluna chamada *computador* e consulta de navegação Olá é *{item selecionado}*, uma consulta, como *computador = "MyComputer"* seria executado quando usuário Olá um computador selecionado.  Se a consulta de navegação Olá é *tipo = evento {item selecionado}* , em seguida, consulta de saudação *tipo = evento computador = "MyComputer"* seriam executadas.
+Por exemplo, se a consulta tiver uma coluna chamada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* seria executado quando o usuário selecionasse um computador.  Se a consulta de navegação fosse do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* seria executada.
 
 ### <a name="sparklines">Minigráficos</a>
-Um minigráfico é um gráfico de linha pequena que ilustra o valor de saudação de uma entrada de lista ao longo do tempo.  Para partes de visualização com uma lista, você pode selecionar se toodisplay uma barra indicando horizontal Olá valor relativo de uma coluna numérica ou um minigráfico indicando seu valor ao longo do tempo.
+Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entrada na lista ao longo do tempo.  Para partes de visualização com uma lista, é possível selecionar se deseja exibir uma barra horizontal que indica o valor relativo de uma coluna numérica ou de um minigráfico indicando seu valor ao longo do tempo horizontal.
 
-Olá, a tabela a seguir descreve as configurações de saudação para Minigráficos.
+A tabela a seguir descreve as configurações de minigráficos.
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Habilitar minigráficos |Selecione o Minigráfico toodisplay em vez de barra horizontal. |
-| Operação |Se os Minigráficos são habilitados, este é Olá operação tooperform em cada propriedade no hello toocalculate Olá valores hello Minigráfico.<br><br>-Última amostra: O último valor para a série Olá durante o intervalo de tempo hello.<br>-Max: O valor de máximo série Olá durante o intervalo de tempo hello.<br>-Mín: Valor mínimo série Olá durante o intervalo de tempo hello.<br>-Soma: Soma de valores de séries Olá durante o intervalo de tempo hello.<br>-Resumo: Usa Olá mesmo comando de medida como consulta Olá no cabeçalho de saudação. |
+| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais. |
+| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<br><br>– Última Amostra: o último valor da série durante o intervalo.<br>– Máx: o valor máximo da série durante o intervalo.<br>– Mín: o valor mínimo da série durante o intervalo.<br>– Soma: soma dos valores da série durante o intervalo.<br>– Resumo: usa o mesmo comando de medida da consulta no cabeçalho. |
 
 ### <a name="thresholds">Limites</a>
-Limites permitem que você toodisplay um item de tooeach próximo ícone colorida em uma lista, dando a você um indicador visual rápido de itens que excedem um valor específico ou ficam dentro de um intervalo específico.  Por exemplo, você pode exibir um ícone verde de itens com um valor aceitável, amarelo, se o valor de saudação está dentro do intervalo que indica um aviso e vermelho se exceder um valor de erro.
+Os limites permitem que você exiba um ícone colorido ao lado de cada item em uma lista, oferecendo a você um indicador visual rápido de itens que excedem um valor específico ou se enquadram em um determinado intervalo.  Por exemplo, será possível exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
 
-Quando você habilitar os limites para uma parte, será necessário especificar um ou mais limites.  Se o valor de saudação de um item for maior que um valor de limite e menor que o próximo valor de limite Olá, essa cor é usada.  Se o item de saudação for maior que o valor de limite, em seguida, mais alto, essa cor é definida.   
+Quando você habilitar os limites para uma parte, será necessário especificar um ou mais limites.  Se o valor de um item for maior do que um valor limite e menor do que o próximo valor limite, essa cor será usada.  Se o item for maior do que o maior valor limite, essa cor será definida.   
 
-Cada conjunto de limite tem um limite com um valor de **Padrão**.  Isso é cor Olá definida se nenhum outro valor seja excedido.  Você pode adicionar ou remover os limites clicando Olá  **+**  ou **x** botão.
+Cada conjunto de limite tem um limite com um valor de **Padrão**.  Essa será a cor definida se nenhum outro valor for excedido.  É possível adicionar ou remover os limites clicando no botão **+** ou **x**.
 
-Olá, a tabela a seguir descreve as configurações de saudação para tresholds.
+A tabela a seguir descreve as configurações de limites.
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Habilitar limites |Selecione toodisplay que um toohello de ícone de cor à esquerda de cada valor indicando seus limites de toospecified relativo de integridade. |
-| Nome |Valor de limite de saudação do nome tooidentify. |
-| Limite |Valor de limite de saudação.  cor de integridade Olá para cada item da lista é definir a cor de toohello do valor de limite mais alto Olá excedido pelo valor do item de saudação.  Há um limite padrão que é a cor de saudação se nenhum valor de limite seja excedido. |
-| Cor |Cor do valor de limite de saudação. |
+| Habilitar limites |Selecione para exibir um ícone de cor à esquerda de cada valor que indica sua integridade relativa a limites especificados. |
+| Nome |Nome para identificar o valor limite. |
+| Limite |Valor para o limite.  A cor de integridade para cada item de lista é definida como a cor do maior valor limite excedido pelo valor do item.  Haverá um limite padrão que será a cor se nenhum valor de limite for excedido. |
+| Cor |Cor do valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) toosupport consultas de saudação em partes de visualização.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas partes da visualização.

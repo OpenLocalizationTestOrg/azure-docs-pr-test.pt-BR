@@ -1,6 +1,6 @@
 ---
-title: "aaaTurn seu dispositivo da série StorSimple 8000 ou desativar | Microsoft Docs"
-description: "Explica como ativar um dispositivo que foi desligado ou perdido de energia tooturn em um novo dispositivo StorSimple, e desativar um dispositivo em execução."
+title: "Ativar e desativar o dispositivo StorSimple série 8000 | Microsoft Docs"
+description: "Explica como ativar um novo dispositivo StorSimple, ativar um dispositivo que foi desligado ou teve a energia interrompida e desativar um dispositivo em execução."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,160 +15,160 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85434bde9377e330cd6ba4797fd5fd68bcee944d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
 ## <a name="overview"></a>Visão geral
-Desligar um dispositivo Microsoft Azure StorSimple não é necessário como parte da operação normal do sistema. No entanto, talvez seja necessário tooturn em um novo dispositivo ou um dispositivo que teve toobe desligar. Em geral, um desligamento é necessário em casos em que você deve substituir o hardware com falha, mover uma unidade fisicamente ou retirar um dispositivo de serviço. Este tutorial descreve o procedimento Olá necessário para ligar e desligar seu dispositivo StorSimple em cenários diferentes.
+Desligar um dispositivo Microsoft Azure StorSimple não é necessário como parte da operação normal do sistema. No entanto, talvez seja necessário ativar um novo dispositivo ou um dispositivo que tenha sido desligado. Em geral, um desligamento é necessário em casos em que você deve substituir o hardware com falha, mover uma unidade fisicamente ou retirar um dispositivo de serviço. Este tutorial descreve o procedimento necessário para ligar e desligar o dispositivo StorSimple em cenários diferentes.
 
 ## <a name="turn-on-a-new-device"></a>Ativar um novo dispositivo
-Olá etapas para ativar um dispositivo StorSimple para Olá primeira vez diferem dependendo se o dispositivo de saudação é um 8100 ou um modelo 8600. Olá 8100 tem um único compartimento primário, enquanto Olá 8600 é um dispositivo de duplo compartimento com um compartimento principal e um compartimento EBOD. Olá etapas detalhadas para ambos os modelos são abordadas em Olá seções a seguir.
+As etapas para ativar um dispositivo StorSimple pela primeira vez são diferentes, dependendo se o dispositivo é um modelo 8100 ou 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD. As etapas detalhadas para os dois modelos são abordadas nas seções a seguir.
 
 * [Novo dispositivo com apenas o compartimento primário](#new-device-with-primary-enclosure-only)
 * [Novo dispositivo com o compartimento EBOD](#new-device-with-ebod-enclosure)
 
 ### <a name="new-device-with-primary-enclosure-only"></a>Novo dispositivo com apenas o compartimento primário
-modelo de saudação StorSimple 8100 é um dispositivo de compartimento único. Seu dispositivo inclui PCMs (Módulos de Energia e Refrigeração) redundantes. Ambos os PCMs devem ser instalados e conectados toodifferent power fontes tooensure alta disponibilidade.
+O modelo StorSimple 8100 é um dispositivo de compartimento único. Seu dispositivo inclui PCMs (Módulos de Energia e Refrigeração) redundantes. Ambos os PCMs devem ser instalados e conectados a diferentes fontes de energia para garantia de alta disponibilidade.
 
-Execute Olá toocable as etapas a seguir seu dispositivo de alimentação.
+Execute as etapas a seguir para cabear o dispositivo para recebimento de energia.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 > [!NOTE]
-> Para obter instruções de cabeamento e concluir configuração do dispositivo, vá muito[instalar seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md). Certifique-se de que você siga as instruções de saudação exatamente.
+> Para obter instruções completas de cabeamento e configuração do dispositivo, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md). Certifique-se de seguir as instruções exatamente.
 > 
 > 
 
 ### <a name="new-device-with-ebod-enclosure"></a>Novo dispositivo com o compartimento EBOD
-modelo Olá 8600 StorSimple possui um compartimento principal e um compartimento EBOD. Isso requer Olá unidades toobe cabeada de alimentação e conectividade de SCSI Serial anexado (SAS).
+O modelo StorSimple 8600 tem um compartimento primário e um compartimento EBOD. Isso requer que as unidades sejam conectadas juntas para a conectividade e energia do SAS (Serial Attached SCSI).
 
-Ao configurar este dispositivo para Olá primeira vez, execute as etapas de saudação para cabeamento SAS primeiro hello, em seguida, concluir etapas para cabeamento de alimentação.
+Ao configurar este dispositivo pela primeira vez, execute as etapas para o cabeamento SAS primeiro e, em seguida, conclua as etapas do cabeamento de energia.
 
 [!INCLUDE [storsimple-sas-cable-8600](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 > [!NOTE]
-> Para obter instruções de cabeamento e concluir configuração do dispositivo, vá muito[instalar seu dispositivo 8600 StorSimple](storsimple-8600-hardware-installation.md). Certifique-se de que você siga as instruções de saudação exatamente.
+> Para obter instruções completas de cabeamento e configuração do dispositivo, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md). Certifique-se de seguir as instruções exatamente.
 
 ## <a name="turn-on-a-device-after-shutdown"></a>Ativar um dispositivo após o desligamento
-etapas de saudação para ativar um dispositivo StorSimple depois que ele foi desligado são diferentes dependendo se o dispositivo de saudação é um 8100 ou um modelo 8600. Olá 8100 tem um único compartimento primário, enquanto Olá 8600 é um dispositivo de duplo compartimento com um compartimento principal e um compartimento EBOD.
+As etapas para ativar um dispositivo StorSimple após seu desligamento são diferentes, dependendo se o dispositivo é um modelo 8100 ou 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
 
 * [Dispositivo com apenas o compartimento primário](#device-with-primary-enclosure-only)
 * [Dispositivo com o compartimento EBOD](#device-with-ebod-enclosure)
 
 ### <a name="device-with-primary-enclosure-only"></a>Dispositivo com apenas o compartimento primário
-Após um desligamento, use Olá tooturn do procedimento a seguir em um dispositivo StorSimple com um compartimento principal e nenhum agrupamento EBOD.
+Após um desligamento, use o procedimento a seguir para ativar um dispositivo StorSimple com um compartimento primário e sem compartimento EBOD.
 
-#### <a name="tooturn-on-a-device-with-a-primary-enclosure-only"></a>tooturn em um dispositivo com apenas um compartimento principal
-1. Certificar-se de que Olá interruptores sobre ambas as fontes de alimentação e módulos de refrigeração (PCMs) estão na posição OFF de saudação. Se Olá opções não estão na posição de OFF hello, em seguida, inverta-los toohello desliga e aguarde Olá luzes toogo off.
-2. Ative o dispositivo Olá colocando os interruptores Olá em ambos os PCMs toohello na posição. Olá dispositivo deve estar ligado.
-3. Olá seleção após tooverify que Olá dispositivo esteja completamente ligado:
+#### <a name="to-turn-on-a-device-with-a-primary-enclosure-only"></a>Para ativar um dispositivo com apenas um compartimento primário
+1. Certifique-se de que os interruptores de energia nos PCMs (Módulos de Energia e Refrigeração) estão na posição DESLIGADO. Se os interruptores não estiverem na posição DESLIGADO, mude-os para a posição DESLIGADO e aguarde as luzes apagarem.
+2. Ative o dispositivo invertendo os interruptores de energia em ambos os PCMs para a posição LIGADO. O dispositivo deve ser ativado.
+3. Examine o seguinte para verificar se o dispositivo está totalmente ligado:
    
-   1. Olá Okey LEDs em ambos os módulos PCM estão verdes.
-   2. Olá LEDs de ambos os controladores estão verdes sólidos.
-   3. Olá piscando, o LED azul em um dos controladores de saudação que indica que Olá controlador está ativo.
+   1. Os LEDs OK em ambos os módulos PCM estão verdes.
+   2. Os LEDs de status em ambos os controladores estão verdes sólidos.
+   3. O LED azul em um dos controladores de está piscando, o que indica que o controlador está ativo.
       
       Se alguma dessas condições não for atendida, o dispositivo não está íntegro. [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="device-with-ebod-enclosure"></a>Dispositivo com o compartimento EBOD
-Após um desligamento, use Olá tooturn do procedimento a seguir em um dispositivo StorSimple com um compartimento principal e um compartimento EBOD. Execute cada etapa na sequência exatamente conforme descrito. Portanto, toodo falha pode resultar em perda de dados.
+Após um desligamento, use o procedimento a seguir para ativar um dispositivo StorSimple com um compartimento primário e um compartimento EBOD. Execute cada etapa na sequência exatamente conforme descrito. Não fazer isso pode resultar em perda de dados.
 
-#### <a name="tooturn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>tooturn em um dispositivo com um principal e um compartimento EBOD
-1. Certifique-se de que Olá compartimento EBOD é o compartimento principal toohello conectado. Para obter mais informações, consulte [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-2. Certifique-se de que Olá Power e módulos de refrigeração (PCMs) no hello EBOD e compartimentos primários estão na posição OFF de saudação. Se Olá opções não estão na posição de OFF hello, em seguida, inverta-los toohello desliga e aguarde Olá luzes toogo off.
-3. Ative Olá compartimento EBOD primeiro colocando os interruptores Olá em ambos os PCMs toohello na posição. Olá LEDs de PCM deve estar verde. Um controlador do EBOD LED verde nesta unidade indica que o compartimento EBOD de saudação é no.
-4. Ative o compartimento principal Olá colocando os interruptores Olá em ambos os PCMs toohello na posição. todo o sistema Olá agora deverá estar ligado.
-5. Verifique se Olá LEDs de SAS estão verdes, o que garante que essa conexão Olá entre hello compartimento EBOD e compartimento principal Olá é bom.
+#### <a name="to-turn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>Para ativar um dispositivo com um compartimento primário e um EBOD
+1. Certifique-se de que o compartimento EBOD está conectado ao compartimento primário. Para obter mais informações, consulte [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+2. Certifique-se de que os PCMs (Módulos de Energia e Refrigeração) nos compartimentos primário e EBOD estão na posição DESLIGADO. Se os interruptores não estiverem na posição DESLIGADO, mude-os para a posição DESLIGADO e aguarde as luzes apagarem.
+3. Ative o compartimento EBOD primeiro invertendo os interruptores de energia em ambos os PCMs para a posição LIGADO. Os LEDs do PCM devem estar verdes. Um LED do controlador EBOD verde nesta unidade indica que o compartimento EBOD está ligado.
+4. Ative o compartimento primário invertendo os interruptores de energia em ambos os PCMs para a posição LIGADO. Agora todo o sistema deve estar ligado.
+5. Verifique se os LEDs do SAS estão verdes, o que garante que a conexão entre o compartimento EBOD e o compartimento primário é boa.
 
 ## <a name="turn-on-a-device-after-a-power-loss"></a>Ativar um dispositivo após uma queda de energia
-Uma interrupção de energia pode desligar um dispositivo StorSimple. falta de energia Olá pode ocorrer em uma das fontes de alimentação hello ou ambas as fontes de alimentação. etapas de recuperação de saudação são diferentes dependendo se o dispositivo de saudação é um 8100 ou um modelo 8600. Olá 8100 tem um único compartimento primário, enquanto Olá 8600 é um dispositivo de duplo compartimento com um compartimento principal e um compartimento EBOD. Esta seção descreve o procedimento de recuperação Olá para cada cenário.
+Uma interrupção de energia pode desligar um dispositivo StorSimple. A queda de energia pode ocorrer em uma das fontes de alimentação ou nas duas. As etapas de recuperação são diferentes dependendo se o dispositivo é um modelo 8100 ou um 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD. Esta seção descreve o procedimento de recuperação para cada cenário.
 
 * [Dispositivo com apenas o compartimento primário](#8100)
 * [Dispositivo com o compartimento EBOD](#8600)
 
 ### <a name="device-with-primary-enclosure-only-a-name8100"></a>Dispositivo com apenas o compartimento primário <a name="8100">
-sistema de saudação pode continuar sua operação normal, se houver tooone de perda de energia de suas fontes de alimentação. No entanto, tooensure alta disponibilidade do dispositivo hello, restauração power toohello fonte de alimentação assim que possível.
+O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
-Se houver uma queda de energia ou queda de energia em ambas as fontes de alimentação, sistema de saudação será desligado de forma controlada e ordenada. Quando Olá energia for restaurada, o sistema Olá será automaticamente ligado.
+Se houver uma interrupção ou queda de energia em ambas as fontes de alimentação, o sistema será desligado de forma controlada e ordenada. Quando a energia for restaurada, o sistema será automaticamente ligado.
 
 ### <a name="device-with-ebod-enclosure-a-name8600"></a>Dispositivo com o compartimento EBOD <a name="8600">
 #### <a name="power-loss-on-one-power-supply"></a>Perda de energia em uma fonte de alimentação
-sistema de Olá pode continuar sua operação normal, se houver tooone de perda de energia de suas fontes de alimentação no compartimento principal hello ou compartimento do EBOD hello. No entanto, tooensure alta disponibilidade do dispositivo hello, restaure alimentação de energia toohello assim que possível.
+O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação no compartimento primário ou no EBOD. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
 #### <a name="power-loss-on-both-power-supplies-on-primary-and-ebod-enclosures"></a>Perda de energia em ambas as fontes de alimentação nos compartimentos primário e EBOD
-Se houver uma queda de energia interrupção ou energia em ambas as fontes de alimentação, Olá compartimento EBOD será desligado imediatamente e o compartimento principal Olá será desligado de forma controlada e ordenada. Quando a energia for restaurada, o dispositivo Olá será iniciado automaticamente.
+Se houver uma interrupção ou queda de energia em ambas as fontes de alimentação, o compartimento EBOD será desligado imediatamente e o compartimento primário será desligado de forma controlada e ordenada. Quando a energia for restaurada, o dispositivo será iniciado automaticamente.
 
-Se power Olá for desligado manualmente, depois, pegue Olá etapas toorestore alimentação toohello de sistema a seguir.
+Se a energia for desligada manualmente, siga estas etapas para restaurar a energia para o sistema.
 
-1. Ative Olá compartimento EBOD.
-2. Depois de Olá compartimento EBOD está ativado, ative o compartimento principal hello.
+1. Ative o compartimento EBOD.
+2. Após o compartimento EBOD ser ativado, ative o compartimento primário.
 
 ### <a name="power-loss-on-both-power-supplies-on-ebod-enclosure"></a>Perda de energia em ambas as fontes de alimentação no compartimento EBOD
-Quando você configura os cabos, você deve garantir que Olá EBOD nunca é conectado sozinho tooa separar PDU. Se hello EBOD e o compartimento principal falharem em Olá mesmo tempo, o sistema Olá recuperará.
+Ao configurar os cabos, você deve garantir que o EBOD nunca esteja conectado sozinho a uma PDU separada. Se o compartimento primário e o EBOD falharem ao mesmo tempo, o sistema vai se recuperar.
 
-Se apenas Olá compartimento EBOD falha em ambas as fontes de alimentação, o sistema de saudação não se recuperará automaticamente. Obtém Olá tooturn as etapas a seguir no sistema hello e restaurá-lo tooa o estado íntegro:
+Se apenas o compartimento EBOD falhar em ambas as fontes de alimentação, o sistema não vai se recuperar automaticamente. Execute as etapas a seguir para ativar o sistema e restaurá-lo em um estado íntegro:
 
-1. Se o compartimento principal Olá é ativado, desative os módulos de energia e resfriamento (PCMs).
-2. Aguarde alguns minutos para Olá sistema tooshut para baixo.
-3. Ative Olá compartimento EBOD.
-4. Depois de Olá compartimento EBOD está ativado, ative o compartimento principal hello.
+1. Se o compartimento primário for ativado, desative os dois PCMs (Módulos de Energia e Refrigeração).
+2. Aguarde alguns minutos para que o sistema seja desligado.
+3. Ative o compartimento EBOD.
+4. Após o compartimento EBOD ser ativado, ative o compartimento primário.
 
-## <a name="turn-on-a-device-after-hello-primary-and-ebod-enclosure-connection-is-lost"></a>Ativar um dispositivo após Olá primária e a conexão do compartimento EBOD for perdida
-Se a conexão de saudação for perdida entre o controlador em espera hello e controlador EBOD correspondente de Olá, dispositivo Olá continua toowork. Se a conexão Olá entre o controlador ativo do sistema hello e o controlador EBOD correspondente de saudação for perdida, failover deve ocorrer e dispositivo Olá deve continuar toowork como normal.
+## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida
+Se a conexão for perdida entre o controlador em espera e o controlador EBOD correspondente, o dispositivo continuará a funcionar. Se a conexão entre o controlador ativo do sistema e o controlador EBOD correspondente for perdida, o failover deverá ocorrer e o dispositivo deverá continuar a funcionar normalmente.
 
-Quando ambos os cabos de SCSI Serial anexado (SAS) forem removidos ou conexão Olá entre hello compartimento EBOD e o compartimento principal Olá for desfeita, o dispositivo Olá irá parar de funcionar. Neste ponto, execute Olá etapas a seguir.
+Quando os cabos SAS (Serial Attached SCSI) forem removidos ou a conexão entre o compartimento EBOD e o compartimento primário for interrompida, o dispositivo vai parar de funcionar. Nesse ponto, execute as etapas a seguir.
 
-### <a name="tooturn-on-hello-device-after-connection-is-lost"></a>tooturn no dispositivo de saudação após a conexão for perdida
-1. Saudação de acesso parte posterior do dispositivo hello.
-2. Se Olá conexão de cabo SAS entre o compartimento do EBOD hello e o compartimento principal Olá for interrompida, todos os SAS LEDs da rota em Olá compartimento EBOD ficarão desligados.
-3. Desligue os módulos de energia e resfriamento (PCMs) no compartimento do EBOD hello e o compartimento principal hello.
-4. Aguarde até que todas as luzes Olá Olá parte posterior de ambos os compartimentos Olá desativar.
-5. Insira novamente os cabos SAS hello e certifique-se de que haja uma boa conexão entre o compartimento do EBOD hello e o compartimento principal hello.
-6. Ative Olá compartimento EBOD primeiro colocando ambos os comutadores PCM toohello na posição.
-7. Certifique-se de que o compartimento EBOD de saudação é ativado por verificando se o LED verde do hello está ON.
-8. Ative o compartimento principal hello.
-9. Certifique-se de que o compartimento principal Olá é ativado por verificando se o LED verde do controlador de saudação está no.
-10. Verifique se que essa conexão do compartimento EBOD com o compartimento principal Olá Olá é boa verificando rota de SAS que Olá LEDs (quatro por controlador EBOD) estão todos em.
+### <a name="to-turn-on-the-device-after-connection-is-lost"></a>Para ativar o dispositivo após a conexão ser perdida
+1. Acesse a parte traseira do dispositivo.
+2. Se a conexão do cabo SAS entre o compartimento EBOD e o compartimento primário for interrompida, todos os LEDs da pista do SAS no compartimento EBOD serão desligados.
+3. Desligue os dois PCMs (Módulos de Energia e Refrigeração) no compartimento EBOD e no primário.
+4. Aguarde até que todas as luzes na parte de trás de ambos os compartimentos desliguem.
+5. Reinsira os cabos SAS e certifique-se de que haja uma boa conexão entre o compartimento primário e o compartimento EBOD.
+6. Ative o compartimento EBOD primeiro invertendo os dois interruptores do PCM para a posição LIGADO.
+7. Certifique-se de que o compartimento EBOD esteja ligado verificando se o LED verde está LIGADO.
+8. Ligue o compartimento primário.
+9. Certifique-se de que o compartimento primário esteja ligado verificando se o LED verde do controlador está LIGADO.
+10. Verifique se a conexão do compartimento EBOD com o compartimento primário é boa verificando se os LEDs da pista do SAS (quatro por controlador EBOD) estão todos LIGADOS.
 
 > [!IMPORTANT]
-> Se os cabos SAS de saudação estiverem com defeito ou conexão Olá entre hello compartimento EBOD e o compartimento principal Olá não for boa, quando você ativar o sistema hello, ele entrará no modo de recuperação. [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se isso ocorrer.
+> Se os cabos SAS estiverem com defeito ou a conexão entre o compartimento EBOD e o compartimento primário não for boa, quando você ligar o sistema, ele entrará no modo de recuperação. [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se isso ocorrer.
 
 
 ## <a name="turn-off-a-running-device"></a>Desativar um dispositivo em execução
-Um dispositivo StorSimple em execução pode ser necessário toobe desligado se ele estiver sendo movido, retirado de serviço, ou tem um componente de mau funcionamento que precisa toobe substituído. etapas de saudação são diferentes dependendo se o dispositivo StorSimple Olá é um 8100 ou em um modelo 8600. Olá 8100 tem um único compartimento primário, enquanto Olá 8600 é um dispositivo de duplo compartimento com um compartimento principal e um compartimento EBOD. Esta seção detalha Olá etapas tooshut um dispositivo em execução.
+Um dispositivo StorSimple em execução poderá precisar ser desligado se estiver sendo movido, retirado de serviço ou contiver um componente defeituoso que precisa ser substituído. As etapas são diferentes, dependendo se o dispositivo StorSimple é um modelo 8100 ou um 8600. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD. Esta seção detalha as etapas para desligar um dispositivo em execução.
 
 * [Dispositivo com o compartimento primário](#8100a)
 * [Dispositivo com o compartimento EBOD](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com o compartimento primário <a name="8100a">
-tooshut dispositivo saudação de forma controlada e ordenada, você pode fazer isso por meio da saudação portal clássico do Azure ou saudação do Windows PowerShell para StorSimple. 
+Você pode desligar o dispositivo de forma ordenada e controlada por meio do Portal Clássico do Azure ou do Windows PowerShell para o StorSimple. 
 
 > [!IMPORTANT]
-> Não desligue um dispositivo em execução usando o botão liga / desliga Olá em Olá parte posterior do dispositivo hello.
+> Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 > 
-> Antes de desligar o dispositivo hello, certifique-se de que todos os componentes do dispositivo Olá estão íntegros. Olá portal clássico do Azure no, navegue muito**dispositivos** > **manutenção** > **Status do Hardware**e verifique se o status de todos os Olá componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema hello está sendo desligado tooreplace um componente de mau funcionamento, você verá um falha (vermelho) ou degradado (amarelo) status de componente respectivos Olá Olá **Status do Hardware**.
+> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No Portal Clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status de Hardware**.
 > 
 > 
 
-Depois de acessar saudação do Windows PowerShell para StorSimple ou hello portal clássico do Azure, siga as etapas de saudação em [desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Depois de acessar o Windows PowerShell para o StorSimple ou o Portal Clássico do Azure, siga as etapas em [Desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com o compartimento EBOD <a name="8600a">
 > [!IMPORTANT]
-> Antes de desligar o compartimento principal hello e compartimento do EBOD hello, certifique-se de que todos os componentes do dispositivo Olá estão íntegros. Olá portal do Azure no, navegue muito**dispositivos** > **Monitor** > **a integridade do Hardware**e verifique se todos os componentes de saudação estão íntegros.
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **Dispositivos** > **Monitor** > **Integridade do hardware**e verifique se todos os componentes estão íntegros.
 
 
-#### <a name="tooshut-down-a-running-device-with-ebod-enclosure"></a>tooshut um dispositivo em execução com o compartimento EBOD
-1. Siga todas as etapas de Olá listadas na [desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento principal hello.
-2. Após Olá compartimento principal for desligado, desligue Olá EBOD colocando desativar as opções de energia e o módulo de resfriamento (PCM).
-3. tooverify que Olá EBOD desligou, verifique se todas as luzes na Olá parte traseira do compartimento do EBOD Olá são desativados.
+#### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD
+1. Siga as etapas listadas em [Desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento principal.
+2. Depois que o compartimento primário for desligado, desligue o EBOD invertendo os dois interruptores PCM (Módulo de Energia e Refrigeração).
+3. Para verificar se o EBOD foi desligado, verifique se todas as luzes na parte traseira do compartimento EBOD estão desligadas.
 
 > [!NOTE]
-> cabos SAS de Hello são usadas tooconnect Olá EBOD compartimento toohello compartimento principal não devem ser removidos até depois Olá sistema é desligado.
+> Os cabos SAS que são usados para conectar o compartimento EBOD ao compartimento primário não devem ser removidos até depois de o sistema ser desligado.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.

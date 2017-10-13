@@ -1,5 +1,5 @@
 ---
-title: "conector de banco de dados do Azure SQL Olá aaaAdd em seus aplicativos lógicos | Microsoft Docs"
+title: "Adicionar o conector do Banco de Dados SQL em seus Aplicativos Lógicos | Microsoft Docs"
 description: "Visão geral do conector do Banco de Dados SQL do Azure com parâmetros da API REST"
 services: 
 documentationcenter: 
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a9ca0f446d05dc00f310a908eee8d50e41fcd82b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-azure-sql-database-connector"></a>Introdução ao conector do Azure SQL Database Olá
-Usando o conector do Azure SQL Database hello, crie fluxos de trabalho para a sua organização que gerenciam dados nas tabelas. 
+# <a name="get-started-with-the-azure-sql-database-connector"></a>Introdução ao conector do Banco de Dados SQL
+Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas. 
 
 Com o Banco de Dados SQL, você:
 
-* Crie o fluxo de trabalho adicionando um novo cliente tooa clientes banco de dados, ou atualizando um pedido em um banco de dados de pedidos.
-* Use ações tooget uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação). 
+* Compile o fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
+* Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação). 
 
-Este tópico mostra como toouse Olá conector de banco de dados SQL em um aplicativo lógico e também lista Olá ações.
+Este tópico mostra como usar o conector do Banco de Dados SQL em um aplicativo lógico, além de listar as ações.
 
-toolearn mais sobre aplicativos lógicos, consulte [quais são os aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-tooazure-sql-database"></a>Conecte-se tooAzure banco de dados SQL
-Antes de sua lógica de aplicativo pode acessar qualquer serviço, você primeiro crie um *conexão* toohello service. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, tooconnect tooSQL banco de dados, você primeiro crie um banco de dados SQL *conexão*. toocreate uma conexão, em que você insira as credenciais de saudação que você normalmente usa o serviço de saudação tooaccess que você está se conectando. Portanto, no banco de dados SQL, insira sua conexão do banco de dados SQL credenciais toocreate hello. 
+## <a name="connect-to-azure-sql-database"></a>Conectar-se ao Banco de Dados SQL do Azure
+Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Banco de Dados SQL, você cria uma *conexão* do Banco de Dados SQL. Para criar uma conexão, insira as credenciais que normalmente usa para acessar o serviço ao qual você está se conectando. Desse modo, no Banco de Dados SQL, insira suas credenciais do Banco de Dados SQL para criar a conexão. 
 
-#### <a name="create-hello-connection"></a>Criar conexão Olá
-> [!INCLUDE [Create hello connection tooSQL Azure](../../includes/connectors-create-api-sqlazure.md)]
+#### <a name="create-the-connection"></a>Criar a conexão
+> [!INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 > 
 > 
 
 ## <a name="use-a-trigger"></a>Usar um gatilho
-Esse conector não tem gatilhos. Use outros gatilhos toostart Olá lógica aplicativo, como um disparador de recorrência, um gatilho de HTTP Webhook, disparadores disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) fornece um exemplo.
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, como um gatilho de Recorrência, um gatilho de Webhook HTTP, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) fornece um exemplo.
 
 ## <a name="use-an-action"></a>Usar uma ação
-Uma ação é uma operação executada pelo fluxo de trabalho Olá definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-1. Selecione o sinal de adição hello. Consulte várias opções: **adicionar uma ação**, **adicionar uma condição**, ou uma saudação **mais** opções.
+1. Selecione o sinal de mais. Você tem várias opções: **adicionar uma ação**, **adicionar uma condição** ou uma das opções **Mais**.
    
     ![](./media/connectors-create-api-sqlazure/add-action.png)
 2. Escolha **Adicionar uma ação**.
-3. Na caixa de texto de saudação, digite "sql" tooget uma lista de todas as ações disponíveis de saudação.
+3. Na caixa de texto, digite "sql" para obter uma lista de todas as ações disponíveis.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. Em nosso exemplo, escolha **SQL Server – obter linha**. Se uma conexão já existir, selecione Olá **nome de tabela** Olá suspenso lista e digite Olá **ID da linha** deseja tooreturn.
+4. Em nosso exemplo, escolha **SQL Server – obter linha**. Se uma conexão já existir, escolha o **Nome da tabela** na lista suspensa e insira a **ID da Linha** que deseja retornar.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Se você for solicitado para obter informações de conexão do hello, digite conexão de Olá Olá detalhes toocreate. [Criar conexão Olá](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve essas propriedades. 
+    Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve estas propriedades. 
    
    > [!NOTE]
-   > Nesse exemplo, retornamos uma linha de uma tabela. dados de saudação toosee nessa linha, adicione outra ação que cria um arquivo usando Olá campos da tabela de saudação. Por exemplo, adicione uma ação de OneDrive que usa hello FirstName e LastName campos toocreate um novo arquivo na conta de armazenamento de nuvem hello. 
+   > Nesse exemplo, retornamos uma linha de uma tabela. Para ver os dados nessa linha, adicione outra ação que cria um arquivo usando os campos da tabela. Por exemplo, adicione uma ação do OneDrive que usa os campos FirstName e LastName para criar um novo arquivo na conta de armazenamento de nuvem. 
    > 
    > 
-5. **Salvar** as alterações (canto superior esquerdo da barra de ferramentas de saudação). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/sql/). 
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explorar Olá outros conectores disponíveis na lógica de aplicativos no nosso [lista APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 

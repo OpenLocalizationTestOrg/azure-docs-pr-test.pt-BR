@@ -1,6 +1,6 @@
 ---
-title: "aaaStart e parar tootest de nós de cluster do Azure microservices | Microsoft Docs"
-description: "Saiba como toouse falha injeção tootest um aplicativo do Service Fabric Iniciando e interrompendo nós de cluster."
+title: "Iniciar e interromper nós de cluster para testar os microsserviços do Azure |Microsoft Docs"
+description: "Saiba como usar a injeção de falha para testar um aplicativo do Service Fabric iniciando e interrompendo nós de cluster."
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 7d3f5147328e6233a67533fbfb2a525aa5fc060e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replacing-hello-start-node-and-stop-node-apis-with-hello-node-transition-api"></a>Substituindo hello nó iniciar e parar nó APIs com hello API de transição do nó
+# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Substituir as APIs de Nó de Início e Nó de Parada pela API de Nó de Transição
 
-## <a name="what-do-hello-stop-node-and-start-node-apis-do"></a>O que Olá nó parar e iniciar o nó pelas APIs?
+## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>O que as APIs de Nó de Parada e de Início fazem?
 
-Olá parar API de nó (gerenciados: [StopNodeAsync()][stopnode], PowerShell: [Stop ServiceFabricNode][stopnodeps]) para de um nó de malha do serviço.  Um nó de malha do serviço é o processo, não uma VM ou máquina – Olá VM ou máquina ainda será executado.  Restante de saudação do documento hello "nó" significa que o nó de malha do serviço.  Parada de um nó coloca-o em um *interrompido* estado em que ele não é um membro do cluster hello e não é possível hospedar serviços, assim, simulando uma *para baixo* nó.  Isso é útil para injetar falhas em Olá sistema tootest seu aplicativo.  Olá iniciar API de nó (gerenciados: [StartNodeAsync()][startnode], PowerShell: [início ServiceFabricNode][startnodeps]]) reverte Olá parar a API de nó,  o que leva Olá nó tooa back o estado normal.
+A API de Nó de Parada (gerenciada: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) interrompe um nó do Service Fabric.  Um nó de Service Fabric é o processo e não uma VM ou máquina: a VM ou a máquina ainda estará em execução.  No restante do documento, "nó" significa um nó do Service Fabric.  Parar um nó coloca-o em um estado *parado* em que ele não é membro do cluster e não pode hospedar serviços, simulando assim um nó *inoperante*.  Isso é útil para injetar falhas no sistema para testar o aplicativo.  A API de Nó de Início (gerenciada: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) inverte a API de Nó de Parada, o que coloca o nó de volta em um estado normal.
 
 ## <a name="why-are-we-replacing-these"></a>Por que os estamos substituindo?
 
-Conforme descrito anteriormente, um *interrompido* nó de malha do serviço é um nó de destino intencionalmente usando Olá parar API de nó.  Um *para baixo* nó é um nó que está inativo por qualquer outro motivo (por exemplo, Olá VM ou máquina está desativado).  Com hello parar API de nó, sistema Olá não expõe informações toodifferentiate entre *interrompido* nós e *para baixo* nós.
+Conforme descrito anteriormente, um nó *parado* do Service Fabric é um nó direcionado intencionalmente usando a API de Nó de Parada.  Um nó *inoperante* é um nó que está inativo por qualquer motivo (por exemplo, a VM ou a máquina está desativada).  Com a API de Nó de Parada, o sistema não expõe informações para diferenciar entre nós *parados* e nós *inoperantes*.
 
-Além disso, alguns erros retornados por essas APIs não são mais tão descritivos quanto poderiam ser.  Por exemplo, chamar hello parar API de nó em uma já *interrompido* nó retornará Erro Olá *InvalidAddress*.  Essa experiência poderia ser melhorada.
+Além disso, alguns erros retornados por essas APIs não são mais tão descritivos quanto poderiam ser.  Por exemplo, se for invocada a API de Nó de Parada em um nó já *parado*, isso retornará o erro *InvalidAddress*.  Essa experiência poderia ser melhorada.
 
-Além disso, duração Olá que parou um nó é "infinita" até Olá que API do nó de início é invocado.  Descobrimos que isso pode causar problemas e pode ser propenso a erros.  Por exemplo, vimos problemas em que um usuário chamado hello parar API de nó em um nó e, em seguida, esquecer.  Posteriormente, é claro se o nó de saudação foi *para baixo* ou *interrompido*.
+Além disso, a duração pela qual um nó é interrompido é "infinita" até que a API de Nó de Início seja invocada.  Descobrimos que isso pode causar problemas e pode ser propenso a erros.  Por exemplo, houve problemas em que um usuário invocou a API de Nó de Parada em um nó e depois se esqueceu.  Posteriormente, não estava claro se o nó estava *inoperante* ou *parado*.
 
 
-## <a name="introducing-hello-node-transition-apis"></a>Introdução ao Olá APIs de transição do nó
+## <a name="introducing-the-node-transition-apis"></a>Introdução às APIs de Transição de Nó
 
-Abordamos esses problemas acima em um novo conjunto de APIs.  Olá nova API de transição de nó (gerenciados: [StartNodeTransitionAsync()][snt]) pode ser usado tootransition um tooa de nó do Service Fabric *interrompido* estado ou tootransition-lo de um *interrompido* tooa de estado normal de backup do estado.  Observe que hello "Start" no nome de saudação do hello API não se refere a toostarting um nó.  Refere-se uma operação assíncrona que o sistema Olá executará tootransition Olá nó tooeither de toobeginning *interrompido* ou estado foi iniciado.
+Abordamos esses problemas acima em um novo conjunto de APIs.  A nova API de Transição de Nó (gerenciada: [StartNodeTransitionAsync()][snt]) pode ser usada para fazer a transição de um nó do Service Fabric para um estado *parado* ou para fazer a transição de um estado *parado* para um estado ativo normal.  Observe que "Start" no nome da API não se refere a iniciar um nó.  Isso se refere a iniciar uma operação assíncrona que o sistema executará para fazer a transição do nó como estado *parado* ou iniciado.
 
 **Uso**
 
-Se Olá API de transição de nó não gerará uma exceção quando invocado, em seguida, Olá sistema aceitou a operação assíncrona hello e executará a ele.  Uma chamada bem-sucedida não implica a conclusão da operação de saudação ainda.  informações de tooget sobre Olá atual estado da operação hello, Olá chamada de API de progresso do nó de transição (gerenciados: [GetNodeTransitionProgressAsync()][gntp]) com o guid de saudação usada ao chamar o nó API de transição para esta operação.  Olá nó transição andamento API retorna um objeto de NodeTransitionProgress.  A propriedade do objeto estado Especifica o estado atual de saudação da operação de saudação.  Se o estado de saudação é "Running", em seguida, Olá operação está em execução.  Se ela for concluída, a operação de saudação concluída sem erros.  Se estiver com defeito, houve um problema ao executar a operação de saudação.  Exceção da propriedade de resultado Olá propriedade indicará quais Olá emitir era.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obter mais informações sobre a propriedade State de saudação e a seção de "Exemplo de uso" hello abaixo para obter exemplos de código.
+Se a API de Transição de Nó não lançar uma exceção quando invocada, o sistema aceitou a operação assíncrona e a executará.  Uma chamada bem-sucedida não implica que a operação já foi concluída.  Para obter informações sobre o estado atual da operação, chame a API de Progresso de Transição de Nó (gerenciada: [GetNodeTransitionProgressAsync()][gntp]) com o guid usado ao invocar a API de Transição de Nó para essa operação.  A API de Progresso de Transição de Nó retorna um objeto NodeTransitionProgress.  A propriedade do objeto State especifica o estado atual da operação.  Se o estado for "Em Execução", a operação está em execução.  Se for Concluído, a operação foi concluída sem erros.  Se for Falha, houve um problema ao executar a operação.  A propriedade Exception da propriedade Result indicará qual foi o problema.  Confira https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obter mais informações sobre a propriedade State e a seção "Exemplo de uso" abaixo para obter exemplos de código.
 
 
-**Diferenciar entre um nó de parada e um nó para baixo** se um nó é *interrompido* usando Olá API de transição de nó, saída de saudação de uma consulta de nó (gerenciados: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nó tem um *IsStopped* valor da propriedade true.  Observe que isso é diferente do valor Olá Olá *NodeStatus* propriedade dirá *para baixo*.  Se hello *NodeStatus* propriedade tem um valor de *para baixo*, mas *IsStopped* é false, e em seguida, o nó de saudação não foi parado usando Olá API de transição de nó e é  *Para baixo* devido a algum outro motivo.  Se hello *IsStopped* propriedade é true e hello *NodeStatus* é de propriedade *para baixo*, e foi parado usando Olá API de transição do nó.
+**Diferenciar entre um nó parado e um nó inoperante** Se um nó for *parado* usando a API de Transição de Nó, a saída de uma consulta de nó (gerenciada: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nó tem um valor de propriedade *IsStopped* de true.  Observe que isso é diferente do valor da propriedade *NodeStatus*, que indicará *Down*.  Se a propriedade *NodeStatus* tiver o valor *Down*, mas *IsStopped* for false, o nó não foi interrompido usando a API de Transição de Nó e está *Down* devido a algum outro motivo.  Se a propriedade *IsStopped* for true e a propriedade *NodeStatus* for *Down*, ele foi interrompido usando a API de Transição de Nó.
 
-Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofunction como membro do cluster de saudação normal novamente.  Olá saída da consulta de nó Olá API mostrará *IsStopped* como false, e *NodeStatus* como algo que não é para baixo (por exemplo, para cima).
+Iniciar um nó *parado* usando a API de Transição de Nó o retornará para o funcionamento como um membro normal do cluster novamente.  A saída da API de consulta de nó mostrará *IsStopped* como false e *NodeStatus* como algo diferente de Down (por exemplo, Up).
 
 
-**Limitado a duração** ao usar o hello nó transição API toostop um nó, parâmetros, uma saudação necessários *stopNodeDurationInSeconds*, representa Olá a quantidade de tempo no nó de saudação tookeep segundos  *interrompido*.  Esse valor deve estar no intervalo, que tem um mínimo de 600 e 14400 máximo permitida de saudação.  Após esse tempo expirar, nó Olá será reiniciado com o estado automaticamente.  Consulte tooSample 1 abaixo para obter um exemplo de uso.
-
-> [!WARNING]
-> Evitar a mistura de APIs de transição de nó e Olá nó parar e iniciar APIs de nó.  recomendação de saudação é muito usar apenas a API de transição do nó hello.  > Se um nó já foi interrompido usando Olá parar de API do nó, ele deve ser iniciado usando Olá iniciar nó API primeiro antes de usar o hello > APIs de transição do nó.
+**Duração limitada** Ao usar a API de Transição de Nó para um nó, um dos parâmetros necessários, *stopNodeDurationInSeconds*, representa a quantidade de tempo em segundos para manter o nó *parado*.  Esse valor deve estar no intervalo permitido, que tem um mínimo de 600 e um máximo de 14400.  Depois que esse tempo expirar, o nó será reiniciado com estado Operante automaticamente.  Confira o exemplo 1 abaixo para obter um exemplo de uso.
 
 > [!WARNING]
-> Várias APIs de transição de nó não não possível fazer chamadas em Olá mesmo nó em paralelo.  Em tal situação, Olá API de transição de nó será > lançar um FabricException com um valor de propriedade ErrorCode de NodeTransitionInProgress.  Depois que tiver uma transição de nó em um nó específico > foi iniciado, você deve aguardar até que a operação Olá atinge um estado terminal (ForceCancelled ou com falha, concluído) antes de iniciar uma > transição novos no hello mesmo nó.  São permitidas chamadas de transição de nó paralelas em nós diferentes.
+> Evite misturar APIs de Transição de Nó e APIs de Nó de Parada e Nó de Início.  A recomendação é usar somente a API de Transição de Nó.  > Se um nó já foi interrompido usando a API de Nó de Parada, ele deve ser iniciado usando a API de Nó de Início antes de usar as > APIs de Transição de Nó.
+
+> [!WARNING]
+> Não é possível fazer várias chamadas de APIs de Transição de Nó no mesmo nó em paralelo.  Nessa situação, a API de Transição de Nó > lançará um FabricException com um valor de propriedade ErrorCode de NodeTransitionInProgress.  Depois que uma transição de nó em um nó específico > tiver sido iniciada, você deverá aguardar até que a operação atinja um estado terminal (Concluído, Falha ou ForceCancelled) antes de iniciar uma > nova transição no mesmo nó.  São permitidas chamadas de transição de nó paralelas em nós diferentes.
 
 
 #### <a name="sample-usage"></a>Exemplo de uso
 
 
-**Exemplo 1** -Olá usos de exemplo a seguir Olá nó transição API toostop um nó.
+**Exemplo 1** - o exemplo a seguir usa a API de Transição de Nó para parar um nó.
 
 ```csharp
-        // Helper function tooget information about a node
+        // Helper function to get information about a node
         static Node GetNodeInfo(FabricClient fc, string node)
         {
             NodeList n = null;
@@ -105,7 +105,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
 
                     if (progress.State == TestCommandProgressState.Faulted)
                     {
-                        // Inspect hello progress object's Result.Exception.HResult tooget hello error code.
+                        // Inspect the progress object's Result.Exception.HResult to get the error code.
                         Console.WriteLine("'{0}' failed with: {1}, HResult: {2}", operationId, progress.Result.Exception, progress.Result.Exception.HResult);
 
                         // ...additional logic as required
@@ -125,7 +125,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
 
         static async Task StopNodeAsync(FabricClient fc, string nodeName, int durationInSeconds)
         {
-            // Uses hello GetNodeListAsync() API tooget information about hello target node
+            // Uses the GetNodeListAsync() API to get information about the target node
             Node n = GetNodeInfo(fc, nodeName);
 
             // Create a Guid
@@ -140,7 +140,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStopDescription from above, which will stop hello target node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStopDescription from above, which will stop the target node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -163,12 +163,12 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
         }
 ```
 
-**Exemplo 2** - Olá seguindo o exemplo inicia um *interrompido* nó.  Ele usa alguns métodos auxiliares do primeiro exemplo de saudação.
+**Exemplo 2** - o exemplo a seguir inicia um nó *parado*.  Ele usa alguns métodos auxiliares do primeiro exemplo.
 
 ```csharp
         static async Task StartNodeAsync(FabricClient fc, string nodeName)
         {
-            // Uses hello GetNodeListAsync() API tooget information about hello target node
+            // Uses the GetNodeListAsync() API to get information about the target node
             Node n = GetNodeInfo(fc, nodeName);
 
             Guid guid = Guid.NewGuid();
@@ -183,7 +183,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStartDescription from above, which will start hello target stopped node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStartDescription from above, which will start the target stopped node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -206,7 +206,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
         }
 ```
 
-**Exemplo 3** - Olá exemplo a seguir mostra o uso incorreto.  Esse uso está incorreto porque Olá *stopDurationInSeconds* é maior que o intervalo permitida de saudação.  Como StartNodeTransitionAsync() falhará com um erro fatal, operação Olá não foi aceito e API de progresso de saudação não deve ser chamado.  Este exemplo usa alguns métodos auxiliares do primeiro exemplo de saudação.
+**Exemplo 3** - o exemplo a seguir mostra o uso incorreto.  Esse uso é incorreto porque *stopDurationInSeconds* é maior do que o intervalo permitido.  Como StartNodeTransitionAsync() falhará com um erro fatal, a operação não foi aceita, e a API de progresso não deverá ser chamada.  Este exemplo usa alguns métodos auxiliares do primeiro exemplo.
 
 ```csharp
         static async Task StopNodeWithOutOfRangeDurationAsync(FabricClient fc, string nodeName)
@@ -215,7 +215,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
 
             Guid guid = Guid.NewGuid();
 
-            // Use an out of range value for stopDurationInSeconds toodemonstrate error
+            // Use an out of range value for stopDurationInSeconds to demonstrate error
             NodeStopDescription description = new NodeStopDescription(guid, n.NodeName, n.NodeInstanceId, 99999);
 
             try
@@ -237,7 +237,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
         }
 ```
 
-**Exemplo 4** - Olá exemplo a seguir mostra as informações de erro de saudação que serão retornadas de saudação nó transição andamento API quando operação Olá iniciada pelo Olá API de transição do nó é aceito, mas falha posteriormente durante a execução.  No caso de Olá falha porque Olá nó transição API tentativas toostart um nó que não existe.  Este exemplo usa alguns métodos auxiliares do primeiro exemplo de saudação.
+**Exemplo 4** - o exemplo a seguir mostra as informações de erro que serão retornadas da API de Progresso de Transição de Nó quando a operação iniciada pela API de Transição de Nó for aceita, mas falhar posteriormente durante a execução.  Nesse caso, ele falhará porque a API de Transição de Nó tenta iniciar um nó que não existe.  Este exemplo usa alguns métodos auxiliares do primeiro exemplo.
 
 ```csharp
         static async Task StartNodeWithNonexistentNodeAsync(FabricClient fc)
@@ -254,7 +254,7 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStartDescription from above, which will start hello target stopped node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStartDescription from above, which will start the target stopped node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -272,8 +272,8 @@ Iniciando um *interrompido* nó usando Olá nó transição API retornará-toofu
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hello desired state is reached.  In this case, it will end up in hello Faulted state since hello node does not exist.
-            // When StartNodeTransitionProgressAsync()'s returned progress object has a State if Faulted, inspect hello progress object's Result.Exception.HResult tooget hello error code.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.  In this case, it will end up in the Faulted state since the node does not exist.
+            // When StartNodeTransitionProgressAsync()'s returned progress object has a State if Faulted, inspect the progress object's Result.Exception.HResult to get the error code.
             // In this case, it will be NodeNotFound.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Faulted).ConfigureAwait(false);
         }

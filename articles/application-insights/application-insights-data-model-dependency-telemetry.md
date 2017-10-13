@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure modelo de dados de telemetria do Application Insights - telemetria de dependência | Microsoft Docs"
+title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de dependências | Microsoft Docs"
 description: "Modelo de dados do Application Insights para telemetria de dependências"
 services: application-insights
 documentationcenter: .net
@@ -12,23 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: bwren
-ms.openlocfilehash: cd5ab7c61d3498e4aa2a0aa0c8b0d106a92912e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2e97c3f951f46c32802aea543b93d5ab1bb76228
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
-Telemetria de dependência (em [Application Insights](app-insights-overview.md)) representa uma interação de componente Olá monitorado com um componente remoto, como SQL ou um ponto de extremidade HTTP.
+A telemetria de dependência (em [Application Insights](app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
 ## <a name="name"></a>Nome
 
-Nome do comando Olá iniciado com essa chamada de dependência. Valor de baixa cardinalidade. Os exemplos são o nome do procedimento armazenado e o modelo do caminho da URL.
+Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardinalidade. Os exemplos são o nome do procedimento armazenado e o modelo do caminho da URL.
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação Olá correspondente toothis chamada de dependência. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
+Identificador de uma instância de chamada de dependência. Usado para correlação com o item de telemetria de solicitação correspondente a essa chamada de dependência. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
 ## <a name="data"></a>Dados
 

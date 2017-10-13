@@ -1,6 +1,6 @@
 ---
-title: "Sincronização do Azure AD Connect: alterar senha da conta Olá AD DS | Microsoft Docs"
-description: "Este documento de tópico descreve como tooupdate do Azure AD Connect após a senha de saudação da conta de saudação AD DS é alterada."
+title: "Sincronização do Azure AD Connect: alterando a senha da conta do AD DS | Microsoft Docs"
+description: "Este documento de tópico descreve como atualizar o Azure AD Connect depois que a senha da conta do AD DS é alterada."
 services: active-directory
 keywords: Conta do AD DS, conta do Active Directory, senha
 documentationcenter: 
@@ -15,39 +15,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 2707c9246446612f8d083ecde876b3b4fb2435ca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 14e16a238e60ecfeeb3cbf88c3922a79349dcc75
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="changing-hello-ad-ds-account-password"></a>Alterar a senha da conta Olá AD DS
-conta do Hello AD DS refere-se a conta de usuário toohello usada pelo Azure AD Connect toocommunicate com o Active Directory no local. Se você alterar a senha Olá Olá conta AD DS, você deve atualizar o serviço de sincronização se conectar do Azure AD com hello nova senha. Caso contrário, Olá que sincronização não poderá sincronizar corretamente com hello Active Directory local e você encontrará Olá os erros a seguir:
+# <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
+A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para se comunicar com o Active Directory local. Se você alterar a senha da conta do AD DS, será necessário atualizar o Azure AD Connect Synchronization Service com a nova senha. Caso contrário, o serviço não poderá mais sincronizar corretamente com o Active Directory local e você encontrará os seguintes erros:
 
-* Em Olá operação do Gerenciador de serviço de sincronização, nenhuma importação ou exportação com local AD falha com **credenciais de início não** erro.
+* No Synchronization Service Manager, qualquer operação de importação ou de exportação com o AD local falha com o erro **no-start-credentials**.
 
-* No Visualizador de eventos do Windows, o log de eventos do aplicativo hello contém um erro com **evento ID 6000** e mensagem **'Agente de gerenciamento hello "contoso.com" com falha toorun porque as credenciais de saudação eram inválidas'** .
+* No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID do evento 6000** e com a mensagem **'O agente de gerenciamento "contoso.com" falhou, porque as credenciais eram inválidas'**.
 
 
-## <a name="how-tooupdate-hello-synchronization-service-with-new-password-for-ad-ds-account"></a>Como tooupdate Olá o serviço de sincronização com a nova senha para a conta do AD DS
-Olá tooupdate serviço de sincronização com a nova senha hello:
+## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Como atualizar o Synchronization Service com a nova senha de conta do AD DS
+Para atualizar o Synchronization Service com a nova senha:
 
-1. Inicie Olá Synchronization Service Manager (serviço de sincronização inicial →).
+1. Inicie o Synchronization Service Manager (INICIAR → Serviço de Sincronização).
 </br>![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
 
-2. Vá toohello **conectores** guia.
+2. Vá para a guia **Conectores**.
 
-3. Selecione Olá **conector AD** que corresponde a conta do toohello AD DS para que sua senha foi alterada.
+3. Selecione o **Conector AD** que corresponde à conta do AD DS para a qual a sua senha foi alterada.
 
 4. Em **Ações**, selecione **Propriedades**.
 
-5. Na caixa de diálogo pop-up hello, selecione **conectar-se a floresta do diretório tooActive**:
+5. Na caixa de diálogo pop-up, selecione **Conectar-se à Floresta do Active Directory**:
 
-6. Insira Olá nova senha da conta de saudação AD DS no hello **senha** caixa de texto.
+6. Insira a nova senha da conta do AD DS na caixa de texto **Senha**.
 
-7. Clique em **Okey** toosave Olá nova senha e a caixa de diálogo pop-up Olá fechar.
+7. Clique em **OK** para salvar a nova senha e fechar a caixa de diálogo pop-up.
 
-8. Reinicialização hello Azure AD conectar serviço de sincronização no Gerenciador de controle de serviço do Windows. Isso é tooensure que qualquer senha antiga de toohello de referência é removida do cache de memória de saudação.
+8. Reinicie o Azure AD Connect Synchronization Service no Gerenciador de Controle de Serviço Windows. Isso é para garantir que qualquer referência à senha antiga é removida do cache de memória.
 
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**

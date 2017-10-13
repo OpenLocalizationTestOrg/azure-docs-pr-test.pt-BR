@@ -1,6 +1,6 @@
 ---
-title: aaaOverview de armazenamento de tabela do Azure | Microsoft Docs
-description: "Armazene dados estruturados em nuvem hello usando o armazenamento de tabela do Azure, um repositório de dados NoSQL."
+title: "Visão geral do Armazenamento de Tabelas do Azure | Microsoft Docs"
+description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -14,29 +14,29 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/23/2017
 ms.author: mimig
-ms.openlocfilehash: 8643cc666f000e078644981381a086e1ccc44067
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9099e90c402185b371495379db943d64fb82cdb8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-table-storage-overview"></a>Visão geral do armazenamento de tabelas
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Armazenamento de tabela do Azure é um serviço que armazena estruturado NoSQL armazenam dados na nuvem hello, fornecendo um atributo de chave/com um design schemaless. Como o armazenamento de tabela é schemaless, é fácil tooadapt seus dados como Olá precisam de evolve seu aplicativo. Acessar dados de armazenamento tooTable é rápida e econômica para vários tipos de aplicativos e é geralmente inferiores no custo SQL tradicional para volumes semelhantes de dados.
+O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados do Armazenamento de Tabelas é rápido e econômico para muitos tipos de aplicativos e normalmente tem um custo mais baixo que o SQL tradicional para volumes de dados semelhantes.
 
-Você pode usar a tabela armazenamento toostore flexíveis conjuntos de dados como dados de usuário para aplicativos web, catálogos de endereços, informações de dispositivo ou outros tipos de metadados, que seu serviço exigir. Você pode armazenar qualquer número de entidades em uma tabela, e uma conta de armazenamento pode conter qualquer número de tabelas, o limite de capacidade toohello Olá da conta de armazenamento.
+Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos ou outros tipos de metadados exigidos pelo serviço. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo gratuito da Microsoft que permite que você toowork visualmente com dados de armazenamento do Azure no Linux, Windows e macOS.
+* [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 
 * [Introdução ao Armazenamento de Tabela do Azure no .NET](table-storage-how-to-use-dotnet.md)
 
-* Exiba a documentação de referência de serviço Olá tabela para obter detalhes completos sobre as APIs disponíveis:
+* Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
 
     * [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 

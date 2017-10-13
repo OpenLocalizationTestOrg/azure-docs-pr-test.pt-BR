@@ -1,6 +1,6 @@
 ---
-title: aaaReplace um PCM do dispositivo StorSimple | Microsoft Docs
-description: "Explica como tooremove e substituir Olá energia e o módulo de resfriamento (PCM) no seu dispositivo StorSimple"
+title: Substituir um PCM em seu dispositivo StorSimple | Microsoft Docs
+description: "Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple"
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
-ms.openlocfilehash: cc19ccb29884557720f7538b90dfb05268330b72
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
-Olá Power e módulo de resfriamento (PCM) no seu dispositivo StorSimple do Microsoft Azure consiste em uma fonte de alimentação e ventiladores de resfriamento que são controladas pela hello primário e compartimentos EBOD. Há apenas um modelo de PCM que é certificado para cada compartimento. compartimento principal Olá é certificado para um PCM de 764 W e compartimento do EBOD Olá é certificado para um PCM de 580 W. Embora hello PCMs para o compartimento principal hello e compartimento do EBOD Olá forem diferentes, o procedimento de substituição de saudação é idêntico.
+O módulo de energia e resfriamento (PCM) em seu dispositivo Microsoft Azure StorSimple consiste em uma fonte de alimentação e ventiladores que são controlados por meio de compartimentos primário e EBOD. Há apenas um modelo de PCM que é certificado para cada compartimento. O compartimento primário é certificado para um PCM de 764 W e o compartimento EBOD é certificado para um PCM de 580 W. Embora os PCMs do compartimento primário e do compartimento EBOD sejam diferentes, o procedimento de substituição é idêntico.
 
 Este tutorial explica como:
 
@@ -30,38 +30,38 @@ Este tutorial explica como:
 * Instalar um PCM de reposição
 
 > [!IMPORTANT]
-> Antes de remover e substituir um PCM, revise as informações de segurança de saudação em [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+> Antes de remover e substituir um PCM, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 > 
 > 
 
 ## <a name="before-you-replace-a-pcm"></a>Antes de substituir um PCM
-Esteja ciente das questões importantes a seguir antes de substituir o PCM de saudação:
+Esteja ciente das seguintes questões importantes antes de substituir o PCM:
 
-* Se a fonte de alimentação de saudação do hello PCM falhar, mantenha Olá módulo com falha instalado, mas remova o cabo de alimentação Olá. ventilador Olá continuará tooreceive energia do compartimento hello e continuar tooprovide o resfriamento apropriado. Se Olá ventilador falhar, Olá PCM deve toobe substituído imediatamente.
-* Antes de remover Olá PCM, desconecte Olá Olá PCM desligando o interruptor principal hello (se houver) ou removendo fisicamente o cabo de alimentação hello. Isso fornece um sistema de tooyour de aviso que a energia será desligada iminente.
-* Certifique-se que Olá para que outro PCM está funcionando continua operação do sistema antes de substituir Olá PCM com falha. Um PCM defeituoso deve ser substituído por um PCM totalmente operacional assim que possível.
-* Substituição do módulo PCM leva apenas alguns toocomplete de minutos, mas ela deve ser concluída em 10 minutos da remoção Olá falhado PCM tooprevent superaquecimento.
-* Note que Olá substituição 764 W PCM módulos enviados da fábrica de saudação não contém o módulo de bateria de backup hello. Será necessário tooremove bateria de saudação do seu PCM com falha e, em seguida, inseri-lo em substituição do módulo anterior tooperforming saudação do hello substituição. Para obter mais informações, consulte como muito[remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
+* Se a fonte de alimentação do PCM falhar, deixe o módulo com defeito instalado, mas remova o cabo de alimentação. O ventilador continuará a receber energia do compartimento e continuará a fornecer resfriamento adequado. Se o ventilador falhar, o PCM precisa ser trocado imediatamente.
+* Antes de remover o PCM, desconecte o PCM desativando o interruptor principal (se houver) ou removendo fisicamente o cabo de alimentação. Isso avisa o sistema que um desligamento da energia é iminente.
+* Certifique-se de que outros PCM estejam funcionando para que o sistema continue em operação antes de substituir o PCM defeituoso. Um PCM defeituoso deve ser substituído por um PCM totalmente operacional assim que possível.
+* A substituição do módulo PCM leva apenas alguns minutos para ser concluída, mas precisa ser concluída em até 10 minutos após remover o PCM com falha para evitar superaquecimento.
+* Observe que os módulos de substituição PCM de 764 W enviados da fábrica não contêm o módulo de bateria de backup. Você precisará remover a bateria do seu PCM com falha e, então, inseri-la no módulo de substituição antes de executar a substituição. Para obter mais informações, confira como [remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
 
 ## <a name="remove-a-pcm"></a>Remover um PCM
-Siga estas instruções quando estiver pronto tooremove uma potência e o módulo de resfriamento (PCM) do seu dispositivo StorSimple do Microsoft Azure.
+Siga estas instruções quando estiver pronto para remover um módulo de energia e resfriamento (PCM) do dispositivo Microsoft Azure StorSimple.
 
 > [!NOTE]
-> Antes de remover o PCM, verifique se você tem uma substituição correta (764 W para o compartimento principal Olá) ou 580 W para Olá compartimento EBOD.
+> Antes de remover o PCM, verifique se você tem uma peça de reposição correta (764 W para o compartimento primário ou 580 W para o compartimento EBOD).
 > 
 > 
 
-#### <a name="tooremove-a-pcm"></a>tooremove um PCM
-1. No portal clássico do Azure do hello, clique em **dispositivos** > **manutenção** > **Status do Hardware**. Verificar o status de saudação de componentes PCM Olá em **componentes compartilhados** tooidentify qual PCM falhou:
+#### <a name="to-remove-a-pcm"></a>Para remover um PCM
+1. No Portal clássico do Azure, clique em **Dispositivos** > **Manutenção** > **Status de Hardware**. Verifique o status dos componentes do PCM em **Componentes compartilhados** para identificar qual PCM falhou:
    
-   * Se uma fonte de alimentação no PCM 0 falhou, Olá status de **fonte de alimentação no PCM 0** será vermelho.
-   * Se uma fonte de alimentação no PCM 1 tiver falhado, Olá status de **fonte de alimentação no PCM 1** será vermelho.
-   * Se o ventilador Olá no PCM 1 tiver falhado, Olá status de **resfriamento 0 para o PCM 0** ou **resfriamento 1 para o PCM 0** será vermelho.
-2. Localize Olá PCM com falha em Olá fazer do compartimento primário hello. Se você estiver executando um modelo 8600, identificar compartimento principal Olá examinando Olá número de identificação da unidade de sistema mostradas na exibição de LED do painel frontal Olá. Olá padrão é a ID de unidade exibida no compartimento primário Olá **00**, enquanto o saudação padrão ID de unidade exibida no compartimento EBOD de saudação é **01**. Olá seguinte diagrama e tabela explicam painel frontal de saudação da exibição Olá LED.
+   * Se uma fonte de alimentação no PCM 0 tiver falhado, o status da **Fonte de Alimentação no PCM 0** ficará vermelho.
+   * Se uma fonte de alimentação no PCM 1 tiver falhado, o status da **Fonte de Alimentação no PCM 1** ficará vermelho.
+   * Se houve falha no ventilador do PCM 1, o status do **Resfriamento 0 do PCM 0** ou do **Resfriamento 1 do PCM 0** ficará vermelho.
+2. Localize o PCM com falha na parte traseira do compartimento primário. Se você estiver executando um modelo 8600, identifique o compartimento primário examinando o número de identificação da unidade do sistema no display de LED do painel frontal. A ID de unidade padrão exibida no compartimento primário é **00**, enquanto que a ID de unidade padrão exibida no compartimento EBOD é **01**. O diagrama e a tabela a seguir explicam o painel frontal do display de LED.
    
     ![ID do sistema na no painel de operações frontal](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
-     **Figura 1** painel frontal do dispositivo Olá  
+     **Figura 1** Parte frontal do dispositivo  
    
    | Rótulo | Descrição |
    |:--- |:--- |
@@ -70,7 +70,7 @@ Siga estas instruções quando estiver pronto tooremove uma potência e o módul
    | 3 |Falha do módulo |
    | 4 |Falha lógica |
    | 5 |Exibição da ID da unidade |
-3. Olá LEDs indicadores no hello parte traseira do compartimento principal Olá de monitoramento também pode ser usado tooidentify Olá PCM com falha. Consulte Olá seguinte diagrama e tabela toounderstand como toouse Olá LEDs toolocate Olá PCM com falha. Por exemplo, se hello LED correspondente toohello **falha do ventilador** estiver aceso, Olá ventilador falhou. Da mesma forma, se hello LED correspondente muito**falha de CA** estiver aceso, Olá alimentação falhou. 
+3. Os LEDs indicadores de monitoramento na parte traseira do compartimento primário também podem ser usado para identificar o PCM defeituoso. Consulte o diagrama e a tabela a seguir para entender como usar os LEDs para localizar o PCM defeituoso. Por exemplo, se o LED correspondente à **Falha do Ventilador** estiver aceso, houve falha no ventilador. Da mesma forma, se o LED correspondente à **Falha de CA** estiver aceso, a fonte de alimentação falhou. 
    
     ![Backplane dos LEDs indicadores de monitoramento de PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    
@@ -84,7 +84,7 @@ Siga estas instruções quando estiver pronto tooremove uma potência e o módul
    | 4 |PCM OK |
    | 5 |Falha de energia CC |
    | 6 |Bateria íntegra |
-4. Consulte toohello diagrama de saudação parte posterior do módulo do PCM Olá StorSimple dispositivo toolocate Olá falhado a seguir. PCM 0 está Olá esquerda e PCM 1 está saudação à direita. tabela Olá a seguir explica módulos hello.
+4. Consulte o diagrama a seguir da parte traseira do dispositivo StorSimple para localizar o módulo de PCM com falha. PCM 0 está à esquerda e PCM 1 está à direita. A tabela a seguir explica os módulos.
    
      ![Backplane dos módulos do compartimento primário do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740994.png)
    
@@ -96,51 +96,51 @@ Siga estas instruções quando estiver pronto tooremove uma potência e o módul
    | 2 |PCM 1 |
    | 3 |Controlador 0 |
    | 4 |Controlador 1 |
-5. Ativar logoff Olá PCM com falha e desconecte o cabo da fonte de alimentação hello. Agora você pode remover Olá PCM.
-6. Segure a trava hello e Olá da saudação PCM tratar entre o polegar e o dedo indicador e pressione-as alça de saudação tooopen juntos.
+5. Desative o PCM defeituoso e desconecte o cabo da fonte de alimentação. Agora você pode remover o PCM.
+6. Segure a trava e o lado da alça do PCM entre o polegar e o dedo indicador e aperte-os para abrir a alça.
    
     ![Abrindo a alça do PCM](./media/storsimple-power-cooling-module-replacement/IC740995.png)
    
-    **Figura 4** tratar Olá abertura PCM
-7. Segure a alça de saudação e remova Olá PCM.
+    **Figura 4** Abertura da alça do PCM
+7. Segure a alça e remova o PCM.
    
     ![Removendo o PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740996.png)
    
-    **Figura 5** Olá removendo PCM
+    **Figura 5** Removendo o PCM
 
 ## <a name="install-a-replacement-pcm"></a>Instalar um PCM de reposição
-Siga essas instruções tooinstall um PCM no seu dispositivo StorSimple. Certifique-se de que você inseriu Olá bateria de backup anteriores tooinstalling Olá substituição do módulo de PCM (aplica-se too764 PCMs W). Para obter mais informações, consulte como muito[remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
+Siga estas instruções para instalar um PCM em seu dispositivo StorSimple. Certifique-se de que você inseriu o módulo de bateria de backup antes de instalar o PCM de substituição (aplicável somente aos PCMs de 764 W). Para obter mais informações, confira como [remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
 
-#### <a name="tooinstall-a-pcm"></a>tooinstall um PCM
-1. Verifique se você tem Olá PCM de substituição correto para esse compartimento. compartimento principal Olá precisa de um PCM de 764 W e Olá compartimento EBOD precisa de um PCM de 580 W. Não tente toouse Olá PCM de 580 W no compartimento primário hello, ou Olá PCM de 764 W em Olá compartimento EBOD. Olá a imagem a seguir mostra onde tooidentify essas informações em Olá rótulo que é afixada toohello PCM.
+#### <a name="to-install-a-pcm"></a>Para instalar um PCM
+1. Verifique se possui a peça de reposição do PCM para esse compartimento. O compartimento primário necessita de um PCM de 764 W e o compartimento EBOD necessita de um PCM de 580 W. Você não deve tentar usar o PCM de 580 W no compartimento primário nem o PCM de 764 W no compartimento EBOD. A imagem a seguir mostra onde identificar essas informações na etiqueta do PCM.
    
     ![Etiqueta do PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740973.png)
    
     **Figura 6** Etiqueta do PCM
-2. Verifique se há compartimento de toohello dano, prestando atenção especial toohello conectores. 
+2. Verifique se há danos no compartimento, prestando muita atenção aos conectores. 
    
    > [!NOTE]
-   > **Não instale o módulo de saudação se os pinos do conector estiver torto.**
+   > **Não instale o módulo se algum pino do conector estiver torto.**
    > 
    > 
-3. Com hello PCM manipular Olá abra posição, módulo de saudação do slide para compartimento de saudação.
+3. Com a alça do PCM na posição aberta, deslize o módulo para dentro do compartimento.
    
     ![Instalando o PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740975.png)
    
-    **Figura 7** Olá instalando PCM
-4. Feche manualmente a alça do PCM hello. Você ouvirá um clique quando Olá trava da alça encaixar. 
+    **Figura 7** Instalando o PCM
+4. Feche manualmente a alça do PCM. Você deve ouvir um clique ao encaixar a trava da alça. 
    
    > [!NOTE]
-   > tooensure que Olá pinos do conector estão encaixados, puxe levemente no identificador de saudação sem soltar a trava hello. Se Olá PCM Deslizar para fora, significa que Olá trava fechou antes do conectores Olá envolvido.
+   > Para garantir que os pinos do conector tenham encaixado, com cuidado, puxe a alça sem soltar a trava. Se o PCM deslizar, isso significa que a trava foi fechada antes que os conectores encaixassem.
    > 
    > 
-5. Conecte a fonte de alimentação Olá power cabos toohello e toohello PCM.
-6. Proteja a tensão Olá alívio de tensão. 
-7. Ative Olá PCM.
-8. Verificar se a substituição de saudação foi bem-sucedida: Olá portal clássico do Azure do seu serviço StorSimple Manager, navegue muito**dispositivos** > **manutenção**  >  **Status do hardware**. Em **componentes compartilhados**, status de saudação do hello PCM deve estar verde. 
+5. Conecte os cabos de energia na fonte de alimentação e no PCM.
+6. Proteja os ganchos de alívio de tensão. 
+7. Ligue o PCM.
+8. Verifique se a substituição foi bem-sucedida: no Portal clássico do Azure do seu serviço StorSimple Manager, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes Compartilhados**, o status do PCM deverá estar verde. 
    
    > [!NOTE]
-   > Ele pode levar alguns minutos para inicializar de toocompletely PCM de substituição de saudação.
+   > Pode levar alguns minutos até que o PCM de reposição esteja completamente inicializado.
    > 
    > 
 

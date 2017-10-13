@@ -1,16 +1,16 @@
-#### <a name="toostop-and-start-a-virtual-device"></a>toostop e iniciar um dispositivo virtual
-toostop um dispositivo virtual, clique em seu nome e, em seguida, clique em **desligamento**. Quando o dispositivo virtual hello está desligando, seu status é **parando**. Depois que o dispositivo virtual Olá for interrompido, seu status é **parado**.
+#### <a name="to-stop-and-start-a-virtual-device"></a>Parar e iniciar um dispositivo virtual
+Para parar um dispositivo virtual, clique em seu nome e, em seguida, clique em **Desligar**. Enquanto o dispositivo virtual estiver desligando, seu status será **Parando**. Depois que o dispositivo virtual parar, seu status será **Parado**.
 
-Use Olá toostop cmdlets a seguir e inicie um dispositivo virtual.
+Use os seguintes cmdlets para parar e iniciar um dispositivo virtual.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-#### <a name="toorestart-a-virtual-device"></a>toorestart um dispositivo virtual
-Quando um dispositivo virtual está em execução e você deseja toorestart-la, clique em seu nome e, em seguida, clique em **reiniciar**. Quando o dispositivo virtual hello está reiniciando, seu status é **reiniciando**. Quando o dispositivo virtual hello está pronto para você toouse, seu status é **executando**.
+#### <a name="to-restart-a-virtual-device"></a>Parar e reiniciar um dispositivo virtual
+Quando um dispositivo virtual estiver em execução e você quiser reiniciá-lo, clique em seu nome e, em seguida, clique em **Reiniciar**. Enquanto o dispositivo virtual estiver reiniciando, seu status será **Reiniciando**. Quando o dispositivo virtual estiver pronto para uso, seu status será **Em execução**.
 
-Use Olá cmdlet toorestart um dispositivo virtual a seguir.
+Use o seguinte cmdlet para parar e reiniciar um dispositivo virtual.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 

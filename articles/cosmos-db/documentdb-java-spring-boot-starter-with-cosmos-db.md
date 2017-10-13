@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toouse Olá Spring inicialização inicial com uma API de documentos do Azure Cosmos DB"
-description: "Saiba como tooconfigure um aplicativo criado com hello Spring inicialização inicializador com hello API DocumentDB do Azure Cosmos banco de dados."
+title: Como usar o Iniciador do Spring Boot com uma API do DocumentDB do Azure Cosmos DB
+description: Saiba como configurar um aplicativo criado com o inicializador do Spring Boot com a API do DocumentDB do Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: java
 author: rmcmurray
@@ -15,25 +15,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
-ms.openlocfilehash: a2c6de678f850676cb2887e224e5c12950db0e53
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-hello-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Como toouse Olá Spring inicial de inicialização com a API do Azure Cosmos banco de dados DocumentDB
+# <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Como usar o Iniciador do Spring Boot com uma API do DocumentDB do Azure Cosmos DB
 
 ## <a name="overview"></a>Visão geral
 
-Olá  **[Spring Framework]**  é uma solução de software livre que ajuda os desenvolvedores Java criar aplicativos de nível empresarial. Um dos projetos mais populares de saudação que é criado em cima dessa plataforma é [Spring inicialização], que fornece um método simplificado para a criação de aplicativos Java autônomos. os desenvolvedores de toohelp começar com a inicialização de Spring, vários pacotes de inicialização de Spring de exemplo estão disponíveis em <https://github.com/spring-guides/>. Além disso toochoosing de lista de saudação de inicialização Spring básica projetos, hello  **[Spring Initializr]**  ajuda os desenvolvedores a começar a criar aplicativos personalizados de inicialização de Spring.
+O **[Spring Framework]** é uma solução de software livre que ajuda os desenvolvedores Java criar aplicativos de nível empresarial. Um dos projetos mais populares que é criado com base nessa plataforma é o [Spring Boot], que fornece uma abordagem simplificada para a criação de aplicativos Java autônomos. Para ajudar os desenvolvedores a começarem a usar o Spring Boot, vários exemplos de pacotes do Spring Boot estão disponíveis em <https://github.com/spring-guides/>. Além de escolher na lista de projetos básicos do Spring Boot, o  **[Spring Initializr]** ajuda os desenvolvedores a começarem a criar aplicativos personalizados do Spring Boot.
 
-Banco de dados do Azure Cosmos é um serviço de banco de dados distribuída globalmente que permite aos desenvolvedores toowork com dados usando uma variedade de APIs padrão, como documentos, MongoDB, gráfico e APIs de tabela. Início de inicialização de Spring da Microsoft permite que os aplicativos de inicialização Spring de toouse os desenvolvedores que se integram facilmente com o banco de dados do Azure Cosmos por meio de APIs do DocumentDB.
+O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente que permite aos desenvolvedores trabalhar com os dados usando uma variedade de APIs padrão, como DocumentDB, MongoDB, Graph e APIs de Tabela. O Iniciador do Spring Boot da Microsoft permite aos desenvolvedores usar aplicativos Spring Boot que se integrem facilmente ao Azure Cosmos DB por meio de APIs do DocumentDB.
 
-Este artigo demonstra como criar um Azure Cosmos DB usando Olá portal do Azure, usando Olá **Initializr Spring** toocreate um aplicativo java personalizados e, em seguida, adicionar Olá Spring inicialização Starter funcionalidade tooyour personalizado aplicativo toostore dados e recuperar dados do seu banco de dados do Azure Cosmos usando Olá API DocumentDB.
+Este artigo demonstra como criar um Azure Cosmos DB usando o portal do Azure, então usar o **Initializr Spring** para criar um aplicativo Java personalizado e, em seguida, adicionar a funcionalidade Spring Boot ao seu aplicativo personalizado para armazenar e recuperar dados de seu Azure Cosmos DB usando a API do DocumentDB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas neste artigo:
+Os seguintes pré-requisitos são obrigatórios para que você siga as etapas neste artigo:
 
 * Uma assinatura do Azure; se ainda não tiver uma assinatura do Azure, você poderá ativar o [benefício de assinante do MSDN] ou inscrever-se para uma [conta gratuita do Azure].
 
@@ -41,9 +41,9 @@ Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas nes
 
 * [Apache Maven](http://maven.apache.org/) versão 3.0 ou posterior.
 
-## <a name="create-an-azure-cosmos-db-by-using-hello-azure-portal"></a>Criar um banco de dados do Azure Cosmos usando Olá portal do Azure
+## <a name="create-an-azure-cosmos-db-by-using-the-azure-portal"></a>Criar um Azure Cosmos DB usando o portal do Azure
 
-1. Procurar toohello Azure portal em <https://portal.azure.com/> e clique em **+ novo**.
+1. Navegue até o portal do Azure em <https://portal.azure.com/> e clique em **+Novo**.
 
    ![Portal do Azure][AZ01]
 
@@ -51,50 +51,50 @@ Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas nes
 
    ![Portal do Azure][AZ02]
 
-1. Em Olá **o banco de dados do Azure Cosmos** insira Olá informações a seguir:
+1. Na página **Azure Cosmos DB**, insira as seguintes informações:
 
-   * Insira um único **ID**, que você usará como hello URI para o banco de dados. Por exemplo: *wingtiptoysdata.documents.azure.com*.
-   * Escolha **SQL (banco de dados de documento)** para Olá API.
-   * Escolha Olá **assinatura** você deseja toouse para seu banco de dados.
-   * Especifique se toocreate um novo **grupo de recursos** para seu banco de dados, ou escolha um grupo de recursos existente.
-   * Especifique a saudação **local** para seu banco de dados.
+   * Insira uma **ID** exclusiva, que você usará como o URI para o banco de dados. Por exemplo: *wingtiptoysdata.documents.azure.com*.
+   * Escolha **SQL (Document DB)** para a API.
+   * Escolha a **Assinatura** você deseja usar para seu banco de dados.
+   * Especifique se deseja criar um novo **Grupo de recursos** para seu banco de dados ou escolher um grupo de recursos existente.
+   * Especifique o **Local** para seu banco de dados.
    
-   Quando você especificar essas opções, clique em **criar** toocreate seu banco de dados.
+   Quando você tiver especificado essas opções, clique em **Criar** para criar o banco de dados.
 
    ![Portal do Azure][AZ03]
 
-1. Quando o banco de dados tiver sido criado, ele está listado no seu Azure **painel**, bem como em Olá **todos os recursos** e **o banco de dados do Azure Cosmos** páginas. Você pode clicar em seu banco de dados em qualquer um desses locais tooopen Olá da página de propriedades para seu cache.
+1. Quando seu banco de dados for criado, ele será listado no seu **Painel** do Azure, bem como nas páginas **Todos os Recursos** e **Azure Cosmos DB**. Você pode clicar no banco de dados em qualquer um desses locais para abrir a página de propriedades do seu cache.
 
    ![Portal do Azure][AZ04]
 
-1. Quando a página de propriedades de saudação do banco de dados é exibida, clique em **chaves de acesso** e copie as URI e chaves de acesso para seu banco de dados; você usará esses valores em seu aplicativo de inicialização de Spring.
+1. Quando a página de propriedades para o banco de dados for exibida, clique em **Chaves de acesso** e copie o URI e as chaves de acesso para seu banco de dados. Você usará esses valores em seu aplicativo Spring Boot.
 
    ![Portal do Azure][AZ05]
 
-## <a name="create-a-simple-spring-boot-application-with-hello-spring-initializr"></a>Criar um aplicativo de inicialização de Spring simples com hello Initializr Spring
+## <a name="create-a-simple-spring-boot-application-with-the-spring-initializr"></a>Criar um aplicativo Spring Boot simples com o Spring Initializr
 
-1. Procurar muito<https://start.spring.io/>.
+1. Navegue até <https://start.spring.io/>.
 
-1. Especifique que você deseja toogenerate um **Maven** projeto com **Java**, digite Olá **grupo** e **artefato** nomes para seu aplicativo, e em seguida, clique botão Olá muito**projeto gerar**.
+1. Especifique que você deseja gerar um projeto **Maven** com **Java**, insira os nomes de **Grupo** e **Artefato** para o seu aplicativo e, em seguida, clique no botão para **Gerar Projeto**.
 
    ![Opções básicas do Initializr Basic][SI01]
 
    > [!NOTE]
    >
-   > Olá Spring Initializr usa Olá **grupo** e **artefato** nome do pacote de saudação nomes toocreate; por exemplo: *com.example.wintiptoys*.
+   > O Spring Initializr usa os nomes de **Grupo** e **Artefato** para criar o nome do pacote; por exemplo: *com.example.wintiptoys*.
    >
 
-1. Quando solicitado, baixe o caminho de tooa Olá projeto em seu computador local.
+1. Quando solicitado, baixe o projeto para um caminho no computador local.
 
    ![Baixe o projeto personalizado do Spring Boot][SI02]
 
-1. Depois de extrair arquivos Olá no sistema local, seu aplicativo de inicialização de Spring simple estará pronto para edição.
+1. Depois de ter extraído os arquivos no sistema local, seu aplicativo Spring Boot simple estará pronto para edição.
 
    ![Arquivos de projeto Spring Boot personalizados][SI03]
 
-## <a name="configure-your-spring-boot-app-toouse-hello-azure-spring-boot-starter"></a>Configurar a saudação de toouse inicialização Spring aplicativo Azure Spring inicialização inicial
+## <a name="configure-your-spring-boot-app-to-use-the-azure-spring-boot-starter"></a>Configure seu aplicativo Spring Boot para usar o Iniciador do Azure Spring Boot
 
-1. Localizar Olá *pom.xml* arquivo no diretório de saudação do seu aplicativo; por exemplo:
+1. Localize o arquivo *pom.xml* no diretório do seu aplicativo; por exemplo:
 
    `C:\SpringBoot\wingtiptoys\pom.xml`
 
@@ -102,9 +102,9 @@ Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas nes
 
    `/users/example/home/wingtiptoys/pom.xml`
 
-   ![Localize o arquivo de pom.xml Olá][PM01]
+   ![Salve o arquivo pom.xml][PM01]
 
-1. Olá abrir *pom.xml* do arquivo em um editor de texto e adicione Olá após toolist linhas de `<dependencies>`:
+1. Abra o arquivo *pom.xml* em um editor de texto e adicione as seguintes linhas à lista de `<dependencies>`:
 
    ```xml
    <dependency>
@@ -114,13 +114,13 @@ Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas nes
    </dependency>
    ```
 
-   ![Editando o arquivo de pom.xml Olá][PM02]
+   ![Edição do arquivo pom.xml][PM02]
 
-1. Salve e feche o hello *pom.xml* arquivo.
+1. Salve e feche o arquivo *pom.xml*.
 
-## <a name="configure-your-spring-boot-app-toouse-your-azure-cosmos-db"></a>Configurar seu toouse do aplicativo de inicialização Spring seu banco de dados do Azure Cosmos
+## <a name="configure-your-spring-boot-app-to-use-your-azure-cosmos-db"></a>Configure seu aplicativo Spring Boot para usar seu Azure Cosmos DB
 
-1. Localizar Olá *application.properties* arquivo hello *recursos* diretório do seu aplicativo; por exemplo:
+1. Localize o arquivo *application.properties* no diretório *recursos* do seu aplicativo; por exemplo:
 
    `C:\SpringBoot\wingtiptoys\src\main\resources\application.properties`
 
@@ -128,34 +128,34 @@ Olá pré-requisitos a seguir é necessários na ordem toofollow Olá etapas nes
 
    `/users/example/home/wingtiptoys/src/main/resources/application.properties`
 
-   ![Localize o arquivo de application.properties Olá][RE01]
+   ![Localize o arquivo application.properties][RE01]
 
-1. Olá abrir *application.properties* do arquivo em um editor de texto, adicione Olá arquivo toohello de linhas a seguir e substitua os valores de exemplo hello com propriedades de saudação apropriado para seu banco de dados:
+1. Abra o arquivo *application.properties* em um editor de texto e adicione as seguintes linhas ao arquivo, então substitua os valores de exemplo pelas propriedades adequadas para seu banco de dados:
 
    ```yaml
-   # Specify hello DNS URI of your Azure Cosmos DB.
+   # Specify the DNS URI of your Azure Cosmos DB.
    azure.documentdb.uri=https://wingtiptoys.documents.azure.com:443/
 
-   # Specify hello access key for your database.
+   # Specify the access key for your database.
    azure.documentdb.key=57686f6120447564652c20426f6220526f636b73==
 
-   # Specify hello name of your database.
+   # Specify the name of your database.
    azure.documentdb.database=wingtiptoysdata
    ```
 
-   ![Editando o arquivo de application.properties Olá][RE02]
+   ![Edição do arquivo application.properties][RE02]
 
-1. Salve e feche o hello *application.properties* arquivo.
+1. Salve e feche o arquivo *application.properties*.
 
-## <a name="add-sample-code-tooimplement-basic-database-functionality"></a>Adicionar a funcionalidade de banco de dados básicos de tooimplement de código de exemplo
+## <a name="add-sample-code-to-implement-basic-database-functionality"></a>Adicione o código de exemplo para implementar a funcionalidade básica de banco de dados
 
-Nesta seção você criará duas classes Java para armazenar dados de usuário e, em seguida, você pode modificar sua classe de aplicativo principal toocreate uma instância da classe de usuário hello e salvá-lo tooyour banco de dados.
+Nesta seção, você criará duas classes Java para armazenamento de dados de usuário e, em seguida, modificará sua classe de aplicativo principal para criar uma instância da classe de usuário e salvá-la no banco de dados.
 
 ### <a name="define-a-basic-class-for-storing-user-data"></a>Definir uma classe básica para armazenar dados do usuário
 
-1. Criar um novo arquivo denominado *User.java* em Olá mesmo diretório que o arquivo de Java do aplicativo principal.
+1. Criar um novo arquivo denominado *User.java* no mesmo diretório que o arquivo Java do seu aplicativo principal.
 
-1. Olá abrir *User.java* do arquivo em um editor de texto e adicione a seguinte Olá linhas toohello arquivo toodefine uma classe de usuário genérica que armazena e recupera os valores no banco de dados:
+1. Abra o arquivo *User.java* em um editor de texto e adicione as seguintes linhas ao arquivo para definir uma classe de usuário genérica que armazena e recupera valores no seu banco de dados:
 
    ```java
    package com.example.wingtiptoys;
@@ -202,13 +202,13 @@ Nesta seção você criará duas classes Java para armazenar dados de usuário e
    }
    ```
 
-1. Salve e feche o hello *User.java* arquivo.
+1. Salve e feche o arquivo *User.java*.
 
 ### <a name="define-a-data-repository-interface"></a>Defina uma interface de repositório de dados
 
-1. Criar um novo arquivo denominado *UserRepository.java* em Olá mesmo diretório que o arquivo de Java do aplicativo principal.
+1. Criar um novo arquivo denominado *UserRepository.java* no mesmo diretório que o arquivo Java do seu aplicativo principal.
 
-1. Olá abrir *UserRepository.java* do arquivo em um editor de texto e adicione a seguinte Olá linhas toohello arquivo toodefine uma interface de repositório do usuário que se estende a interface de repositório de documentos saudação padrão:
+1. Abra o arquivo *UserRepository.java* em um editor de texto e adicione as seguintes linhas ao arquivo para definir uma interface de repositório do usuário que estende a interface do repositório do DocumentDB:
 
    ```java
    package com.example.wingtiptoys;
@@ -220,11 +220,11 @@ Nesta seção você criará duas classes Java para armazenar dados de usuário e
    public interface UserRepository extends DocumentDbRepository<User, String> {}   
    ```
 
-1. Salve e feche o hello *UserRepository.java* arquivo.
+1. Salve e feche o arquivo *UserRepository.java*.
 
-### <a name="modify-hello-main-application-class"></a>Modificar a classe de aplicativo principal Olá
+### <a name="modify-the-main-application-class"></a>Modificar a classe principal do aplicativo
 
-1. Localizar arquivo de Java Olá principal do aplicativo no diretório do pacote de saudação do seu aplicativo; Por exemplo:
+1. Localize o arquivo Java do aplicativo principal no diretório do pacote do seu aplicativo. Por exemplo:
 
    `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
 
@@ -232,9 +232,9 @@ Nesta seção você criará duas classes Java para armazenar dados de usuário e
 
    `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
 
-   ![Localizar arquivo de Java do aplicativo hello][JV01]
+   ![Localize o arquivo Java do aplicativo][JV01]
 
-1. Abrir arquivo de Java Olá principal do aplicativo em um editor de texto e adicione Olá arquivo toohello de linhas a seguir:
+1. Abra o arquivo Java do aplicativo principal em um editor de texto e adicione as seguintes linhas ao arquivo:
 
    ```java
    package com.example.wingtiptoys;
@@ -267,11 +267,11 @@ Nesta seção você criará duas classes Java para armazenar dados de usuário e
    }
    ```
 
-1. Salve e feche o arquivo de Java Olá principal do aplicativo.
+1. Salve e feche o arquivo Java do aplicativo principal.
 
 ## <a name="build-and-test-your-app"></a>Crie e testar seu aplicativo
 
-1. Abra um prompt de comando e altere a pasta de toohello do diretório onde o *pom.xml* arquivo está localizado, por exemplo:
+1. Abra um prompt de comando e altere o diretório para a pasta em que seu arquivo *pom.xml* está localizado, por exemplo:
 
    `cd C:\SpringBoot\wingtiptoys`
 
@@ -286,41 +286,41 @@ Nesta seção você criará duas classes Java para armazenar dados de usuário e
    java -jar target/wingtiptoys-0.0.1-SNAPSHOT.jar
    ```
 
-1. O aplicativo exibirá várias mensagens de tempo de execução, e você verá uma mensagem de saudação `User: testFirstName testLastName` exibidas tooindicate valores foram armazenados e recuperados do banco de dados com êxito.
+1. Seu aplicativo exibirá várias mensagens de tempo de execução e você deverá ver a mensagem `User: testFirstName testLastName` exibida para indicar valores foram armazenados e recuperados com êxito do banco de dados.
 
-   ![Saída bem-sucedida de um aplicativo hello][JV02]
+   ![Saída bem-sucedida do aplicativo][JV02]
 
-1. OPCIONAL: Você pode usar Olá tooview portal do Azure Olá conteúdo de seu banco de dados do Azure Cosmos Olá na página de propriedades do banco de dados clicando em **Document Explorer**e, em seguida, selecionar e item de saudação do hello exibido lista tooview conteúdo.
+1. OPCIONAL: é possível usar o portal do Azure para exibir o conteúdo do Azure Cosmos DB na página de propriedades do seu banco de dados, bastando clicar em **Gerenciador de Documentos** e selecionando um item na lista para exibir o conteúdo.
 
-   ![Usando Olá Document Explorer tooview seus dados][JV03]
+   ![Como usar o Gerenciador de Documentos para exibir seus dados][JV03]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como usar o banco de dados do Azure Cosmos e Java, consulte Olá artigos a seguir:
+Para obter mais informações sobre como usar o Azure Cosmos DB e Java, consulte os seguintes artigos:
 
 * [Documentação do Azure Cosmos DB].
 
-* [Banco de dados do Azure do Cosmos: Criar um aplicativo de API de documentos com Java e Olá portal do Azure][Build a DocumentDB API app with Java]
+* [Azure Cosmos DB: crie um aplicativo de API do DocumentDB com Java e o portal do Azure][Build a DocumentDB API app with Java]
 
-Para obter mais informações sobre como usar aplicativos de inicialização Spring no Azure, consulte Olá artigos a seguir:
+Para obter mais informações sobre como usar aplicativos Spring Boot no Azure, confira os seguintes artigos:
 
 * [Iniciador do DocumenDB do Spring Boot para Azure](https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample)
 
-* [Implantar um toohello Spring aplicativo de inicialização do serviço de aplicativo do Azure](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+* [Implantar um aplicativo Spring Boot no Serviço de Aplicativo do Azure](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
 
-* [Executando um aplicativo de inicialização de Spring em um Cluster de Kubernetes hello Azure serviço de contêiner](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Executando um Aplicativo Spring Boot em um Cluster Kubernetes no Serviço de Contêiner do Azure](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
-Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure] e hello [ferramentas Java para o Visual Studio Team Services].
+Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
 
 <!-- URL List -->
 
 [Documentação do Azure Cosmos DB]: /azure/cosmos-db/
-[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
+[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
 [Build a DocumentDB API app with Java]: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-java
 [conta gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/
-[ferramentas Java para o Visual Studio Team Services]: https://java.visualstudio.com/
+[Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
 [benefício de assinante do MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring inicialização]: http://projects.spring.io/spring-boot/
+[Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 

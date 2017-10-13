@@ -8,25 +8,25 @@ Os recursos de VNETs (Redes Virtuais) e de sub-redes ajudam a definir um limite 
 
 ![VNet com várias sub-redes](./media/resource-groups-networking/Figure4.png)
 
-VNets conter Olá propriedades a seguir.
+As VNets contêm as propriedades a seguir.
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **addressSpace** |Coleção de prefixos de endereço que compõem a saudação rede virtual na notação CIDR |192.168.0.0/16 |
-| **sub-redes** |Coleção de sub-redes que compõem a saudação VNet |veja [sub-redes](#Subnets) abaixo. |
-| **ipAddress** |Endereço IP atribuído tooobject. Essa é uma propriedade somente leitura. |104.42.233.77 |
+| **addressSpace** |Coleção de prefixos de endereços que compõem a notação CIDR da VNet |192.168.0.0/16 |
+| **sub-redes** |Coleção de sub-redes que compõem a VNet |veja [sub-redes](#Subnets) abaixo. |
+| **ipAddress** |Endereço IP atribuído a um objeto. Essa é uma propriedade somente leitura. |104.42.233.77 |
 
 ### <a name="subnets"></a>Sub-redes
-Uma sub-rede é um recurso filho de uma VNet e ajuda a definir segmentos de espaços de endereços em um bloco CIDR, usando prefixos de endereços IP. As NICs podem ser adicionadas toosubnets e tooVMs conectado, fornecendo conectividade para várias cargas de trabalho.
+Uma sub-rede é um recurso filho de uma VNet e ajuda a definir segmentos de espaços de endereços em um bloco CIDR, usando prefixos de endereços IP. As NICs podem ser adicionadas a sub-redes e conectadas a VMs, fornecendo conectividade para diversas cargas de trabalho.
 
-Subredes contêm Olá propriedades a seguir. 
+As sub-redes contêm as propriedades a seguir. 
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
-| **addressPrefix** |Prefixo de endereço único que compõem a sub-rede de saudação na notação CIDR |192.168.1.0/24 |
-| **networkSecurityGroup** |Subrede toohello NSG aplicado |veja [NSGs](#Network-Security-Group) |
-| **routeTable** |Tabela de rotas aplicado toohello sub-rede |veja [UDR](#Route-table) |
-| **ipConfigurations** |Coleção de objetos de configuração IP usado pelo NICs conectados toohello sub-rede |veja [UDR](#Route-table) |
+| **addressPrefix** |Prefixo de endereço único que compõe a sub-rede na notação CIDR |192.168.1.0/24 |
+| **networkSecurityGroup** |NSG aplicado à sub-rede |veja [NSGs](#Network-Security-Group) |
+| **routeTable** |Tabela de rotas aplicada à sub-rede |veja [UDR](#Route-table) |
+| **ipConfigurations** |Coleção de objetos de configuração IP usada pelas NICs conectadas à sub-rede |veja [UDR](#Route-table) |
 
 Exemplo de VNet no formato JSON:
 
@@ -74,6 +74,6 @@ Exemplo de VNet no formato JSON:
 
 ### <a name="additional-resources"></a>Recursos adicionais
 * Obtenha mais informações sobre a [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Saudação de leitura [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) para VNets.
-* Saudação de leitura [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) para sub-redes.
+* Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) para obter VNets.
+* Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) para obter Sub-redes.
 

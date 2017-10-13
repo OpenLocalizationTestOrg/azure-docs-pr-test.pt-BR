@@ -1,6 +1,6 @@
 ---
-title: "aaaWriting expressões para mapeamentos de atributos no Active Directory do Azure | Microsoft Docs"
-description: "Saiba como toouse expressão mapeamentos tootransform valores de atributo em um formato aceitável durante o provisionamento automatizado de objetos de aplicativo SaaS no Azure Active Directory."
+title: "Escrevendo expressões para mapeamentos de atributo no Azure Active Directory | Microsoft Docs"
+description: "Aprenda a usar o mapeamentos de expressão para transformar valores de atributo em um formato aceitável durante o provisionamento automatizado de objetos de aplicativo SaaS no Active Directory do Azure."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: markvi
-ms.openlocfilehash: caa0dd8144f6e5279a869e015ed75bd24169d585
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
-Quando você configura o aplicativo de SaaS tooa provisionamento, um dos tipos de saudação de mapeamentos de atributos que você pode especificar é um mapeamento de expressões. Para isso, você deve gravar uma expressão como script que permite que você tootransform os dados dos usuários em formatos mais aceitáveis para o aplicativo de SaaS hello.
+Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
 
 ## <a name="syntax-overview"></a>Visão geral da sintaxe
-sintaxe de saudação para expressões para mapeamentos de atributos é Aplications do Visual Basic para funções Applications (VBA).
+A sintaxe de expressões para mapeamentos de atributos é semelhante à das funções de VBA (Visual Basic for Applications).
 
-* expressão inteira Olá deve ser definida em termos de funções, que consistem em um nome seguido por argumentos entre parênteses: <br>
+* A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses:  <br>
   *FunctionName(<<argument 1>>,<<argument N>>)*
 * Você pode aninhar funções dentro umas das outras. Por exemplo: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * Você pode passar três tipos diferentes de argumentos em funções:
@@ -33,7 +33,7 @@ sintaxe de saudação para expressões para mapeamentos de atributos é Aplicati
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo: "Estados Unidos"
   3. Outras funções. Por exemplo: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
-* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres hello, ela deverá ser substituída com o símbolo de barra invertida (\) hello. Por exemplo: "Nome da empresa: \"Contoso\""
+* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
 [Acrescentar](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Substitua](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
@@ -42,14 +42,14 @@ sintaxe de saudação para expressões para mapeamentos de atributos é Aplicati
 ### <a name="append"></a>Acrescentar
 **Função:**<br> Append(source, suffix)
 
-**Descrição:**<br> Usa um valor de cadeia de caracteres de origem e acrescenta Olá sufixo toohello final.
+**Descrição:**<br> seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo de saudação do objeto de origem Olá |
-| **suffix** |Obrigatório |Cadeia de caracteres |cadeia de caracteres de saudação que você deseja tooappend toohello final do valor de origem hello. |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,44 +61,44 @@ sintaxe de saudação para expressões para mapeamentos de atributos é Aplicati
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo de saudação do objeto de origem de saudação. |
-| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de origem hello. Para conhecer os formatos com suporte, confira [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída de hello. |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para conhecer os formatos com suporte, confira [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
 
 - - -
-### <a name="join"></a>Ingressar
+### <a name="join"></a>Join
 **Função:**<br> Join(separator, source1, source2, …)
 
-**Descrição:**<br> JOIN () é tooAppend() semelhante, exceto que pode combinar vários **fonte** valores de cadeia de caracteres em uma única cadeia de caracteres, e cada valor será separado por um **separador** cadeia de caracteres.
+**Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
 
-Se um dos valores de saudação de origem é um atributo com vários valores, todos os valores de atributo será o valor de separador de saudação Unidos juntos, separados.
+Se um dos valores de source for um atributo com vários valores, todos os valores nesse atributo serão unidos, separados pelo valor de separator.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada tooseparate valores de origem quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres toobe unida. |
+| **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+| **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
 
 - - -
 ### <a name="mid"></a>Mid
 **Função:**<br> Mid(source, start, length)
 
-**Descrição:**<br> Retorna uma subcadeia de caracteres do valor de origem hello. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres de saudação de cadeia de caracteres de origem hello.
+**Descrição:**<br> retorna uma subcadeia de caracteres do valor de source. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres da cadeia de caracteres de source.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo de saudação. |
-| **iniciar** |Obrigatório |inteiro |Índice em Olá **fonte** cadeia de caracteres onde a subcadeia de caracteres deve começar. Primeiro caractere na cadeia de caracteres hello terá o índice de 1, o segundo caractere de índice 2 e assim por diante. |
-| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres de saudação. Se o comprimento terminar Olá fora **fonte** cadeia de caracteres, a função retornará a subcadeia de caracteres de **iniciar** índice até o final da **fonte** cadeia de caracteres. |
+| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
+| **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 - - -
 ### <a name="not"></a>não
 **Função:**<br> Not(source)
 
-**Descrição:**<br> Inverte Olá valor booliano da saudação **fonte**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
+**Descrição:**<br> Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
 **Parâmetros:**<br> 
 
@@ -111,65 +111,65 @@ Se um dos valores de saudação de origem é um atributo com vários valores, to
 **Função:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrição:**<br>
-substitui valores dentro de uma cadeia de caracteres. Funciona de forma diferente dependendo parâmetros Olá fornecidos:
+substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
-  * Substitui todas as ocorrências de oldValue na fonte de saudação com valor de substituição
+  * Substitui todas as ocorrências de oldValue em source por replacementValue
 * Quando **oldValue** e **template** são fornecidos:
   
-  * Substitui todas as ocorrências de saudação **oldValue** em Olá **modelo** com hello **fonte** valor
+  * Substitui todas as ocorrências de **oldValue** em **template** com o valor de **source**
 * Quando **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementValue** são fornecidos:
   
-  * Substitui todos os valores correspondentes oldValueRegexPattern na cadeia de caracteres de origem de saudação com valor de substituição
+  * Substitui todos os valores que correspondem a oldValueRegexPattern na cadeia de caracteres de source por replacementValue
 * Quando **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementPropertyName** são fornecidos:
   
   * Se **source** tiver um valor, **source** será retornado
-  * Se **fonte** não tem nenhum valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** tooextract o valor de substituição da propriedade Olá com  **replacementPropertyName**. Valor de substituição é retornado como resultado de saudação
+  * Se **source** não tiver um valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo de saudação do objeto de origem de saudação. |
-| **oldValue** |Opcional |Cadeia de caracteres |Valor toobe substituído no **fonte** ou **modelo**. |
-| **regexPattern** |Opcional |Cadeia de caracteres |Padrão regex para Olá valor toobe substituído no **fonte**. Ou, quando replacementPropertyName é usado, tooextract o valor da propriedade de substituição de padrões. |
-| **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo de saudação dentro de **regexPattern**. Somente quando replacementPropertyName for usado, extrairemos o valor desse grupo como replacementValue da propriedade de substituição. |
-| **replacementValue** |Opcional |Cadeia de caracteres |Novo valor tooreplace antigo com. |
-| **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome da saudação atributo toobe usado para o valor de substituição, quando a origem não tem nenhum valor. |
-| **template** |Opcional |Cadeia de caracteres |Quando **modelo** valor for fornecido, será procurado **oldValue** Olá modelo dentro e substituí-lo com o valor de origem. |
+| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
+| **regexPattern** |Opcional |Cadeia de caracteres |Padrão de Regex para o valor a ser substituído em **source**. Ou, quando replacementPropertyName for usado, o padrão para extrair o valor da propriedade de substituição. |
+| **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando replacementPropertyName for usado, extrairemos o valor desse grupo como replacementValue da propriedade de substituição. |
+| **replacementValue** |Opcional |Cadeia de caracteres |Novo valor com o qual substituir um antigo. |
+| **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome do atributo a ser usado para o valor de substituição quando source não tiver nenhum valor. |
+| **template** |Opcional |Cadeia de caracteres |Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de source. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
 **Função:**<br> StripSpaces(source)
 
-**Descrição:**<br> Remove todo o espaço ("") cadeia de caracteres de saudação da fonte.
+**Descrição:**<br> remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |**origem** tooupdate de valor. |
+| **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
 
 - - -
 ### <a name="switch"></a>Switch
 **Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. função Hello sempre espera um número par de parâmetros.
+**Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros.
 
 **Parâmetros:**<br> 
 
 | Nome | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |**Origem** tooupdate de valor. |
-| **defaultValue** |Opcional |Cadeia de caracteres |Toobe de valor padrão usado quando a origem não corresponde a nenhuma chave. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Obrigatório |Cadeia de caracteres |**Chave** toocompare **fonte** valor com. |
-| **valor** |Obrigatório |Cadeia de caracteres |Valor de substituição para Olá **fonte** chave Olá correspondente. |
+| **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
+| **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
+| **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **valor** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
-É necessário toostrip um nome de domínio conhecido do tooobtain de email do usuário um nome de usuário. <br>
-Por exemplo, se o domínio de saudação for "contoso.com", você pode usar Olá expressão a seguir:
+Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário. <br>
+Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
 
 **Expressão:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -179,8 +179,8 @@ Por exemplo, se o domínio de saudação for "contoso.com", você pode usar Olá
 * **INPUT** (mail): "john.doe@contoso.com"
 * **SAÍDA**: "davi.barros"
 
-### <a name="append-constant-suffix-toouser-name"></a>Acrescentar sufixo constante toouser nome
-Se você estiver usando uma área restrita do Salesforce, talvez seja necessário tooappend tooall um sufixo adicional seus nomes de usuário antes de sincronizá-los.
+### <a name="append-constant-suffix-to-user-name"></a>Acrescentar sufixo constante ao nome de usuário
+Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescentar um sufixo adicional a todos os nomes de usuário antes de sincronizá-los.
 
 **Expressão:** <br>
 `Append([userPrincipalName], ".test"))`
@@ -191,7 +191,7 @@ Se você estiver usando uma área restrita do Salesforce, talvez seja necessári
 * **OUTPUT**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias de usuário concatenando partes do nome e do sobrenome
-É necessário toogenerate um alias do usuário realizando primeiro 3 letras do nome do usuário e 5 primeiras letras do sobrenome do usuário.
+Você precisa gerar um alias de usuário selecionando as três primeiras letras do nome do usuário e as cinco primeiras letras do sobrenome do usuário.
 
 **Expressão:** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
@@ -203,8 +203,8 @@ Se você estiver usando uma área restrita do Salesforce, talvez seja necessári
 * **SAÍDA**: "DaviBarros"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
-Deseja que o aplicativo de SaaS de tooa toosend datas em um determinado formato. <br>
-Por exemplo, você deseja tooformat datas para ServiceNow.
+Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br>
+Por exemplo, você deseja formatar datas para o ServiceNow.
 
 **Expressão:** <br>
 
@@ -216,8 +216,8 @@ Por exemplo, você deseja tooformat datas para ServiceNow.
 * **SAÍDA**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
-Você precisa de fuso horário Olá toodefine do usuário de saudação com base no código de estado de saudação armazenado no AD do Azure. <br>
-Se o código de estado de saudação não corresponde a qualquer uma das opções de saudação predefinida, use o valor padrão de "Austrália/Sydney".
+Você precisa definir o fuso horário do usuário com base no código de estado armazenado no AD do Azure. <br>
+Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
 
 **Expressão:** <br>
 
@@ -230,10 +230,10 @@ Se o código de estado de saudação não corresponde a qualquer uma das opçõe
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Automatizar o provisionamento de usuário/desprovisionamento tooSaaS aplicativos](active-directory-saas-app-provisioning.md)
+* [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
 * [Personalizando os mapeamentos de atributos para provisionamento de usuários](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
-* [Usando SCIM o provisionamento automático tooenable de usuários e grupos do Active Directory do Azure tooapplications](active-directory-scim-provisioning.md)
+* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 

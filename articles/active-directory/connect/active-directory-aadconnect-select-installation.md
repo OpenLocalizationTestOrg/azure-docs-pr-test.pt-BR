@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Selecionar o tipo de instalação | Microsoft Docs"
-description: "Este tópico o orienta como instalação de saudação tooselect digite toouse para conexão do AD do Azure"
+description: "Este tópico explica como selecionar o tipo de instalação para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,62 +14,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a700e59eb05947ee1dbd9993141200c9340b2f1e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="select-which-installation-type-toouse-for-azure-ad-connect"></a>Selecione quais toouse do tipo de instalação para o Azure AD Connect
-O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico Ajuda toodecide qual opção toouse durante a instalação.
+# <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
+O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
 
 ## <a name="express"></a>Express
-Express é a opção mais comum de saudação e é usado por cerca de 90% de todas as novas instalações. Foi projetado tooprovide uma configuração que funciona para cenários mais comuns de cliente hello.
+Expressa é a opção mais comum e é usada por cerca de 90% de todas as novas instalações. Ela foi projetada para fornecer uma configuração que funcione para os cenários mais comuns dos clientes.
 
 Ela pressupõe que:
 
 - Você tem uma única floresta local do Active Directory.
-- Você tem uma conta de administrador corporativo que você pode usar para a instalação de saudação.
+- Você tem uma conta de administrador corporativo que pode usar para a instalação.
 - Há menos de 100.000 objetos em seu Active Directory local.
 
 Você recebe:
 
-- [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) do local tooAzure AD para logon único.
+- [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) do local para o Azure AD para logon único.
 - Uma configuração que sincroniza [usuários, grupos, contatos e computadores com Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Sincronização de todos os objetos qualificados em todos os domínios e em todas as UOs.
-- [A atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) é habilitado toomake-se de que você sempre use a versão mais recente disponível de saudação.
+- A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada para garantir que você use sempre a versão mais recente disponível.
 
 Opções onde ainda é possível usar a Expressa:
 
-- Se você não quiser toosynchronize todas as UOs, você ainda pode usar o Express e na última página de hello, desmarque **iniciar o processo de sincronização hello...** *. Em seguida, execute novamente o Assistente de instalação de saudação e alterar Olá OUs [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e habilitar a sincronização agendada.
-- Você deseja tooenable um dos recursos de saudação do Azure AD Premium, como write-back de senha. Passam primeiro pelo tooget express saudação inicial a instalação foi concluída. Em seguida, execute novamente o Assistente de instalação hello e alterar Olá [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
+- Se você não quiser sincronizar todas as UOs, ainda será possível usar a Expressa e, na última página, desmarcar **Iniciar o processo de sincronização...** . Em seguida, execute novamente o assistente de instalação e altere as UOs em [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e habilite a sincronização agendada.
+- Convém habilitar um dos recursos no Azure AD Premium, como Write-back de Senha. Primeiro, use Expressa para concluir a instalação inicial. Em seguida, execute novamente o assistente de instalação e altere as [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado
-caminho personalizado Olá permite que muitos mais opções do express. Ele deve ser usado em todos os casos em que a configuração de saudação descrita na seção anterior para express não é representativa para sua organização.
+O caminho personalizado permite muito mais opções do que a Expressa. Ele deve ser usado em todos os casos nos quais a configuração descrita na seção anterior para Expressa não é representativa para sua organização.
 
 Use quando:
 
-- Você não tem a conta de administrador do acesso tooan enterprise no Active Directory.
-- Você tem mais de uma floresta ou planejar toosynchronize mais de uma floresta em Olá futuras.
-- Você tiver domínios na floresta não pode ser acessada do servidor de conectar hello.
-- Planejar toouse federação ou autenticação de passagem de entrada do usuário.
-- Você tem mais de 100.000 objetos e precisa toouse um completo do SQL Server.
-- Planejar toouse a filtragem baseada em grupo e não apenas domínio ou filtragem baseada em unidade Organizacional.
+- Você não tiver acesso a uma conta de administrador de empresa no Active Directory.
+- Você tiver mais de uma floresta, ou planejar sincronizar mais de uma floresta no futuro.
+- Houver domínios em sua floresta que não podem ser acessados pelo servidor do Connect.
+- Você planejar usar a federação ou autenticação de passagem para entrada do usuário.
+- Houver mais de 100.000 objetos e você precisar usar um SQL Server completo.
+- Você planeja usar a filtragem baseada em grupo e não apenas a filtragem baseada em domínio ou unidade organizacional.
 
-## <a name="upgrade-from-dirsync"></a>Atualização do DirSync
-Se você estiver usando o DirSync, siga etapas Olá [atualizar do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) tooupgrade sua configuração existente. Há duas opções de atualização diferentes:
+## <a name="upgrade-from-dirsync"></a>Atualizar do DirSync
+Se você estiver usando o DirSync, execute as etapas em [Atualizar do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) para atualizar sua configuração existente. Há duas opções de atualização diferentes:
 
-- Tooinstall atualização in-loco se conectar em Olá mesmo servidor.
-- Paralelo implantação tooinstall conectar em um novo servidor, enquanto o servidor DirSync existente de saudação ainda está operacional.
+- Atualização in-loco para instalação do Connect no mesmo servidor.
+- Implantação paralela para instalação do Connect em um novo servidor, enquanto o servidor DirSync existente ainda está em operação.
 
 ## <a name="upgrade-from-azure-ad-sync"></a>Atualização do Azure AD Sync
-Se você estiver usando sincronização do AD do Azure, você pode seguir Olá [mesmas etapas](active-directory-aadconnect-upgrade-previous-version.md) como quando você atualiza de uma conexão versão tooa mais recente. Há duas opções de atualização diferentes:
+Se você estiver usando o Azure AD Sync, poderá executar as [mesmas etapas](active-directory-aadconnect-upgrade-previous-version.md) usadas durante a atualização de uma versão do Connect para uma versão mais recente. Há duas opções de atualização diferentes:
 
-- Tooinstall atualização in-loco se conectar em Olá mesmo servidor.
-- Migração de giro tooinstall conectar em um novo servidor ao servidor de sincronização do AD do Azure existente Olá ainda está operacional.
+- Atualização in-loco para instalação do Connect no mesmo servidor.
+- Migração de balanço (Swing-migration) para instalação do Connect em um novo servidor, enquanto o servidor Azure AD Sync existente ainda está em operação.
 
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrar do FIM2010 ou MIM2016
-Se atualmente você estiver usando o Forefront Identity Manager 2010 ou o Microsoft Identity Manager 2016 com hello conector AD do Azure, sua única opção é uma migração. Execute as etapas de saudação descritas em [movimento migração](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). Nas etapas hello, substitua mencionar do Azure AD Sync FIM2010/MIM2016.
+Se você estiver usando o Forefront Identity Manager 2010 ou o Microsoft Identity Manager 2016 com o Azure AD Connector, sua única opção será uma migração. Execute as etapas descritas em [migração de balanço (swing-migration)](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). Nas etapas, substitua qualquer menção ao Azure AD Sync por FIM2010/MIM2016.
 
 ## <a name="next-steps"></a>Próximas etapas
-Dependendo da opção de saudação selecionado toouse, use a tabela de saudação do toofind esquerdo toohello conteúdo seu artigo com hello etapas detalhadas.
+Dependendo da opção selecionada, use o índice à esquerda para localizar o artigo com as etapas detalhadas.

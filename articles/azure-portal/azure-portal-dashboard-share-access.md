@@ -1,6 +1,6 @@
 ---
-title: "aaaShare Azure painéis de portal usando o RBAC | Microsoft Docs"
-description: "Este artigo explica como tooshare um painel no hello portal do Azure usando o controle de acesso baseado em função."
+title: "Compartilhar painéis do Portal do Azure usando RBAC | Microsoft Docs"
+description: "Este artigo explica como compartilhar um painel no portal do Azure usando o Controle de Acesso Baseado em Função."
 services: azure-portal
 documentationcenter: 
 author: tfitzmac
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: b12f9f8582596ee14aa8bfdfb4772cc139e3bf45
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
-Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permitir que outras pessoas tooview seu painel usando o Azure [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md). Atribuir um usuário ou grupo de função tooa dos usuários, e essa função define se os usuários podem exibir ou modificar Olá publicados no painel. 
+Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permita que outras pessoas vejam seu painel usando o [Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-configure.md) do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 
 
 Todos os painéis publicados são implementados como recursos do Azure, o que significa que eles existem como itens gerenciáveis dentro de sua assinatura e estão contidos em um grupo de recursos.  Do ponto de vista do controle de acesso, os painéis não são diferentes de outros recursos, como uma máquina virtual ou uma conta de armazenamento.
 
 > [!TIP]
-> Blocos individuais no painel de saudação impõem seus próprios requisitos de controle de acesso com base nos recursos de saudação que elas sejam exibidas.  Portanto, você pode criar um painel que é compartilhado amplamente ainda proteger dados de saudação em blocos individuais.
+> Blocos individuais no painel impõem seus próprios requisitos de controle de acesso com base nos recursos que exibem.  Portanto, você pode criar um painel que é compartilhado amplamente e ainda proteger os dados em blocos individuais.
 > 
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>Noções básicas de controle de acesso de painéis
-Com o controle de acesso baseado em função (RBAC), você pode atribuir usuários tooroles em três diferentes níveis de escopo:
+Com o RBAC (Controle de Acesso Baseado em Função), você pode atribuir usuários a funções em três níveis de escopo diferentes:
 
 * subscription
 * grupo de recursos
 * recurso
 
-permissões de saudação que atribuir são herdadas de assinatura para baixo toohello recursos. Olá publicados no painel é um recurso. Portanto, você talvez já tenha tooroles usuários atribuídos para a assinatura de saudação que também funcionam para Olá publicados no painel. 
+As permissões atribuídas são herdadas da assinatura até o recurso. O painel publicado é um recurso. Portanto, você já pode ter os usuários atribuídos a funções da assinatura que também funcionam para o painel publicado. 
 
-Aqui está um exemplo.  Digamos que você tem uma assinatura do Azure e vários membros da equipe tiverem sido atribuídos a funções de saudação do **proprietário**, **Colaborador**, ou **leitor** para assinatura de saudação. Os usuários que são proprietários ou colaboradores são capaz de toolist, exibir, criar, modificar ou excluir painéis em assinatura hello.  Os usuários que são leitores são capaz de toolist e exibir os painéis, mas não podem modificar ou excluí-los.  Os usuários com acesso de leitor estão toomake capaz de edições locais tooa publicados no painel (como, ao solucionar um problema), mas não é possível toopublish server de back toohello essas alterações.  Eles terão Olá opção toomake uma cópia privada de painel Olá para si mesmos
+Aqui está um exemplo.  Digamos que você tenha uma assinatura do Azure e vários membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura. Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura.  Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los.  Os usuários com acesso de leitor podem fazer edições locais em um painel publicado (por exemplo, ao solucionar um problema), mas não podem publicar essas alterações no servidor.  Eles terão a opção de fazer uma cópia privada do painel para uso pessoal.
 
-No entanto, você também pode atribuir o grupo de recursos de toohello de permissões que contém vários painéis ou tooan individual do painel. Por exemplo, você pode decidir que um grupo de usuários deve ter permissões limitadas em assinatura Olá mas maior painel específico tooa de acesso. Você atribui a função de tooa esses usuários para esse painel. 
+No entanto, você também pode atribuir permissões ao grupo de recursos que contém vários painéis ou a um painel individual. Por exemplo, você pode decidir que um grupo de usuários deve ter permissões limitadas na assinatura, mas um maior acesso a um painel específico. Você pode atribuir os usuários a uma função desse painel. 
 
 ## <a name="publish-dashboard"></a>Publicar painel
-Vamos supor que você terminar de configurar um painel que você deseja tooshare com um grupo de usuários em sua assinatura. etapas de saudação abaixo descrevem um grupo personalizado chamado gerenciadores de armazenamento, mas você pode nomear o grupo como desejar. Para obter informações sobre como criar um grupo do Active Directory e adicionar usuários toothat grupo, consulte [gerenciar grupos no Active Directory do Azure](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Vamos supor que você concluiu a configuração de um painel que deseja compartilhar com um grupo de usuários em sua assinatura. As etapas a seguir descrevem um grupo personalizado chamado Gerentes de Armazenamento, mas você pode dar o nome que quiser ao grupo. Para obter informações sobre como criar um grupo do Active Directory e adicionar usuários a ele, confira [Gerenciar grupos no Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. No painel de saudação, selecione **compartilhamento**.
+1. No painel, selecione **Compartilhar**.
    
      ![selecionar compartilhamento](./media/azure-portal-dashboard-share-access/select-share.png)
-2. Antes de atribuir acesso, você deve publicar painel hello. Por padrão, painel Olá será chamado de grupo de recursos publicados tooa **painéis**. Selecione **Publicar**.
+2. Antes de atribuir acesso, você deve publicar o painel. Por padrão, o painel será publicado em um grupo de recursos denominado **painéis**. Selecione **Publicar**.
    
      ![Publicar](./media/azure-portal-dashboard-share-access/publish.png)
 
-Seu painel agora foi publicado. Se permissões Olá herdadas de assinatura de saudação são adequadas, não é necessário toodo nada mais. Outros usuários na sua organização serão capaz de tooaccess e modificar o painel de saudação com base em suas funções de nível de assinatura. No entanto, para este tutorial, vamos atribuir um grupo de função tooa dos usuários para esse painel.
+Seu painel agora foi publicado. Se as permissões herdadas da assinatura são adequadas, você não precisa fazer mais nada. Outros usuários na sua organização poderão acessar e modificar o painel com base em suas funções no nível da assinatura. No entanto, para este tutorial, vamos atribuir um grupo de usuários a uma função desse painel.
 
-## <a name="assign-access-tooa-dashboard"></a>Atribuir o painel de controle do acesso tooa
-1. Depois de publicar o painel hello, selecione **gerenciar usuários**.
+## <a name="assign-access-to-a-dashboard"></a>Atribuir acesso a um painel
+1. Depois de publicar o painel, selecione **Gerenciar usuários**.
    
-     ![gerenciar usuários](./media/azure-portal-dashboard-share-access/manage-users.png)
-2. Você verá uma lista de usuários existentes que já estão atribuídos a uma função desse painel. A lista de usuários existentes será diferente de imagem de saudação abaixo. Provavelmente, atribuições de saudação são herdadas da assinatura de saudação. tooadd um novo usuário ou grupo, selecione **adicionar**.
+     ![Gerenciar usuários](./media/azure-portal-dashboard-share-access/manage-users.png)
+2. Você verá uma lista de usuários existentes que já estão atribuídos a uma função desse painel. A lista de usuários existentes será diferente da imagem abaixo. É provável que as atribuições sejam herdadas da assinatura. Para adicionar um novo usuário ou grupo, selecione **Adicionar**.
    
      ![adicionar usuário](./media/azure-portal-dashboard-share-access/existing-users.png)
-3. Selecione a função de saudação que representa as permissões de saudação você gostaria que toogrant. Neste exemplo, selecione **Colaborador**.
+3. Selecione a função que representa as permissões que você deseja conceder. Neste exemplo, selecione **Colaborador**.
    
      ![escolher função](./media/azure-portal-dashboard-share-access/select-role.png)
-4. Selecione o usuário hello ou grupo que você deseja tooassign toohello função. Se você não vir usuário Olá ou grupo que você está procurando na lista de hello, use a caixa de pesquisa de saudação. A lista de grupos disponíveis dependem grupos Olá que você criou no seu Active Directory.
+4. Selecione o usuário ou grupo que você deseja atribuir à função. Se você não vir o usuário ou grupo que está procurando na lista, use a caixa de pesquisa. A lista de grupos disponíveis dependerá dos grupos que você criou no Active Directory.
    
      ![selecionar usuário](./media/azure-portal-dashboard-share-access/select-user.png) 
 5. Quando você terminar de adicionar usuários ou grupos, selecione **OK**. 
-6. nova atribuição de saudação é adicionada toohello lista de usuários. Observe que seu **Acesso** é listado como **Atribuído**, em vez de **Herdado**.
+6. A nova atribuição é adicionada à lista de usuários. Observe que seu **Acesso** é listado como **Atribuído**, em vez de **Herdado**.
    
      ![funções atribuídas](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma lista de funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
-* toolearn sobre o gerenciamento de recursos, consulte [recursos de gerenciamento Azure por meio do portal](resource-group-portal.md).
+* Para saber sobre como gerenciar recursos, consulte [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
 

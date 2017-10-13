@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Interface de usuário do Mobile Engagement - página inicial"
-description: Saiba como toomanage seu aplicativo existente e projetos usando o Azure Mobile Engagement
+title: "Interface de usuário do Azure Mobile Engagement - Página inicial"
+description: Saiba como gerenciar seus aplicativos e projetos existentes usando o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 727dad188c5876d09db84634a17e10b280039c49
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-your-existing-application-and-projects"></a>Como toomanage seus projetos e um aplicativo existente
-Este artigo descreve Olá **início** página de saudação **Mobile Engagement** portal. Use Olá **Mobile Engagement** toomonitor portal e gerenciar seus aplicativos móveis. Observe que toostart usando o portal de saudação toocreate primeiro é necessário um **do Azure Mobile Engagement** conta. 
+# <a name="how-to-manage-your-existing-application-and-projects"></a>Como gerenciar seus aplicativos e projetos existentes
+Este artigo descreve a página **Início** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . 
 
-home page do tooget toohello, clique em **inicial** em Olá superior esquerda da página de saudação. Ele contém a lista de saudação de todos os aplicativos que fazem parte da saudação escolhida coleção. Nesta página tem-se uma visão geral de seus aplicativos.
+Para acessar a página inicial, clique em **Inicial** na parte superior esquerda da página. Ela contém a lista de todos os aplicativos que fazem parte da coleção escolhida. Nesta página tem-se uma visão geral de seus aplicativos.
 
-home page do Hello também contém todos os projetos que podem incluir qualquer aplicativo que está em sua conta. Observe que qualquer pessoa pode acessar Olá home page de saudação da interface do usuário ao criar uma conta, mas você precisa de usuários de tooother toogrant permissão para que eles acesso toohave aplicativos personalizados de tooyour em **meus projetos**.
+A página inicial também contém todos os seus projetos que podem incluir quaisquer aplicativos que estejam em sua conta. Observe que qualquer pessoa pode acessar a página inicial da interface do usuário ao criar uma conta, mas você precisa conceder permissão aos outros usuários para que tenham acesso aos seus aplicativos personalizados em **Meus projetos**.
 
-Você também pode exibir o gráfico de comparação de saudação para aplicativos de saudação selecionado. Ou então, escolher o gráfico de comparação de saudação tooview para aplicativos selecionados em um projeto.
+Você também pode exibir o gráfico de comparação para os aplicativos selecionados. Ou optar por exibir o gráfico de comparação para os aplicativos selecionados em um projeto.
 
 ![Home1][0]
 
 ## <a name="my-applications"></a>Meus aplicativos
-Hello visão geral de aplicativos permite que você tooselect quais aplicativos você gostaria que tooopen tooview Olá detalhadas opções de faixa de opções. Clique em nome de saudação do seu local de faixa de opções do aplicativo tooreturn toohello mais recentemente visitado em seu aplicativo ou clique toogo de ícone de engrenagem Olá diretamente toohello a página "Configurações" do seu aplicativo. Você pode pesquisar, filtrar ou classificar Olá informações exibidas em aplicativos Olá tabelas. Você também pode arrastar e soltar ordem de Olá Olá coluna cabeçalhos toochange.
+A visão geral rápida dos seus aplicativos permite selecionar quais aplicativos você gostaria de abrir para exibir a faixa de opções detalhada. Você pode clicar no nome do seu aplicativo para retornar para o local da faixa de opções visitado recentemente em seu aplicativo ou clicar no ícone de engrenagem para ir diretamente para a página “Configurações” do seu aplicativo. Você pode pesquisar, filtrar ou classificar as informações exibidas nas tabelas de aplicativos. Você também pode arrastar e soltar os cabeçalhos de coluna para alterar a ordem.
 
-Entre outras coisas, visão geral de saudação de seus aplicativos inclui:
+Entre outras coisas, a visão geral dos seus aplicativos inclui:
 
-* **Tendência de novos usuários**: evolução de novos usuários nas duas últimas semanas de saudação.
-* **Usuários ativos**: número de usuários ativos nos últimos 30 dias do hello.
-* **Tendência de usuários ativos**: evolução de usuários ativos nas duas últimas semanas de saudação.
-* **Sessões**: uma sessão é um uso de aplicativo hello executado por um usuário, do tempo de saudação usuário Olá começará a usá-lo, até que o usuário Olá para.
-* **Tendências de sessão**: evolução de sessões ao longo de saudação duas últimas semanas.
+* **Nova tendência de usuários**: evolução de novos usuários nas últimas duas semanas.
+* **Usuários ativos**: número de usuários ativos nos últimos 30 dias.
+* **Tendência de usuários ativos**: evolução de usuários ativos nas últimas duas semanas.
+* **Sessões**: uma sessão é um uso do aplicativo executado por um usuário, desde o momento em que ele começa a usá-lo até quando ele para.
+* **Tendências de sessão**: evolução de sessões nas duas últimas semanas.
 
-Depois que você clica em um aplicativo, você pode iniciar o monitoramento e gerenciamento de seus aplicativos por meio de saudação da interface do usuário. Por exemplo:    
+Após clicar em um aplicativo, você pode começar a monitorar e gerenciar seus aplicativos por meio da interface do usuário. Por exemplo:    
 
 * [Monitorar dados em tempo real sobre o seu aplicativo](mobile-engagement-user-interface-monitor.md)
 * [Analisar dados históricos sobre seu aplicativo](mobile-engagement-user-interface-analytics.md)
-* [Criar e gerenciar os segmentos de padrões de uso de tooidentify de usuários](mobile-engagement-user-interface-segments.md)
-* [Alcançar toohello usuários de seu aplicativo com notificações por push](mobile-engagement-user-interface-reach.md)
+* [Criar e gerenciar segmentos de usuários para identificar padrões de uso](mobile-engagement-user-interface-segments.md)
+* [Entrar em contato com os usuários do seu aplicativo com notificações por push](mobile-engagement-user-interface-reach.md)
 
 ## <a name="my-projects"></a>Meus projetos
-Você pode usar projetos toogroup seus aplicativos e conceder permissões tooother usuários tooaccess seus aplicativos. Você conceder permissões de usuários tooother fornecendo o endereço de email. Olá **novo projeto** botão permite toocreate um novo projeto inserindo apenas "name" e "Descrição" do novo projeto. Quando um projeto é criado, você pode clicar em Olá projeto tooedit Olá nome e descrição do produto e tooselect todos os aplicativos de saudação desejado toosee neste projeto.
+Você pode usar os projetos para agrupar seus aplicativos e conceder permissões a outros usuários para que acessem seus aplicativos. Conceder permissões a outros usuários disponibilizando o endereço de e-mail. O botão de **Novo projeto** permite que você crie um novo projeto, inserindo apenas um “nome” e uma “descrição” do novo projeto. Quando um projeto é criado, você pode clicar no nome do projeto para editar o nome e a descrição do produto e selecionar todos os aplicativos que você deseja ver neste projeto.
 
 ![Home6][60]
 
 As funções incluem:
 
-* **Visualizador**: um visualizador é um usuário que pode somente exibir hello aplicativos associados tooa projeto. Um Visualizador pode acessar os dados da análise e monitoramento e examinar os resultados de Reach. Um Visualizador não pode alterar qualquer informação, nem gerenciar Aplicativos ou Usuários. Um Visualizador não pode criar ou alterar o status da campanha Reach.
+* **Visualizador**: Um Visualizador é um usuário que só pode visualizar os aplicativos associados a um Projeto. Um Visualizador pode acessar os dados da análise e monitoramento e examinar os resultados de Reach. Um Visualizador não pode alterar qualquer informação, nem gerenciar Aplicativos ou Usuários. Um Visualizador não pode criar ou alterar o status da campanha Reach.
 * **Desenvolvedor**: Um Desenvolvedor é um usuário que pode fazer tudo que um Visualizador pode fazer, bem como gerenciar Aplicativos. Um Desenvolvedor pode ativar e desativar aplicativos, alterar informações de aplicativos (como o pacote e assinatura) e criar campanhas Reach. Um Desenvolvedor não pode gerenciar Usuários.
-* **Administrador**: Um Administrador é um usuário que pode fazer tudo o que um Desenvolvedor pode fazer, bem como gerenciar Usuários. Um administrador pode convidar usuários toojoin um projeto, poderá alterar as funções de usuário e pode alterar as informações do projeto. Permissões de nível de aplicativo também podem ser definidas em “configurações”.
+* **Administrador**: Um Administrador é um usuário que pode fazer tudo o que um Desenvolvedor pode fazer, bem como gerenciar Usuários. Administrador: Um Administrador pode convidar usuários para ingressar em um projeto, pode alterar as funções de usuário e pode alterar informações do projeto. Permissões de nível de aplicativo também podem ser definidas em “configurações”.
 
-Clique em um projeto tooview todos os aplicativos de saudação que fazem parte deste projeto. Olá a imagem a seguir mostra o gráfico de comparação de saudação para aplicativos de saudação selecionado.
+Clique em um projeto para exibir todos os aplicativos que fazem parte deste projeto. A imagem a seguir exibe o gráfico de comparação para os aplicativos selecionados.
 
 ![Home2][3]
 

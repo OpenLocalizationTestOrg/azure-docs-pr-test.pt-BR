@@ -1,5 +1,5 @@
 ---
-title: "configurações de FabricTransport aaaChange no Azure microservices | Microsoft Docs"
+title: "Alterar as configurações de FabricTransport nos microsserviços do Azure | Microsoft Docs"
 description: "Saiba como definir as configurações de comunicação de ator do Azure Service Fabric."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e312b475407eb95a435b93d80c0f2e9618b9ea1f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir as configurações de FabricTransport para os Reliable Actors
 
-Aqui estão as configurações de saudação que você pode configurar:
+Aqui estão as configurações que você pode configurar:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
-Você pode modificar a configuração padrão de saudação do FabricTransport maneiras a seguir.
+Modifique a configuração padrão de FabricTransport das seguintes maneiras.
 
 ## <a name="assembly-attribute"></a>Atributo de assembly
 
-Olá [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) atributo precisa toobe aplicado em assemblies de serviço Olá ator cliente e ator.
+O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) precisa ser aplicado no cliente do ator e nos assemblies do serviço de ator.
 
-saudação de exemplo a seguir mostra como toochange Olá valor padrão de FabricTransport OperationTimeout configurações:
+O exemplo a seguir mostra como alterar o valor padrão das configurações OperationTimeout do FabricTransport:
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -49,11 +49,11 @@ saudação de exemplo a seguir mostra como toochange Olá valor padrão de Fabri
 
 ## <a name="config-package"></a>Pacote de configuração
 
-Você pode usar um [pacote de configuração](service-fabric-application-model.md) configuração do toomodify saudação padrão.
+Você pode usar um [pacote de configuração](service-fabric-application-model.md) para modificar a configuração padrão.
 
-### <a name="configure-fabrictransport-settings-for-hello-actor-service"></a>Definir configurações de FabricTransport para serviço de ator Olá
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Definir as configurações do FabricTransport para o serviço de ator
 
-Adicione uma seção TransportSettings no arquivo settings.xml de saudação.
+Adicione uma seção TransportSettings no arquivo settings.xml.
 
 Por padrão, o código do ator procura SectionName como "&lt;ActorName&gt;TransportSettings". Se isso não for encontrado, ele procurará SectionName como "TransportSettings".
 
@@ -72,9 +72,9 @@ Por padrão, o código do ator procura SectionName como "&lt;ActorName&gt;Transp
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-hello-actor-client-assembly"></a>Definir configurações de FabricTransport para o assembly de cliente de ator Olá
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Definir as configurações do FabricTransport para o assembly do cliente do ator
 
-Se o cliente Olá não está em execução como parte de um serviço, você pode criar um "&lt;nome do Exe cliente&gt;. settings.xml" arquivo hello mesmo local do arquivo de .exe cliente hello. Em seguida, adicione uma seção TransportSettings a esse arquivo. O SectionName deve ser "TransportSettings".
+Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo "&lt;Client Exe Name&gt;.settings.xml" no mesmo local do arquivo .exe do cliente. Em seguida, adicione uma seção TransportSettings a esse arquivo. O SectionName deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Se o cliente Olá não está em execução como parte de um serviço, você pode
 
   * Definindo as configurações de FabricTransport do cliente/serviço de ator seguro com certificado secundário.
   Informações de certificado secundário podem ser adicionadas, incluindo o parâmetro CertificateFindValuebySecondary.
-  Abaixo está o exemplo hello para Olá TransportSettings de ouvinte.
+  Abaixo está o exemplo para o ouvinte TransportSettings.
 
     ```xml
     <Section Name="TransportSettings">
@@ -110,7 +110,7 @@ Se o cliente Olá não está em execução como parte de um serviço, você pode
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-     Abaixo está o exemplo hello para Olá TransportSettings do cliente.
+     Abaixo está o exemplo para o cliente TransportSettings.
 
     ```xml
    <Section Name="TransportSettings">
@@ -125,8 +125,8 @@ Se o cliente Olá não está em execução como parte de um serviço, você pode
     </Section>
      ```
     * Definindo as configurações de FabricTransport do serviço/cliente do ator usando o nome do assunto.
-    Usuário necessidades tooprovide findType como FindBySubjectName, adicione os valores CertificateIssuerThumbprints e CertificateRemoteCommonNames.
-  Abaixo está o exemplo hello para Olá TransportSettings de ouvinte.
+    O usuário precisa fornecer findType como FindBySubjectName, adicionar valores CertificateIssuerThumbprints e CertificateRemoteCommonNames.
+  Abaixo está o exemplo para o ouvinte TransportSettings.
 
      ```xml
     <Section Name="TransportSettings">
@@ -140,7 +140,7 @@ Se o cliente Olá não está em execução como parte de um serviço, você pode
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-  Abaixo está o exemplo hello para Olá TransportSettings do cliente.
+  Abaixo está o exemplo para o cliente TransportSettings.
 
     ```xml
      <Section Name="TransportSettings">

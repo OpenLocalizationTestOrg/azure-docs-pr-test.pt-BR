@@ -1,6 +1,6 @@
 ---
-title: "políticas de proteção de conteúdo aaaConfiguring usando Olá portal do Azure | Microsoft Docs"
-description: "Este artigo demonstra como toouse Olá políticas de proteção de conteúdo tooconfigure portal do Azure. Olá artigo também mostra como a criptografia dinâmica tooenable para seus ativos."
+title: "Configurando as políticas de proteção de conteúdo com o portal do Azure | Microsoft Docs"
+description: "Este artigo demonstra como usar o portal do Azure para configurar as políticas de proteção de conteúdo. O artigo também mostra como habilitar a criptografia dinâmica para seus ativos."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 3e7ce6ddaa0e738b5a1e26dafe9eef2df221f039
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="configuring-content-protection-policies-using-hello-azure-portal"></a>Configurando políticas de proteção de conteúdo usando Olá portal do Azure
+# <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurando as políticas de proteção de conteúdo com o portal do Azure
 > [!NOTE]
-> toocomplete neste tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > 
 > 
 
 ## <a name="overview"></a>Visão geral
-Microsoft Azure Media Services (AMS) permite que você toosecure sua mídia do tempo de saudação deixa o computador por meio de armazenamento, processamento e entrega. Serviços de mídia permitem toodeliver seu conteúdo criptografado dinamicamente com Advanced Encryption Standard (AES) (usando chaves de criptografia de 128 bits), criptografia comum (CENC) usando PlayReady e/ou Widevine DRM e FairPlay da Apple. 
+Os Serviços de Mídia do Microsoft Azure (AMS) permitem proteger a mídia do momento em que ela deixa o computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem entregar o conteúdo criptografado dinamicamente com a criptografia AES (usando chaves de criptografia de 128 bits) e a CENC (criptografia comum) usando o PlayReady e/ou Widevine DRM e Apple FairPlay. 
 
-AMS fornece um serviço para distribuir licenças do DRM e clientes de tooauthorized chaves não criptografada AES. Hello portal do Azure permite que você toocreate um **diretiva de autorização de chave/licença** para todos os tipos de criptografia.
+O AMS fornece um serviço para entregar as licenças DRM e as chaves de limpeza AES aos clientes autorizados. O portal do Azure permite que você crie uma **política de autorização de chave/licença** para todos os tipos de criptografias.
 
-Este artigo demonstra como tooconfigure conteúdo políticas de proteção com hello portal do Azure. Olá artigo também mostra como ativos de tooyour tooapply criptografia dinâmica.
+Este artigo demonstra como configurar as políticas de proteção de conteúdo com o portal do Azure. O artigo também mostra como aplicar a criptografia dinâmica em seus ativos.
 
 
 > [!NOTE]
-> Se você usou as políticas de proteção do hello toocreate de portal clássico do Azure, as políticas de saudação podem não aparecer no hello [portal do Azure](https://portal.azure.com/). No entanto, todos os Olá antigo políticas ainda existe. Você pode examiná-los usando Olá SDK do Azure Media Services .NET ou hello [Azure-Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) ferramenta (políticas de saudação toosee, com o botão direito no ativo de saudação -> exibição informações (F4) -> clique na guia -> chaves de conteúdo Clique na chave de saudação). 
+> Se você usou o portal clássico do Azure para criar políticas de proteção, as políticas poderão não aparecer no [portal do Azure](https://portal.azure.com/). No entanto, todas as antigas políticas ainda existirão. Você pode examiná-las usando o SDK do .NET dos Serviços de Mídia do Azure ou a ferramenta [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) (para ver as políticas, clique com o botão direito no ativo -> Exibir informações (F4) -> clique na guia Chaves de conteúdo -> clique na chave). 
 > 
-> Se você quiser tooencrypt seu ativo usando as novas políticas, configurá-los com hello portal do Azure, clique em Salvar e reaplicar criptografia dinâmica. 
+> Se você quiser criptografar seu ativo usando as novas políticas, configure-as com o portal do Azure, clique em Salvar e reaplique a criptografia dinâmica. 
 > 
 > 
 
 ## <a name="start-configuring-content-protection"></a>Iniciar a configuração da proteção de conteúdo
-toouse Olá portal toostart, configurando a proteção de conteúdo, conta tooyour global AMS, Olá a seguir:
+Para usar o portal para começar a configurar a proteção de conteúdo, global para sua conta AMS, faça o seguinte:
 
-1. Em Olá [portal do Azure](https://portal.azure.com/), selecione sua conta de serviços de mídia do Azure.
+1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Selecione **Configurações** > **Proteção de conteúdo**.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>política de autorização de chave/licença
-O AMS oferece várias maneiras de autenticar os usuários que fazem solicitações de licença ou chave. política de autorização da chave de conteúdo Olá deve ser configurada por você e cumprida pelo cliente para Olá chave ou a licença toobe toohello delived cliente. Olá política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: **abrir** ou **token** restrição.
+O AMS oferece várias maneiras de autenticar os usuários que fazem solicitações de licença ou chave. A política de autorização da chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave/licença seja entregue ao cliente. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: **aberta** ou **de token**.
 
-Hello portal do Azure permite que você toocreate um **diretiva de autorização de chave/licença** para todos os tipos de criptografia.
+O portal do Azure permite que você crie uma **política de autorização de chave/licença** para todos os tipos de criptografias.
 
 ### <a name="open"></a>Aberto
-Restrição aberta significa que o sistema de saudação distribuirá Olá tooanyone chave que faz uma solicitação de chave. Essa restrição pode ser útil para o teste. 
+Restrição aberta significa que o sistema entregará a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para o teste. 
 
-### <a name="token"></a>Token
-política de restrição de token de saudação deve ser acompanhada por um token emitido por um Token STS (serviço seguro). Serviços de mídia oferece suporte a tokens no formato do Simple Web Tokens (SWT) hello e JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou utilizar a tokens de tooissue ACS do Microsoft Azure. Olá STS deve ser configurado toocreate um token assinado com hello especificado chave e emitir declarações que você especificou na configuração de restrição de token hello. Serviços de mídia Olá serviço de entrega de chave retornará Olá solicitado hello e chave (ou licença) cliente toohello se Olá token for válido declarações em Olá token correspondam às configuradas para chave hello (ou licença).
+### <a name="token"></a>restrição
+A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os serviços de mídia oferecem suporte a tokens no formato Simple Web Tokens (SWT) e no formato JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos Serviços de Mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem àquelas configuradas para a chave (ou licença).
 
-Ao configurar a política de restrição de token do hello, você deve especificar parâmetros de público-alvo, emissor e chave de verificação primária hello. chave de verificação primária Olá contém Olá chave que Olá token foi assinado com, o emissor é Olá serviço de token seguro que emite o token de saudação. público Hello (às vezes chamado de escopo) descreve a intenção de saudação do token de saudação ou token de saudação do recurso de saudação autoriza o acesso ao. Olá serviço de distribuição de chaves de serviços de mídia valida que esses valores no token Olá correspondem a valores de saudação no modelo de saudação.
+Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, do emissor e do público-alvo. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-rights-template"></a>Modelo de direitos do PlayReady
-Para obter informações detalhadas sobre o modelo de direitos Olá PlayReady, consulte [visão geral do modelo de licença do Media Services PlayReady](media-services-playready-license-template-overview.md).
+Para obter informações detalhadas sobre o modelo de direitos do PlayReady, consulte [Visão Geral do Modelo de Licença do PlayReady dos Serviços de Mídia](media-services-playready-license-template-overview.md).
 
 ### <a name="non-persistent"></a>Não persistente
-Se você configurar a licença como não persistente, ele só é mantido na memória enquanto player hello está usando a licença de saudação.  
+Se você configurar a licença como não persistente, ela só será mantida na memória enquanto o player estiver usando a licença.  
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Persistente
-Se você configurar a licença hello como persistente, ele será salvo no armazenamento persistente no cliente de saudação.
+Se você configurar a licença como persistente, ela será salva no armazenamento persistente no cliente.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-rights-template"></a>Modelo de direitos do Widevine
-Para obter informações detalhadas sobre o modelo de direitos de Widevine hello, consulte [visão geral do modelo de licença Widevine](media-services-widevine-license-template-overview.md).
+Para obter informações detalhadas sobre o modelo de direitos do Widevine, consulte [Visão Geral do Modelo de Licença do Widevine](media-services-widevine-license-template-overview.md).
 
 ### <a name="basic"></a>Basic
-Quando você seleciona **básica**, Olá modelo será criado com todos os valores padrões.
+Quando você selecionar **Básico**, o modelo será criado com todos os valores padrões.
 
 ### <a name="advanced"></a>Avançado
 Para obter uma explicação detalhada sobre a opção avançada das configurações do Widevine, consulte [este](media-services-widevine-license-template-overview.md) tópico.
@@ -89,15 +89,15 @@ Para obter uma explicação detalhada sobre a opção avançada das configuraç�
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>Configuração do FairPlay
-tooenable FairPlay criptografia, necessárias tooprovide Olá certificado do aplicativo e a chave de segredo do aplicativo (SOLICITAR) por meio de saudação opção de configuração FairPlay. Para obter informações detalhadas sobre a configuração e os requisitos do FairPlay, consulte [este](media-services-protect-hls-with-fairplay.md) artigo.
+Para habilitar a criptografia do FairPlay, você precisa fornecer o Certificado do Aplicativo e a Chave de Segredo do Aplicativo (ASK) com a opção Configuração do FairPlay. Para obter informações detalhadas sobre a configuração e os requisitos do FairPlay, consulte [este](media-services-protect-hls-with-fairplay.md) artigo.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
-## <a name="apply-dynamic-encryption-tooyour-asset"></a>Aplicar o ativo de tooyour criptografia dinâmica
-tootake vantagem da criptografia dinâmica, você precisa de tooencode seu arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
+## <a name="apply-dynamic-encryption-to-your-asset"></a>Aplique a criptografia dinâmica em seu ativo
+Para aproveitar a criptografia dinâmica, você precisa codificar o arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável.
 
-### <a name="select-an-asset-that-you-want-tooencrypt"></a>Selecione um ativo que você deseja tooencrypt
-Selecione de todos os seus ativos, toosee **configurações** > **ativos**.
+### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecionar o ativo que você deseja criptografar
+Para ver todos os seus ativos, selecione **Configurações** > **Ativos**.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -110,7 +110,7 @@ A criptografia da chave de limpeza do AES será habilitada em todos os protocolo
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-Quando você seleciona Olá DRM guia, você verá diferentes opções de políticas de proteção de conteúdo (que você deve ter configurado agora) + um conjunto de protocolos de streaming.
+Quando você selecionar a guia DRM, verá diferentes opções de políticas de proteção de conteúdo (que você deve ter configurado agora) + um conjunto de protocolos de streaming.
 
 * **PlayReady e Widevine com o MPEG-DASH** - irão criptografar dinamicamente seu fluxo MPEG DASH com os DRMs do PlayReady e do Widevine.
 * **PlayReady e Widevine com o MPEG-DASH+ FairPlay com HLS** - irão criptografar dinamicamente seu fluxo MPEG DASH com os DRMs do PlayReady e do Widevine. Também irão criptografar seus fluxos HLS com o FairPlay.
@@ -118,14 +118,14 @@ Quando você seleciona Olá DRM guia, você verá diferentes opções de políti
 * **Widevine apenas com MPEG-DASH** - irá criptografar dinamicamente seu MPEG-DASH com o DRM do Widevine.
 * **FairPlay apenas com HLS** - irá criptografar dinamicamente seu fluxo HLS com o FairPlay.
 
-tooenable FairPlay criptografia, necessárias tooprovide Olá certificado do aplicativo e a chave de segredo do aplicativo (SOLICITAR) por meio de saudação opção de configuração de FairPlay da folha de configurações de proteção de conteúdo de saudação.
+Para habilitar a criptografia do FairPlay, você precisa fornecer o Certificado do Aplicativo e a Chave de Segredo do Aplicativo (ASK) com a opção Configuração do FairPlay da folha de configurações Proteção de Conteúdo.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-Depois de fazer a seleção de criptografia hello, pressione **aplicar**.
+Após fazer a seleção da criptografia, pressione **Aplicar**.
 
 >[!NOTE] 
->Se você estiver planejando tooplay um AES criptografado HLS no Safari, consulte [este blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Se você pretende executar um HLS criptografado para AES no Safari, visite [este blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.

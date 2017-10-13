@@ -1,6 +1,6 @@
 ---
-title: aaaManaging segredos em aplicativos do Service Fabric | Microsoft Docs
-description: "Este artigo descreve como o segredo toosecure valores em um aplicativo de malha do serviço."
+title: Gerenciamento de segredos em aplicativos do Service Fabric | Microsoft Docs
+description: Este artigo descreve como proteger os valores do segredo em um aplicativo do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: b8cafcb681d95aaa1b8e9a1afaac78ba5b7f58b0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>Gerenciamento de segredos em aplicativos do Service Fabric
-Este guia aborda etapas de saudação do gerenciamento de segredos em um aplicativo de malha do serviço. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
+Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
 
-Este guia usa os segredos e chaves do Azure Key Vault toomanage. No entanto, *usando* segredos em um aplicativo é implantado tooa cluster em nuvem independente de plataforma tooallow aplicativos toobe hospedados em qualquer lugar. 
+Este guia usa o Cofre de Chaves do Azure para gerenciar chaves e segredos. No entanto, o *uso* de segredos em um aplicativo é independente de plataforma de nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar. 
 
 ## <a name="overview"></a>Visão geral
-Olá definições de configuração do serviço de toomanage de maneira recomendada é por meio de [pacotes de configuração de serviço][config-package]. Os pacotes de configuração são atualizáveis e têm controle de versão por meio de atualizações sem interrupção gerenciadas com reversão automática e validação de integridade. Isso é configuração tooglobal preferencial, pois reduz as chances de saudação de uma interrupção do serviço global. Segredos criptografados não são exceção. O Service Fabric tem recursos internos para criptografar e descriptografar valores em um arquivo Settings.XML do pacote de configuração usando a criptografia de certificado.
+A maneira recomendada de gerenciar as definições de configuração de serviço é por meio de [pacotes de configuração de serviço][config-package]. Os pacotes de configuração são atualizáveis e têm controle de versão por meio de atualizações sem interrupção gerenciadas com reversão automática e validação de integridade. Isso é preferível à configuração global, pois reduz as chances de uma interrupção de serviços globais. Segredos criptografados não são exceção. O Service Fabric tem recursos internos para criptografar e descriptografar valores em um arquivo Settings.XML do pacote de configuração usando a criptografia de certificado.
 
-Olá seguinte diagrama ilustra fluxo básico de saudação para gerenciamento de informações secretas em um aplicativo de malha do serviço:
+O diagrama a seguir ilustra o fluxo básico para gerenciamento de segredos em um aplicativo do Service Fabric:
 
 ![visão geral do gerenciamento de segredos][overview]
 
 Há quatro etapas principais nesse fluxo:
 
 1. Obtenha um certificado de codificação de dados.
-2. Instale o certificado de saudação em seu cluster.
-3. Criptografar segredos valores ao implantar um aplicativo com o certificado de saudação e colocá-los no arquivo de configuração do serviço Settings.xml.
-4. Valores de leitura criptografado fora Settings.xml Descriptografando com hello mesmo certificado de codificação. 
+2. Instale o certificado em seu cluster.
+3. Criptografe valores do segredo ao implantar um aplicativo com o certificado e coloque-os no arquivo de configuração Settings.xml de um serviço.
+4. Leia os valores criptografados de Settings.xml ao descriptografar com o mesmo certificado de codificação. 
 
-[Cofre de chaves do Azure] [ key-vault-get-started] é usado aqui como um local de armazenamento seguro de certificados e como uma maneira tooget certificados instalados em clusters de malha do serviço no Azure. Se você não está implantando tooAzure, não é necessário segredos de toomanage toouse Cofre de chaves em aplicativos do Service Fabric.
+O [Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters do Service Fabric no Azure. Se não estiver implantando no Azure, você não precisará usar o cofre de chaves para gerenciar segredos em aplicativos do Service Fabric.
 
 ## <a name="data-encipherment-certificate"></a>Certificado de codificação de dados
-Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de valores de configuração no arquivo Settings.xml de um serviço e não é usado para autenticação nem assinatura do texto da criptografia. certificado Olá deve atender aos Olá requisitos a seguir:
+Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de valores de configuração no arquivo Settings.xml de um serviço e não é usado para autenticação nem assinatura do texto da criptografia. O certificado deve atender aos seguintes requisitos:
 
-* certificado de saudação deve conter uma chave privada.
-* certificado de saudação deve ser criado para troca de chaves, exportável tooa arquivo de troca de informações pessoais (. pfx).
-* uso de chave de certificado Olá deve incluir a codificação de dados (10) e não deve incluir a autenticação de servidor ou autenticação de cliente. 
+* O certificado deve conter uma chave privada.
+* O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
+* O uso da chave de certificado deve incluir a Codificação de Dados (10) e não deve incluir a Autenticação de Servidor ou de Cliente. 
   
-  Por exemplo, ao criar um certificado autoassinado usando o PowerShell, Olá `KeyUsage` sinalizador deve ser definido muito`DataEncipherment`:
+  Por exemplo, ao criar um certificado autoassinado usando o PowerShell, o sinalizador `KeyUsage` deverá ser definido como `DataEncipherment`:
   
   ```powershell
   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
   ```
 
-## <a name="install-hello-certificate-in-your-cluster"></a>Instalar o certificado de saudação do cluster
-Esse certificado deve ser instalado em cada nó no cluster hello. Ele será usado em tempo de execução toodecrypt valores armazenados em Settings.xml do serviço. Consulte [como toocreate um cluster usando o Gerenciador de recursos do Azure] [ service-fabric-cluster-creation-via-arm] para obter instruções de instalação. 
+## <a name="install-the-certificate-in-your-cluster"></a>Instalar o certificado em seu cluster
+Esse certificado deve ser instalado em cada nó no cluster. Ele será usado em tempo de execução para descriptografar valores armazenados no arquivo Settings.xml de um serviço. Veja [como criar um cluster usando o Azure Resource Manager][service-fabric-cluster-creation-via-arm] para obter instruções de instalação. 
 
 ## <a name="encrypt-application-secrets"></a>Criptografar segredos do aplicativo
-Olá SDK do Service Fabric tem funções internas de criptografia e descriptografia segredas. Os valores secretos podem ser criptografados em tempo de compilação e então descriptografados e lidos programaticamente no código de serviço. 
+O SDK do Service Fabric tem funções internas de criptografia e descriptografia de segredos. Os valores secretos podem ser criptografados em tempo de compilação e então descriptografados e lidos programaticamente no código de serviço. 
 
-saudação de comando do PowerShell a seguir é usado tooencrypt um segredo. Esse comando criptografa apenas o valor de saudação; ele faz **não** entrar texto cifrado de saudação. Você deve usar o hello mesmo certificado de codificação que é instalado em seu texto cifrado tooproduce de cluster para valores de segredo:
+O comando do PowerShell a seguir é usado para criptografar um segredo. Esse comando só criptografa o valor; ele **não** assina o texto da criptografia. Você deve usar o mesmo certificado de codificação instalado no seu cluster para produzir texto cifrado para valores do segredo:
 
 ```powershell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Olá cadeia de caracteres de base 64 resultante contém texto cifrado de segredo Olá bem como informações sobre Olá certificado que foi usado tooencrypt-lo.  Olá codificado em base 64 de cadeia de caracteres pode ser inserida em um parâmetro no arquivo de configuração do serviço Settings.xml com hello `IsEncrypted` atributo definido muito`true`:
+A cadeia de caracteres de base 64 resultante contém tanto o texto cifrado secreto como informações sobre o certificado usado para criptografá-lo.  A cadeia de caracteres codificada em base 64 pode ser inserida em um parâmetro no arquivo de configuração Settings.xml do seu serviço com o atributo `IsEncrypted` definido como `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,10 +78,10 @@ Olá cadeia de caracteres de base 64 resultante contém texto cifrado de segredo
 ```
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserir segredos do aplicativo em instâncias do aplicativo
-Idealmente, ambientes de implantação de toodifferent devem ser automatizados como possível. Isso pode ser feito executando criptografia secreta em um ambiente de compilação e fornecendo segredos Olá criptografado como parâmetros durante a criação de instâncias do aplicativo.
+Idealmente, a implantação em ambientes diferentes deve ser mais automatizada possível. Isso pode ser feito executando a criptografia secreta em um ambiente de compilação e fornecendo os segredos criptografados como parâmetros durante a criação de instâncias do aplicativo.
 
 #### <a name="use-overridable-parameters-in-settingsxml"></a>Usar parâmetros substituíveis em Settings.xml
-arquivo de configuração do Hello Settings.xml permite que os parâmetros substituíveis que podem ser fornecidos no momento da criação de aplicativos. Saudação de uso `MustOverride` atributo em vez de fornecer um valor para um parâmetro:
+O arquivo de configuração de Settings.xml permite a existência de parâmetros substituíveis que podem ser fornecidos no momento da criação de aplicativos. Use o atributo `MustOverride` em vez de fornecer um valor para um parâmetro:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -92,7 +92,7 @@ arquivo de configuração do Hello Settings.xml permite que os parâmetros subst
 </Settings>
 ```
 
-valores de toooverride em Settings.xml, declarar um parâmetro de substituição para o serviço de saudação applicationmanifest.XML:
+Para substituir valores em Settings.xml, declare um parâmetro de substituição para o serviço em ApplicationManifest.xml:
 
 ```xml
 <ApplicationManifest ... >
@@ -113,9 +113,9 @@ valores de toooverride em Settings.xml, declarar um parâmetro de substituição
   </ServiceManifestImport>
  ```
 
-Agora Olá valor pode ser especificado como um *parâmetro aplicativo* durante a criação de uma instância do aplicativo hello. A criação de uma instância do aplicativo pode ser controlada por script usando o PowerShell, ou escrita em C#, para fácil integração em um processo de compilação.
+Agora, o valor pode ser especificado como um *parâmetro de aplicativo* ao criar uma instância do aplicativo. A criação de uma instância do aplicativo pode ser controlada por script usando o PowerShell, ou escrita em C#, para fácil integração em um processo de compilação.
 
-Usando o PowerShell, o parâmetro hello é fornecido toohello `New-ServiceFabricApplication` comando como um [tabela de hash](https://technet.microsoft.com/library/ee692803.aspx):
+Usando o PowerShell, o parâmetro é fornecido para o comando `New-ServiceFabricApplication` como uma [tabela de hash](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 PS C:\Users\vturecek> New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
@@ -140,9 +140,9 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Descriptografar segredos de código de serviço
-Os serviços do Service Fabric executados sob o serviço de rede por padrão no Windows e não têm acesso toocertificates instalado no nó de saudação sem alguma configuração adicional.
+Os serviços do Service Fabric são executados em NETWORK SERVICE por padrão no Windows e não têm acesso a certificados instalados no nó sem alguma configuração adicional.
 
-Ao usar um certificado de codificação de dados, você precisa toomake se o serviço de rede ou qualquer serviço de saudação de conta de usuário está em execução em tem chave privada do certificado de acesso toohello. Service Fabric tratará a concessão de acesso para o serviço automaticamente se você configurá-lo toodo assim. Essa configuração pode ser feita em ApplicationManifest.xml por meio da definição de políticas de usuários e de segurança para certificados. Saudação de exemplo a seguir, Olá conta de serviço de rede recebe acesso de leitura tooa certificado definido por sua impressão digital:
+Ao usar um certificado de codificação de dados, você precisa certificar-se de que NETWORK SERVICE ou qualquer conta sob a qual o serviço esteja sendo executado terá acesso à chave privada do certificado. O Service Fabric tratará da concessão de acesso para seu serviço de forma automática caso você o configure para isso. Essa configuração pode ser feita em ApplicationManifest.xml por meio da definição de políticas de usuários e de segurança para certificados. No exemplo a seguir, a conta NETWORK SERVICE obtém acesso de leitura para um certificado definido por sua impressão digital:
 
 ```xml
 <ApplicationManifest … >
@@ -163,12 +163,12 @@ Ao usar um certificado de codificação de dados, você precisa toomake se o ser
 ```
 
 > [!NOTE]
-> Ao copiar uma impressão digital do certificado do certificado Olá armazenar snap-in no Windows, um caractere invisível é colocado no início de saudação da cadeia de caracteres de impressão digital de saudação. Esse caractere invisível pode causar um erro durante a tentativa de toolocate um certificado pela impressão digital, tão ser toodelete-se de que esse caractere extra.
+> Ao copiar uma impressão digital do certificado do snap-in de armazenamento de certificado no Windows, um caractere invisível é colocado no início da cadeia de caracteres de impressão digital. Esse caractere invisível pode causar um erro ao tentar localizar um certificado por impressão digital, portanto exclua esse caractere extra.
 > 
 > 
 
 ### <a name="use-application-secrets-in-service-code"></a>Use os segredos do aplicativo no código de serviço
-Olá API para acessar valores de configuração de Settings. XML em um pacote de configuração permite a fácil descriptografia de valores que têm Olá `IsEncrypted` atributo definido muito`true`. Como texto de saudação criptografado contém informações sobre Olá certificado usado para criptografia, certificados de saudação localizar toomanually não é necessário. certificado Olá precisa apenas toobe instalado no nó Olá Olá serviço está em execução. Basta chamar hello `DecryptValue()` método tooretrieve Olá secreta valor original:
+A API para acessar valores de configuração de Settings.xml em um pacote de configuração permite fácil descriptografia de valores que têm o `IsEncrypted` atributo definido como `true`. Como o texto criptografado contém informações sobre o certificado usado para criptografia, você não precisa encontrar o certificado manualmente. Apenas o certificado deve ser instalado no nó que o serviço está em execução. Basta chamar o `DecryptValue()` método para recuperar o valor do segredo original:
 
 ```csharp
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");

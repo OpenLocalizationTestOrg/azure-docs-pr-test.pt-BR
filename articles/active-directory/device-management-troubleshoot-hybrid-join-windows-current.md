@@ -1,5 +1,5 @@
 ---
-title: "aaaTroubleshooting híbrida do Active Directory do Azure associado a dispositivos Windows 10 e Windows Server 2016 | Microsoft Docs"
+title: "Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016 | Microsoft Docs"
 description: "Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016."
 services: active-directory
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cc252d1d0684d6632694afc8a367327794228c19
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51962c14a3c32bbfa9a613fa203cc48cfea50c0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016 
 
-Este tópico é aplicável toohello clientes a seguir:
+Este tópico é aplicável aos seguintes clientes:
 
 -   Windows 10
 -   Windows Server 2016
 
 Para outros clientes do Windows, consulte [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior](device-management-troubleshoot-hybrid-join-windows-legacy.md).
 
-Este tópico pressupõe que você tenha [dispositivos ingressados no configurado híbrida do Active Directory do Azure](device-management-hybrid-azuread-joined-devices-setup.md) Olá toosupport os seguintes cenários:
+Este tópico pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](device-management-hybrid-azuread-joined-devices-setup.md) para dar suporte aos seguintes cenários:
 
 - Acesso condicional com base em dispositivo
 
@@ -38,16 +38,16 @@ Este tópico pressupõe que você tenha [dispositivos ingressados no configurado
 - [Configurar o Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 
 
-Este documento fornece orientação para solução de problemas sobre como tooresolve potenciais problemas. 
+Este documento fornece diretrizes de solução de problemas sobre como resolver os problemas potenciais. 
 
 
-Para Windows 10 e Windows Server 2016, híbrido do Azure Active Directory junção dá suporte a saudação Windows 10 de novembro de 2015 atualizar e acima. Recomendamos o uso da atualização de aniversário hello.
+Para Windows 10 e Windows Server 2016, o ingresso do Azure Active Directory híbrido oferece suporte à atualização de 10 de novembro de 2015 e superior do Windows 10. Recomendamos usar a atualização de Aniversário.
 
-## <a name="step-1-retrieve-hello-join-status"></a>Etapa 1: Recuperar o status de junção Olá 
+## <a name="step-1-retrieve-the-join-status"></a>Etapa 1: Recuperar o status do ingresso 
 
-**status de junção de saudação tooretrieve:**
+**Para recuperar o status do ingresso:**
 
-1. Olá abrir o prompt de comando como administrador
+1. Abra o prompt de comando como administrador
 
 2. Digite **dsregcmd /status**
 
@@ -57,7 +57,7 @@ Para Windows 10 e Windows Server 2016, híbrido do Azure Active Directory junç�
     | Device State                                                         |  +----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: Nenhum DeviceId: impressão digital de 5820fbe9-60c8-43b0-bb11-44aee233e4e7: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: TpmProtected de provedor de criptografia da plataforma Microsoft: Sim KeySignTest:: deve executar com privilégios elevados tootest.
+     EnterpriseJoined: NO DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform Crypto Provider TpmProtected: YES KeySignTest: : MUST Run elevated to test.
                   Idp: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn:ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn:ms-drs:enterpriseregistration.windows.net DomainJoined: YES DomainName: CONTOSO
     
     +----------------------------------------------------------------------+
@@ -71,53 +71,53 @@ Para Windows 10 e Windows Server 2016, híbrido do Azure Active Directory junç�
 
 
 
-## <a name="step-2-evaluate-hello-join-status"></a>Etapa 2: Avaliar o status de junção Olá 
+## <a name="step-2-evaluate-the-join-status"></a>Etapa 2: Avaliar o status do ingresso 
 
-Examine Olá campos a seguir e certifique-se de que eles têm valores esperados de saudação:
+Examine os seguintes campos e garanta que eles tenham os valores esperados:
 
 ### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-Este campo indica se o dispositivo de saudação é associado com o Azure AD. Se o valor de saudação é **não**, Olá tooAzure junção AD ainda não foi concluída. 
+Esse campo indica se o dispositivo ingressou no Azure AD. Se o valor for **NO**, a associação ao Azure AD ainda não terá sido concluída. 
 
 **Possíveis causas:**
 
-- Falha na autenticação de computador Olá para uma junção.
+- Falha na autenticação do computador para um ingresso.
 
-- Há um proxy HTTP na organização Olá que não pode ser descoberta pelo computador Olá
+- Há um proxy HTTP na organização que não pode ser descoberto pelo computador
 
-- computador Olá não pode chegar tooauthenticate do AD do Azure ou Azure DRS para registro
+- O computador não pode alcançar o Azure AD para autenticação, ou o Azure DRS para registro
 
-- Olá computador podem não estar na rede interna da organização hello ou em VPN com a linha direta de visão tooan controlador de domínio do AD local.
+- O computador pode não estar na rede interna da organização ou em VPN com a linha de visão direta para um controlador de domínio do AD local.
 
-- Se o computador de saudação tiver um TPM, ele pode ser em um estado inválido.
+- Se o computador tiver um TPM, poderá estar em um estado inválido.
 
-- Pode haver um erro de configuração nos serviços de saudação observado anteriormente no documento de saudação que você precisará tooverify novamente. Alguns exemplos comuns são:
+- Pode haver um erro de configuração nos serviços, observado anteriormente no documento, que você precisará verificar novamente. Alguns exemplos comuns são:
 
     - O servidor de Federação não tem pontos de extremidade WS-Trust habilitados
 
     - O servidor de federação não permite a autenticação de entrada de computadores em sua rede usando a Autenticação Integrada do Windows.
 
-    - Não há nenhum objeto de ponto de Conexão de serviço que aponta para o nome de domínio verificado tooyour no AD do Azure na floresta Olá AD qual pertence o computador de saudação
+    - Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence
 
 ---
 
 ### <a name="domainjoined--yes"></a>DomainJoined : YES  
 
-Este campo indica se o dispositivo Olá é associado tooan local do Active Directory ou não. Se o valor de saudação é **não**, dispositivo Olá não é possível executar uma junção híbrido do AD do Azure.  
+Esse campo indica se o dispositivo ingressou em um Active Directory local ou não. Se o valor for **NO**, o dispositivo não poderá executar um ingresso do Azure AD híbrido.  
 
 ---
 
 ### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
 
-Este campo indica se o dispositivo hello está registrado com o Azure AD como um dispositivo pessoal (marcados como *ingressado no local de trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor de saudação é **Sim**, uma conta corporativa ou escolar foi adicionada conclusão toohello anterior de junção do hello híbrido do AD do Azure. Nesse caso, a conta de Olá é ignorada ao usar a versão de atualização de aniversário de saudação do Windows 10 (1607).
+Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES**, uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar a versão de Atualização de Aniversário do Windows 10 (1607).
 
 ---
 
 ### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES e AzureADPrt : YES
   
-Esses campos indicam se o usuário Olá foi autenticado com êxito tooAzure AD ao entrarem no dispositivo toohello. Se os valores hello são **não**, ele pode ter ocorrido:
+Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao se conectar ao dispositivo. Se os valores forem **NO**, talvez o motivo seja:
 
-- Chave de armazenamento incorreta (STK) no TPM associado Olá dispositivo após o registro (seleção Olá KeySignTest durante a execução com privilégios elevados).
+- STK (chave de armazenamento) inválida no TPM associada ao dispositivo no registro (verifique o KeySignTest durante a execução com privilégios elevados).
 
 - ID de logon alternativo
 
@@ -125,4 +125,4 @@ Esses campos indicam se o usuário Olá foi autenticado com êxito tooAzure AD a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para perguntas, consulte Olá [perguntas frequentes sobre o gerenciamento de dispositivos](device-management-faq.md) 
+Para perguntas, consulte as [Perguntas frequentes sobre o gerenciamento de dispositivos](device-management-faq.md) 

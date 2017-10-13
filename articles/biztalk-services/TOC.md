@@ -12,7 +12,7 @@
 ### [Limitação](biztalk-throttling-thresholds.md)
 ### [Configurações de serviço e monitoramento](biztalk-dashboard-monitor-scale-tabs.md)
 ## Migrar
-### [Serviços de tooBizTalk de soluções EDI do BizTalk Server](biztalk-migrating-to-edi-guide.md)
+### [Soluções de EDI do BizTalk Server para Serviços BizTalk](biztalk-migrating-to-edi-guide.md)
 ## Monitoramento
 ### [Tarefas que dependem de estados de serviço](biztalk-service-state-chart.md)
 ## Segurança

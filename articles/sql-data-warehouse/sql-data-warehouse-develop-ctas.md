@@ -1,6 +1,6 @@
 ---
-title: tabela aaaCreate como selecionar (CTAS) no SQL Data Warehouse | Microsoft Docs
-description: "Dicas para codificação com hello criar tabela como selecionar instrução (CTAS) no Azure SQL Data Warehouse para o desenvolvimento de soluções."
+title: CTAS (create table as select) no SQL Data Warehouse | Microsoft Docs
+description: "Dicas para codificação com a instrução create table as select (CTAS) no SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 01/30/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: e381601a0a4d94e189d8f9115bf2e7593025410b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Instrução Create Table As Select (CTAS) no SQL Data Warehouse
-Criar tabela como select ou `CTAS` é uma saudação mais importantes recursos de T-SQL disponíveis. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de saudação de uma instrução SELECT. `CTAS`é uma cópia de uma tabela de toocreate de maneira mais rápida e simples de saudação. Este documento fornece exemplos e melhores práticas para o `CTAS`.
+Create table as select ou `CTAS` é um dos recursos do T-SQL mais importantes disponíveis. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de uma instrução SELECT. `CTAS` é a maneira mais rápida e simples de criar uma cópia de uma tabela. Este documento fornece exemplos e melhores práticas para o `CTAS`.
 
 ## <a name="selectinto-vs-ctas"></a>SELECT..INTO versus CTAS
 Você pode considerar `CTAS` como uma versão turbinada de `SELECT..INTO`.
@@ -35,11 +35,11 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-No exemplo hello acima `[dbo].[FactInternetSales_new]` seria criado como tabela de ROUND_ROBIN distribuída com um índice de COLUMNSTORE CLUSTERIZADO nela conforme estes são os padrões de tabela Olá no Azure SQL Data Warehouse.
+No exemplo acima, `[dbo].[FactInternetSales_new]` seria criado como uma tabela distribuída por ROUND_ROBIN com um ÍNDICE DE COLUMNSTORE CLUSTERIZADO nela, pois esses são os padrões de tabela no Azure SQL Data Warehouse.
 
-`SELECT..INTO`No entanto não permitem que você toochange qualquer índice Olá distribuição hello ou método de tipo como parte da operação de saudação. É aí que `CTAS` entra em cena.
+No entanto, `SELECT..INTO` não permite alterar o método de distribuição ou o tipo de índice como parte da operação. É aí que `CTAS` entra em cena.
 
-Olá tooconvert acima muito`CTAS` é bastante direta:
+Converter o acima para `CTAS` é bem simples:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,17 +54,17 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Com `CTAS` são toochange capaz de ambos Olá a distribuição de dados da tabela hello, bem como o tipo de tabela hello. 
+Com `CTAS`, você pode alterar a distribuição dos dados da tabela, bem como o tipo de tabela. 
 
 > [!NOTE]
-> Se você estiver apenas tentando índice Olá toochange seu `CTAS` operação e hello tabela de origem é hash distribuída seu `CTAS` irá realizar a operação melhor se você mantiver Olá mesmo tipo de coluna e os dados de distribuição. Isso evitará cruzada movimentação de dados de distribuição durante a operação de saudação que é mais eficiente.
+> Se você estiver apenas tentando alterar o índice em sua operação `CTAS`, e a tabela de origem for distribuída por hash, sua operação `CTAS` executará melhor se você mantiver o mesmo tipo de coluna e dados de distribuição. Isso evitará a movimentação de dados de distribuição cruzada durante a operação, o que é mais eficiente.
 > 
 > 
 
-## <a name="using-ctas-toocopy-a-table"></a>Usando CTAS toocopy uma tabela
-Talvez um dos mais comuns de saudação usos de `CTAS` está criando uma cópia de uma tabela para que você possa alterar Olá DDL. Se por exemplo você criou a tabela como `ROUND_ROBIN` e agora deseja alterá-la tooa tabela distribuído em uma coluna, `CTAS` é como coluna de distribuição Olá deve ser alterada. `CTAS`também é possível toochange usado tipos de particionamento, indexação ou coluna.
+## <a name="using-ctas-to-copy-a-table"></a>Usando o CTAS para copiar uma tabela
+Talvez um dos usos mais comuns do `CTAS` seja criar uma cópia de uma tabela para que você possa alterar a DDL. Se, por exemplo, você originalmente tiver criado a tabela como `ROUND_ROBIN` e agora quiser alterá-la para uma tabela distribuída em uma coluna, `CTAS` é como você alteraria a coluna de distribuição. `CTAS` também pode ser usado para alterar os tipos de particionamento, indexação ou coluna.
 
-Digamos que você criou esta tabela usando o tipo de distribuição de padrão de saudação do `ROUND_ROBIN` distribuída porque nenhuma coluna de distribuição foi especificada no hello `CREATE TABLE`.
+Digamos que você tenha criado essa tabela usando o tipo de distribuição padrão do `ROUND_ROBIN` distribuído, já que nenhuma coluna de distribuição foi especificada em `CREATE TABLE`.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -95,7 +95,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Agora você deseja toocreate uma nova cópia da tabela com um índice Columnstore clusterizado, para que você pode tirar proveito do desempenho de saudação do tabelas Columnstore clusterizado. Você também deseja toodistribute essa tabela na ProductKey desde que você está prevendo junções nessa coluna e deseja tooavoid a movimentação de dados durante a junções em ProductKey. Por fim deseja tooadd particionamento em OrderDateKey para que você pode excluir dados antigos, soltando partições antigas. Aqui está a instrução CTAS Olá copie a tabela antiga para uma nova tabela.
+Agora, você deseja criar uma nova cópia da tabela com um Índice Columnstore Clusterizado para que possa aproveitar o desempenho das tabelas Columnstore Clusterizado. Você também deseja distribuir essa tabela na ProductKey, uma vez que está antecipando as associações nessa coluna e quer evitar a movimentação dos dados durante as junções em ProductKey. Por fim, também deseja adicionar o particionamento em OrderDateKey para que possa excluir rapidamente os dados antigos descartando as partições antigas. Aqui está a declaração CTAS que copiaria sua tabela antiga para uma nova tabela.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -116,36 +116,36 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-Finalmente você pode renomear seu tooswap tabelas em sua nova tabela e, em seguida, remova a tabela antiga.
+Finalmente, você pode renomear suas tabelas para trocar na nova tabela, em seguida, descartar a tabela antiga.
 
 ```sql
-RENAME OBJECT FactInternetSales tooFactInternetSales_old;
-RENAME OBJECT FactInternetSales_new tooFactInternetSales;
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
 DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Em ordem tooget Olá melhor desempenho de suas consultas, é importante que ser criadas estatísticas em todas as colunas de todas as tabelas após a primeira carga de saudação ou alterações substanciais ocorrerem nos dados de saudação.  Para obter uma explicação detalhada de estatísticas, consulte Olá [estatísticas] [ Statistics] tópico no grupo de desenvolver Olá de tópicos.
+> O SQL Data Warehouse do Azure ainda não dá suporte às estatísticas de criação ou atualização automática.  Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados.  Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Statistics] no grupo de tópicos Desenvolver.
 > 
 > 
 
-## <a name="using-ctas-toowork-around-unsupported-features"></a>Usando toowork CTAS em torno de recursos sem suporte
-`CTAS`também pode ser usado toowork em torno de uma série de recursos de saudação sem suporte listados abaixo. Isso pode geralmente se Mostrar toobe win/ganham não só será compatível com seu código, mas serão geralmente executadas mais rapidamente no SQL Data Warehouse. Isso é devido ao seu design totalmente em paralelo. Os cenários que podem ser solucionados com CTAS incluem:
+## <a name="using-ctas-to-work-around-unsupported-features"></a>Usando o CTAS para resolver os recursos sem suporte
+`CTAS` também pode ser usado para solucionar os diversos recursos sem suporte listados abaixo. Isso pode ser geralmente uma situação de ganho mútuo pois não apenas o seu código estará compatível, mas ele será executado muitas vezes mais rapidamente no SQL Data Warehouse. Isso é devido ao seu design totalmente em paralelo. Os cenários que podem ser solucionados com CTAS incluem:
 
 * ANSI JOINS em instruções UPDATE
 * ANSI JOINs em instruções DELETE
 * Instrução MERGE
 
 > [!NOTE]
-> Tente toothink "CTAS primeiro". Se você achar que é possível resolver um problema usando `CTAS` que geralmente é Olá melhor maneira tooapproach-- mesmo se você está gravando os dados mais como resultado.
+> Tente imaginar “CTAS primeiro”. Caso você ache que pode resolver um problema usando `CTAS` , que geralmente é a melhor maneira de abordá-lo, mesmo se você está escrevendo mais dados como um resultado.
 > 
 > 
 
 ## <a name="ansi-join-replacement-for-update-statements"></a>Substituição da junção ANSI para atualizar instruções
-Você pode achar que uma atualização complexa que une mais de duas tabelas usando ANSI unindo Olá de tooperform sintaxe UPDATE ou DELETE.
+Você pode descobrir uma atualização complexa que une mais de duas tabelas usando a sintaxe da junção ANSI para executar a UPDATE ou DELETE.
 
-Imagine que você tinha tooupdate nesta tabela:
+Imagine que você precisava atualizar esta tabela:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -160,7 +160,7 @@ WITH
 ;
 ```
 
-consulta original Olá pode se parecer com isso:
+A consulta original pode se parecer com isso:
 
 ```sql
 UPDATE    acs
@@ -185,9 +185,9 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-Desde que não oferece suporte a SQL Data Warehouse ANSI junções na Olá `FROM` cláusula de um `UPDATE` instrução, você não pode copiar este código sobre sem alterá-lo um pouco.
+Já que o SQL Data Warehouse não dá suporte a junções ANSI na cláusula `FROM` da instrução `UPDATE`, você não pode copiar esse código sem alterá-lo um pouco.
 
-Você pode usar uma combinação de um `CTAS` e implícita ingressar tooreplace este código:
+Você pode usar uma combinação de um `CTAS` e uma junção implícita para substituir este código:
 
 ```sql
 -- Create an interim table
@@ -208,7 +208,7 @@ GROUP BY
 ,        [CalendarYear]
 ;
 
--- Use an implicit join tooperform hello update
+-- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -216,13 +216,13 @@ WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProd
 AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
 ;
 
---Drop hello interim table
+--Drop the interim table
 DROP TABLE CTAS_acs
 ;
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Substituição de junção ANSI para instruções delete
-Às vezes, a melhor abordagem Olá para exclusão de dados é toouse `CTAS`. Em vez de excluir dados Olá simplesmente selecione Olá dados tookeep. Este especialmente verdadeiro para `DELETE` instruções que usam ansi unindo sintaxe desde que o SQL Data Warehouse não oferece suporte a junções de ANSI em Olá `FROM` cláusula de um `DELETE` instrução.
+Às vezes, a melhor abordagem para a exclusão de dados é usar `CTAS`. Em vez de excluir os dados, simplesmente selecione os dados que você deseja manter. Isso é especialmente verdadeiro para instruções `DELETE` que usam sintaxe de junção ansi, já que o SQL Data Warehouse não dá suporte a junções ANSI na cláusula `FROM` de uma instrução `DELETE`.
 
 Um exemplo de uma instrução DELETE convertida está disponível abaixo:
 
@@ -232,7 +232,7 @@ WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
-AS -- Select Data you wish tookeep
+AS -- Select Data you wish to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
@@ -241,12 +241,12 @@ RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
-RENAME OBJECT dbo.DimProduct        tooDimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert tooDimProduct;
+RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
+RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Substituir instruções merge
-Instruções de mesclagem podem ser substituídas, pelo menos em parte, usando `CTAS`. Você pode consolidar Olá `INSERT` e hello `UPDATE` em uma única instrução. Quaisquer registros excluídos precisaria toobe fechada em uma segunda instrução.
+Instruções de mesclagem podem ser substituídas, pelo menos em parte, usando `CTAS`. Você pode consolidar o `INSERT` e a `UPDATE` em uma única instrução. Quaisquer registros excluídos precisariam ser fechados em uma segunda instrução.
 
 Um exemplo de uma instrução `UPSERT` está disponível abaixo:
 
@@ -275,8 +275,8 @@ WHERE NOT EXISTS
 )
 ;
 
-RENAME OBJECT dbo.[DimProduct]          too[DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  too[DimProduct];
+RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
+RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 ```
 
@@ -297,9 +297,9 @@ SELECT @d*@f
 ;
 ```
 
-Instintivamente, você pode pensar tooa esse código CTAS devem ser migrados e você está correto. No entanto, há um problema oculto aqui.
+Instintivamente, é possível pensar que é necessário migrar esse código para um CTAS e você estaria certo. No entanto, há um problema oculto aqui.
 
-Olá código a seguir não geram Olá mesmo resultado:
+O código a seguir NÃO produz o mesmo resultado:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -313,9 +313,9 @@ SELECT @d*@f as result
 ;
 ```
 
-Observe o resultado"hello coluna" carrega com os valores hello tipo e a nulidade de dados da expressão de saudação. Isso pode levar toosubtle variações nos valores se você não tiver cuidado.
+Observe que a coluna “resultado” transporta os valores de tipo e a nulidade de dados da expressão. Se você não tiver cuidado, isso pode levar a variações sutis em valores.
 
-Tente o seguinte hello como um exemplo:
+Tente o seguinte exemplo:
 
 ```sql
 SELECT result,result*@d
@@ -327,17 +327,17 @@ from ctas_r
 ;
 ```
 
-Olá valor armazenado para o resultado é diferente. Como hello persistente valor na coluna de resultado de saudação é usado em outras expressões Olá erro torna-se ainda mais significativo.
+O valor armazenado para o resultado é diferente. Como o valor persistente na coluna de resultado é usado em outras expressões, o erro se torna ainda mais significativo.
 
 ![][1]
 
-Isso é particularmente importante para migrações de dados. Mesmo que a segunda consulta de saudação é indiscutivelmente mais precisa, há um problema. dados de saudação seriam diferentes toohello em comparação com o sistema de origem e que leva tooquestions de integridade na migração de saudação. Esta é uma das raros casos em que a resposta "incorreto" hello é realmente saudação à direita um!
+Isso é particularmente importante para migrações de dados. Mesmo que a segunda consulta seja indiscutivelmente mais precisa, há um problema. Os dados seriam diferentes em comparação com o sistema de origem e que leva a questões de integridade da migração. Esse é um dos casos raros em que a resposta “incorreta” é realmente a melhor!
 
-Olá motivo, podemos ver essa discrepância entre resultados Olá dois está inoperante tooimplicit conversão de tipo. No Olá a primeira tabela do exemplo hello define definição de coluna Olá. Quando a linha hello é inserida ocorre uma conversão implícita de tipo. No segundo exemplo de saudação não há nenhuma conversão implícita de tipo como expressão Olá define o tipo de dados da coluna de saudação. Observe que também que a coluna Olá no segundo exemplo de saudação foi definida como uma coluna anulável enquanto o primeiro exemplo de saudação não tem. Quando Olá tabela foi criada no primeiro nulidade da coluna exemplo hello foi definida explicitamente. No segundo exemplo de hello apenas estava toohello expressão e, por padrão, isso pode resultar em uma definição de NULL.  
+O motivo que vemos esta disparidade entre os dois resultados é a conversão de tipo implícito. No primeiro exemplo, a tabela define a definição de coluna. Quando a linha é inserida uma conversão implícita de tipo ocorre. No segundo exemplo não há nenhuma conversão implícita de tipo como a expressão define o tipo de dados da coluna. Observe também que a coluna no segundo exemplo tenha sido definida como uma coluna anulável, enquanto no primeiro exemplo não tem. Quando a tabela foi criada no primeiro exemplo, a nulidade da coluna foi explicitamente definida. No segundo exemplo, ela estava à esquerda da expressão e, por padrão isso resultaria em uma definição NULL.  
 
-tooresolve esses problemas que você deve definir explicitamente a conversão de tipo hello e nulidade em Olá `SELECT` parte da saudação `CTAS` instrução. Não é possível definir essas propriedades no hello criam parte da tabela.
+Para resolver esses problemas, defina explicitamente a nulidade e conversão de tipo na parte `SELECT` da instrução `CTAS`. Você não pode definir essas propriedades na parte criar tabela.
 
-exemplo Hello abaixo demonstra como toofix Olá código:
+O exemplo a seguir demonstra como corrigir o código:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -349,19 +349,19 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Observe o seguinte hello:
+Observe o seguinte:
 
 * CAST ou CONVERT poderia ter sido usado
-* ISNULL é usada tooforce nulidade ADESÃO não
-* ISNULL é função mais externa Olá
-* Olá segunda parte da saudação ISNULL é uma constante ou seja, 0
+* ISNULL é usado para forçar NULLability não COALESCE
+* ISNULL é a função mais externa
+* A segunda parte do ISNULL é uma constante, ou seja, 0
 
 > [!NOTE]
-> Olá nulidade toobe definida corretamente é vital toouse `ISNULL` e não `COALESCE`. `COALESCE`não é uma função determinística e então Olá resultado da saudação expressão será sempre NULLable. `ISNULL` é diferente. É determinístico. Quando Olá, portanto, a segunda parte da saudação `ISNULL` função é uma constante ou um literal, o valor resultante hello serão não nulo.
+> Para a nulidade ser definida corretamente, é vital usar `ISNULL`, e não `COALESCE`. `COALESCE` não é uma função determinística, assim, o resultado da expressão sempre será anulável. `ISNULL` é diferente. É determinístico. Portanto, quando a segunda parte da função `ISNULL` é uma constante ou um literal, o valor resultante será NOT NULL.
 > 
 > 
 
-Esta dica não é útil apenas para assegurar a integridade de saudação de seus cálculos. Também é importante para a alternância de partição de tabela. Imagine que você tenha essa tabela definida como o caso:
+Esta dica não é apenas útil para assegurar a integridade de seus cálculos. Também é importante para a alternância de partição de tabela. Imagine que você tenha essa tabela definida como o caso:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -384,9 +384,9 @@ WITH
 ;
 ```
 
-No entanto, o campo de valor de saudação é uma expressão calculada não faz parte dos dados de origem de saudação.
+No entanto, o campo de valor é uma expressão calculada que não é parte dos dados de origem.
 
-toocreate seu conjunto de dados particionado, talvez você queira toodo isso:
+Para criar o conjunto de dados particionado, você poderia fazer isso:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,7 +410,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-consulta de saudação será executado perfeitamente normal. problema de saudação é fornecido quando você tenta a alternância de partição tooperform Olá. definições de tabela Olá não coincidem. definições de tabela Olá toomake encontrar hello que CTAS precisa toobe modificado.
+A consulta seria executada perfeitamente bem. O problema surge quando você tenta executar a opção de partição. As definições de tabela não correspondem. Para fazer com que as definições de tabela correspondam, a CTAS precisa ser modificada.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -433,9 +433,9 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-Você pode ver, portanto, que a consistência de tipo e manutenção das propriedades de nulidade em um CTAS é uma boa prática recomendada de desenvolvimento. Ele ajuda a integridade de toomaintain em seus cálculos e também garante que a alternância de partição é possível.
+Você pode ver, portanto, que a consistência de tipo e manutenção das propriedades de nulidade em um CTAS é uma boa prática recomendada de desenvolvimento. Ela ajuda a manter a integridade de seus cálculos e também garante que a alternância de partição é possível.
 
-Consulte para obter mais informações sobre como usar tooMSDN [CTAS][CTAS]. É uma das instruções de hello mais importantes no Azure SQL Data Warehouse. Certifique-se compreendê-la totalmente.
+Consulte o MSDN para obter mais informações sobre como usar o [CTAS][CTAS]. Ela é uma das instruções mais importantes no SQL Data Warehouse do Azure. Certifique-se compreendê-la totalmente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].

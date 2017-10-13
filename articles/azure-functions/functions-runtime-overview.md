@@ -1,6 +1,6 @@
 ---
-title: "Visão geral de tempo de execução de funções de aaaAzure | Microsoft Docs"
-description: "Visão geral da saudação visualização de tempo de execução de funções do Azure"
+title: "Visão geral do Azure Functions Runtime | Microsoft Docs"
+description: "Visão geral da visualização do Azure Functions Runtime"
 services: functions
 documentationcenter: 
 author: apwestgarth
@@ -14,43 +14,43 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ce3e5037731d499c330b395c89c90109d18d65b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-functions-runtime-overview"></a>Visão geral do Azure Functions Runtime
 
-saudação de tempo de execução de funções do Azure fornece uma nova maneira você tootake vantagem de manter a simplicidade hello e flexibilidade de funções do Azure Olá local do modelo de programação. Mesmo baseia Olá abra raízes de origem como funções do Azure, o tempo de execução de funções do Azure é implantado no local tooprovide um desenvolvimento quase idêntico experiência como serviço de nuvem hello.
+O Azure Functions Runtime fornece a você uma nova maneira para aproveitar a simplicidade e a flexibilidade do modelo de programação do Azure Functions local. Compilado sobre as mesmas raízes de código-fonte aberto que o Azure Functions, o Azure Functions Runtime é implantado localmente a fim de fornecer uma experiência de desenvolvimento quase idêntica ao serviço de nuvem.
 
 ![Portal de visualização do Azure Functions Runtime][1]
 
-saudação de tempo de execução de funções do Azure fornece uma maneira para você tooexperience Azure funções antes de confirmar toohello nuvem. Dessa forma, ativos de código Olá que compilar podem, em seguida, ser executados com você toohello nuvem quando você migrar.  saudação de tempo de execução também abre novas opções para você, como o uso de capacidade de computação de reposição de saudação dos processos de lote local computadores toorun durante a noite. Você também pode usar dispositivos em sua organização tooconditionally enviar tooother sistemas de dados locais e na nuvem de saudação.
+O Azure Functions Runtime permite que você experimente o Azure Functions antes de se comprometer com a nuvem. Dessa forma, você levar seus ativos de código compilados para a nuvem quando decidir migrar.  O runtime também disponibiliza novas opções, como o uso do poder de computação sobressalente de seus computadores locais para executar processos em lote durante a noite. Você também pode usar os dispositivos de sua organização para enviar condicionalmente dados a outros sistemas, locais e na nuvem.
 
-saudação de tempo de execução de funções do Azure consiste em duas partes:
+O Azure Functions Runtime é formado por duas partes:
 * Função de Gerenciamento do Azure Functions Runtime
 * Função de Trabalho do Azure Functions Runtime
 
 ## <a name="azure-functions-management-role"></a>Função de Gerenciamento do Azure Functions
 
-Olá função de gerenciamento de funções do Azure fornece um host para o gerenciamento de saudação de sua funções no local. Esta função executa Olá tarefas a seguir:
+A função de gerenciamento do Azure Functions fornece um host para gerenciar o Functions localmente. Essa função executa as seguintes tarefas:
 
-* Hospedagem de saudação funções Portal de gerenciamento, que é Olá Olá mesmo que você vê no hello [portal do Azure](https://portal.azure.com). Isso permite que você desenvolver suas funções no mesmo Olá maneira como você faria no hello portal do Azure.
+* Hospedagem do Portal de Gerenciamento do Azure Functions, que é o mesmo do [Portal do Azure](https://portal.azure.com). Isso permite que você desenvolva suas funções da mesma maneira que faria no Portal do Azure.
 * Distribuição de funções por vários trabalhadores do Functions.
 * Fornecimento de um ponto de extremidade de publicação, para que você possa publicar suas funções diretamente do Microsoft Visual Studio.
 
 ## <a name="azure-functions-worker-role"></a>Função de Trabalho do Azure Functions
 
-Funções de trabalho Hello Azure funções são implantadas nos contêineres do Windows e é onde o código de função é executado.  Você pode implantar várias Funções de Trabalho em toda sua organização, e essa é uma maneira importante com a qual os clientes podem usar o poder da computação sobressalente.
+As Funções de Trabalho do Azure Functions são implantadas em Contêineres do Windows, e é nesse local que o código da função é executado.  Você pode implantar várias Funções de Trabalho em toda sua organização, e essa é uma maneira importante com a qual os clientes podem usar o poder da computação sobressalente.
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
-tooget iniciado com hello tempo de execução de funções do Azure deve ter um computador com **Windows Server 2016 ou Windows 10 criadores Update** com acesso tooa **do SQL Server** instância.
+Para começar com o Azure Functions Runtime, você deve ter um computador com **Windows Server 2016 ou com a Atualização do Windows 10 para Criadores** com acesso a uma instância do **SQL Server**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Instalar Olá [visualização de tempo de execução de funções do Azure](https://aka.ms/azafr)
+Instalar a [visualização do Azure Functions Runtime](https://aka.ms/azafr)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

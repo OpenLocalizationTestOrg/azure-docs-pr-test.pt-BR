@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Sprinklr | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Sprinklr."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Sprinklr."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 14b467c72d4a453ed7ad248eadcdade710f105af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6e1622cd55e3b0e8063604ac9dc0cb0673fa9753
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Active Directory do Azure com o Sprinklr
 
-Neste tutorial, você aprenderá como toointegrate Sprinklr com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o Sprinklr ao Azure AD (Azure Active Directory).
 
-Integrando o Sprinklr com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Sprinklr ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooSprinklr
-- Você pode habilitar seu usuários tooautomatically get conectado tooSprinklr (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao Sprinklr
+- Você pode permitir que seus usuários façam logon automaticamente no Sprinklr (logon único) com as contas do Azure AD deles
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o Sprinklr, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao Sprinklr, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Sprinklr
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Sprinklr da Galeria de saudação
+1. Adicionar o Sprinklr da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-sprinklr-from-hello-gallery"></a>Adicionando Sprinklr da Galeria de saudação
-integração de saudação tooconfigure do Sprinklr no AD do Azure, você precisa tooadd Sprinklr da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-sprinklr-from-the-gallery"></a>Adicionar o Sprinklr da galeria
+Para configurar a integração do Sprinklr ao Azure AD, você precisará adicionar o Sprinklr da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd Sprinklr da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Sprinklr da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **Sprinklr**.
+4. Na caixa de pesquisa, digite **Sprinklr**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_search.png)
 
-5. No painel de resultados de saudação, selecione **Sprinklr**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Sprinklr** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Sprinklr, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá sprinklr é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação sprinklr precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Sprinklr é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Sprinklr.
 
-Sprinklr, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No Sprinklr, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com o Sprinklr, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Sprinklr, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do Sprinklr](#creating-a-sprinklr-test-user)**  -toohave um equivalente de Britta Simon sprinklr é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Sprinklr](#creating-a-sprinklr-test-user)** – para ter um equivalente de Brenda Fernandes no Sprinklr que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Sprinklr.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Sprinklr.
 
-**tooconfigure AD do Azure-logon único com o Sprinklr, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Sprinklr, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **Sprinklr** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Sprinklr**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
 
-3. Em Olá **Sprinklr domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do Sprinklr**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.sprinklr.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
 
-    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.sprinklr.com`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize o valor de saudação com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente Sprinklr](https://www.sprinklr.com/contact-us/) tooget esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Logon e o Identificador reais. Contate a [equipe de suporte do cliente Sprinklr](https://www.sprinklr.com/contact-us/) para obter esses valores. 
  
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
 
@@ -125,15 +125,15 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
 
     ![Configurar Logon Único](./media/active-directory-saas-sprinklr-tutorial/tutorial_general_400.png)
 
-6. Em Olá **Sprinklr configuração** seção, clique em **configurar Sprinklr** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do Sprinklr**, clique em **Configurar Sprinklr** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-7. Em uma janela de navegador web diferente, faça logon no site da empresa tooyour Sprinklr como um administrador.
+7. Em outra janela do navegador da Web, faça logon em seu site de empresa do Sprinklr como um administrador.
 
-8. Vá muito**administração \> configurações**.
+8. Vá para **Administração \> Configurações**.
    
     ![Administração](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Administração")
 
-9. Vá muito**gerenciar parceiro \> o logon único** no painel esquerdo do hello.
+9. Vá para **Gerenciar Parceiro \> Logon Único** no painel à esquerda.
    
     ![Gerenciar Parceiro](./media/active-directory-saas-sprinklr-tutorial/ic782908.png "Gerenciar Parceiro")
 
@@ -141,75 +141,75 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
    
     ![Logons Únicos](./media/active-directory-saas-sprinklr-tutorial/ic782909.png "Logons Únicos")
 
-11. Em Olá **de logon único** página, execute Olá etapas a seguir:
+11. Na página **Logon Único** , realize as seguintes etapas:
    
     ![Logons Únicos](./media/active-directory-saas-sprinklr-tutorial/ic782910.png "Logons Únicos")
 
-    a. Em Olá **nome** caixa de texto, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
+    a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
 
     b. Selecione **Habilitado**.
 
     c. Selecione **Usar novo Certificado de SSO**.
              
-    e. Abra seu certificado codificado em base 64 no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **certificado do provedor de identidade** caixa de texto.
+    e. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade**.
 
-    f. Saudação de colar **ID da entidade SAML** valor que você copiou do Portal do Azure em Olá **Id da entidade** caixa de texto.
+    f. Cole a **ID de Entidade do SAML** copiada no portal do Azure para a caixa de texto **ID da Entidade**.
 
-    g. Saudação de colar **Single Sign-On URL do serviço SAML** valor que você copiou do Portal do Azure em Olá **URL de logon do provedor de identidade** caixa de texto.
+    g. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
 
-    h. Saudação de colar **URL de logout** valor que você copiou do Portal do Azure em Olá **URL de Logout do provedor de identidade** caixa de texto.
+    h. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** que você copiou do Portal do Azure.
      
     i. Para **Tipo de ID de Usuário do SAML**, selecione **A declaração contém o nome de usuário de sprinklr.com do Usuário**.
 
-    j. Como **local de ID de usuário SAML**, selecione **ID de usuário está no elemento de identificador de nome de saudação do hello declaração assunto**.
+    j. Para **Local da ID de Usuário do SAML**, selecione **A ID de Usuário está contida no elemento Identificador de Nome da instrução Subject**.
 
     k. Clique em **Salvar**.
        
     ![SAML](./media/active-directory-saas-sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-sprinklr-test-user"></a>Criar um usuário de teste do Sprinklr
 
-1. Faça logon no tooyour site da empresa Sprinklr como um administrador.
+1. Faça logon em seu site de empresa do Sprinklr como um administrador.
 
-2. Vá muito**administração \> configurações**.
+2. Vá para **Administração \> Configurações**.
    
     ![Administração](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Administração")
 
-3. Vá muito**gerenciar cliente \> usuários** no painel esquerdo do hello.
+3. Vá para **Gerenciar Cliente \> Usuários** no painel à esquerda.
    
     ![Configurações](./media/active-directory-saas-sprinklr-tutorial/ic782914.png "Configurações")
 
@@ -217,11 +217,11 @@ Olá objetivo desta seção é toocreate um usuário de teste no hello chamado B
    
     ![Configurações](./media/active-directory-saas-sprinklr-tutorial/ic782915.png "Configurações")
 
-5. Em Olá **Editar usuário** caixa de diálogo, executar Olá etapas a seguir:
+5. No diálogo **Editar usuário** , realize as seguintes etapas:
    
     ![Editar usuário](./media/active-directory-saas-sprinklr-tutorial/ic782916.png "Editar usuário") 
 
-    a. Em Olá **Email**, **nome** e **Sobrenome** caixas de texto, informações de saudação do tipo de uma conta de usuário do AD do Azure você deseja tooprovision.
+    a. Nas caixas de texto **Email**, **Nome** e **Sobrenome**, digite as informações de uma conta de usuário do Azure AD que você deseja provisionar.
 
     b. Selecione **Senha Desabilitada**.
 
@@ -232,36 +232,36 @@ Olá objetivo desta seção é toocreate um usuário de teste no hello chamado B
     e. Clique em **Atualizar**.
    
      >[!IMPORTANT]
-     >**Senha desabilitada** deve ser selecionada tooenable um toolog de usuário por meio de um provedor de identidade. 
+     >**Senha Desabilitada** deve ser marcada para permitir que um usuário faça logon por meio de um Provedor de identidade. 
      
-6. Vá muito**função**e, em seguida, executar Olá etapas a seguir:
+6. Vá para **Função**e realize as seguintes etapas:
    
     ![Funções de Parceiro](./media/active-directory-saas-sprinklr-tutorial/ic782917.png "Funções de Parceiro")
 
-    a. De saudação **Global** lista, selecione **todos os\_permissões**.  
+    a. Na lista **Global**, selecione **ALL\_Permissions**.  
 
     b. Clique em **Atualizar**.
 
 >[!NOTE]
->Você pode usar qualquer ferramenta de criação outros Sprinklr usuário conta ou APIs fornecidas pelo Sprinklr tooprovision contas de usuário do AD do Azure. 
+>Você pode usar qualquer outra ferramenta de criação da conta de usuário do Sprinklr ou APIs fornecidas pelo Sprinklr para provisionar contas de usuário do AD do Azure. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooSprinklr.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Sprinklr.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooSprinklr, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Sprinklr, realize as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Sprinklr**.
+2. Na lista de aplicativos, selecione **Sprinklr**.
 
     ![Configurar Logon Único](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -269,7 +269,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -277,13 +277,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Sprinklr Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Sprinklr aplicativo para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Quando clicar no bloco do Sprinklr no Painel de Acesso, você deverá ser automaticamente conectado ao seu aplicativo Sprinklr. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

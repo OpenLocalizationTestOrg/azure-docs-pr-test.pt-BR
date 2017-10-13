@@ -1,5 +1,5 @@
 ---
-title: "aaaStart criar soluções de lote com modelos de projeto do Visual Studio - Azure | Microsoft Docs"
+title: "Começar a criar soluções em lote com modelos de projeto do Visual Studio - Azure | Microsoft Docs"
 description: "Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure."
 services: batch
 documentationcenter: .net
@@ -15,136 +15,136 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61c480ddc4dffd66c01220a137a3e852e39c338
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-visual-studio-project-templates-toojump-start-batch-solutions"></a>Usar soluções do Visual Studio project modelos toojump Iniciar em lotes
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
-Olá **Gerenciador de trabalhos** e **modelos do Visual Studio do processador de tarefa** de lote de fornecer código toohelp você tooimplement e executar suas cargas de trabalho com computação intensiva em lote com hello menos esforço. Este documento descreve esses modelos e fornece orientação sobre como toouse-los.
+O **Gerenciador de Trabalho** e os **modelos do Visual Studio do Processador de Tarefa** para o Lote fornecem código para ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote com o mínimo de esforço. Este documento descreve esses modelos e fornece diretrizes sobre como usá-los.
 
 > [!IMPORTANT]
-> Este artigo discute somente modelos de toothese aplicável duas informações e pressupõe que você esteja familiarizado com o serviço de lote hello e tooit relacionados conceitos principais: computação de pools, nós, trabalhos e tarefas, tarefas do Gerenciador de trabalho, variáveis de ambiente e outros informações relevantes. Você pode encontrar mais informações em [Noções básicas do lote do Azure](batch-technical-overview.md), [visão geral do recurso de lote para desenvolvedores](batch-api-basics.md), e [Introdução à biblioteca do lote do Azure de saudação para .NET](batch-dotnet-get-started.md).
+> Este artigo discute apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço do Lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do gerenciador de trabalho, variáveis de ambiente e outras informações relevantes. Encontre mais informações em [Noções básicas do Lote do Azure](batch-technical-overview.md), [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md) e [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md).
 > 
 > 
 
 ## <a name="high-level-overview"></a>Visão geral de alto nível
-modelos de Gerenciador de trabalhos e tarefas processador Olá podem ser usado toocreate dois componentes úteis:
+Os modelos do Gerenciador de Trabalho e do Processador de Tarefa podem ser usados para criar dois componentes úteis:
 
 * Uma tarefa do gerenciador de trabalho que implementa um divisor de trabalho que pode, por sua vez, dividir um trabalho em várias tarefas que podem ser executadas de forma independente, em paralelo.
-* Um processador de tarefas que pode ser usados tooperform pré-processando e pós-processamento em torno de uma linha de comando do aplicativo.
+* Um processador de tarefa que pode ser usado para executar o pré-processamento e o pós-processamento em uma linha de comando do aplicativo.
 
-Por exemplo, em um cenário de renderização de filme, divisor de trabalho Olá seria transformar um trabalho único de filme em centenas ou milhares de tarefas separadas que processam quadros individuais separadamente. De forma correspondente, processador de tarefa Olá seria invocar Olá renderização de aplicativo e todos os processos dependentes que são necessária toorender cada quadro, bem como executar ações adicionais (por exemplo, copiando Olá renderizado quadro tooa local de armazenamento).
+Por exemplo, em um cenário de renderização de filme, o divisor de trabalho transformaria um trabalho único de filme em centenas ou milhares de tarefas separadas que processam quadros individuais separadamente. Do mesmo modo, o processador de tarefa invocaria o aplicativo de renderização e todos os processos dependentes exigidos para processar cada quadro, bem como executar quaisquer ações adicionais (por exemplo, copiar o quadro processado em um local de armazenamento).
 
 > [!NOTE]
-> modelos de Gerenciador de trabalhos e tarefas processador Olá são independentes entre si, assim você pode escolher toouse ambos ou apenas um deles, dependendo dos requisitos de saudação do seu trabalho de computação e em suas preferências.
+> Os modelos do Gerenciador de Trabalho e do Processador de Tarefa são independentes, para que você possa optar por usar ambos ou apenas um deles, dependendo dos requisitos do seu trabalho de computação e de suas preferências.
 > 
 > 
 
-Conforme mostrado no diagrama de saudação abaixo, um trabalho de computação que usa esses modelos passará por três estágios:
+Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esses modelos passará por três estágios:
 
-1. código de cliente da saudação (por exemplo, aplicativo, serviço web, etc.) envia um serviço de lote no Azure, especificando como seu programa de Gerenciador de trabalho trabalho manager tarefa Olá de toohello de trabalho.
-2. serviço de lote Olá executa a tarefa do Gerenciador de trabalho Olá em um nó de computação e hello trabalho divisor inicia Olá especificado número de tarefas de processador, em como muitos nós de computação conforme necessário, com base nas especificações no código do divisor de trabalho hello e parâmetros de saudação.
-3. Olá processador tarefas executam de forma independente, em paralelo, tooprocess os dados de entrada hello e geram dados de saída de saudação.
+1. O código do cliente (por exemplo, aplicativo, serviço Web etc.) envia um trabalho ao serviço do Lote no Azure, especificando como sua tarefa de gerenciamento de trabalho o programa Gerenciador de trabalho.
+2. O serviço do Lote executa a tarefa do Gerenciador de trabalho em um nó de computação, e o divisor de trabalho inicia o número especificado de tarefas do processador de tarefas, na quantidade de nós de computação necessária, com base nos parâmetros e especificações no código do divisor de trabalho.
+3. As tarefas do processador de tarefas são executadas de forma independente, em paralelo, a fim de processar os dados de entrada e gerar os dados de saída.
 
-![Diagrama mostrando como o código do cliente interage com hello serviço de lote][diagram01]
+![Diagrama mostrando como o código do cliente interage com o serviço do Lote][diagram01]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-toouse modelos de lote hello, você precisará seguir hello:
+Para usar os modelos do Lote, você precisará do seguinte:
 
 * Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
-* modelos de lote Hello, que estão disponíveis no hello [Galeria do Visual Studio] [ vs_gallery] como extensões do Visual Studio. Há duas maneiras de modelos de saudação tooget:
+* Os modelos do Lote, disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
-  * Instalar os modelos de saudação usando Olá **extensões e atualizações** caixa de diálogo no Visual Studio (para obter mais informações, consulte [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Em Olá **extensões e atualizações** caixa de diálogo, pesquisa e download Olá duas extensões a seguir:
+  * Instalar os modelos usando a caixa de diálogo **Extensões e Atualizações** no Visual Studio (para saber mais, confira [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:
     
     * Gerenciador de Trabalhos do Lote do Azure com o Divisor de Trabalho
     * Processador de Tarefas do Lote do Azure
-  * Baixar modelos de saudação da galeria online Olá para o Visual Studio: [modelos de projeto de lote do Microsoft Azure][vs_gallery_templates]
-* Se você planejar Olá toouse [pacotes de aplicativos](batch-application-packages.md) nós de computação do Gerenciador de trabalhos do recurso toodeploy hello e toohello do processador de tarefa em lotes, é necessário toolink uma conta de armazenamento tooyour conta do lote.
+  * Baixe os modelos da galeria online para o Visual Studio: [Modelos de projeto do Lote do Microsoft Azure][vs_gallery_templates]
+* Se você planeja usar o recurso [Pacotes de aplicativos](batch-application-packages.md) para implantar o Gerenciador de trabalho e o processador de tarefas nos nós de computação do Lote, será necessário vincular uma conta de armazenamento à sua conta do Lote.
 
 ## <a name="preparation"></a>Preparação
-É recomendável criar uma solução que pode conter seu Gerenciador de trabalho, bem como o processador de tarefa, porque isso pode tornar mais fácil código tooshare entre o Gerenciador de trabalhos e programas de processador da tarefa. toocreate nesta solução, siga estas etapas:
+Recomendamos a criação de uma solução que pode conter seu Gerenciador de trabalho, bem como o processador de tarefas, pois isso pode facilitar o compartilhamento do código entre os programas Gerenciador de trabalho e Processador de tarefas. Para criar essa solução, execute estas etapas:
 
 1. Abra o Visual Studio e selecione **Arquivo** > **Novo** > **Projeto**.
 2. Em **Modelos**, expanda **Outros Tipos de Projeto**, clique em **Soluções do Visual Studio** e, em seguida, selecione **Solução em Branco**.
-3. Digite um nome que descreve a finalidade de aplicativo e hello dessa solução (por exemplo, "LitwareBatchTaskPrograms").
-4. toocreate Olá nova solução, clique em **Okey**.
+3. Digite um nome que descreva seu aplicativo e a finalidade dessa solução (por exemplo, "ProgramasDeTarefasdoLoteLitware").
+4. Para criar a nova solução, clique em **OK**.
 
 ## <a name="job-manager-template"></a>Modelo do Gerenciador de trabalho
-modelo do Gerenciador de trabalhos Olá ajuda tooimplement uma tarefa do Gerenciador de trabalho que pode executar Olá ações a seguir:
+O modelo do Gerenciador de trabalho ajuda você a implementar uma tarefa do Gerenciador de trabalho que pode executar as seguintes ações:
 
 * Dividir um trabalho em várias tarefas.
-* Envie toorun essas tarefas em lote.
+* Enviar essas tarefas para execução no Lote.
 
 > [!NOTE]
 > Para saber mais sobre as tarefas do Gerenciador de trabalho, confira [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md#job-manager-task).
 > 
 > 
 
-### <a name="create-a-job-manager-using-hello-template"></a>Criar um Gerenciador de trabalho usando o modelo de saudação
-tooadd uma solução de toohello do Gerenciador de trabalho que você criou anteriormente, siga estas etapas:
+### <a name="create-a-job-manager-using-the-template"></a>Criar um Gerenciador de trabalho usando o modelo
+Para adicionar um Gerenciador de trabalho à solução que você criou anteriormente, execute estas etapas:
 
 1. Abra sua solução existente no Visual Studio.
-2. No Gerenciador de soluções, solução de saudação com o botão direito, clique em **adicionar** > **novo projeto**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e clique em **Adicionar** > **Novo Projeto**.
 3. No **Visual C#**, clique em **Nuvem** e em **Gerenciador de trabalho do Lote do Azure com o Divisor de trabalho**.
-4. Digite um nome que descreva o aplicativo e identifica este projeto como Gerenciador de trabalhos da saudação (por exemplo "GerenciadorDeTrabalhoLitware").
-5. projeto de saudação toocreate, clique em **Okey**.
-6. Finalmente, referenciado de compilação Olá projeto tooforce Visual Studio tooload todos os pacotes do NuGet e tooverify que Olá projeto é válido antes de começar a modificá-lo.
+4. Digite um nome que descreva o aplicativo e identifique esse projeto como o Gerenciador de trabalho (por exemplo, "GerenciadorDeTrabalhoLitware").
+5. Para criar o projeto, clique em **OK**.
+6. Por fim, compile o projeto para forçar o Visual Studio a carregar todos os pacotes NuGet referenciados e verificar se o projeto é válido antes de você começar a modificá-lo.
 
 ### <a name="job-manager-template-files-and-their-purpose"></a>Arquivos do modelo do Gerenciador de trabalho e suas finalidades
-Quando você cria um projeto usando o modelo do Gerenciador de trabalhos hello, ele gera três grupos de arquivos de código:
+Quando você cria um projeto usando o modelo do Gerenciador de trabalho, ele gera três grupos de arquivos de código:
 
-* arquivo de programa principal Hello (Program.cs). Ele contém o ponto de entrada de programa hello e manipulação de exceção de nível superior. Você normalmente não precisa toomodify isso.
-* diretório do Framework Hello. Isso contém arquivos de saudação responsáveis pelo trabalho 'padrão' hello pelo programa de Gerenciador de trabalho hello – desempacotar parâmetros, adicionando o trabalho de lote de toohello de tarefas, etc. Você normalmente não precisa toomodify esses arquivos.
-* arquivo separador Olá trabalho (JobSplitter.cs). É nesse arquivo que você colocará a lógica específica ao aplicativo para a divisão de um trabalho em tarefas.
+* O arquivo de programa principal (Program.cs). Esse arquivo contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, não é necessário modificar isso.
+* O diretório Framework. Esse diretório contém os arquivos responsáveis pelo trabalho “clichê” realizado pelo programa Gerenciador de trabalho – desempacotar parâmetros, adicionar tarefas ao trabalho do Lote etc. Normalmente, não é necessário modificar esses arquivos.
+* O arquivo do Divisor de trabalho (JobSplitter.cs). É nesse arquivo que você colocará a lógica específica ao aplicativo para a divisão de um trabalho em tarefas.
 
-Obviamente você pode adicionar arquivos adicionais como toosupport necessário seu código de separador de trabalho, dependendo da complexidade de saudação do trabalho Olá divisão lógica.
+Obviamente você pode adicionar outros arquivos conforme o necessário a fim de oferecer suporte ao código do divisor de trabalho, dependendo da complexidade da lógica de divisão do trabalho.
 
-modelo de saudação também gera arquivos de projeto padrão do .NET como um arquivo. csproj App. config, Packages, etc.
+O modelo também gera arquivos de projeto padrão do .NET, como um arquivo .csproj, app.config, packages.config etc.
 
-restante Olá desta seção descreve Olá diferentes arquivos e sua estrutura de código e explica o que faz cada classe.
+O restante desta seção descreve os diferentes arquivos e sua estrutura de código, e explica o que cada classe faz.
 
-![Visual Studio Gerenciador de soluções mostrando a solução de modelo do Gerenciador de trabalhos Olá][solution_explorer01]
+![Visual Studio Solution Explorer mostrando a solução do modelo do Gerenciador de trabalhos][solution_explorer01]
 
 **Arquivos do Framework**
 
-* `Configuration.cs`: Encapsula o carregamento de saudação de dados de configuração de trabalho, como detalhes da conta, as credenciais de conta de armazenamento vinculada, informações de trabalhos e tarefas e parâmetros do trabalho em lotes. Ele também fornece acesso definido tooBatch as variáveis de ambiente (consulte as configurações de ambiente para tarefas, na documentação do lote Olá) por meio da classe Configuration.EnvironmentVariable hello.
-* `IConfiguration.cs`: Resumo Olá implementação de classe de configuração de hello, para que você possa de teste de unidade o divisor de trabalho usando um objeto de configuração falsas ou fictícias.
-* `JobManager.cs`: Coordena os componentes de saudação do programa de Gerenciador de trabalho Olá. É responsável por Olá Inicializando divisor de trabalho hello, invocando divisor de trabalho Olá, e expedir tarefas Olá retornado pelo emissor da tarefa toohello Olá trabalho divisor.
-* `JobManagerException.cs`Representa um erro que exige Olá tooterminate de Gerenciador de trabalho. JobManagerException é usado toowrap 'esperado' erros onde as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
-* `TaskSubmitter.cs`: Esta classe é responsável tooadding tarefas retornadas por um trabalho em lotes do hello trabalho divisor toohello. classe de JobManager Olá agrega sequência Olá das tarefas em lotes para o trabalho de toohello adição eficiente, mas em tempo hábil, em seguida, chama TaskSubmitter.SubmitTasks em um thread em segundo plano para cada lote.
+* `Configuration.cs`: encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `JobManager.cs`: coordena os componentes do programa Gerenciador de trabalho. Ele é responsável pela inicialização do divisor de trabalho, invocação do divisor de trabalho e distribuição de tarefas retornadas pelo divisor de trabalho para o emissor de tarefas.
+* `JobManagerException.cs`: representa um erro que exige o encerramento do Gerenciador de trabalho. JobManagerException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
+* `TaskSubmitter.cs`: essa classe é responsável por adicionar tarefas retornadas pelo divisor de trabalho para o trabalho do Lote. A classe JobManager agrega a sequência de tarefas em lotes para uma adição eficiente, e em tempo hábil, ao trabalho. Em seguida, ela chama TaskSubmitter.SubmitTasks em um thread em segundo plano para cada lote.
 
 **Divisor de trabalho**
 
-`JobSplitter.cs`: Essa classe contém a lógica específica do aplicativo para dividir o trabalho de saudação em tarefas. estrutura Hello invoca Olá JobSplitter.Split método tooobtain uma sequência de tarefas, que adiciona trabalho toohello como método hello retorna-los. Isso é classe Olá onde você será injetar lógica de saudação do seu trabalho. Implemente Olá divisão método tooreturn uma sequência de instâncias de CloudTask que representam tarefas Olá no qual você deseja que o trabalho de saudação toopartition.
+`JobSplitter.cs`: essa classe contém uma lógica específica ao aplicativo para dividir o trabalho em tarefas. O framework invoca o método JobSplitter.Split para obter uma sequência de tarefas, a qual ele adiciona ao trabalho à medida que o método as retorna. Essa é a classe na qual você injetará a lógica de seu trabalho. Implemente o método Split para retornar uma sequência de instâncias CloudTask representando as tarefas nas quais você deseja dividir o trabalho.
 
 **Arquivos de projeto de linha de comando .NET padrão**
 
 * `App.config`: arquivo de configuração padrão de aplicativo .NET.
 * `Packages.config`: arquivo de dependência padrão do pacote NuGet.
-* `Program.cs`: Contém o ponto de entrada de programa hello e manipulação de exceção de nível superior.
+* `Program.cs`contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
-### <a name="implementing-hello-job-splitter"></a>Implementando o divisor de trabalho Olá
-Quando você abre um projeto de modelo do Gerenciador de trabalhos hello, o projeto Olá terá Olá JobSplitter.cs arquivo aberta por padrão. Você pode implementar Olá dividir lógica para tarefas de Olá na carga de trabalho usando mostrados do método split () Olá abaixo:
+### <a name="implementing-the-job-splitter"></a>Implementação do divisor de trabalho
+Quando você abre o projeto de modelo do Gerenciador de trabalhos, o projeto fará o arquivo JobSplitter.cs ser aberto por padrão. Você pode implementar a lógica de divisão para as tarefas em sua carga de trabalho usando o método Split() exibido abaixo:
 
 ```csharp
 /// <summary>
-/// Gets hello tasks into which toosplit hello job. This is where you inject
-/// your application-specific logic for decomposing hello job into tasks.
+/// Gets the tasks into which to split the job. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
 ///
-/// hello job manager framework invokes hello Split method for you; you need
-/// only tooimplement it, not toocall it yourself. Typically, your
+/// The job manager framework invokes the Split method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
 /// implementation should return tasks lazily, for example using a C#
-/// iterator and hello "yield return" statement; this allows tasks toobe added
-/// and toostart running while splitting is still in progress.
+/// iterator and the "yield return" statement; this allows tasks to be added
+/// and to start running while splitting is still in progress.
 /// </summary>
-/// <returns>hello tasks toobe added toohello job. Tasks are added automatically
-/// by hello job manager framework as they are returned by this method.</returns>
+/// <returns>The tasks to be added to the job. Tasks are added automatically
+/// by the job manager framework as they are returned by this method.</returns>
 public IEnumerable<CloudTask> Split()
 {
-    // Your code for hello split logic goes here.
+    // Your code for the split logic goes here.
     int startFrame = Convert.ToInt32(_parameters["StartFrame"]);
     int endFrame = Convert.ToInt32(_parameters["EndFrame"]);
 
@@ -156,56 +156,56 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> Olá anotado seção Olá `Split()` método é somente seção Olá Olá código de modelo do Gerenciador de trabalhos que é destinado para você toomodify adicionando Olá lógica toosplit seus trabalhos para tarefas diferentes. Se você quiser toomodify uma seção diferente do modelo hello, verifique se você é trazido com como funciona o lote e experimentar algumas das Olá [exemplos de código do lote][github_samples].
+> A seção anotada nos métodos `Split()` é a única seção do código do modelo do Gerenciador de trabalho que você pode modificar adicionando a lógica para dividir os trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, primeiro você precisará ter certeza de que está familiarizado com o funcionamento do Lote e experimente alguns dos [exemplos de código do Lote][github_samples].
 > 
 > 
 
 Sua implementação de Split() tem acesso a:
 
-* Olá parâmetros do trabalho, via Olá `_parameters` campo.
-* Olá CloudJob objeto representando trabalho hello, por meio de saudação `_job` campo.
-* Olá CloudTask objeto representando tarefa do Gerenciador de trabalho hello, por meio de saudação `_jobManagerTask` campo.
+* Os parâmetros do trabalho, por meio do campo `_parameters` .
+* O objeto CloudJob que representa o trabalho, por meio do campo `_job` .
+* O objeto CloudTask que representa a tarefa do gerenciador de trabalho, por meio do campo `_jobManagerTask` .
 
-O `Split()` implementação não precisa de trabalho de toohello tooadd tarefas diretamente. Em vez disso, seu código deve retornar uma sequência de objetos CloudTask, e eles serão adicionados toohello trabalho automaticamente pelas classes de framework Olá que invocam divisor de trabalho hello. É comum iterador de toouse do # (`yield return`) tooimplement divisores de trabalho de recursos, como isso permite Olá toostart de tarefas em execução assim que possível em vez de aguardar toobe de todas as tarefas calculados.
+Sua implementação do `Split()` não precisa adicionar tarefas diretamente ao trabalho. Em vez disso, seu código deve retornar uma sequência de objetos CloudTask, e eles serão adicionados ao trabalho automaticamente pelas classes do framework que invocam o divisor de trabalho. É comum usar o recurso do iterador do C# (`yield return`) para implementar divisores de trabalho, pois isso permite o início da execução das tarefas assim que é possível, em vez de esperar que todas as tarefas sejam calculadas.
 
 **Falha do divisor de trabalho**
 
 Se o divisor de trabalho encontrar um erro, ele deverá:
 
-* Encerrar a sequência de saudação usando Olá c# `yield break` instrução, em que o Gerenciador de trabalhos Olá caso será tratado com êxito; ou
-* Gera uma exceção, no qual o Gerenciador de trabalhos Olá caso será tratado como falha e pode ser repetido dependendo de como o cliente Olá tiver configurado).
+* Encerrar a sequência usando a instrução em C# `yield break` Nesse caso, o Gerenciador de trabalho será tratado como bem-sucedido; ou
+* Lançar uma exceção. Nesse caso, o Gerenciador de trabalho será tratado como se tivesse apresentado uma falha e poderá repetir dependendo do modo de configuração do cliente).
 
-Em ambos os casos, todas as tarefas já retornado pelo separador de trabalho hello e trabalho em lotes de toohello adicionado será toorun qualificado. Se não quiser que esta toohappen, em seguida, você pode:
+Em ambos os casos, quaisquer tarefas que já foram retornadas pelo divisor de trabalho e adicionadas ao trabalho do Lote poderão ser executadas. Se você não quiser que isso aconteça, você poderá:
 
-* Encerrar trabalho Olá antes de retornar de separador de trabalho Olá
-* Formular a coleção de tarefas inteira Olá antes de retorná-lo (ou seja, retornar um `ICollection<CloudTask>` ou `IList<CloudTask>` em vez de implementar o divisor de trabalho usando um iterador de c#)
-* Use a tarefa dependências toomake que dependem de todas as tarefas após a conclusão bem-sucedida do Gerenciador de trabalhos Olá Olá
+* Encerrar o trabalho antes de retornar do divisor de trabalho
+* Foumular toda a coleção de tarefas inteira antes de retouná-la (ou seja, retouna um `ICollection<CloudTask>` ou `IList<CloudTask>` instead of implementing your job splitter using a C# iteratou)
+* Usar dependências de tarefas para fazer com que todas as tarefas dependam da conclusão bem-sucedida do Gerenciador de trabalho
 
 **Novas tentativas do Gerenciador de trabalho**
 
-Se o Gerenciador de trabalhos Olá falhar, pode ser repetida pelo serviço de lote Olá dependendo das configurações de repetição de cliente hello. Em geral, isso é seguro, porque quando framework Olá adiciona o trabalho de toohello de tarefas, ele ignora as tarefas que já existem. No entanto, se o cálculo de tarefas é cara, não poderá tooincur custo de saudação do recálculo tarefas que já foram adicionadas toohello trabalho; Por outro lado, se executar novamente a saudação é toogenerate não garantida Olá mesmas IDs de tarefa e o comportamento de 'Ignorar duplicatas' hello não será iniciada. Nesses casos, você deve projetar seu trabalho divisor toodetect Olá um trabalho que já foi feito e não repita, por exemplo, executando um CloudJob.ListTasks antes de iniciar tarefas tooyield.
+Se o gerenciador de trabalho falhar, o serviço do Lote poderá tentar executá-lo outra vez, dependendo das configurações de repetição do cliente. Em geral, isso é seguro, pois quando o framework adiciona tarefas ao trabalho, ele ignora quaisquer tarefas já existentes. No entanto, se o cálculo de tarefas for caro, talvez você não queira incorrer em custos de recálculo de tarefas que já foram adicionadas ao trabalho; por outro lado, se não houver garantia de que a nova execução gerará as mesmas IDs de tarefa , o comportamento de “ignorar duplicatas” será não iniciado. Nesses casos, projete o divisor de trabalho para detectar o trabalho que já foi realizado e não repeti-lo, por exemplo, executando um CloudJob.ListTasks antes de começar a gerar tarefas.
 
-### <a name="exit-codes-and-exceptions-in-hello-job-manager-template"></a>Códigos e exceções no modelo do Gerenciador de trabalhos de saudação de saída
-Códigos de saída e as exceções fornecem um resultado de saudação do toodetermine mecanismo de execução de um programa, e eles podem ajudar tooidentify quaisquer problemas com a execução de saudação do programa de saudação. modelo do Gerenciador de trabalhos Olá implementa os códigos de saída de hello e exceções descritas nesta seção.
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Códigos de saída e exceções no modelo do Gerenciador de trabalho
+Os códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e podem ajudar a identificar problemas com a execução do programa. O modelo do Gerenciador de trabalho implementa os códigos e exceções de saída descritos nesta seção.
 
-Uma tarefa do Gerenciador de trabalho que é implementada com o modelo do Gerenciador de trabalhos Olá pode retornar três códigos de saída possíveis:
+Uma tarefa do Gerenciador de trabalho implementada com o modelo do Gerenciador de trabalho pode retornar três códigos de saída possíveis:
 
 | Código | Descrição |
 | --- | --- |
-| 0 |Gerenciador de trabalhos Olá foi concluído com êxito. O código do divisor de trabalho foi executado toocompletion e todas as tarefas foram adicionadas toohello trabalho. |
-| 1 |tarefa do Gerenciador de trabalho Olá falhou com uma exceção em uma parte 'esperada' do programa de saudação. exceção Olá foi traduzida tooa JobManagerException com informações de diagnóstico e, quando possível, sugestões para resolver Olá falha. |
-| 2 |tarefa do Gerenciador de trabalho Olá falhou com uma exceção 'inesperada'. exceção Hello era toostandard conectado de saída, mas o Gerenciador de trabalhos Olá tooadd não é possível quaisquer informações adicionais de diagnóstico ou correção. |
+| 0 |O Gerenciador de trabalho foi concluído com sucesso. O código do divisor de trabalho executou até a conclusão, e todas as tarefas foram adicionadas ao trabalho. |
+| 1 |A tarefa do Gerenciador de trabalho falhou com uma exceção em uma parte “esperada” do programa. A exceção foi convertida para um JobManagerException com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
+| 2 |A tarefa do Gerenciador de trabalho falhou com uma exceção “inesperada”. A exceção foi registrada na saída padrão, mas o Gerenciador de trabalho não conseguiu adicionar informações de diagnóstico ou correção adicionais. |
 
-No caso de saudação de falha de tarefa do Gerenciador de trabalho, algumas tarefas podem ainda ter sido adicionadas toohello serviço antes de saudação erro. Essas tarefas serão executadas normalmente. Consulte "Falha do divisor de trabalho" acima para conferir uma discussão desse caminho de código.
+No caso de falha da tarefa do Gerenciador de trabalho, algumas tarefas ainda podem ter sido adicionadas ao serviço antes do erro ocorrer. Essas tarefas serão executadas normalmente. Consulte "Falha do divisor de trabalho" acima para conferir uma discussão desse caminho de código.
 
-Todas as informações de saudação retornadas por exceções são gravadas em arquivos do stderr.txt e stdout.txt. Para saber mais, confira [Manipulação de erro](batch-api-basics.md#error-handling).
+Todas as informações retornadas pelas exceções são gravadas nos arquivos stdout.txt e stderr.txt. Para saber mais, confira [Manipulação de erro](batch-api-basics.md#error-handling).
 
 ### <a name="client-considerations"></a>Considerações do cliente
-Esta seção descreve alguns requisitos de implementação do cliente ao invocar um Gerenciador de trabalho com base nesse modelo. Consulte [como toopass parâmetros e variáveis de ambiente Olá código do cliente](#pass-environment-settings) para obter detalhes sobre como passar parâmetros e configurações de ambiente.
+Esta seção descreve alguns requisitos de implementação do cliente ao invocar um Gerenciador de trabalho com base nesse modelo. Consulte [Como passar parâmetros e variáveis de ambiente no código do cliente](#pass-environment-settings) para obter detalhes sobre como passar parâmetros e configurações de ambiente.
 
 **Credenciais obrigatórias**
 
-Em ordem tooadd tarefas toohello do Azure Batch trabalho tarefa do Gerenciador de trabalho Olá requer a URL de conta de lote do Azure e a chave. Você deve passá-la nas variáveis de ambiente chamadas YOUR_BATCH_URL e YOUR_BATCH_KEY. Você pode defini-los no hello Gerenciador de trabalho configurações de ambiente de tarefas. Por exemplo, em um cliente C#:
+Para adicionar tarefas ao trabalho do Lote do Azure, a tarefa do Gerenciador de trabalho exige a URL e a chave da conta do Lote do Azure. Você deve passá-la nas variáveis de ambiente chamadas YOUR_BATCH_URL e YOUR_BATCH_KEY. Defina-as nas configurações de ambiente da tarefa do Gerenciador de trabalho. Por exemplo, em um cliente C#:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -215,7 +215,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Credenciais de armazenamento**
 
-Normalmente, Olá cliente não necessita de tooprovide Olá armazenamento vinculado conta credenciais toohello trabalho tarefa do Gerenciador de porque o (a) a maioria dos gerenciadores de trabalho não é necessário para a conta de armazenamento tooexplicitly acesso Olá vinculado e (b) hello conta de armazenamento vinculada geralmente é fornecida tooall tarefas como a configuração de ambiente comum de trabalho hello. Se você não fornecer Olá vinculado a conta de armazenamento por meio de configurações comuns do ambiente Olá e o Gerenciador de trabalhos Olá requer acesso toolinked armazenamento, você deve fornecer as credenciais de armazenamento Olá vinculado da seguinte maneira:
+Normalmente, o cliente não precisa fornecer as credenciais da conta de armazenamento vinculado à tarefa do Gerenciador de trabalho, pois (a) a maioria dos gerenciadores de trabalho não precisa acessar explicitamente a conta de armazenamento vinculado e (b) a conta de armazenamento vinculado normalmente é fornecida para todas as tarefas como uma configuração de ambiente comum para o trabalho. Se você não estiver fornecendo a conta de armazenamento vinculada por meio das configurações de ambiente comum, e o Gerenciador de trabalho exigir acesso ao armazenamento vinculado, você deverá fornecer as credenciais de armazenamento vinculado da seguinte maneira:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -227,99 +227,99 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **Configurações da tarefa do Gerenciador de trabalho**
 
-cliente Olá deve definir o Gerenciador de trabalhos Olá *killJobOnCompletion* sinalizador muito**false**.
+O cliente deve definir o sinalizador *killJobOnCompletion* do Gerenciador de trabalho como **false**.
 
-Geralmente é seguro para Olá cliente tooset *runExclusive* muito**false**.
+Normalmente, é seguro para o cliente definir *runExclusive* como **false**.
 
-cliente de saudação deve usar o hello *resourceFiles* ou *applicationPackageReferences* toohave Olá trabalho Gerenciador da coleção de executáveis (e suas DLLs necessárias) implantado toohello do nó de computação.
+O cliente deve usar a coleção *resourceFiles* ou *applicationPackageReferences* para que o executável do Gerenciador de trabalho (e suas DLLs necessárias) seja implantado no nó de computação.
 
-Por padrão, o Gerenciador de trabalhos Olá não será repetido se ele falhar. Dependendo de sua lógica de Gerenciador de trabalho, cliente Olá seja tooenable repetições via *restrições*/*maxTaskRetryCount*.
+Por padrão, o Gerenciador de trabalho não será repetido em caso de falha. Dependendo de sua lógica do Gerenciador de trabalho, talvez o cliente queira habilitar novas tentativas por meio de *constraints*/*maxTaskRetryCount*.
 
 **Configurações do trabalho**
 
-Se o divisor de trabalho Olá emite tarefas com dependências, o cliente de saudação deve definir tootrue de usesTaskDependencies do trabalho hello.
+Se o divisor de trabalho emitir tarefas com dependências, o cliente deverá definir usesTaskDependencies do trabalho como true.
 
-No modelo de divisão de trabalho Olá, é incomum para clientes toowish tooadd tarefas toojobs além divisor de trabalho que Olá cria. cliente Hello, portanto, normalmente deve definir do trabalho Olá *onAllTasksComplete* muito**terminatejob**.
+No modelo do divisor de trabalho, não é comum os clientes quererem adicionar tarefas a trabalhos além do que foi criado pelo divisor de trabalho. Portanto, o cliente deve definir normalmente o *onAllTasksComplete* do trabalho como **terminatejob**.
 
 ## <a name="task-processor-template"></a>Modelo de Processador de tarefas
-Um modelo de processador de tarefa ajuda tooimplement um processador de tarefa que pode executar Olá ações a seguir:
+Um modelo do Processador de tarefas ajuda você a implementar um processador de tarefas que pode executar as seguintes ações:
 
-* Configure informações de saudação exigidas por cada toorun de tarefa de lote.
+* Configurar as informações exigidas para a execução de cada tarefa do Lote.
 * Executar todas as ações exigidas por cada tarefa do Lote.
-* Salve as saídas de tarefa toopersistent armazenamento.
+* Salvar as saídas da tarefa no armazenamento persistente.
 
-Embora um processador de tarefa não seja necessário toorun tarefas em lote, a vantagem de chave de saudação do uso de um processador de tarefa é que ele fornece um wrapper tooimplement todas as ações de execução de tarefas em um local. Por exemplo, se você precisar toorun vários aplicativos no contexto de saudação de cada tarefa, ou se você precisar de armazenamento de toopersistent toocopy dados após a conclusão de cada tarefa.
+Apesar de um Processador de tarefas não ser exigido para a execução de tarefas do Lote, a principal vantagem de usar um Processador de tarefas é que ele fornece um wrapper para implementar todas as ações de execução de tarefas em um único local. Por exemplo, se você precisar executar vários aplicativos no contexto de cada tarefa, ou se você precisar copiar dados no armazenamento persistente após a conclusão de cada tarefa.
 
-ações de saudação executadas pelo processador de tarefa Olá podem ser como simples ou complexos e muitos ou poucos, conforme exigido por sua carga de trabalho. Além disso, com a implementação de todas as ações de tarefas em um processador de tarefa, você pode prontamente atualizar ou adicionar ações com base nos requisitos de tooapplications ou carga de trabalho de alterações. No entanto, em alguns casos um processador de tarefa não pode ser Olá a solução ideal para sua implementação como ela pode adicionar complexidade desnecessária, por exemplo, ao executar trabalhos que podem ser iniciados rapidamente de uma linha de comando simple.
+As ações executadas pelo Processador de tarefas podem simples ou complexas, e muitas ou poucas, conforme a exigência de sua carga de trabalho. Além disso, ao implementar todas as ações de tarefa em um processador de tarefa, você pode atualizar ou adicionar ações prontamente com base em alterações nos requisitos dos aplicativos ou da carga de trabalho. No entanto, em alguns casos, talvez um Processador de tarefas não seja a solução ideal para sua implementação, pois ele pode adicionar uma complexidade desnecessária, por exemplo, ao executar trabalhos que podem ser iniciados rapidamente em uma linha de comando simples.
 
-### <a name="create-a-task-processor-using-hello-template"></a>Criar um processador de tarefa usando o modelo de saudação
-tooadd uma solução de toohello de processador da tarefa que você criou anteriormente, siga estas etapas:
+### <a name="create-a-task-processor-using-the-template"></a>Criar um Processador de tarefas usando o modelo
+Para adicionar um Processador de tarefas à solução que você criou anteriormente, execute estas etapas:
 
 1. Abra sua solução existente no Visual Studio.
-2. No Gerenciador de soluções, solução de saudação com o botão direito, clique em **adicionar**e, em seguida, clique em **novo projeto**.
+2. No Gerenciador de Soluções, clique com o botão direito na solução, clique em **Adicionar** e em **Novo Projeto**.
 3. No **Visual C#**, clique em **Nuvem** e em **Processador de Tarefas do Lote do Azure**.
-4. Digite um nome que descreva o aplicativo e identifica este projeto como hello (por exemplo, o processador de tarefa "ProcessadorDeTarefasLitware").
-5. projeto de saudação toocreate, clique em **Okey**.
-6. Finalmente, referenciado de compilação Olá projeto tooforce Visual Studio tooload todos os pacotes do NuGet e tooverify que Olá projeto é válido antes de começar a modificá-lo.
+4. Digite um nome que descreva o aplicativo e identifique esse projeto como o Processador de tarefas (por exemplo, "ProcessadorDeTarefasLitware").
+5. Para criar o projeto, clique em **OK**.
+6. Por fim, compile o projeto para forçar o Visual Studio a carregar todos os pacotes NuGet referenciados e verificar se o projeto é válido antes de você começar a modificá-lo.
 
 ### <a name="task-processor-template-files-and-their-purpose"></a>Arquivos do modelo do Processador de tarefas e suas finalidades
-Quando você cria um projeto usando o modelo de processador de tarefa hello, ele gera três grupos de arquivos de código:
+Quando você cria um projeto usando o modelo do Processador de tarefas, ele gera três grupos de arquivos de código:
 
-* arquivo de programa principal Hello (Program.cs). Ele contém o ponto de entrada de programa hello e manipulação de exceção de nível superior. Você normalmente não precisa toomodify isso.
-* diretório do Framework Hello. Isso contém arquivos de saudação responsáveis pelo trabalho 'padrão' hello pelo programa de Gerenciador de trabalho hello – desempacotar parâmetros, adicionando o trabalho de lote de toohello de tarefas, etc. Você normalmente não precisa toomodify esses arquivos.
-* arquivo do processador de tarefa Hello (TaskProcessor.cs). Isso é onde você colocará sua lógica específica do aplicativo para executar uma tarefa (normalmente ao chamar executável existente tooan). Código de pré e pós-processamento, como o download dos dados adicionais ou upload de arquivos de resultados, também é colocado nesse local.
+* O arquivo de programa principal (Program.cs). Esse arquivo contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, não é necessário modificar isso.
+* O diretório Framework. Esse diretório contém os arquivos responsáveis pelo trabalho “clichê” realizado pelo programa Gerenciador de trabalho – desempacotar parâmetros, adicionar tarefas ao trabalho do Lote etc. Normalmente, não é necessário modificar esses arquivos.
+* O arquivo do Processador de tarefas (TaskProcessor.cs). É nele que você colocará a lógica específica ao aplicativo para execução de uma tarefa (normalmente chamando um executável existente). Código de pré e pós-processamento, como o download dos dados adicionais ou upload de arquivos de resultados, também é colocado nesse local.
 
-Obviamente você pode adicionar arquivos adicionais como toosupport necessário seu código de processador de tarefas, dependendo da complexidade de saudação do trabalho Olá divisão lógica.
+Obviamente você pode adicionar outros arquivos conforme o necessário a fim de oferecer suporte ao código do Processador de tarefas, dependendo da complexidade da lógica de divisão do trabalho.
 
-modelo de saudação também gera arquivos de projeto padrão do .NET como um arquivo. csproj App. config, Packages, etc.
+O modelo também gera arquivos de projeto padrão do .NET, como um arquivo .csproj, app.config, packages.config etc.
 
-restante Olá desta seção descreve Olá diferentes arquivos e sua estrutura de código e explica o que faz cada classe.
+O restante desta seção descreve os diferentes arquivos e sua estrutura de código, e explica o que cada classe faz.
 
-![Visual Studio Gerenciador de soluções mostrando a solução de modelo de processador de tarefa Olá][solution_explorer02]
+![Visual Studio Solution Explorer mostrando a solução do modelo do Processador de tarefas][solution_explorer02]
 
 **Arquivos do Framework**
 
-* `Configuration.cs`: Encapsula o carregamento de saudação de dados de configuração de trabalho, como detalhes da conta, as credenciais de conta de armazenamento vinculada, informações de trabalhos e tarefas e parâmetros do trabalho em lotes. Ele também fornece acesso definido tooBatch as variáveis de ambiente (consulte as configurações de ambiente para tarefas, na documentação do lote Olá) por meio da classe Configuration.EnvironmentVariable hello.
-* `IConfiguration.cs`: Resumo Olá implementação de classe de configuração de hello, para que você possa de teste de unidade o divisor de trabalho usando um objeto de configuração falsas ou fictícias.
-* `TaskProcessorException.cs`Representa um erro que exige Olá tooterminate de Gerenciador de trabalho. TaskProcessorException é usado toowrap 'esperado' erros onde as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
+* `Configuration.cs`: encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `TaskProcessorException.cs`: representa um erro que exige o encerramento do Gerenciador de trabalho. TaskProcessorException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
 
 **Processador de tarefas**
 
-* `TaskProcessor.cs`: Executa a tarefa de saudação. estrutura Olá invoca o método de TaskProcessor.Run de saudação. Isso é a classe Olá onde você irá injetar a lógica de específicas do aplicativo hello da tarefa. Implemente o método de execução de saudação:
+* `TaskProcessor.cs`: executa a tarefa. O framework invoca o método TaskProcessor.Run. Essa é a classe na qual você injetará a lógica específica ao aplicativo de sua tarefa. Implemente o método Run para:
   * Analisar e validar qualquer parâmetro de tarefa
-  * Compor Olá linha de comando para qualquer programa externo, você deseja tooinvoke
+  * Compor a linha de comando para qualquer programa externo que você deseja invocar
   * Registrar quaisquer informações de diagnóstico que você possa precisar para fins de depuração
   * Iniciar um processo usando a linha de comando
-  * Aguarde a saudação processo tooexit
-  * Capturar o código de saída de saudação do hello processo toodetermine se ela teve êxito ou falha
-  * Salve os arquivos de saída que você deseja tookeep toopersistent armazenamento
+  * Aguardar o processo sair
+  * Capturar o código de saída do processo para determinar se ele teve êxito ou falhou
+  * Salvar os arquivos de saída que você deseja manter no armazenamento persistente
 
 **Arquivos de projeto de linha de comando .NET padrão**
 
 * `App.config`: arquivo de configuração padrão de aplicativo .NET.
 * `Packages.config`: arquivo de dependência padrão do pacote NuGet.
-* `Program.cs`: Contém o ponto de entrada de programa hello e manipulação de exceção de nível superior.
+* `Program.cs`contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
-## <a name="implementing-hello-task-processor"></a>Implementando o processador de tarefa Olá
-Quando você abre um projeto de modelo de processador de tarefa hello, o projeto Olá terá Olá TaskProcessor.cs arquivo aberta por padrão. Você pode implementar lógica Olá executar tarefas de saudação na carga de trabalho, usando o método Run () de hello mostrado abaixo:
+## <a name="implementing-the-task-processor"></a>Implementação do Processador de tarefa
+Quando você abre o projeto de modelo do Processador de tarefas, o projeto fará o arquivo TaskProcessor.cs ser aberto por padrão. Você pode implementar a lógica de execução para as tarefas em sua carga de trabalho usando o método Run() exibido abaixo:
 
 ```csharp
 /// <summary>
-/// Runs hello task processing logic. This is where you inject
-/// your application-specific logic for decomposing hello job into tasks.
+/// Runs the task processing logic. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
 ///
-/// hello task processor framework invokes hello Run method for you; you need
-/// only tooimplement it, not toocall it yourself. Typically, your
+/// The task processor framework invokes the Run method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
 /// implementation will execute an external program (from resource files or
-/// an application package), check hello exit code of that program and
-/// save output files toopersistent storage.
+/// an application package), check the exit code of that program and
+/// save output files to persistent storage.
 /// </summary>
 public async Task<int> Run()
 
 {
     try
     {
-        //Your code for hello task processor goes here.
+        //Your code for the task processor goes here.
         var command = $"compare {_parameters["Frame1"]} {_parameters["Frame2"]} compare.gif";
         using (var process = Process.Start($"cmd /c {command}"))
         {
@@ -347,44 +347,44 @@ public async Task<int> Run()
 }
 ```
 > [!NOTE]
-> Hello anotada seção Olá método Run () é a seção apenas saudação do código de modelo de processador de tarefa Olá que é destinado para você toomodify adicionando lógica Olá executar tarefas Olá na carga de trabalho. Se você quiser toomodify uma seção diferente do modelo hello,. primeiro estar familiarizado com como lote funciona por revisar a documentação de lote hello e experimentar alguns dos exemplos de código de lote de saudação.
+> A seção anotada no método Run() é a única seção do código do modelo do Processador de tarefas que você pode modificar adicionando a lógica de execução às tarefas em sua carga de trabalho. Se você quiser modificar uma seção diferente do modelo, primeiro você precisa ter certeza de que está familiarizado com o funcionamento do Lote revisando a documentação do Lote e experimentando alguns dos exemplos de código do Lote.
 > 
 > 
 
-Olá método Run () é responsável por iniciando a linha de comando hello, iniciando um ou mais processos, aguardando todos os toocomplete de processo, salvar os resultados da saudação e finalmente retornar com um código de saída. Olá método Run () é onde você pode implementar Olá lógica para suas tarefas de processamento. a estrutura de processador tarefas Olá invoca o método de Run () do hello para você. não é necessário toocall-lo por conta própria.
+O método Run() é responsável por iniciar a linha de comando, iniciar um ou mais processos, aguardar a conclusão de todos os processos, salvar os resultados e, finalmente, retornar um código de saída. O método Run() é onde você implementa a lógica de processamento das tarefas. A estrutura do Processador de tarefas invoca o método Run() para você. Não é necessário chamá-lo.
 
 Sua implementação de Run() tem acesso a:
 
-* Olá parâmetros da tarefa, por meio de saudação `_parameters` campo.
-* Olá ids de trabalho e tarefa, por meio de saudação `_jobId` e `_taskId` campos.
-* configuração da tarefa Hello, por meio de saudação `_configuration` campo.
+* Os parâmetros da tarefa, por meio do campo `_parameters`.
+* As IDs do trabalho e da tarefa, por meio dos campos `_jobId` e `_taskId`.
+* A configuração da tarefa, por meio do campo `_configuration` .
 
 **Falha da tarefa**
 
-Em caso de falha, será possível sair do método Run () de hello lançando uma exceção, mas isso deixa o manipulador de exceção de nível superior de saudação no controle do código de saída de tarefa hello. Se precisar de código de saída de hello toocontrol para que você possa distinguir diferentes tipos de falha, por exemplo para fins de diagnóstico ou porque alguns modos de falha devem encerrar trabalho hello e outros não devem, você deve sair do método do hello Run (), retornando um código de saída diferente de zero. Isso torna-se o código de saída de tarefa hello.
+Em caso de falha, você poderá sair do método Run() lançando uma exceção, mas isso deixa o manipulador de exceção de nível superior no controle do código de saída da tarefa. Se você precisar controlar o código de saída para que possa diferenciar tipos diferentes de falha, por exemplo, para fins de diagnóstico ou porque alguns modos de falha devem encerrar o trabalho e outros não, saia do método Run() retornando um código de saída diferente de zero. Isso se torna o código de saída da tarefa.
 
-### <a name="exit-codes-and-exceptions-in-hello-task-processor-template"></a>Sair de códigos e exceções no modelo de processador de tarefa Olá
-Códigos de saída e exceções fornecem um resultado de saudação do toodetermine mecanismo de execução de um programa, e eles ajudam a identificar problemas com a execução de saudação do programa de saudação. modelo de processador de tarefa Olá implementa os códigos de saída de hello e exceções descritas nesta seção.
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Códigos e exceções de saída no modelo do Processador de tarefas
+Os códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e podem ajudar a identificar problemas com a execução do programa. O modelo do Processador de tarefas implementa os códigos e exceções de saída descritos nesta seção.
 
-Uma tarefa de processador que é implementada com o modelo de processador de tarefa Olá pode retornar três códigos de saída possíveis:
+Uma tarefa do Processador de tarefas implementada com o modelo do Processador de tarefas pode retornar três códigos de saída possíveis:
 
 | Código | Descrição |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |processador de tarefa de saudação ficou toocompletion. Observe que isso não significa que você chamou o programa hello foi bem-sucedida – apenas esse processador de tarefa Olá invocou com êxito e executada de qualquer pós-processamento sem exceções. significado de saudação do código de saída de hello depende do programa de saudação invocado – normalmente código de saída 0 significa êxito do programa hello e significa que qualquer outro código de saída Olá programa falhou. |
-| 1 |processador de tarefa Olá falhou com uma exceção em uma parte 'esperada' do programa de saudação. exceção Hello foi traduzida tooa `TaskProcessorException` com informações de diagnóstico e, quando possível, sugestões para resolver Olá falha. |
-| 2 |processador de tarefa Olá falhou com uma exceção 'inesperada'. exceção Hello era toostandard conectado de saída, mas processador de tarefa Olá tooadd não é possível quaisquer informações adicionais de diagnóstico ou correção. |
+| [Process.ExitCode][process_exitcode] |O Processador de tarefas foi executado até a conclusão. Observe que isso não significa que o programa invocado foi bem-sucedida, apenas que o Processador de tarefas o invocou e executou com êxito qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado, normalmente o código de saída 0 significa que o programa foi bem-sucedido e qualquer outro código de saída significa que o programa falhou. |
+| 1 |A tarefa do Processador de tarefas falhou com uma exceção em uma parte “esperada” do programa. A exceção foi convertida para um `TaskProcessorException` com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
+| 2 |A tarefa do Processador de tarefas falhou com uma exceção “inesperada”. A exceção foi registrada na saída padrão, mas o Processador de tarefas não conseguiu adicionar informações de diagnóstico ou correção adicionais. |
 
 > [!NOTE]
-> Se o programa hello que invocar usa modos de falha específico de tooindicate de códigos de 1 e 2 de saída, usando códigos de saída 1 e 2 para erros de processador da tarefa é ambíguo. Você pode alterar esses códigos de saída de toodistinctive tarefa processador erro códigos editando os casos de exceção Olá no arquivo Program.cs de saudação.
+> Se o programa que você invocar usar códigos de saída 1 e 2 para indicar modos de falha específicos, o uso de códigos de saída 1 e 2 para erros do processador de tarefas é ambíguo. Você pode alterar esses códigos de erro do Processador de tarefas para códigos de saída diferentes, editando os casos de exceção no arquivo Program.cs.
 > 
 > 
 
-Todas as informações de saudação retornadas por exceções são gravadas em arquivos do stderr.txt e stdout.txt. Para obter mais informações, consulte o tratamento de erros, Olá documentação do lote.
+Todas as informações retornadas pelas exceções são gravadas nos arquivos stdout.txt e stderr.txt. Para saber mais, confira Manipulação de erros na documentação do Lote.
 
 ### <a name="client-considerations"></a>Considerações do cliente
 **Credenciais de armazenamento**
 
-Se o processador de tarefa utiliza saídas toopersist de armazenamento de BLOBs do Azure, biblioteca auxiliar da saudação arquivo convenções, por exemplo, usando, em seguida, ele precisa acessar muito*ou* Olá credenciais de conta de armazenamento de nuvem *ou* uma URL de contêiner de blob que inclui uma assinatura de acesso compartilhado (SAS). modelo de saudação inclui suporte para fornecer as credenciais por meio de variáveis de ambiente comuns. O cliente pode passar as credenciais de armazenamento de saudação da seguinte maneira:
+Se o seu Processador de tarefas usa o Armazenamento de Blobs do Azure para persistir saídas, por exemplo, usando a biblioteca do auxiliar de convenções de arquivo, ele precisará acessar *ou* as credenciais da conta de armazenamento de nuvem *ou* uma URL do contêiner de blobs que inclui uma SAS (assinatura de acesso compartilhado). O modelo inclui suporte para o fornecimento das credenciais por meio de variáveis de ambiente comuns. O cliente pode passar as credenciais de armazenamento da seguinte maneira:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -393,53 +393,53 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-conta de armazenamento Hello está disponível em Olá TaskProcessor classe via Olá `_configuration.StorageAccount` propriedade.
+Assim, a conta de armazenamento fica disponível na classe TaskProcessor por meio da propriedade `_configuration.StorageAccount` .
 
-Se você preferir toouse uma URL de contêiner com SAS, você também pode passar isso por meio de uma configuração de ambiente comum de trabalho, mas o modelo de processador Olá tarefas atualmente não incluem suporte interno para este.
+Se você preferir usar uma URL de contêiner com a SAS, também será possível passar isso por meio de uma configuração de ambiente de trabalho comum, mas o modelo do Processador de tarefas não inclui suporte interno para isso no momento.
 
 **Configuração de armazenamento**
 
-É recomendável que tarefa do Gerenciador de trabalho ou cliente Olá Crie qualquer contêiner exigido pelas tarefas antes de adicionar o trabalho de toohello tarefas hello. Isso é obrigatório que se você usar uma URL de contêiner com SAS, assim uma URL não inclui permissão toocreate Olá contêiner. É recomendável mesmo se você passar credenciais de conta de armazenamento, como ele salva todas as tarefas com toocall CloudBlobContainer.CreateIfNotExistsAsync no contêiner de saudação.
+Recomendamos que o cliente ou a tarefa do Gerenciador de trabalho crie os contêineres exigidos pelas tarefas antes de adicionar as tarefas ao trabalho. Isso será obrigatório se você usar uma URL de contêiner com SAS, pois essa URL não inclui a permissão para criar o contêiner. Isso é recomendado mesmo se você passar as credenciais da conta de armazenamento, pois libera cada tarefa de precisar chamar CloudBlobContainer.CreateIfNotExistsAsync no contêiner.
 
 ## <a name="pass-parameters-and-environment-variables"></a>Passar parâmetros e variáveis de ambiente
 ### <a name="pass-environment-settings"></a>Passar configurações de ambiente
-Um cliente pode passar a tarefa do Gerenciador de trabalho do informações toohello na forma de saudação de configurações de ambiente. Essas informações podem, em seguida, usadas pela tarefa do Gerenciador de trabalho hello quando o trabalho de computação gerando Olá processador tarefas que serão executado como parte da saudação. Exemplos de informações de saudação que você pode passar como configurações de ambiente são:
+Um cliente pode passar informações para a tarefa do Gerenciador de trabalho na forma de configurações de ambiente. Assim, essas informações podem ser usadas pelo Gerenciador de trabalho ao gerar as tarefas do Processador de tarefas que serão executadas como parte do trabalho de computação. Veja alguns exemplos das informações que você pode passar como configurações de ambiente:
 
 * Nome da conta de armazenamento e chaves da conta
 * URL da conta do Lote
 * Chave da conta do Lote
 
-Olá serviço de lote tem uma tarefa de Gerenciador mecanismo simples toopass ambiente configurações tooa trabalho usando Olá `EnvironmentSettings` propriedade [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+O serviço do Lote tem um mecanismo simples para passar configurações de ambiente para uma tarefa do Gerenciador de trabalho usando a propriedade `EnvironmentSettings` em [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
-Por exemplo, tooget Olá `BatchClient` instância para uma conta de lote, você pode passar como variáveis de ambiente do cliente Olá código Olá URL e credenciais de chave para a conta do lote Olá compartilhadas. Da mesma forma, conta de armazenamento do hello tooaccess é vinculada toohello conta de lote, você pode passar o nome de conta de armazenamento hello e chave de conta de armazenamento hello como variáveis de ambiente.
+Por exemplo, para obter a instância do `BatchClient` para uma conta do Lote, você pode passar a URL e credenciais de chave compartilhadas como variáveis do ambiente a partir do código do cliente para a conta do Lote. Da mesma forma, para acessar a conta de armazenamento vinculada à conta do Lote, você pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis de ambiente.
 
-### <a name="pass-parameters-toohello-job-manager-template"></a>Passar o modelo do Gerenciador de trabalho de toohello de parâmetros
-Em muitos casos, é útil toopass por trabalho parâmetros toohello trabalho tarefa do Gerenciador, o trabalho de saudação toocontrol dividindo o processo ou tarefas de saudação tooconfigure para Olá trabalho. Você pode fazer isso, carregando um arquivo JSON chamado parameters.json como um arquivo de recurso para a tarefa do Gerenciador de trabalho hello. Olá parâmetros, em seguida, podem se tornar disponíveis no hello `JobSplitter._parameters` campo no modelo do Gerenciador de trabalhos de saudação.
+### <a name="pass-parameters-to-the-job-manager-template"></a>Passar parâmetros para o modelo do Gerenciador de trabalho
+Em muitos casos, é útil passar parâmetros por trabalho para a tarefa de Gerenciador de trabalho, a fim de controlar o processo de divisão de trabalho ou configurar as tarefas do trabalho. Faça isso carregando um arquivo JSON chamado parameters.json como um arquivo de recurso para a tarefa do Gerenciador de trabalho. Assim, os parâmetros podem ser disponibilizados no campo `JobSplitter._parameters` no modelo do Gerenciador de trabalho.
 
 > [!NOTE]
-> manipulador de parâmetro internas Olá oferece suporte a apenas os dicionários de cadeia de caracteres de cadeia de caracteres. Se você quiser toopass valores complexos de JSON como valores de parâmetro, será necessário toopass como cadeias de caracteres e analisá-los no separador de trabalho hello ou modificar a estrutura de saudação `Configuration.GetJobParameters` método.
+> O manipulador de parâmetro interno oferece suporte somente aos dicionários de cadeia de caracteres para cadeia de caracteres. Se você quiser passar valores JSON complexos como valores de parâmetro, será necessário passá-los como cadeias de caracteres e analisá-los no divisor de trabalho, ou modificar o método `Configuration.GetJobParameters` do framework.
 > 
 > 
 
-### <a name="pass-parameters-toohello-task-processor-template"></a>Passar o modelo de processador de tarefa toohello parâmetros
-Você também pode passar parâmetros tooindividual tarefas implementada usando o modelo de processador de tarefa hello. Assim como com o modelo do Gerenciador de trabalho hello, Olá tarefa processador modelo procura um arquivo de recurso denominado
+### <a name="pass-parameters-to-the-task-processor-template"></a>Passar parâmetros para o modelo de Processador de tarefas
+Você também pode passar parâmetros para tarefas individuais implementadas usando o modelo do Processador de tarefas. Assim como acontece com o modelo do Gerenciador de trabalho, o modelo do Processador de tarefas procura um arquivo de recurso chamado
 
-Parameters.JSON e se encontrado, ele carrega-os como dicionário de parâmetros de saudação. Há duas opções para como toopass parâmetros toohello tarefas do processador de tarefas:
+parameters.json e, se o encontrar, o carrega como o dicionário de parâmetros. Há algumas opções de como passar parâmetros para as tarefas do Processador de tarefa:
 
-* Reutilize os parâmetros do trabalho Olá JSON. Isso funciona bem se apenas os parâmetros Olá são aqueles de todo o trabalho (por exemplo, uma renderização de altura e largura). toodo isso, ao criar um CloudTask no separador de trabalho hello, adicionar um objeto de arquivo de recurso do referência toohello parameters.json de ResourceFiles da tarefa do Gerenciador trabalho hello (`JobSplitter._jobManagerTask.ResourceFiles`) coleta de ResourceFiles do toohello CloudTask.
-* Gerar e carregar um documento de parameters.json específicos da tarefa como parte da execução do divisor de trabalho e fazer referência a esse blob na coleção de arquivos de recursos da tarefa de saudação. Isso é necessário se tarefas diferentes tiverem parâmetros diferentes. Um exemplo seria um cenário de renderização 3D onde o índice do quadro de saudação é passado toohello tarefa como um parâmetro.
+* Reutilize os parâmetros de trabalho JSON. Isso funciona bem se os únicos parâmetros forem de todo o trabalho (por exemplo, uma renderização de altura e largura). Para fazer isso, durante a criação de um CloudTask no divisor de trabalho, adicione uma referência ao objeto do arquivo de recurso parameters.json do ResourceFiles da tarefa do Gerenciador de trabalho (`JobSplitter._jobManagerTask.ResourceFiles`) à coleção de ResourceFiles do CloudTask.
+* Gere e carregue um documento parameters.json específico à tarefa como parte da execução do divisor de trabalho, e faça referência a esse blob na coleção de arquivos de recursos da tarefa. Isso é necessário se tarefas diferentes tiverem parâmetros diferentes. Um exemplo seria um cenário de renderização 3D no qual o índice do quadro é passado para a tarefa como um parâmetro.
 
 > [!NOTE]
-> manipulador de parâmetro internas Olá oferece suporte a apenas os dicionários de cadeia de caracteres de cadeia de caracteres. Se você quiser toopass valores complexos de JSON como valores de parâmetro, será necessário toopass como cadeias de caracteres e analisá-los no processador de tarefa hello ou modificar a estrutura de saudação `Configuration.GetTaskParameters` método.
+> O manipulador de parâmetro interno oferece suporte somente aos dicionários de cadeia de caracteres para cadeia de caracteres. Se você quiser passar valores JSON complexos como valores de parâmetro, será necessário passá-los como cadeias de caracteres e analisá-los no Processador de tarefas, ou modificar o método `Configuration.GetTaskParameters` do framework.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-### <a name="persist-job-and-task-output-tooazure-storage"></a>Manter o trabalho e saída tooAzure armazenamento de tarefas
-Outra ferramenta útil no desenvolvimento de soluções do Lote são as [Convenções de Arquivo do Lote do Azure][nuget_package]. Use essa biblioteca de classes do .NET (atualmente na visualização) em seu repositório de tooeasily de aplicativos .NET em lotes e recuperar tooand de saídas de tarefa do armazenamento do Azure. [Manter a saída de trabalho e tarefa de lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca de saudação e seu uso.
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Persistir saída de tarefa e de trabalho no Armazenamento do Azure
+Outra ferramenta útil no desenvolvimento de soluções do Lote são as [Convenções de Arquivo do Lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (em versão de visualização) em seus aplicativos .NET do Lote para armazenar e recuperar com facilidade as saídas de tarefas no Armazenamento do Azure. [Persistir e saída de tarefa e de trabalho do Lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
 
 ### <a name="batch-forum"></a>Fórum do Lote
-Olá [Fórum do lote do Azure] [ forum] no MSDN é um ótimo colocar toodiscuss em lotes e fazer perguntas sobre o serviço de saudação. Acesse diretamente as postagens “fixas” úteis e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
+O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Acesse diretamente as postagens “fixas” úteis e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

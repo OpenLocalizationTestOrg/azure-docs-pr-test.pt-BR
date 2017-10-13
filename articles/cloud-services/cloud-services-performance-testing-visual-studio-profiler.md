@@ -1,7 +1,7 @@
 ---
-title: "um serviço de nuvem localmente no emulador de computação do hello aaaProfiling | Microsoft Docs"
+title: "Criação de um perfil de serviço de nuvem localmente no emulador de computação | Microsoft Docs"
 services: cloud-services
-description: "Investigar problemas de desempenho em serviços de nuvem com o criador de perfil do hello Visual Studio"
+description: "Investigar problemas de desempenho nos serviços de nuvem com o criador de perfil do Visual Studio"
 documentationcenter: 
 author: kraigb
 manager: ghogen
@@ -15,34 +15,34 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: fc37c85dad4db4cc0310f73afad56fc0fe5f3963
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="testing-hello-performance-of-a-cloud-service-locally-in-hello-azure-compute-emulator-using-hello-visual-studio-profiler"></a>Em teste o desempenho de um serviço de nuvem localmente no Olá Olá Azure emulador de computação usando o criador de perfil Visual Studio
-Uma variedade de ferramentas e técnicas que estão disponíveis para teste de desempenho de saudação de serviços de nuvem.
-Quando você publica um tooAzure de serviço de nuvem, você pode ter o Visual Studio coletar dados de criação e analisá-los localmente, conforme descrito em [criação de perfil de um aplicativo do Azure][1].
-Você também pode usar o diagnóstico tootrack contadores de uma variedade de desempenho, conforme descrito em [usando contadores de desempenho no Azure][2].
-Você também poderá tooprofile seu aplicativo localmente no emulador de computação de saudação antes de implantá-la toohello nuvem.
+# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
+Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
+Quando publica um serviço de nuvem no Azure, você pode fazer com que o Visual Studio colete dados de criação de perfil e, em seguida, os analise localmente, conforme descrito em [Criar o perfil de um aplicativo do Azure][1].
+Você também pode usar o diagnóstico para acompanhar vários contadores de desempenho, conforme descrito em [Usar contadores de desempenho no Azure][2].
+Também convém criar o perfil de seu aplicativo localmente no emulador de computação antes de implantá-lo na nuvem.
 
-Este artigo aborda o método de amostragem de CPU hello de criação de perfil, que pode ser feito localmente no emulador de saudação. A Amostragem de CPU é um método de criação de perfil que não é muito invasivo. Em um intervalo de amostragem designado profiler Olá tira um instantâneo da pilha de chamadas de saudação. Olá dados são coletados por um período de tempo e mostrados em um relatório. Esse método de criação de perfil tende a tooindicate onde em um aplicativo de computação intensivo maior parte do trabalho de saudação da CPU está sendo feita.  Isso proporciona Olá toofocus de oportunidade em hello "afunilamento" onde seu aplicativo está gastando Olá maior parte do tempo.
+Este artigo aborda o método de Amostragem de CPU de criação de perfil, que pode ser executado localmente no emulador. A Amostragem de CPU é um método de criação de perfil que não é muito invasivo. Em um intervalo de amostragem designado, o criador de perfis tira um instantâneo da pilha de chamadas. Os dados são coletados durante um período de tempo e mostrados em um relatório. Esse método de criação de perfis tende a indicar onde está sendo feita a maior parte do trabalho em um aplicativo que utiliza muitos recursos de computação.  Isso oferece a oportunidade de focalizar o "afunilamento" onde seu aplicativo está gastando mais tempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar o Visual Studio para criação de perfil
-Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. sentido toomake Olá relatórios de criação de perfil, você precisará de símbolos (arquivos. PDB) para seu aplicativo e também símbolos para bibliotecas do sistema. Você vai querer toomake-se de fazer referência a servidores de símbolos disponíveis de saudação. toodo isso em Olá **ferramentas** menu do Visual Studio, escolha **opções**, escolha **depuração**, em seguida, **símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**.  Você também pode fazer referência a http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
+Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**.  Você também pode fazer referência a http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
 
 ![Opções de símbolo][4]
 
-Se desejar, você pode simplificar o hello relata que profiler hello gera definindo apenas meu código. Com Just My Code ativado, pilhas de chamadas de função são simplificadas para que chame toolibraries inteiramente interno e saudação do .NET Framework estão ocultos do hello relatórios. Em Olá **ferramentas** menu, escolha **opções**. Em seguida, expanda Olá **ferramentas de desempenho** nó e escolha **geral**. Selecione caixa de seleção Olá para **habilitar apenas meu código para relatórios do criador de perfil**.
+Se desejar, você pode simplificar os relatórios que o criador de perfis gera definindo Apenas Meu Código. Com a opção Apenas Meu Código habilitada, as pilhas de chamadas de função são simplificadas de maneira que as chamadas inteiramente internas às bibliotecas e ao .Net Framework sejam ocultados dos relatórios. No menu **Ferramentas**, escolha **Opções**. Em seguida, expanda o nó **Ferramentas de Desempenho** e escolha **Geral**. Marque a caixa de seleção **Habilitar Apenas Meu Código para relatórios do criador de perfis**.
 
 ![Opções Apenas Meu Código][17]
 
-Você pode usar essas instruções com um projeto existente ou com um novo projeto.  Se você criar um novo Olá de tootry projeto técnicas descritas abaixo, escolha um c# **serviço de nuvem do Azure** do projeto e selecione um **função Web** e um **função de trabalho**.
+Você pode usar essas instruções com um projeto existente ou com um novo projeto.  Se você criar um novo projeto para testar as técnicas descritas a seguir, escolha um projeto C# do **Serviço de Nuvem do Azure** e selecione uma **Função Web** e uma **Função de Trabalho**.
 
 ![Funções de projeto do Serviço de Nuvem do Azure][5]
 
-Por exemplo, fins, adicionar alguns projeto tooyour de código que leva muito tempo e demonstra a algum problema de desempenho óbvio. Por exemplo, adicione Olá projeto de função de trabalho de tooa de código a seguir:
+Para fins de exemplo, adicione um código ao seu projeto que demore muito tempo e demonstre alguns problemas óbvios de desempenho. Por exemplo, adicione o seguinte código a um projeto de função de trabalho:
 
     public class Concatenator
     {
@@ -58,11 +58,11 @@ Por exemplo, fins, adicionar alguns projeto tooyour de código que leva muito te
         }
     }
 
-Chame esse código de saudação RunAsync método na classe derivada de RoleEntryPoint da função de trabalho hello. (Ignorar aviso de saudação sobre método hello executando de forma síncrona).
+Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da função de trabalho. (Ignore o alerta relacionado ao método estar em execução de modo sincronizado.)
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace hello following with your own logic.
+            // TODO: Replace the following with your own logic.
             while (!cancellationToken.IsCancellationRequested)
             {
                 Trace.TraceInformation("Working");
@@ -70,61 +70,61 @@ Chame esse código de saudação RunAsync método na classe derivada de RoleEntr
             }
         }
 
-Compilar e executar seu serviço de nuvem localmente sem depuração (Ctrl + F5), com a configuração de solução Olá definida muito**versão**. Isso garante que todos os arquivos e pastas são criadas para executar o aplicativo hello localmente e garante que todos os emuladores de saudação são iniciados. Inicie Olá UI do emulador de computação do hello tooverify de barra de tarefas que está executando a função de trabalho.
+Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados. Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
 
-## <a name="2-attach-tooa-process"></a>2: anexar processo tooa
-Em vez de criar o perfil de aplicativo hello, iniciando-o da saudação IDE do Visual Studio 2010, você deve anexar Olá profiler tooa executando o processo. 
+## <a name="2-attach-to-a-process"></a>2: Anexar a um processo
+Em vez de criar o perfil do aplicativo iniciando-o no IDE do Visual Studio 2010, você deve anexar o criador de perfis a um processo em execução. 
 
-tooattach Olá profiler tooa processo, em Olá **analisar** menu, escolha **Profiler** e **Attach/Detach**.
+Para anexar o criador de perfis a um processo, no menu **Analisar**, escolha **Criador de Perfis** e **Anexar/Desanexar**.
 
 ![Opção Anexar perfil][6]
 
-Para uma função de trabalho, localize o processo de WaWorkerHost.exe hello.
+Para uma função de trabalho, localize o processo WaWorkerHost.exe.
 
 ![Processo WaWorkerHost][7]
 
-Se sua pasta de projeto estiver em uma unidade de rede, o criador de perfil de saudação pedirá que você tooprovide Olá de toosave outro local relatórios de criação de perfil.
+Se a pasta de seu projeto estiver em uma unidade de rede, o criador de perfis solicitará que você forneça outro local para salvar os relatórios de criação de perfis.
 
- Você também pode anexar a função de web tooa anexando tooWaIISHost.exe.
-Se houver vários processos de função de trabalho em seu aplicativo, você precisa toouse Olá processID toodistinguish-los. Você pode consultar Olá processID programaticamente, acessando o objeto de processo hello. Por exemplo, se você adicionar esse método de execução do código toohello da classe derivada RoleEntryPoint de saudação em uma função, você pode examinar o log Olá UI do emulador de computação tooknow tooconnect o processo para.
+ Também é possível conectar-se a uma função web, conectando-se ao WaIISHost.exe.
+Se houver vários processos de função de trabalho em seu aplicativo, você precisará usar o processID para diferenciá-los. Você pode consultar o processID programaticamente acessando o objeto Process. Por exemplo, adicionando este código ao método Run da classe derivada de RoleEntryPoint em uma função, você pode examinar o log na interface do usuário do Emulador de Computação para saber a qual processo conectar-se.
 
     var process = System.Diagnostics.Process.GetCurrentProcess();
     var message = String.Format("Process ID: {0}", process.Id);
     Trace.WriteLine(message, "Information");
 
-log de saudação tooview, Olá iniciar IU do emulador de computação.
+Para exibir o log, inicie a interface do usuário do Emulador de Computação.
 
-![Iniciar Olá UI do emulador de computação][8]
+![Iniciar a IU do Emulador de Computação][8]
 
-Abrir Olá trabalho função log console no hello UI do emulador de computação clicando na barra de título da janela do console de saudação. Você pode ver o ID do processo Olá no log de saudação.
+Abra a janela do console do log da função de trabalho na interface do usuário do Emulador de Computação clicando na barra de títulos da janela do console. Você pode ver a ID do processo no log.
 
 ![Exibir ID do processo][9]
 
-Um anexado, execute as etapas de Olá cenário de saudação de tooreproduce do seu aplicativo da interface do usuário (se necessário).
+Depois de conectar-se, execute as etapas na interface do usuário do seu aplicativo (se necessário) para reproduzir o cenário.
 
-Quando você quiser toostop de criação de perfil, escolha Olá **parar criação de perfil** link.
+Quando desejar parar a criação de perfis, escolha o link **Parar Criação de Perfis** .
 
 ![Opção Parar perfil][10]
 
 ## <a name="3-view-performance-reports"></a>3: Exibir relatórios de desempenho
-relatório de desempenho de saudação para seu aplicativo é exibido.
+O relatório de desempenho de seu aplicativo é exibido.
 
-Neste ponto, profiler hello interrompe a execução, salva dados em um arquivo. vsp e exibe um relatório que mostra uma análise dos dados.
+Nesse ponto, o criador de perfis interromperá a execução, salvará os dados em um arquivo .vsp e exibirá um relatório que mostra uma análise dos dados.
 
 ![Relatório do criador de perfil][11]
 
-Se você vir String.wstrcpy em Olá afunilamento, clique em apenas meu código toochange Olá exibição tooshow usuário somente código.  Se você vir concat, tente pressionando o botão Mostrar todo o código de saudação.
+Se você vir String.wstrcpy no Afunilamento, clique em Apenas Meu Código para alterar a exibição para mostrar somente o código do usuário.  Se você vir String.Concat, tente pressionar o botão Mostrar Todo o Código.
 
-Você deve ver o método concatenar hello e String. Concat ocupando uma grande parte do tempo de execução de saudação.
+Você verá o método Concatenate e o String.Concat tomando uma grande parte do tempo de execução.
 
 ![Análise do relatório][12]
 
-Se você adicionou o código de concatenação de cadeia de caracteres hello neste artigo, você verá um aviso na lista de tarefas de saudação para isso. Você também pode ver um aviso de que há uma quantidade excessiva de coleta de lixo, que é devido toohello número de cadeias de caracteres que são criados e descartados.
+Se você adicionou o código de concatenação de cadeia de caracteres deste artigo, verá um aviso na Lista de Tarefas por isso. Você também poderá ver um aviso de que há uma quantidade excessiva de coleta de lixo, devido ao número de cadeias de caracteres que são criadas e descartadas.
 
 ![Avisos do desempenho][14]
 
 ## <a name="4-make-changes-and-compare-performance"></a>4: Fazer alterações e comparar o desempenho
-Você também pode comparar o desempenho de saudação antes e após uma alteração de código.  Parar Olá executando o processo e editar Olá código tooreplace Olá cadeia operação de concatenação com o uso de saudação de StringBuilder:
+Você também pode comparar o desempenho antes e depois de uma alteração no código.  Interrompa o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
     public static string Concatenate(int number)
     {
@@ -137,26 +137,26 @@ Você também pode comparar o desempenho de saudação antes e após uma altera�
         return builder.ToString();
     }
 
-Fazer outra execução de desempenho e, em seguida, comparar o desempenho de saudação. Olá Gerenciador de desempenho, se hello execuções estão no hello mesma sessão, apenas selecione os dois relatórios, abra o menu de atalho hello e escolha **comparar relatórios de desempenho**. Se você quiser toocompare com uma execução em outra sessão de desempenho, abra Olá **analisar** menu e escolha **comparar relatórios de desempenho**. Especifique os dois arquivos na caixa de diálogo de saudação que é exibida.
+Realize outra execução de desempenho e, em seguida, compare o desempenho. No Gerenciador de Desempenho, se as execuções forem na mesma sessão, você poderá selecionar os dois relatórios, abrir o menu de atalho e escolher **Comparar Relatórios de Desempenho**. Se desejar comparar com uma execução em outra sessão de desempenho, abra o menu **Analisar** e escolha **Comparar Relatórios de Desempenho**. Especifique os dois arquivos na caixa de diálogo que é exibida.
 
 ![Opção Comparar relatórios do desempenho][15]
 
-relatórios de saudação realce as diferenças entre duas execuções de saudação.
+Os relatórios destacam as diferenças entre as duas execuções.
 
 ![Relatório da comparação][16]
 
-Parabéns! Ter começado usar com o criador de perfil de saudação.
+Parabéns! Você começou a usar o criador de perfis.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Verifique se você está criando o perfil de uma compilação de versão e inicie sem depurar.
-* Se Olá Attach/Detach opção não está habilitado no menu do criador de perfil hello, execute Olá Assistente de desempenho.
-* Use o status de saudação de tooview Olá UI do emulador de computação do seu aplicativo. 
-* Se você tiver problemas para iniciar aplicativos no emulador de saudação ou anexando Olá profiler, desligar o emulador de computação hello e reiniciá-lo. Se isso não resolver o problema de hello, tente reiniciar. Esse problema pode ocorrer se você usar o hello emulador de computação toosuspend e remove as implantações em execução.
-* Se você usou qualquer um dos comandos da linha de comando de criação de perfil de hello, especialmente Olá configurações globais, certifique-se de que VSPerfClrEnv /globaloff foi chamado e VsPerfMon.exe foi desligado.
-* Se durante a amostragem, você vir a mensagem de saudação "PRF0025: nenhum dado foi coletado," Verifique se Olá processo anexado atividade toohas da CPU. Os aplicativos que não estão fazendo nenhum trabalho de computação podem não produzir nenhum dado de amostragem.  Também é possível que o processo de saudação encerrado antes que qualquer amostragem foi feita. Verifique toosee não encerra um método de execução de saudação para uma função que você estiver criando um perfil.
+* Se a opção Conectar/Desconectar não estiver habilitada no menu Criador de Perfis, execute o Assistente de Desempenho.
+* Use a interface do usuário do Emulador de Computação para exibir o status do seu aplicativo. 
+* Se tiver problemas para iniciar aplicativos no emulador ou para conectar o criador de perfis, desligue e reinicie o emulador de computação. Se isso não resolver o problema, tente reinicializar. Esse problema pode ocorrer se você usar o Emulador de Computação para suspender e remover implantações em execução.
+* Se você tiver usado qualquer um dos comandos de criação de perfil na linha de comando, especialmente as configurações globais, verifique se VSPerfClrEnv / globaloff foi chamado e se VsPerfMon.exe foi desligado.
+* Se durante a amostragem você vir a mensagem "PRF0025: nenhum dado foi coletado", verifique se o processo ao qual você se conectou tem atividade de CPU. Os aplicativos que não estão fazendo nenhum trabalho de computação podem não produzir nenhum dado de amostragem.  Também é possível que o processo tenha sido encerrado antes de qualquer amostra ter sido feita. Verifique se o método Run para uma função para a qual você esteja criando um perfil não é encerrado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Não há suporte para a instrumentação de binários do Azure no emulador Olá no criador de perfil do hello Visual Studio, mas se você quiser tootest alocação de memória, você pode escolher essa opção ao criar o perfil. Também é possível criação de perfil de simultaneidade, que ajuda a determinar se threads são desperdiçar tempo competindo por bloqueios, ou camada de criação de perfil de interação, que ajuda você a localizar problemas de desempenho durante a interação entre camadas de um aplicativo, mais com frequência entre a camada de dados hello e uma função de trabalho.  Você pode exibir as consultas de banco de dados de hello gera seu aplicativo e usar Olá criação de perfil de dados tooimprove seu uso do banco de dados de saudação. Para obter informações sobre a criação de perfil de interação de camadas, consulte Olá postagem de blog [passo a passo: usando Olá criador de perfil de interação de camada no Visual Studio Team System 2010][3].
+A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho.  Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, veja a postagem no blog [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3] (Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010).
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx

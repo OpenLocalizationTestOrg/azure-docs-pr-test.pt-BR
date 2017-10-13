@@ -1,6 +1,6 @@
 ---
-title: aaaProblems entrar tooan local usando o aplicativo hello proxy de aplicativo do AD do Azure | Microsoft Docs
-description: "Solução de problemas comuns enfrentados quando não é possível toosign no aplicativo de local tooan integrado ao AD do Azure usando Olá Proxy de aplicativo do Azure AD"
+title: Problemas ao entrar em um aplicativo local usando o proxy de aplicativo do Azure AD | Microsoft Docs
+description: "Solução de problemas comuns que ocorrem quando você não consegue entrar em um aplicativo local integrado ao Azure AD usando o Proxy de Aplicativo do Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8a13b9b886160f4bbad5b33001b22950b6a2bb00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5687f789355cc9769d26b53e98486bb213c66419
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problems-signing-in-tooan-on-premises-application-using-hello-azure-ad-application-proxy"></a>Problemas para entrar no aplicativo de local tooan usando proxy de aplicativo de saudação do AD do Azure
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao entrar em um aplicativo local usando o proxy de aplicativo do Azure AD
 
-Se você estiver tendo problemas para entrar em um aplicativo local, você pode tentar seguintes Olá etapas abaixo tooresolving seu problema.
+Se tiver problemas para entrar em um aplicativo local, você poderá tentar seguir as etapas abaixo para resolver o problema.
 
-## <a name="i-can-load-my-application-but-something-on-hello-page-looks-broken"></a>Pode carregar o meu aplicativo, mas algo na página de saudação é interrompido
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Consigo carregar meu aplicativo, mas algo na página parece quebrado
 
-Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
+Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
 
-  * [Posso obter toomy aplicativo, mas a página de aplicativo hello não estiver exibindo corretamente](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
-  * [Posso obter toomy aplicativo, mas o aplicativo hello leva muito tooload](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
-  * [Posso obter toomy aplicativo, mas não funcionam Olá links na página de aplicativo hello](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
+  * [Posso acessar meu aplicativo, mas a página do aplicativo não está sendo exibida corretamente](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
+  * [Posso acessar meu aplicativo, mas o aplicativo leva muito tempo para carregar](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
+  * [Posso acessar meu aplicativo, mas os links na página do aplicativo não funcionam](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Estou tendo um problema de conectividade em meu aplicativo
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não sei qual tooopen portas para meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não sei quais portas abrir para o meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
   * [Encontrei um problema porque não havia nenhum conector funcionando em um grupo de conectores para o meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-no-working-connector/)
 
-## <a name="im-having-a-problem-configuring-hello-azure-ad-application-proxy-in-hello-admin-portal"></a>Tenho uma saudação de problema configurar Proxy de aplicativo do AD do Azure no portal de administração de saudação
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Estou tendo um problema ao configurar o Proxy de Aplicativo do Azure AD no portal de administração
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Estou tendo dificuldades para configurar um aplicativo de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-config-how-to/)
-  * [Não sei como tooconfigure o logon único aplicativo de Proxy de aplicativo toomy](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
+  * [Não sei como configurar o logon único para o meu aplicativo de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
   * [Eu encontrei um problema ao criar o meu aplicativo no portal de administração](https://docs.microsoft.com/azure/active-directory/application-proxy-config-problem/)
 
-## <a name="im-having-a-problem-setting-up-back-end-authentication-toomy-application"></a>Estou tendo um problema ao instalar o aplicativo de toomy de autenticação de back-end
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não sei como tooconfigure delegação restrita de Kerberos](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
-  * [Não sei como tooconfigure meu aplicativo com PingAccess](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
+## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Estou tendo um problema de configuração da autenticação de back-end em meu aplicativo
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não sei como configurar a delegação restrita de Kerberos](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
+  * [Não sei como configurar meu aplicativo com o PingAccess](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
 
-## <a name="im-having-a-problem-when-signing-in-toomy-application"></a>Estou tendo um problema ao entrar no aplicativo toomy
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Estou tendo um problema ao entrar em meu aplicativo
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Recebo uma mensagem de erro "Não é possível acessar este aplicativo corporativo"](https://docs.microsoft.com/azure/active-directory/application-proxy-sign-in-bad-gateway-timeout-error/)
 
-## <a name="im-having-a-problem-with-hello-application-proxy-agent-connector"></a>Estou tendo um problema com hello conector de agente de Proxy de aplicativo
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Estou tendo problemas ao instalar o conector do agente de Proxy de aplicativo de saudação](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
+## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Estou tendo um problema com o Conector do agente de proxy de aplicativo
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Estou tendo problemas ao instalar o conector de agente de proxy de aplicativo ](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Como tooprovide proteger o acesso remoto aplicativos tooon locais](active-directory-application-proxy-get-started.md)
+[Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)

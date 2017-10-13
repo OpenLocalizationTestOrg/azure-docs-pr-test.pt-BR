@@ -14,13 +14,13 @@
 ## [Descobrir fontes de dados](data-catalog-how-to-discover.md)
 ## [Anotar fontes de dados](data-catalog-how-to-annotate.md)
 ## [Documentar fontes de dados](data-catalog-how-to-documentation.md)
-## [Conectar fontes de toodata](data-catalog-how-to-connect.md)
+## [Conectar às fontes de dados](data-catalog-how-to-connect.md)
 ## [Trabalhar com fontes de Big Data](data-catalog-how-to-big-data.md)
 ## [Analisar dados de fontes de dados](data-catalog-how-to-data-profile.md)
 ## [Gerenciar ativos de dados](data-catalog-how-to-manage.md)
 ## [Salvar pesquisas e fixar ativos de dados](data-catalog-how-to-save-pin.md)
-## [Configurar o Glossário de negócios Olá](data-catalog-how-to-business-glossary.md)
-## [Catálogo de toodata acesso seguro](data-catalog-how-to-secure-catalog.md)
+## [Configurar o glossário de negócios](data-catalog-how-to-business-glossary.md)
+## [Proteger o acesso ao catálogo de dados](data-catalog-how-to-secure-catalog.md)
 ## [Exibir os ativos de dados relacionados](data-catalog-how-to-view-related-data-assets.md) 
 
 # Referência

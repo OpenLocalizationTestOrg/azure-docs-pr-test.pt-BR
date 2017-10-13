@@ -1,6 +1,6 @@
 ---
-title: folha de resumo aaaStorSimple Array Virtual dispositivo | Microsoft Docs
-description: "Descreve a folha de resumo de dispositivo Olá para o Gerenciador de dispositivos do StorSimple e explica como toouse-toomonitor integridade de saudação da sua matriz Virtual StorSimple."
+title: Folha de resumo de dispositivo da StorSimple Virtual Array | Microsoft Docs
+description: "Descreve a folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple e explica como usá-lo para monitorar a integridade da Matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-ms.openlocfilehash: 3649eaac8a924a772f310a809ddf9706e912157a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-device-summary-blade-for-storsimple-device-manager-connected-toostorsimple-virtual-array"></a>Folha resumida de dispositivo de saudação do uso para o Gerenciador de dispositivos do StorSimple conectado tooStorSimple Array Virtual
+# <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Use a folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple conectado à Matriz Virtual StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-folha de dispositivo do Gerenciador de dispositivos de StorSimple Olá fornece uma exibição resumida de uma matriz de StorSimple Virtual que está registrado com um determinado StorSimple Gerenciador de dispositivos, realçando os problemas de dispositivos que precisam de atenção do administrador do sistema. Este tutorial apresenta a folha de resumo de dispositivo hello, explica a função e o conteúdo de saudação e descreve Olá tarefas que você pode executar com esta folha.
+A folha do dispositivo Gerenciador de Dispositivos StorSimple fornece uma exibição resumida de uma Matriz Virtual StorSimple que está registrada em determinado Gerenciador de Dispositivos StorSimple, destacando os problemas de dispositivos que precisam da atenção do administrador do sistema. Este tutorial apresenta a folha de resumo do dispositivo, explica o conteúdo e a função e descreve as tarefas que podem ser realizadas nessa folha.
 
-folha de resumo de dispositivo Olá exibe Olá informações a seguir:
+A folha de resumo do dispositivo exibe as seguintes informações:
 
 ![Painel do dispositivo](./media/storsimple-virtual-array-device-summary/device-blade.png)
 
@@ -34,21 +34,21 @@ folha de resumo de dispositivo Olá exibe Olá informações a seguir:
 
 ## <a name="management"></a>Gerenciamento
 
-Na folha de dispositivo do StorSimple Olá, você verá opções de saudação para gerenciar seu dispositivo StorSimple. Você ver os comandos de gerenciamento de saudação na superior de saudação da folha de saudação e no lado esquerdo da saudação. Usar essas opções tooadd compartilhamentos ou volumes, ou atualizar ou fazer failover sua matriz virtual.
+Na folha do dispositivo StorSimple, veja as opções para gerenciar seu dispositivo StorSimple. Você vê os comandos de gerenciamento na parte superior da folha e no lado esquerdo. Use essas opções para adicionar compartilhamentos ou volumes, ou atualizar ou fazer failover da sua matriz virtual.
 
-Olá área essentials captura algumas das propriedades de saudação importantes, como, Olá status, modelo, versão de software bem como toohello um link **IU da Web** da matriz de saudação. Se você estiver em uma rede interna, você pode iniciar diretamente Olá [interface da web local](storsimple-ova-web-ui-admin.md) tooadminister sua matriz virtual.
+A área de conceitos básicos captura algumas das propriedades importantes, como o status, o modelo, a versão de software e um link para a **interface do usuário da Web** da matriz. Se você está em uma rede interna, pode iniciar diretamente a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) para administrar sua matriz virtual.
 
 ![Conceitos básicos do dispositivo](./media/storsimple-virtual-array-device-summary/device-essentials.png)
 
 ## <a name="storsimple-device-summary"></a>Resumo do dispositivo StorSimple
 
-* Olá **alertas** lado a lado fornece um instantâneo de todos os alertas ativos de saudação para sua matriz virtual, agrupado por severidade do alerta. Clique em Olá bloco tooopen Olá **alertas** folha e depois clique em um indivíduo alerta tooview mais detalhes sobre esse alerta, incluindo as ações recomendadas. Você também pode limpar o alerta de saudação se Olá problema foi resolvido.
+* O bloco **Alertas** fornece um instantâneo de todos os alertas ativos na sua matriz virtual agrupados por severidade do alerta. Clique no bloco para abrir a folha **Alertas** e clique em um alerta individual para exibir detalhes adicionais sobre ele, incluindo todas as ações recomendadas. Você também pode limpar o alerta se o problema foi resolvido.
 
-* Olá **capacidade** Olá lado a lado exibe Olá armazenamento primário provisionado e o restante em Olá dispositivo virtual relativo toohello armazenamento total disponível para a mesma. **Provisionado** refere-se a quantidade de toohello de armazenamento preparado e alocado para uso, **restante** refere-se toohello capacidade que pode ser provisionada por este dispositivo restante. Olá **camadas restantes** capacidade é a capacidade disponível de saudação que pode ser provisionada incluindo nuvem durante a saudação **restantes Local** é a capacidade restante em discos de saudação de saudação anexado toothis virtual matriz.
+* O bloco **Capacidade** mostra o armazenamento primário provisionado e restante no dispositivo virtual em relação ao armazenamento total disponível nele. **Provisionado** refere-se à quantidade de armazenamento que é preparada e alocada para uso, enquanto **Restante** refere-se à capacidade restante que pode ser provisionada nesse dispositivo. A capacidade **Restante em Camadas** é a capacidade disponível que pode ser provisionada, incluindo a nuvem, enquanto a capacidade **Restante Local** é a capacidade restante nos discos anexados à matriz virtual.
 
-* Em Olá **uso** gráfico, você pode exibir o armazenamento primário de saudação usado em matriz virtual, bem como o armazenamento em nuvem Olá consumida durante saudação últimos 7 dias, o padrão de saudação período de tempo. Saudação de uso **editar** opção no canto superior direito Olá Olá gráfico toochoose uma escala de tempo diferentes.
+* No gráfico **Uso**, você pode ver o armazenamento primário usado na sua matriz virtual, bem como o armazenamento em nuvem consumido nos últimos sete dias, o período padrão. Use a opção **Editar** no canto superior direito do gráfico para escolher uma escala de tempo diferente.
 
-* Olá **compartilhamentos** ou **Volumes** lado a lado fornece um resumo do número de saudação de compartilhamentos ou volumes em seu dispositivo agrupados por status. Clique em Olá bloco tooopen Olá **compartilhamentos** ou **Volumes** folha e, em seguida, clique em um tooview individual de compartilhamento ou volume ou modificar suas propriedades. Para obter mais informações, consulte como muito[gerenciar compartilhamentos](storsimple-virtual-array-manage-shares.md) ou [gerenciar volumes](storsimple-virtual-array-manage-volumes.md).
+* O bloco **Compartilhamentos** ou **Volumes** fornece um resumo do número de compartilhamentos ou volumes no seu dispositivo agrupado por status. Clique no bloco para abrir a folha de lista **Compartilhamentos** ou **Volumes** e clique em um compartilhamento ou volume individual para exibir ou modificar suas propriedades. Para saber mais, confira como [gerenciar compartilhamentos](storsimple-virtual-array-manage-shares.md) ou [gerenciar volumes](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como:

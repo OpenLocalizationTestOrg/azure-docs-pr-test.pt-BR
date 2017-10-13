@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: ce7539e5d5c7c1bf9505ef229f2d31d84c00da05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 017a8cabe81743af4c0cbb694098df799a904468
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (UO) em um domínio gerenciado dos Serviços de Domínio do Azure AD
-Domínios gerenciados dos Serviços de Domínio do Azure AD incluem dois contêineres internos chamados 'Computadores do AADDC' e 'Usuários do AADDC', respectivamente. Olá 'AADDC computadores' contêiner tem objetos de computador para todos os computadores que estão unidas domínio gerenciado toohello. contêiner de 'Usuários AADDC' Hello inclui usuários e grupos no locatário do AD do Azure hello. Ocasionalmente, pode ser necessário toocreate contas de serviço Olá gerenciado domínio toodeploy cargas de trabalho. Para essa finalidade, você pode criar um personalizado UO (unidade organizacional) no domínio gerenciado hello e criar contas de serviço dessa ou. Este artigo mostra como toocreate uma UO no seu domínio gerenciado.
+Domínios gerenciados dos Serviços de Domínio do Azure AD incluem dois contêineres internos chamados 'Computadores do AADDC' e 'Usuários do AADDC', respectivamente. O contêiner 'Computadores do AADDC' tem objetos de computador para todos os computadores ingressados no domínio gerenciado. O contêiner 'Usuários do AADDC' inclui usuários e grupos no locatário do Azure AD. Ocasionalmente, pode ser necessário criar contas de serviço no domínio gerenciado para implantar cargas de trabalho. Para essa finalidade, você pode criar uma UO (unidade organizacional) personalizada no domínio gerenciado e criar contas de serviço dentro dessa UO. Este artigo mostra como criar uma UO em seu domínio gerenciado.
 
 ## <a name="before-you-begin"></a>Antes de começar
-tarefas de saudação tooperform listadas neste artigo, você precisa:
+Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 
 1. Uma **assinatura do Azure**válida.
 2. Um **diretório do AD do Azure** - seja sincronizado com um diretório local ou com um diretório somente na nuvem.
-3. **Serviços de domínio do AD do Azure** devem estar habilitados para diretório de saudação do AD do Azure. Se você ainda não tiver feito isso, siga todas as tarefas de saudação descritas Olá [guia de Introdução](active-directory-ds-getting-started.md).
-4. Uma máquina virtual de domínio do qual você administrar os serviços de domínio de saudação do AD do Azure gerenciados domínio. Se você não tiver tal uma máquina virtual, execute todas as tarefas de saudação descritas no artigo Olá intitulado [ingressar em um domínio gerenciado do Windows máquina virtual tooa](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Você precisa ter credenciais de saudação de um **usuário conta pertencentes toohello ' AAD controlador de domínio do grupo 'Administradores** em seu diretório, toocreate uma UO personalizada no seu domínio gerenciado.
+3. **Serviços de Domínio do Azure AD** devem ser habilitados para o diretório do Azure AD. Se você ainda não tiver feito isso, execute todas as tarefas descritas no [guia de Introdução](active-directory-ds-getting-started.md).
+4. Uma máquina virtual ingressada no domínio por meio da qual você administra o domínio gerenciado do Azure AD Domain Services. Se você não tiver esse tipo de máquina virtual, execute todas as tarefas descritas no artigo [Ingressar uma máquina virtual do Windows em um domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Você precisa das credenciais de uma **conta de usuário que pertença ao grupo “Administradores do controlador de domínio do AAD”** em seu diretório para criar uma UO personalizada em seu domínio gerenciado.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Instalar ferramentas de administração do AD em uma máquina virtual ingressada no domínio para administração remota
-Domínios gerenciados de serviços de domínio do AD do Azure podem ser gerenciados remotamente usando ferramentas familiares de administrativo do Active Directory como Olá Active Directory Administrative ADAC (centro) ou o PowerShell do AD. Administradores de inquilinos não possuem controladores de toodomain tooconnect privilégios Olá de domínio gerenciados por meio da área de trabalho remota. tooadminister Olá domínio gerenciado, instale o recurso de ferramentas de administração de saudação AD em um domínio gerenciado de toohello unidas de máquina virtual. Consulte o artigo toohello intitulado [administrar um domínio gerenciado do serviços de domínio do AD do Azure](active-directory-ds-admin-guide-administer-domain.md) para obter instruções.
+Domínios gerenciados dos Serviços de Domínio do Azure AD podem ser gerenciados remotamente usando as ferramentas administrativas familiares do Active Directory, como o ADAC (Centro Administrativo do Active Directory) ou o AD PowerShell. Os administradores de locatários não têm privilégios para conectar-se a controladores de domínio no domínio gerenciado por meio da Área de Trabalho Remota. Para administrar o domínio gerenciado, instale o recurso de ferramentas de administração do AD em uma máquina virtual ingressada no domínio gerenciado. Consulte o artigo intitulado [administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md) para obter instruções.
 
-## <a name="create-an-organizational-unit-on-hello-managed-domain"></a>Criar uma unidade organizacional no domínio gerenciado Olá
-Agora que ferramentas administrativas Olá AD estão instaladas em Olá ingressado no domínio máquina virtual, podemos usar essas ferramentas toocreate uma unidade organizacional no domínio Olá gerenciado. Execute Olá etapas a seguir:
+## <a name="create-an-organizational-unit-on-the-managed-domain"></a>Criar uma Unidade Organizacional no domínio gerenciado
+Agora que as Ferramentas Administrativas do AD estão instaladas na máquina virtual ingressada no domínio, podemos usar essas ferramentas para criar uma unidade organizacional no domínio gerenciado. Execute as seguintes etapas:
 
 > [!NOTE]
-> Somente membros Olá ' AAD DC' do grupo de administradores têm Olá toocreate privilégios necessários um OU personalizado. Certifique-se de que você realize Olá etapas a seguir como um usuário que pertence a grupo toothis.
+> Somente os membros do grupo 'Administradores de DC do AAD' têm os privilégios necessários para criar uma nova UO. Certifique-se de executar as etapas a seguir como um usuário pertencente a esse grupo.
 >
 >
 
-1. Na tela de início de saudação, clique em **ferramentas administrativas**. Você deve ver as ferramentas administrativas do AD de saudação instaladas na máquina virtual de saudação.
+1. Na tela inicial, clique em **Ferramentas Administrativas**. Você deve ver as ferramentas administrativas do AD instaladas na máquina virtual.
 
     ![Ferramentas Administrativas instaladas no servidor](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Clique em **Centro Administrativo do Active Directory**.
 
     ![Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. domínio de saudação tooview, clique em nome de domínio de saudação no painel esquerdo da saudação (por exemplo, ' contoso100.com').
+3. Para exibir o domínio, clique no nome de domínio no painel à esquerda (por exemplo, 'contoso100.com').
 
     ![ADAC - exibir domínio](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
-4. Olá direita **tarefas** painel, clique em **novo** sob o nó de nome de domínio de saudação. Neste exemplo, se clicarmos **novo** nó Olá 'contoso100(local)' hello direita **tarefas** painel.
+4. No lado direito do painel **Tarefas**, clique em **Novo** no nó de nome de domínio. Neste exemplo, vamos clicar em **Novo** no nó 'contoso100(local)' no lado direito do painel **Tarefas**.
 
     ![ADAC - nova UO](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
-5. Você deve ver Olá opção toocreate uma unidade organizacional. Clique em **unidade organizacional** toolaunch Olá **Criar unidade organizacional** caixa de diálogo.
-6. Em Olá **Criar unidade organizacional** caixa de diálogo, especifique um **nome** para Olá nova UO. Forneça uma breve descrição de saudação UO. Você também pode definir Olá **gerenciado por** hello OU campo. toocreate hello OU personalizada, clique em **Okey**.
+5. Você deve ver a opção de criar uma unidade organizacional. Clique em **Unidade Organizacional** para iniciar o diálogo **Criar Unidade Organizacional**.
+6. Na caixa de diálogo **Criar Unidade Organizacional**, especifique um **Nome** para a nova UO. Forneça uma descrição curta para a UO. Você também pode definir o campo **Gerenciado Por** da UO. Para criar a UO personalizada, clique em **OK**.
 
     ![ADAC - criar caixa de diálogo da UO](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
-7. Olá recém-criado OU agora deve aparecer em Olá AD ADAC (Centro Administrativo).
+7. A UO recém-criada agora deve aparecer no ADAC (Centro Administrativo do AD).
 
     ![ADAC - UO criada](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Permissões/segurança para UOs recém-criadas
-Por padrão, o usuário de saudação (membro do grupo Olá 'Administradores do controlador de domínio do AAD') que criou a saudação OU personalizado tem privilégios administrativos (controle total) sobre Olá UO. usuário Hello, vá em frente e conceder privilégios tooother usuários ou toohello ao grupo 'Administradores de controlador de domínio do AAD' conforme desejado. Conforme visto no hello captura de tela a seguir, Olá usuário 'bob@domainservicespreview.onmicrosoft.com' que a nova unidade de organização 'MyCustomOU' hello criado é concedida controle total sobre ele.
+Por padrão, são concedidos ao usuário (membro do grupo 'Administradores de DC do AAD') que criou a UO personalizada privilégios administrativos (controle total) sobre a UO. O usuário pode, em seguida, continuar e conceder privilégios a outros usuários ou ao grupo 'Administradores do AAD DC', conforme desejado. Como mostrado na captura de tela abaixo, o usuário 'bob@domainservicespreview.onmicrosoft.com' quem criou a nova unidade organizacional 'MyCustomOU' é concedido controle total sobre ele.
 
  ![ADAC - segurança da nova UO](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
 
 ## <a name="notes-on-administering-custom-ous"></a>Notas sobre como administrar UOs personalizadas
-Agora que você criou uma UO personalizada, pode criar usuários, grupos, computadores e contas de serviço nessa UO. Você não pode mover os usuários ou grupos de saudação 'AADDC usuários' UO toocustom UOs.
+Agora que você criou uma UO personalizada, pode criar usuários, grupos, computadores e contas de serviço nessa UO. Você não pode mover usuários ou grupos da UO 'Usuários de DC do AAD' para as UOs personalizadas.
 
 > [!WARNING]
-> As contas de usuário, de grupos, as contas de serviço e de objetos de computador que você criar em OUs personalizadas não ficam disponíveis no seu locatário do Azure AD. Em outras palavras, esses objetos não mostrar o uso de saudação do Azure AD Graph API ou em Olá da interface do AD do Azure. Esses objetos só estarão disponíveis no seu domínio gerenciado dos Azure AD Domain Services.
+> As contas de usuário, de grupos, as contas de serviço e de objetos de computador que você criar em OUs personalizadas não ficam disponíveis no seu locatário do Azure AD. Em outras palavras, esses objetos não aparecem usando a API do Azure AD Graph ou na interface do usuário do Azure AD. Esses objetos só estarão disponíveis no seu domínio gerenciado dos Azure AD Domain Services.
 >
 >
 

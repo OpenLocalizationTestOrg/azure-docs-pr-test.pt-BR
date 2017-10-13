@@ -1,6 +1,6 @@
 ---
-title: grupo de conector aaaNo trabalho encontrado para um aplicativo de Proxy de aplicativo | Microsoft Docs
-description: "Solucionar problemas que podem ocorrer quando não há nenhum trabalho conector em um grupo de conector para seu aplicativo com hello Proxy de aplicativo do Azure AD"
+title: Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy | Microsoft Docs
+description: "Solucionar problemas que podem ocorrer quando não há nenhum trabalho conector em um grupo de conector para seu aplicativo com o Application Proxy do Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4c4baf296b316db131929c9a7c618fb9960713e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4945958deedc8a1d9989ff901192c03a5363b4dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo do conector de trabalho encontrado para um aplicativo de Application Proxy
 
-Ajuda neste artigo você tooresolve Olá comuns dos problemas enfrentados quando não há um conector detectado para um aplicativo de Proxy de aplicativo integrado ao Active Directory do Azure.
+Ajuda neste artigo você resolver os problemas mais comuns enfrentados quando não há um conector detectado para um aplicativo de Application Proxy integrado ao Azure Active Directory.
 
 ## <a name="overview-of-steps"></a>Visão geral das etapas
-Se não houver nenhum trabalho conector em um grupo de conector para seu aplicativo, há alguns problemas de saudação tooresolve de maneiras:
+Se não houver nenhum conector funcionando em um grupo de conector para o seu aplicativo, haverá algumas maneiras de resolver o problema:
 
--   Se você tiver não conectores no grupo hello, você pode:
+-   Se você tiver não conectores no grupo, você poderá:
 
-    -   Baixar um novo conector no servidor de local certo hello e atribua-toothis grupo
+    -   Baixar um novo conector no servidor local certo e atribuí-lo a esse grupo
 
-    -   Mover um conector para active para grupo de saudação
+    -   Mover um conector ativo para o grupo
 
--   Se você não tiver nenhum conector ativo no grupo de saudação, você pode:
+-   Se você não tiver conectores ativos no grupo, você poderá:
 
-    -   Identificar o motivo Olá que seu conector está inativo e resolver
+    -   Identificar o motivo pelo qual que o conector está inativo e resolver
 
-    -   Mover um conector para active para grupo de saudação
+    -   Mover um conector ativo para o grupo
 
-tooknow qual deles é problema hello, abra o menu de "Proxy de aplicativo" hello em seu aplicativo e examine a mensagem de aviso do grupo de saudação. Ele especifica esse grupo de saudação precisa de pelo menos um conector (necessário nenhum grupo Olá) ou se ele tem nenhum conector active (embora provavelmente tem conectores inativos).
+Para saber qual é o problema, abra o menu "Application Proxy" no seu aplicativo e examine a mensagem de aviso do grupo de conector. Ela especifica que o grupo precisa de, pelo menos, um conector (você não tem nenhum no grupo) ou que não tem nenhum conector ativo (embora provavelmente tenha conectores inativos).
 
    ![Seleção de grupo do conector no Portal do Azure](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-Para obter detalhes sobre cada uma dessas opções, consulte Olá seção correspondente. Cada uma dessas pressupõe que você esteja iniciando na página de gerenciamento de conector hello. Se você estiver procurando na mensagem de erro de saudação acima, você pode ir toothis página clicando na mensagem de saudação do aviso. Caso contrário, isso pode ser encontrado indo muito**Active Directory do Azure**, clicando em **aplicativos empresariais**, em seguida, **Proxy de aplicativo.**
+Para obter detalhes sobre cada uma dessas opções, consulte a seção correspondente abaixo. Cada um desses pressupõe que você está começando na página de gerenciamento de conector. Se você estiver procurando a mensagem de erro acima, você poderá ir para essa página clicando na mensagem de aviso. Caso contrário, isso pode ser encontrado visitando **Azure Active Directory**, clicando em **aplicativos empresariais**, em seguida, **Application Proxy.**
 
    ![Gerenciamento de grupo do conector no Portal do Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## <a name="download-a-new-connector"></a>Baixar um novo conector
 
-toodownload um novo conector, use o botão de "Baixar conector" de saudação na parte superior de saudação da página de saudação.
+Para baixar um novo conector, use o botão "Baixar conector" na parte superior da página.
 
-necessidades de conector de saudação Observação toobe instalado em um computador com o aplicativo de back-end toohello linha direta de visão e geralmente é posicionado no hello mesmo servidor que o aplicativo hello. Depois de baixar, Olá conector deve aparecer no menu. Clique Olá conector e use hello "Grupo" suspensa toomake-se de que o grupo correto toohello pertence. Salve a alteração de saudação.
+observe que o conector deve ser instalado em um computador com a linha direta de visão para o aplicativo de back-end e normalmente é colocado no mesmo servidor que o aplicativo. Após o download, o conector deve aparecer no menu. Clique no conector e use a lista suspensa "Grupo do Conector" para certificar-se de que ele pertence ao grupo direito. Salve a alteração.
 
-   ![Baixar o conector de saudação do hello Portal do Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
+   ![Baixe o conector do Portal do Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
 ## <a name="move-an-active-connector"></a>Mova um conector ativo
 
-Se você tiver um conector para active que deve pertencer toohello grupo e tem o aplicativo de back-end de destino de toohello de linha de visão, você pode mover Olá conector no grupo Olá atribuído. toodo, clique em Olá conector. No campo de "Grupo" Olá, usar grupo correto do Olá Olá tooselect da lista suspensa e clique em Salvar.
+Se você tiver um conector ativo que deve pertencer ao grupo e tem metas claras para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para fazer isso, clique no conector. No campo "Conector de grupo", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
 
 ## <a name="resolve-an-inactive-connector"></a>Resolver um conector inativo
 
-Se hello somente conectores no grupo Olá estejam inativos, é provável que eles em um computador que não tenham todas as portas necessárias de saudação desbloqueado.
+Se os conectores apenas no grupo estão inativos, eles estão provavelmente em um computador que não tem todas as portas desbloqueadas.
 
-Consulte portas Olá documento de solução de problemas para obter detalhes sobre como investigar o problema.
+consulte o documento de resolução de problemas das portas para obter detalhes sobre como investigar esse problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)

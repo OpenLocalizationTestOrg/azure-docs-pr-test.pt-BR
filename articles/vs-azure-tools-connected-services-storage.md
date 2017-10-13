@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd de armazenamento do Azure usando os serviços conectados no Visual Studio | Microsoft Docs"
-description: "Adicionar o aplicativo de tooyour de armazenamento do Azure usando a caixa de diálogo do Visual Studio adicionar conectado serviços Olá"
+title: "Adicionar Armazenamento do Azure usando serviços conectados no Visual Studio | Microsoft Docs"
+description: "Adicionar Armazenamento do Azure ao seu aplicativo usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: kraigb
-ms.openlocfilehash: 56b42063d86510b330e405108e28d50e6ba4da05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
-Com o Visual Studio, você pode conectar qualquer Olá tooAzure armazenamento a seguir usando Olá **adicionar serviços conectados** caixa de diálogo:
+Com o Visual Studio, você pode conectar qualquer um dos seguintes Armazenamentos do Azure usando a caixa de diálogo **Adicionar Serviços Conectados**:
 
 - Serviço de nuvem do C#
 - Serviço móvel de back-end .NET
@@ -29,41 +29,41 @@ Com o Visual Studio, você pode conectar qualquer Olá tooAzure armazenamento a 
 - Principais serviços ASP.NET
 - Serviço do Trabalho Web do Azure 
 
-Olá serviço conectado funcionalidade adiciona todas as referências de saudação necessário e projeto de tooyour de código de conexão e modifica os arquivos de configuração adequadamente. 
+A funcionalidade do serviço conectado adiciona todas as referências necessárias e o código de conexão ao seu projeto, bem como modifica os arquivos de configuração adequadamente. 
 
-Após a conclusão, Olá **adicionar serviços conectados** caixa de diálogo exibe automaticamente documentação detalhando Olá etapas necessárias toostart, trabalhando com o armazenamento de BLOBs, filas e tabelas.
+Após a conclusão, a caixa de diálogo **Adicionar Serviços Conectados** exibe automaticamente a documentação detalhando as etapas necessárias para começar a trabalhar com armazenamento de blobs, filas e tabelas.
 
-## <a name="connect-tooazure-storage-using-hello-connected-services-dialog"></a>Conecte-se tooAzure armazenamento usando os serviços conectados Olá caixa de diálogo
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Conectar-se ao Armazenamento do Azure usando a caixa de diálogo Serviços Conectados
 1. Abra o projeto no Visual Studio
 
-1. Em **Gerenciador de soluções**, Olá atalho **serviços conectados** nó e, no menu de contexto hello e selecione **Adicionar serviço conectado**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó **Serviços Conectados** e, no menu de contexto, selecione **Adicionar Serviço Conectado**.
    
     ![Adicionar serviço conectado do Azure](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. Em Olá **serviços conectados** página, selecione **armazenamento em nuvem com o armazenamento do Azure**.
+1. Na página **Serviços Conectados**, selecione **Armazenamento em Nuvem com o Armazenamento do Azure**.
    
     ![Adicionar Armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
 
-1. Em Olá **armazenamento do Azure** caixa de diálogo, selecione uma conta de armazenamento existente e selecione **adicionar**.
+1. Na caixa de diálogo **Armazenamento do Azure**, selecione uma conta de armazenamento existente e escolha **Adicionar**.
    
-    Se você precisar toocreate uma conta de armazenamento, vá toohello próxima etapa. Caso contrário, pule toostep 6.
+    Se você precisar criar uma conta de armazenamento, passe para a próxima etapa. Caso contrário, pule para a etapa 6.
     
-    ![Adicionar tooproject de conta de armazenamento existente](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
+    ![Adicionar conta de armazenamento existente ao projeto](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
 
-1. toocreate uma conta de armazenamento: 
+1. Para criar uma conta de armazenamento: 
    
-   1. Selecione **criar uma nova conta de armazenamento** na parte inferior da saudação da caixa de diálogo de saudação.
+   1. Selecione **Criar uma Nova Conta de Armazenamento** na parte inferior da caixa de diálogo.
 
-   1. Preencha Olá **criar conta de armazenamento** caixa de diálogo e selecione **criar**.
+   1. Preencha o diálogo **Criar Conta de Armazenamento** e selecione **Criar**.
       
        ![Nova conta de armazenamento do Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
       
-   1. Olá quando **armazenamento do Azure** caixa de diálogo é exibida, a nova conta de armazenamento Olá aparece na lista de saudação. Selecione a nova conta de armazenamento Olá na lista de saudação e selecione **adicionar**.
+   1. Quando a caixa de diálogo **Armazenamento do Azure** for exibida, a nova conta de armazenamento aparecerá na lista. Selecione a nova conta de armazenamento na lista e escolha **Adicionar**.
 
-1. Olá armazenamento serviço conectado aparece sob Olá **referências de serviço** nó do projeto.
+1. O serviço conectado de armazenamento aparece sob o nó **Referências de Serviço** do seu projeto.
    
 ## <a name="how-your-project-is-modified"></a>Como o projeto é modificado
-Quando você terminar de caixa de diálogo Olá, o Visual Studio adiciona referências e modifica alguns arquivos de configuração. alterações específicas Olá dependem do tipo de projeto hello: 
+Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio adiciona referências e modifica determinados arquivos de configuração. As alterações específicas dependem do tipo de projeto: 
 
 - Projeto ASP.NET — [O que aconteceu — projetos ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - Projeto de Núcleo ASP.NET — [O que aconteceu — projetos ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124) 

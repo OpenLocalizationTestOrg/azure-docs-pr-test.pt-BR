@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toocomplete uma revisão de acesso | Microsoft Docs"
-description: "Depois que você iniciou uma revisão de acesso no Azure AD Privileged Identity Management, saiba como toocomplete-lo e exibir resultados de Olá"
+title: "Como concluir uma análise de acesso | Microsoft Docs"
+description: "Depois de iniciar uma análise de acesso no Azure AD Privileged Identity Management, saiba como concluí-la e exibir os resultados"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,43 +15,43 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: f99ddf3ebcf80b51110326064d584f33d8e1679a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ca2a1c7c287e4cf6b1b50cfb0068861b6f525596
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocomplete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como toocomplete um acesso examinar no Azure AD Privileged Identity Management
-os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de segurança ter sido iniciada](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) automaticamente enviará um email solicitando que os usuários tooreview seu acesso. Se um usuário não obteve um email, você pode enviá-los instruções Olá [como tooperform segurança examine](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma análise de acesso no Azure AD Privileged Identity Management
+os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de segurança ter sido iniciada](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD PIM (Privileged Identity Management) automaticamente enviará um email solicitando que os usuários revisem seu acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [Como executar uma análise de segurança](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-Após o período de revisão de segurança hello, ou todos os usuários de saudação terminar seus Self revisar, siga as etapas de saudação nesta revisão de saudação do artigo toomanage e ver os resultados de saudação.
+Depois do período de revisão de segurança, ou todos os usuários terminarem a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.
 
 ## <a name="manage-security-reviews"></a>Gerenciar revisões de segurança
-1. Vá toohello [portal do Azure](https://portal.azure.com/) e selecione hello **do Azure AD Privileged Identity Management** aplicativo em seu painel.
-2. Selecione Olá **acessar revisões** seção do painel de saudação.
-3. Selecione a revisão de acesso de saudação que você deseja toomanage.
+1. Acesse o [portal do Azure](https://portal.azure.com/) e selecione o aplicativo **Azure AD Privileged Identity Management** no painel.
+2. Clique na seção **Revisões de acesso** do painel.
+3. Selecione a análise de acesso que você deseja gerenciar.
 
-Na folha de detalhe da avaliação do acesso hello, há várias formas para gerenciar essa revisão.
+Na folha de detalhes da análise de acesso, há uma série de opções para o gerenciamento da análise.
 
 ![Botões de análise de acesso do PIM - captura de tela][1]
 
 ### <a name="remind"></a>Lembrar
-Se uma revisão de acesso está configurada para que os usuários de saudação examinar se, Olá **lembrar** botão envia uma notificação. 
+Se uma análise de acesso é configurada para que os usuários examinem a si mesmos, o botão **Lembrar** envia uma notificação. 
 
 ### <a name="stop"></a>Parar
-Todas as revisões de acesso têm uma data de término, mas você pode usar o hello **parar** toofinish botão antecipadamente. Se todos os usuários ainda não foram revisados neste momento, eles não será capaz de tooafter Parar análise hello. Não é possível reiniciar uma análise após ela ter sido interrompida.
+Todas as revisões de acesso têm uma data de término, mas você pode usar o botão **Parar** para concluí-las mais cedo. Se quaisquer usuários ainda não tiverem sido examinados até este momento, eles não poderão ser após você parar a análise. Não é possível reiniciar uma análise após ela ter sido interrompida.
 
 ### <a name="apply"></a>Aplicar
-Depois de uma revisão de acesso é concluída, seja porque você atingiu a data de término hello ou parado-lo manualmente, Olá **aplicar** botão implementa o resultado de saudação da revisão de saudação. Se o acesso do usuário foi negado na revisão Olá, esta é a etapa de saudação removerá sua atribuição de função.  
+Após uma análise de acesso ser concluída, seja porque você atingiu a data de término ou a interrompeu manualmente, o botão **Aplicar** implementa o resultado da análise. Se o acesso de um usuário foi negado na análise, esta é a etapa que removerá sua atribuição de função.  
 
 ### <a name="export"></a>Exportação
-Se você quiser resultados de saudação do tooapply de revisão de segurança Olá manualmente, você pode exportar revisão hello. Olá **exportar** botão começará a baixar um arquivo CSV. Você pode gerenciar resultados Olá no Excel ou em outros programas que abrem os arquivos CSV.
+Se você desejar aplicar os resultados da revisão de segurança manualmente, poderá exportar a revisão. O botão **Exportar** começará a baixar um arquivo CSV. Você pode gerenciar os resultados no Excel ou em outros programas que abrem arquivos CSV.
 
-### <a name="delete"></a>Exclusão
-Se você não estiver interessado em Olá analise qualquer adicional, excluí-lo. Olá **excluir** botão remove Olá revisão da saudação aplicativo PIM.
+### <a name="delete"></a>Excluir
+Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir** remove a análise do aplicativo PIM.
 
 > [!IMPORTANT]
-> Você não receberá um aviso antes da exclusão, portanto certifique-se de que você deseja toodelete examinar. 
+> Você não receberá nenhum aviso antes da exclusão, portanto, certifique-se de que deseja excluir a revisão. 
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

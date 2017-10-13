@@ -1,6 +1,6 @@
 ---
-title: "tooCreate aaaHow um processador de mídia usando hello Azure Media Services SDK para .NET | Microsoft Docs"
-description: "Saiba como toocreate uma tooencode de componente de processador de mídia, converter o formato, criptografar ou descriptografar o conteúdo de mídia do Azure Media Services. Exemplos de código são escritos em c# e usam Olá SDK do Media Services para .NET."
+title: "Como criar um processador de mídia usando o SDK de Serviços de Mídia do Azure para .NET | Microsoft Docs"
+description: "Saiba como criar um componente de processador de mídia para codificar, converter o formato, criptografar ou descriptografar conteúdo de mídia dos Serviços de Mídia do Azure. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: f133565cc1321d366013f17302adc8bc7585b251
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c2cbe41b71afa8acc184f9d7f4cfe94686de783e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do processador de mídia
 > [!div class="op_single_selector"]
@@ -28,18 +28,18 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Normalmente você cria um processador de mídia quando você estiver criando uma tarefa tooencode, criptografar ou converter o formato de saudação do conteúdo de mídia.
+Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Normalmente, você cria um processador de mídia quando está criando uma tarefa para codificar, criptografar ou converter o formato do conteúdo de mídia.
 
 ## <a name="azure-media-processors"></a>Processadores de mídia do Azure 
 
-Olá tópico a seguir fornece listas de processadores de mídia:
+O tópico a seguir fornece listas de processadores de mídia:
 
 * [Codificação de processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
 * [Processadores de mídia do Analytics](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Obter processador de mídia
 
-Olá mostra do método a seguir como tooget uma instância do processador de mídia. exemplo de código Hello assume o uso de saudação de uma variável de nível de módulo chamada **Context** tooreference contexto de servidor de saudação conforme descrito na seção Olá [como: conectar programaticamente os serviços tooMedia](media-services-use-aad-auth-to-access-ams-api.md).
+O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -60,5 +60,5 @@ Olá mostra do método a seguir como tooget uma instância do processador de mí
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe como tooget uma instância do processador de mídia, vá toohello [como um ativo de tooEncode](media-services-dotnet-encode-with-media-encoder-standard.md) tópico que lhe mostrará como toouse Olá tooencode codificador de mídia padrão um ativo.
+Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-dotnet-encode-with-media-encoder-standard.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.
 

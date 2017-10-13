@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 86eb3513b7bc921c59287600b1b76eeda20c1356
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Não é possível habilitar o Azure AD Domain Services para seu diretório do Azure AD
-Esta seção ajuda você solucionar problemas de erros quando você tentar tooenable serviços de domínio do AD do Azure para seu diretório e ele falha ou obtém alternada too'Disabled back'.
+Esta seção ajuda a solucionar erros quando você tenta habilitar os Serviços de Domínio do Azure AD para seu diretório e eles falham ou voltam para ‘Desabilitado’.
 
-Escolha Olá etapas que correspondem a mensagem de erro toohello que encontrar solução de problemas.
+Selecione as etapas de solução de problemas que correspondam à mensagem de erro que você encontrar.
 
 | **Mensagem de erro** | **Resolução** |
 | --- |:--- |
-| *Olá nome contoso100.com já está em uso na rede. Especifique um nome que não esteja em uso.* |[Conflito de nome de domínio na rede virtual Olá](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Não foi possível habilitar os serviços de domínio neste locatário do AD do Azure. Olá serviço não tem aplicativos de toohello as permissões adequadas chamado 'Sync de serviços de domínio do AD do Azure'. Excluir aplicativo hello chamado 'Sync de serviços de domínio do AD do Azure' e, em seguida, tente tooenable os serviços de domínio para seu locatário do AD do Azure.* |[Serviços de domínio não tem um aplicativo de sincronização de serviços de domínio do AD do Azure toohello as permissões adequadas](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Não foi possível habilitar os serviços de domínio neste locatário do AD do Azure. Olá serviços de domínio do aplicativo no seu locatário do AD do Azure não têm Olá necessárias permissões tooenable dos serviços de domínio. Excluir aplicativo hello com d87dcbc6-a371-462e-88e3-28ad15ec4e64 de identificador de aplicativo hello e, em seguida, tente tooenable serviços de domínio para seu locatário do AD do Azure.* |[Olá aplicativo dos serviços de domínio não está configurado corretamente em seu locatário](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Não foi possível habilitar os serviços de domínio neste locatário do AD do Azure. saudação de aplicativo do AD do Microsoft Azure está desabilitada no seu locatário do AD do Azure. Habilitar o aplicativo hello com hello 00000002-0000-0000-c000-000000000000 de identificador de aplicativo e depois tente tooenable serviços de domínio para seu locatário do AD do Azure.* |[Olá aplicativo Microsoft Graph está desabilitado em seu locatário do AD do Azure](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *O nome contoso100.com já está em uso nesta rede. Especifique um nome que não esteja em uso.* |[Conflito de nome de domínio na rede virtual](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Exclua o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD' e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.* |[Os Serviços de Domínio não têm as permissões adequadas para o aplicativo Sincronização dos Serviços de Domínio do Azure AD](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e tente habilitar os Serviços de Domínio para o seu locatário do Azure AD.* |[O aplicativo Serviços de Domínio não foi configurado corretamente em seu locatário](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Microsoft Azure AD está desabilitado no seu locatário do Microsoft Azure AD. Habilite o aplicativo com o identificador de aplicativo 00000002-0000-0000-c000-000000000000 e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.* |[O aplicativo Microsoft Graph está desabilitado no seu locatário do Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflito de Nome de Domínio
 **Mensagem de erro:**
 
-*Olá nome contoso100.com já está em uso na rede. Especifique um nome que não esteja em uso.*
+*O nome contoso100.com já está em uso nesta rede. Especifique um nome que não esteja em uso.*
 
 **Correção:**
 
-Certifique-se de que você não tem um domínio existente com hello mesmo nome de domínio disponível nessa rede virtual. Por exemplo, suponha que você tem um domínio denominado "contoso.com" já está disponível na rede virtual selecionada de saudação. Posteriormente, você pode tentar tooenable um domínio gerenciado de serviços de domínio do AD do Azure com hello mesmo nome de domínio (ou seja, ' contoso.com') no qual a rede virtual. Encontrar uma falha durante a tentativa de serviços de domínio tooenable AD do Azure.
+Certifique-se de que você não tenha um domínio existente com o mesmo nome de domínio disponível na rede virtual. Por exemplo, vamos supor que você tenha um domínio chamado ‘contoso.com’ já disponível na rede virtual selecionada. Posteriormente, você tenta habilitar um domínio gerenciado pelos Azure AD Domain Services com o mesmo nome de domínio (isto é, ‘contoso.com’) nessa rede virtual. Você encontra uma falha ao tentar habilitar os Serviços de Domínio do AD do Azure.
 
-Essa falha é devido a conflitos de tooname Olá nome de domínio no qual a rede virtual. Nessa situação, você deve usar tooset um nome diferente, o domínio gerenciado de serviços de domínio do AD do Azure. Como alternativa, você pode desprovisionar domínio existente hello e prossiga em serviços de domínio tooenable AD do Azure.
+Essa falha ocorre devido a conflitos de nome com o nome de domínio nessa rede virtual. Nessa situação, você deve usar um nome diferente para definir o domínio gerenciado pelos Serviços de Domínio do AD do Azure. Como alternativa, você pode desprovisionar o domínio existente e, em seguida, habilitar os Serviços de Domínio do AD do Azure.
 
 ### <a name="inadequate-permissions"></a>Permissões inadequadas
 **Mensagem de erro:**
 
-*Não foi possível habilitar os serviços de domínio neste locatário do AD do Azure. Olá serviço não tem aplicativos de toohello as permissões adequadas chamado 'Sync de serviços de domínio do AD do Azure'. Excluir aplicativo hello chamado 'Sync de serviços de domínio do AD do Azure' e, em seguida, tente tooenable os serviços de domínio para seu locatário do AD do Azure.*
+Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Exclua o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD' e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.*
 
 **Correção:**
 
-Verifique toosee se houver um aplicativo com o nome de saudação 'Sync de serviços de domínio do AD do Azure' em seu diretório do AD do Azure. Se esse aplicativo existir, o exclua e habilite novamente os Serviços de Domínio do Azure AD.
+Verifique se há um aplicativo com o nome ‘Sincronização dos Serviços de Domínio do Azure AD’ em seu diretório do Azure AD. Se esse aplicativo existir, o exclua e habilite novamente os Serviços de Domínio do Azure AD.
 
-Executar Olá seguindo as etapas toocheck presença de saudação do aplicativo hello e toodelete, se o aplicativo hello existe:
+Execute as seguintes etapas para verificar a presença do aplicativo e excluí-lo, caso ele já exista:
 
-1. Navegue toohello **portal clássico do Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Selecione Olá **do Active Directory** nó no painel esquerdo da saudação.
-3. Serviços de domínio do AD do Azure locatário Olá selecione AD do Azure (diretório) para o qual você gostaria que tooenable.
-4. Navegue toohello **aplicativos** guia.
-5. Selecione Olá **aplicativos que minha empresa possui** opção na lista suspensa de saudação.
-6. Verifique se há um aplicativo chamado **Sincronização dos Azure AD Domain Services**. Se o aplicativo hello existir, passe toodelete-lo.
-7. Depois que você excluiu um aplicativo hello, tente novamente os serviços de domínio tooenable AD do Azure.
+1. Navegue até o **portal clássico do Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+2. No painel esquerdo, selecione o nó **Active Directory** .
+3. Selecione o locatário do AD do Azure (diretório) para o qual você deseja habilitar os Serviços de Domínio do AD do Azure.
+4. Navegue até a guia **Aplicativos** .
+5. Escolha a opção **Aplicativos que minha empresa possui** na lista suspensa.
+6. Verifique se há um aplicativo chamado **Sincronização dos Azure AD Domain Services**. Se o aplicativo já existir, exclua-o.
+7. Após a exclusão do aplicativo, tente habilitar os Serviços de Domínio do AD do Azure novamente.
 
 ### <a name="invalid-configuration"></a>Configuração inválida
 **Mensagem de erro:**
 
-*Não foi possível habilitar os serviços de domínio neste locatário do AD do Azure. Olá serviços de domínio do aplicativo no seu locatário do AD do Azure não têm Olá necessárias permissões tooenable dos serviços de domínio. Excluir aplicativo hello com d87dcbc6-a371-462e-88e3-28ad15ec4e64 de identificador de aplicativo hello e, em seguida, tente tooenable serviços de domínio para seu locatário do AD do Azure.*
+Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e tente habilitar os Serviços de Domínio para o seu locatário do Azure AD.*
 
 **Correção:**
 
-Verifique toosee se você tiver um aplicativo com o nome de saudação AzureActiveDirectoryDomainControllerServices (com um identificador de aplicativo de d87dcbc6-a371-462e-88e3-28ad15ec4e64) em seu diretório do AD do Azure. Se esse aplicativo se existir, será necessário toodelete-lo e, em seguida, reabilitar o serviços de domínio do AD do Azure.
+Verifique se você tiver um aplicativo com o nome 'AzureActiveDirectoryDomainControllerServices' (com um identificador de aplicativo d87dcbc6-a371-462e-88e3-28ad15ec4e64) no seu diretório do Azure AD. Se esse aplicativo existir, você precisará excluí-lo e, em seguida, reabilitar os Azure AD Domain Services.
 
-Use Olá após a aplicação de saudação do PowerShell script toofind e excluí-lo.
+Use o seguinte script do PowerShell para encontrar o aplicativo e excluí-lo.
 
 > [!NOTE]
-> Esse script usa cmdlets do **Azure AD PowerShell versão 2**. Para obter uma lista completa de todos os cmdlets disponíveis e o módulo de saudação toodownload, leia Olá [documentação de referência do AzureAD PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx).
+> Esse script usa cmdlets do **Azure AD PowerShell versão 2**. Para obter uma lista completa de todos os cmdlets disponíveis e para baixar o módulo, leia a [documentação de referência do AzureAD PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx).
 >
 >
 
@@ -90,7 +90,7 @@ if ($aadDsSp -ne $null)
 {
     Write-Information "Found Azure AD Domain Services application. Deleting it ..."
     Remove-AzureADServicePrincipal -ObjectId $aadDsSp.ObjectId
-    Write-Information "Deleted hello Azure AD Domain Services application."
+    Write-Information "Deleted the Azure AD Domain Services application."
 }
 
 $identifierUri = "https://sync.aaddc.activedirectory.windowsazure.com"
@@ -100,7 +100,7 @@ if ($app -ne $null)
 {
     Write-Information "Found Azure AD Domain Services Sync application. Deleting it ..."
     Remove-AzureADApplication -ObjectId $app.ObjectId
-    Write-Information "Deleted hello Azure AD Domain Services Sync application."
+    Write-Information "Deleted the Azure AD Domain Services Sync application."
 }
 
 $spFilter = "ServicePrincipalNames eq '" + $identifierUri + "'"
@@ -109,7 +109,7 @@ if ($sp -ne $null)
 {
     Write-Information "Found Azure AD Domain Services Sync service principal. Deleting it ..."
     Remove-AzureADServicePrincipal -ObjectId $sp.ObjectId
-    Write-Information "Deleted hello Azure AD Domain Services Sync service principal."
+    Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
 <br>
@@ -117,43 +117,43 @@ if ($sp -ne $null)
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph desabilitado
 **Mensagem de erro:**
 
-Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. saudação de aplicativo do AD do Microsoft Azure está desabilitada no seu locatário do AD do Azure. Habilitar o aplicativo hello com hello 00000002-0000-0000-c000-000000000000 de identificador de aplicativo e depois tente tooenable serviços de domínio para seu locatário do AD do Azure.
+Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O aplicativo Microsoft Azure AD está desabilitado no seu locatário do Microsoft Azure AD. Habilite o aplicativo com o identificador de aplicativo 00000002-0000-0000-c000-000000000000 e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.
 
 **Correção:**
 
-Verifique toosee se você tiver desabilitado a um aplicativo com o identificador de saudação 00000002-0000-0000-c000-000000000000. Este aplicativo é o aplicativo do AD do Microsoft Azure hello e fornece o locatário de tooyour AD do Azure de acesso de API do Graph. Serviços de domínio do AD do Azure precisa toosynchronize de toobe habilitado esse aplicativo sua tooyour de locatário do AD do Azure gerenciado domínio.
+Verifique se você desabilitou um aplicativo com o identificador 00000002-0000-0000-c000-000000000000. Esse aplicativo é o aplicativo Microsoft Azure AD e fornece acesso à API do Graph para seu locatário do Azure AD. Os Serviços de Domínio do Azure AD precisa que esse aplicativo seja habilitado para sincronizar o Azure AD para seu domínio gerenciado.
 
-tooresolve esse erro, habilitar este aplicativo e, em seguida, tente tooenable os serviços de domínio para seu locatário do AD do Azure.
+Para resolver esse erro, habilite esse aplicativo e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.
 
-## <a name="users-are-unable-toosign-in-toohello-azure-ad-domain-services-managed-domain"></a>Os usuários são toosign não é possível no toohello domínio gerenciado por serviços de domínio do AD do Azure
-Se houver um ou mais usuários no seu locatário do AD do Azure não é possível toosign no domínio gerenciado toohello criado recentemente, execute Olá etapas de solução de problemas a seguir:
+## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os usuários não conseguem entrar no domínio gerenciado pelos Serviços de Domínio do AD do Azure
+Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no domínio gerenciado recém-criado, execute as seguintes etapas de solução de problemas:
 
-* **Usando o formato UPN:** tente toosign usando o formato UPN hello (por exemplo, 'joeuser@contoso.com') em vez do formato de SAMAccountName hello ('CONTOSO\joeuser'). Olá SAMAccountName pode ser gerado automaticamente para usuários cujo prefixo UPN é excessivamente longo ou Olá mesmo como outro usuário no domínio gerenciado hello. formato UPN Olá é garantido toobe exclusivo dentro de um locatário do AD do Azure.
+* **Conectar-se usando o formato UPN:** tente se conectar usando o formato UPN (por exemplo, “joeuser@contoso.com”), em vez do formato SAMAccountName (“CONTOSO\paulousuario”). O SAMAccountName pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo de outro usuário no domínio gerenciado. O formato UPN é exclusivo, de forma garantida, dentro de um locatário do Azure AD.
 
 > [!NOTE]
-> É recomendável usar Olá UPN formato toosign em toohello domínio gerenciado por serviços de domínio do AD do Azure.
+> Recomendamos usar o formato UPN para entrar no domínio gerenciado do Azure AD Domain Services.
 >
 >
 
-* Certifique-se de que você tenha [ativado a sincronização de senha](active-directory-ds-getting-started-password-sync.md) conforme Olá etapas descritas no guia de Introdução do hello.
-* **Contas externas:** Certifique-se de que a conta de usuário de Olá afetado não é uma conta externa em locatário de saudação do AD do Azure. Exemplos de contas externas incluem as contas da Microsoft (por exemplo, “joe@live.com”) ou as contas de usuário de um diretório externo do Azure AD. Como os serviços de domínio do AD do Azure não tem credenciais para essas contas de usuário, esses usuários não podem entrar no domínio gerenciado toohello.
-* **Sincronizar contas:** se Olá afetado contas de usuário são sincronizadas de um diretório local, verifique:
+* Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no Guia de Introdução.
+* **Contas externas:** verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Exemplos de contas externas incluem as contas da Microsoft (por exemplo, “joe@live.com”) ou as contas de usuário de um diretório externo do Azure AD. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
+* **Contas sincronizadas:** se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique se:
 
-  * Ter implantado ou atualizado toohello [recomendado de mais recente versão do Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
-  * Você configurou o Azure AD Connect muito[executar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
-  * Dependendo do tamanho de saudação do seu diretório, ele pode levar algum tempo para contas de usuário e credenciais hashes toobe disponível nos serviços de domínio do AD do Azure. Certifique-se de que você espera tempo suficiente antes de tentar autenticação (dependendo do tamanho de saudação do seu diretório - algumas horas tooa ou dois dias para diretórios grandes).
-  * Se Olá persista após verificar Olá etapas anteriores, tente reiniciar Olá serviço de sincronização do AD do Microsoft Azure. Em seu computador de sincronização, inicie um prompt de comando e execute Olá comandos a seguir:
+  * Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * Você configurou o Azure AD Connect para [executar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
+  * Dependendo do tamanho do diretório, pode levar algum tempo para as contas de usuário e os hashes de credenciais ficarem disponíveis nos Serviços de Domínio do AD do Azure. Aguarde o tempo suficiente antes de tentar novamente a autenticação (dependendo do tamanho do seu diretório, de algumas horas a um dia ou dois para diretórios grandes).
+  * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o Serviço de sincronização do Microsoft Azure AD. Em seu computador de sincronização, inicie um prompt de comando e execute os seguintes comandos:
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Contas de nuvem**: se a conta de usuário de saudação afetada é uma conta de usuário somente em nuvem, certifique-se de que o usuário Olá alterou sua senha após a habilitação dos serviços de domínio do AD do Azure. Esta etapa faz a credencial Olá hashes necessárias para serviços de domínio do AD do Azure toobe gerado.
+* **Contas somente em nuvem**: se a conta de usuário afetado for uma conta de usuário somente em nuvem, verifique se o usuário alterou sua senha depois que você habilitou os Serviços de Domínio do Azure AD. Essa etapa faz com que os hashes de credenciais necessários para os Serviços de Domínio do AD do Azure sejam gerados.
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os usuários removidos do seu locatário do Azure AD não são removidos do seu domínio gerenciado
-O Azure AD protege você contra a exclusão acidental de objetos de usuário. Quando você exclui uma conta de usuário do seu locatário do AD do Azure, o objeto de usuário correspondente Olá é movido toohello Lixeira. Quando essa operação de exclusão é um domínio gerenciado tooyour sincronizados, faz com que Olá correspondente toobe de conta de usuário marcado como desabilitado. Esse recurso ajuda a recuperar ou cancelar a exclusão de conta de usuário hello mais tarde.
+O Azure AD protege você contra a exclusão acidental de objetos de usuário. Quando você excluir uma conta de usuário de seu locatário do Azure AD, o objeto de usuário correspondente será movido para a Lixeira. Quando essa operação de exclusão for sincronizada para seu domínio gerenciado, isso fará com que a conta de usuário correspondente seja marcada como desabilitada. Esse recurso ajuda a recuperar ou a cancelar a exclusão da conta de usuário mais tarde.
 
-Olá permanece na Olá desabilitado estado em seu domínio gerenciado de conta de usuário, mesmo se você recriar uma conta de usuário com hello mesmo UPN no seu diretório do AD do Azure. conta de usuário tooremove saudação do seu domínio gerenciado, você precisa tooforce excluí-lo do seu locatário do AD do Azure.
+A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure AD.
 
-conta de usuário tooremove Olá completamente do seu domínio gerenciado, excluir usuário Olá permanentemente do seu locatário do AD do Azure. Use o cmdlet do PowerShell Remove-MsolUser Olá com hello '-RemoveFromRecycleBin' opção, conforme descrito neste [artigo do MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o cmdlet Remove-MsolUser PowerShell com a opção '-RemoveFromRecycleBin', como descrito neste [artigo MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Entre em contato
-Contate a equipe de produto do Azure Active Directory Domain Services Olá muito[compartilhar comentários ou suporte](active-directory-ds-contact-us.md).
+Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

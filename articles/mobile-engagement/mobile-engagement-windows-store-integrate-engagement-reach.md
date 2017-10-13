@@ -1,6 +1,6 @@
 ---
-title: "aaaWindows alcançar integração para o SDK do Universal aplicativos"
-description: Como tooIntegrate do Azure Mobile Engagement atingir com aplicativos universais do Windows
+title: "Integração do SDK do Reach do Windows Universal"
+description: Como integrar o Azure Mobile Engagement Reach com aplicativos do Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af311c65940014083333853875a00173b8d6783e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integração do SDK do Reach do Windows Universal
-Você deve seguir Olá integração procedimento descrito em Olá [integração do SDK do Windows Universal contrato](mobile-engagement-windows-store-integrate-engagement.md) antes de seguir este guia.
+Você deve seguir o procedimento de integração descrito na [Integração do SDK do Engagement do Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) , antes de seguir este guia.
 
-## <a name="embed-hello-engagement-reach-sdk-into-your-windows-universal-project"></a>Inserir saudação SDK do Reach contrato em seu projeto Universal do Windows
-Você não tem nada tooadd. `EngagementReach` já estão em seu projeto.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Incorporação o SDK do Engagement Reach em seu projeto do Windows Universal
+Você não tem nada a adicionar. `EngagementReach` já estão em seu projeto.
 
 > [!TIP]
-> Você poderá personalizar as imagens localizadas em Olá `Resources` pasta do seu projeto, especialmente Olá marca ícone (esse padrão toohello contrato). Em aplicativos Universal, você também pode mover Olá `Resources` pasta no seu tooshare projeto compartilhado seu conteúdo entre aplicativos, mas você terá Olá tookeep `Resources\EngagementConfiguration.xml` em seu local padrão de arquivo à medida que é dependente de plataforma.
+> Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement). Em Aplicativos do Universal também é possível mover a pasta `Resources` em seu projeto compartilhado para compartilhar o seu conteúdo entre aplicativos, mas você precisa manter o arquivo `Resources\EngagementConfiguration.xml` em seu local padrão já que o mesmo é dependente da plataforma.
 > 
 > 
 
-## <a name="enable-hello-windows-notification-service"></a>Habilitar Olá serviço de notificação do Windows
+## <a name="enable-the-windows-notification-service"></a>Habilitar o Serviço de Notificação do Windows
 ### <a name="windows-8x-and-windows-phone-81-only"></a>Somente Windows 8.x e Windows Phone 8.1
-Na saudação de toouse ordem **serviço de notificação do Windows** (conhecido como WNS) em sua `Package.appxmanifest` de arquivo no `Application UI` clique em `All Image Assets` na caixa de bot esquerdo hello. A saudação à direita da caixa de saudação em `Notifications`, alterar `toast capable` de `(not set)` muito`(Yes)`.
+Para usar o **Serviço de Notificação do Windows** (chamado de WNS) em seu arquivo `Package.appxmanifest` em `Application UI`, clique em `All Image Assets` na caixa bot à esquerda. À direita da caixa do `Notifications`, alterar `toast capable` de `(not set)` para `(Yes)`.
 
 ### <a name="all-platforms"></a>Todas as plataformas
-É necessário toosynchronize seu aplicativo tooyour conta e toohello contrato plataforma Microsoft. Para isso você precisa toocreate uma conta ou logon [Centro de desenvolvimento do windows](https://dev.windows.com). Depois que criar um novo aplicativo e localizar Olá SID e a chave secreta. Em Olá contrato front-end, vá em sua configuração de aplicativo em `native push` e cole as suas credenciais. Depois disso, clique com botão direito no projeto, selecione `store` e `Associate App with hello Store...`. Você precisa apenas o aplicativo de hello tooselect ter criá antes de toosynchronize-lo.
+Você precisa sincronizar seu aplicativo com sua conta da Microsoft e com a plataforma de compromisso. Para isso, você precisa criar uma conta ou fazer logon no [centro de desenvolvimento do Windows](https://dev.windows.com). Depois que criar um novo aplicativo e localizar o SID e a chave secreta. No front-end do engagement vá para sua configuração de aplicativo em `native push` e cole suas credenciais. Depois disso, clique com botão direito no projeto, selecione `store` e `Associate App with the Store...`. Basta selecionar o aplicativo que você criou antes de sincronizá-la.
 
-## <a name="initialize-hello-engagement-reach-sdk"></a>Inicializar Olá contrato SDK do Reach
-Modificar Olá `App.xaml.cs`:
+## <a name="initialize-the-engagement-reach-sdk"></a>Inicializar o SDK do Engagement Reach
+Modifique o `App.xaml.cs`:
 
 * Insira `EngagementReach.Instance.Init` logo após `EngagementAgent.Instance.Init` no método `InitEngagement`:
   
@@ -49,27 +49,27 @@ Modificar Olá `App.xaml.cs`:
         EngagementReach.Instance.Init(e);
       }
   
-  Olá `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não tem toodo-lo por conta própria.
+  O `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não precisa fazê-lo.
 
 > [!NOTE]
-> Se você estiver usando notificações por push em outro lugar no seu aplicativo, você tem muito[compartilhar seu canal push](#push-channel-sharing) com contrato alcançar.
+> Se estiver usando notificações por push em outro lugar em seu aplicativo, você precisará [compartilhar seu canal push](#push-channel-sharing) com o Engagement Reach.
 > 
 > 
 
 ## <a name="integration"></a>Integração
-Contrato fornece exibições intersticiais e as faixas duas maneiras tooadd Olá alcance no aplicativo para notificações e pesquisas em seu aplicativo: Olá sobreposição de integração e integração manual do Olá web modos de exibição. Você não deve combinar ambas as abordagem Olá mesma página.
+O Engagement oferece duas maneiras de adicionar banners no aplicativo e exibições intersticiais do Reach para anúncios e pesquisas em seu aplicativo: a integração de sobreposição e a integração manual de exibições da Web. Não combine as duas abordagens na mesma página.
 
-Escolha Olá entre integração dois Olá podia ser resumida desta forma:
+A escolha entre as duas integrações pode ser resumida desta forma:
 
-* Você pode escolher Olá sobreposição integração se já herda a suas páginas de saudação agente `EngagementPage`, é simplesmente uma questão de substituição `EngagementPage` por `EngagementPageOverlay` e `xmlns:engagement="using:Microsoft.Azure.Engagement"` por `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` nas suas páginas.
-* Você pode optar integração manual do Olá web exibições tooprecisely local Olá alcançar da interface do usuário em suas páginas ou se você não quiser tooadd outro páginas de nível tooyour de herança. 
+* Escolha a integração de sobreposição se suas páginas já herdam do Agente `EngagementPage`, é apenas uma questão de substituir `EngagementPage` por `EngagementPageOverlay` e `xmlns:engagement="using:Microsoft.Azure.Engagement"` por `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` nas páginas.
+* Escolha a integração manual de exibições da Web se quiser colocar precisamente a interface do usuário do Reach dentro de suas páginas ou se não quiser adicionar outro nível de herança às páginas. 
 
 ### <a name="overlay-integration"></a>Integração de sobreposição
-sobreposição de contrato Olá dinamicamente adiciona elementos de interface do usuário Olá usados campanhas de alcance toodisplay em sua página. Se Olá sobreposição não é adequado para seu layout considere modos de exibição de web hello integração manual em vez disso.
+A sobreposição do Engagement adiciona dinamicamente os elementos de interface do usuário usados para exibir as campanhas do Reach em sua página. Se a sobreposição não for adequada para seu layout, considere a integração manual de exibições da Web.
 
-Em sua alteração de arquivo. XAML `EngagementPage` referência muito`EngagementPageOverlay`
+Em seu arquivo .xaml, altere a referência `EngagementPage` para `EngagementPageOverlay`
 
-* Adicione declarações de namespaces tooyour:
+* Adicione às suas declarações de namespaces:
   
       xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 * Substituir `engagement:EngagementPage` por `engagement:EngagementPageOverlay`:
@@ -121,12 +121,12 @@ No seu arquivo .cs, marque a página em `EngagementPageOverlay` em vez de `Engag
             }
 
 
-Olá sobreposição de contrato adiciona um `Grid` elemento na parte superior da página é composto de seu layout e hello dois `WebView` elementos uma saudação banner e Olá outros uma exibição intersticiais hello.
+A sobreposição do Engagement adiciona um elemento `Grid` sobre a página, composto de seu layout e dos dois elementos `WebView`, um para a faixa e outro para a exibição intersticial.
 
-Você pode personalizar elementos de sobreposição de saudação diretamente no hello `EngagementPageOverlay.cs` arquivo.
+Você pode personalizar os elementos da sobreposição diretamente no arquivo `EngagementPageOverlay.cs`.
 
 ### <a name="web-views-manual-integration"></a>Integração manual de exibições da Web
-Alcance irá procurar as páginas para Olá dois `WebView` elementos responsáveis para exibir a faixa de saudação e exibição intersticiais hello. Olá somente ter toodo é tooadd desses dois `WebView` elementos em algum lugar em suas páginas, aqui está um exemplo:
+O Reach pesquisará em suas páginas os dois elementos `WebView` responsáveis por exibir a faixa e a exibição intersticial. A única coisa que você precisa fazer é adicionar esses dois elementos `WebView` a algum lugar de suas páginas. Veja um exemplo:
 
     <Grid x:Name="engagementGrid">
 
@@ -137,17 +137,17 @@ Alcance irá procurar as páginas para Olá dois `WebView` elementos responsáve
     </Grid>
 
 
-Em Olá Este exemplo `WebView` elementos é toofit ampliada seus contêineres que automaticamente tamanhos-los novamente em caso de alteração de tamanho de rotação ou janela de tela.
+Neste exemplo, os elementos `WebView` são alongados para se ajustarem a seus contêineres, o que automaticamente os dimensiona novamente em caso de alteração de tamanho de janela ou rotação de tela.
 
 > [!WARNING]
-> É importante tookeep Olá nomenclatura mesmo `engagement_notification_content` e `engagement_announcement_content` para Olá `WebView` elementos. O Reach os identifica por seu nome. 
+> É importante manter a mesma nomenclatura `engagement_notification_content` e `engagement_announcement_content` para os elementos `WebView`. O Reach os identifica por seu nome. 
 > 
 > 
 
 ## <a name="handle-datapush-optional"></a>Manipular o push de dados (opcional)
-Se você quiser envios por push os aplicativo toobe tooreceive capaz de alcançar dados, você tem tooimplement dois eventos de saudação EngagementReach classe:
+Se desejar que o aplicativo seja capaz de receber push de dados do Reach, você precisa implementar dois eventos da classe EngagementReach:
 
-Em App.xaml.cs no construtor de App() Olá adicione:
+Em App.xaml.cs no construtor App(), adicione:
 
             EngagementReach.Instance.DataPushStringReceived += (body) =>
             {
@@ -162,18 +162,18 @@ Em App.xaml.cs no construtor de App() Olá adicione:
               return true;
             };
 
-Você pode ver o retorno de chamada saudação de cada método retorna um valor booleano. Contrato envia um feedback tooits back-end após distribuir dados por push-Olá. Se o retorno de chamada hello retorna false, Olá `exit` comentários será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para eventos de hello, Olá `drop` comentários retornará tooEngagement.
+Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` retornará ao Engagement.
 
 > [!WARNING]
-> Contrato não é capaz de tooreceive comentários de múltiplos para um envio de dados. Se você planejar tooset vários manipuladores em um evento, lembre-se de que comentários Olá corresponderá toohello última aquela enviada. Nesse caso, é recomendável tooalways retorna Olá mesmo tooavoid valor ter confuso comentários em Olá front-end.
+> O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
 > 
 > 
 
 ## <a name="customize-ui-optional"></a>Personalizar a interface do usuário (opcional)
 ### <a name="first-step"></a>Primeira etapa
-Permitir que você alcance de saudação toocustomize da interface do usuário.
+Permitir que você personalize a interface do usuário do reach.
 
-toodo assim, você tem toocreate uma subclasse de saudação `EngagementReachHandler` classe.
+Para fazer isso, você precisa criar uma subclasse da classe `EngagementReachHandler` .
 
 **Exemplo de código :**
 
@@ -187,7 +187,7 @@ toodo assim, você tem toocreate uma subclasse de saudação `EngagementReachHan
               }
             }
 
-Em seguida, defina o conteúdo de saudação do hello `EngagementReach.Instance.Handler` campo com seu objeto personalizado no seu `App.xaml.cs` classe dentro Olá `App()` método.
+Depois, defina o conteúdo do campo `EngagementReach.Instance.Handler` com seu objeto personalizado em sua classe `App.xaml.cs` dentro do método `App()`.
 
 **Exemplo de código :**
 
@@ -200,18 +200,18 @@ Em seguida, defina o conteúdo de saudação do hello `EngagementReach.Instance.
 
 > [!NOTE]
 > Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`.
-> Você não tem toocreate seus próprios, e se você fizer isso, você não tem toooverride cada método. comportamento padrão de saudação é o objeto base do contrato tooselect hello.
+> Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
 > 
 > 
 
 ### <a name="web-view"></a>Modo de exibição da Web
-Por padrão, o alcance usará recursos de saudação inserido de notificações de Olá Olá DLL toodisplay e páginas.
+Por padrão, o Reach usará os recursos incorporados da DLL para exibir as notificações e páginas.
 
-tooprovide completa possibilidades de personalização só usamos o modo de exibição da web. Se você quiser toocustomize layouts, diretamente substituir arquivos de recursos de saudação `EngagementAnnouncement.html` e `EngagementNotification.html`. Todo o código precisa de contrato `<body></body>` toorun corretamente. Mas você pode adicionar a marca externa `engagement_webview_area`.
+Para fornecer possibilidades de personalização completa possibilidades usamos somente o modo de exibição da web. Se você desejar personalizar layouts substitua diretamente os arquivos de recursos `EngagementAnnouncement.html` e `EngagementNotification.html`. O Engagement precisa de todos os códigos em `<body></body>` para executar corretamente. Mas você pode adicionar a marca externa `engagement_webview_area`.
 
-No entanto, você pode decidir toouse seus próprios recursos.
+No entanto, você pode optar por usar seus próprios recursos.
 
-Você pode substituir `EngagementReachHandler` métodos em seu toouse de contrato subclasse tootell os layouts, mas levar mecanismo de contrato cuidado tooembedded hello:
+Você pode substituir os métodos `EngagementReachHandler` em sua subclasse para informar o Engagement para usar seus layouts, mas tome cuidado com o mecanismo incorporado do engagement:
 
 **Exemplo de código :**
 
@@ -235,56 +235,56 @@ Você pode substituir `EngagementReachHandler` métodos em seu toouse de contrat
             }
 
 
-Por padrão, AnnouncementHTML é `ms-appx-web:///Resources/EngagementAnnouncement.html`. Ele representa o arquivo html Olá que cria o conteúdo de saudação de uma mensagem de envio (anúncio de texto, anoucement Web e notificação de sondagem). AnnouncementName é `engagement_announcement_content`. É nome de saudação do design do webview Olá em sua página xaml.
+Por padrão, AnnouncementHTML é `ms-appx-web:///Resources/EngagementAnnouncement.html`. Representa o arquivo html que cria o conteúdo de uma mensagem de envio por push (anúncio de texto, anúncio da web e anúncio de pesquisa). AnnouncementName é `engagement_announcement_content`. É o nome do design do modo de exibição da web em sua página xaml.
 
-NotfificationHTML é `ms-appx-web:///Resources/EngagementNotification.html`. Ele representa o arquivo html Olá que cria a notificação de saudação de uma mensagem de envio. NotfificationName é `engagement_notification_content`. É nome de saudação do design do webview Olá em sua página xaml.
+NotfificationHTML é `ms-appx-web:///Resources/EngagementNotification.html`. Representa o arquivo html que cria a notificação de uma mensagem de envio por push. NotfificationName é `engagement_notification_content`. É o nome do design do modo de exibição da web em sua página xaml.
 
 ### <a name="customization"></a>Personalização
-Você pode personalizar o modo de exibição da web de notificação e anúncio como desejar se você preservar o objeto Engagement. Lembre-se que objeto webview está descrito três vezes - Olá primeira vez em seu xaml, segundo de tempo em seu arquivo. cs no método de "setwebview()" hello e terceiro tempo no arquivo de html hello.
+Você pode personalizar o modo de exibição da web de notificação e anúncio como desejar se você preservar o objeto Engagement. Atenção, pois o objeto de exibição da web é descrito três vezes - a primeira vez no xaml, a segunda vez no arquivo .cs no método "setwebview()" e a terceira vez no arquivo html.
 
-* O xaml, você descreve Olá layout gráfico webview componente.
-* No seu arquivo. cs, você pode definir "setwebview()", na qual você definir a dimensão de saudação do webview dois de saudação (notificação, comunicado). É muito eficiente ao aplicativo hello é redimensionar.
-* No arquivo de html do contrato de saudação é descrever Olá webview conteúdo, design e Olá posições de elementos entre si.
+* Em seu xaml você descreve o componente do modo de exibição da web do layout gráfico atual.
+* Em seu arquivo .cs, você pode definir "setwebview()" no qual você define a dimensão dos dois modos de exibição da web (notificação, anúncio). É muito eficiente quando o aplicativo é redimensionado.
+* No arquivo html do Engagement descrevemos o conteúdo do modo de exibição da web, o design e as posições dos elementos entre si.
 
 ### <a name="launch-message"></a>Iniciar mensagem
-Quando um usuário clica em um sistema de notificação (uma notificação do sistema), contrato inicia o aplicativo hello, conteúdo de saudação do carregamento de saudação por push as mensagens e exibir página Olá campanha correspondente hello.
+Quando um usuário clica em um sistema de notificação (um toast), o Engagement inicia o aplicativo, carrega o conteúdo das mensagens de envio por push e exibe a página da campanha correspondente.
 
-Há um atraso entre a inicialização de saudação da exibição de aplicativo e Olá Olá da página de saudação (dependendo da velocidade da saudação da sua rede).
+Há um atraso entre a inicialização do aplicativo e a exibição da página (dependendo da velocidade da sua rede).
 
-tooindicate toohello o usuário que algo está sendo carregado, você deve fornecer uma informações visuais, como uma barra de progresso ou um indicador de progresso. O Engagement não pode manipular isto por conta própria, mas oferece alguns manipuladores para você.
+Para indicar ao usuário que algo está sendo carregado, você deve fornecer informações visuais, como uma barra de progresso ou um indicador de progresso. O Engagement não pode manipular isto por conta própria, mas oferece alguns manipuladores para você.
 
-Adicionar tooimplement Olá retorno de chamada, em App.xaml.cs "App() pública {}":
+Para implementar o retorno de chamada, em App.xaml.cs em "Public App(){}" adicione:
 
-            /* hello application has launched and hello content is loading.
+            /* The application has launched and the content is loading.
              * You should display an indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageStarted += () => { [...] };
 
-            /* hello application has finished loading hello content and hello page
-             * is about toobe displayed.
-             * You should hide hello indicator here.
+            /* The application has finished loading the content and the page
+             * is about to be displayed.
+             * You should hide the indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageCompleted += () => { [...] };
 
-            /* hello content has been loaded, but an error has occurred.
-             * You can provide an information toohello user.
-             * You should hide hello indicator here.
+            /* The content has been loaded, but an error has occurred.
+             * You can provide an information to the user.
+             * You should hide the indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-Você pode definir o retorno de chamada de saudação no método "App() pública {}" de seu `App.xaml.cs` arquivos, preferencialmente antes Olá `EngagementReach.Instance.Init()` chamar.
+Você pode definir o retorno de chamada em seu método "Public App() {}" de seu arquivo `App.xaml.cs`, de preferência antes da chamada `EngagementReach.Instance.Init()`.
 
 > [!TIP]
-> Cada manipulador é chamado pelo Olá Thread de interface do usuário. Você não tem tooworry ao usar uma MessageBox ou algo relacionados à interface do usuário.
+> Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
 > 
 > 
 
 ## <a id="push-channel-sharing"></a> Enviar o compartilhamento de canal por push
-Se você estiver usando notificações por push para outra finalidade em seu aplicativo, em seguida, você tem canal de push Olá toouse recurso de saudação SDK de contrato de compartilhamento. Isso é tooavoid perdido push.
+Se estiver usando notificações por push para outra finalidade em seu aplicativo, você terá que usar o recurso de compartilhamento de canal de push do SDK do Engagement. Isso é para evitar notificações por push perdidas.
 
-* Você pode fornecer seu próprio push canal toohello contrato alcançar a inicialização. Olá SDK usará em vez de solicitar uma nova.
+* Você pode oferecer seu próprio canal de push para inicializar o Engagement Reach. O SDK usará seu canal em vez de solicitar um novo.
 
-Olá contrato alcançar inicialização da atualização com o canal de envio no hello `InitEngagement` método da saudação `App.xaml.cs` arquivo:
+Atualize a inicialização do Engagement Reach com o canal de push no método `InitEngagement` começando pelo arquivo `App.xaml.cs`:
 
     /* Your own push channel logic... */
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
@@ -293,14 +293,14 @@ Olá contrato alcançar inicialização da atualização com o canal de envio no
     EngagementAgent.Instance.Init(e);
     EngagementReach.Instance.Init(e,pushChannel);
 
-* Como alternativa, se você quiser apenas tooconsume Olá por push canal após a inicialização de alcance hello, em seguida, você pode definir um retorno de chamada no canal de push Olá de tooget contrato alcançar depois que ela é criada pelo Olá SDK.
+* Como alternativa, se só quiser consumir o canal de push após a inicialização do Reach, você poderá configurar um retorno de chamada no Engagement Reach para obter o canal de push após ele ser criado pelo SDK.
 
-Definir o retorno de chamada em qualquer lugar **depois** Olá inicialização alcance:
+Configure o retorno de chamada em qualquer lugar **após** a inicialização do Reach:
 
-    /* Set action on hello SDK push channel. */
+    /* Set action on the SDK push channel. */
     EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
     {
-      /* hello forwarded channel can be null if its creation fails for any reason. */
+      /* The forwarded channel can be null if its creation fails for any reason. */
       if (channel != null)
       {
         /* Your own push channel logic... */
@@ -308,11 +308,11 @@ Definir o retorno de chamada em qualquer lugar **depois** Olá inicialização a
     }
 
 ## <a name="custom-scheme-tip"></a>Dica de esquema personalizado
-Fornecemos o uso de esquema personalizado. Você pode enviar um tipo diferente de URI do contrato toobe de front-end usado em seu aplicativo do compromisso. Um esquema padrão como o `http, ftp, ...` é gerenciados pelo Windows, uma janela será solicitada se não houver aplicativo padrão instalado no dispositivo. Você também pode criar seu próprio esquema personalizado para o aplicativo.
+Fornecemos o uso de esquema personalizado. Você pode enviar o tipo de URI diferente do front-end do Engagement para ser usado em seu aplicativo do engagement. Um esquema padrão como o `http, ftp, ...` é gerenciados pelo Windows, uma janela será solicitada se não houver aplicativo padrão instalado no dispositivo. Você também pode criar seu próprio esquema personalizado para o aplicativo.
 
-tooset de maneira simples de saudação um esquema personalizado em seu aplicativo é tooopen seu `Package.appxmanifest` vá em `Declarations` painel. Selecione `Protocol` no hello Available Declarations Role caixa e adicioná-lo. Editar saudação `Name` nome de campo com o novo protocolo desejado.
+A maneira simples de definir um esquema personalizado em seu aplicativo é abrir `Package.appxmanifest` no painel `Declarations`. Selecione `Protocol` na caixa de rolagem de Declarações Disponíveis e adicione-o. Edite o campo `Name` com o novo nome de protocolo desejado.
 
-Agora toouse esse protocolo, edite seu `App.xaml.cs` com hello `OnActivated` método e não se esqueça de contrato de tooinitialize aqui também:
+Agora, para usar esses protocolo edite seu `App.xaml.cs` método com o método `OnActivated` e não se esqueça de inicializar o engagement aqui também:
 
             /// <summary>
             /// Enter point when app his called by another way than user click
@@ -324,7 +324,7 @@ Agora toouse esse protocolo, edite seu `App.xaml.cs` com hello `OnActivated` mé
               EngagementAgent.Instance.Init(args);
               EngagementReach.Instance.Init(args);
 
-              //TODO design action toodo when app is launch
+              //TODO design action to do when app is launch
 
               #region Custom scheme use
               if (args.Kind == ActivationKind.Protocol)

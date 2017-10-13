@@ -11,43 +11,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff07b9954d5c2ce71ab0ffd0db49fde15f323586
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapeamento de declarações no Azure Active Directory (visualização pública)
 
 >[!NOTE]
->Esse recurso substitui e substitui Olá [declarações personalização](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) oferecidos por meio do portal Olá atualmente. Se você personalizar declarações usando o portal de saudação além toohello método gráfico/PowerShell detalhadas neste documento em Olá mesmo aplicativo, os tokens emitidos para esse aplicativo irá ignorar configuração Olá no portal de saudação.
-As configurações feitas por meio de métodos de saudação detalhados neste documento não serão refletidas no portal de saudação.
+>Esse recurso substitui a [personalização de declarações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) oferecida pelo portal atualmente. Se você personalizar declarações usando o portal, além de usar o método de Graph/PowerShell detalhado neste documento no mesmo aplicativo, os tokens emitidos para o aplicativo ignorarão a configuração no portal.
+Configurações feitas por meio dos métodos detalhados neste documento não serão refletidas no portal.
 
-Esse recurso é usado pelo locatário administradores toocustomize Olá declarações emitidas nos tokens de um aplicativo específico em seu locatário. Você pode usar políticas de mapeamento de declarações para:
+Esse recurso é usado por administradores de locatários para personalizar as declarações emitidas em tokens para um aplicativo específico em seu locatário. Você pode usar políticas de mapeamento de declarações para:
 
 - Selecionar quais declarações são incluídas nos tokens.
 - Crie tipos de declaração que ainda não existem.
-- Escolha ou alterar Olá fonte de dados emitidos em declarações específicas.
+- Escolher ou alterar a fonte dos dados emitidos em declarações específicas.
 
 >[!NOTE]
->Atualmente, essa capacidade está em visualização pública. Prepare-se toorevert ou remova as alterações. recurso de saudação está disponível em qualquer assinatura do Azure Active Directory (AD do Azure) durante a visualização pública. No entanto, quando o recurso de saudação se torna disponível, alguns aspectos do recurso de saudação podem exigir uma assinatura premium do Active Directory do Azure.
+>Atualmente, essa capacidade está em visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure AD (Azure Active Directory) durante a visualização pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do Azure Active Directory Premium.
 
 ## <a name="claims-mapping-policy-type"></a>Tipo de política de mapeamento de declarações
-No Azure AD, um objeto de **Política** representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são, em seguida, aplicada toowhich tooobjects que são atribuídos.
+No Azure AD, um objeto de **Política** representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
 
-Declarações de uma política de mapeamento é um tipo de **política** objeto que modifica Olá declarações emitidas em tokens emitidos para aplicativos específicos.
+Uma política de mapeamento de declarações é um tipo de objeto de **Política** que modifica as declarações emitidas em tokens emitidos para aplicativos específicos.
 
 ## <a name="claim-sets"></a>Conjuntos de declarações
 Há determinados conjuntos de declarações que definem como e quando elas são usada em tokens.
 
 ### <a name="core-claim-set"></a>Conjunto de declarações de núcleo
-Declarações no núcleo do hello declaração conjunto estão presentes em cada token, independentemente de política. Essas declarações também são consideradas restritas e não podem ser modificadas.
+As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas.
 
 ### <a name="basic-claim-set"></a>Conjunto de declarações básicas
-conjunto de declarações básica de saudação inclui declarações de saudação que são emitidas por padrão para tokens (no conjunto de declarações de núcleo de toohello adição). Essas declarações podem ser omitidas ou modificadas por meio de declarações Olá mapeamento de políticas.
+O conjunto de declarações básicas inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações de núcleo). Essas declarações podem ser omitidas ou modificadas usando as políticas de mapeamento de declarações.
 
 ### <a name="restricted-claim-set"></a>Conjunto de declarações restritas
-Declarações restritas não podem ser modificadas usando políticas. fonte de dados de saudação não pode ser alterado, e nenhuma transformação é aplicada ao gerar essas declarações.
+Declarações restritas não podem ser modificadas usando políticas. A fonte de dados não pode ser alterada e nenhuma transformação é aplicada ao gerar essas declarações.
 
 #### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: Conjunto de declarações restritas do JWT (Token Web JSON)
 |Tipo de declaração (nome)|
@@ -234,7 +234,7 @@ Declarações restritas não podem ser modificadas usando políticas. fonte de d
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Propriedades da política de mapeamento de declarações
-Use propriedades de saudação do mapeamento política toocontrol quais declarações são emitidas e onde os dados de saudação foi originados em declarações. Se nenhuma política estiver definida, sistema Olá emite tokens que contém o conjunto de declarações de núcleo hello, conjunto de declarações de saudação básica e quaisquer declarações opcionais que Olá aplicativo escolhida tooreceive.
+Use as propriedades de uma política de mapeamento de declarações para controlar quais declarações são emitidas e de onde os dados são originados. Se nenhuma política estiver definida, o sistema emitirá tokens contendo o conjunto de declarações de núcleo, o conjunto de declarações básicas e as declarações opcionais que o aplicativo tiver optado por receber.
 
 ### <a name="include-basic-claim-set"></a>Incluir um conjunto de declarações básicas
 
@@ -242,13 +242,13 @@ Use propriedades de saudação do mapeamento política toocontrol quais declara�
 
 **Tipo de dados:** booliano (True ou False)
 
-**Resumo:** essa propriedade determina se o conjunto de declarações básica de saudação está incluído nos tokens afetados por essa política. 
+**Resumo:** essa propriedade determina se o conjunto de declarações básicas está incluído nos tokens afetados por essa política. 
 
-- Se o conjunto tooTrue, todas as declarações no conjunto de declarações básica de saudação é emitido nos tokens afetados pela política de saudação. 
-- Se set tooFalse, declarações no conjunto de declarações básica de saudação não estiverem em tokens Olá, a menos que elas são individualmente adicionadas na propriedade de esquema de declarações de saudação do hello mesmo política.
+- Se definido como True, todas as declarações no conjunto de declarações básicas serão emitidas nos tokens afetados pela política. 
+- Se definido como False, as declarações no conjunto de declarações básicas não estarão nos tokens, a menos sejam adicionadas individualmente na propriedade de esquema de declarações da mesma política.
 
 >[!NOTE] 
->Declarações no núcleo do hello declaração conjunto estão presentes em cada token, independentemente de qual essa propriedade é definida. 
+>As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente de como essa propriedade estiver definida. 
 
 ### <a name="claims-schema"></a>Esquema de declarações
 
@@ -256,28 +256,28 @@ Use propriedades de saudação do mapeamento política toocontrol quais declara�
 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
-**Resumo:** esta propriedade define quais declarações estão presentes nos tokens de saudação afetados pela política Olá, além do conjunto de declarações toohello básica e conjunto de declarações de núcleo de saudação.
-Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Você deve especificar onde os dados de saudação for proveniente (**valor** ou **par de origem/ID**), e quais dados saudação de declaração é emitido como (**tipo de declaração de**).
+**Resumo:** esta propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações de núcleo.
+Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Você deve especificar de onde os dados estão vindo (**Valor** ou o **par Origem/ID**) e como qual declaração os dados são emitidos (**Tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
-**Valor:** elemento de valor Olá define um valor estático como Olá dados toobe emitido na declaração de saudação.
+**Valor:** o elemento de valor define um valor estático como os dados a serem emitidos na declaração.
 
-**Par de origem/ID:** Olá fonte e elementos de ID definem onde dados Olá Olá declaração foi originados em. 
+**Par Origem/ID:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
 
-elemento de origem Olá deve ser definido tooone seguinte hello: 
+O elemento Origem deve ser definido com um dos seguintes valores: 
 
 
-- "usuário": dados Olá Olá declaração é uma propriedade no objeto de usuário de saudação. 
-- "aplicativo": dados Olá Olá declaração é uma propriedade de entidade de serviço de aplicativo (cliente) hello. 
-- "recurso": dados Olá Olá declaração é uma propriedade de entidade de serviço de recurso hello.
-- "público": dados Olá Olá declaração são uma propriedade de entidade de serviço de Olá Olá público do token hello (ou Olá cliente ou o recurso de entidade de serviço).
-- "company": dados Olá Olá declaração é uma propriedade no objeto de empresa do locatário do recurso de saudação.
-- "transformação": solicitar dados Olá Olá de transformação de declarações (consulte a seção hello "transformação de declarações" mais adiante neste artigo). 
+- "user": os dados na declaração são uma propriedade no objeto User. 
+- "application": os dados na declaração são uma propriedade na entidade de serviço de aplicativo (cliente). 
+- "resource": os dados na declaração são uma propriedade na entidade de serviço de recurso.
+- "audience": os dados na declaração são uma propriedade da entidade de serviço que é o público-alvo do token (o cliente ou o recurso de entidade de serviço).
+- "company": os dados na declaração são uma propriedade do objeto Company do locatário do recurso.
+- "transformation": os dados na declaração são de uma transformação de declarações (consulte a seção "Transformação de declarações" mais adiante neste artigo). 
 
-Se origem Olá transformação Olá **TransformationID** elemento deve ser incluído nesta definição de declaração bem.
+Se a fonte for uma transformação, o elemento **TransformationID** deverá ser incluído na definição de declaração.
 
-elemento de ID Olá identifica qual propriedade na fonte de saudação fornece o valor de Olá Olá declaração. Hello tabela a seguir lista os valores de saudação de ID válida para cada valor de origem.
+O elemento ID identifica qual propriedade na origem fornece o valor da declaração. A tabela a seguir lista os valores de ID válida para cada valor de Origem.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 |Fonte|ID|Descrição|
@@ -326,17 +326,17 @@ elemento de ID Olá identifica qual propriedade na fonte de saudação fornece o
 |aplicativo, recurso, público-alvo|marcas|Marcação da entidade de serviço|
 |Empresa|tenantcountry|País do locatário|
 
-**TransformationID:** elemento do hello TransformationID deve ser fornecidos apenas se hello elemento de origem é definido muito "transformação".
+**TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento de origem estiver definido como "transformation".
 
-- Esse elemento deve corresponder o elemento de ID de saudação da entrada de transformação Olá Olá **ClaimsTransformation** propriedade que define como os dados de saudação para esta declaração são gerados.
+- Esse elemento deve corresponder ao elemento de ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados dessa declaração são gerados.
 
-**Tipo de declaração:** Olá **JwtClaimType** e **SamlClaimType** elementos que definem quais declarações essa entrada de esquema de declaração se refere a.
+**Tipo de declaração:** os elementos **JwtClaimType** e **SamlClaimType** definem a quais declarações essa entrada de esquema de declaração se refere.
 
-- Olá JwtClaimType deve conter o nome de saudação do hello declaração toobe emitido em JWTs.
-- Olá SamlClaimType deve conter Olá URI da saudação declaração toobe emitido nos tokens SAML.
+- O JwtClaimType deve conter o nome da declaração a ser emitida em JWTs.
+- O SamlClaimType deve conter o URI da declaração a ser emitida em tokens SAML.
 
 >[!NOTE]
->Nomes e URIs de declarações em Olá restrito declaração set não pode ser usado para elementos do tipo de declaração hello. Para obter mais informações, consulte hello "Exceções e restrições" seção mais adiante neste artigo.
+>Nomes e URIs de declarações no conjunto de declaração restritas não podem ser usados para os elementos de tipo de declaração. Para obter mais informações, consulte a seção "Restrições e exceções" mais adiante neste artigo.
 
 ### <a name="claims-transformation"></a>Transformação de declarações
 
@@ -344,38 +344,38 @@ elemento de ID Olá identifica qual propriedade na fonte de saudação fornece o
 
 **Tipo de dados:** blob JSON com uma ou mais entradas de transformação 
 
-**Resumo:** usar estas propriedade tooapply comuns transformações toosource dados, dados de saída de saudação toogenerate de declarações especificada em Olá declarações de esquema.
+**Resumo:** use esta propriedade para aplicar transformações comuns a dados de origem para gerar os dados de saída para declarações especificadas no esquema de declarações.
 
-**ID:** Use Olá ID elemento tooreference esta entrada de transformação no hello entrada TransformationID declarações esquema. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
+**ID:** use o elemento de ID para fazer referência a esta entrada de transformação na entrada de esquema de transformações TransformationID. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
 
-**TransformationMethod:** elemento de TransformationMethod Olá identifica qual operação é executada toogenerate Olá dados para declaração de saudação.
+**TransformationMethod:** o elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
 
-Um conjunto de entradas e saídas com base no método hello escolhido, é esperado. Eles são definidos usando Olá **InputClaims**, **ParâmetrosDeEntrada** e **OutputClaims** elementos.
+Com base no método escolhido, um conjunto de entradas e saídas é esperado. Elas são definidas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 |TransformationMethod|Entrada esperada|Saída esperada|Descrição|
 |-----|-----|-----|-----|
 |Ingressar|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrai a parte local de saudação do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se nenhum @ logon estiver presente, cadeia de entrada hello original será retornado como está.|
+|ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver um @ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
 
-**InputClaims:** usar um InputClaims elemento toopass Olá de dados de uma transformação tooa de entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**InputClaims:** use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** é associada ao elemento de ID da saudação declaração esquema entrada toofind Olá apropriado declaração de entrada. 
-- **TransformationClaimType** é usado toogive entrada de toothis um nome exclusivo. Esse nome deve corresponder a uma das entradas de saudação esperada para o método de transformação de saudação.
+- **ClaimTypeReferenceId** é unido ao elemento de ID da entrada de esquema de declaração para encontrar a declaração de entrada apropriada. 
+- **TransformationClaimType** é usado para fornecer um nome exclusivo a essa entrada. Esse nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
-**ParâmetrosDeEntrada:** usar um elemento de ParâmetrosDeEntrada toopass uma transformação de tooa valor constante. Ele tem dois atributos: **Value** e **ID**.
+**InputParameters:** use um elemento InputParameters para passar um valor constante para uma transformação. Ele tem dois atributos: **Value** e **ID**.
 
-- **Valor** é Olá real valor constante toobe passado.
-- **ID** é usado toogive entrada de toothis um nome exclusivo. Esse nome deve corresponder a uma das entradas de saudação esperada para o método de transformação de saudação.
+- **Value** é o valor constante real a ser passado.
+- **ID** é usado para fornecer um nome exclusivo a essa entrada. Esse nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
-**OutputClaims:** usar um OutputClaims elemento toohold Olá de dados gerado por uma transformação e anexá-la de entrada do esquema de solicitação tooa. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** usam um elemento OutputClaims para armazenar os dados gerados por uma transformação e associá-lo a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** está associado com a ID de saudação de declaração de saída apropriada Olá declaração esquema entrada toofind hello.
-- **TransformationClaimType** é toogive usado um nome exclusivo de toothis de saída. Esse nome deve corresponder a uma das saídas de saudação esperada para o método de transformação de saudação.
+- **ClaimTypeReferenceId** é unido à ID da entrada de esquema de declaração para encontrar a declaração de saída apropriada.
+- **TransformationClaimType** é usado para fornecer um nome exclusivo a essa saída. Esse nome deve corresponder a uma das saídas esperadas para o método de transformação.
 
 ### <a name="exceptions-and-restrictions"></a>Exceções e restrições
 
-**NameID SAML e UPN:** saudação do qual fonte de valores de NameID e UPN Olá, e as declarações de Olá transformações que são permitidas, os atributos é limitadas.
+**NameID e UPN SAML:** os atributos dos quais você obtém os valores de NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 |Fonte|ID|Descrição|
@@ -404,104 +404,104 @@ Um conjunto de entradas e saídas com base no método hello escolhido, é espera
 |TransformationMethod|Restrições|
 | ----- | ----- |
 |ExtractMailPrefix|Nenhum|
-|Ingressar|sufixo Olá Unido deve ser um domínio verificado do locatário de recursos de saudação.|
+|Ingressar|O sufixo que está sendo acrescentado deve ser um domínio verificado do locatário do recurso.|
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
-Uma chave de autenticação personalizada deve ser atribuída toohello objeto principal do serviço para um efeito de tootake de política de mapeamento de declarações. Todos os tokens emitidos foi afetados pela política de saudação são assinados com essa chave. Aplicativos devem ser configurado tooaccept tokens assinados com essa chave. Isso garante que a política de mapeamento de declarações de confirmação que tokens foram modificados pelo criador de saudação do hello. Isso protege os aplicativos contra políticas de mapeamento de declarações criadas por atores mal-intencionados.
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Todos os tokens emitidos que foram afetados pela política são assinados com essa chave. Aplicativos devem ser configurados para aceitar tokens assinados com essa chave. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações. Isso protege os aplicativos contra políticas de mapeamento de declarações criadas por atores mal-intencionados.
 
 ### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
-Declarações de políticas de mapeamento não se aplicam a usuários tooguest. Se um usuário convidado tentativas tooaccess um aplicativo com declarações de mapeamento diretiva atribuída tooits serviço principal, a saudação padrão token é emitido (Olá diretiva não tem efeito).
+As políticas de mapeamento de declarações não se aplicam a usuários convidados. Se um usuário convidado tentar acessar um aplicativo com uma política de mapeamento de declarações atribuída à sua entidade de serviço, o token padrão será emitido (a política não tem efeito).
 
 ## <a name="claims-mapping-policy-assignment"></a>Atribuição de política de mapeamento de declarações
-Declarações de políticas de mapeamento podem ser atribuídas apenas objetos tooservice.
+Políticas de mapeamento de declarações podem ser atribuídas somente a objetos de entidade de serviço.
 
 ### <a name="example-claims-mapping-policies"></a>Exemplos de políticas de mapeamento de declarações
 
-No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, vemos alguns cenários comuns que podem ajudá-lo a entender como Olá toouse declarações de tipo de política de mapeamento.
+No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
 #### <a name="prerequisites"></a>Pré-requisitos
-Em Olá exemplos a seguir, é possível cria, atualizar, vincula e excluir políticas para entidades de serviço. Se você for novo tooAzure AD, é recomendável que você saiba mais sobre como tooget um AD do Azure locatário antes de prosseguir com esses exemplos. 
+Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você for um novo usuário do Azure AD, recomendamos que aprenda como obter um locatário do Azure AD antes de prosseguir com estes exemplos. 
 
-tooget iniciado, Olá etapas a seguir:
+Para começar, execute uma destas etapas:
 
 
-1. Baixar hello mais recente [versão de visualização pública do módulo PowerShell do AD do Azure](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
-2.  Execute Olá conectar comando toosign em tooyour conta de administrador do AD do Azure. Execute esse comando sempre que você iniciar uma nova sessão.
+1. Baixe a versão mais recente da [Visualização pública do módulo do Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+2.  Execute o comando Connect para entrar em sua conta do administrador do Azure AD. Execute esse comando sempre que você iniciar uma nova sessão.
     
      ``` powershell
     Connect-AzureAD -Confirm
     
     ```
-3.  toosee todas as políticas que foram criadas em sua organização, Olá execução após o comando. É recomendável que você executar esse comando após a maioria das operações no hello seguintes cenários, toocheck suas políticas estão sendo criadas como esperado.
+3.  Para ver todas as políticas criadas em sua organização, execute o comando a seguir. É recomendável que você execute esse comando após a maioria das operações nos cenários a seguir, a fim de verificar se as políticas estão sendo criadas conforme o esperado.
    
     ``` powershell
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-tooomit-hello-basic-claims-from-tokens-issued-tooa-service-principal"></a>Exemplo: Criar e atribuir declarações política tooomit Olá básica de entidade de serviço tooa tokens emitidos.
-Neste exemplo, você criará uma política que remove o conjunto de declarações básica de saudação de tokens emitidos toolinked entidades de serviço.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço.
+Neste exemplo, você cria uma política que remove o conjunto de declarações básicas de tokens emitidos para entidades de serviço vinculadas.
 
 
-1. Crie uma política de mapeamento de declarações. Essa política, as entidades de serviço vinculado toospecific, remove o conjunto de declaração básica de saudação de tokens.
-    1. diretiva toocreate hello, execute este comando: 
+1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, remove o conjunto de declarações básicas do token.
+    1. Para criar a política, execute este comando: 
     
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
     ```
-    2. toosee sua nova política e política de saudação tooget ObjectId, Olá execução a seguir de comando:
+    2. Para ver a nova política e obter a ObjectId da política, execute o comando a seguir:
     
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Atribua a entidade de serviço Olá política tooyour. Você também precisa tooget Olá ObjectId sua entidade de serviço. 
-    1.  toosee entidades de serviço de todas as da sua organização, você pode consultar o Microsoft Graph. Ou, no Azure AD Graph Explorer, entrar tooyour conta AD do Azure.
-    2.  Quando você tiver Olá ObjectId do seu Olá de serviço principal, execute comando a seguir:  
+2.  Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+    2.  Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-tooinclude-hello-employeeid-and-tenantcountry-as-claims-in-tokens-issued-tooa-service-principal"></a>Exemplo: Criar e atribuir uma política tooinclude Olá EmployeeID e TenantCountry como declarações em tokens emitidos tooa entidade de serviço.
-Neste exemplo, você cria uma política que adiciona Olá EmployeeID e TenantCountry tootokens emitido toolinked entidades de serviço. Olá EmployeeID é emitido como tipo de declaração de nome de saudação em tokens SAML e JWTs. Olá TenantCountry é emitido como tipo em tokens SAML e JWTs de declaração de país hello. Neste exemplo, continuamos declarações básica de saudação tooinclude definidas nos tokens de saudação.
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para incluir EmployeeID e TenantCountry como declarações em tokens emitidos para uma entidade de serviço.
+Neste exemplo, você cria uma política que adiciona EmployeeID e TenantCountry a tokens emitidos para entidades de serviço vinculadas. EmployeeID é emitido como o tipo de declaração de nome em tokens SAML e JWTs. TenantCountry é emitido como o tipo de declaração de país em tokens SAML e JWTs. Neste exemplo, continuamos incluindo o conjunto de declarações básicas nos tokens.
 
-1. Crie uma política de mapeamento de declarações. Essa política, as entidades de serviço vinculado toospecific, adiciona Olá EmployeeID e TenantCountry tootokens de declarações.
-    1. diretiva toocreate hello, execute este comando:  
+1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, adiciona as declarações de EmployeeID e TenantCountry em tokens.
+    1. Para criar a política, execute este comando:  
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. toosee sua nova política e política de saudação tooget ObjectId, Olá execução a seguir de comando:
+    2. Para ver a nova política e obter a ObjectId da política, execute o comando a seguir:
      
      ``` powershell  
     Get-AzureADPolicy
     ```
-2.  Atribua a entidade de serviço Olá política tooyour. Você também precisa tooget Olá ObjectId sua entidade de serviço. 
-    1.  toosee entidades de serviço de todas as da sua organização, você pode consultar o Microsoft Graph. Ou, no Azure AD Graph Explorer, entrar tooyour conta AD do Azure.
-    2.  Quando você tiver Olá ObjectId do seu Olá de serviço principal, execute comando a seguir:  
+2.  Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+    2.  Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-tooa-service-principal"></a>Exemplo: Criar e atribuir uma política que usa uma transformação de declarações em tokens emitidos tooa serviço principal.
-Neste exemplo, você deve criar uma política que emite uma declaração personalizada "JoinedData" tooJWTs emitida toolinked entidades de serviço. Esta declaração contém um valor criado unindo Olá dados armazenados no atributo de extensionattribute1 Olá no objeto de usuário Olá com ".sandbox". Neste exemplo, excluímos declarações básica de Olá definidas nos tokens de saudação.
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política que usa uma transformação de declarações em tokens emitidos para uma entidade de serviço.
+Neste exemplo, você cria uma política que emite uma declaração personalizada “JoinedData” para JWTs emitidos para entidades de serviço vinculadas. Esta declaração contém um valor criado unindo os dados armazenados no atributo extensionattribute1 no objeto do usuário com ".sandbox". Neste exemplo, excluímos o conjunto de declarações básicas nos tokens.
 
 
-1. Crie uma política de mapeamento de declarações. Essa política, as entidades de serviço vinculado toospecific, adiciona Olá EmployeeID e TenantCountry tootokens de declarações.
-    1. diretiva toocreate hello, execute este comando: 
+1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, adiciona as declarações de EmployeeID e TenantCountry em tokens.
+    1. Para criar a política, execute este comando: 
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. toosee sua nova política e política de saudação tooget ObjectId, Olá execução a seguir de comando: 
+    2. Para ver a nova política e obter a ObjectId da política, execute o comando a seguir: 
      
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Atribua a entidade de serviço Olá política tooyour. Você também precisa tooget Olá ObjectId sua entidade de serviço. 
-    1.  toosee entidades de serviço de todas as da sua organização, você pode consultar o Microsoft Graph. Ou, no Azure AD Graph Explorer, entrar tooyour conta AD do Azure.
-    2.  Quando você tiver Olá ObjectId do seu Olá de serviço principal, execute comando a seguir: 
+2.  Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+    2.  Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando: 
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```

@@ -1,6 +1,6 @@
 ---
-title: "aaaMigrate tooSQL de código seu SQL Data Warehouse | Microsoft Docs"
-description: "Dicas para migrar seu código SQL tooAzure SQL Data Warehouse para o desenvolvimento de soluções."
+title: "Migrar seu código SQL para o SQL Data Warehouse | Microsoft Docs"
+description: "Dicas para migrar seu código SQL para o SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 7a16d579d068e9df9aba3dc61e4a09bcaa551588
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="migrate-your-sql-code-toosql-data-warehouse"></a>Migrar seu tooSQL de código do SQL Data Warehouse
-Este artigo explica as alterações de código que você provavelmente precisará toomake ao migrar seu código de outro tooSQL de banco de dados do Data Warehouse. Alguns recursos do SQL Data Warehouse podem melhorar significativamente o desempenho conforme forem toowork projetado de modo distribuído. No entanto, toomaintain desempenho e escala, alguns recursos também não estão disponíveis.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar seu código SQL para o SQL Data Warehouse
+Este artigo explica as alterações de código que você provavelmente terá que fazer ao migrar seu código de outro banco de dados para o SQL Data Warehouse. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
 
 ## <a name="common-t-sql-limitations"></a>Limitações comuns do T-SQL
-Olá lista a seguir resume os recursos de mais comuns de Olá que não oferece suporte a SQL Data Warehouse. Olá links levam tooworkarounds para recursos de saudação sem suporte:
+A lista a seguir resume os recursos mais comuns aos quais o SQL Data Warehouse não oferece suporte. Os links levam a soluções alternativas para os recursos sem suporte:
 
 * [Junções ANSI em atualizações][ANSI joins on updates]
 * [Junções ANSI em exclusões][ANSI joins on deletes]
@@ -53,10 +53,10 @@ Olá lista a seguir resume os recursos de mais comuns de Olá que não oferece s
 * [uso de select para atribuição de variável][use of select for variable assignment]
 * [nenhum tipo de dados MAX para cadeias de caracteres SQL dinâmicas][no MAX data type for dynamic SQL strings]
 
-Felizmente, a maioria dessas limitações pode ser solucionada. Explicações são fornecidas nos artigos de desenvolvimento relevantes Olá mencionados acima.
+Felizmente, a maioria dessas limitações pode ser solucionada. Foram fornecidas explicações nos artigos de desenvolvimento relevantes mencionados acima.
 
 ## <a name="supported-cte-features"></a>Recursos do CTE com suporte
-Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse.  Olá recursos CTE a seguir é atualmente suportado:
+Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse.  Atualmente, há suporte aos seguintes recursos de CTE:
 
 * Uma CTE pode ser especificada em uma instrução SELECT.
 * Uma CTE pode ser especificada em uma instrução CREATE VIEW.
@@ -71,17 +71,17 @@ Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse.  Ol
 As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, incluindo:
 
 * Uma CTE deve ser seguida por uma única instrução SELECT. As instruções INSERT, UPDATE, DELETE e MERGE não têm suporte.
-* Não há suporte para a expressão de tabela comum que inclua referências tooitself (recursivo expressão de tabela comum) (consulte a seção abaixo).
+* Não há suporte para a expressão de tabela comum que inclui referências a ela mesma (expressão de tabela comum recursiva) (veja a seção abaixo).
 * Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se CTE_query_definition contiver uma subconsulta, essa subconsulta não poderá conter uma cláusula WITH aninhada que defina outra CTE.
-* Uma cláusula ORDER BY não pode ser usada em Olá definições de consulta CTE, exceto quando uma cláusula TOP é especificada.
-* Quando uma CTE é usada em uma instrução que faz parte de um lote, a instrução de saudação antes que ele deve ser seguida por um ponto e vírgula.
-* Quando usado em instruções preparadas por sp_prepare, CTEs irão se comportar Olá mesma maneira que outras instruções SELECT do PDW. No entanto, se CTEs são usadas como parte do CETAS preparada por sp_prepare, pode adiar o comportamento de saudação do SQL Server e outras instruções do PDW devido à forma como o hello associação é implementada por sp_prepare. Se a opção selecionar que referências a que CTE é usar uma coluna incorreta que não existe na CTE, Olá sp_prepare passará sem detecção de erro hello, mas Olá um erro será gerado durante a sp_execute em vez disso.
+* Uma cláusula ORDER BY não pode ser usada em CTE_query_definition, exceto quando existe uma cláusula TOP especificada.
+* Quando uma CTE é usada em uma instrução que faz parte de um lote, a instrução anterior deve ser seguida por um ponto-e-vírgula.
+* Quando usado em instruções preparadas por sp_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp_prepare passará sem detectar o erro, mas o erro será gerado durante sp_execute.
 
 ## <a name="recursive-ctes"></a>CTEs recursivas
-As CTEs recursivas não têm suporte no SQL Data Warehouse.  migração de saudação da CTE recursiva pode ser um pouco complexa e processo melhor Olá é toobreak em várias etapas. Normalmente, você pode usar um loop e popular uma tabela temporária como iterar em consultas provisória do hello recursivas. Depois de tabela temporária Olá é preenchida, em seguida, retorne dados saudação como um único conjunto de resultados. Uma abordagem semelhante foi usado toosolve `GROUP BY WITH CUBE` em Olá [Agrupar por cláusula com pacote cumulativo de atualizações / cubo / define as opções de agrupamento] [ group by clause with rollup / cube / grouping sets options] artigo.
+As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser um pouco complexa e o melhor processo é dividi-la em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funções do sistema sem suporte
-Também há algumas funções do sistema que não têm suporte. Alguns dos Olá principal que normalmente podem ser usada no data warehouse são:
+Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -93,7 +93,7 @@ Também há algumas funções do sistema que não têm suporte. Alguns dos Olá 
 Alguns desses problemas podem ser solucionados.
 
 ## <a name="rowcount-workaround"></a>Solução alternativa @@ROWCOUNT
-toowork em torno de falta de suporte para @@ROWCOUNT, criar um procedimento armazenado que irá recuperar Olá última contagem de linhas de sys.dm_pdw_request_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
+Para solucionar a falta de suporte para @@ROWCOUNT, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm_pdw_request_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS

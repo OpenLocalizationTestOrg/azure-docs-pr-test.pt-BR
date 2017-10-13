@@ -1,6 +1,6 @@
 ---
-title: aaaProvision um Cache Redis usando o Gerenciador de recursos do Azure | Microsoft Docs
-description: Use o Gerenciador de recursos do Azure modelo toodeploy um Cache Redis do Azure.
+title: Provisionar um Cache Redis usando o Azure Resource Manager | Microsoft Docs
+description: Use o modelo do Gerenciador de Recursos do Azure para implantar um Cache Redis do Azure.
 services: app-service
 documentationcenter: 
 author: steved0x
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: 46e7b3b2493ac51dbe6bab0b086304802afc5d48
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Criar um Cache Redis usando um modelo
-Neste tópico, você aprenderá como toocreate um modelo do Gerenciador de recursos do Azure que implanta um Azure Redis Cache. cache de saudação pode ser usado com armazenamento conta tookeep diagnóstico dados existentes. Você também aprenderá como toodefine quais recursos são implantados e como toodefine parâmetros que são especificados quando a implantação de saudação for executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo toomeet seus requisitos.
+Neste tópico, você aprende a criar um modelo do Aure Resource Manager que implanta um aplicativo Cache Redis do Azure. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Atualmente, as configurações de diagnóstico são compartilhadas para todos os caches em Olá mesma região para uma assinatura. A atualização de um cache na região Olá afeta todos os outros caches na região de saudação.
+Atualmente, as configurações de diagnóstico são compartilhadas por todos os caches na mesma região de uma assinatura. A atualização de um cache na região afeta todos os outros caches na região.
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Para o modelo do hello completa, consulte [Redis Cache modelo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+Para obter o modelo completo, confira [Modelo do Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
-> Modelos do Gerenciador de recursos para Olá novo [camada Premium](cache-premium-tier-intro.md) estão disponíveis. 
+> Os modelos do Resource Manager para a nova [camada Premium](cache-premium-tier-intro.md) estão disponíveis. 
 > 
 > * [Criar um cache Redis Premium com clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 > * [Criar um cache Redis Premium com persistência de dados](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Criar um cache Redis Premium com VNet e clustering opcional](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> toocheck para os modelos mais recentes do hello, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure `Redis Cache`.
+> Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Redis Cache`.
 > 
 > 
 
 ## <a name="what-you-will-deploy"></a>O que você implantará
 Neste modelo, você implantará um Cache Redis do Azure que usa uma conta de armazenamento existente para os dados de diagnóstico.
 
-toorun Olá implantação automaticamente, clique em Olá botão a seguir:
+Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar tooAzure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Implantar no Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parâmetros
-No Gerenciador de recursos do Azure, você define parâmetros para os valores desejados toospecify quando Olá modelo é implantado. modelo de saudação inclui uma seção chamada parâmetros que contém todos os valores de parâmetro hello.
-Você deve definir um parâmetro para os valores que variam com base no projeto Olá que estiver implantando ou com base no ambiente de saudação que você está implantando. Não defina parâmetros para valores que permanecem sempre Olá mesmo. Cada valor de parâmetro é usado em Olá modelo toodefine Olá recursos implantados. 
+## <a name="parameters"></a>Parâmetros
+Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada Parâmetros, que contém todos os valores de parâmetro.
+Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados. 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### <a name="rediscachelocation"></a>redisCacheLocation
-local de saudação do hello Cache Redis. Para melhor desempenho, use Olá mesmo local como Olá toobe aplicativo usado com o cache de saudação.
+A localização do Cache Redis. Para obter o melhor desempenho, use o mesmo local que o aplicativo a ser usado com o cache.
 
     "redisCacheLocation": {
       "type": "string"
     }
 
 ### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-nome de saudação do Olá existente toouse de conta de armazenamento para diagnóstico. 
+O nome da conta de armazenamento existente a ser usada para o diagnóstico. 
 
     "existingDiagnosticsStorageAccountName": {
       "type": "string"
     }
 
 ### <a name="enablenonsslport"></a>enableNonSslPort
-Um valor booliano que indica se tooallow acessar por meio de portas não SSL.
+Um valor booliano que indica a permissão de acesso por meio de portas não SSL.
 
     "enableNonSslPort": {
       "type": "bool"
@@ -86,9 +86,9 @@ Um valor que indica se o diagnóstico está habilitado. Use ATIVAR ou DESATIVAR.
         ]
     }
 
-## <a name="resources-toodeploy"></a>Recursos toodeploy
+## <a name="resources-to-deploy"></a>Recursos a implantar
 ### <a name="redis-cache"></a>Cache Redis
-Cria Olá Cache Redis do Azure.
+Cria o Cache Redis do Azure.
 
     {
       "apiVersion": "2015-08-01",
@@ -122,7 +122,7 @@ Cria Olá Cache Redis do Azure.
 
 
 
-## <a name="commands-toorun-deployment"></a>Implantação de toorun de comandos
+## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell

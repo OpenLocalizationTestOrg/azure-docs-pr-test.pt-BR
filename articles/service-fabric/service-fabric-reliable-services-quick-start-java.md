@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate seu primeiro microsserviço confiável do Azure em Java | Microsoft Docs"
-description: "Introdução toocreating um aplicativo do Microsoft Azure Service Fabric com serviços com e sem monitoração de estado."
+title: "Criar seu primeiro microsserviço confiável do Azure em Java | Microsoft Docs"
+description: "Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado."
 services: service-fabric
 documentationcenter: java
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 577d96591797bbfe6be5c1094426b5f1435cca0f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -27,30 +27,30 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Este artigo explica conceitos básicos de saudação dos serviços do Azure Service Fabric confiável e ajuda você a criar e implantar um aplicativo de serviço confiável simples escrito em Java. Este vídeo Microsoft Virtual Academy também mostra como toocreate um serviço confiável sem monitoração de estado:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+Este artigo explica os conceitos básicos dos Reliable Services do Azure Service Fabric e o orienta você durante a criação e a implantação de um aplicativo Reliable Service simples escrito em Java. Este vídeo da Microsoft Virtual Academy mostra como criar um serviço confiável sem estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ## <a name="installation-and-setup"></a>Instalação e configuração
-Antes de começar, certifique-se de que o ambiente de desenvolvimento do Service Fabric Olá configurado no seu computador.
-Se você precisar tooset-lo, vá muito[guia de Introdução no Mac](service-fabric-get-started-mac.md) ou [guia de Introdução no Linux](service-fabric-get-started-linux.md).
+Antes de começar, verifique se há um ambiente de desenvolvimento do Service Fabric configurado no seu computador.
+Se precisar configurá-lo, vá para o [guia de introdução ao Mac](service-fabric-get-started-mac.md) ou o [guia de introdução ao Linux](service-fabric-get-started-linux.md).
 
 ## <a name="basic-concepts"></a>Conceitos básicos
-tooget iniciado com serviços confiáveis, você só precisa toounderstand alguns conceitos básicos:
+Para começar a usar os Reliable Services, você só precisa entender alguns conceitos básicos:
 
-* **Tipo de serviço**: esta é sua implementação de serviço. Ele é definido pela classe Olá gravar que estende `StatelessService` e qualquer outro código ou dependências usadas neste documento, juntamente com um nome e um número de versão.
-* **Serviço de instância nomeada**: toorun seu serviço, você cria instâncias nomeadas do seu tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Instâncias de serviço são, na verdade, as instâncias de objeto de sua classe de serviço que você escreve.
-* **Host de serviço**: Olá denominado criar necessidade toorun dentro de um host de instâncias de serviço. host de serviço Olá é apenas um processo em que as instâncias do serviço podem executar.
-* **Registro de serviço**: o registro reúne tudo. Olá service type deve ser registrado com hello Service Fabric em tempo de execução em um serviço de hospedar instâncias de toocreate Service Fabric tooallow-toorun.  
+* **Tipo de serviço**: esta é sua implementação de serviço. Ele é definido pela classe que você escreve que estende `StatelessService` e qualquer outro código ou dependências usadas nele, juntamente com um nome e um número de versão.
+* **Instância de serviço nomeada**: para executar seu serviço, criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Instâncias de serviço são, na verdade, as instâncias de objeto de sua classe de serviço que você escreve.
+* **Host de serviço**: as instâncias de serviço nomeado que você cria precisam executar dentro de um host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
+* **Registro de serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o tempo de execução do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
-Comece criando um aplicativo de Service Fabric. Olá SDK do Service Fabric para Linux inclui um Yeoman scaffolding de saudação do gerador tooprovide para um aplicativo de malha do serviço com um serviço sem monitoração de estado. Inicie executando Olá Yeoman a seguir de comando:
+Comece criando um aplicativo de Service Fabric. O SDK do Service Fabric para Linux inclui um gerador Yeoman para fornecer o scaffolding de um aplicativo de Service Fabric com um serviço sem estado. Comece executando o seguinte comando Yeoman:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Siga Olá instruções toocreate um **serviço sem monitoração de estado confiável**. Para este tutorial, o aplicativo hello de nome "HelloWorldApplication" e Olá serviço "Olámundo". saudação de resultados inclui diretórios para Olá `HelloWorldApplication` e `HelloWorld`.
+Siga as instruções para criar um **Serviço Confiável Sem Estado**. Para este tutorial, nomeie o aplicativo "HelloWorldApplication" e o serviço "HelloWorld". O resultado inclui os diretórios para `HelloWorldApplication` e `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
@@ -77,8 +77,8 @@ HelloWorldApplication/
 └── uninstall.sh
 ```
 
-## <a name="implement-hello-service"></a>Implementar o serviço de saudação
-Abra **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Essa classe define o tipo de serviço hello e pode executar qualquer código. API do serviço de saudação oferece dois pontos de entrada para o seu código:
+## <a name="implement-the-service"></a>Implementar o serviço
+Abra **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Essa classe define o tipo de serviço e pode executar qualquer código. A API de serviço fornece dois pontos de entrada para seu código:
 
 * Um método de ponto de entrada em aberto chamado `runAsync()`, em que você pode começar a executar qualquer carga de trabalho, incluindo cargas de trabalho de computação de longa duração.
 
@@ -98,28 +98,28 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Neste tutorial, vamos nos concentrar em Olá `runAsync()` método de ponto de entrada. É aqui que você pode começar imediatamente a executar seu código.
+Neste tutorial, enfatizaremos o método de ponto de entrada `runAsync()` . É aqui que você pode começar imediatamente a executar seu código.
 
 ### <a name="runasync"></a>RunAsync
-plataforma de saudação chama este método quando uma instância de um serviço é tooexecute inserida e pronto. Para um serviço sem monitoração de estado, que simplesmente significa que quando a instância do serviço de saudação é aberta. Um token de cancelamento é fornecido toocoordinate quando toobe fechado as necessidades de sua instância de serviço. Na malha do serviço, esse ciclo de abertura/fechamento de uma instância de serviço pode ocorrer muitas vezes em tempo de vida de saudação do serviço hello como um todo. Isso pode ocorrer por vários motivos, incluindo:
+A plataforma chama esse método quando uma instância de um serviço é estabelecida e está pronta para execução. Para um serviço sem estado, isso simplesmente significa quando a instância do serviço é aberta. Um token de cancelamento é fornecido para coordenar quando sua instância de serviço deve ser fechada. No Service Fabric, esse ciclo de abertura/fechamento de uma instância de serviço pode ocorrer várias vezes durante a vida útil do serviço como um todo. Isso pode ocorrer por vários motivos, incluindo:
 
-* sistema de saudação move suas instâncias de serviço de balanceamento de recursos.
+* O sistema move as instâncias de serviço para balanceamento de recursos.
 * Ocorrem falhas no código.
-* aplicativo Hello ou o sistema é atualizado.
-* hardware subjacente Olá sofrer uma interrupção.
+* O aplicativo ou sistema é atualizado.
+* O hardware subjacente sofre uma interrupção.
 
-Essa orquestração é gerenciada pelo Service Fabric tookeep seu serviço altamente disponível e adequadamente equilibrado.
+Essa orquestração é gerenciada pelo Service Fabric para manter o serviço altamente disponível e devidamente balanceado.
 
-`runAsync()` não deve bloquear sincronicamente. A implementação de runAsync deve retornar um toocontinue de tempo de execução CompletableFuture tooallow hello. Se sua carga de trabalho precisa de uma tarefa demorada que deve ser feita dentro de tooimplement Olá CompletableFuture.
+`runAsync()` não deve bloquear sincronicamente. A implementação de runAsync deve retornar um CompletableFuture para permitir que o tempo de execução continue. Se sua carga de trabalho precisar implementar uma tarefa demorada que deve ser executada dentro do CompletableFuture.
 
 #### <a name="cancellation"></a>Cancelamento
-O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado pelo Olá fornecido um token de cancelamento. sistema de Olá aguarda sua tarefa tooend (pela conclusão bem-sucedida, cancelamento ou falha) antes de ele prossegue. É importante toohonor Olá cancelamento token, concluir qualquer trabalho e sair `runAsync()` assim que possível quando o sistema Olá solicitações de cancelamento. Olá exemplo a seguir demonstra como um evento de cancelamento de toohandle:
+O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado pelo token de cancelamento fornecido. O sistema aguarda o encerramento da tarefa (por conclusão bem-sucedida, cancelamento ou falha) antes de prosseguir. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair do `runAsync()` o mais rapidamente possível quando o sistema solicita o cancelamento. O exemplo a seguir demonstra como processar um evento de cancelamento:
 
 ```java
     @Override
     protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
-        // TODO: Replace hello following sample code with your own logic
+        // TODO: Replace the following sample code with your own logic
         // or remove this runAsync override if it's not needed in your service.
 
         CompletableFuture.runAsync(() -> {
@@ -140,7 +140,7 @@ O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado p
 ```
 
 ### <a name="service-registration"></a>Registro do serviço
-Tipos de serviço devem ser registrados com o tempo de execução do hello Service Fabric. tipo de serviço de saudação é definido em Olá `ServiceManifest.xml` e sua classe de serviço implementa `StatelessService`. Registro de serviço é executado no ponto de entrada principal do processo de saudação. Neste exemplo, Olá o processo de ponto de entrada principal é `HelloWorldServiceHost.java`:
+Os tipos de serviço devem ser registrados com o tempo de execução do Service Fabric. O tipo de serviço é definido na `ServiceManifest.xml` e sua classe de serviço que implementa `StatelessService`. O registro de serviço é executado no ponto de entrada principal do processo. Neste exemplo, o ponto de entrada principal do processo é `HelloWorldServiceHost.java`:
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -156,9 +156,9 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="run-hello-application"></a>Executar o aplicativo hello
+## <a name="run-the-application"></a>Executar o aplicativo
 
-Olá Yeoman scaffolding inclui um gradle script toobuild Olá aplicativo e bash scripts toodeploy e remover o aplicativo. aplicativo de hello toorun, primeiro aplicativo hello de compilação com gradle:
+O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 
 ```bash
 $ gradle
@@ -168,7 +168,7 @@ Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantad
 
 ### <a name="deploy-with-service-fabric-cli"></a>Implantar com a CLI do Service Fabric
 
-script de install.sh de Olá contém Olá necessário CLI de malha do serviço comandos toodeploy Olá pacote de aplicativo. Execute o aplicativo de hello toodeploy install.sh script.
+O script install.sh contém os comandos da CLI do Service Fabric necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
 
 ```bash
 $ ./install.sh

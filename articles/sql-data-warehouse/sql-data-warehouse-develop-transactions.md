@@ -1,5 +1,5 @@
 ---
-title: aaaTransactions no SQL Data Warehouse | Microsoft Docs
+title: "Transações no SQL Data Warehouse | Microsoft Docs"
 description: "Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,25 +15,25 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 7c541648553238443b407666612561918096eb61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transações no SQL Data Warehouse
-Como esperado, o SQL Data Warehouse oferece suporte a transações como parte da carga de trabalho do hello data warehouse. No entanto, tooensure Olá desempenho do SQL Data Warehouse é mantido em escala de que alguns recursos estão limitados quando tooSQL em comparação com o servidor. Este artigo destaca as diferenças de saudação e listas Olá outras pessoas. 
+Como era esperado, o SQL Data Warehouse oferece suporte a transações como parte da carga de trabalho do data warehouse. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em grande escala, alguns recursos serão limitados em comparação com o SQL Server. Este artigo realça as diferenças e lista as outras. 
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento da transação
-O SQL Data Warehouse implementa transações ACID. No entanto, Olá isolamento de suporte transacional Olá é limitado muito`READ UNCOMMITTED` e isso não pode ser alterado. Você pode implementar vários métodos de codificação tooprevent suja leituras de dados se isso for uma preocupação para você. Olá métodos mais comuns aproveitam CTAS e a alternância de partição de tabela (geralmente conhecido como Olá padrão de janela deslizante) tooprevent usuários consultando os dados que ainda está sendo preparados. Exibições de dados pré-filtragem saudação também são um método popular.  
+O SQL Data Warehouse implementa transações ACID. No entanto, o isolamento do suporte transacional é limitado a `READ UNCOMMITTED` e isso não pode ser alterado. Você pode implementar diversos métodos de codificação para impedir leituras sujas de dados, se isso for importante para você. Os métodos mais populares utilizam CTAS e a alternância de partição de tabela (normalmente conhecida como padrão de janela deslizante) para impedir que os usuários consultem dados que ainda estejam sendo preparados. Modos de exibição que filtram previamente os dados também são uma abordagem popular.  
 
 ## <a name="transaction-size"></a>Tamanho da transação
-Uma única transação de modificação de dados é limitada em tamanho. limite de saudação hoje é aplicado "por distribuição de". Portanto, alocação total Olá pode ser calculada pela multiplicação de limite de saudação por contagem de distribuição de saudação. número máximo de saudação de tooapproximate de linhas em transação Olá divide cap de distribuição de saudação pelo tamanho total de saudação de cada linha. Para colunas de comprimento variável, considere colocar um comprimento médio de coluna em vez de usar o tamanho máximo de saudação.
+Uma única transação de modificação de dados é limitada em tamanho. Hoje, o limite é aplicado “por distribuição”. Portanto, a alocação total pode ser calculada multiplicando o limite pela contagem de distribuição. Para chegar a uma aproximação do número máximo de linhas na transação, divida o limite de distribuição pelo tamanho total de cada linha. Para colunas de tamanho variável, considere o uso de um tamanho médio de coluna em vez do tamanho máximo.
 
-Na tabela de saudação abaixo Olá foram feitas seguintes suposições:
+Na tabela abaixo, foram feitas as seguintes suposições:
 
 * Ocorreu uma distribuição uniforme dos dados 
-* Comprimento médio da linha de saudação é de 250 bytes
+* O tamanho médio da linha é de 250 bytes
 
 | [DWU][DWU] | Limite por distribuição (GiB) | Número de distribuições | Tamanho máximo de transações (GiB) | # Linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
@@ -50,21 +50,21 @@ Na tabela de saudação abaixo Olá foram feitas seguintes suposições:
 | DW3000 |22,5 |60 |1.350 |90.000.000 |5.400.000.000 |
 | DW6000 |45 |60 |2.700 |180.000.000 |10.800.000.000 |
 
-limite de tamanho de transação Olá é aplicado por transação ou a operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação é permitida toowrite essa quantidade de dados toohello log. 
+O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log. 
 
-toooptimize e minimizar Olá toohello log de gravação de dados, consulte toohello [transações práticas recomendadas] [ Transactions best practices] artigo.
+Para otimizar e minimizar a quantidade de dados gravados no log, confira o artigo [Práticas recomendadas das transações][Transactions best practices].
 
 > [!WARNING]
-> Olá máximo de tamanho de transação só pode ser obtido para HASH ou tabelas ROUND_ROBIN distribuídas onde espalhar Olá Olá dados é par. Se transação hello está gravando os dados de maneira distorcida toohello distribuições, em seguida, hello limite é provavelmente toobe atingida o tamanho de máximo de transações de toohello anterior.
+> O tamanho máximo de transações só pode ser obtido para tabelas distribuídas HASH ou ROUND_ROBIN nas quais o espalhamento de dados é uniforme. Se a transação estiver gravando dados de maneira distorcida nas distribuições, provavelmente, o limite será alcançado antes do tamanho máximo de transações.
 > <!--REPLICATED_TABLE-->
 > 
 > 
 
 ## <a name="transaction-state"></a>Estado da transação
-SQL Data Warehouse usa Olá xact_state função tooreport uma transação com falha usando o valor de saudação -2. Isso significa que a transação Olá falhou e está marcada para reversão apenas
+O SQL Data Warehouse usa a função XACT_STATE() para relatar uma transação com falha usando o valor -2. Isso significa que a transação falhou e está marcada para reversão somente
 
 > [!NOTE]
-> Olá usá -2 Olá XACT_STATE função toodenote tooSQL de um comportamento diferente de representa uma transação com falha Server. O SQL Server usa Olá valor -1 toorepresent uma transação não confirmável. SQL Server pode tolerar alguns erros dentro de uma transação sem que ele tenha toobe marcado como não confirmável. Por exemplo, `SELECT 1/0` poderia causar um erro, mas não forçar uma transação em um estado não confirmável. SQL Server também permite leituras de transação não confirmável hello. No entanto, o SQL Data Warehouse não permite que você faça isso. Se ocorrer um erro dentro de uma transação do SQL Data Warehouse, ele inserirá automaticamente o estado da saudação -2 e não será capaz de toomake qualquer mais instruções select até que a instrução de saudação foi revertida. Portanto, é importante toocheck que sua toosee de código do aplicativo se ele usa xact_state como você pode precisar de modificações no código toomake.
+> O uso de -2 pela função XACT_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, `SELECT 1/0` poderia causar um erro, mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, o SQL Data Warehouse não permite que você faça isso. Se um erro ocorrer dentro de uma transação do SQL Data Warehouse, ele entrará automaticamente no estado -2 e você não poderá mais dar instruções do tipo select até que a instrução seja revertida. Portanto, é importante verificar o código do aplicativo para ver se ele usa XACT_STATE(), pois você poderá precisar modificar o código.
 > 
 > 
 
@@ -106,13 +106,13 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Se você deixar seu código, pois ele está acima, em seguida, você obterá Olá a seguinte mensagem de erro:
+Se deixar o código como está acima, você receberá a seguinte mensagem de erro:
 
-Msg 111233, nível 16, estado 1, linha 1 111233; Olá atual transação foi anulada, e todas as alterações pendentes foram revertidas. Causa: uma transação no estado somente reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
+Mensagem 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual foi anulada e todas as alterações pendentes foram revertidas. Causa: uma transação no estado somente reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
 
-Você também não terá saída de saudação do erro. * funções de saudação.
+Você também não receberá a saída das funções ERROR_*.
 
-No SQL Data Warehouse código Olá precisa toobe ligeiramente alterado:
+No SQL Data Warehouse, o código precisa ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -149,22 +149,22 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Olá esperado comportamento observado agora. Erro de saudação na transação de saudação é gerenciado e Olá erro. * funções fornecem valores conforme o esperado.
+O comportamento esperado é observado agora. O erro na transação é gerenciado e as funções ERROR_* fornecem valores conforme o esperado.
 
-Tudo o que mudou é que hello `ROLLBACK` de saudação transação tinha toohappen antes de ler Olá Olá informações de erro em Olá `CATCH` bloco.
+Tudo o que mudou é que a `ROLLBACK` da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
 
 ## <a name="errorline-function"></a>Função Error_line()
-Também vale a pena observar que SQL Data Warehouse não implementar ou oferecer suporte a função do hello error_line (). Se você tiver isso em seu código, você precisará tooremove-toobe compatível com o SQL Data Warehouse. Use rótulos de consulta em seu código em vez disso, tooimplement uma funcionalidade equivalente. Consulte toohello [rótulo] [ LABEL] artigo para obter mais detalhes sobre esse recurso.
+Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][LABEL] para obter mais detalhes sobre este recurso.
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW e RAISERROR
-THROW é Olá implementação mais moderna para gerar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. Há algumas diferenças que vale a pena prestando atenção toohowever.
+THROW é a implementação mais moderna para lançar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
 
-* Números não podem estar em Olá intervalo 100.000 150.000 THROW de mensagens de erro definidas pelo usuário
+* Os números das mensagens de erro definidas pelo usuário não podem estar no intervalo de 100.000 a 150.000 para THROW 
 * As mensagens de erro do RAISERROR são fixadas em 50.000
 * Não há suporte para o uso de sys.messages
 
 ## <a name="limitiations"></a>Limitações
-SQL Data Warehouse tem algumas outras restrições que se relacionam tootransactions.
+O SQL Data Warehouse tem algumas outras restrições relacionadas a transações.
 
 Elas são as seguintes:
 
@@ -176,7 +176,7 @@ Elas são as seguintes:
 * Não há suporte para DDL, como `CREATE TABLE` , em uma transação definida pelo usuário
 
 ## <a name="next-steps"></a>Próximas etapas
-toolearn mais informações sobre a otimização de transações, consulte [transações práticas recomendadas][Transactions best practices].  toolearn sobre outras práticas recomendadas do SQL Data Warehouse, consulte [práticas recomendadas do SQL Data Warehouse][SQL Data Warehouse best practices].
+Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações][Transactions best practices].  Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, confira [Práticas recomendadas do SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooconfigure um novo aplicativo multilocatário | Microsoft Docs"
-description: "Saiba como tooconfigure um aplicativo como aplicativos multilocatários e como multilocatários funcionam"
+title: "Como configurar um novo aplicativo multilocatário | Microsoft Docs"
+description: "Saiba como configurar um aplicativo como multilocatário e saiba como aplicativos multilocatário funcionam"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: db62ea7a7cc5488961258e07e042bc160dbf92c0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 24e7e0d586dab3f77e643197594c3c4462ff997e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooconfigure-a-new-multi-tenant-application"></a>Como tooconfigure um novo aplicativo multilocatário
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar um novo aplicativo multilocatário
 
-Aqui está uma lista de tópicos recomendados toolearn mais sobre aplicativos multilocatários:
+Temos aqui uma lista de tópicos recomendados para saber mais sobre aplicativos multilocatário:
 
-- Obter uma compreensão geral dos [o que significa toobe um aplicativo multilocatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Obter uma compreensão geral dos [como tooconfigure um aplicativo toobe multilocatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-multi-tenant-applications)
-- Obter uma visão geral de passo a passo de [como estrutura de consentimento de saudação do AD do Azure é usada consentimento tooimplement](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework), que é necessário para aplicativos de multilocação
-- Para mais detalhes, saiba [como um aplicativo multilocatário é configurado e codificado de ponta a ponta](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluindo como tooregister, use hello "comum" ponto de extremidade, implementar "usuário" e "admin" consentimento, como tooimplement mais avançados de várias camadas cenários
+- Tenha uma compreensão geral sobre [o que significa ser um aplicativo multilocatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
+- Tenha uma compreensão geral de [como configurar um aplicativo para ser multilocatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-multi-tenant-applications)
+- Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD é usada para implementar o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework), que é necessário para aplicativos multilocatário
+- Para se aprofundar, veja [como um aplicativo multilocatário é configurado e codificado de ponta a ponta](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluindo como registrar, usar o ponto de extremidade "comum", implementar o consentimento de "usuário" e "administrador" e como implementar cenários de várias camadas mais avançados
 
 ## <a name="next-steps"></a>Próximas etapas
 [StackOverflow do AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)

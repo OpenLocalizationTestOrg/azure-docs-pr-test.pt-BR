@@ -1,6 +1,6 @@
 ---
-title: aaaCollect e analisar os contadores de desempenho no Azure Log Analytics | Microsoft Docs
-description: "Contadores de desempenho são coletados pelo desempenho tooanalyze de análise de Log em agentes do Windows e Linux.  Este artigo descreve como tooconfigure coleta de desempenho e contadores de para agentes do Windows e Linux, detalhes do que eles são armazenados no repositório do OMS hello, como tooanalyze-los no portal do OMS hello."
+title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
+description: "Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Windows e do Linux, os detalhes deles que são armazenados no repositório do OMS e como analisá-los no portal do OMS."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 30146fecf8db1d8851b89fdb970f757bbb24abf1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
-Contadores de desempenho do Windows e Linux fornecem informações sobre o desempenho de saudação de componentes de hardware, sistemas operacionais e aplicativos.  Análise de log pode coletar os contadores de desempenho em intervalos frequentes para análise de quase em tempo Real (NRT) em dados de desempenho de tooaggregating de adição para relatório e análise de prazo mais longo.
+Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.
 
 ![Contadores de desempenho](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
-Configurar contadores de desempenho no portal do OMS de saudação do hello [menu dados nas configurações de análise de Log](log-analytics-data-sources.md#configuring-data-sources).
+Configure os contadores de desempenho no portal do OMS do [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-Quando você configurar o Windows pela primeira vez ou contadores de desempenho do Linux para um novo espaço de trabalho OMS, você terá Olá opção tooquickly criar vários contadores comuns.  Eles são listados com um tooeach próximo da caixa de seleção.  Certifique-se de que qualquer contador que você deseja tooinitially cria são verificadas e, em seguida, clique em **adicionar Olá selecionado contadores de desempenho**.
+Quando você configurar os contadores de desempenho do Linux ou Windows para um novo espaço de trabalho do OMS pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
-Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para contadores de desempenho do Linux, instância de saudação de cada contador que você escolher se aplicará a tooall contadores de filho do contador pai de saudação. Olá tabela a seguir mostra Olá instâncias comuns disponíveis tooboth contadores de desempenho do Linux e Windows.
+Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
 | Nome da instância | Descrição |
 | --- | --- |
-| \_Total |Total de todas as instâncias de saudação |
+| \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
 | (/&#124;/var) |Corresponde às instâncias chamadas: / ou /var |
 
@@ -42,32 +42,32 @@ Para os contadores de desempenho do Windows, você pode escolher uma instância 
 
 ![Configurar contadores de desempenho do Windows](media/log-analytics-data-sources-performance-counters/configure-windows.png)
 
-Siga este procedimento tooadd um novo toocollect de contador de desempenho do Windows.
+Siga este procedimento para adicionar um novo contador de desempenho do Windows para coletar.
 
-1. Nome do tipo saudação do contador de saudação na caixa de texto de saudação em formato de saudação *\counter objeto (instância)*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador de saudação lista ou digite uma de sua preferência.  Você também pode retornar todas as instâncias de um determinado contador especificando *objeto\contador*.  
+1. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  Você também pode retornar todas as instâncias de um determinado contador especificando *objeto\contador*.  
 
-    Durante a coleta de contadores de desempenho do SQL Server de instâncias nomeadas, todos os nomeadas começam de contadores de instância com *MSSQL$* e seguido pelo nome da saudação da instância de saudação.  Por exemplo, Olá toocollect taxa de acertos do Cache de Log de contador para todos os bancos de dados do objeto de desempenho de banco de dados de saudação para SQL nomeada instância INST2, especificar `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    Durante a coleta de contadores de desempenho do SQL Server de instâncias nomeadas, todos os contadores de instância nomeados começam com *MSSQL$* seguidos do nome da instância.  Por exemplo, para coletar o contador de Proporção de Ocorrência no Cache de Log para todos os bancos de dados do objeto de desempenho de Banco de Dados para a instância nomeada do SQL INST2, especificar `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Clique em  **+**  ou pressione **Enter** lista de toohello tooadd Olá contadores.
-3. Quando você adiciona um contador, ele usa o padrão de saudação de 10 segundos para seus **intervalo de amostragem**.  Se desejar que os requisitos de armazenamento tooreduce Olá Olá coletado de dados de desempenho, você pode alterar esse valor mais alto de tooa de backup too1800 segundos (30 minutos).
-4. Quando você terminar de adicionar contadores, clique em Olá **salvar** botão na parte superior de saudação da configuração de Olá Olá tela toosave.
+2. Clique em **+** ou pressione **Enter** para adicionar o contador à lista.
+3. Quando você adicionar um contador, ele usa o padrão de 10 segundos para seu **Intervalo de Amostragem**.  Você poderá alterar isso para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
+4. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
 ### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
 
 ![Configurar contadores de desempenho do Linux](media/log-analytics-data-sources-performance-counters/configure-linux.png)
 
-Siga este procedimento tooadd um novo toocollect de contador de desempenho do Linux.
+Siga este procedimento para adicionar um novo contador de desempenho do Linux para coletar.
 
-1. Por padrão, todas as alterações de configuração são enviadas automaticamente tooall agentes.  Para agentes do Linux, um arquivo de configuração é enviado toohello Fluentd de Coletores de dados.  Se você quiser toomodify esse arquivo manualmente em cada agente do Linux, em seguida, desmarque a caixa de saudação *aplicar abaixo máquinas de Linux toomy configuração* e siga as orientações de saudação abaixo.
-2. Nome do tipo saudação do contador de saudação na caixa de texto de saudação em formato de saudação *\counter objeto (instância)*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador de saudação lista ou digite uma de sua preferência.  
-3. Clique em  **+**  ou pressione **Enter** lista de toohello de outros contadores do objeto de saudação do contador tooadd hello.
-4. Todos os contadores de uso de um objeto Olá mesmo **intervalo de amostragem**.  padrão de saudação é de 10 segundos.  Você alterar esse valor mais alto de tooa de backup too1800 segundos (30 minutos) se desejar que os requisitos de armazenamento tooreduce Olá Olá coletado de dados de desempenho.
-5. Quando você terminar de adicionar contadores, clique em Olá **salvar** botão na parte superior de saudação da configuração de Olá Olá tela toosave.
+1. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux* e siga a diretriz abaixo.
+2. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  
+3. Clique em **+** ou pressione **Enter** para adicionar o contador à lista de outros contadores para o objeto.
+4. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostragem**.  O padrão é 10 segundos.  Você altera para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
+5. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no arquivo de configuração
-Em vez de configurar contadores de desempenho do Linux usando o portal do OMS hello, você tem opção de saudação de edição de arquivos de configuração no agente do Linux hello.  Toocollect de métricas de desempenho são controlados pela configuração de saudação em **/etc/opt/microsoft/omsagent/\<id do espaço de trabalho\>/conf/omsagent.conf**.
+Em vez de configurar contadores de desempenho do Linux usando o portal do OMS, você tem a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração em **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
-Cada objeto ou categoria, de toocollect de métricas de desempenho deve ser definido no arquivo de configuração de saudação como um único `<source>` elemento. sintaxe de saudação segue o padrão de saudação abaixo.
+Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser definido no arquivo de configuração como um único elemento `<source>` . A sintaxe segue o padrão abaixo.
 
     <source>
       type oms_omi  
@@ -78,17 +78,17 @@ Cada objeto ou categoria, de toocollect de métricas de desempenho deve ser defi
     </source>
 
 
-Olá parâmetros nesse elemento são descritos Olá a tabela a seguir.
+Os parâmetros usados com este comando são descritos na tabela a seguir.
 
-| parâmetros | Descrição |
+| Parâmetros | Descrição |
 |:--|:--|
-| object\_name | Nome do objeto de coleção de saudação. |
-| instance\_regex |  Um *expressão regular* definindo toocollect quais instâncias. Olá valor: `.*` especifica todas as instâncias. métricas de processador toocollect para apenas Olá \_instância Total, você poderia especificar `_Total`. as métricas do processo toocollect para hello apenas instâncias crond ou sshd, você pode especificar: ' (crond\|sshd)`. |
-| counter\_name\_regex | Um *expressão regular* definindo toocollect quais contadores (para o objeto de saudação). Especifique de todos os contadores do objeto hello, toocollect: `.*`. toocollect trocas somente contadores de espaço para o objeto de memória hello, por exemplo, você pode especificar:`.+Swap.+` |
-| intervalo | Frequência na qual Olá contadores do objeto são coletados. |
+| object\_name | O nome do objeto da coleção. |
+| instance\_regex |  Uma *expressão regular* que define quais instâncias serão coletadas. O valor: `.*` especifica todas as instâncias. Para coletar métricas de processador somente para a instância \_Total, você poderia especificar `_Total`. Para coletar métricas de processador somente para a instância _Total, você poderia especificar: `(crond\|sshd)`. |
+| counter\_name\_regex | Uma *expressão regular* que define os contadores (para o objeto) a serem coletados. Para coletar todos os contadores para o objeto, especifique: `.*`. Para coletar somente os contadores de espaço de permuta para o objeto de memória, por exemplo, você poderia especificar: `.+Swap.+` |
+| intervalo | A frequência na qual os contadores do objeto são coletados. |
 
 
-Hello seguinte tabela lista Olá objetos e contadores que você pode especificar no arquivo de configuração de saudação.  Há contadores adicionais disponíveis para certos aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos Linux no Log Analytics](log-analytics-data-sources-linux-applications.md).
+A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para certos aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos Linux no Log Analytics](log-analytics-data-sources-linux-applications.md).
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -147,7 +147,7 @@ Hello seguinte tabela lista Olá objetos e contadores que você pode especificar
 | Sistema | Usuários |
 
 
-A seguir está a configuração padrão de saudação para métricas de desempenho.
+A seguir está a configuração padrão para as métricas de desempenho.
 
     <source>
       type oms_omi
@@ -182,29 +182,29 @@ A seguir está a configuração padrão de saudação para métricas de desempen
     </source>
 
 ## <a name="data-collection"></a>Coleta de dados
-O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Olá dados não estão agregados e dados brutos hello estão disponíveis em todos os modos de exibição de pesquisa de log por duração Olá especificada por sua assinatura do OMS.
+O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não estão agregados e os dados brutos estão disponíveis em todas as exibições de pesquisa de log pela duração especificada por sua assinatura do OMS.
 
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
-Registros de desempenho têm um tipo de **Perf** e têm propriedades de saudação em Olá a tabela a seguir.
+Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computador |Computador que Olá evento foi coletado do. |
-| CounterName |Nome do contador de desempenho de saudação |
-| CounterPath |Caminho completo do contador de saudação na forma de saudação \\ \\ \<computador >\\objeto (instância)\\contador. |
-| CounterValue |Valor numérico do contador de saudação. |
-| InstanceName |Nome da instância do evento hello.  Vazio se não houver nenhuma instância. |
-| ObjectName |Nome do objeto de desempenho de saudação |
-| SourceSystem |Tipo de dados de saudação do agente foi coletado do. <br><br>OpsManager - agente do Windows, conexão direta ou SCOM <br> Linux: todos os agentes do Linux  <br> AzureStorage: Diagnóstico do Azure |
-| TimeGenerated |Data e hora data Olá foi feita a amostragem. |
+| Computador |Computador do qual o evento foi coletado. |
+| CounterName |Nome do contador de desempenho |
+| CounterPath |Caminho completo do contador no formato \\\\\<Computador>\\objeto(instância)\\contador. |
+| CounterValue |Valor numérico do contador. |
+| InstanceName |Nome da instância do evento.  Vazio se não houver nenhuma instância. |
+| ObjectName |Nome do objeto de desempenho |
+| SourceSystem |Tipo de agente do qual os dados foram coletados. <br><br>OpsManager - agente do Windows, conexão direta ou SCOM <br> Linux: todos os agentes do Linux  <br> AzureStorage: Diagnóstico do Azure |
+| TimeGenerated |Data e hora em que os dados foram amostrados. |
 
 ## <a name="sizing-estimates"></a>Estimativas de dimensionamento
- Uma estimativa aproximada de coleção de um determinado contador em intervalos de 10 segundos é cerca de 1 MB por dia por instância.  Você pode estimar os requisitos de armazenamento de saudação de um contador específico com hello seguinte fórmula.
+ Uma estimativa aproximada de coleção de um determinado contador em intervalos de 10 segundos é cerca de 1 MB por dia por instância.  Você pode estimar os requisitos de armazenamento de um contador específico com a fórmula a seguir.
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
 ## <a name="log-searches-with-performance-records"></a>Pesquisas de log com registros de desempenho
-Olá, tabela a seguir fornece exemplos de diferentes de pesquisas de log que recuperam registros de desempenho.
+A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam registros de desempenho.
 
 | Consultar | Descrição |
 |:--- |:--- |
@@ -213,15 +213,15 @@ Olá, tabela a seguir fornece exemplos de diferentes de pesquisas de log que rec
 | Type=Perf CounterName="Current Disk Queue Length" |Todos os dados de desempenho de um contador específico |
 | Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU by Computer |Utilização média da CPU em todos os computadores |
 | Type=Perf (CounterName="% Processor Time") &#124; measure max(Max) by Computer |Utilização máxima da CPU em todos os computadores |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de saudação de um determinado computador |
+| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
 | Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |95º percentil de transferências de disco/s em todos os computadores |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Por hora média de utilização da CPU em todos os computadores |
 | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Percentil de 70 por hora de cada contador de porcentagem % para um computador específico |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Por hora média, mínima, máximo e percentil de 75 da CPU para um computador específico |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Todos os dados de desempenho do desempenho de banco de dados de saudação do objeto para o banco de dados mestre Olá da saudação nomeada da instância do SQL Server INST2.  
+| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Todos os dados de desempenho do objeto de desempenho de Banco de Dados para o banco de dados mestre da instância nomeada do SQL Server INST2.  
 
 >[!NOTE]
-> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), e em seguida, Olá acima consultas alteraria toohello a seguir.
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
 
 > | Consultar | Descrição |
 |:--- |:--- |
@@ -230,22 +230,22 @@ Olá, tabela a seguir fornece exemplos de diferentes de pesquisas de log que rec
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Todos os dados de desempenho de um contador específico |
 | Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Utilização média da CPU em todos os computadores |
 | Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Utilização máxima da CPU em todos os computadores |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de saudação de um determinado computador |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
 | Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |95º percentil de transferências de disco/s em todos os computadores |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Por hora média de utilização da CPU em todos os computadores |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Percentil de 70 por hora de cada contador de porcentagem % para um computador específico |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Por hora média, mínima, máximo e percentil de 75 da CPU para um computador específico |
-| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Todos os dados de desempenho do desempenho de banco de dados de saudação do objeto para o banco de dados mestre Olá da saudação nomeada da instância do SQL Server INST2.  
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Todos os dados de desempenho do objeto de desempenho de Banco de Dados para o banco de dados mestre da instância nomeada do SQL Server INST2.  
 
 ## <a name="viewing-performance-data"></a>Exibindo dados de desempenho
-Quando você executa uma pesquisa de log de dados de desempenho, Olá **lista** exibição é exibida por padrão.  tooview Olá dados em formato de gráfico, clique em **métricas**.  Para uma exibição gráfica detalhada, clique em Olá  **+**  próximo tooa contador.  
+Quando você executa uma pesquisa de logs de dados de desempenho, a exibição **List** é mostrada por padrão.  Para exibir os dados em formato gráfico, clique em **Métricas**.  Para obter uma exibição gráfica detalhada, clique em **+** ao lado de um contador.  
 
 ![Exibição de métricas recolhida](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-dados de desempenho de tooaggregate em uma pesquisa de log, consulte [agregação de métrica sob demanda e visualização do OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
+Para agregar dados de desempenho em uma pesquisa de log, confira [Agregação métrica sob demanda e visualização de OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Colete contadores de desempenho de aplicativos Linux](log-analytics-data-sources-linux-applications.md), incluindo Apache HTTP Server e MySQL.
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) dados de saudação tooanalyze coletados de fontes de dados e soluções.  
-* Exportar os dados coletados muito[Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Exporte os dados coletados para o [Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.

@@ -1,6 +1,6 @@
 ---
-title: "aaaDeployment operações com o Gerenciador de recursos do Azure | Microsoft Docs"
-description: "Descreve como operações de implantação do Azure Resource Manager tooview com hello portal, PowerShell, CLI do Azure e API REST."
+title: "Operações de implantação com o Azure Resource Manager | Microsoft Docs"
+description: "Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST."
 services: azure-resource-manager,virtual-machines
 documentationcenter: 
 tags: top-support-issue
@@ -15,65 +15,65 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: ba4823ca73caca83dfc07c99d736344ef8b7b54d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Exibir operações de implantação com o Azure Resource Manager
 
 
-Você pode exibir as operações de saudação para uma implantação por meio do portal do Azure de saudação. Você pode ser mais interessado em ver operações hello quando você recebeu um erro durante a implantação para que este artigo enfoca exibindo operações que falharam. portal de saudação fornece uma interface que permite que você tooeasily erros de saudação de localizar e determinar possíveis correções.
+Você pode exibir as operações para uma implantação por meio do portal do Azure. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O portal fornece uma interface que permite encontrar facilmente os erros e determinar as possíveis correções.
 
 [!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## <a name="portal"></a>Portal
-operações de implantação toosee hello, Olá use as etapas a seguir:
+Para ver as operações de implantação, use as etapas a seguir:
 
-1. Olá para grupo de recursos envolvido na implantação hello, observe o status de saudação da última implantação de saudação. Você pode selecionar esse status tooget obter mais detalhes.
+1. Para o grupo de recursos envolvido na implantação, observe o status da última implantação. Selecione esse status para obter mais detalhes.
    
     ![status da implantação](./media/resource-manager-deployment-operations/deployment-status.png)
-2. Consulte o histórico recente de implantação hello. Selecione a implantação de saudação que falhou.
+2. Você vê o histórico recente de implantação. Selecione a implantação que falhou.
    
     ![status da implantação](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Selecione Olá link toosee uma descrição do motivo Olá Falha na implantação. Imagem Olá abaixo, o registro DNS de saudação não é exclusivo.  
+3. Selecione o link para ver uma descrição do motivo da falha na implantação. Na imagem abaixo, o registro DNS não é exclusivo.  
    
     ![exibir implantação com falha](./media/resource-manager-deployment-operations/view-error.png)
    
-    Essa mensagem de erro deve ser suficiente para que você toobegin de solução de problemas. No entanto, se você precisar obter mais detalhes sobre quais tarefas foram concluídas, você pode exibir operações Olá conforme Olá etapas a seguir.
-4. Você pode exibir todas as operações de implantação de saudação em Olá **implantação** folha. Selecione qualquer operação toosee obter mais detalhes.
+    Essa mensagem de erro deve ser suficiente para você começar a solucionar o problema. No entanto, se você precisar de mais detalhes sobre quais tarefas foram concluídas, poderá exibir as operações, como mostrado nas etapas a seguir.
+4. Você pode exibir todas as operações de implantação na folha **Implantação**. Selecione qualquer operação para ver mais detalhes.
    
     ![exibir operações](./media/resource-manager-deployment-operations/view-operations.png)
    
-    Nesse caso, você ver a conta de armazenamento hello, a rede virtual e o conjunto de disponibilidade foram criados com êxito. Falha do endereço IP público de saudação e outros recursos não foram tentados.
-5. Você pode exibir eventos para implantação de saudação selecionando **eventos**.
+    Neste caso, verá que a conta de armazenamento, a rede virtual e o conjunto de disponibilidades foram criados com êxito. O endereço IP público falhou e outros recursos não foram tentados.
+5. Você pode exibir os eventos para a implantação selecionando **Eventos**.
    
     ![exibir eventos](./media/resource-manager-deployment-operations/view-events.png)
-6. Você vê todos os eventos de saudação para implantação de saudação e selecione qualquer um para obter mais detalhes. Observe muito Olá IDs de correlação. Esse valor pode ser útil ao trabalhar com o suporte técnico tootroubleshoot uma implantação.
+6. Você vê todos os eventos da implantação e seleciona qualquer um para obter mais detalhes. Observe também a IDs de correlação. Esse valor pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação.
    
     ![consultar eventos](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. tooget Olá status geral de uma implantação, use Olá **AzureRmResourceGroupDeployment Get** comando. 
+1. Para obter o status geral de uma implantação, use e comando **Get-AzureRmResourceGroupDeployment** . 
 
   ```powershell
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
-   Ou, você pode filtrar os resultados de saudação para somente as implantações com falha.
+   Ou você pode filtrar os resultados para mostrar somente as implantações que falharam.
 
   ```powershell
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Cada implantação inclui várias operações. Cada operação representa uma etapa no processo de implantação de saudação. toodiscover o que deu errado com uma implantação, é geralmente necessário toosee detalhes sobre operações de implantação de saudação. Você pode ver o status de saudação de operações de saudação com **Get-AzureRmResourceGroupDeploymentOperation**.
+2. Cada implantação inclui várias operações. Cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
-    Que retorna várias operações com cada um em Olá formato a seguir:
+    Que retorna várias operações com cada uma no seguinte formato:
 
   ```powershell
   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
@@ -85,13 +85,13 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. tooget mais detalhes sobre operações com falha, recuperar propriedades de saudação para operações com **falha** estado.
+3. Para obter mais detalhes sobre as operações com falha, recupere as propriedades das operações com o estado **Falha** .
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
-    Que retorna que todos os Olá operações com falha com cada uma em Olá formato a seguir:
+    Retorna todas as operações com falha com cada uma no seguinte formato:
 
   ```powershell
   provisioningOperation : Create
@@ -107,8 +107,8 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
   ```
 
-    Observe Olá serviceRequestId e trackingId Olá para operação de saudação. Olá serviceRequestId pode ser útil ao trabalhar com o suporte técnico tootroubleshoot uma implantação. Você usará trackingId Olá Olá próxima etapa toofocus em uma operação específica.
-4. tooget a mensagem de status de saudação de uma determinada operação com falha, use Olá comando a seguir:
+    Observe serviceRequestId e trackingId para a operação. serviceRequestId pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação. Você usará trackingId na próxima etapa para focar em uma determinada operação.
+4. Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,9 +121,9 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. conteúdo da solicitação Olá é o que você enviou tooAzure durante a implantação (por exemplo, criar uma VM, disco do sistema operacional e outros recursos). conteúdo de resposta de saudação é o Azure enviadas da sua solicitação de implantação. Durante a implantação, você pode usar **DeploymentDebugLogLevel** toospecify de parâmetro que Olá a solicitação de e/ou resposta são mantidas no log de saudação. 
+4. Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. O conteúdo da solicitação é aquilo que é enviado para o Azure durante a implantação (por exemplo, criar uma VM, disco do sistema operacional e outros recursos). O conteúdo da resposta é aquilo que o Azure enviou de volta com base em sua solicitação de implantação. Durante a implantação, você pode usar o parâmetro **DeploymentDebugLogLevel** para especificar que a solicitação e/ou resposta seja mantida no log. 
 
-  Obter informações de log Olá e salvá-lo localmente usando Olá comandos do PowerShell a seguir:
+  Você obtém informações do log e salva-as localmente usando os seguintes comandos do PowerShell:
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
@@ -133,13 +133,13 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-1. Obter Olá status geral de uma implantação com hello **Mostrar de implantação de grupo do azure** comando.
+1. Obtenha o status geral de uma implantação com o comando **azure group deployment show** .
 
   ```azurecli
   azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
   ```
   
-  Um dos valores retornada de saudação é hello **correlationId**. Esse valor é usado tootrack relacionados a eventos e pode ser útil quando trabalhar com suporte técnico tootroubleshoot uma implantação.
+  Um dos valores retornados é **correlationId**. Esse valor é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema de implantação.
 
   ```azurecli
   "properties": {
@@ -147,7 +147,7 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
     "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
   ```
 
-2. operações de saudação toosee para uma implantação, use:
+2. Para ver as operações de uma implantação, use:
 
   ```azurecli
   azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
@@ -155,13 +155,13 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
 
 ## <a name="rest"></a>REST
 
-1. Obter informações sobre uma implantação com hello [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) operação.
+1. Obtenha informações sobre uma implantação com a operação [Obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
   ```
 
-    Em resposta hello, observe em particular Olá **provisioningState**, **correlationId**, e **erro** elementos. Olá **correlationId** usado tootrack relacionados a eventos e pode ser útil quando trabalhar com suporte técnico tootroubleshoot uma implantação.
+    Na resposta, observe em particular os elementos **provisioningState**, **correlationId** e **error**. **correlationId** é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema de implantação.
 
   ```json
   { 
@@ -178,13 +178,13 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
   }
   ```
 
-2. Obter informações sobre operações de implantação com hello [liste todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) operação. 
+2. Obtenha informações sobre operações de implantação com a operação [Listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
   ```
    
-    resposta de saudação inclui informações de solicitação de e/ou resposta com base no que você especificou no hello **debugSetting** propriedade durante a implantação.
+    A resposta inclui informações de solicitação e/ou resposta com base no que foi especificado na propriedade **debugSetting** durante a implantação.
 
   ```json
   {
@@ -213,7 +213,7 @@ operações de implantação toosee hello, Olá use as etapas a seguir:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter ajuda na resolução de erros de implantação específico, consulte [resolver erros comuns ao implantar recursos tooAzure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* toolearn sobre como usar a atividade de saudação logs toomonitor outros tipos de ações, consulte [toomanage Azure dos logs de atividades de exibição recursos](resource-group-audit.md).
-* toovalidate sua implantação antes de executá-lo, consulte [implantar um grupo de recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Para saber mais sobre como usar os logs de atividades para monitorar outros tipos de ação, confira [View activity logs to manage Azure resources](resource-group-audit.md) (Exibir logs de atividades para gerenciar recursos do Azure).
+* Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

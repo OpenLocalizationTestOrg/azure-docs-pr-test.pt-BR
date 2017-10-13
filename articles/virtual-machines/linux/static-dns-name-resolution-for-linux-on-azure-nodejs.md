@@ -1,5 +1,5 @@
 ---
-title: "aaaUsing resolução no Azure de nome de DNS interno de VM | Microsoft Docs"
+title: "Usando o DNS interno para a resolução de nomes da VM no Azure | Microsoft Docs"
 description: "Usando o DNS interno para a resolução de nomes da VM no Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: 94fd6577aa51ce5db4dc26649b415ddeeb410eb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Usando o DNS interno para a resolução de nomes da VM no Azure
 
-Este artigo mostra como tooset estático interno nomes DNS para VMs do Linux usando cartões de NIC Virtual (VNic) e nomes de rótulo DNS. Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
+Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando VNic (Placas NIC virtuais) e nomes de rótulo DNS. Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
 
-requisitos de saudação são:
+Esses requisitos são:
 
 * [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
-Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- [1.0 de CLI do Azure](#quick-commands) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
-- [2.0 do CLI do Azure](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
+- [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
+- [CLI 2.0 do Azure](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Se você precisar tooquickly realizar tarefa hello, Olá seção a seguir fornece detalhes sobre comandos Olá necessários. Obter mais informações e o contexto para cada etapa pode ser encontrada restante de saudação do documento hello, [Iniciar aqui](#detailed-walkthrough).  
+Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](#detailed-walkthrough).  
 
 Pré-requisitos: Grupo de Recursos, VNet, NSG com SSH de entrada e Sub-rede.
 
 ### <a name="create-a-vnic-with-a-static-internal-dns-name"></a>Criar uma VNic com um nome DNS interno estático
 
-Olá `-r` cli sinalizador é para o rótulo DNS Olá de configuração, que fornece o nome DNS estático Olá para Olá VNic.
+O sinalizador `-r` da CLI serve para definir o rótulo DNS, que fornece o nome DNS estático para a VNic.
 
 ```azurecli
 azure network nic create jenkinsVNic \
@@ -57,9 +57,9 @@ azure network nic create jenkinsVNic \
 -r jenkins
 ```
 
-### <a name="deploy-hello-vm-into-hello-vnet-nsg-and-connect-hello-vnic"></a>Implantar Olá VM em Olá VNet, NSG e conectar Olá VNic
+### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Implantar a VM na VNet, no NSG e conectar à VNic
 
-Olá `-N` conecta Olá VNic toohello nova máquina virtual durante a saudação tooAzure de implantação.
+O `-N` conecta a VNic à nova VM durante a implantação no Azure.
 
 ```azurecli
 azure vm create jenkins \
@@ -77,24 +77,24 @@ azure vm create jenkins \
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 
-Uma implantação contínua (CiCd) e integração contínua completo infra-estrutura no Azure exige que determinados servidores de servidores toobe vida longa ou estático.  É recomendável que os ativos do Azure como saudação de redes virtuais (VNets) e grupos de segurança de rede (NSGs), deve ser estáticos e vida útil longa recursos que raramente são implantados.  Quando uma rede virtual tiver sido implantada, ele pode ser reutilizado por novas implantações sem nenhuma infraestrutura de toohello efeitos adversos.  Adicionando rede estática de toothis um Git servidor do repositório e um servidor de automação Jenkins oferece CiCd tooyour ambientes de desenvolvimento ou teste.  
+Uma infraestrutura completa de CiCd (implantação e integração contínuas) no Azure exige que alguns servidores sejam estáticos ou de longa duração.  É recomendável que os ativos do Azure, como as VNets (Redes Virtuais) e os NSGs (Grupos de Segurança de Rede), sejam recursos estáticos e de longa duração que raramente são implantados.  Após a implantação de uma VNET, ela pode ser reutilizada por novas implantações sem nenhum efeito negativo sobre a infraestrutura.  A adição de um servidor de repositório Git e um servidor de automação Jenkins a essa rede estática oferece CiCd para os ambientes de desenvolvimento ou teste.  
 
-Nomes DNS internos podem ser resolvidos apenas em uma rede virtual do Azure.  Como os nomes DNS Olá são internos, eles não são toohello resolvível fora da internet, fornecendo a infra-estrutura de toohello de segurança adicional.
+Nomes DNS internos podem ser resolvidos apenas em uma rede virtual do Azure.  Como os nomes DNS são internos, eles não podem ser resolvidos para a Internet externa, fornecendo segurança adicional para a infraestrutura.
 
 _Substitua os exemplos por sua própria nomenclatura._
 
-## <a name="create-hello-resource-group"></a>Criar grupo de recursos de saudação
+## <a name="create-the-resource-group"></a>Criar o Grupo de recursos
 
-Um grupo de recursos é necessário tooorganize tudo o que podemos criar neste passo a passo.  Para obter mais informações sobre os Grupos de Recursos do Azure, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Um Grupo de Recursos é necessário para organizar tudo o que criamos neste passo a passo.  Para obter mais informações sobre os Grupos de Recursos do Azure, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure group create myResourceGroup \
 --location westus
 ```
 
-## <a name="create-hello-vnet"></a>Criar hello VNet
+## <a name="create-the-vnet"></a>Criar a VNET
 
-Olá primeira etapa é toobuild toolaunch uma rede virtual Olá VMs em.  Olá VNet contém uma sub-rede para este passo a passo.  Para obter mais informações sobre VNets do Azure, consulte [criar uma rede virtual usando Olá CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+A primeira etapa é criar uma VNET na qual as VMs serão iniciadas.  A VNET contém uma sub-rede para este passo a passo.  Para obter mais informações sobre as VNETs do Azure, consulte [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -103,9 +103,9 @@ azure network vnet create myVNet \
 --location westus
 ```
 
-## <a name="create-hello-nsg"></a>Criar hello NSG
+## <a name="create-the-nsg"></a>Criar o NSG
 
-Olá sub-rede é criado por trás de um grupo de segurança de rede existente, de forma que criamos Olá NSG antes Olá sub-rede.  Os NSGs do Azure são equivalentes tooa firewall na camada de rede de saudação.  Para obter mais informações sobre os NSGs do Azure, consulte [como NSGs toocreate em Olá CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+A Sub-rede é criada por trás de um Grupo de Segurança de Rede existente e, portanto, criamos o NSG antes da Sub-rede.  Os NSGs do Azure são equivalentes a um firewall na camada de rede.  Para obter mais informações sobre os NSGs do Azure, consulte [Como criar NSGs na CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network nsg create myNSG \
@@ -115,7 +115,7 @@ azure network nsg create myNSG \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>Adicionar uma regra de permissão de SSH de entrada
 
-Olá VM Linux precisa ter acesso de saudação à internet para que uma regra que permite a porta de entrada 22 tráfego toobe passado Olá rede tooport 22 na Olá VM do Linux é necessária.
+A VM do Linux precisa de acesso da Internet e, portanto, é necessária uma regra permitindo que o tráfego da porta 22 de entrada passe pela rede para a porta 22 na VM do Linux.
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -131,9 +131,9 @@ azure network nsg rule create inboundSSH \
 --destination-port-range 22
 ```
 
-## <a name="add-a-subnet-toohello-vnet"></a>Adicionar toohello uma sub-rede VNet
+## <a name="add-a-subnet-to-the-vnet"></a>Adicionar uma sub-rede à VNET
 
-VMs em redes de saudação devem estar localizadas em uma sub-rede.  Cada VNET pode ter várias sub-redes.  Criar uma sub-rede hello e associar sub-redes Olá Olá NSG tooadd uma sub-rede de toohello do firewall.
+As VMs na VNET devem estar localizadas em uma sub-rede.  Cada VNET pode ter várias sub-redes.  Crie a sub-rede e associe-a ao NSG para adicionar um firewall à sub-rede.
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -143,11 +143,11 @@ azure network vnet subnet create mySubNet \
 --network-security-group-name myNSG
 ```
 
-Olá sub-rede agora é adicionada Olá VNet e associado ao hello NSG e regras do NSG hello.
+Agora, a Sub-rede é adicionada à VNET e associada ao NSG e à regra do NSG.
 
 ## <a name="creating-static-dns-names"></a>Criando nomes DNS estáticos
 
-O Azure é muito flexível, mas toouse nomes DNS para resolução de nomes de máquinas virtuais, você precisa toocreate-los como Virtual cartões (VNics) usando o DNS de rotulagem de rede.  VNics são importantes para você pode reutilizá-los, conectando-os toodifferent VMs, que mantém Olá VNic como um recurso estático, enquanto Olá VMs pode ser temporário.  Usando o DNS rótulos nos Olá VNic, estamos tooenable capaz de resolução de nome simples de outras VMs em redes de saudação.  Usando nomes resolvível permite que outro servidor de automação VMs tooaccess Olá por nome DNS Olá `Jenkins` ou servidor de Git hello como `gitrepo`.  Crie uma VNic e associá-lo a saudação que sub-rede criada na etapa anterior hello.
+O Azure é muito flexível, mas para usar nomes DNS para a resolução de nomes de VMs, você precisa criá-los como VNics (Placas de rede virtual) usando a rotulagem DNS.  As VNics são importantes, pois você pode reutilizá-las conectando-as a VMs diferentes, o que mantém a VNic como um recurso estático, enquanto as VMs podem ser temporárias.  Ao usar a rotulagem DNS na VNic, podemos habilitar a resolução de nomes simples em outras VMs na VNet.  Usar nomes que podem ser resolvidos permite que outras VMs acessem o servidor de automação com o nome DNS `Jenkins` ou o servidor Git como `gitrepo`.  Crie uma VNic e associe-a à Sub-rede criada na etapa anterior.
 
 ```azurecli
 azure network nic create jenkinsVNic \
@@ -158,11 +158,11 @@ azure network nic create jenkinsVNic \
 -r jenkins
 ```
 
-## <a name="deploy-hello-vm-into-hello-vnet-and-nsg"></a>Implantar hello VM em Olá VNet e NSG
+## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Implantar a VM na VNET e no NSG
 
-Agora temos uma rede virtual, uma sub-rede dentro dessa rede virtual e um NSG atuando como um firewall tooprotect nosso sub-rede bloqueando todo o tráfego de entrada exceto 22 de porta para o SSH.  Olá VM agora pode ser implantado nessa infraestrutura de rede existente.
+Agora temos uma VNET, uma sub-rede nela e um NSG atuando como um firewall, para proteger nossa sub-rede bloqueando todo o tráfego de entrada, exceto pela porta 22 para o SSH.  Agora a VM pode ser implantada nessa infraestrutura de rede existente.
 
-Usando Olá CLI do Azure e Olá `azure vm create` comando, Olá VM do Linux é implantado toohello grupo de recursos do Azure, redes, sub-rede e VNic existentes.  Para obter mais informações sobre como usar o hello CLI toodeploy uma VM completa, consulte [criar um ambiente completo do Linux usando Olá CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Usando a CLI do Azure e o comando `azure vm create`, a VM do Linux é implantada no Grupo de Recursos do Azure, na VNET, na Sub-rede e na VNic existentes.  Para obter mais informações sobre como usar a CLI para implantar uma VM completa, consulte [Criar um ambiente completo do Linux usando a CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure vm create jenkins \
@@ -178,7 +178,7 @@ azure vm create jenkins \
 --nic-name jenkinsVNic
 ```
 
-Usando Olá CLI sinalizadores de toocall recursos existentes, podemos instruir Olá toodeploy Azure VM dentro da rede existente hello.  tooreiterate, depois que uma rede virtual e a sub-rede forem implantados, eles podem ser mantidos como estáticos ou permanentes de recursos dentro de sua região do Azure.  
+Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o Azure a implantar a VM na rede existente.  Em outras palavras, depois que uma VNET e uma sub-rede forem implantadas, elas poderão ser mantidas como recursos estáticos ou permanentes na região do Azure.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview e a comparação do Azure na demandam codificadores de mídia | Microsoft Docs"
+title: "Visão geral e comparação de codificadores de mídia sob demanda do Azure | Microsoft Docs"
 description: "Este tópico fornece uma visão geral e uma comparação dos codificadores de mídia sob demanda do Azure."
 services: media-services
 documentationcenter: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 24a3e0a16162b1bebfcde290b6baf2dd8dbfff17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure
 ## <a name="encoding-overview"></a>Visão Geral de Codificação
-Serviços de mídia do Azure fornece várias opções para Olá codificação de mídia na nuvem hello.
+Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
-Começando com os serviços de mídia, é importante toounderstand diferença de saudação entre codecs e formatos de arquivo.
-Codecs são Olá de software que implementa os algoritmos de compactação/descompactação Olá enquanto formatos de arquivo são contêineres que armazenam o vídeo Olá compactado.
+Ao começar a usar os Serviços de Mídia é importante compreender a diferença entre codecs e formatos de arquivo.
+Codecs são o software que implementa os algoritmos de compactação/descompactação. Já os formatos de arquivo são contêineres que armazenam o vídeo compactado.
 
-Serviços de mídia fornecem empacotamento dinâmico que permite que você toodeliver sua taxa de bits adaptável MP4 ou Smooth Streaming codificado conteúdo de streaming formatos suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming) sem a necessidade de toore-package nesses formatos de fluxo contínuo.
+Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribuir seu conteúdo codificado em Smooth Streaming ou MP4 com taxa de bits adaptável em formatos de streaming com suporte dos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming), sem a necessidade de empacotar novamente nesses formatos de streaming.
 
 >[!NOTE]
->Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado. aproveitar tootake [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa toodo Olá seguinte:
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
 >
->Além disso, codifica o arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável (etapas de codificação Olá são demonstradas posteriormente neste tutorial).
+>Além disso, codifique seu arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais adiante neste tutorial).
 
-Serviços de mídia oferece suporte a seguinte Olá em codificadores de demanda que são descritos neste artigo:
+Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Este artigo fornece uma visão geral de sob demanda codificadores de mídia e fornece links tooarticles que fornecem informações mais detalhadas. tópico de Olá também fornece a comparação de codificadores hello.
+Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
 
 >[!NOTE]
->Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem que você toohave várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
+>Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
-### <a name="how-toouse"></a>Como toouse
-[Como tooencode com o codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
+### <a name="how-to-use"></a>Como usar
+[Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
 ### <a name="formats"></a>Formatos
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-Codificador de mídia padrão é configurado usando uma das predefinições de codificador Olá descritas [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
-Olá codificadores metadados de entrada é descrito [aqui](media-services-input-metadata-schema.md).
+Os metadados de entrada dos codificadores estão descritos [aqui](media-services-input-metadata-schema.md).
 
-Olá codificadores metadados de saída é descrito [aqui](media-services-output-metadata-schema.md).
+Os metadados de saída dos codificadores estão descritos [aqui](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Gerar miniaturas
-Para obter informações, consulte [como miniaturas toogenerate usando o codificador de mídia padrão](media-services-advanced-encoding-with-mes.md#thumbnails).
+Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#thumbnails).
 
 ### <a name="trim-videos-clipping"></a>Cortar vídeos (recorte)
-Para obter informações, consulte [como vídeos tootrim usando o codificador de mídia padrão](media-services-advanced-encoding-with-mes.md#trim_video).
+Para obter informações, veja [Como cortar vídeos usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#trim_video).
 
 ### <a name="create-overlays"></a>Criar sobreposições
-Para obter informações, consulte [como sobreposições toocreate usando o codificador de mídia padrão](media-services-advanced-encoding-with-mes.md#overlay).
+Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Consulte também
-[blog de serviços de mídia Olá](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
+### <a name="see-also"></a>Confira também
+[O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
 ### <a name="overview"></a>Visão geral
 [Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### <a name="how-toouse"></a>Como toouse
-O fluxo de trabalho do Media Encoder Premium é configurado usando fluxos de trabalho complexos. Arquivos de fluxo de trabalho pode ser criados e atualizado com hello [Designer de fluxo de trabalho](media-services-workflow-designer.md) ferramenta.
+### <a name="how-to-use"></a>Como usar
+O fluxo de trabalho do Media Encoder Premium é configurado usando fluxos de trabalho complexos. Os arquivos de fluxo de trabalho podem ser criados e atualizados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md) .
 
-[Como tooUse Premium de codificação no Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+[Como usar a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Problemas conhecidos
-Se o vídeo de entrada não contém a legenda codificada, Olá saída que ativo ainda conterá um arquivo TTML vazio.
+Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

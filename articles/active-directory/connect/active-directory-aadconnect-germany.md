@@ -1,7 +1,7 @@
 ---
-title: aaaAzure AD Connect na Alemanha Microsoft Cloud
-description: "O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você tooprovide uma identidade comum para aplicativos do Office 365, Azure e SaaS integrada ao AD do Azure."
-keywords: "Introdução tooAzure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory, Alemanha, preto floresta"
+title: Azure AD Connect na Microsoft Cloud Alemanha
+description: "O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para os aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure."
+keywords: "introdução ao Azure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory, Alemanha, Floresta Negra"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f32194fa6c365614f68e5d1ddcf0dac44d223292
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4c55b116c0dc080ae316caca873a7b693caa793b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect na Microsoft Cloud Alemanha - Visualização Pública
 ## <a name="introduction"></a>Introdução
 O Azure AD Connect fornece sincronização entre o Active Directory local e o Azure Active Directory.
-Atualmente, muitos dos cenários de saudação em [Microsoft Cloud Alemanha](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) deve ser feito por operador hello. Ao usar o Microsoft Cloud Alemanha, você deve estar ciente do seguinte hello:
+Atualmente, muitos dos cenários em [Microsoft Cloud Alemanha](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) devem ser realizados pela operadora. Ao usar o Microsoft Cloud Alemanha, você deve estar ciente do seguinte:
 
-* Olá que URLs a seguir devem ser abertas em um servidor proxy para sincronização toooccur com êxito:
+* As URLs a seguir devem ser abertas em um servidor proxy para que a sincronização tenha êxito:
   
   * *.microsoftonline.de
   * *.windows.net
   * * Listas de Revogação de Certificados
-* Quando você entrar no diretório do AD do Azure tooyour, você deve usar uma conta no domínio de onmicrosoft.de hello.
-* Olá recursos a seguir não está disponível:
+* Quando você entrar em seu diretório do Azure AD, deverá usar uma conta com o domínio onmicrosoft.de.
+* Os seguintes recursos não estão disponíveis:
   * Azure AD Connect Health
   * Atualizações automáticas
  
 ## <a name="download"></a>Baixar
-Você pode baixar o Azure AD Connect da folha de conexão do AD do Azure hello dentro do portal de saudação.  Use as instruções de saudação abaixo folha do toolocate hello Azure AD Connect.
+Você pode baixar o Azure AD Connect da folha do Azure AD Connect no portal.  Use as instruções abaixo para localizar a folha do Azure AD Connect.
 
-### <a name="hello-azure-ad-connect-blade"></a>saudação do Azure AD Connect-folha
-Depois de ter entrado no toohello portal do Azure, Olá a seguir:
+### <a name="the-azure-ad-connect-blade"></a>A folha do Azure AD Connect
+Depois que você entrar no portal do Azure, faça o seguinte:
 
-1. Vá tooBrowse
+1. Vá para Procurar
 2. Selecione Azure Active Directory
 3. Em seguida, selecione Azure AD Connect
 
-Você verá a seguinte hello:
+Você deve ver o seguinte:
 
 ![Folha do Azure AD Connect](media/active-directory-aadconnect-germany/germany1.png)
 
-Hello tabela a seguir descreve os recursos de saudação mostrados na folha de saudação.
+A tabela a seguir descreve os recursos mostrados na folha.
 
 | Title | Descrição |
 | --- | --- |
 | STATUS DA SINCRONIZAÇÃO |Informa se a sincronização está habilitada ou desabilitada. |
-| ÚLTIMA SINCRONIZAÇÃO |Olá a última vez em que uma sincronização bem-sucedida foi concluída. |
-| DOMÍNIOS FEDERADOS |Mostra o número de saudação de domínios federados configurado no momento. |
+| ÚLTIMA SINCRONIZAÇÃO |A última vez que uma sincronização bem-sucedida foi concluída. |
+| DOMÍNIOS FEDERADOS |Mostra o número de domínios federados configurado no momento. |
 
 ## <a name="installation"></a>Instalação
-tooinstall do Azure AD Connect, você pode usar a documentação de saudação [aqui](active-directory-aadconnect.md#install-azure-ad-connect).
+Para instalar o Azure AD Connect, você pode usar a documentação [aqui](active-directory-aadconnect.md#install-azure-ad-connect).
 
 ## <a name="advanced-features-and-additional-information"></a>Recursos avançados e informações adicionais
-Para obter informações adicionais e orientação sobre as configurações personalizadas ou configurações avançadas, comece em [Integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).  Esta página fornece informações e links tooadditional orientação.
+Para obter informações adicionais e orientação sobre as configurações personalizadas ou configurações avançadas, comece em [Integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).  Esta página fornece informações e links para orientações adicionais.
 

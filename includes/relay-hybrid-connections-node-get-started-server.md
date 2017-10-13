@@ -2,25 +2,25 @@
 
 Crie um novo arquivo JavaScript chamado `listener.js`.
 
-### <a name="add-hello-relay-npm-package"></a>Adicionar pacote de NPM de retransmissão Olá
+### <a name="add-the-relay-npm-package"></a>Adicionar o pacote NPM de retransmissão
 
 Execute `npm install hyco-ws` em um prompt de comando do Node na pasta do projeto.
 
-### <a name="write-some-code-tooreceive-messages"></a>Escrever um código tooreceive mensagens
+### <a name="write-some-code-to-receive-messages"></a>Escrever código para receber mensagens
 
-1. Adicionar Olá após constante toohello superior de saudação `listener.js` arquivo.
+1. Adicione a seguinte constante ao início do arquivo `listener.js`.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Adicionar Olá toohello constantes a seguir `listener.js` detalhes de conexão híbrida Olá no arquivo. Substitua espaços reservados de saudação entre colchetes com valores hello obtido quando você criou a conexão do hello híbrida.
+2. Adicione as seguintes constantes ao arquivo `listener.js` para obter os detalhes de conexão híbrida. Substitua os espaços reservados entre colchetes pelos valores obtidos quando você criou a conexão híbrida.
    
-   1. `const ns`-Olá namespace de retransmissão. Ser nome de namespace totalmente qualificado do hello toouse se; Por exemplo, `{namespace}.servicebus.windows.net`.
-   2. `const path`-nome hello de conexão do hello híbrida.
-   3. `const keyrule`-nome de saudação da chave SAS de saudação.
-   4. `const key`-Olá valor de chave de SAS.
+   1. `const ns` - o namespace de retransmissão. Use o nome totalmente qualificado do namespace, por exemplo, `{namespace}.servicebus.windows.net`.
+   2. `const path` - o nome da conexão híbrida.
+   3. `const keyrule` - o nome da chave SAS.
+   4. `const key` - o valor da chave SAS.
 
-3. Adicionar Olá toohello de código a seguir `listener.js` arquivo:
+3. Adicione o seguinte código ao arquivo `listener.js`:
    
     ```js
     var wss = WebSocket.createRelayedServer(

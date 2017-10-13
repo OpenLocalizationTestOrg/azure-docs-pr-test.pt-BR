@@ -1,5 +1,5 @@
 ---
-title: tabelas de aaaDistributing no SQL Data Warehouse | Microsoft Docs
+title: Como distribuir tabelas no SQL Data Warehouse | Microsoft Docs
 description: "Introdução à distribuição de tabelas no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: 65093eeaeb00fef85aaa6070da2c976fed3f4bbe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribuindo tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,36 +33,36 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP).  Ao dividir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.  Decidir como toodistribute seus dados no Data Warehouse do SQL são uma saudação mais importante fatores tooachieving o desempenho ideal.   desempenho de chave toooptimal Olá é minimizar a movimentação de dados e por sua vez movimentação de dados de chave toominimizing Olá é selecionando estratégia de distribuição direita hello.
+SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP).  Ao dividir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.  Decidir como distribuir seus dados dentro de seu SQL Data Warehouse é um dos fatores mais importantes para alcançar um desempenho ideal.   A chave para o desempenho ideal é minimizar a movimentação dos dados, e a chave para minimizar a movimentação de dados é selecionar a estratégia de distribuição correta.
 
 ## <a name="understanding-data-movement"></a>Noções básicas sobre a movimentação de dados
-Em um sistema MPP, dados de saudação de cada tabela são divididos em vários bancos de dados subjacentes.  consultas Hello mais otimizado em um sistema MPP podem simplesmente ser passadas tooexecute em Olá individuais bancos de dados distribuídos sem a interação entre Olá outros bancos de dados.  Por exemplo, digamos que você tenha um banco de dados com dados de vendas que contém duas tabelas, vendas e clientes.  Se você tiver uma consulta que precisa toojoin sua tabela de cliente tooyour tabela de vendas e você dividir vendas e tabelas de cliente para cima pelo número de clientes, colocando cada cliente em um banco de dados, todas as consultas que unem vendas e clientes podem ser resolvidas dentro de cada banco de dados sem conhecimento de Olá outros bancos de dados.  Por outro lado, se seus dados de vendas é dividido pelo número de ordem e dados do cliente por número de cliente, em seguida, determinado banco de dados não terá dados correspondentes Olá para cada cliente e, portanto, se você quisesse toojoin seus dados de cliente de tooyour de dados de vendas, você precisaria tooget hello dados para cada cliente da saudação outros bancos de dados.  No segundo exemplo, a movimentação de dados necessário toooccur toomove Olá dados toohello vendas dados do cliente, para que Olá duas tabelas podem ser unidas.  
+Em um sistema MPP, os dados de cada tabela são divididos em vários bancos de dados subjacentes.  As consultas mais otimizadas em um sistema MPP podem simplesmente ser passadas para executar em bancos de dados distribuídos individuais sem interação entre os outros bancos de dados.  Por exemplo, digamos que você tenha um banco de dados com dados de vendas que contém duas tabelas, vendas e clientes.  Se você tiver uma consulta que precise unir a tabela de vendas à tabela de clientes, e dividir as tabelas de vendas e clientes pelo número de clientes, colocando cada cliente em um banco de dados separado, todas as consultas que unem vendas e clientes poderão ser resolvidas em cada banco de dados sem conhecimento dos outros bancos de dados.  Por outro lado, se você dividir seus dados de vendas pelo número de pedido e seus dados de clientes pelo número de cliente, qualquer banco de dados específico não terá os dados correspondentes para cada cliente e, assim, se você quiser unir os dados de vendas aos dados de clientes, precisará obter os dados de cada cliente dos outros bancos de dados.  No segundo exemplo, a movimentação de dados precisa ocorrer para mover os dados de clientes para os dados de vendas, de modo que as duas tabelas possam ser unidas.  
 
-Movimentação de dados nem sempre é ruim, às vezes é necessário toosolve uma consulta.  Porém, quando essa etapa extra pode ser evitada, naturalmente a consulta é executada mais depressa.  A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações.  Geralmente, é necessário toodo ambos, portanto enquanto você poderá toooptimize para um cenário, como uma junção, você ainda precisa toohelp de movimentação de dados para resolver Olá outro cenário, como uma agregação.  truque Olá é descobrir qual é o menos trabalho.  Na maioria dos casos, a distribuição de grandes tabelas de fatos em uma coluna normalmente associada é Olá método mais eficaz para reduzir a saudação mais a movimentação de dados.  Distribuição de dados em colunas de junção é uma movimentação de dados de tooreduce método muito mais comum de distribuir dados em colunas envolvidas em uma agregação.
+A movimentação de dados nem sempre é ruim; às vezes, ela é necessária para resolver uma consulta.  Porém, quando essa etapa extra pode ser evitada, naturalmente a consulta é executada mais depressa.  A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações.  Muitas vezes, você precisa fazer ambos. Portanto, embora possa fazer a otimização de um cenário, como uma associação, você ainda precisará da movimentação de dados para ajudar a resolver o outro cenário, como uma agregação.  O truque é descobrir o que dá menos trabalho.  Na maioria dos casos, a distribuição de grandes tabelas de fatos em uma coluna unida normalmente é o método mais eficaz para reduzir a maior parte da movimentação de dados.  A distribuição de dados em colunas de junção é um método muito mais comum para reduzir a movimentação de dados, em vez da distribuição de dados em colunas envolvidas em uma agregação.
 
 ## <a name="select-distribution-method"></a>Selecionar método de distribuição
-Em segundo plano hello, o SQL Data Warehouse divide os dados em 60 bancos de dados.  Cada banco de dados individual é chamado tooas um **distribuição**.  Quando dados são carregados em cada tabela, o SQL Data Warehouse tem tooknow como toodivide seus dados em 60 distribuições.  
+Nos bastidores, o SQL Data Warehouse divide seus dados em 60 bancos de dados.  Cada banco de dados individual é conhecido como uma **distribuição**.  Quando os dados são carregados em cada tabela, o SQL Data Warehouse precisa saber como dividir dados entre essas 60 distribuições.  
 
-método de distribuição de saudação é definido no nível de tabela hello e atualmente, há duas opções:
+O método de distribuição é definido no nível da tabela e, atualmente, há duas opções:
 
 1. **Round robin** , que distribui dados uniformemente, mas aleatoriamente.
 2. **Distribuídos por hash** , que distribui dados baseados em valores de hash de uma única coluna
 
-Por padrão, quando você não definir um método de distribuição de dados, sua tabela será distribuída usando Olá **rodízio** método de distribuição.  No entanto, como se tornam mais sofisticadas em sua implementação, será conveniente usando tooconsider **hash distribuída** tabelas toominimize a movimentação de dados que por sua vez otimizar desempenho de consulta.
+Por padrão, quando você não define um método de distribuição de dados, a tabela será distribuída usando o método de distribuição **round robin** .  No entanto, conforme a sua implementação vai se tornando mais sofisticada, convém considerar o uso de tabelas **distribuídas por hash** para minimizar a movimentação de dados, que por sua vez otimizará o desempenho da consulta.
 
 ### <a name="round-robin-tables"></a>Tabelas Round Robin
-Usar Olá método Round Robin de distribuição de dados é muito como parece.  Como seus dados são carregados, cada linha é simplesmente enviada toohello próxima distribuição.  Esse método de distribuição de dados saudação será sempre distribui aleatoriamente dados saudação muito uniformemente em todas as distribuições de saudação.  Ou seja, não há nenhuma classificação feito durante a saudação round robin processo coloca seus dados.  Uma distribuição round robin é chamada às vezes de hash aleatório por esse motivo.  Com uma tabela distribuída round robin, não há nenhum dado de saudação do toounderstand de necessidade.  Por esse motivo, as tabelas Round Robin normalmente são bons destinos de carregamento.
+O uso do método Round Robin de distribuição de dados é basicamente como parece.  Conforme seus dados vão sendo carregados, cada linha é simplesmente enviada para a próxima distribuição.  Esse método de distribuição de dados sempre distribui os dados muito uniforme e aleatoriamente em todas as distribuições.  Ou seja, não há uma classificação durante o processo de round robin que coloca seus dados.  Uma distribuição round robin é chamada às vezes de hash aleatório por esse motivo.  Com uma tabela distribuída por round robin, não é necessário compreender os dados.  Por esse motivo, as tabelas Round Robin normalmente são bons destinos de carregamento.
 
-Por padrão, se nenhum método de distribuição for escolhido, hello método de distribuição de round robin será usado.  No entanto, enquanto as tabelas de rodízio são toouse fácil, porque os dados são distribuídos aleatoriamente sistema Olá significa que o sistema Olá não pode garantir qual distribuição cada linha são no.  Como resultado, o sistema de hello, às vezes, precisa tooinvoke um toobetter de operação de movimentação de dados organize seus dados antes que ele possa resolver uma consulta.  Essa etapa extra pode causar lentidão em suas consultas.
+Por padrão, se nenhum método de distribuição for escolhido, o método de distribuição round robin será usado.  No entanto, embora as tabelas round robin sejam fáceis de usar, como os dados são distribuídos aleatoriamente em todo o sistema, isso significa que o sistema não pode garantir em que distribuição está cada linha.  Como resultado, o sistema às vezes precisa chamar uma operação de movimentação de dados para organizar melhor seus dados antes de poder resolver uma consulta.  Essa etapa extra pode causar lentidão em suas consultas.
 
-Considere o uso de distribuição de Round Robin para a tabela na Olá os seguintes cenários:
+Considere usar a distribuição round robin para a sua tabela nos seguintes cenários:
 
 * Ao começar, como um simples ponto de partida
 * Se não houver uma chave de junção óbvia
-* Se não houver coluna boa candidata para hash distribuindo tabela Olá
-* Se hello tabela não deve compartilhar uma chave de junção comum com outras tabelas
-* Se a junção Olá será menos significativa do que outras junções na consulta Olá
-* Quando Olá é uma tabela de preparo temporária
+* Se não houver colunas candidatas boas para distribuir a tabela de hash
+* Se a tabela não compartilhar uma chave de junção comum com outras tabelas
+* Se a junção for menos significativa do que outras junções na consulta
+* Quando a tabela é uma tabela temporária de preparo
 
 Ambos os exemplos criarão uma tabela Round Robin:
 
@@ -99,12 +99,12 @@ WITH
 ```
 
 > [!NOTE]
-> Enquanto o round robin é o tipo de tabela padrão Olá sendo explícita no seu DDL é considerado uma prática recomendada para que intenções saudação de seu layout de tabela são tooothers clara.
+> Embora o round robin seja o tipo de tabela padrão, ser claro em seu DDL é considerado uma prática recomendada para que as intenções do seu layout de tabela fiquem claras para outras pessoas.
 >
 >
 
 ### <a name="hash-distributed-tables"></a>Tabelas distribuídas por hash
-Usando um **Hash distribuída** algoritmo toodistribute suas tabelas podem melhorar o desempenho em muitos cenários, reduzindo a movimentação de dados no momento da consulta.  Hash de tabelas distribuídas são aquelas que são divididas entre hello distribuído bancos de dados usando um algoritmo de hash em uma única coluna que você selecionar.  coluna de distribuição de saudação é o que determina como os dados saudação são divididos em seus bancos de dados distribuídos.  função de hash Olá usa Olá distribuição coluna tooassign linhas toodistributions.  Olá algoritmo de hash e distribuição resultante é determinística.  Ou seja, Olá mesmo valor com o mesmo tipo de dados será sempre de saudação tem toohello mesma distribuição.    
+Usar um algoritmo **Distribuído por hash** para distribuir suas tabelas pode melhorar o desempenho em muitos cenários, reduzindo a movimentação de dados no momento da consulta.  As tabelas distribuídas por hash são tabelas divididas entre os bancos de dados distribuídos usando um algoritmo de hash em uma única coluna que você seleciona.  A coluna de distribuição é o que determina como os dados são divididos em seus bancos de dados distribuídos.  A função de hash usa a coluna de distribuição para atribuir linhas a distribuições.  O algoritmo de hash e a distribuição resultante são determinísticos.  Isso é, o mesmo valor com o mesmo tipo de dados sempre terá a mesma distribuição.    
 
 Este exemplo criará uma tabela distribuída na ID:
 
@@ -127,7 +127,7 @@ WITH
 ```
 
 ## <a name="select-distribution-column"></a>Selecionar coluna de distribuição
-Quando você escolhe muito**hash distribuir** uma tabela, você precisará tooselect uma coluna de distribuição individuais.  Ao selecionar uma coluna de distribuição, há tooconsider de três fatores principais.  
+Quando você opta por **distribuir uma tabela por hash** , precisa selecionar uma coluna de distribuição individual.  Ao selecionar uma coluna de distribuição, três principais fatores deverão ser considerados.  
 
 Selecione uma única coluna que:
 
@@ -136,52 +136,52 @@ Selecione uma única coluna que:
 3. Minimizar a movimentação de dados
 
 ### <a name="select-distribution-column-which-will-not-be-updated"></a>Selecionar a coluna de distribuição que não será atualizada
-As colunas de distribuição não são atualizáveis. Portanto, selecione uma coluna com valores estáticos.  Se uma coluna precisará toobe atualizado, geralmente não é um candidato de distribuição válido.  Se houver um caso em que você deve atualizar uma coluna de distribuição, isso pode ser feito primeiro excluindo linha hello e, em seguida, inserir uma nova linha.
+As colunas de distribuição não são atualizáveis. Portanto, selecione uma coluna com valores estáticos.  Se uma coluna precisar ser atualizada, ela geralmente não será uma candidata a distribuição válida.  Se você precisar atualizar uma coluna de distribuição, isso pode ser feito excluindo a linha e inserindo uma nova linha.
 
 ### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Selecionar a coluna de distribuição que distribuirá os dados uniformemente
-Como um sistema distribuído executa somente tão rápida quanto sua distribuição mais lenta, é importante toodivide Olá trabalho uniformemente em distribuições de saudação em ordem tooachieve balanceada execução em todo sistema Olá.  forma de Olá Olá trabalho é dividido em um sistema distribuído baseia-se em onde residem os dados de saudação para cada distribuição.  Isso torna coluna de distribuição direita Olá tooselect muito importante para distribuir dados saudação para que cada distribuição tem trabalho igual e será take Olá mesmo toocomplete de tempo sua parte do trabalho de saudação.  Quando o trabalho também é dividido em todo sistema hello, dados de saudação são balanceados em distribuições de saudação.  Quando os dados não são equilibrados igualmente, chamamos esse evento de **distorção de dados**.  
+Como a velocidade máxima de um sistema distribuído é a sua distribuição mais lenta, é importante dividir o trabalho igualmente entre as distribuições para conseguir uma execução equilibrada em todo o sistema.  A forma como o trabalho é dividido em um sistema distribuído baseia-se em onde residem os dados de cada distribuição.  Isso faz com que a seleção da coluna de distribuição correta para distribuir os dados seja muito importante, para que cada distribuição possua a mesma quantidade de trabalho e leve o mesmo tempo para concluir sua parte do trabalho.  Quando o trabalho é bem dividido em todo o sistema, os dados são equilibrados entre as distribuições.  Quando os dados não são equilibrados igualmente, chamamos esse evento de **distorção de dados**.  
 
-toodivide dados uniformemente e evitar a distorção de dados, considere a seguinte Olá ao selecionar a coluna de distribuição:
+Para dividir os dados uniformemente e evitar a distorção de dados, considere o seguinte ao selecionar a coluna de distribuição:
 
 1. Selecione uma coluna quem contenha um número significativo de valores distintos.
 2. Evite a distribuição de dados em colunas com poucos valores distintos.
 3. Evite a distribuição de dados em colunas com uma alta frequência de valores nulos.
 4. Evite a distribuição de dados em colunas de data.
 
-Como cada valor de hash too1 de 60 distribuições, distribuição uniforme tooachieve você desejará tooselect uma coluna que é altamente exclusivo e contém mais de 60 valores exclusivos.  tooillustrate, considere um caso em que a coluna tem apenas 40 valores exclusivos.  Se esta coluna foi marcada como chave de distribuição Olá, dados Olá para aquela tabela acabaria em 40 distribuições no máximo, deixando 20 distribuições com nenhum dado e nenhum toodo de processamento.  Por outro lado, hello outras 40 distribuições teria mais toodo de trabalho que se hello dados foi distribuídos uniformemente distribuições mais de 60.  Esse cenário é um exemplo de distorção de dados.
+Já que cada valor é distribuído por hash para uma das 60 distribuições, para conseguir uma distribuição uniforme, você deverá selecionar uma coluna que seja altamente exclusiva e que forneça mais de 60 valores exclusivos.  Para ilustrar, considere o caso em que a coluna tenha apenas 40 valores exclusivos.  Se esta coluna tivesse sido selecionada como a chave de distribuição, os dados da tabela acabariam em 40 distribuições no máximo, deixando 20 distribuições sem nenhum processamento ou dados.  Por outro lado, as outras 40 distribuições teriam mais trabalho a fazer do que se os dados fossem espalhados uniformemente entre as 60 distribuições.  Esse cenário é um exemplo de distorção de dados.
 
-No sistema MPP, cada etapa de consulta aguarda toocomplete de todas as distribuições seu compartilhamento de trabalho hello.  Se uma distribuição fazendo mais trabalho do hello outras pessoas, Olá recursos de saudação outras distribuições são essencialmente desperdiçadas espera na distribuição de saudação ocupado.  Quando o trabalho não é distribuído de maneira uniforme entre todas as distribuições, nós chamamos este evento de **distorção de processamento**.  Distorção de processamento fará com que consultas toorun mais lento do que se cargas de trabalho Olá possam ser distribuídas uniformemente em distribuições de saudação.  Distorção de dados levará tooprocessing distorção.
+No sistema MPP, cada etapa de consulta aguarda todas as distribuições concluírem sua parte do trabalho.  Se uma distribuição estiver fazendo mais trabalho do que as outras, o recurso das outras distribuições serão essencialmente desperdiçados enquanto aguardam a distribuição ocupada.  Quando o trabalho não é distribuído de maneira uniforme entre todas as distribuições, nós chamamos este evento de **distorção de processamento**.  A distorção de processamento fará com que as consultas sejam executadas de forma mais lenta do que se a carga de trabalho pudesse ser distribuída de modo uniforme entre as distribuições.  A distorção de dados levará à distorção de processamento.
 
-Evitar a distribuição na coluna anulável altamente como valores nulos Olá todos verá Olá mesmo distribuição. Distribuindo em uma coluna de data também pode causar distorção de processamento porque todos os dados para uma determinada data serão levadas em Olá mesmo distribuição. Se vários usuários estiverem executando consultas todos filtragem em Olá mesmo data, em seguida, apenas 1 de distribuições de 60 Olá fará todo o trabalho de saudação desde a data será apenas em uma distribuição. Nesse cenário, as consultas de saudação provavelmente serão executado 60 vezes mais lentos do que se os dados saudação foram igualmente distribuídos por todas as distribuições de saudação do.
+Evite distribuir na coluna altamente anulável, uma vez que os valores nulos serão levados na mesma distribuição. A distribuição em uma coluna de data também pode causar a distorção de processamento porque todos os dados de uma determinada data serão levados para a mesma distribuição. Se vários usuários estiverem executando consultas e todos estiverem filtrando na mesma data, apenas uma das 60 distribuições estará fazendo todo o trabalho, visto que uma determinada data estará somente em uma distribuição. Neste cenário, as consultas provavelmente serão executadas de forma 60 vezes mais lenta do que se os dados fossem divididos igualmente por todas as distribuições.
 
-Quando nenhuma coluna de boa candidata existe, considere o uso de rodízio como método de distribuição hello.
+Quando não há colunas adequadas, considere o uso de round robin como método de distribuição.
 
 ### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Selecione a coluna de distribuição que irá minimizar a movimentação de dados
-Minimizando a movimentação de dados, selecionando Olá distribuição certa coluna é uma das estratégias mais importantes de saudação para otimizar o desempenho do Data Warehouse do SQL.  A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações.  Todas as colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` são candidatas à **boa** distribuição de hash.
+Minimizar a movimentação de dados selecionando a coluna de distribuição correta é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse.  A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações.  Todas as colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` são candidatas à **boa** distribuição de hash.
 
-Olá por outro lado, as colunas em Olá `WHERE` cláusula execute **não** fazer candidatos a coluna hash bom porque eles limitam quais distribuições participarem consulta hello, fazendo com que o processamento de distorção.  Um bom exemplo de uma coluna que pode ser tentador toodistribute, mas geralmente pode causar esse processamento distorção é uma coluna de data.
+Por outro lado, as colunas na cláusula `WHERE`**não** são boas para a coluna de hash porque elas limitam quais distribuições participam da consulta, causando a distorção do processamento.  Um bom exemplo de uma coluna que pode ser convidativa para distribuir, mas geralmente pode causar essa distorção de processamento, é uma coluna de data.
 
-Em geral, se você tiver duas tabelas de fatos grande envolvidas frequentemente em uma junção, você obterá Olá maioria do desempenho através da distribuição de ambas as tabelas em uma das colunas de junção de saudação.  Se você tiver uma tabela que nunca é unida tooanother grande tabela de fatos, então, ser toocolumns que estejam frequentemente em Olá `GROUP BY` cláusula.
+Em termos gerais, se tiver duas tabelas de fatos grande frequentemente envolvidas em uma associação, você obterá mais desempenho distribuindo ambas as tabelas em uma das colunas de junção.  Se você tiver uma tabela que nunca foi unida a outra tabela de fatos grande, procure as colunas que estão frequentemente na cláusula `GROUP BY` .
 
-Há alguns critérios principais que devem ser atendidos tooavoid a movimentação de dados durante uma junção:
+Há alguns critérios principais que devem ser atendidos para evitar a movimentação de dados durante uma junção:
 
-1. Hello tabelas envolvidas na junção Olá devem ser distribuído em hash **um** de colunas Olá participam da junção hello.
-2. tipos de dados Olá Olá de colunas de junção devem corresponder entre as duas tabelas.
-3. colunas de saudação devem estar associadas com um operador equals.
-4. Olá tipo de associação não pode ser um `CROSS JOIN`.
+1. As tabelas envolvidas na junção devem ser distribuídas por hash em **uma** das colunas que participam da junção.
+2. Os tipos de dados das colunas de junção devem ser correspondentes entre as duas tabelas.
+3. As colunas devem ser associadas com um operador equals.
+4. O tipo de associação pode não ser uma `CROSS JOIN`.
 
 ## <a name="troubleshooting-data-skew"></a>Solucionando problemas de distorção de dados
-Quando os dados da tabela são distribuídos usando o método de distribuição de hash hello há uma chance de que algumas distribuições será desviada toohave desproporcionalmente mais dados do que outras pessoas. Dados de distorção podem afetar o desempenho de consulta porque o resultado final de saudação de uma consulta distribuída deve esperar hello mais longa em execução toofinish de distribuição. Dependendo do grau de saudação de dados de saudação distorção, que talvez seja necessário tooaddress-lo.
+Quando os dados da tabela são distribuídos usando o método de distribuição de hash, é possível que algumas distribuições sejam distorcidas para ter desproporcionalmente mais dados que outras. A distorção de dados em excesso pode afetar o desempenho de consulta porque o resultado final de uma consulta distribuída precisa aguardar até que a distribuição de execução mais longa termine. Dependendo do grau da distorção de dados, pode ser necessário tratá-lo.
 
 ### <a name="identifying-skew"></a>Identificando distorções
-Tooidentify uma maneira simples uma tabela como inclinada é toouse `DBCC PDW_SHOWSPACEUSED`.  Isso é uma maneira rápida e simples toosee Olá o número de linhas da tabela que são armazenados em cada uma das distribuições de saudação 60 do seu banco de dados.  Lembre-se de que para desempenho hello mais balanceada, linhas de saudação em sua tabela distribuída devem ser divididas uniformemente em todas as distribuições de saudação.
+Uma maneira simples de identificar uma tabela como distorcida é usar `DBCC PDW_SHOWSPACEUSED`.  Esta é uma maneira simples e rápida de ver o número de linhas da tabela que estão armazenadas em cada uma das 60 distribuições do seu banco de dados.  Lembre-se que, para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-No entanto, se você consultar exibições de gerenciamento dinâmico Olá Azure SQL Data Warehouse (DMV), você pode executar uma análise mais detalhada.  toostart, criar exibição Olá [dbo.vTableSizes] [ dbo.vTableSizes] exibir usando Olá SQL de [visão geral da tabela] [ Overview] artigo.  Depois de saudação exibição é criada, execute este tooidentify consulta quais tabelas têm mais de distorção de dados de 10%.
+No entanto, se você consultar as exibições de gerenciamento dinâmico do Azure SQL Data Warehouse (DMV), poderá executar uma análise mais detalhada.  Para começar, crie o modo de exibição [dbo.vTableSizes][dbo.vTableSizes] usando o SQL do artigo [Visão geral da tabela][Overview].  Depois que a exibição é criada, execute esta consulta para identificar quais tabelas têm mais de 10% de distorção de dados.
 
 ```sql
 select *
@@ -199,14 +199,14 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Resolvendo distorções de dados
-Não, todos os distorção é suficiente toowarrant uma correção.  Em alguns casos, desempenho de saudação de uma tabela em algumas consultas pode exceder danos de saudação de distorção de dados.  toodecide se você deve resolver esses dados distorcer em uma tabela, você deve compreender tanto quanto possível sobre os volumes de dados hello e consultas na carga de trabalho.   Toolook unidirecional no impacto de saudação de distorção é toouse etapas Olá Olá [consulta monitoramento] [ Query Monitoring] artigo toomonitor Olá impacto distorção no desempenho da consulta e especificamente Olá consultas demoradas de toohow de impacto assumir toocomplete distribuições de saudação individuais.
+Nem toda distorção é suficiente para exigir uma correção.  Em alguns casos, o desempenho de uma tabela em algumas consultas pode superar os danos de distorção de dados.  Para decidir se deve resolver a distorção de dados em uma tabela, você deve compreender o máximo possível sobre os volumes de dados e consultas na carga de trabalho.   Uma maneira de observar o impacto da distorção é usar as etapas do artigo [Consultar monitoramento][Query Monitoring] para monitorar o impacto da distorção no desempenho da consulta e, especificamente, o impacto sobre o tempo usado para conclusão das consultas nas distribuições individuais.
 
-Distribuição de dados é uma questão de encontrar o equilíbrio correto de saudação entre minimizar a distorção de dados e minimizar a movimentação de dados. Eles podem ser opostas metas e, às vezes, você desejará tookeep dados distorção na movimentação de dados de tooreduce de ordem. Por exemplo, quando Olá distribuição coluna é frequentemente Olá compartilhado na junções e agregações, você será minimizando a movimentação de dados. Olá benefício de ter a movimentação de dados mínimos Olá pode compensar impacto de saudação de distorção dados.
+A distribuição de dados é uma questão de encontrar o equilíbrio certo entre minimizar a distorção de dados e minimizar a movimentação de dados. Esses podem ser objetivos opostos e, às vezes, você desejará manter a distorção de dados para reduzir a movimentação de dados. Por exemplo, quando a coluna de distribuição com frequência é a coluna compartilhada em junções e agregações, você vai minimizar a movimentação de dados. O benefício de ter o mínimo de movimentação de dados pode superar o impacto de ter a distorção de dados.
 
-forma comum de saudação tooresolve distorção de dados é toore-criar tabela Olá com uma coluna de distribuição diferente. Como não há nenhuma coluna de distribuição de saudação toochange em uma distribuição da tabela, Olá maneira toochange saudação de uma tabela de maneira-toorecreate-lo com um [] de [CTAS].  Aqui estão dois exemplos de como resolver a distorção de dados:
+A maneira comum de resolver a distorção de dados é recriar a tabela com uma coluna de distribuição diferente. Como não há nenhuma maneira de alterar a coluna de distribuição em uma tabela existente, a maneira de alterar a distribuição de uma tabela é recriá-la com [CTAS][].  Aqui estão dois exemplos de como resolver a distorção de dados:
 
-### <a name="example-1-re-create-hello-table-with-a-new-distribution-column"></a>Exemplo 1: Criar novamente a tabela de saudação com uma nova coluna de distribuição
-Este exemplo usa [CTAS] [] toore-criar uma tabela com uma coluna de distribuição hash diferente.
+### <a name="example-1-re-create-the-table-with-a-new-distribution-column"></a>Exemplo 1: criar novamente a tabela com uma nova coluna de distribuição
+Este exemplo usa [CTAS][] para recriar uma tabela com uma coluna de distribuição de hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -239,13 +239,13 @@ CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] ([OrderQuan
 CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] ([UnitPrice]);
 CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] ([SalesAmount]);
 
---Rename hello tables
-RENAME OBJECT [dbo].[FactInternetSales] too[FactInternetSales_ProductKey];
-RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] too[FactInternetSales];
+--Rename the tables
+RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
+RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### <a name="example-2-re-create-hello-table-using-round-robin-distribution"></a>Exemplo 2: Crie novamente a tabela hello usando a distribuição de rodízio
-Este exemplo usa [CTAS] [] toore-criar uma tabela com rodízio, em vez de uma distribuição de hash. Essa alteração produzirá a distribuição de dados de mesmo custo de saudação de movimentação de dados maior.
+### <a name="example-2-re-create-the-table-using-round-robin-distribution"></a>Exemplo 2: recriar a tabela usando a distribuição round robin
+Este exemplo usa [CTAS][] para recriar uma tabela com round robin em vez de uma distribuição por hash. Essa alteração produzirá a distribuição uniforme de dados às custas de uma maior movimentação de dados.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
@@ -278,13 +278,13 @@ CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuan
 CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
 CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
 
---Rename hello tables
-RENAME OBJECT [dbo].[FactInternetSales] too[FactInternetSales_HASH];
-RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] too[FactInternetSales];
+--Rename the tables
+RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
+RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-toolearn mais sobre o design da tabela, consulte Olá [distribuir][Distribute], [índice][Index], [partição] [ Partition], [Tipos de dados][Data Types], [estatísticas] [ Statistics] e [tabelas temporárias] [ Temporary] artigos.
+Para saber mais sobre o design da tabela, confira os artigos [Distribuir][Distribute], [Índice][Index], [Partição][Partition], [Tipos de dados][Data Types], [Estatísticas][Statistics] e [Tabelas temporárias][Temporary].
 
 Para obter uma visão geral das práticas recomendadas, confira [Práticas recomendadas para o SQL Data Warehouse][SQL Data Warehouse Best Practices].
 

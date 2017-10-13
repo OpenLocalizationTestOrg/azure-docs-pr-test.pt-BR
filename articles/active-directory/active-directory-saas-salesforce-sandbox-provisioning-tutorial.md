@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com a Área Restrita do Salesforce | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e a área restrita do Salesforce."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e a Área Restrita Salesforce."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,97 +13,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 06ff50050845383a602b0edd6fca953ddd37cebd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: configurar a Área Restrita Salesforce para provisionamento automático de usuário
 
-Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform em área restrita do Salesforce e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooSalesforce área restrita.
+O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na Área Restrita Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a Área Restrita do Salesforce.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory.
 *   É preciso ter um locatário válido para a Área Restrita Salesforce for Work ou Área Restrita Salesforce for Education. Você pode usar uma conta de avaliação gratuita para qualquer serviço.
 *   Uma conta de usuário na Área Restrita Salesforce com permissões de Administrador de Equipe.
 
-## <a name="assigning-users-toosalesforce-sandbox"></a>Atribuir usuários tooSalesforce área restrita
+## <a name="assigning-users-to-salesforce-sandbox"></a>Atribuir usuários à Área Restrita Salesforce
 
-Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, são sincronizados apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure.
+O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure que representam usuários Olá que precisam acessar tooyour aplicativo de área restrita do Salesforce. Depois de decidir, você pode atribuir tooyour esses usuários aplicativos de área restrita do Salesforce, seguindo as instruções de saudação aqui:
+Antes de configurar e habilitar o serviço de provisionamento, você precisará decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao seu aplicativo Área Restrita Salesforce. Depois de decidir, atribua esses usuários ao seu aplicativo Área Restrita Salesforce seguindo estas instruções:
 
-[Atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toosalesforce-sandbox"></a>Dicas importantes para atribuir usuários tooSalesforce área restrita
+### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Dicas importantes para atribuir usuários à Área Restrita Salesforce
 
-* É recomendável que um único usuário do AD do Azure é atribuído a saudação de tootest de área restrita tooSalesforce configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Recomendamos a atribuição de um único usuário do Azure AD à Área Restrita Salesforce para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário tooSalesforce área restrita, você deve selecionar uma função de usuário válido. função de "Acesso padrão" Hello não funciona para o provisionamento.
+* Ao atribuir um usuário à Área Restrita Salesforce, você deve selecionar uma função de usuário válida. A função de "Acesso Padrão" não funciona para provisionamento.
 
 > [!NOTE]
-> Este aplicativo importa funções personalizadas de área restrita do Salesforce como parte da saudação qual cliente Olá seja tooselect durante a atribuição de usuários no processo de provisionamento.
+> Este aplicativo importa funções personalizadas da Área Restrita Salesforce como parte do processo de provisionamento, que o cliente deve desejar selecionar durante a atribuição de usuários.
 
-## <a name="enable-automated-user-provisioning"></a>Habilitar o Provisionamento Automatizado de Usuários
+## <a name="enable-automated-user-provisioning"></a>Habilitar o provisionamento automatizado de usuários
 
-Esta seção orienta você conectar-se a API de provisionamento de conta de usuário de seu AD do Azure tooSalesforce da área restrita e configurando Olá toocreate do serviço de provisionamento, atualizar e desativar contas em área restrita do Salesforce com base em usuários e grupos de usuário atribuído atribuição no AD do Azure.
+Esta seção orienta você pela conexão do Azure AD com a API de provisionamento de conta de usuário da Área Restrita Salesforce e pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas na Área Restrita Salesforce com base na atribuição de usuário e de grupo do Azure AD.
 
 >[!Tip]
->Você também pode escolher tooenabled baseado no SAML SSO para a área restrita do Salesforce, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+>Você também pode optar por habilitar o Logon Único baseado em SAML para a Área Restrita Salesforce, seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="tooconfigure-automatic-user-account-provisioning"></a>provisionamento de conta de usuário automático de tooconfigure:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Como configurar o provisionamento de contas de usuário automático:
 
-Olá o objetivo desta seção é toooutline como tooenable o provisionamento de usuário do usuário do Active Directory contas tooSalesforce área restrita.
+O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory na Área Restrita Salesforce.
 
-1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado a área restrita do Salesforce para o logon único, pesquisa de sua instância de área restrita do Salesforce usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **área restrita do Salesforce** na Galeria de aplicativo hello. Selecione a área restrita do Salesforce Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
+2. Se você já tiver configurado a Área Restrita Salesforce para logon único, pesquise sua instância da Área Restrita Salesforce usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Área Restrita Salesforce** na galeria de aplicativos. Selecione a Área Restrita Salesforce nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione a instância de área restrita do Salesforce, selecione Olá **provisionamento** guia.
+3. Selecione sua instância da Área Restrita Salesforce e selecione a guia **Provisionamento**.
 
-4. Saudação de conjunto **modo de provisionamento** muito**automática**. 
+4. Defina o **Modo de Provisionamento** como **Automático**. 
     ![provisionamento](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. Em Olá **credenciais de administrador** seção, forneça Olá definições de configuração a seguir:
+5. Na seção **Credenciais de Administrador**, forneça as seguintes configurações:
    
-    a. Em Olá **nome de usuário administrador** caixa de texto, tipo de uma área restrita do Salesforce nome de conta que tem Olá **administrador do sistema** perfil em Salesforce.com atribuído.
+    a. Na caixa de texto **Nome de Usuário Administrador**, digite o nome da conta da Área Restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
    
-    b. Em Olá **senha do administrador** caixa de texto, digite a senha Olá para esta conta.
+    b. Na caixa de texto **Senha do Administrador**, digite a senha desta conta.
 
-6. tooget seu token de segurança da área restrita do Salesforce, abra uma nova guia e entrar Olá mesma conta de administrador da área restrita do Salesforce. No hello canto superior direito da página de saudação, clique no nome e, em seguida, clique em **minhas configurações**.
+6. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e, em seguida, clique em **Minhas Configurações**.
 
      ![Habilitar o provisionamento automático de usuário](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento de usuário automático")
-7. No painel de navegação esquerdo hello, clique em **pessoal** tooexpand Olá seção relacionada e, em seguida, clique em **redefinir meu Token de segurança**.
+7. No painel de navegação esquerdo, clique em **Pessoal** para expandir a seção correspondente e, em seguida, clique em **Redefinir Meu Token de Segurança**.
   
     ![Habilitar o provisionamento automático de usuário](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento de usuário automático")
-8. Em Olá **redefinir meu Token de segurança** , clique em Olá **redefinir Token de segurança** botão.
+8. Na página **Redefinir Meu Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
 
     ![Habilitar o provisionamento automático de usuário](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento de usuário automático")
-9. Verifique a caixa de entrada de email de Olá associada a essa conta de administrador. Procure um email de Sandbox.com da equipe de vendas que contém o novo token de segurança hello.
-10. Copiar Olá token, vá tooyour janela do AD do Azure e cole-a saudação **soquete Token** campo.
+9. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce Sandbox.com que contenha o novo token de segurança.
+10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token do Soquete**.
 
-11. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour aplicativo de área restrita do Salesforce.
+11. No portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Área Restrita Salesforce.
 
-12. Em Olá **Email de notificação** , digite o endereço de email de saudação de uma pessoa ou grupo que deve receber notificações de erros de provisionamento e marque caixa de seleção de saudação.
+12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
 13. Clique em **Salvar.**  
     
-14.  Em Olá mapeamentos, selecione **sincronizar do Azure Active Directory Users tooSalesforce área restrita.**
+14.  Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com a Área Restrita Salesforce.**
 
-15. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do AD do Azure tooSalesforce área restrita. Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usada na área restrita do Salesforce para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
+15. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD para a Área Restrita Salesforce. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário na Área Restrita Salesforce para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-16. tooenable Olá serviço de provisionamento do AD do Azure para a área restrita do Salesforce, alteração Olá **Status de provisionamento** muito**em** na seção configurações da saudação
+16. Para habilitar o serviço de provisionamento do Azure AD para a Área Restrita Salesforce, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
 17. Clique em **Salvar.**
 
 
-Iniciar a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooSalesforce na seção Olá de usuários e grupos de proteção. a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionamento do serviço de aplicativo de área restrita do Salesforce.
+Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos à Área Restrita Salesforce na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Área Restrita Salesforce.
 
-Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada toosalesforce.
+Agora você pode criar uma conta de teste. Aguarde 20 minutos para verificar se a conta foi sincronizada com o Salesforce.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

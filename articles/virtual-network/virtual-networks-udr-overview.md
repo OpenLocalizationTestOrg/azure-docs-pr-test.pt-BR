@@ -1,6 +1,6 @@
 ---
-title: rotas definidas aaaUser e encaminhamento de IP no Azure | Microsoft Docs
-description: "Saiba como rotas definidas pelo usuário do tooconfigure (UDR) e o encaminhamento IP tooforward tráfego toonetwork de dispositivos virtuais no Azure."
+title: "Rotas definidas pelo usuário e Encaminhamento IP no Azure | Microsoft Docs"
+description: "Saiba como configurar UDR (Rotas definidas pelo usuário) e Encaminhamento de IP para encaminhar o tráfego para as soluções de virtualização da rede no Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,50 +15,50 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1f1d46166d5a7c776f472b7ade1354d943ece10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Encaminhamento IP e rotas definidas pelo usuário
 
-Quando você adiciona máquinas virtuais (VMs) tooa VPN (rede virtual) no Azure, você observará que Olá VMs são capaz de toocommunicate entre si pela rede hello, automaticamente. Não é necessário toospecify um gateway, embora Olá VMs estiverem em sub-redes diferentes. Olá mesmo é verdadeiro para comunicação de saudação VMs toohello Internet pública e rede de local tooyour mesmo quando uma conexão híbrida do Azure tooyour possui datacenter estiver presente.
+Ao adicionar VMs (máquinas virtuais) a uma VNet (rede virtual) no Azure, você observará que as VMs podem se comunicar automaticamente com outras VMs na rede. Não é necessário especificar um gateway, mesmo que as VMs estejam em sub-redes diferentes. O mesmo vale para a comunicação entre as VMs para a Internet pública e até mesmo em suas instalações de rede quando houver uma conexão híbrida do Azure para o seu próprio datacenter.
 
-Este fluxo de comunicação é possível porque o Azure usa uma série de sistema rotas toodefine como fluxos de tráfego IP. Rotas de sistema controlam o fluxo de saudação de comunicação no hello os seguintes cenários:
+Esse fluxo de comunicação é possível porque o Azure usa uma série de rotas do sistema para definir como o tráfego IP flui. As rotas de sistema controlam o fluxo de comunicação nos seguintes cenários:
 
-* No hello na mesma sub-rede.
-* De tooanother uma sub-rede dentro de uma rede virtual.
-* De VMs toohello da Internet.
-* De uma rede virtual tooanother redes por meio de um gateway de VPN.
-* De uma rede virtual tooanother VNet a VNet emparelhamento (encadeamento de serviço).
-* De uma rede tooyour no local de rede virtual por meio de um gateway de VPN.
+* De dentro da mesma sub-rede.
+* De uma sub-rede para outra em uma VNet.
+* De VMs com a Internet.
+* De uma VNet para outra VNet por meio de um gateway VPN.
+* De uma rede virtual para outra rede virtual por meio de emparelhamento de rede virtual (encadeamento de serviço).
+* De uma VNet à sua rede local por meio de um gateway de VPN.
 
-Olá figura a seguir mostra uma configuração simples com uma rede virtual, duas sub-redes e algumas VMs, juntamente com hello rotas de sistema que permitem tooflow de tráfego IP.
+A figura a seguir mostra uma configuração simples com uma VNet, duas sub-redes e algumas VMs, juntamente com as rotas do sistema que permitem o fluxo do tráfego IP.
 
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure1.png)
 
-Embora o uso de saudação de rotas do sistema facilita tráfego automaticamente para sua implantação, há casos em que você quer toocontrol Olá roteamento de pacotes por meio de um dispositivo virtual. Você pode então crie rotas definidas pelo usuário que especificar próximo salto Olá para pacotes que fluem de dispositivo virtual do tooa sub-rede específica toogo tooyour em vez disso, e habilitando IP encaminhamento para Olá VM em execução como dispositivo virtual hello.
+Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Você pode fazer isso criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo virtual e habilitar o encaminhamento de IP para a VM em execução como o dispositivo virtual.
 
-Olá figura abaixo mostra um exemplo de rotas definidas pelo usuário e encaminhamento tooforce pacotes IP enviada tooone sub-rede do outro toogo por meio de um dispositivo virtual em uma sub-rede de terceiro.
+A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encaminhamento IP para forçar os pacotes enviados para uma sub-rede de outra a passar por um dispositivo virtual em uma terceira sub-rede.
 
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Rotas definidas pelo usuário são aplicada tootraffic deixando uma sub-rede de qualquer recurso (como interfaces de rede conectados tooVMs) na sub-rede hello. Não é possível criar rotas toospecify como tráfego entra em uma sub-rede de saudação da Internet, por exemplo. dispositivo Olá estiverem encaminhando tráfego toocannot estar no hello mesma sub-rede em que o tráfego de saudação se origina. Sempre crie uma sub-rede separada para seus dispositivos. 
+> Rotas definidas pelo usuário são aplicadas ao tráfego que deixam uma sub-rede de qualquer recurso (como interfaces de rede conectadas às máquinas virtuais) na sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede a partir da Internet, por exemplo. O dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos. 
 > 
 > 
 
 ## <a name="route-resource"></a>Recurso de rota
-Os pacotes são roteados por uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física hello. Uma tabela de rotas é que uma coleção de rotas individuais usadas toodecide onde tooforward pacotes com base no destino Olá endereço IP. Uma rota consiste nas seguintes hello:
+Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
 
 | Propriedade | Descrição | Restrições | Considerações |
 | --- | --- | --- | --- |
-| Prefixo de Endereço |Olá destino CIDR toowhich Olá rota se aplica, como 10.1.0.0/16. |Deve ser um intervalo CIDR válido que representa os endereços Olá Internet pública, a rede virtual do Azure ou o datacenter local. |Verifique se Olá **prefixo de endereço** não tem endereço Olá Olá **próximo salto**, caso contrário, seus pacotes entrará em um loop indo de próximo salto do hello fonte toohello sem atinja destino de saudação. |
-| Tipo do próximo salto |tipo de saudação do pacote de saudação do nó do Azure deve ser enviado para. |Deve ser um Olá valores a seguir: <br/> **Rede Virtual**. Representa a rede virtual local de saudação. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16 na mesma rede virtual de hello, rota Olá para cada sub-rede na tabela de rotas Olá terá um valor próximo salto *rede Virtual*. <br/> **Gateway de Rede Virtual**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão Olá fornecido pelo Olá infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou tooyour rede virtual do Azure. <br/> **Nenhum**. Representa um buraco negro. Pacotes encaminhados de buraco negro tooa não serão encaminhados em todos os. |Considere o uso de **dispositivo Virtual** toodirect tooa VM ou o balanceador de carga do Azure endereço IP interno de tráfego.  Esse tipo permite a especificação de saudação de um endereço IP, conforme descrito abaixo. Considere o uso de um **nenhum** digite pacotes toostop tooa fluxo fornecido de destino. |
-| Endereço do próximo salto |próximo endereço de salto Olá contém o endereço IP de saudação pacotes devem ser encaminhados. Valores do próximo salto somente são permitidos em rotas onde é o tipo de próximo salto Olá *dispositivo Virtual*. |Deve ser um endereço IP que é acessível em Olá rede Virtual onde Olá rota definida pelo usuário é aplicada, sem passar por um **Gateway de rede Virtual**. endereço IP Hello tem toobe Olá mesmo Virtual de rede quando ela é aplicada, ou em uma rede Virtual peered. |Se o endereço IP hello representa uma máquina virtual, certifique-se de habilitar [encaminhamento IP](#IP-forwarding) no Azure para Olá VM. Se hello IP endereço representa Olá endereço IP interno do balanceador de carga do Azure, verifique se você tem uma regra para cada porta de balanceamento de carga correspondente você deseja balancear tooload.|
+| Prefixo de Endereço |O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16. |Deve ser um intervalo CIDR válido que represente endereços na Internet pública, na rede virtual do Azure ou no datacenter local. |Verifique se o **Prefixo do endereço** não contém o **Endereço do próximo salto**, caso contrário, seus pacotes entrarão em um loop, indo da origem para o próximo salto sem jamais chegar ao destino. |
+| Tipo do próximo salto |O tipo de salto do Azure ao qual o pacote deve ser enviado. |Deve ser um dos seguintes valores:  <br/> **Rede Virtual**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16 na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor do próximo salto da *Rede Virtual*. <br/> **Gateway de Rede Virtual**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **None**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados. |Considere o uso de uma **Solução de Virtualização** para direcionar o tráfego para uma VM ou para um endereço IP interno do Azure Load Balancer.  Esse tipo permite a especificação de um endereço IP, conforme descrito abaixo. Considere usar um tipo **None** para impedir que os pacotes sigam para um determinado destino. |
+| Endereço do próximo salto |O endereço do próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*. |Deve ser um endereço IP acessível na Rede Virtual onde a Rota Definida pelo Usuário é aplicada, sem passar por um **Gateway de Rede Virtual**. O endereço IP deve estar na mesma Rede Virtual onde ele é aplicado, ou em uma rede Virtual emparelhada. |Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. Se o endereço IP representa o endereço IP interno do Azure Load Balancer, verifique se você tem uma regra de balanceamento de carga correspondente para cada porta que você deseja fazer o balanceamento de carga.|
 
-No Azure PowerShell alguns dos valores de "NextHopType" hello têm nomes diferentes:
+No Azure PowerShell, alguns dos valores "NextHopType" têm nomes diferentes:
 
 * A Rede Virtual é VnetLocal
 * O Gateway de Rede Virtual é VirtualNetworkGateway
@@ -67,47 +67,47 @@ No Azure PowerShell alguns dos valores de "NextHopType" hello têm nomes diferen
 * Nenhum é None
 
 ### <a name="system-routes"></a>Rotas do sistema
-Cada sub-rede criada em uma rede virtual é associado automaticamente uma tabela de rota que contém Olá regras de rota do sistema a seguir:
+Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota do sistema:
 
-* **Regra de VNet local**: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Especifica que há um link direto entre VMs Olá no hello rede virtual e não não próximo salto intermediário.
-* **Regra local**: esta regra aplica-se o intervalo de endereços do tooall o tráfego destinado toohello local e usa o gateway VPN como destino do hello próximo salto.
-* **Regra de Internet**: essa regra trata todos os toohello de tráfego destinado Internet pública (prefixo de endereço 0.0.0.0/0) e o gateway de internet de infraestrutura usa hello como saudação do próximo salto para todo o tráfego destinado toohello da Internet.
+* **Regra de VNet local**: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
+* **Regra local**: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços locais e usa o gateway de VPN como o destino do próximo salto.
+* **Regra de Internet**: essa regra manipula todo o tráfego destinado à Internet pública (prefixo de endereço 0.0.0.0/0) e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo usuário
-Para a maioria dos ambientes, precisará apenas rotas de sistema Olá já definidas pelo Azure. No entanto, você pode precisar toocreate uma tabela de rota e adicione uma ou mais rotas em casos específicos, como:
+Para a maioria dos ambientes, serão necessárias apenas as rotas de sistema já definidas pelo Azure. No entanto, talvez seja necessário criar uma tabela de rotas e adicionar uma ou mais rotas em casos específicos, como:
 
-* Força toohello encapsulamento da Internet por meio de sua rede local.
+* Túnel à força para a Internet através de sua rede local.
 * Uso de dispositivos virtuais em seu ambiente do Azure.
 
-Em cenários de saudação acima, será necessário toocreate uma tabela de rota e adicionar tooit de rotas definidas pelo usuário. Você pode ter várias tabelas de rota e hello mesma tabela de rota pode ser associado tooone ou mais sub-redes. E cada sub-rede só pode ser a tabela de rota único tooa associado. Todas as VMs e serviços de nuvem em uma sub-rede usam Olá rota tabela associada toothat sub-rede.
+Nos cenários acima, você precisará criar uma tabela de rotas e adicionar rotas definidas pelo usuário a ela. Você pode ter várias tabelas de rotas, e a mesma tabela de rotas pode ser associada a uma ou mais sub-redes. Cada sub-rede só pode ser associada a uma única tabela de rotas. Todas as VMs e serviços em nuvem em uma sub-rede usam a tabela de rotas associada a essa sub-rede.
 
-Sub-redes dependem de rotas do sistema até que uma tabela de rotas é sub-rede toohello associado. Quando existe uma associação, o roteamento é feito com base em LPM (Correspondência de Prefixo mais Longo) entre as rotas definidas pelo usuário e as rotas de sistema. Se houver mais de uma rota com hello LPM mesmo corresponde então uma rota é selecionada com base em sua origem no hello ordem a seguir:
+As sub-redes contam com rotas de sistema até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em LPM (Correspondência de Prefixo mais Longo) entre as rotas definidas pelo usuário e as rotas de sistema. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
 1. Rota definida pelo usuário
 2. Rota BGP (quando o ExpressRoute é usado)
 3. Rota de sistema
 
-toolearn como usuário toocreate definidos rotas, consulte [como tooCreate rotas e habilitar o encaminhamento de IP no Azure](virtual-network-create-udr-arm-template.md).
+Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network-create-udr-arm-template.md).
 
 > [!IMPORTANT]
-> Rotas definidas pelo usuário são apenas aplicado tooAzure VMs e serviços em nuvem. Por exemplo, se você quiser tooadd um dispositivo virtual firewall entre sua rede local e o Azure, você terá toocreate uma rota definida pelo usuário para as tabelas de rota do Azure que encaminha todo o tráfego direcionado toohello de espaço de endereço de local toohello virtual dispositivo. Você também pode adicionar que um usuário definido rota (UDR) toohello GatewaySubnet tooforward todo o tráfego de tooAzure local por meio do dispositivo virtual hello. Isso é uma adição recente.
+> As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. Você também pode adicionar uma UDR (rota definida pelo usuário) ao GatewaySubnet para encaminhar todo o tráfego do local para o Azure por meio do dispositivo virtual. Isso é uma adição recente.
 > 
 > 
 
 ### <a name="bgp-routes"></a>Rotas BGP
-Se você tiver uma conexão de rota expressa entre sua rede local e o Azure, você pode habilitar as rotas BGP toopropagate na sua tooAzure de rede local. Essas rotas BGP são usadas em Olá mesma forma que as rotas de sistema e usuário definidas rotas em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../expressroute/expressroute-introduction.md).
+Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure. Essas rotas BGP são usadas da mesma maneira que as rotas do sistema e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
-> Você pode configurar sua força de toouse do ambiente do Azure túnel por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que utiliza o gateway VPN hello como Olá próximo nó. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
+> Você pode configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 > 
 > 
 
 ## <a name="ip-forwarding"></a>Encaminhamento IP
-Conforme descrito acima, uma saudação motivos principais pelos quais toocreate uma rota definida pelo usuário é dispositivo virtual do tooa tooforward tráfego. Um dispositivo virtual é nada mais que uma VM que executa um tráfego de rede do aplicativo usado toohandle de alguma forma, como um firewall ou um dispositivo NAT.
+Conforme descrito acima, uma das principais razões para criar uma rota definida pelo usuário é encaminhar o tráfego para um dispositivo virtual. Um dispositivo virtual é nada mais do que uma VM que executa um aplicativo usado para lidar com o tráfego de rede de alguma forma, como um firewall ou um dispositivo NAT.
 
-Este dispositivo virtual que VM deve ser capaz de tooreceive tráfego de entrada que é não resolvidos tooitself. tooallow um tráfego de tooreceive VM endereçado tooother destinos, você deve habilitar o encaminhamento IP para Olá VM. Este é um Azure configuração, não é uma configuração no sistema de operacional convidado hello.
+Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP para a VM. Esta é uma configuração do Azure, não uma configuração no sistema operacional convidado.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como muito[criar rotas no modelo de implantação do Gerenciador de recursos de saudação](virtual-network-create-udr-arm-template.md) e associá-los toosubnets. 
-* Saiba como muito[criar rotas no modelo de implantação clássico Olá](virtual-network-create-udr-classic-ps.md) e associá-los toosubnets.
+* Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes. 
+* Saiba como [criar rotas no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md) e associá-las a sub-redes.
 

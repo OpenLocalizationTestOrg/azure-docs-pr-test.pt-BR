@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o NetSuite | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e do Netsuite."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Netsuite."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 5bb2989c1296b9f2abc9e8c84855731adc484aab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurando o Netsuite para o provisionamento automático de usuário
 
-Olá objetivo deste tutorial é tooshow Olá etapas precisam tooperform no Netsuite e o Azure AD tooautomatically provisionar e provisionamento de contas de usuário do AD do Azure tooNetsuite.
+O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Netsuite e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Netsuite.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-cenário de saudação descrito neste tutorial presume que você já tenha Olá itens a seguir:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory.
 *   Uma assinatura habilitada para logon único do Netsuite.
 *   Uma conta de usuário no Netsuite com permissões de Administrador de Equipe.
 
-## <a name="assigning-users-toonetsuite"></a>Atribuir usuários tooNetsuite
+## <a name="assigning-users-to-netsuite"></a>Atribuindo usuários ao Netsuite
 
-Active Directory do Azure usa um conceito chamado "atribuições" toodetermine quais usuários devem receber acesso tooselected aplicativos. No contexto de saudação do provisionamento de conta de usuário automático, são sincronizados apenas Olá usuários e grupos que foram "atribuídos" tooan aplicativo no AD do Azure.
+O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar Olá provisionar um serviço, é necessário toodecide quais usuários e/ou grupos no AD do Azure representam Olá usuários precisam acessar tooyour Netsuite aplicativo. Depois de decidir, você pode atribuir esses aplicativos de Netsuite tooyour usuários, seguindo as instruções de saudação aqui:
+Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo Netsuite. Depois de decidir, atribua esses usuários ao aplicativo Netsuite seguindo estas instruções:
 
-[Atribuir um aplicativo de enterprise tooan usuário ou grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toonetsuite"></a>Dicas importantes para atribuir usuários tooNetsuite
+### <a name="important-tips-for-assigning-users-to-netsuite"></a>Dicas importantes para atribuir usuários ao Netsuite
 
-*   É recomendável que um único usuário do AD do Azure é atribuído tooNetsuite tootest Olá configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao Netsuite para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário tooNetsuite, você deve selecionar uma função de usuário válido. função de "Acesso padrão" Hello não funciona para o provisionamento.
+*   Ao atribuir um usuário ao Netsuite, você deve selecionar uma função de usuário válida. A função de "Acesso Padrão" não funciona para provisionamento.
 
 ## <a name="enable-user-provisioning"></a>Habilitar o provisionamento de usuário
 
-Esta seção orienta você conectar-se a API de provisionamento de conta de usuário do tooNetsuite seu AD do Azure e configurar Olá toocreate do serviço de provisionamento, atualizar e desativar contas de usuário atribuído no Netsuite com base na atribuição de usuário e grupo no AD do Azure.
+Esta seção explica como conectar o Azure AD à API de provisionamento de conta de usuário do Netsuite e como configurar o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Netsuite, com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!TIP] 
-> Você também pode escolher tooenabled baseado no SAML SSO para o Netsuite, seguindo instruções Olá fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode optar por habilitar o Logon Único baseado em SAML no Netsuite, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="tooconfigure-user-account-provisioning"></a>provisionamento de conta de usuário de tooconfigure:
+### <a name="to-configure-user-account-provisioning"></a>Para configurar o provisionamento de conta de usuário:
 
-Olá o objetivo desta seção é toooutline como tooenable o provisionamento de usuário do usuário do Active Directory contas tooNetsuite.
+O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Netsuite.
 
-1. Em Olá [portal do Azure](https://portal.azure.com), procurar toohello **Active Directory do Azure > aplicativos da empresa > todos os aplicativos** seção.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado o Netsuite para logon único, procure sua instância do Netsuite usando o campo de pesquisa de saudação. Caso contrário, selecione **adicionar** e procure **Netsuite** na Galeria de aplicativo hello. Selecione o Netsuite Olá dos resultados da pesquisa e adicioná-lo tooyour lista de aplicativos.
+2. Se você já tiver configurado o Netsuite para logon único, pesquise a instância do Netsuite usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Netsuite** na galeria de aplicativos. Selecione o Netsuite nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância do Netsuite, em seguida Olá **provisionamento** guia.
+3. Selecione a instância do Netsuite e, depois, a guia **Provisionamento**.
 
-4. Saudação de conjunto **modo de provisionamento** muito**automática**. 
+4. Defina o **Modo de Provisionamento** como **Automático**. 
 
     ![provisionamento](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
 
-5. Em Olá **credenciais de administrador** seção, forneça Olá definições de configuração a seguir:
+5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
-    a. Em Olá **nome de usuário administrador** caixa de texto, tipo de um Netsuite nome de conta que tem Olá **administrador do sistema** perfil no Netsuite.com atribuído.
+    a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do Netsuite que tem o perfil **Administrador do Sistema** atribuído no Netsuite.com.
    
-    b. Em Olá **senha do administrador** caixa de texto, digite a senha Olá para esta conta.
+    b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
       
-6. No portal do Azure de Olá, clique em **Conexão de teste** tooensure AD do Azure pode se conectar a tooyour Netsuite aplicativo.
+6. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo Netsuite.
 
-7. Em Olá **Email de notificação** , digite o endereço de email de saudação de uma pessoa ou grupo que deve receber notificações de erros de provisionamento e marque caixa de seleção de saudação.
+7. No campo **Email de Notificação**, insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento e marque a caixa de seleção.
 
 8. Clique em **Salvar.**
 
-9. Em Olá mapeamentos, selecione **tooNetsuite sincronizar Azure usuários do Active Directory.**
+9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Netsuite.**
 
-10. Em Olá **mapeamentos de atributo** seção, revise os atributos de usuário de saudação que são sincronizados do tooNetsuite do AD do Azure. Observe que Olá atributos selecionados como **correspondência** propriedades são contas de usuário de saudação toomatch usado no Netsuite para operações de atualização. Selecione Olá toocommit de botão de salvar as alterações.
+10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o Netsuite. Observe que os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Netsuite em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-11. tooenable Olá serviço de provisionamento do AD do Azure para o Netsuite, alteração Olá **Status de provisionamento** muito**em** na seção configurações da saudação
+11. Para habilitar o serviço de provisionamento do Azure AD no Netsuite, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
 12. Clique em **Salvar.**
 
-Ele inicia a sincronização inicial de saudação de todos os usuários e/ou grupos atribuídos tooNetsuite em Olá usuários e a seção de grupos. Observe que a sincronização inicial Olá leva tooperform mais que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos desde que o serviço hello está sendo executado. Você pode usar o hello **detalhes de sincronização** seção toomonitor progresso e execute os relatórios de atividade tooprovisioning links, que descrevem todas as ações executadas pelo Olá provisionar um serviço em seu aplicativo Netsuite.
+Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Netsuite na seção Usuários e Grupos. Observe que a sincronização inicial leva mais tempo do que as sincronizações posteriores, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Netsuite.
 
-Agora você pode criar uma conta de teste. Aguarde a minutos too20 tooverify Olá conta foi sincronizada tooNetsuite.
+Agora você pode criar uma conta de teste. Aguarde até 20 minutos para confirmar se a conta foi sincronizada com o Netsuite.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

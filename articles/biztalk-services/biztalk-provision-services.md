@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate Serviços BizTalk do Azure no portal do Azure de saudação | Microsoft Docs"
-description: "Saiba como tooprovision ou criar serviços BizTalk do Azure no hello portal do Azure; MABS, WABS"
+title: "Criar Serviços BizTalk do Azure no Portal do Azure | Microsoft Docs"
+description: "Saiba como provisionar ou criar Serviços BizTalk no Portal do Azure; MABS, WABS"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 6781cadada8ac9c84e1fe045d2b0f995811f75b1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="create-biztalk-services-using-hello-azure-portal"></a>Criar serviços do BizTalk usando Olá portal do Azure
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Criar Serviços BizTalk usando o Portal do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
 
 > [!TIP]
-> toosign em toohello portal do Azure, você precisa de uma conta do Azure e a assinatura do Azure. Se você não tiver uma conta, será possível criar uma conta de avaliação gratuita em questão de minutos. Consulte [Avaliação gratuita do Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Para entrar no Portal do Azure, você precisa de uma conta e de uma assinatura do Azure. Se você não tiver uma conta, será possível criar uma conta de avaliação gratuita em questão de minutos. Consulte [Avaliação gratuita do Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Criar um Serviço do BizTalk
-Dependendo da saudação edição que você escolher, nem todas as configurações do BizTalk Service podem estar disponíveis.
+Dependendo da Edição que você escolher, será possível que não todas as configurações de Serviço do BizTalk estejam disponíveis.
 
-1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. No painel de navegação inferior hello, selecione **novo**:  
-   ![Selecione o botão novo Olá][NEWButton]
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+2. Na parte inferior do painel de navegação, selecione **NOVO**:  
+   ![Selecionar o botão Novo][NEWButton]
 3. Selecione **SERVIÇOS DE APLICATIVOS** > **SERVIÇO BIZTALK** > **CRIAÇÃO PERSONALIZADA**:  
    ![Selecionar Serviço BizTalk e Criação Personalizada][NewBizTalkService]
-4. Insira as configurações do serviço BizTalk hello:
+4. Insira as configurações do Serviço BizTalk:
    
     <table border="1">
     <tr>
@@ -45,21 +45,21 @@ Dependendo da saudação edição que você escolher, nem todas as configuraçõ
     <td>Você pode inserir qualquer nome, mas seja específico. Alguns exemplos incluem:<br/><br/>
     <em>mycompany</em>.biztalk.windows.net<br/>
     <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-    <em>myapplication</em>.biztalk.windows.net<br/><br/>". <yourbiztalkservicename>.BizTalk.Windows.NET" é automaticamente adicionado toohello nome digitado. Isso cria uma URL que é usado tooaccess o BizTalk de serviço, como <strong>https://<em>myapplication</em>. <yourbiztalkservicename>.BizTalk.Windows.NET</strong>.
+    <em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" é adicionado automaticamente ao nome que você inserir. Isso cria uma URL que é usada para acessar seu Serviço do BizTalk, como <strong>https://<em>meuaplicativo</em>.biztalk.windows.net</strong>.
     </td>
     </tr>
     <tr>
     <td><strong>Edição</strong></td>
-    <td>Se você estiver na fase de teste/desenvolvimento hello, escolha <strong>desenvolvedor</strong>. Se você estiver na fase de produção de hello, use Olá <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">Serviços BizTalk: gráfico de edições</a> toodetermine se <strong>Premium</strong>, <strong>padrão</strong>, ou <strong>Basic</strong>é Olá a opção correta para seu cenário de negócios.
+    <td>Se você estiver em fase de teste/desenvolvimento, escolha <strong>Desenvolvedor</strong>. Se você estiver na fase de produção, use os <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">Serviços BizTalk: Gráfico de Edições</a> para determinar se <strong>Premium</strong>, <strong>Standard</strong> ou <strong>Básico</strong> é a escolha certa para seu cenário de negócios.
     </td>
     </tr>
     <tr>
     <td><strong>Região</strong></td>
-    <td>Selecione Olá região geográfica toohost o BizTalk Service.</td>
+    <td>Selecione a região geográfica para hospedar seu Serviço BizTalk.</td>
     </tr>
     <tr>
     <td><strong>URL do Domínio</strong></td>
-    <td><strong>Opcional</strong>. Por padrão, a URL do domínio Olá é <em>Nomedeseuserviçobiztalk</em>. <yourbiztalkservicename>.BizTalk.Windows.NET. Um domínio personalizado também pode ser inserido. Por exemplo, se seu domínio for <em>contoso</em>, insira: <br/><br/>
+    <td><strong>Opcional</strong>. Por padrão, a URL do domínio é <em>YourBizTalkServiceName</em>.biztalk.windows.net. Um domínio personalizado também pode ser inserido. Por exemplo, se seu domínio for <em>contoso</em>, insira: <br/><br/>
     <em>MyCompany</em>.contoso.com<br/>
     <em>MyCompanyMyApplication</em>.contoso.com<br/>
     <em>MyApplication</em>.contoso.com<br/>
@@ -67,98 +67,98 @@ Dependendo da saudação edição que você escolher, nem todas as configuraçõ
     </td>
     </tr>
     </table>
-Selecione a seta Avançar hello.
-5. Digite hello armazenamento e as configurações de banco de dados:  <table border="1">
+Selecione a seta de AVANÇO.
+5. Inserir as configurações de banco de dados e de armazenamento:  <table border="1">
     <tr>
     <td><strong>Conta de armazenamento de Monitoramento/Arquivamento</strong></td>
-    <td>Selecione uma conta de armazenamento existente ou crie uma nova. <br/><br/>Se você criar uma nova conta de armazenamento, digite Olá <strong>nome da conta de armazenamento</strong>.</td>
+    <td>Selecione uma conta de armazenamento existente ou crie uma nova. <br/><br/>Se você criar uma nova conta de Armazenamento, digite o <strong>Nome da Conta de Armazenamento</strong>.</td>
     </tr>
     <tr>
     <td><strong>Acompanhamento de banco de dados</strong></td>
-    <td>Se você usar um banco de dados SQL do Azure, não poderá ser usado por outro Serviço do BizTalk. É necessário o nome de logon de saudação e a senha inserida quando esse servidor de banco de dados do SQL Azure foi criada.<br/><br/><strong>Dica</strong> criar banco de dados de rastreamento de saudação e conta de armazenamento de monitoramento/arquivamento em Olá mesma região como Olá BizTalk Service.</td>
+    <td>Se você usar um banco de dados SQL do Azure, não poderá ser usado por outro Serviço do BizTalk. Você precisará do nome e da senha de logon inseridos na criação do Banco de Dados SQL Azure.<br/><br/><strong>DICA</strong> Crie o banco de dados de Acompanhamento e a conta de armazenamento de Monitoramento/Arquivamento na mesma região do Serviço BizTalk.</td>
     </tr>
     </table>
-Selecione a seta Avançar hello.
-6. Insira as configurações de banco de dados de saudação:  <table border="1">
+Selecione a seta de AVANÇO.
+6. Insira as configurações do banco de dados:  <table border="1">
     <tr>
     <td><strong>Nome</strong></td>
-    <td>Disponível quando <strong>criar uma nova instância de banco de dados SQL</strong> está selecionado na tela anterior hello.
+    <td>Disponível quando a opção <strong>Criar uma nova instância do Banco de Dados SQL</strong> é selecionada na tela anterior.
     <br/><br/>
-Insira um toobe de nome de banco de dados SQL usado pelo seu BizTalk Service.</td>
+Insira um nome do Banco de Dados SQL a ser usado pelo seu Serviço BizTalk.</td>
     </tr>
     <tr>
     <td><strong>Servidor</strong></td>
-    <td>Disponível quando <strong>criar uma nova instância de banco de dados SQL</strong> está selecionado na tela anterior hello.
+    <td>Disponível quando a opção <strong>Criar uma nova instância do Banco de Dados SQL</strong> é selecionada na tela anterior.
     <br/><br/>
 Selecione um Servidor de Banco de Dados SQL ou crie um novo servidor de Banco de Dados SQL.</td>
     </tr>
     <tr>
     <td><strong>Nome de logon do servidor</strong></td>
-    <td>Digite o nome de usuário de logon de saudação.</td>
+    <td>Digite o nome de usuário do logon.</td>
     </tr>
     <tr>
     <td><strong>Senha de logon do servidor</strong></td>
-    <td>Insira a senha de logon de saudação.</td>
+    <td>Digite a senha do logon.</td>
     </tr>
     <tr>
     <td><strong>Região</strong></td>
-    <td>Disponível quando a opção <strong>Criar uma nova instância do Banco de Dados SQL</strong> é selecionada. Selecione Olá região geográfica toohost seu banco de dados SQL.</td>
+    <td>Disponível quando a opção <strong>Criar uma nova instância do Banco de Dados SQL</strong> é selecionada. Selecione a região geográfica para hospedar seu Banco de Dados SQL.</td>
     </tr>
     </table>
 
-Selecione Olá marca de seleção toocomplete Olá assistente. Olá progresso ícone será exibido:  
+Selecione a marca de seleção para concluir o assistente. O ícone de progresso aparece:   
 ![O ícone de progresso é exibido após a conclusão][ProgressComplete]
 
-Ao concluir, Olá serviço BizTalk do Azure é criado e está pronto para seus aplicativos. as configurações padrão de saudação são suficientes. Se quiser que as configurações padrão de saudação toochange, selecione **serviços BIZTALK** Olá painel de navegação esquerdo e, em seguida, selecione o BizTalk Service. Configurações adicionais são exibidas em Olá [guias painel, monitorar e escala](biztalk-dashboard-monitor-scale-tabs.md) na parte superior da saudação.
+Ao concluir, o Serviço BizTalk do Azure será criado e estará pronto para seus aplicativos. As configurações padrão são suficientes. Se você desejar alterar as configurações padrão, selecione **SERVIÇOS BIZTALK** no painel de navegação à esquerda e selecione o seu Serviço BizTalk. Configurações adicionais são exibidas nas [guias Painel, Monitor e Escala.](biztalk-dashboard-monitor-scale-tabs.md) na parte superior.
 
-Dependendo do estado de saudação do hello BizTalk Service, existem algumas operações que não podem ser concluídas. Para obter uma lista dessas operações, vá muito[gráfico de estado dos serviços do BizTalk](biztalk-service-state-chart.md).
+Dependendo do estado do Serviço BizTalk, existem algumas operações que não podem ser concluídas. Para obter uma lista dessas operações, consulte [Gráfico de estado do serviço BizTalk](biztalk-service-state-chart.md).
 
 ## <a name="post-provisioning-steps"></a>Etapas pós-provisionamento
-* [Instalar o certificado de saudação em um computador local](#InstallCert)
+* [Instalar o certificado em um computador local](#InstallCert)
 * [Adicionar um certificado pronto para produção](#AddCert)
-* [Obter o namespace do Access Control Olá](#ACS)
+* [Obter o namespace do Controle de Acesso](#ACS)
 
-#### <a name="InstallCert"></a>Instalar o certificado de saudação em um computador local
-Como parte do provisionamento do Serviço do BizTalk, um certificado autoassinado é criado e associado com a assinatura do seu serviço do BizTalk. Você deve baixar o certificado e instalá-lo em computadores em que você implante aplicativos do BizTalk Service ou envia mensagens tooa ponto de extremidade do BizTalk Service.
+#### <a name="InstallCert"></a>Instalar o certificado em um computador local
+Como parte do provisionamento do Serviço do BizTalk, um certificado autoassinado é criado e associado com a assinatura do seu serviço do BizTalk. Você deve baixar este certificado e instalá-lo em computadores de onde você implemente os aplicativos do Serviço do BizTalk ou envie mensagens para um ponto de extremidade do Serviço do BizTalk.
 
-1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **serviços BIZTALK** Olá painel de navegação esquerdo e, em seguida, selecione sua assinatura do BizTalk Service.
-3. Selecione Olá **painel** guia.
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+2. Clique em **SERVIÇOS BIZTALK** no painel de navegação à esquerda e selecione a assinatura do seu Serviço BizTalk.
+3. Selecione a guia **Painel** .
 4. Selecione **Baixar Certificado SSL**:  
    ![Modificar certificado SSL][QuickGlance]
-5. Clique duas vezes no certificado hello e execute através do certificado de Olá Olá Assistente tooinstall. Verifique se você instalou o certificado de saudação sob Olá **autoridades de certificação raiz confiáveis** armazenar.
+5. Clique duas vezes no certificado e execute-o com o assistente para instalar o certificado. Certifique-se de instalar o certificado no armazenamento **Autoridades de certificação de raiz confiáveis** .
 
 #### <a name="AddCert"></a>Adicionar um certificado pronto para produção
-certificado autoassinado Olá que é criado automaticamente quando a criação de Serviços BizTalk é destinado ao uso em ambientes de desenvolvimento somente. Para cenários de produção, substitua-o por um certificado pronto para produção.
+O certificado autoassinado criado automaticamente durante a criação dos Serviços BizTalk devem ser usados apenas em ambientes de desenvolvimento. Para cenários de produção, substitua-o por um certificado pronto para produção.
 
-1. Em Olá **painel** guia, selecione **certificado de SSL da atualização**.
-2. Procurar o certificado SSL privado tooyour (*CertificateName*. pfx) que inclui o nome do BizTalk Service, digite a senha de saudação e clique em marca de seleção de saudação.
+1. Na guia **Painel**, selecione **Atualizar Certificado SSL**.
+2. Procure o certificado SSL privado (*CertificateName*.pfx) que inclui o nome do seu Serviço do BizTalk, insira a senha e clique na caixa de seleção.
 
-#### <a name="ACS"></a>Obter o namespace do Access Control Olá
-1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **serviços BIZTALK** Olá painel de navegação esquerdo e, em seguida, selecione o BizTalk Service.
-3. Na barra de tarefas hello, selecione **informações de Conexão**:  
+#### <a name="ACS"></a>Obter o namespace do Controle de Acesso
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+2. Selecione **SERVIÇOS BIZTALK** no painel de navegação à esquerda e selecione o seu Serviço BizTalk.
+3. Na barra de tarefas, selecione **Informações da Conexão**:  
    ![Selecionar Informações de conexão][ACSConnectInfo]
-4. Copie os valores de controle de acesso de saudação.
+4. Copiar os valores de Controle de Acesso.
 
-Ao implantar um projeto do Serviço BizTalk no Visual Studio, você insere esse namespace do Controle de Acesso. Olá namespace de controle de acesso é automaticamente criado para o BizTalk Service.
+Ao implantar um projeto do Serviço BizTalk no Visual Studio, você insere esse namespace do Controle de Acesso. O namespace do Controle de Acesso é criado automaticamente para seu Serviço BizTalk.
 
-valores de controle de acesso de saudação podem ser usados com qualquer aplicativo. Quando os Serviços BizTalk do Azure é criado, esse namespace de controle de acesso controla autenticação Olá com a implantação do BizTalk Service. Se você quiser toochange Olá assinatura ou gerenciar namespace hello, selecione **do ACTIVE DIRECTORY** Olá painel de navegação esquerdo e, em seguida, selecione seu namespace. barra de tarefas Olá lista as opções.
+Os valores de Controle de acesso podem ser usados com qualquer aplicativo. Quando os Serviços do BizTalk do Microsoft Azure estiverem criados, esse namespace do Controle de Acesso controla a autenticação com sua implantação do Serviço BizTalk. Se você desejar alterar a assinatura ou gerenciar o namespace, selecione **ACTIVE DIRECTORY** no painel de navegação à esquerda e selecione seu namespace. A barra de tarefas lista suas opções.
 
-Clicando em **gerenciar** abre Olá Portal de gerenciamento de controle de acesso. No Portal de gerenciamento de controle de acesso do hello, Olá usa o BizTalk Service **identidades de serviço**:  
-![Identidades de serviço do ACS no Portal de gerenciamento de controle de acesso de saudação][ACSServiceIdentities]
+Um clique em **Gerenciar** abre o Portal de Gerenciamento do Controle de Acesso. No Portal de Gerenciamento do Controle de Acesso, o Serviço BizTalk usa **Identidades de serviço**:  
+![Identidades do serviço ACS no Portal de Gerenciamento do Controle de Acesso][ACSServiceIdentities]
 
-Olá identidade de serviço de controle de acesso é um conjunto de credenciais que permitem que aplicativos ou clientes tooauthenticate diretamente com o controle de acesso e receber um token.
+A identidade do serviço do Controle de Acesso é um conjunto de credenciais que permitem que aplicativos ou clientes façam autenticação diretamente com o Controle de Acesso e recebam um token.
 
 > [!IMPORTANT]
-> Olá BizTalk Service usa **proprietário** para identidade de serviço padrão hello e hello **senha** valor. Se você usar o valor de chave simétrica de saudação em vez da saudação valor da senha, hello seguinte erro poderá ocorrer.<br/><br/>*Não foi possível conectar a conta de serviço de gerenciamento de controle de acesso de toohello com hello especificado credenciais*
+> O Serviço BizTalk usa **Proprietário** para a identidade do serviço padrão e o valor da **Senha**. Se você usar o valor de Chave Simétrica em vez de o valor de Senha, poderá ocorrer o erro a seguir.<br/><br/>*Não foi possível conectar à conta do Serviço de Gerenciamento do Controle de Acesso com as credenciais especificadas*
 > 
 > 
 
 [Gerenciando o namespace de seu ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) lista algumas diretrizes e recomendações.
 
 ## <a name="requirements-explained"></a>Requisitos explicados
-Esses requisitos não se aplicam a toohello edição gratuita.
+Estes requisitos não se aplicam à edição gratuita.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -167,48 +167,48 @@ Esses requisitos não se aplicam a toohello edição gratuita.
 </tr>
 <tr>
 <td>Assinatura do Azure</td>
-<td>assinatura de saudação determina quem pode entrar toohello portal do Azure. proprietário de conta Olá cria a assinatura de saudação em <a HREF="https://account.windowsazure.com/Subscriptions"> assinaturas do Azure</a>.
+<td>A assinatura determina quem pode entrar no portal do Azure. O Titular da conta cria a assinatura em <a HREF="https://account.windowsazure.com/Subscriptions">Assinaturas do Azure</a>.
 <br/><br/>
-Olá conta do Azure pode ter várias assinaturas e pode ser gerenciada por qualquer pessoa que é permitido. Por exemplo, o proprietário de conta do Azure cria uma assinatura chamada <em>BizTalkServiceSubscription</em> e fornece Olá administradores do BizTalk dentro da sua empresa (por exemplo, ContosoBTSAdmins@live.com) toothis assinatura de acesso. Nesse cenário, administradores do BizTalk Olá entrar toohello portal do Azure e ter serviços completos de administrador direitos tooall Olá hospedado na assinatura de hello, incluindo Serviços BizTalk do Azure. Administradores do BizTalk Olá não são proprietários da conta do Azure de saudação e, portanto, não tem acesso tooany as informações de cobrança.
+A conta do Azure pode ter várias assinaturas e pode ser gerenciada por qualquer pessoa que tenha permissão. Por exemplo, o titular da sua conta do Azure cria uma assinatura chamada <em>BizTalkServiceSubscription</em> e dá acesso a essa assinatura aos Administradores do BizTalk em sua empresa (por exemplo, ContosoBTSAdmins@live.com). Nesse cenário, os Administradores do BizTalk entram no Portal do Azure e têm acesso total aos serviços hospedados na assinatura, inclusive os Serviços BizTalk do Azure. Os administradores do BizTalk não são os titulares da conta do Azure e, portanto, não têm acesso às informações de cobrança.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Gerenciar assinaturas e contas de armazenamento no portal do Azure de saudação</a> fornece mais informações.
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Gerenciar assinaturas e contas de armazenamento no Portal do Azure</a> fornece mais informações.
 </td>
 </tr>
 <tr>
 <td>Banco de Dados SQL do Azure</td>
-<td>Armazena Olá tabelas, exibições e procedimentos armazenados usados pelo Olá BizTalk Service, incluindo dados de controle de saudação.
+<td>Armazena as tabelas, as exibições e os procedimentos armazenados usados pelo Serviço BizTalk do Azure, incluindo o Rastreamento de dados
 <br/><br/>
 Ao criar um Serviço BizTalk, você pode usar um SQL Server do Azure ou um Banco de Dados SQL do Azure ou criar automaticamente um novo servidor ou banco de dados.
 <br/><br/>
-Olá escala de banco de dados SQL é configurado automaticamente. Normalmente, a escala do saudação padrão é suficiente para um BizTalk Service. Escala de saudação alteração afeta o preço. Confira <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930">Contas e faturamento no banco de dados SQL do Azure</a>
+A escala do Banco de Dados SQL é configurada automaticamente. Tipicamente a escala padrão é suficiente para um Serviço BizTalk. Alterar a escala afeta ao preço. Confira <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930">Contas e faturamento no banco de dados SQL do Azure</a>
 <br/><br/>
 <strong>Observações</strong>
 <br/>
 <ul>
-<li> Quando você criar um novo SQL Server e Banco de Dados do Azure, os Serviços do Azure são habilitados automaticamente. Olá BizTalk Service requer os serviços do Azure ser habilitado.</li>
-<li>Se você criar um novo banco de dados SQL em um servidor existente do SQL Azure, Olá regras de firewall do hello Server não são alterados. Como resultado, é possível de que outros serviços do Azure não são permitidos para bancos de dados do servidor de acesso toohello.</li>
+<li> Quando você criar um novo SQL Server e Banco de Dados do Azure, os Serviços do Azure são habilitados automaticamente. O Serviço do BizTalk requer que os Serviços do Azure sejam habilitados.</li>
+<li>Se você criar um novo Banco de Dados SQL do Azure em um SQL Server do Azure existente, as regras do firewall do servidor não serão alterados. Como resultado, é possível que outros Serviços do Azure não tenham permissão de acesso aos bancos de dados do servidor.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>Namespace do Controle de Acesso do Azure</td>
-<td>Autenticados com os Serviços do BizTalk do Azure. Ao implantar um projeto do Serviço BizTalk no Visual Studio, você insere esse namespace do Controle de Acesso. Quando você cria um BizTalk Service, Olá namespace de controle de acesso é criado automaticamente.</td>
+<td>Autenticados com os Serviços do BizTalk do Azure. Ao implantar um projeto do Serviço BizTalk no Visual Studio, você insere esse namespace do Controle de Acesso. Quando você cria um Serviço BizTalk, o namespace de Controle de Acesso é criado automaticamente.</td>
 </tr>
 
 <tr>
 <td>Conta de Armazenamento do Azure</td>
-<td>Fornece acesso tootables, blobs e filas usadas pelo seu seguinte de saudação do BizTalk Service toosave:
+<td>Dá acesso às tabelas, aos blobs e às filas usadas pelos Serviços do BizTalk para fazer o seguinte:
 
 <ul>
-<li>Os arquivos de log que Olá monitor BizTalk Service. Olá monitoramento saída também é exibida no hello **monitoramento** guia Olá portal do Azure.</li>
-<li>Ao criar um X12 ou AS2 acordo entre parceiros, você pode habilitar as propriedades de mensagem do hello arquivamento recurso toostore. Esses dados são salvos no hello conta de armazenamento.</li>
+<li>Arquivos de log que monitoram o Serviço do BizTalk. A saída do monitoramento também é exibida na guia **Monitoramento** no Portal do Azure.</li>
+<li>Ao criar um contrato X12 ou AS2 entre parceiros, você pode habilitar o recurso de Arquivamento para armazenar propriedades de mensagens. Esses dados são salvos na conta de Armazenamento.</li>
 </ul>
 <br/>
 Ao criar um Serviço BizTalk, você pode usar uma conta de Armazenamento existente ou criar automaticamente uma nova conta de Armazenamento.
 <br/><br/>
-configurações de armazenamento saudação padrão são suficientes para um BizTalk Service.
+As configurações de Armazenamento padrão são suficientes para um Serviço BizTalk.
 <br/><br/>
-Quando você cria uma Conta de Armazenamento, uma chave primária e uma chave secundária são criadas automaticamente. Essas chaves controlam acesso tooyour conta de armazenamento. Olá BizTalk Service usa automaticamente Olá chave primária.
+Quando você cria uma Conta de Armazenamento, uma chave primária e uma chave secundária são criadas automaticamente. Essas chaves controlam o acesso à sua conta de Armazenamento. O Serviço BizTalk usa automaticamente a chave primária.
 <br/><br/>
 Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Armazenamento</a> para obter mais informações.
 </td>
@@ -217,42 +217,42 @@ Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Armazenamento
 <tr>
 <td>Certificado SSL privado</td>
 <td>
-Quando um Serviço do BizTalk do Azure for criado, uma URL HTTPS que inclui o nome do seu Serviço do BizTalk também é criado. Essa URL é toouse configurada automaticamente um certificado autoassinado somente para desenvolvimento. Para produção, você necessita um certificado SSL privado.
+Quando um Serviço do BizTalk do Azure for criado, uma URL HTTPS que inclui o nome do seu Serviço do BizTalk também é criado. Esta URL é configurada automaticamente para usar um certificado autoassinado apenas de desenvolvimento. Para produção, você necessita um certificado SSL privado.
 <br/><br/>
 <strong>Informações importantes sobre o Certificado SSL</strong>
 
 <ul>
-<li>Data de validade do certificado Olá deve ser inferior a 5 anos.</li>
+<li>A data de expiração do certificado deve ser anterior a cinco anos.</li>
 <li>Todos os certificados privados exigem uma senha. Saiba essa senha e, como uma prática recomendada, compartilhe essa senha com seus administradores.</li>
-<li>Os certificados autoassinados são usados em um ambientes de desenvolvimento/teste. Ao usar certificados autoassinados, importar o repositório de certificados pessoais do hello certificado tooyour e Olá repositório de certificados de autoridades de certificação raiz confiáveis.</li>
+<li>Os certificados autoassinados são usados em um ambientes de desenvolvimento/teste. Ao usar certificados autoassinados, importe o certificado para o armazenamento de certificados pessoais e o armazenamento de certificados de Autoridades de Certificação Raiz Confiáveis.</li>
 </ul>
-<br/>Ao enviar a autoridade de certificação tooyour do solicitação de certificado de produção hello, dar Olá propriedades do certificado a seguir:
+<br/>Ao enviar a solicitação de certificado de produção à autoridade de certificação, forneça as seguintes propriedades de certificado:
 <br/>
 
 <ul>
 <li><strong>Uso avançado de chave</strong>: no mínimo, os Serviços BizTalk do Azure exigem a Autenticação de Servidor.</li>
-<li><strong>Nome comum</strong>: insira o nome de domínio totalmente qualificado (FQDN) Olá de sua URL do serviço BizTalk do Azure. Veja <a HREF="#CreateService">Criar um Serviço BizTalk</a> neste artigo.</li>
+<li><strong>Nome comum</strong>: insira o nome de domínio totalmente qualificado (FQDN) da sua URL de Serviço do BizTalk do Azure. Veja <a HREF="#CreateService">Criar um Serviço BizTalk</a> neste artigo.</li>
 </ul>
 <br/>
-Pode ser adicionado a um certificado novo ou diferente depois Olá BizTalk Service é criado.
+Um certificado novo ou diferente pode ser adicionado após o Serviço BizTalk ser criado.
 </td>
 </tr>
 </table>
-<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting tooany location.--->
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
-Quando você cria um serviço de BizTalk do Azure, Olá **conexões híbridas** guia está disponível:
+Quando você cria um Serviço do BizTalk do Azure, a guia **Conexões híbridas** está disponível:
 
 ![Guia de Conexões Híbridas][HybridConnectionTab]
 
-Conexões híbridas são usada tooconnect do Azure site ou serviço móvel do Azure tooany local recursos que usa uma porta TCP estática, como SQL Server, MySQL, APIs da Web de HTTP, os serviços móveis e a maioria dos serviços da Web personalizados.  Conexões híbridas e hello serviço de adaptador do BizTalk são diferentes. Olá serviço de adaptador BizTalk é usado tooconnect Serviços BizTalk do Azure tooan no sistema local da linha de negócios (LOB).
+As Conexões Híbridas são usadas para conectar um site do Azure ou um serviço móvel do Azure a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs da web HTTP, e os serviços Web mais personalizados.  As Conexões híbridas e o Serviço do adaptador do BizTalk são diferentes. O Serviço do Adaptador do BizTalk é usado para conectar os Serviços do BizTalk do Azure a um sistema de Linha de Negócios (LOB) local.
 
- Consulte [conexões híbridas](integration-hybrid-connection-overview.md) toolearn mais, incluindo a criação e gerenciamento de conexões híbridas.
+ Consulte [Conexões híbridas](integration-hybrid-connection-overview.md) para saber mais, incluindo a criação e gerenciamento de Conexões híbridos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que um BizTalk Service foi criada, você se familiarizar com hello diferente [Serviços BizTalk: guias painel, monitorar e escala](biztalk-dashboard-monitor-scale-tabs.md). Seu Serviço BizTalk está pronto para os seus aplicativos. toostart criação de aplicativos, vá muito[Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md). Seu Serviço BizTalk está pronto para os seus aplicativos. Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Consulte também
 * [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)<br/>
@@ -260,8 +260,8 @@ Agora que um BizTalk Service foi criada, você se familiarizar com hello diferen
 * [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)<br/>
 * [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
 * [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
-* [Como posso começar a usar Olá SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Conexões híbridas](integration-hybrid-connection-overview.md)
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Conexões Híbridas](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

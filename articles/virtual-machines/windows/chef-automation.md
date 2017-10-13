@@ -1,6 +1,6 @@
 ---
-title: "implantação da máquina virtual aaaAzure com Chef | Microsoft Docs"
-description: "Saiba como toouse Chef toodo automatizado implantação da máquina virtual e a configuração no Microsoft Azure"
+title: "Implantação de máquina virtual do Azure com o Chef | Microsoft Docs"
+description: "Saiba como usar o Chef para realizar implantação e configuração automatizadas da máquina virtual no Microsoft Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: diegoviso
@@ -15,149 +15,149 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: c5ea98c673b2ee75dd4cedf27e50330af05230d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizando a implantação de máquina virtual do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 O Chef é uma excelente ferramenta para a entrega de automação e configurações de estado de desejado.
 
-Com nossa última versão de api de nuvem, Chef fornece integração perfeita com o Azure, oferecendo Olá tooprovision de capacidade e implantar os estados de configuração por meio de um único comando.
+Com nossa versão mais recente da api de nuvem, o Chef fornece integração perfeita com o Azure, dando a você a capacidade de provisionar e implantar os estados de configuração por meio de um único comando.
 
-Neste artigo, mostrarei como tooset o seu ambiente de Chef tooprovision virtuais do Azure máquinas e orientá-lo a criar uma política ou um "Livro de receitas" e, em seguida, implantar este tooan livro de receitas máquina virtual do Azure.
+Neste artigo, mostrarei a você como configurar o ambiente do Chef para provisionar máquinas virtuais do Azure e a criar uma política ou um "Guia" e, em seguida, implantar esse guia em uma máquina virtual do Azure.
 
 Vamos começar!
 
 ## <a name="chef-basics"></a>Noções básicas do Chef
-Antes de começar, sugerimos que você revisar os conceitos básicos de saudação do Chef. Há um excelente material <a href="http://www.chef.io/chef" target="_blank">aqui</a> e recomendo que você leia rapidamente antes de tentar este passo-a-passo. No entanto, será recapitular Noções básicas de saudação antes de começar.
+Antes de começar, sugiro que você leia os conceitos básicos do Chef. Há um excelente material <a href="http://www.chef.io/chef" target="_blank">aqui</a> e recomendo que você leia rapidamente antes de tentar este passo-a-passo. No entanto, irei recapitular os conceitos básicos antes de começarmos.
 
-Olá diagrama a seguir mostra a arquitetura chefe de alto nível hello.
+O diagrama a seguir ilustra a arquitetura de alto nível do Chef.
 
 ![][2]
 
 O Chef tem três componentes principais de arquitetura: Chef Server, Chef Client (nó) e Chef Workstation.
 
-Olá servidor nosso ponto de gerenciamento e há duas opções para o servidor de saudação: uma solução hospedada ou uma solução local. Vamos usar uma solução hospedada.
+O Chef Server é o nosso ponto de gerenciamento e há duas opções para o Chef Server: uma solução hospedada ou uma solução local. Vamos usar uma solução hospedada.
 
-Cliente do Chef Hello (nó) é agente Olá localizado nos servidores de saudação que está gerenciando.
+O Chef Client (nó) é o agente que reside nos servidores que você está gerenciando.
 
-Olá estação de trabalho do Chef é nossa estação de trabalho do administrador em que criamos nossas políticas e executar os comandos de gerenciamento. Podemos executar Olá **knife** nossa infraestrutura de comando de saudação toomanage de estação de trabalho do Chef.
+O Chef Workstation é nossa estação de trabalho administrativa onde criamos nossas políticas e executamos os comandos de gerenciamento. Executamos o comando **knife** do Chef Workstation para gerenciar nossa infraestrutura.
 
-Também há conceito de saudação de "Guias" e "Receitas". Esses são efetivamente políticas hello, definir e aplicar tooour servidores.
+Há também o conceito de “Guias" e "Receitas". Estas são efetivamente as políticas que definimos e aplicamos aos nossos servidores.
 
-## <a name="preparing-hello-workstation"></a>Preparando a estação de trabalho Olá
-Primeiro, permite que a estação de trabalho de preparação hello. Estou usando uma estação de trabalho padrão do Windows. Precisamos toocreate toostore um diretório de nossos arquivos de configuração e guias.
+## <a name="preparing-the-workstation"></a>Preparando a estação de trabalho
+Primeiro, vamos preparar a estação de trabalho. Estou usando uma estação de trabalho padrão do Windows. É necessário criar um diretório para armazenar os arquivos de configuração e guias.
 
 Primeiro, crie um diretório chamado C:\chef.
 
 Em seguida, crie um segundo diretório chamado c:\chef\cookbooks.
 
-Agora precisamos toodownload nosso arquivo de configurações do Azure para que chefe possa se comunicar com nossa assinatura do Azure.
+Agora, é necessário baixar o arquivo de configurações do Azure para que o Chef possa se comunicar com a nossa assinatura do Azure.
 
 <!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
-Baixe o publicar configurações usando hello PowerShell Azure [AzurePublishSettingsFile Get](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) comando. 
+Baixe as configurações de publicação usando o comando [AzurePublishSettingsFile Get](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) do PowerShell Azure. 
 
-Salvar Olá publica arquivo de configurações em C:\chef.
+Salve o arquivo de configurações de publicação em C:\chef.
 
 ## <a name="creating-a-managed-chef-account"></a>Criando uma conta gerenciada do Chef
 Inscreva-se para uma conta hospedada do Chef [aqui](https://manage.chef.io/signup).
 
-Durante o processo de inscrição hello, você será solicitado a toocreate uma nova organização.
+Durante o processo de inscrição, você será solicitado a criar uma nova organização.
 
 ![][3]
 
-Depois de criar a sua organização, baixe Olá starter kit.
+Depois de criar sua organização, baixe o kit inicial.
 
 ![][4]
 
 > [!NOTE]
-> Se você receber um aviso informando que as chaves serão redefinidas, é tooproceed okey como não temos nenhuma infraestrutura existente configurada ainda.
+> Se você receber um aviso informando que as suas chaves serão redefinidas, está tudo bem prosseguir, visto que não temos nenhuma infraestrutura existente configurada ainda.
 > 
 > 
 
 Este arquivo zip do kit inicial contém arquivos de configuração de organização e chaves.
 
-## <a name="configuring-hello-chef-workstation"></a>Configurando a estação de trabalho do hello Chef
-Extrai o conteúdo de saudação do hello chef starter.zip tooC:\chef.
+## <a name="configuring-the-chef-workstation"></a>Configurando o Chef Workstation
+Extraia o conteúdo do chef-starter.zip em C:\chef.
 
-Copie todos os arquivos em starter\chef-chef-repo\.chef tooyour c:\chef directory.
+Copie todos os arquivos em chef-starter\chef-repo\.chef no seu diretório c:\chef.
 
-Seu diretório agora deve ser semelhante a saudação de exemplo a seguir.
+O diretório agora deve ser semelhante ao exemplo a seguir.
 
 ![][5]
 
-Agora você deve ter quatro arquivos, incluindo Olá arquivo de publicação do Azure na raiz de saudação do c:\chef.
+Agora você deve ter quatro arquivos, incluindo o arquivo de publicação do Azure na raiz do c:\chef.
 
-arquivos PEM de saudação contenham sua organização e chaves privadas de administração para comunicação enquanto o arquivo de knife Olá contém sua configuração de ferramentas. Precisaremos de arquivo de knife tooedit hello.
+Os arquivos PEM contêm as chaves particulares de organização e administração para comunicação enquanto o arquivo knife.rb contém a configuração knife. Será necessário editar o arquivo knife.rb.
 
-Abra o arquivo de saudação em seu editor de preferência e modifique cookbook_path"hello" Removendo Olá /... / do caminho Olá para que ele apareça como mostrado a seguir.
+Abra o arquivo no seu editor de escolha e modifique o "cookbook_path" removendo o /../ do caminho para que ele se pareça como mostrado a seguir.
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
-Também adicione Olá linha refletindo nome hello do Azure publica o arquivo de configurações.
+Além disso, adicione a seguinte linha para refletir o nome do seu arquivo de publicação do Azure.
 
     knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 
-O arquivo knife. RB agora deve ser semelhante toohello exemplo a seguir.
+O arquivo knife.rb agora deve ser semelhante ao exemplo a seguir.
 
 ![][6]
 
-Essas linhas garantirá que Knife faz referência a saudação guias diretório em c:\chef\cookbooks e também usa o nosso arquivo de configurações de publicação do Azure durante as operações do Azure.
+Essas linhas garantirão as referências knife em nosso diretório de guias c:\chef\cookbooks e também usam o arquivo Configurações de Publicação do Azure durante as operações do Azure.
 
-## <a name="installing-hello-chef-development-kit"></a>Olá chefe Development Kit de instalação
-Próxima [baixar e instalar](http://downloads.getchef.com/chef-dk/windows) Olá tooset ChefDK (chefe Development Kit) a sua estação de trabalho do Chef.
+## <a name="installing-the-chef-development-kit"></a>Instale o Kit de desenvolvimento Chef
+Em seguida [baixe e instale](http://downloads.getchef.com/chef-dk/windows) o ChefDK (Chef Development Kit) para configurar seu Chef Workstation.
 
 ![][7]
 
-Instale no local padrão de saudação do c:\opscode. Esta instalação levará cerca de 10 minutos.
+Instale-o no local padrão c:\opscode. Esta instalação levará cerca de 10 minutos.
 
 Confirme que sua variável PATH contém entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin
 
 Se eles não estão lá, certifique-se que adicionar esses caminhos!
 
-*Observação Olá ordem de saudação caminho é importante!* Se seus caminhos opscode não estão na ordem correta hello, que você terá problemas.
+*OBSERVE QUE A ORDEM DO CAMINHO É IMPORTANTE!* Se seus caminhos opscode não estiverem na ordem correta, você terá problemas.
 
 Reinicie a estação de trabalho antes de continuar.
 
-Em seguida, vamos instalar extensão do Knife Azure hello. Isso fornece ferramentas com hello "Plug-in do Azure".
+Em seguida, instalaremos a extensão do Knife Azure. Isso fornece Knife com o "plug-in Azure".
 
-Execute Olá comando a seguir.
+Execute o comando a seguir.
 
     chef gem install knife-azure ––pre
 
 > [!NOTE]
-> argumento de pré-Olá garante que você está recebendo a última versão RC Olá de saudação Knife Azure plug-in que fornece acesso toohello último conjunto de APIs.
+> O argumento –pre garante que você está recebendo a última versão do RC do Plug-in Knife Azure, que fornece acesso ao conjunto mais recente de APIs.
 > 
 > 
 
-É provável que um número de dependências também será instalado no hello simultaneamente.
+É provável que um número de dependências também seja instalado ao mesmo tempo.
 
 ![][8]
 
-tooensure que tudo está configurado corretamente, Olá executar comando a seguir.
+Para garantir que tudo esteja configurado corretamente, execute o comando a seguir.
 
     knife azure image list
 
 Se tudo estiver configurado corretamente, você verá uma lista de imagens do Azure disponíveis rolar.
 
-Parabéns. Configurar a estação de trabalho Olá!
+Parabéns. O Workstation está configurado!
 
 ## <a name="creating-a-cookbook"></a>Criação de um Guia
-Um livro de receitas é usado pelo Chef toodefine um conjunto de comandos que você deseja tooexecute no seu cliente gerenciado. Criar um livro de receitas é simples e usamos Olá **chef gerar livro de receitas** comando toogenerate nosso modelo de livro de receitas. Eu chamarei meu servidor Web do Guia como eu faria com a política que implanta automaticamente o IIS.
+Um Guia é usado pelo Chef para definir um conjunto de comandos que você deseja executar no cliente gerenciado. Criar um Guia é muito simples e direto e usamos o comando **chef generate cookbook** para gerar nosso modelo de Guia. Eu chamarei meu servidor Web do Guia como eu faria com a política que implanta automaticamente o IIS.
 
-Em seu diretório C:\Chef execute Olá comando a seguir.
+No diretório C:\Chef, execute o comando a seguir.
 
     chef generate cookbook webserver
 
-Isso irá gerar um conjunto de arquivos no diretório Olá C:\Chef\cookbooks\webserver. Agora precisamos de conjunto de saudação do toodefine de comandos gostaríamos que nossas tooexecute de cliente do Chef na máquina virtual gerenciada.
+Isso irá gerar um conjunto de arquivos no diretório C:\Chef\cookbooks\webserver. Agora, precisamos definir o conjunto de comandos que gostaríamos que nosso Chef Client executasse em nossa máquina virtual gerenciada.
 
-comandos de saudação são armazenados no RB de arquivo hello. Nesse arquivo, eu vai definir um conjunto de comandos que instala o IIS, o IIS é iniciado e copia um modelo arquivo toohello na pasta wwwroot.
+Os comandos são armazenados no arquivo default.rb. Nesse arquivo, estarei definindo um conjunto de comandos que instala o IIS, inicia o IIS e copia um arquivo de modelo para a pasta wwwroot.
 
-Modificar o arquivo de C:\chef\cookbooks\webserver\recipes\default.rb hello e adicione Olá linhas a seguir.
+Modifique o arquivo C:\chef\cookbooks\webserver\recipes\default.rb e adicione as linhas a seguir.
 
     powershell_script 'Install IIS' do
          action :run
@@ -173,55 +173,55 @@ Modificar o arquivo de C:\chef\cookbooks\webserver\recipes\default.rb hello e ad
          rights :read, 'Everyone'
     end
 
-Salve o arquivo de saudação quando terminar.
+Quando terminar, salve o arquivo.
 
 ## <a name="creating-a-template"></a>Criando um modelo
-Conforme mencionado anteriormente, é preciso toogenerate um arquivo de modelo que será usado como nossa página de Default.
+Conforme mencionado anteriormente, é necessário gerar um arquivo de modelo que será usado como nossa página default.html.
 
-Execute Olá modelo de saudação do comando toogenerate a seguir.
+Execute o comando a seguir para gerar o modelo.
 
     chef generate template webserver Default.htm
 
-Agora, navegar toohello C:\chef\cookbooks\webserver\templates\default\Default.htm.erb arquivo. Editar arquivo hello adicionando um código de "Hello World" HTML simples e, em seguida, salve o arquivo hello.
+Agora, navegue para o arquivo C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Edite o arquivo adicionando um código HTML simples "Hello World" e salve o arquivo.
 
-## <a name="upload-hello-cookbook-toohello-chef-server"></a>Carregar Olá livro de receitas toohello Chef Server
-Nesta etapa, estamos fazendo uma cópia de saudação livro de receitas que você criou na máquina local e carregá-lo toohello o servidor do Chef hospedado. Uma vez carregado, Olá livro de receitas aparecerá sob Olá **política** guia.
+## <a name="upload-the-cookbook-to-the-chef-server"></a>Carregue o Guia no Chef Server
+Nesta etapa, estamos fazendo uma cópia do Guia que criamos na máquina local e carregando no servidor hospedado do Chef. Uma vez carregado, o Guia aparecerá sob a guia **Política** .
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Implantar uma máquina virtual com o Knife Azure
-Agora vamos implantar uma máquina virtual do Azure e aplicar hello "Webserver" livro de receitas que instalará nossa IIS página da web padrão e o serviço web.
+Agora podemos implantar uma máquina virtual do Azure e aplicar o Guia "Webserver", que instalará nossa página da Web padrão e o serviço Web do IIS.
 
-Em ordem toodo isso, use Olá **knife azure server criar** comando.
+Para fazer isso, use o comando **knife azure server create** .
 
-Estou exemplo hello comando aparece em seguida.
+Veja a seguir, um exemplo do comando.
 
     knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
 
-parâmetros de saudação são autoexplicativos. Substitua variáveis específicas e executar.
+Os parâmetros são autoexplicativos. Substitua variáveis específicas e executar.
 
 > [!NOTE]
-> Por meio da linha de comando Olá Olá eu estou também automatizar meu regras de filtro de rede do ponto de extremidade usando o parâmetro de pontos de extremidade tcp – hello. Eu abrir portas 80 e página da web do tooprovide acesso toomy 3389 e sessão RDP.
+> Por meio da linha de comando, também estou automatizando minhas regras de filtro de rede do ponto de extremidade usando o parâmetro –tcp-endpoints. Eu abri as portas 80 e 3389 para fornecer acesso a minha página da Web e à sessão RDP.
 > 
 > 
 
-Quando você executar o comando hello, vá toohello Azure portal e você verá sua máquina começar tooprovision.
+Depois de executar o comando, vá para o portal do Azure e você verá o início do provisionamento de seu computador.
 
 ![][13]
 
-prompt de comando Olá aparece em seguida.
+O prompt de comando aparecem a seguir.
 
 ![][10]
 
-Após a conclusão da implantação hello, podemos deve ser capaz de tooconnect toohello web Services pela porta 80 tinha abrir porta hello quando nós provisionamos máquina virtual Olá Olá comando Knife Azure. Como essa máquina virtual é Olá de máquina virtual somente em meu serviço de nuvem, eu o conectarei com hello url do serviço de nuvem.
+Depois que a implantação estiver concluída, devemos ser capazes de nos conectarmos ao serviço web pela porta 80, visto que abrimos a porta quando provisionamos a máquina virtual com o comando Knife Azure. Como essa máquina virtual é a única em meu serviço de nuvem, vou conectá-la à url do serviço de nuvem.
 
 ![][11]
 
 Como você pode ver, fui criativo com meu código HTML.
 
-Não se esqueça de que nós também pode se conectar por meio de uma sessão RDP do portal do Azure através da porta 3389 de saudação.
+Não se esqueça de que também podemos nos conectar através de uma sessão RDP do portal do Azure por meio da porta 3389.
 
 Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestrutura como código com o Azure hoje mesmo!
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: Desabilitar a verificação de email durante a inscrição do consumidor | Microsoft Docs"
-description: "Um tópico demonstra como toodisable email verificação durante a inscrição no Azure Active Directory B2C do consumidor"
+description: "Um tópico que demonstra como desabilitar a verificação de email durante a inscrição do consumidor no Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-ms.openlocfilehash: a8a42eddcb577725f04d70e1b1ebbebf10b5937c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Desabilitar a verificação de email durante a inscrição do consumidor
-Quando habilitada, B2C do Azure Active Directory (AD do Azure) fornece um consumidor Olá toosign de capacidade para aplicativos fornecendo um endereço de email e criar uma conta local. B2C do AD do Azure garante endereços de email válidos exigindo que os consumidores tooverify-los durante o processo de inscrição hello. Ele também impede que um processo automatizado mal-intencionado gerar falsas contas para aplicativos de saudação.
+Quando está habilitado, o Azure Active Directory (Azure AD) B2C fornece a um consumidor a capacidade de se inscrever em aplicativos fornecendo um endereço de email e criando uma conta local. O Azure AD B2C verifica os endereços de email válidos exigindo que os consumidores os confirmem durante o processo de inscrição. Ele também impede que um processo automatizado mal-intencionado gere contas falsas para os aplicativos.
 
-Alguns desenvolvedores de aplicativo preferem tooskip verificação de email durante o processo de inscrição hello e em vez disso, tem consumidores verificar o endereço de email hello mais tarde. toosupport, B2C do Azure AD pode ser configurado toodisable de verificação do email. Isso cria um processo de inscrição mais suave e oferece aos desenvolvedores Olá flexibilidade toodifferentiate Olá os consumidores que verificaram seu endereço de email de que esses clientes que não tenham.
+Alguns desenvolvedores de aplicativo preferem ignorar a verificação de email durante o processo de inscrição e, em vez disso, pedem para os consumidores verificarem o endereço de email mais tarde. Para dar suporte a isso, o Azure AD B2C pode ser configurado para desabilitar a verificação de email. Isso cria um processo de inscrição mais tranquilo e oferece aos desenvolvedores a flexibilidade para diferenciar os consumidores que confirmaram seu endereço de email daqueles que não o fizeram.
 
-Por padrão, as políticas de inscrição têm a verificação de email ativada. Use Olá seguindo as etapas tooturn-desativar:
+Por padrão, as políticas de inscrição têm a verificação de email ativada. Use as etapas a seguir para desativá-la:
 
-1. [Siga essas folha de recursos etapas toonavigate toohello B2C Olá portal do Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+1. Siga estas etapas para [navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Clique em **Políticas de inscrição** ou em **Políticas de inscrição ou entrada** dependendo do que você configurou para inscrição.
-3. Clique em sua política (por exemplo, "B2C_1_SiUp") tooopen-lo. Clique em **editar** na parte superior de saudação da folha de saudação.
+3. Clique em sua política (por exemplo, "B2C_1_SiUp") para abri-la. Clique em **Editar** na parte superior da folha.
 4. Clique em **Personalização da interface do usuário da página**.
 5. Clique em **Página de inscrição da conta local**.
-6. Clique em **endereço de Email** em Olá **nome** coluna sob Olá **inscrição atributos** seção.
-7. Saudação de alternância **Exigir verificação** opção muito**não**.
-8. Clique em **Okey** na parte inferior da saudação até chegar Olá **Editar política** folha.
-9. Clique em **salvar** na parte superior de saudação da folha de saudação. Pronto!
+6. Clique em **Endereço de Email** na coluna **Nome** na seção **Atributos de inscrição**.
+7. Alterne a opção **Exigir verificação** para **Não**.
+8. Clique em **OK** na parte inferior até chegar à folha **Editar política**.
+9. Clique em **Salvar** na parte superior da folha. Pronto!
 
 > [!NOTE]
-> Desabilitar a verificação de email no processo de inscrição Olá pode levar toospam. Se você desabilitar o saudação padrão, é recomendável adicionar seu próprio sistema de verificação.
+> Desabilitar a verificação de email no processo de inscrição pode gerar spam. Se você desabilitar o padrão, recomendamos adicionar seu próprio sistema de verificação.
 > 
 > 
 
-Estamos sempre abrir toofeedback e sugestões! Se você tiver dificuldade com este tópico ou ter recomendações para melhorar este conteúdo, Apreciamos seus comentários na parte inferior da saudação da página de saudação. Para solicitações de recurso, adicioná-los muito[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este tópico ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure dimensionamento programático do serviço de malha | Microsoft Docs"
-description: Dimensionar um cluster do Service Fabric do Azure ou programaticamente, de acordo com toocustom gatilhos
+title: "Dimensionamento programático do Azure Service Fabric | Microsoft Docs"
+description: "Dimensionar um cluster do Azure Service Fabric para expandi-lo ou reduzi-lo por meio de programação de acordo com gatilhos personalizados"
 services: service-fabric
 documentationcenter: .net
 author: mjrousos
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: mikerou
-ms.openlocfilehash: a0c6499b1a143a173006248cf8a15380632637e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
 
 Os conceitos básicos do dimensionamento de um cluster do Azure Service Fabric são abordados na documentação sobre [dimensionamento de cluster](./service-fabric-cluster-scale-up-down.md). Esse artigo aborda como clusters do Service Fabric são criados em cima de conjuntos de dimensionamento de máquinas virtuais e podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este documento examina métodos programáticos de coordenação das operações de dimensionamento do Azure para cenários mais avançados. 
 
 ## <a name="reasons-for-programmatic-scaling"></a>Razões para um dimensionamento programático
-Em muitos cenários, o dimensionamento manual ou por meio de regras de dimensionamento automático é uma boas solução. Em outros cenários, no entanto, eles podem não estar Olá ajustar à direita. Possíveis desvantagens toothese abordagens incluem:
+Em muitos cenários, o dimensionamento manual ou por meio de regras de dimensionamento automático é uma boas solução. Em outros cenários, no entanto, ele pode não ser adequado. As desvantagens desses métodos incluem:
 
-- Dimensionamento manualmente requer toolog no e explicitamente as operações de dimensionamento de solicitação. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
-- Quando as regras de dimensionamento automático removem uma instância de um conjunto de escala de máquinas virtuais, elas não remove automaticamente conhecimento do nó do cluster do Service Fabric Olá associado, a menos que o tipo de nó Olá tem um nível de durabilidade de prata ou ouro. Como as regras de dimensionamento automático funcionam ao definir o nível de escala de saudação (em vez de em Olá nível de malha do serviço), regras de dimensionamento automático podem remover nós do Service Fabric sem sendo desligado normalmente. Essa remoção de nó sem maiores cuidados deixará um estado do nó do Service Fabric “fantasma” de rastro após as operações de redução horizontal. Uma pessoa (ou um serviço) necessário tooperiodically Limpar estado do nó removido no cluster do Service Fabric hello.
+- O dimensionamento manual requer que você faça logon e solicite as operações de dimensionamento explicitamente. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
+- Quando as regras de dimensionamento automático removem uma instância de um conjunto de dimensionamento de máquinas virtuais, elas não removem o conhecimento do nó do cluster do Service Fabric associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Como as regras de dimensionamento automático funcionam no nível do conjunto de dimensionamento (em vez do nível do Service Fabric), elas podem remover nós do Service Fabric sem desligá-lo normalmente. Essa remoção de nó sem maiores cuidados deixará um estado do nó do Service Fabric “fantasma” de rastro após as operações de redução horizontal. Uma pessoa (ou um serviço) precisaria limpar periodicamente o estado do nó removido no cluster do Service Fabric.
   - Observe que um tipo de nó com um nível de durabilidade Ouro ou Prata limpará os nós removidos automaticamente.  
 - Embora haja [várias métricas](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) com suporte pelas regras de dimensionamento automático, o conjunto ainda é limitado. Se seu cenário exigir dimensionamento com base em alguma métrica não abordada no conjunto, as regras de dimensionamento automático podem não ser uma boa opção.
 
-Com base nessas limitações, talvez você queira tooimplement mais automática escala modelos personalizados. 
+Com base nessas limitações, convém implementar mais modelos de dimensionamento personalizados. 
 
 ## <a name="scaling-apis"></a>Dimensionando APIs
-APIs do Azure existem que permitem que aplicativos tooprogrammatically funcionem com conjuntos de escala de máquina virtual e clusters de malha do serviço. Se as opções de dimensionamento automático existentes não funcionam para seu cenário, essas APIs o tornam possível tooimplement lógica personalizada de escala. 
+Existem APIs do Azure que permitem aos aplicativos trabalhar com conjuntos de dimensionamento de máquinas virtuais e clusters do Service Fabric por meio de programação. Se as opções de dimensionamento automático existentes não funcionam em seu cenário, essas APIs possibilitam a implementação de lógica de dimensionamento personalizada. 
 
-Uma abordagem tooimplementing isso 'Início-feitas' dimensionamento automático funcionalidade é tooadd um novo serviço sem monitoração de estado toohello Service Fabric application toomanage operações de dimensionamento. Dentro do serviço Olá `RunAsync` método, um conjunto de gatilhos pode determinar se a escala é necessária (incluindo verificando parâmetros, como o tamanho máximo do cluster e dimensionamento cooldowns).   
+Uma abordagem para implementar essa funcionalidade de dimensionamento automático “caseira” é adicionar um novo serviço sem estado ao aplicativo do Service Fabric para gerenciar operações de dimensionamento. No método `RunAsync` do serviço, um conjunto de disparadores pode determinar se o dimensionamento é necessário (inclusive verificando parâmetros como o tamanho máximo do cluster e o dimensionamento de cooldowns).   
 
-Olá API usada para interações de conjunto de escala de máquina virtual (ambos toocheck Olá atual de número de instâncias de máquina virtual e toomodify-lo) é hello [biblioteca de computação de gerenciamento do Azure fluente](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). biblioteca de computação fluente Olá fornece uma API de fácil de usar para interagir com conjuntos de escala de máquina virtual.
+A API usada para interações de conjunto de dimensionamento de máquinas virtuais (tanto para verificar o número atual de instâncias da máquina virtual quanto para modificá-lo) é a [biblioteca de computação do Gerenciamento do Azure fluente](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). A biblioteca de computação fluente fornece uma API fácil de usar para interagir com conjuntos de dimensionamento de máquinas virtuais.
 
-usar toointeract com cluster do Service Fabric hello, [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
+Para interagir com o próprio cluster do Service Fabric, use [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
-Obviamente, Olá dimensionamento código não precisa toorun como um serviço em Olá cluster toobe expandida. Ambos `IAzure` e `FabricClient` podem se conectar recursos do Azure tootheir associado remotamente, Olá dimensionando serviço pode ser facilmente um aplicativo de console ou executando o aplicativo de malha do serviço de hello fora de serviço do Windows. 
+É claro que o código de dimensionamento não precisa ser executado como um serviço no cluster para ser dimensionado. Tanto o `IAzure` quanto o `FabricClient` podem se conectar aos recursos do Azure associados remotamente e, portanto, o serviço de dimensionamento pode facilmente ser um aplicativo de console ou serviço do Windows executado de fora do aplicativo do Service Fabric. 
 
 ## <a name="credential-management"></a>Gerenciamento de credenciais
-Um desafio de escrever um dimensionamento de toohandle de serviço é que o serviço de saudação deve ser recursos de conjunto de escala tooaccess capaz de máquina virtual sem um logon interativo. Acessando Olá malha do serviço de cluster é fácil se Olá dimensionando serviço está modificando seu próprio aplicativo de malha do serviço, mas as credenciais são necessárias tooaccess Olá conjunto de escala. toolog no, você pode usar um [entidade de serviço](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md#creating-a-service-principal-in-azure) criado com hello [Azure CLI 2.0](https://github.com/azure/azure-cli).
+Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para fazer logon, você pode usar uma [entidade de serviço](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md#creating-a-service-principal-in-azure) criada com a [CLI do Azure 2.0](https://github.com/azure/azure-cli).
 
-Uma entidade de serviço pode ser criada com hello etapas a seguir:
+Uma entidade de serviço pode ser criada com as seguintes etapas:
 
-1. Faça logon no toohello CLI do Azure (`az login`) como um usuário com a escala de máquinas virtuais toohello acesso definido
-2. Criar serviço Olá principal com`az ad sp create-for-rbac`
-    1. Anote Olá appId (chamado de ID do cliente em outro lugar), nome, senha e locatário para uso posterior.
+1. Faça logon na CLI do Azure (`az login`) como um usuário com acesso ao conjunto de dimensionamento de máquinas virtuais
+2. Crie a entidade de serviço com `az ad sp create-for-rbac`
+    1. Anote o appId (chamado de ‘ID do cliente’ em outros lugares), o nome, a senha e o locatário para uso posterior.
     2. Você também precisará da sua ID de assinatura, que pode ser exibida com `az account list`
 
-Olá computação fluente biblioteca pode fazer logon usando essas credenciais da seguinte maneira (Observe que os tipos de Azure fluente core como `IAzure` no hello [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pacote):
+A biblioteca de computação fluente pode fazer logon usando essas credenciais da seguinte maneira (observe que os tipos de núcleo fluente do Azure como `IAzure` estão no pacote [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
 ```C#
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -70,14 +70,14 @@ if (AzureClient?.SubscriptionId == AzureSubscriptionId)
 }
 else
 {
-    ServiceEventSource.Current.ServiceMessage(Context, "ERROR: Failed toologin tooAzure");
+    ServiceEventSource.Current.ServiceMessage(Context, "ERROR: Failed to login to Azure");
 }
 ```
 
 Depois da conexão, a contagem de instâncias do conjunto de dimensionamento pode ser consultada por meio de `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`.
 
 ## <a name="scaling-out"></a>Expansão
-Usando Olá fluente SDK de computação do Azure, instâncias podem ser adicionadas a escala de máquinas virtuais toohello com apenas algumas chamadas-
+Usando o SDK de computação do Azure fluente, instâncias podem ser adicionadas ao conjunto de dimensionamento de máquinas virtuais com apenas algumas chamadas-
 
 ```C#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -85,15 +85,15 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss)pode recuperar o objeto de conjunto de escala de máquina virtual de saudação. capacidade atual Hello será armazenada no hello `.sku.capacity` propriedade. Depois de alterar Olá capacidade toohello valor desejado, escala de máquinas virtuais Olá definida no Azure pode ser atualizada com hello [ `Update-AzureRmVmss` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss) comando.
+Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. O [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual será armazenada na propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais do Azure pode ser atualizado com o comando [ `Update-AzureRmVmss` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
 
-Como adicionar conjunto de uma escala de instância ao adicionar um nó manualmente, deve ser todos os toostart necessário que inclui um novo nó de malha do serviço porque o modelo de conjunto de escala de saudação extensões tooautomatically adicionar novo cluster de malha do serviço de toohello de instâncias. 
+Assim como na adição de um nó manual, a adição de uma instância de conjunto de dimensionamento deve ser suficiente para iniciar um novo nó do Service Fabric, pois o modelo do conjunto de dimensionamento inclui extensões para unir novas instâncias de cluster do Service Fabric automaticamente. 
 
 ## <a name="scaling-in"></a>Redução horizontal
 
-O dimensionamento em é semelhante tooscaling-out. conjunto de escala de máquina virtual Olá alterações são praticamente Olá mesmo. Mas, como discutido anteriormente, o Service Fabric apenas limpa automaticamente nós removidos com uma durabilidade Ouro ou Prata. Portanto, Olá Bronze durabilidade escala no caso, é necessário toointeract com hello Service Fabric cluster tooshut para baixo Olá nó toobe removido e, em seguida, tooremove seu estado.
+A redução horizontal é semelhante à expansão. As alterações do conjunto de dimensionamento de máquinas virtuais são praticamente as mesmas. Mas, como discutido anteriormente, o Service Fabric apenas limpa automaticamente nós removidos com uma durabilidade Ouro ou Prata. Assim, no caso de durabilidade Bronze, é necessário interagir com o cluster do Service Fabric para desligar o nó a ser removido e remover seu estado.
 
-Preparando o nó de saudação para desligamento envolve a localização Olá nó toobe removido (Olá nó adicionado mais recentemente) e desativá-lo. No caso de nós sem propagação, os nós mais recentes podem ser encontrados comparando `NodeInstanceId`. 
+A preparação do nó para desligamento envolve localizar o nó a ser removido (o nó adicionado mais recentemente) e desativá-lo. No caso de nós sem propagação, os nós mais recentes podem ser encontrados comparando `NodeInstanceId`. 
 
 ```C#
 using (var client = new FabricClient())
@@ -105,18 +105,18 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Lembre-se que *semente* nós não parecem tooalways seguem a convenção de saudação que maior IDs de instância são removidas primeiro.
+Lembre-se de que os nós de *propagação* nem sempre parecem seguir a convenção de que as IDs de instâncias maiores são removidas primeiro.
 
-Depois de saudação nó toobe removido for encontrado, ele pode ser desativado e removido usando Olá mesmo `FabricClient` instância e hello `IAzure` instância anteriores.
+Depois que o nó a ser removido é encontrado, ele podem ser desativado e removido usando a mesma instância `FabricClient` e a instância `IAzure` anterior.
 
 ```C#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
-// Remove hello node from hello Service Fabric cluster
+// Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
 await client.ClusterManager.DeactivateNodeAsync(mostRecentLiveNode.NodeName, NodeDeactivationIntent.RemoveNode);
 
-// Wait (up tooa timeout) for hello node toogracefully shutdown
+// Wait (up to a timeout) for the node to gracefully shutdown
 var timeout = TimeSpan.FromMinutes(5);
 var waitStart = DateTime.Now;
 while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Disabling) &&
@@ -132,7 +132,7 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Com a expansão, os cmdlets do PowerShell para modificar a capacidade do conjunto de dimensionamento de máquinas virtuais também pode ser usada aqui se uma abordagem de script for preferível. Depois que a instância de máquina virtual de saudação for removida, o estado do nó do Service Fabric pode ser removido.
+Com a expansão, os cmdlets do PowerShell para modificar a capacidade do conjunto de dimensionamento de máquinas virtuais também pode ser usada aqui se uma abordagem de script for preferível. Depois que a instância da máquina virtual é removida, o estado do nó do Service Fabric pode ser removido.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
@@ -140,13 +140,13 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 ## <a name="potential-drawbacks"></a>Possíveis desvantagens
 
-Conforme demonstrado no hello anterior trechos de código, criar seu próprio serviço de dimensionamento fornece mais alto grau de saudação de controle e personalização em seu aplicativo do dimensionamento de comportamento. Isso pode ser útil para cenários que exigem controle preciso sobre quando ou como um aplicativo pode ser expandido ou reduzido horizontalmente. No entanto, esse controle é fornecido ao custo de uma maior complexidade do código. Usando essa abordagem significa que você precisa tooown dimensionamento de código, que não é simples.
+Conforme demonstrado nos trechos de código anteriores, a criação do seu próprio serviço de dimensionamento fornece o mais alto grau de controle e personalização do comportamento de dimensionamento do aplicativo. Isso pode ser útil para cenários que exigem controle preciso sobre quando ou como um aplicativo pode ser expandido ou reduzido horizontalmente. No entanto, esse controle é fornecido ao custo de uma maior complexidade do código. O uso dessa abordagem significa que você precisa possuir código de dimensionamento, o que não é simples.
 
-Como você deve abordar o dimensionamento do Service Fabric depende de seu cenário. Se a escala é incomum, Olá capacidade tooadd ou remover nós manualmente provavelmente será suficiente. Para cenários mais complexos, regras de dimensionamento automático e SDKs expondo Olá capacidade tooscale programaticamente oferecem alternativas poderosas.
+Como você deve abordar o dimensionamento do Service Fabric depende de seu cenário. Se o dimensionamento for incomum, a capacidade de adicionar ou remover nós manualmente provavelmente será suficiente. Para cenários mais complexos, as regras de dimensionamento automático e os SDKs que expõem a capacidade de dimensionamento programático oferecem alternativas poderosas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-tooget começaram a implementar sua própria lógica de dimensionamento automático, se familiarizar com hello APIs úteis e conceitos a seguir:
+Para começar a implementar sua própria lógica de dimensionamento automático, familiarize-se com as APIs úteis e os conceitos abaixo:
 
 - [Dimensionar manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-up-down.md)
 - [Bibliotecas do Gerenciamento do Azure para .NET fluentes](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com conjuntos de dimensionamento de máquinas virtuais subjacentes a um cluster do Service Fabric)

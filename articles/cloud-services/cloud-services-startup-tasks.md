@@ -1,6 +1,6 @@
 ---
-title: "aaaRun tarefas de inicialização nos serviços de nuvem do Azure | Microsoft Docs"
-description: "As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso ensina como o trabalho de tarefas de inicialização e toomake-los"
+title: "Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs"
+description: "As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 3391a5d7434164f59972b8e497e5c34e33409543
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1c1b3aa86dc8211de0c07c9fb68da5685c86f551
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooconfigure-and-run-startup-tasks-for-a-cloud-service"></a>Como as tarefas de inicialização tooconfigure e execução de um serviço de nuvem
-Você pode usar operações de tooperform de tarefas de inicialização antes do início de uma função. Operações que convém tooperform incluem instalação de um componente, registrando componentes COM, chaves do registro de configuração ou iniciar um processo de execução longa.
+# <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
+Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
 
 > [!NOTE]
-> Tarefas de inicialização não são aplicáveis tooVirtual máquinas, apenas tooCloud serviço Web e funções de trabalho.
+> As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
 > 
 > 
 
 ## <a name="how-startup-tasks-work"></a>Como funcionam as tarefas de inicialização
-Tarefas de inicialização são ações que são executadas antes de suas funções começam e são definidas em hello [servicedefinition. Csdef] arquivo usando Olá [tarefa] elemento dentro do hello [inicialização]elemento. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
+As tarefas de inicialização são as ações executadas antes de suas funções começarem e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Task] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
 
-Variáveis de ambiente transmitem informações em uma tarefa de inicialização e armazenamento local pode ser usado toopass informações fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o programa de tooa caminho Olá deseja tooinstall e arquivos podem ser gravados armazenamento toolocal que pode ser lidos posteriormente por suas funções.
+As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
 
-Sua tarefa de inicialização pode registrar informações e o diretório de toohello de erros especificado pelo Olá **TEMP** variável de ambiente. Durante a tarefa de inicialização de Olá Olá **TEMP** variável de ambiente resolve toohello *c:\\recursos\\temp\\[guid]. [ rolename]\\RoleTemp* diretório quando em execução na nuvem hello.
+Sua tarefa de inicialização pode registrar informações e erros no diretório especificado pela variável de ambiente **TEMP** . Durante a tarefa de inicialização, a variável de ambiente **TEMP** determina o diretório *C:\\Resources\\temp\\[guid].[nomefunção]\\RoleTemp* ao executar na nuvem.
 
-As tarefas de inicialização também podem ser executadas várias vezes entre as reinicializações. Por exemplo, Olá inicialização tarefa será executada cada vez Olá função se recicla e a reciclagem de função não pode incluir sempre uma reinicialização. Tarefas de inicialização devem ser escritas de forma a permitir que eles toorun várias vezes sem problemas.
+As tarefas de inicialização também podem ser executadas várias vezes entre as reinicializações. Por exemplo, a tarefa de inicialização será executada sempre que a função for reciclada, e as reciclagens de função nem sempre incluirão uma reinicialização. As tarefas de inicialização devem ser gravadas de uma maneira que permita que sejam executadas diversas vezes sem problemas.
 
-Tarefas de inicialização devem terminar com uma **errorlevel** (ou código de saída) de zero para Olá toocomplete de processo de inicialização. Se uma tarefa de inicialização termina com diferente de zero **errorlevel**, Olá função não será iniciada.
+As tarefas de inicialização devem terminar com um **errorlevel** (ou código de saída) zero para que o processo de inicialização seja concluído. Se uma tarefa de inicialização terminar com um **errorlevel**diferente de zero, a função não será iniciada.
 
 ## <a name="role-startup-order"></a>Ordem de inicialização de função
-Olá seguindo o procedimento de inicialização de função listas Olá no Azure:
+A seguir, o procedimento de inicialização da função no Azure:
 
-1. Olá instância é marcada como **iniciando** e não recebe o tráfego.
-2. Todas as tarefas de inicialização são executadas de acordo com tootheir **taskType** atributo.
+1. A instância está marcada como **Iniciando** e não recebe o tráfego.
+2. Todas as tarefas de inicialização são executadas de acordo com o atributo **taskType** .
    
-   * Olá **simples** tarefas são executadas de forma síncrona, uma de cada vez.
-   * Olá **em segundo plano** e **primeiro plano** tarefas são iniciadas de forma assíncrona, paralelas toohello tarefa de inicialização.  
+   * As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
+   * As tarefas em **segundo plano** e **primeiro plano** são iniciadas de forma assíncrona, paralelas com a tarefa de inicialização.  
      
      > [!WARNING]
-     > O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização Olá no processo de inicialização hello, para que dados específicos de função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
      > 
      > 
-3. processo de host de função Hello é iniciado e Olá site é criado no IIS.
-4. Olá [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) método é chamado.
-5. Olá instância é marcada como **pronto** e o tráfego é roteado toohello instância.
-6. Olá [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) método é chamado.
+3. O processo de host da função é iniciado e o site é criado no IIS.
+4. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) é chamado.
+5. A instância é marcada como **Pronta** e o tráfego é roteado para a instância.
+6. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) é chamado.
 
 ## <a name="example-of-a-startup-task"></a>Exemplo de uma tarefa de inicialização
-Tarefas de inicialização são definidas no hello [servicedefinition. Csdef] arquivo, em Olá **tarefa** elemento. Olá **commandLine** atributo especifica o nome da saudação e parâmetros do lote de inicialização de saudação do arquivo ou no console de comando, hello **executionContext** atributo especifica o nível de privilégio de saudação de inicialização Olá tarefas e hello **taskType** atributo especifica como Olá tarefa será executada.
+As tarefas de inicialização são definidas no arquivo [ServiceDefinition.csdef] , no elemento **Tarefa** . O atributo **commandLine** especifica o nome e os parâmetros do arquivo de inicialização em lote ou do comando de console, o atributo **executionContext** especifica o nível de privilégio da tarefa de inicialização e o atributo **taskType** especifica como a tarefa será executada.
 
-Neste exemplo, uma variável de ambiente **MyVersionNumber**, é criado para a tarefa de inicialização hello e defina o valor de toohello "**1.0.0.0**".
+Neste exemplo, uma variável de ambiente, **MyVersionNumber**, é criada para a tarefa de inicialização e definida para o valor "**1.0.0.0**".
 
 **ServiceDefinition.csdef**:
 
@@ -74,76 +74,76 @@ Neste exemplo, uma variável de ambiente **MyVersionNumber**, é criado para a t
 </Startup>
 ```
 
-Em Olá exemplo a seguir, Olá **Startup.cmd** arquivo em lote grava linha hello "o hello current version is 1.0.0.0" arquivo de StartupLog.txt toohello no diretório de saudação especificado pela variável de ambiente TEMP hello. Olá `EXIT /B 0` linha garante que essa tarefa de inicialização Olá termina com um **errorlevel** igual a zero.
+No exemplo a seguir, o arquivo em lotes **Startup.cmd** grava a linha "A versão atual é 1.0.0.0" no arquivo StartupLog.txt no diretório especificado pela variável de ambiente TEMP. A linha `EXIT /B 0` garante que a tarefa de inicialização termine com um **errorlevel** zero.
 
 ```cmd
-ECHO hello current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
+ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
 > [!NOTE]
-> No Visual Studio, Olá **copiar tooOutput diretório** propriedade para o arquivo em lotes de inicialização deve ser definida muito**copiar sempre** toobe-se de que o arquivo em lotes de inicialização esteja adequadamente implantado tooyour projeto no Azure (**approot\\bin** para funções da Web, e **approot** para funções de trabalho).
+> No Visual Studio, a propriedade **Copy to Output Directory** do arquivo de inicialização em lote deve ser definida para **Copy Always** para verificar se o arquivo de inicialização em lote está implantado corretamente em seu projeto no Azure (**approot\\bin** para as funções Web e **approot** para as funções de trabalho).
 > 
 > 
 
 ## <a name="description-of-task-attributes"></a>Descrição dos atributos da tarefa
-Hello, a seguir descreve os atributos de saudação do hello **tarefa** elemento Olá [servicedefinition. Csdef] arquivo:
+A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDefinition.csdef] :
 
-**linha de comando** -Especifica Olá a linha de comando para a tarefa de inicialização hello:
+**commandLine** - especifica a linha de comando para a tarefa de inicialização:
 
-* comando Hello, com parâmetros de linha de comando opcional, que inicia a tarefa de inicialização de saudação.
-* Geralmente, isso é Olá nome do arquivo de um arquivo em lotes. cmd ou. bat.
-* tarefa de saudação é relativo toohello AppRoot\\pasta Bin para implantação de saudação. Variáveis de ambiente não são expandidas para determinar o caminho hello e da tarefa de saudação. Se a expansão de ambiente for necessária, você poderá criar um script .cmd pequeno que chame sua tarefa de inicialização.
+* O comando, com parâmetros de linha de comando opcionais, que inicia a tarefa de inicialização.
+* Geralmente, esse é o nome do arquivo de um arquivo em lotes .cmd ou .bat.
+* A tarefa é relativa à pasta Bin do \\AppRoot da implantação. As variáveis de ambiente não são expandidas para a determinação do caminho e do arquivo da tarefa. Se a expansão de ambiente for necessária, você poderá criar um script .cmd pequeno que chame sua tarefa de inicialização.
 * Pode ser um aplicativo de console ou um arquivo em lotes que inicie um [script do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
-**executionContext** -Especifica o nível de privilégio Olá para tarefa de inicialização de saudação. nível de privilégio Olá pode ser limitado ou elevado:
+**executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
 
 * **limitado**  
-  tarefa de inicialização de saudação é executado com hello mesmo privilégios como função hello. Olá quando **executionContext** atributo Olá [tempo de execução] elemento também é **limitado**, privilégios de usuário são usadas.
+  A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também é **limitado**, os privilégios do usuário são usados.
 * **elevado**  
-  tarefa de inicialização de saudação é executado com privilégios de administrador. Isso permite que as tarefas de inicialização tooinstall programas, faça as alterações de configuração do IIS, realizar alterações no registro e outras tarefas de nível de administrador sem aumentar o nível de privilégio de saudação da própria função hello.  
+  A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.  
 
 > [!NOTE]
-> Olá nível de privilégio de uma tarefa de inicialização não precisa toobe Olá mesmo como função hello em si.
+> O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
 > 
 > 
 
-**taskType** -Especifica Olá forma uma tarefa de inicialização é executado.
+**taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
 * **simpless**  
-  Tarefas são executadas de forma síncrona, uma de cada vez, em ordem de saudação especificado no hello [servicedefinition. Csdef] arquivo. Quando um **simples** tarefa de inicialização termina com um **errorlevel** de zero, em seguida Olá **simples** tarefa de inicialização é executada. Se houver mais **simples** tooexecute, tarefas de inicialização e a função hello em si será iniciada.   
+  As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef] . Quando uma tarefa de inicialização **simples**termina com um **errorlevel** zero, a próxima tarefa de inicialização **simples** é executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
   
   > [!NOTE]
-  > Se hello **simples** tarefa termina com diferente de zero **errorlevel**, Olá instância será bloqueada. Subsequentes **simples** tarefas de inicialização e a função hello em si, não serão iniciado.
+  > Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
   > 
   > 
   
-    tooensure o arquivo em lotes termina com um **errorlevel** de zero, execute o comando Olá `EXIT /B 0` final de saudação de seu processo de arquivo em lotes.
+    Para garantir que o arquivo em lote terminará com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do arquivo em lote.
 * **segundo plano**  
-  Tarefas são executadas de forma assíncrona, em paralelo com a inicialização de saudação da função hello.
+  As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
 * **primeiro plano**  
-  Tarefas são executadas de forma assíncrona, em paralelo com a inicialização de saudação da função hello. Olá a principal diferença entre um **primeiro plano** e um **em segundo plano** tarefa é que um **primeiro plano** tarefa impede que a função de saudação do reciclado ou desligado até que a tarefa de saudação tem terminou. Olá **em segundo plano** tarefas não têm essa restrição.
+  As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
-Variáveis de ambiente são uma tarefa de inicialização do modo toopass informações tooa. Por exemplo, você pode colocar blob Olá de tooa de caminho que contém um tooinstall de programa, ou números de porta que usará a função ou recursos de toocontrol de configurações de sua tarefa de inicialização.
+As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
 
-Há dois tipos de variáveis de ambiente para tarefas de inicialização. variáveis de ambiente estáticos e variáveis de ambiente com base nos membros de saudação [ RoleEnvironment] classe. Ambos são Olá [ambiente] seção Olá [servicedefinition. Csdef] arquivo e ambos Olá use [variável] elemento e **nome** atributo.
+Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment] . Ambas estão na seção [Environment] do arquivo [ServiceDefinition.csdef] e usam o elemento [Variable] e o atributo **name**.
 
-Saudação de usa de variáveis de ambiente estático **valor** atributo de saudação [variável] elemento. exemplo Hello acima cria a variável de ambiente Olá **MyVersionNumber** que tem um valor estático de "**1.0.0.0**". Outro exemplo seria toocreate um **StagingOrProduction** variável de ambiente que você pode definir manualmente toovalues de "**preparo**"ou"**produção**" tooperform ações diferentes de inicialização com base no valor Olá Olá **StagingOrProduction** variável de ambiente.
+As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variable] . O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction** que você pode definir manualmente para os valores de "**preparo**" ou "**produção**" para executar ações diferentes de inicialização com base no valor da variável de ambiente **StagingOrProduction**.
 
-Variáveis de ambiente com base nos membros de saudação classe RoleEnvironment não usam Olá **valor** atributo de saudação [variável] elemento. Em vez disso, Olá [RoleInstanceValue] elemento filho, com hello apropriado **XPath** valor do atributo, é usada toocreate uma variável de ambiente com base em um membro específico de saudação [ RoleEnvironment] classe. Valores para Olá **XPath** atributo tooaccess vários [ RoleEnvironment] valores podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
+As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable] . Em vez disso, o elemento-filho [RoleInstanceValue], com o devido valor do atributo **XPath**, é usado para criar uma variável de ambiente com base em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar os diversos valores [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
 
-Toocreate por exemplo, uma variável de ambiente é "**true**" quando a instância de saudação está em execução no emulador de computação Olá, e "**false**" ao executar em nuvem Olá, use o seguinte Olá [variável] e [RoleInstanceValue] elementos:
+Por exemplo, para criar uma variável de ambiente "**true**" quando a instância está em execução no emulador de computação, e "**false**" quando em execução na nuvem, use os seguintes elementos [Variable] e [RoleInstanceValue] :
 
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
         <Environment>
 
-            <!-- Create hello environment variable that informs hello startup task whether it is running
-                in hello Compute Emulator or in hello cloud. "%ComputeEmulatorRunning%"=="true" when
-                running in hello Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-                in hello cloud. -->
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
 
             <Variable name="ComputeEmulatorRunning">
                 <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
@@ -155,15 +155,15 @@ Toocreate por exemplo, uma variável de ambiente é "**true**" quando a instânc
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como tooperform alguns [tarefas comuns de inicialização](cloud-services-startup-tasks-common.md) com seu serviço de nuvem.
+Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-startup-tasks-common.md) com seu Serviço de Nuvem.
 
 [Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.  
 
-[servicedefinition. Csdef]: cloud-services-model-and-package.md#csdef
-[tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[inicialização]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[tempo de execução]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[ RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

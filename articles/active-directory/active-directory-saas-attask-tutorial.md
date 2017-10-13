@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Active Directory do Azure com @Task| Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e @Task."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o @Task."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,108 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 0840763622086a02a27cfafff3b741bc66cec498
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>Tutorial: Integração do Active Directory do Azure com @Task
-Olá objetivo deste tutorial é tooshow você como toointegrate @Task com o Azure Active Directory (AD do Azure).  
-Integrando @Task com o Azure AD fornece Olá benefícios a seguir: 
+O objetivo desse tutorial é mostrar como integrar @Task ao Azure Active Directory (AD do Azure).  
+A integração de @Task ao AD do Azure oferece os seguintes benefícios: 
 
-* Você pode controlar no AD do Azure que tenha acessotoo@Task
-* Você pode permitir que os usuários tooautomatically obter conectado too@Task (logon único) com suas contas do AD do Azure
-* Você pode gerenciar suas contas em um local central - Olá Portal clássico do Azure
+* No AD do Azure, é possível controlar quem tem acesso a @Task
+* Você pode permitir que seus usuários façam logon automaticamente em @Task (logon único) com suas contas do AD do Azure
+* Você pode gerenciar suas contas em um único local: o portal clássico do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-integração tooconfigure AD do Azure com @Task, você precisa Olá itens a seguir:
+Para configurar a integração do AD do Azure com @Task, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
 * Uma assinatura habilitada para logon único @Task
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 > 
 > 
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
 * Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Olá objetivo deste tutorial é tooenable tootest logon único do AD do Azure em um ambiente de teste.  
-cenário de saudação descrito neste tutorial consiste em três principais blocos de construção:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
+O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando @Task da Galeria de saudação 
+1. Adicionar @Task da galeria 
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-task-from-hello-gallery"></a>Adicionando @Task da Galeria de saudação
-integração de saudação tooconfigure do @Task no AD do Azure, você precisa tooadd @Task da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-task-from-the-gallery"></a>Adicionar @Task da galeria
+Para configurar a integração de @Task ao AD do Azure, você precisa adicionar @Task por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd @Task da Galeria hello, executar Olá etapas a seguir:**
+**Para adicionar @Task por meio da galeria, execute as seguintes etapas:**
 
-1. Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**. 
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1] 
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
-3. Clique em exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, **aplicativos** no menu superior hello.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2] 
-4. Clique em **adicionar** final Olá Olá página.
+4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3] 
-5. Em Olá **o que fazer você deseja toodo** caixa de diálogo, clique em **adicionar um aplicativo da Galeria Olá**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4] 
-6. Na caixa de pesquisa hello, digite  **@Task** .
+6. Na caixa de pesquisa, digite **@Task**.
    
     ![Aplicativos][5] 
-7. No painel de resultados de saudação, selecione  **@Task** e, em seguida, clique em **concluir** aplicativo hello de tooadd.
+7. No painel de resultados, selecione **@Task** e clique em **Concluir** para adicionar o aplicativo.
    
     ![Aplicativos][30] 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Olá, o objetivo desta seção é tooshow você como um único teste AD do Azure e tooconfigure logon com @Task com base em um usuário de teste chamado "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
+O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com @Task, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, AD do Azure precisa tooknow que usuário de contraparte Olá no @Task tooan usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em @Task precisa toobe estabelecida.   
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** em @Task.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário de @Task é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado em @Task.   
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no @Task.
 
-teste do AD do Azure e tooconfigure o logon único com @Task, você precisa Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o AD do Azure-logon único com @Task, você precisa concluir os blocos de construção a seguir:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criando um @Tasktest usuário](#creating-a-halogen-software-test-user)**  -toohave a contraparte de Britta Simon em @Taskthat é a representação toohello vinculado do Azure AD dela.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criar um @Tasktest usuário](#creating-a-halogen-software-test-user)** - para ter um equivalente de Brenda Fernandes em @Taskthat que esteja vinculado à representação dela no AD do Azure.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-Olá objetivo desta seção é tooenable AD do Azure-logon único no hello portal clássico do Azure e tooconfigure logon único no seu @Task aplicativo.
+O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo de @Task.
 
-**tooconfigure logon único do AD do Azure com @Task, executar Olá etapas a seguir:**
+**Para configurar o AD do Azure-logon único com @Task, execute as seguintes etapas:**
 
-1. Em Olá portal clássico do Azure, em Olá  **@Task**  página de integração de aplicativos, clique em **configurar logon único** tooopen Olá **configurar logon único**  caixa de diálogo.
+1. No portal clássico do Azure, na página de integração de aplicativos **@Task**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
-2. Em Olá **como você gostaria que os usuários toosign em too@Task**  página, selecione **do Azure AD Single Sign-On**e, em seguida, clique em **próximo**.
+2. Na página **Como você deseja que os usuários façam logon em @Task**, selecione **Logon único do AD do Azure** e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][7] 
-3. Em Olá **definir configurações de aplicativo** caixa de diálogo de página, execute Olá etapas a seguir:
+3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Definir configurações de aplicativo][8] 
+    ![Definir Configurações de Aplicativo][8] 
    
-     a. Em Olá **URL de logon** caixa de texto, digite a URL Olá usada por seu usuários em toosign tooyour @Task aplicativo (por exemplo:*https://<Tenant name>.attask ondemand.com*).
+     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site @Task (por exemplo: *https://<Tenant name>.attask-ondemand.com*).
    
      b. Clique em **Avançar**.
-4. Em Olá **configurar logon único no @Task**  , clique em **baixar metadados**, salvar o arquivo de metadados de saudação localmente no seu computador e, em seguida, clique em **próximo**.
+4. Na página **Configurar logon único em @Task**, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador e clique em **Avançar**.
    
     ![O que é o Azure AD Connect][9] 
-5. Logon tooyour @Task site da empresa como administrador.
-6. Vá muito**logon único na configuração**.
-7. Em Olá **Single Sign-On** caixa de diálogo, executar Olá etapas
+5. Faça logon no site da empresa @Task como administrador.
+6. Vá para **Configuração de Logon Único**.
+7. Na caixa de diálogo **Logon Único** , realize as seguintes etapas
    
     ![Configurar Logon Único][23]
    
@@ -123,118 +123,118 @@ Olá objetivo desta seção é tooenable AD do Azure-logon único no hello porta
    
     b. Selecione **ID do Provedor de Serviços**.
    
-    c. No hello portal clássico do Azure, copie Olá **URL de logon remoto**e, em seguida, cole-Olá **URL de logon do Portal** caixa de texto.
+    c. No portal clássico do Azure, copie a **URL de Logon Remoto** e cole-a na caixa de texto **URL do Portal de Logon**.
    
-    d. No hello portal clássico do Azure, copie Olá **URL do serviço de logon único**e, em seguida, cole-Olá **URL de logout** caixa de texto.
+    d. No portal clássico do Azure, copie a **URL do Serviço de Logout Único** e cole-a na caixa de texto **URL de Logout**.
    
-    e. No hello portal clássico do Azure, copie Olá **alterar a URL da senha**e, em seguida, cole-Olá **alterar a URL da senha** caixa de texto.
+    e. No portal clássico do Azure, copie a **URL de Alteração de Senha** e cole-a na caixa de texto URL de **Alteração de Senha**.
    
     f. Clique em **Salvar**.
-8. Em Olá portal clássico do Azure, selecione a confirmação de configuração de logon único do hello e, em seguida, clique em **próximo**. 
+8. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. 
    
     ![O que é o Azure AD Connect][10]
-9. Em Olá **único logon confirmação** , clique em **concluir**.  
+9. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![O que é o Azure AD Connect][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello portal clássico do Azure chamado Britta Simon.  
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.  
 
 ![Criar um usuário do AD do Azure][20]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_02.png) 
-2. De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.
-3. lista de saudação toodisplay de usuários, no menu de saudação na parte superior do hello, clique em **usuários**.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_03.png) 
-4. Olá tooopen **adicionar usuário** caixa de diálogo, na barra de ferramentas Olá inferior hello, clique em **adicionar usuário**. 
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_04.png) 
-5. Em Olá **Conte-nos sobre este usuário** caixa de diálogo de página, execute Olá etapas a seguir: 
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas: 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_05.png) 
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
-    b. Em nome de usuário de saudação **textbox**, tipo **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Avançar**.
-6. Em Olá **perfil de usuário** caixa de diálogo de página, execute Olá etapas a seguir: 
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
    
-    a. Em Olá **nome** caixa de texto, tipo **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-    b. Em Olá **Sobrenome** caixa de texto, tipo, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-    c. Em Olá **nome de exibição** caixa de texto, tipo **Britta Simon**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-    d. Em Olá **função** lista, selecione **usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
 
     e. Clique em **Avançar**.
 
-7. Em Olá **obter senha temporária** página da caixa de diálogo, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) 
-8. Em Olá **obter senha temporária** caixa de diálogo de página, execute Olá etapas a seguir:
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor Olá Olá **nova senha**.
+    a. Anote o valor da **Nova Senha**.
    
     b. Clique em **Concluído**.   
 
 ### <a name="creating-an-task-test-user"></a>Criando um usuário de teste de @Task
-Olá o objetivo desta seção é toocreate um usuário chamado Britta Simon no @Task.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no @Task.
 
-**toocreate um usuário chamado Britta Simon no @Task, executar Olá etapas a seguir:**
+**Para criar um usuário chamado Britta Simon no @Task, execute as seguintes etapas:**
 
-1. Logon tooyour @Task site da empresa como administrador.
-2. No menu de saudação na parte superior de saudação, clique em **pessoas**.
+1. Faça logon no site da empresa @Task como administrador.
+2. No menu na parte superior, clique em **Pessoas**.
 3. Clique em **Nova Pessoa**. 
-4. Na caixa de diálogo de nova pessoa hello, execute Olá etapas a seguir:
+4. Na caixa de diálogo Nova Pessoa, execute as seguintes etapas:
    
     ![Criar um usuário de teste de @Task][21] 
    
-    a. Em Olá **nome** caixa de texto, digite "Britta".
+    a. Na caixa de texto **Nome** , digite “Brenda”.
    
-    b. Em Olá **Sobrenome** caixa de texto, digite "Simon".
+    b. Na caixa de texto **Sobrenome** , digite “Fernandes”.
    
-    c. Em Olá **endereço de Email** caixa de texto, digite o endereço de email Britta Simon no Active Directory do Azure.
+    c. Na caixa de texto **Endereço de Email** , digite o endereço de email de Brenda Fernandes no Active Directory do Azure.
    
     d. Clique em **Adicionar Pessoa**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
-Olá objetivo desta seção é tooenabling Britta Simon toouse logon único do Azure, concedendo o acesso too@Task.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único do Azure, concedendo a ela acesso ao @Task.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon too@Task, executar Olá etapas a seguir:**
+**Para atribuir Britta Simon para @Task, execute as seguintes etapas:**
 
-1. No hello Azure portal clássico, exibição de aplicativos tooopen hello, no modo de exibição de diretório hello, clique em **aplicativos** no menu superior hello.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
-2. Na lista de aplicativos hello, selecione  **@Task** .
+2. Na lista de aplicativos, selecione **@Task**.
    
     ![Atribuir usuário][202] 
-3. No menu de saudação na parte superior de saudação, clique em **usuários**.
+3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
-4. Na lista de usuários hello, selecione **Britta Simon**.
-5. Na barra de ferramentas de saudação na parte inferior do hello, clique em **atribuir**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][205]
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
-Olá o objetivo desta seção é tootest sua configuração de logon único do AD do Azure usando Olá painel de acesso.  
-Quando você clica em Olá @Task Olá de bloco no painel de acesso, você deve obter automaticamente assinado em tooyour @Task aplicativo.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
+Ao clicar no bloco de @Task no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo de @Task.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

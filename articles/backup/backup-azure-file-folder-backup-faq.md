@@ -1,6 +1,6 @@
 ---
-title: Agente de Backup aaaAzure perguntas Frequentes | Microsoft Docs
-description: "Respostas a perguntas toocommon sobre: Olá como limites de funciona, backup e retenção de agente de backup do Azure."
+title: Perguntas frequentes do agente de Backup do Azure | Microsoft Docs
+description: "Respostas a perguntas comuns sobre: como funciona o agente de backup do Azure, o backup e os limites de retenção."
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bdefb4efb39301f38cdf692bdc93c841a2bbb441
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="questions-about-hello-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure Olá
-Este artigo possui respostas toocommon perguntas toohelp componentes do agente de Backup do Azure Olá você compreender rapidamente. Em algumas das respostas hello, há artigos de toohello links com informações abrangentes. Você também pode postar perguntas sobre Olá serviço Backup do Azure no hello [Fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
+Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Configurar o backup
-### <a name="where-can-i-download-hello-latest-azure-backup-agent-br"></a>Onde posso baixar o agente de Backup do Azure mais recente Olá? <br/>
-Você pode baixar o agente mais recente hello para fazer backup do Windows Server, o System Center DPM ou o cliente do Windows, de [aqui](http://aka.ms/azurebackup_agent). Se você quiser tooback uma máquina virtual, use Olá agente de VM (que instala automaticamente o ramal apropriado Olá). Olá VM Agent já está presente nas máquinas virtuais criadas de saudação Galeria do Azure.
+### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Onde posso baixar o agente mais recente do Backup do Azure? <br/>
+Você pode baixar o agente mais recente para fazer backup do Windows Server, do System Center DPM ou do cliente Windows [daqui](http://aka.ms/azurebackup_agent). Se você quiser fazer backup de uma máquina virtual, use o Agente de VM (que instala automaticamente a extensão apropriada). O Agente de VM já está presente em máquinas virtuais criadas na galeria do Azure.
 
-### <a name="when-configuring-hello-azure-backup-agent-i-am-prompted-tooenter-hello-vault-credentials-do-vault-credentials-expire"></a>Ao configurar o agente de Backup do Azure Olá, eu sou tooenter solicitadas as credenciais do Cofre de saudação. As credenciais do cofre expiram?
-Sim, as credenciais do cofre Olá expiram após 48 horas. Se o arquivo hello expirar, arquivos de log em toohello Azure portal e baixe Olá cofre credenciais do seu cofre.
+### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Ao configurar o agente do Backup do Azure, preciso inserir as credenciais do cofre. As credenciais do cofre expiram?
+Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Em que tipos de unidades posso fazer backup de arquivos e pastas? <br/>
-Você não pode fazer backup Olá unidades/volumes a seguir:
+Você não pode fazer backup das unidades/volumes a seguir:
 
 * Mídia removível: todas as fontes de item de backup devem ser indicadas como fixas.
-* Volumes somente leitura: volume Olá deve ser gravável para Olá volume shadow copy service (VSS) toofunction.
-* Os Volumes offline: volume Olá deve estar online para toofunction do VSS.
-* Compartilhamento de rede: volume Olá deve ser local toohello server toobe backup usando o backup online.
-* Volumes protegidos pelo BitLocker: volume Olá deve ser desbloqueado antes Olá backup pode ser realizado.
-* Identificação do sistema de arquivos: NTFS é Olá único sistema de arquivos com suporte.
+* Volumes somente leitura: o volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
+* Volumes offline: o volume deve estar online para que o VSS funcione.
+* Compartilhamento de rede: O volume deve ser local para o backup do servidor usando o backup online.
+* Volumes protegidos pelo Bitlocker: o volume deve ser desbloqueado antes de ser possível realizar o backup.
+* Identificação do sistema de arquivos: NTFS é o único sistema de arquivos com suporte.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>De quais tipos de arquivo e pasta no servidor posso fazer backup?<br/>
-Olá tipos a seguir têm suporte:
+Os seguintes tipos têm suporte:
 
 * Criptografado
 * Compactado
@@ -54,52 +54,52 @@ Olá tipos a seguir têm suporte:
 * Fluxo compactado: sem suporte, ignorado
 * Fluxo esparso: sem suporte, ignorado
 
-### <a name="can-i-install-hello-azure-backup-agent-on-an-azure-vm-already-backed-by-hello-azure-backup-service-using-hello-vm-extension-br"></a>Pode instalar o agente de Backup do Azure Olá em uma VM do Azure já feito pelo serviço de Backup do Azure hello usando Olá extensão da VM? <br/>
-Com certeza. Backup do Azure fornece backup em nível de VM para máquinas virtuais do Azure usando a extensão de VM hello. tooprotect arquivos e pastas no convidado Olá sistema operacional Windows, instale o agente de Backup do Azure de Olá no sistema operacional Windows de convidado de saudação.
+### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Posso instalar o agente de Backup do Azure em uma VM do Azure da qual o serviço de Backup do Azure já fez backup usando a extensão de VM? <br/>
+Com certeza. O Backup do Azure fornece backup no nível de VM para as máquinas virtuais do Azure usando a extensão de VM. Para proteger arquivos e pastas no SO Windows convidado, instale o agente de Backup do Azure no SO Windows convidado .
 
-### <a name="can-i-install-hello-azure-backup-agent-on-an-azure-vm-tooback-up-files-and-folders-present-on-temporary-storage-provided-by-hello-azure-vm-br"></a>Pode instalar o agente de Backup do Azure Olá em tooback uma VM do Azure backup de arquivos e pastas presentes no armazenamento temporário fornecido pelo Olá VM do Azure? <br/>
-Sim. Instalar hello Azure Backup agent no sistema operacional Windows de convidado de saudação e fazer backup de arquivos e pastas de armazenamento de tootemporary. Os trabalhos de backup falham assim que os dados do armazenamento temporário são apagados. Além disso, se os dados de armazenamento temporário de saudação foi excluídos, você só pode restaurar armazenamento toonon volátil.
+### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Posso instalar o agente de Backup do Azure em uma VM do Azure para fazer backup de arquivos e pastas presentes no armazenamento temporário fornecido pela VM do Azure? <br/>
+Sim. Instale o agente de Backup do Azure no SO convidado do Windows e faça backup de arquivos e de pastas em um armazenamento temporário. Os trabalhos de backup falham assim que os dados do armazenamento temporário são apagados. Além disso, se os dados de armazenamento temporário tiverem sido excluídos, você só poderá restaurar em um armazenamento não volátil.
 
-### <a name="whats-hello-minimum-size-requirement-for-hello-cache-folder-br"></a>O que é o requisito de tamanho mínimo de saudação para pasta de cache Olá? <br/>
-tamanho de saudação da pasta de cache de saudação determina a quantidade de saudação de dados que você está fazendo backup. Sua pasta de cache deve ser de 5% de espaço de saudação necessário para armazenamento de dados.
+### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Qual é o requisito de tamanho mínimo para a pasta de cache? <br/>
+O tamanho da pasta de cache determina a quantidade de dados submetida a backup. Sua pasta de cache deve ter 5% do espaço necessário para o armazenamento de dados.
 
-### <a name="how-do-i-register-my-server-tooanother-datacenterbr"></a>Como registrar o datacenter de tooanother meu servidor?<br/>
-Dados de backup são enviados toohello datacenter Olá cofre toowhich que está registrado. Olá mais fácil maneira toochange Olá datacenter toouninstall Olá agente e reinstalar o agente de saudação e registrar tooa novo cofre que pertence a toodesired datacenter.
+### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Como registro meu servidor em outro datacenter?<br/>
+Os dados de backup são enviados ao datacenter do cofre para o qual ele está registrado. A maneira mais fácil de alterar o datacenter é desinstalar o agente e reinstalá-lo e registrar um novo cofre que pertença ao datacenter desejado.
 
-### <a name="does-hello-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Dá hello Azure Backup agent funciona em um servidor que usa a eliminação de duplicação do Windows Server 2012? <br/>
-Sim. serviço de agente Olá converte toonormal Olá com eliminação de duplicação de dados quando ele prepara a operação de backup hello. Ele e otimiza os dados Olá para backup, criptografa dados hello e depois envia Olá criptografado dados toohello serviço de backup online.
+### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>O agente de Backup do Azure funciona em um servidor que usa a eliminação de duplicação do Windows Server 2012? <br/>
+Sim. O serviço do agente converte os dados com eliminação de duplicação para dados normais quando prepara a operação de backup. Ele então otimiza os dados para backup, criptografa os dados e envia os dados criptografados para o serviço de backup online.
 
 ## <a name="backup"></a>Backup
-### <a name="how-do-i-change-hello-cache-location-specified-for-hello-azure-backup-agentbr"></a>Como alterar o local do cache Olá especificado para o agente de Backup do Azure Olá?<br/>
-Local do cache Olá toochange lista a seguir de saudação de uso.
+### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Como posso alterar o local de cache especificado para o agente de Backup do Azure?<br/>
+Use a lista a seguir para alterar o local do cache.
 
-1. Pare o mecanismo de Backup Olá executando Olá comando em um prompt de comando a seguir:
+1. Pare o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
     ```PS C:\> Net stop obengine``` 
   
-2. Não mova os arquivos de saudação. Em vez disso, copie Olá cache espaço pasta tooa outra unidade com espaço suficiente. espaço em cache Olá original pode ser removido depois de confirmar Olá os backups estão funcionando com o novo espaço de cache hello.
-3. Atualize Olá entradas do registro com a pasta de espaço do novo cache do hello caminho toohello a seguir.<br/>
+2. Não mova os arquivos. Em vez disso, copie a pasta de espaço de cache para outra unidade com espaço suficiente. O espaço em cache original pode ser removido após a confirmação de que os backups estão funcionando com o novo espaço em cache.
+3. Atualize as entradas do registro a seguir com o caminho para a nova pasta de espaço em cache.<br/>
 
     | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
 
-4. Reinicie o mecanismo de Backup de saudação executando Olá comando em um prompt de comando a seguir:
+4. Reinicie o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
     ```PS C:\> Net start obengine```
 
-Após a criação de saudação backup for concluída com êxito no novo local de cache hello, você pode remover a pasta de cache original hello.
+Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
 
 
-### <a name="where-can-i-put-hello-cache-folder-for-hello-azure-backup-agent-toowork-as-expectedbr"></a>Onde posso colocar a pasta de cache de saudação para hello Azure Backup Agent toowork conforme o esperado?<br/>
-Olá seguintes locais para a pasta de cache de saudação não são recomendadas:
+### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Onde posso colocar a pasta de cache para o Agente de Backup do Azure para que ele funcione conforme o esperado?<br/>
+Os locais a seguir para a pasta de cache não são recomendados:
 
-* Mídia removível ou compartilhamento de rede: pasta de cache Olá deve ser o servidor de local toohello que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB.
-* Os Volumes offline: pasta de cache Olá deve estar online para backup esperado com o Azure Backup Agent.
+* Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB.
+* Volumes Offline: a pasta de cache deve estar online para o backup esperado com o Agente de Backup do Azure.
 
-### <a name="are-there-any-attributes-of-hello-cache-folder-that-are-not-supportedbr"></a>Há todos os atributos da pasta de cache Olá que não têm suporte?<br/>
-Hello suas combinações ou atributos a seguir não têm suporte para a pasta de cache de saudação:
+### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe algum atributo da pasta de cache que não tenha suporte?<br/>
+Os atributos a seguir, ou suas combinações, não têm suporte para a pasta de cache:
 
 * Criptografado
 * Eliminação de duplicação
@@ -107,21 +107,21 @@ Hello suas combinações ou atributos a seguir não têm suporte para a pasta de
 * Esparsos
 * Ponto de nova análise
 
-pasta de cache Hello e metadados de saudação VHD não tem atributos de saudação necessários para o agente de Backup do Azure hello.
+A pasta de cache e o VHD dos metadados não têm os atributos necessários para o agente de Backup do Azure.
 
-### <a name="is-there-a-way-tooadjust-hello-amount-of-bandwidth-used-by-hello-backup-servicebr"></a>Há uma quantidade de saudação tooadjust forma de largura de banda usada pelo serviço de Backup Olá?<br/>
-  Sim, usar o hello **alterar propriedades** opção na largura de banda de tooadjust do hello agente de Backup. Você pode ajustar a quantidade de saudação de largura de banda e hello vezes quando você usa essa largura de banda. Para obter instruções passo a passo, consulte  **[Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
+### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?<br/>
+  Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Você pode ajustar a quantidade de largura de banda e os horários quando usar essa largura de banda. Para obter instruções passo a passo, consulte  **[Habilitar limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
 
 ## <a name="manage-backups"></a>Gerenciar backups
-### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-tooazurebr"></a>O que acontece se eu renomear um servidor do Windows que está fazendo backup de dados tooAzure?<br/>
+### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?<br/>
 Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos.
-Registre novo nome de saudação do servidor de saudação Olá Cofre de Backup. Quando você registrar o novo nome de saudação cofre Olá, a primeira operação de backup Olá é um *completo* backup. Se precisar de dados toorecover backup cofre toohello com o nome de servidor antigo Olá, use Olá [ **outro servidor** ](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) opção Olá **recuperar dados** assistente.
+Registre o novo nome do servidor no Cofre de Backup. Ao registrar o novo nome com o cofre, a primeira operação de backup é um backup *completo*. Se você precisar recuperar dados de backup para o cofre com o nome antigo do servidor, use a opção [**Outro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) no assistente **Recuperar dados**.
 
-### <a name="what-is-hello-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>O que é o comprimento do caminho do hello máximo de arquivo que pode ser especificado na política de Backup usando o agente de Backup do Azure? <br/>
-O agente de Backup do Azure baseia-se em NTFS. Olá [especificação de comprimento de caminho de arquivo é limitada pela API do Windows de saudação](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se Olá arquivos tooprotect tem um comprimento de caminho de arquivo maior que o permitido pelo Olá API do Windows, faça backup de pasta pai de saudação ou unidade de disco de saudação.  
+### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Qual é o comprimento máximo do caminho do arquivo que pode ser especificado no Backup do Azure usando o agente de Backup do Azure? <br/>
+O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se os arquivos que você deseja proteger tiverem um comprimento de caminho de arquivo maior do que o que é permitido pela API do Windows, faça backup da pasta pai ou da unidade de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure? <br>
  O agente de Backup do Azure baseia-se em NTFS. Ele permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo. 
  
-### <a name="i-receive-hello-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Recebo hello "Backups do Azure não foram configurados para esse servidor de" aviso, mesmo que configurei uma política de backup <br/>
-Este aviso ocorre quando as configurações de agendamento de backup de saudação armazenadas no servidor de local de saudação não são Olá igual Olá configurações armazenadas no cofre de backup hello. Quando o servidor de saudação ou configurações de saudação foram recuperado tooa estado bom conhecido, agendas de backup Olá podem perder a sincronização. Se você receber esse aviso, [reconfigurar a política de backup Olá](backup-azure-manage-windows-server.md) e **executar backup agora** servidor de local de saudação tooresynchronize com o Azure.
+### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Recebo o aviso "Os Backups do Azure não foram configurados para este servidor" embora tenha agendado configurado uma política de backup <br/>
+Esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-manage-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.

@@ -1,6 +1,6 @@
 ---
-title: "a replicação para máquinas virtuais do Hyper-V replicando tooAzure (sem o System Center VMM) com o Azure Site Recovery aaaEnable | Microsoft Docs"
-description: "Resume as etapas de saudação necessário tooenable tooAzure de replicação para máquinas virtuais do Hyper-V usando o serviço do Azure Site Recovery Olá"
+title: "Habilitar a replicação de VMs Hyper-V que replicam para o Azure (sem o System Center VMM) com o Azure Site Recovery | Microsoft Docs"
+description: "Resume as etapas necessárias para habilitar a replicação de VMs Hyper-V para o Azure, usando o serviço Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,69 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.openlocfilehash: 1589cb7aa1fe954e075cb7bf1f4a4ec199ed3ec7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aabe99dbd375b80e4a87ca7a067927008672b4ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-10-enable-replication-for-hyper-v-vms-replicating-tooazure"></a>Etapa 10: Habilitar a replicação para máquinas virtuais do Hyper-V replicando tooAzure
+# <a name="step-10-enable-replication-for-hyper-v-vms-replicating-to-azure"></a>Etapa 10: habilitar replicação para VMs do Hyper-V em replicação para o Azure
 
 
-Este artigo descreve como replicação tooenable para local máquinas virtuais de Hyper-V (não gerenciados pelo System Center VMM) tooAzure, usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço Olá portal do Azure.
+Este artigo descreve como habilitar a replicação de máquinas virtuais Hyper-V locais (não gerenciadas pelo System Center VMM) para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
 
-Postar perguntas e comentários na parte inferior da saudação deste artigo, ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Poste perguntas e comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, certifique-se de que sua conta de usuário do Azure tem Olá necessário [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooenable de replicação de um novo tooAzure de máquina virtual.
+Antes de começar, verifique se a sua conta de usuário do Azure tem as [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessárias para habilitar a replicação de uma nova máquina virtual no Azure.
 
 ## <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 
-Por padrão, todos os discos em um computador são replicados. Você pode excluir discos da replicação. Por exemplo, talvez você não queira tooreplicate discos com os dados temporários ou dados que foi atualizada cada vez que uma máquina ou aplicativo reinicia (por exemplo, pagefile.sys ou tempdb do SQL Server). [Saiba mais](site-recovery-exclude-disk.md)
+Por padrão, todos os discos em um computador são replicados. Você pode excluir discos da replicação. Por exemplo, talvez você não queira replicar discos com dados temporários ou dados atualizados cada vez que um computador ou um aplicativo é reiniciado (por exemplo, pagefile.sys ou SQL Server tempdb). [Saiba mais](site-recovery-exclude-disk.md)
 
 
 ## <a name="replicate-vms"></a>Replicar VMs
 
 Habilite a replicação para VMs conforme demonstrado a seguir:          
 
-1. Clique em **Replicar aplicativo** > **Origem**. Depois de configurar a replicação para Olá primeira vez, você pode clicar em **+ replicar** tooenable replicação para máquinas adicionais.
+1. Clique em **Replicar aplicativo** > **Origem**. Depois de configurar a replicação pela primeira vez, você pode clicar em **+Replicar** para habilitar a replicação para outros computadores.
 
     ![Habilitar a replicação](./media/hyper-v-site-walkthrough-enable-replication/enable-replication.png)
-2. Em **fonte**, selecione site Olá Hyper-V. Em seguida, clique em **OK**.
-3. Em **destino**, selecione a assinatura do cofre hello e Olá failover modelo toouse no Azure (clássico ou o recurso de gerenciamento) após o failover.
-4. Selecione a conta de armazenamento de saudação que toouse desejado. Se você não tiver uma conta que você deseja toouse, você pode [criar um](#set-up-an-azure-storage-account). Em seguida, clique em **OK**.
-5. Selecione Olá toowhich de rede e sub-rede do Azure VMs do Azure se conectará quando eles são criados o failover.
+2. Em **Origem**, selecione o site do Hyper-V. Em seguida, clique em **OK**.
+3. Em **Destino**, selecione a assinatura de cofre e o modelo de failover que você deseja usar no Azure (gerenciamento de recursos ou clássico) após o failover.
+4. Selecione a conta de armazenamento que você deseja usar. Se não tiver uma conta que deseje usar, você poderá [criar uma](#set-up-an-azure-storage-account). Em seguida, clique em **OK**.
+5. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem criadas após o failover.
 
-    - Selecione tooapply Olá configurações tooall máquinas de rede habilitar para replicação, **configurar agora para os computadores selecionados**.
-    - Selecione **configurar posteriormente** tooselect Olá rede do Azure por máquina.
-    - Se você não tiver uma rede que você deseja toouse, você pode [criar um](#set-up-an-azure-network). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
+    - Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores habilitados para replicação.
+    - Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador.
+    - Se não tiver uma rede que deseje usar, você poderá [criar uma](#set-up-an-azure-network). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
 
    ![Habilitar a replicação](./media/hyper-v-site-walkthrough-enable-replication/enable-replication11.png)
 
-6. Em **máquinas virtuais** > **selecionar máquinas virtuais**, clique em e selecione cada máquina que você deseja tooreplicate. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
+6. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, clique e selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
     ![Habilitar a replicação](./media/hyper-v-site-walkthrough-enable-replication/enable-replication5-for-exclude-disk.png)
 
-7. Em **propriedades** > **configurar propriedades**, selecione o sistema operacional de saudação para VMs Olá selecionado e Olá disco do sistema operacional.
-8. Verifique se esse nome de VM do Azure hello (nome de destino) está em conformidade com [requisitos da máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-9. Por padrão, todos os discos de saudação da saudação VM são selecionados para replicação. Limpar discos tooexclude-los.
-10. Clique em **Okey** toosave alterações. Você pode definir propriedades adicionais posteriormente.
+7. Em **Propriedades** > **Configurar propriedades**, selecione o sistema operacional para as VMs selecionadas e o disco do sistema operacional.
+8. Verifique se o nome da VM do Azure (nome de destino) está em conformidade com os [Requisitos de máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+9. Por padrão, todos os discos da VM são selecionados para replicação. Limpar discos para excluí-los.
+10. Clique em **OK** para salvar as alterações. Você pode definir propriedades adicionais posteriormente.
 
     ![Habilitar a replicação](./media/hyper-v-site-walkthrough-enable-replication/enable-replication6-with-exclude-disk.png)
 
-11. Em **as configurações de replicação** > **definir configurações de replicação**, selecione Olá política de replicação você deseja tooapply para Olá protegido VMs. Em seguida, clique em **OK**. Você pode modificar a política de replicação de saudação em **políticas de replicação** > nome da política > **editar configurações de**. As alterações aplicadas serão usadas para computadores que já estejam replicando e para novas máquinas.
+11. Em **Configurações de replicação** > **Definir configurações de replicação**, selecione a política de replicação que você deseja aplicar para as VMs protegidas. Em seguida, clique em **OK**. É possível modificar a política de replicação em **Políticas de replicação** > nome da política > **Editar Configurações**. As alterações aplicadas serão usadas para computadores que já estejam replicando e para novas máquinas.
 
 
    ![Habilitar a replicação](./media/hyper-v-site-walkthrough-enable-replication/enable-replication7.png)
 
-Você pode acompanhar o progresso da saudação **Habilitar proteção** trabalho em **trabalhos** > **trabalhos de recuperação de Site**. Depois de saudação **finalizar proteção** execuções de trabalho máquina hello está pronta para failover.
+É possível acompanhar o progresso do trabalho **Habilitar Proteção** em **Trabalhos** > **Trabalhos do Site Recovery**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 
-Vá muito[etapa 11: executar um failover de teste](hyper-v-site-walkthrough-test-failover.md)
+Acesse a [Etapa 11: Executar um failover de teste](hyper-v-site-walkthrough-test-failover.md)

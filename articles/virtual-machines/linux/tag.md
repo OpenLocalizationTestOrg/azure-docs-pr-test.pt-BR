@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tootag uma máquina virtual de Linux do Azure | Microsoft Docs"
-description: "Saiba mais sobre a marcação de uma máquina virtual do Azure Linux criada no Azure usando o modelo de implantação do Gerenciador de recursos de saudação."
+title: "Como marcar uma máquina virtual Linux do Azure | Microsoft Docs"
+description: "Saiba como marcar uma máquina virtual Linux do Azure criada no Azure usando o modelo de implantação do Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: mmccrory
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 456b226af4495c3b446cb79c99cf9494dde9fca5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da3ff0de2a5d6ac8994b7c16b758f976228a53b0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tootag-a-linux-virtual-machine-in-azure"></a>Como tootag uma máquina virtual do Linux no Azure
-Este artigo descreve as diferentes maneiras tootag uma máquina de virtual do Linux no Azure por meio do modelo de implantação do Gerenciador de recursos de saudação. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Azure atualmente oferece suporte a marcas de too15 por grupo de recursos e recursos. Marcas podem ser colocadas em um recurso no tempo de saudação da criação ou adicionado o recurso existente tooan. Observe que as marcas que têm suporte para recursos criados por meio do modelo de implantação de Gerenciador de recursos de saudação apenas.
+# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Linux no Azure
+Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Linux no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Marcando com a CLI do Azure
-toobegin, você precisa hello mais recente [2.0 de CLI do Azure (visualização)](/cli/azure/install-az-cli2) instalado e conectado através de conta do Azure tooan [logon az](/cli/azure/#login).
+Para começar, é necessário ter a última [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
 
-Você também pode executar essas etapas com hello [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Você também pode executar essas etapas com a [CLI 1.0 do Azure](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Você pode exibir todas as propriedades para uma determinada máquina Virtual, incluindo marcas hello, usando este comando:
+É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 
         az vm show --resource-group MyResourceGroup --name MyTestVM
 
-tooadd uma nova marca VM por meio de saudação CLI do Azure, você pode usar o hello `azure vm update` comando junto com o parâmetro de marca hello **– defina**:
+Para adicionar uma nova marcação de VM usando a CLI do Azure, use o comando `azure vm update`, juntamente com o parâmetro de marcação **--set**:
 
         az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
-marcas de tooremove, você pode usar o hello **– remover** parâmetro hello `azure vm update` comando.
+Para remover as marcas, use o parâmetro **--remove** no comando `azure vm update`.
 
         az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
 
 
-Agora que estamos aplicou marcas tooour recursos CLI do Azure e Olá Portal, vamos dar uma olhada em toosee de detalhes de uso de saudação marcas Olá no portal de cobrança hello.
+Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Portal, vamos examinar os detalhes de uso para ver as marcas no portal de cobrança.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* toolearn mais informações sobre a marcação de recursos do Azure, consulte [visão geral do Gerenciador de recursos do Azure] [ Azure Resource Manager Overview] e [tooorganize marcas usando os recursos do Azure] [ Using Tags tooorganize your Azure Resources].
-* toosee como marcas podem ajudá-lo a gerenciar o uso de recursos do Azure, consulte [Noções básicas sobre sua conta do Azure] [ Understanding your Azure Bill] e [obter ideias sobre o consumo de recursos do Microsoft Azure] [Gain insights into your Microsoft Azure resource consumption].
+* Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager][Azure Resource Manager Overview] e [Usando marcas para organizar os Recursos do Azure][Using Tags to organize your Azure Resources].
+* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure][Understanding your Azure Bill] e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
-[Using Tags tooorganize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md

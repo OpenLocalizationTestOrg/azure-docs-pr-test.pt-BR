@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: Próximas etapas e como toomanage do Azure AD Connect | Microsoft Docs"
-description: "Saiba como tooextend Olá tarefas operacionais e configuração padrão para o Azure AD Connect."
+title: "Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs"
+description: "Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 4404aaff24d54d76b83baca3b331a6a250ba4c03
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="next-steps-and-how-toomanage-azure-ad-connect"></a>Próximas etapas e como toomanage do Azure AD Connect
-Use procedimentos operacionais Olá toomeet de conectar do Azure Active Directory (AD do Azure) de toocustomize este artigo necessidades e requisitos de sua organização.  
+# <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
+Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
 
 ## <a name="add-additional-sync-admins"></a>Adicionar administradores de sincronização adicionais
-Por padrão, o único usuário a saudação Olá administradores locais e instalação são toomanage capaz de mecanismo de sincronização de saudação instalado. Para outras pessoas toobe capaz de tooaccess e gerenciar o mecanismo de sincronização Olá, localize Olá grupo denominado ADSyncAdmins no servidor de local de saudação e adicioná-los toothis grupo.
+Por padrão, somente o usuário que fez a instalação e os administradores locais podem gerenciar o mecanismo de sincronização instalado. Para que outras pessoas possam acessar e gerenciar o mecanismo de sincronização, localize o grupo chamado ADSyncAdmins no servidor local e adicione-os a esse grupo.
 
-## <a name="assign-licenses-tooazure-ad-premium-and-enterprise-mobility-suite-users"></a>Atribuir licenças tooAzure os usuários do AD Premium e Enterprise Mobility Suite
-Agora que os usuários tenham sido sincronizadas toohello nuvem, você precisa tooassign-los uma licença para eles podem começar a usar aplicativos de nuvem como o Office 365.
+## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility Suite
+Agora que os usuários foram sincronizados para a nuvem, você precisará atribuir uma licença para que eles possam começar a usar aplicativos de nuvem como o Office 365.
 
-### <a name="tooassign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>tooassign um Azure AD Premium ou Enterprise Mobility Suite licença
+### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Como atribuir uma licença do Enterprise Mobility Suite ou do Azure AD Premium
 
-1. Entrar toohello portal do Azure como um administrador.
-2. Olá esquerda, selecione **do Active Directory**.
-3. Em Olá **do Active Directory** página, clique duas vezes no diretório Olá com usuários Olá desejar tooset.
-4. Na parte superior de saudação da página de diretório Olá, selecione **licenças**.
-5. Em Olá **licenças** página, selecione **Active Directory Premium** ou **Enterprise Mobility Suite**e, em seguida, clique em **atribuir**.
-6. Na caixa de diálogo Olá, selecione os usuários de saudação que deseja tooassign licenças para e, em seguida, clique em Olá marca de seleção ícone toosave Olá alterações.
+1. Entre no Portal do Azure como um administrador.
+2. Selecione **Active Directory**à esquerda.
+3. Na página do **Active Directory**, clique duas vezes no diretório que tem os usuários que você deseja configurar.
+4. Na parte superior da página do diretório, selecione **Licenças**.
+5. Na página **Licenças**, selecione **Active Directory Premium** ou **Enterprise Mobility Suite** e, em seguida, clique em **Atribuir**.
+6. Na caixa de diálogo, selecione os usuários para os quais você deseja atribuir licenças e, em seguida, clique no ícone de marca de seleção para salvar as alterações.
 
-## <a name="verify-hello-scheduled-synchronization-task"></a>Verifique se a tarefa de sincronização agendada Olá
-Use o status de saudação do hello toocheck portal do Azure de uma sincronização.
+## <a name="verify-the-scheduled-synchronization-task"></a>Verificar a tarefa de sincronização agendada
+Use o Portal do Azure para verificar o status de uma sincronização.
 
-### <a name="tooverify-hello-scheduled-synchronization-task"></a>tarefa de sincronização agendada Olá tooverify
-1. Entrar toohello portal do Azure como um administrador.
-2. Olá esquerda, selecione **do Active Directory**.
-3. Em Olá **do Active Directory** página, clique duas vezes no diretório Olá com usuários Olá desejar tooset.
-4. Na parte superior de saudação da página de diretório Olá, selecione **integração de diretórios**.
-5. Em **integração com o active directory local**, Olá Observação hora da última sincronização.
+### <a name="to-verify-the-scheduled-synchronization-task"></a>Como verificar a tarefa de sincronização agendada
+1. Entre no Portal do Azure como um administrador.
+2. Selecione **Active Directory**à esquerda.
+3. Na página do **Active Directory**, clique duas vezes no diretório que tem os usuários que você deseja configurar.
+4. Na parte superior da página do diretório, selecione **Integração de diretório**.
+5. Na **integração com o Active Directory local**, observe o horário da última sincronização.
 
 <center>![Horário de sincronização de diretórios](./media/active-directory-aadconnect-whats-next/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Iniciar uma tarefa de sincronização agendada
-Se você precisar toorun uma tarefa de sincronização, você pode fazer isso executando o Assistente de conexão do AD do Azure Olá novamente.  É necessário tooprovide suas credenciais do AD do Azure.  No Assistente de saudação, selecione Olá **personalizar opções de sincronização** de tarefas e, em seguida, clique em **próximo** toomove por meio do Assistente de saudação. No final da saudação, certifique-se de que Olá **iniciar o processo de sincronização de saudação assim que concluir a configuração inicial Olá** está selecionada.
+Se você precisar executar uma tarefa de sincronização, poderá fazer isso executando-a novamente por meio do assistente do Azure AD Connect.  Você precisa fornecer suas credenciais do Azure AD.  No assistente, selecione a tarefa **Personalizar opções de sincronização** e clique em **Avançar** para seguir pelo assistente. No final, certifique-se de que a caixa **Iniciar o processo de sincronização assim que a configuração for concluída** esteja selecionada.
 
 <center>![Iniciar a sincronização](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Para obter mais informações sobre a sincronização do hello Azure AD Connect Agendador, consulte [o Agendador de conectar-se de AD do Azure](active-directory-aadconnectsync-feature-scheduler.md).
+Para obter mais informações sobre o Agendador de sincronização do Azure AD Connect, consulte [Agendador do Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md).
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Tarefas adicionais disponíveis no Azure AD Connect
-Após a instalação inicial do Azure AD Connect, você pode sempre iniciar assistente Olá novamente de saudação do Azure AD Connect iniciar página ou área de trabalho um atalho.  Você observará que entrar novamente por meio do Assistente de saudação fornece algumas novas opções na forma de saudação de tarefas adicionais.  
+Após a instalação inicial do Azure AD Connect, você pode sempre iniciar o assistente novamente de um atalho da área de trabalho ou da página inicial do Azure AD Connect.  Você observará que executar novamente o assistente fornece algumas novas opções na forma de tarefas adicionais.  
 
-Olá tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de cada tarefa.
+A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de cada uma delas.
 
 ![Lista de tarefas adicionais](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 | Tarefa adicional | Descrição |
 | --- | --- |
-| **Cenário do modo de exibição Olá selecionado** |Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
-| **Personalizar opções de sincronização** |Alterar a configuração atual hello como adicionar configuração adicional de toohello de florestas do Active Directory ou habilitar as opções de sincronização, como usuário, grupo, dispositivo ou write-back de senha. |
-| **Habilitar o modo de preparo** |Informações de estágio que não estão sincronizadas imediatamente e não é exportado tooAzure AD ou do Active Directory local.  Com esse recurso, você pode visualizar as sincronizações Olá antes que eles ocorram. |
+| **Exibir o cenário selecionado** |Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
+| **Personalizar opções de sincronização** |Altere a configuração atual, por exemplo adicionando florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |
+| **Habilitar o modo de preparo** |Informações de preparo que não são sincronizadas imediatamente e não são exportadas para o Azure AD ou o Active Directory local.  Com esse recurso, você pode visualizar as sincronizações antes que elas ocorram. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).

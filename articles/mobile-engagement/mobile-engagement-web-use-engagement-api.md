@@ -1,6 +1,6 @@
 ---
-title: aaaAzure APIs do SDK do Mobile Engagement Web | Microsoft Docs
-description: "Olá procedimentos para Olá Web SDK e atualizações mais recentes para o Azure Mobile Engagement"
+title: APIs do SDK para Web do Azure Mobile Engagement | Microsoft Docs
+description: "As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,48 +14,48 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec1261d6ad573b8c3ad6d5f616ab7bbe560d6fe2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-azure-mobile-engagement-api-in-a-web-application"></a>Saudação de usar a API do Azure Mobile Engagement em um aplicativo web
-Este é um documento de toohello adição que informa como muito[integrar o Mobile Engagement em um aplicativo web](mobile-engagement-web-integrate-engagement.md). Ele fornece detalhes sobre como toouse Olá tooreport da API do Azure Mobile Engagement suas estatísticas do aplicativo.
+# <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Usar a API do Azure Mobile Engagement em um aplicativo Web
+Este documento é um complemento do documento que descreve como [integrar o Mobile Engagement a um aplicativo Web](mobile-engagement-web-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Azure Mobile Engagement para relatar as estatísticas do aplicativo.
 
-Olá Mobile Engagement API fornecida pelo Olá `engagement.agent` objeto. Olá padrão da Web SDK do Azure Mobile Engagement alias é `engagement`. Você pode redefinir este alias da configuração de SDK hello.
+A API do Mobile Engagement é fornecida pelo objeto `engagement.agent` . O alias padrão do SDK Web do Azure Mobile Engagement é `engagement`. Você pode redefinir esse alias na configuração do SDK.
 
 ## <a name="mobile-engagement-concepts"></a>Conceitos do Mobile Engagement
-Olá seguintes partes refinar comuns [conceitos do Mobile Engagement](mobile-engagement-concepts.md) de plataforma da web de saudação.
+As partes a seguir refinam os [Conceitos do Mobile Engagement](mobile-engagement-concepts.md) comuns para a plataforma da Web.
 
 ### <a name="session-and-activity"></a>`Session` e `Activity`
-Se o usuário Olá permanecer ocioso por mais de alguns segundos entre duas atividades, hello sequência do usuário de atividades é dividida em duas sessões distintas. Esses alguns segundos são chamados de tempo limite da sessão hello.
+Se o usuário permanecer ocioso mais de alguns segundos entre duas atividades, a sua sequência de atividades é dividida em duas sessões diferentes. Esses poucos segundos são chamados de tempo limite da sessão.
 
-Se seu aplicativo da web não declara final Olá de atividades do usuário por si só (por chamada hello `engagement.agent.endActivity` função), servidor do Mobile Engagement Olá expira automaticamente Olá sessão de usuário dentro de três minutos após a página de aplicativo hello está fechada. Isso é chamado de tempo limite de sessão de servidor de saudação.
+Se o aplicativo Web não declarar o fim das atividades do usuário por si só (chamando a função `engagement.agent.endActivity` ), o servidor do Mobile Engagement vai expirar automaticamente a sessão do usuário em três minutos depois que a página do aplicativo for fechada. Isso é chamado de tempo limite da sessão do servidor.
 
 ### `Crash`
-Relatórios automatizados de exceções não identificadas de JavaScript não são criados por padrão. No entanto, você pode relatar falhas manualmente usando Olá `sendCrash` função (consulte a seção de saudação nos relatórios de falhas).
+Relatórios automatizados de exceções não identificadas de JavaScript não são criados por padrão. No entanto, você pode relatar falhas manualmente usando a função `sendCrash` (confira a seção sobre relatórios de falhas).
 
 ## <a name="reporting-activities"></a>Relatando atividades
-Relatório de atividade de usuário inclui quando um usuário inicia uma nova atividade e quando o usuário Olá termina a atividade atual de saudação.
+Relatórios sobre a atividade de usuário incluem quando um usuário inicia uma nova atividade e quando o usuário encerra a atividade atual.
 
 ### <a name="user-starts-a-new-activity"></a>O usuário inicia uma nova atividade
     engagement.agent.startActivity("MyUserActivity");
 
-Você precisa toocall `startActivity()` alterações de cada atividade de usuário do tempo. Olá primeira chamada toothis função inicia uma nova sessão de usuário.
+É necessário chamar `startActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
 
-### <a name="user-ends-hello-current-activity"></a>Usuário encerra a atividade atual de saudação
+### <a name="user-ends-the-current-activity"></a>O usuário encerra a atividade atual
     engagement.agent.endActivity();
 
-Você precisa toocall `endActivity()` pelo menos uma vez quando o usuário Olá termina sua última atividade. Isso informa Olá Web SDK do Mobile Engagement que usuário hello está ocioso no momento e que a sessão de usuário Olá precisa toobe fechado após a expiração do tempo limite da sessão hello. Se você chamar `startActivity()` antes do tempo limite da sessão Olá expira, a sessão Olá simplesmente é retomado.
+É necessário chamar `endActivity()` pelo menos uma vez quando o usuário conclui sua última atividade. Isso informa ao SDK Web do Mobile Engagement que o usuário está ocioso no momento e que a sessão do usuário precisa ser fechada quanto o tempo limite expirar. Se você chamar `startActivity()` antes de expirar o tempo limite da sessão, a sessão será simplesmente retomada.
 
-Como não há nenhuma chamada confiável para quando a janela do navegador hello está fechada, geralmente é final de saudação toocatch difíceis ou impossíveis de atividades do usuário dentro de um ambiente web. Por que é Olá Mobile Engagement servidor expira automaticamente sessão de usuário hello dentro de três minutos após a página de aplicativo hello está fechada.
+Como não existe uma chamada confiável quando a janela do navegador é fechada, muitas vezes isso dificulta ou impossibilita capturar o fim das atividades do usuário em ambientes da Web. Por esse motivo, o servidor do Mobile Engagement expira automaticamente a sessão do usuário em três minutos depois que a página do aplicativo é fechada.
 
 ## <a name="reporting-events"></a>Relatando eventos
 Relatórios sobre eventos abordam eventos de sessão e eventos autônomos.
 
 ### <a name="session-events"></a>Eventos de sessão
-Eventos de sessão normalmente são ações de saudação tooreport usado executadas por um usuário durante a sessão de saudação do usuário.
+Eventos de sessão são geralmente usados para relatar as ações executadas por um usuário durante a sessão.
 
 **Exemplo sem dados adicionais:**
 
@@ -72,7 +72,7 @@ Eventos de sessão normalmente são ações de saudação tooreport usado execut
     }
 
 ### <a name="standalone-events"></a>Eventos autônomos
-Ao contrário de eventos de sessão, podem ocorrer eventos de autônomo fora do contexto de saudação de uma sessão.
+Ao contrário dos eventos de sessão, os eventos independentes podem ocorrer fora do contexto de uma sessão.
 
 Para isso, use ``engagement.agent.sendEvent`` em vez de ``engagement.agent.sendSessionEvent``.
 
@@ -80,7 +80,7 @@ Para isso, use ``engagement.agent.sendEvent`` em vez de ``engagement.agent.sendS
 Relatórios de erros abordam erros de sessão e autônomos.
 
 ### <a name="session-errors"></a>Erros de sessão
-Erros de sessão normalmente são erros de saudação tooreport usadas que têm um impacto no usuário Olá durante a sessão do usuário hello.
+Erros de sessão geralmente são usados para relatar os erros que têm um impacto no usuário durante sua sessão.
 
 **Exemplo sem dados adicionais:**
 
@@ -103,7 +103,7 @@ Erros de sessão normalmente são erros de saudação tooreport usadas que têm 
     }
 
 ### <a name="standalone-errors"></a>Erros autônomos
-Ao contrário dos erros de sessão, podem ocorrer erros de autônomo fora do contexto de saudação de uma sessão.
+Ao contrário dos erros de sessão, os erros autônomos podem ocorrer fora do contexto de uma sessão.
 
 Para isso, use `engagement.agent.sendError` em vez de `engagement.agent.sendSessionError`.
 
@@ -112,7 +112,7 @@ Relatórios sobre trabalhos abrangem erros e eventos que ocorrem durante um trab
 
 **Exemplo:**
 
-Se você quiser toomonitor uma solicitação AJAX, você usaria o seguinte hello:
+Se você quer monitorar uma solicitação AJAX, use o seguinte:
 
     // [...]
     xhr.onreadystatechange = function() {
@@ -126,11 +126,11 @@ Se você quiser toomonitor uma solicitação AJAX, você usaria o seguinte hello
     // [...]
 
 ### <a name="reporting-errors-during-a-job"></a>Relatando erros durante um trabalho
-Erros podem ser relacionada tooa executando o trabalho em vez de toohello sessão do usuário atual.
+Os erros podem estar relacionados a um trabalho em execução, em vez de a uma sessão do usuário atual.
 
 **Exemplo:**
 
-Se você quiser tooreport um erro se uma solicitação AJAX falha:
+Suponha que você queira relatar um erro se uma solicitação AJAX falhar:
 
     // [...]
     xhr.onreadystatechange = function() {
@@ -147,71 +147,71 @@ Se você quiser tooreport um erro se uma solicitação AJAX falha:
     // [...]
 
 ### <a name="reporting-events-during-a-job"></a>Relatar eventos durante um trabalho
-Os eventos podem ser relacionada tooa executando o trabalho em vez de toohello a sessão atual do usuário, graças toohello `engagement.agent.sendJobEvent` função.
+Os erros podem estar relacionados a um trabalho em execução, em vez de à sessão do usuário atual graças à função `engagement.agent.sendJobEvent` .
 
 Essa função funciona exatamente como `engagement.agent.sendJobError`.
 
 ### <a name="reporting-crashes"></a>Relatando falhas
-Saudação de uso `sendCrash` função tooreport falhas manualmente.
+Use a função `sendCrash` para relatar falhas manualmente.
 
-Olá `crashid` argumento é uma cadeia de caracteres que identifica o tipo de saudação de travamento.
-Olá `crash` argumento geralmente é o rastreamento de pilha de saudação de travamento hello como uma cadeia de caracteres.
+O `crashid` é uma cadeia de caracteres que identifica o tipo de falha.
+O `crash` é geralmente o rastreamento de pilha da falha como uma cadeia de caracteres.
 
     engagement.agent.sendCrash(crashid, crash);
 
 ## <a name="extra-parameters"></a>Parâmetros adicionais
-Você pode anexar dados arbitrários tooan eventos, erro, atividade ou trabalho.
+Você pode anexar dados arbitrários a evento, erro, atividade ou trabalho.
 
-dados de saudação podem ser qualquer objeto JSON (mas não uma matriz ou tipo primitivo).
+Esses dados podem ser qualquer objeto JSON (mas não uma matriz ou tipos primitivos).
 
 **Exemplo:**
 
     var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
     engagement.agent.sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>limites
-Limites que se aplicam a parâmetros tooextra são áreas de saudação de expressões regulares para chaves, tipos de valor e tamanho.
+### <a name="limits"></a>Limites
+Limites que se aplicam a parâmetros extras estão nas áreas de expressões regulares de chaves, tipos de valor e tamanho.
 
 #### <a name="keys"></a>simétricas
-Cada chave no objeto de saudação deve corresponder Olá expressão regular a seguir:
+Cada chave no objeto deve corresponder à seguinte expressão regular:
 
     ^[a-zA-Z][a-zA-Z_0-9]*
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### <a name="values"></a>Valores
-Os valores são toostring limitado, número e tipos boolianos.
+Os valores são limitados aos tipos de booliano, número e cadeia de caracteres.
 
 #### <a name="size"></a>Tamanho
-Extras são limitados too1, 024 caracteres por chamada (após Olá Web SDK do Mobile Engagement codifica em JSON).
+Os extras são limitados a 1024 caracteres por chamada (depois que o SDK Web do Mobile Engagement codifica em JSON).
 
 ## <a name="reporting-application-information"></a>Relatando informações de aplicativo
-Você pode relatar informações (ou quaisquer outras informações específicas do aplicativo) de rastreamento manualmente usando Olá `sendAppInfo()` função.
+Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função `sendAppInfo()` .
 
-Observe que essas informações podem ser enviadas de forma incremental. Somente Olá valor mais recente para uma chave específica será mantido para um dispositivo específico.
+Observe que essas informações podem ser enviadas de forma incremental. Somente o último valor para uma chave específica será mantido para cada dispositivo.
 
-Como o evento extras, você pode usar informações de aplicativo tooabstract do objeto JSON. Observe que matrizes ou subobjetos são tratados como cadeias de caracteres simples (usando a serialização JSON).
+Como extras de evento, você pode usar qualquer objeto JSON para abstrair as informações do aplicativo. Observe que matrizes ou subobjetos são tratados como cadeias de caracteres simples (usando a serialização JSON).
 
 **Exemplo:**
 
-Aqui está um exemplo de código de gênero do usuário Olá envio e a data de nascimento:
+Aqui está um exemplo de código para enviar a data de nascimento e o sexo do usuário:
 
     var appInfos = {"birthdate":"1983-12-07","gender":"female"};
     engagement.agent.sendAppInfo(appInfos);
 
-### <a name="limits"></a>limites
-Limites que se aplicam a tooapplication informações estão em áreas de saudação de expressões regulares de chaves e tamanho.
+### <a name="limits"></a>Limites
+Limites que se aplicam às informações do aplicativo são nas áreas de expressões regulares de chaves e tamanho.
 
 #### <a name="keys"></a>simétricas
-Cada chave no objeto de saudação deve corresponder Olá expressão regular a seguir:
+Cada chave no objeto deve corresponder à seguinte expressão regular:
 
     ^[a-zA-Z][a-zA-Z_0-9]*
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### <a name="size"></a>Tamanho
-Informações do aplicativo são limitado too1, 024 caracteres por chamada (após Olá Web SDK do Mobile Engagement codifica em JSON).
+Informações do aplicativo são limitadas a 1024 caracteres por chamada (depois que o SDK Web do Mobile Engagement codifica em JSON).
 
-Em Olá anterior de exemplo, hello JSON enviado toohello server é 44 caracteres:
+No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
     {"birthdate":"1983-12-07","gender":"female"}

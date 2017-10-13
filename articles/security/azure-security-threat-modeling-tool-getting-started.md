@@ -1,6 +1,6 @@
 ---
-title: "aaaGetting iniciado - ferramenta de modelagem de ameaça Microsoft - Azure | Microsoft Docs"
-description: "Esta é uma visão mais profunda realce Olá a ferramenta de modelagem de ameaças em ação."
+title: "Introdução - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
+description: "Esta é uma visão geral mais detalhada que destaca o Threat Modeling Tool em ação."
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 75ef139071e8abd0e743aa17b443a6e353f29372
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="getting-started-with-hello-threat-modeling-tool"></a>Guia de Introdução ao Olá, ferramenta de modelagem de ameaça
+# <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
 
-equipe de nuvem e ferramentas de segurança do Enterprise Olá lançado Olá visualização de ferramenta de modelagem de ameaça anteriormente este ano grátis  **[clique para baixar](https://aka.ms/tmtpreview)**. Olá alteração no mecanismo de entrega permite que toopush hello mais recentes aprimoramentos e correções de bugs toocustomers toda vez que abrirem ferramenta hello, facilitando toomaintain e uso.
-Este artigo o conduz pelo processo de saudação do guia de Introdução com a abordagem de modelagem de ameaças do hello Microsoft SDL e mostra como os modelos de ameaça grande do toodevelop toouse Olá ferramenta como a base do seu processo de segurança.
+A equipe de Ferramentas de Segurança Corporativa e na Nuvem lançou este ano a versão prévia do Threat Modeling Tool como um componente gratuito**[clique para baixar](https://aka.ms/tmtpreview)**. A alteração no mecanismo de entrega nos permite efetuar push dos aprimoramentos mais recentes e correções de bug para os clientes toda vez que eles abrem a ferramenta, facilitando a manutenção e o uso da ferramenta.
+Este artigo explica o processo de como começar a usar a abordagem de modelagem de ameaça do Microsoft Security Development Lifecycle (SDL), além de mostrar como usar a ferramenta para desenvolver excelentes modelos de ameaça como um alicerce do seu processo de segurança.
 
-Este artigo se baseia no conhecimento existente da abordagem de modelagem de ameaças SDL hello. Para uma rápida revisão, consulte muito**[aplicativos Web de modelagem de ameaça](https://msdn.microsoft.com/library/ms978516.aspx)**  e uma versão de arquivo morto  **[Olá descobrir falhas de segurança usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  Publicada do artigo do MSDN em 2006.
+Este artigo se baseia no conhecimento existente da abordagem de modelagem de ameaça do SDL. Para fazer uma análise rápida, confira **[Aplicativos Web de modelagem de ameaça](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada do artigo do MSDN **[Descubra falhas de segurança usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**, publicado em 2006.
 
-Resumir tooquickly, Olá abordagem envolve a criação de um diagrama, identificando as ameaças, mitigá-los e validar cada mitigação. Veja um diagrama que destaca esse processo:
+Em poucas palavras, a abordagem envolve a criação de um diagrama, a identificação de ameaças, a mitigação delas e a validação de cada mitigação. Veja um diagrama que destaca esse processo:
 
 ![Processo do SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
 
-## <a name="starting-hello-threat-modeling-process"></a>Processo de modelagem de ameaças de saudação inicial
+## <a name="starting-the-threat-modeling-process"></a>Iniciando a processo de modelagem de ameaça
 
-Quando você inicia a ferramenta de modelagem de ameaça de saudação, você observará algumas coisas, como mostrado na imagem de saudação:
+Ao iniciar o Threat Modeling Tool, você perceberá alguns itens, como pode ser visto na imagem:
 
 ![Página inicial em branco](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
@@ -41,20 +41,20 @@ Quando você inicia a ferramenta de modelagem de ameaça de saudação, você ob
 
 | Componente                                   | Detalhes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Botão Comentários, Sugestões e Problemas** | Leva você Olá  **[Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  para tudo SDL. Ele fornece uma tooread oportunidade por meio de que outros usuários estão fazendo, juntamente com recomendações e soluções alternativas. Se você ainda não é possível localizar o que você está procurando, envie por email tmtextsupport@microsoft.com para nosso toohelp da equipe de suporte é                                                                                                                            |
-| **Criar um modelo**                          | Abre uma tela em branco para você toodraw seu diagrama. Verifique tooselect certeza de qual modelo deseja toouse para seu modelo                                                                                                                                                                                                                                                                                                                                                                       |
-| **Padrão para novos modelos**                 | Você deve selecionar qual toouse modelo antes de criar um modelo. Nosso modelo principal é hello Azure ameaça modelo, que contém estênceis específicas do Azure, as ameaças e atenuações. Para modelos genéricos, selecione Olá SDL TM da Base de conhecimento do menu suspenso de saudação. Deseja toocreate seu próprio modelo ou enviar um novo para todos os usuários? Confira nosso  **[repositório de modelos](https://github.com/Microsoft/threat-modeling-templates)**  GitHub Page toolearn mais                              |
-| **Abrir um modelo**                            | <p>Abre modelos de ameaça salvos anteriormente. recurso de modelos recentemente aberto Olá for grande, se você precisar tooopen seus arquivos mais recentes. Quando você focaliza seleção hello, você encontrará 2 maneiras tooopen modelos:</p><p><ul><li>Abrir deste Computador – modo clássico de abrir um arquivo usando o armazenamento local</li><li>Abrir do OneDrive – equipes podem usar as pastas no OneDrive toosave e compartilhar seus modelos de ameaças em uma colaboração e aumentar a produtividade único local toohelp</li></ul></p> |
-| **Guia de Introdução**                   | Olá abre  **[ferramenta de modelagem de ameaças do Microsoft](./azure-security-threat-modeling-tool.md)**  página principal                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Botão Comentários, Sugestões e Problemas** | Direciona você para o **[Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** em relação a todos os assuntos sobre o SDL. Desse modo, você tem a oportunidade de saber o que os outros usuários estão fazendo, além de encontrar soluções alternativas e recomendações. Caso não encontre o que está procurando, envie um email para tmtextsupport@microsoft.com e nossa equipe de suporte ajudará você                                                                                                                            |
+| **Criar um modelo**                          | Abre uma tela em branco para desenhar seu diagrama. Não se esqueça de escolher o padrão que deseja usar no seu modelo                                                                                                                                                                                                                                                                                                                                                                       |
+| **Padrão para novos modelos**                 | Você deve escolher o padrão a ser usado antes de criar um modelo. Nosso modelo principal é Azure Threat Model Template, que contém estênceis, ameaças e mitigações específicos do Azure. Para modelos genéricos, escolha Base de Dados de Conhecimento de TM do SDL no menu suspenso. Deseja criar seu próprio modelo ou enviar um novo para todos os usuários? Confira nossa Página no GitHub, **[Repositório de Modelos](https://github.com/Microsoft/threat-modeling-templates)**, para saber mais                              |
+| **Abrir um modelo**                            | <p>Abre modelos de ameaça salvos anteriormente. Caso você precise abrir os arquivos mais recentes, Modelos Abertos Recentemente é um excelente recurso. Ao passar o mouse sobre a seleção, você verá 2 maneiras de abrir modelos:</p><p><ul><li>Abrir deste Computador – modo clássico de abrir um arquivo usando o armazenamento local</li><li>Abrir do OneDrive – as equipes podem usar pastas no OneDrive para salvar e compartilhar seus modelos de ameaças em um único local, de modo a ajudar a aumentar a produtividade e a colaboração</li></ul></p> |
+| **Guia de Introdução**                   | Abre a página principal do **[Microsoft Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Seção do modelo
 
 | Componente               | Detalhes                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Criar Novo Modelo** | Abre um modelo em branco para você toobuild em. A menos que você tenha extenso conhecimento na criação de modelos do zero, é recomendável toobuild das já existentes |
-| **Abrir Modelo**       | Abre existente modelos para você toomake alterações muito                                                                                                             |
+| **Criar Novo Modelo** | Abre um modelo em branco para que você possa criar um. A menos que você tenha vasto conhecimento na criação de modelos do zero, é recomendável criar um usando os existentes |
+| **Abrir Modelo**       | Abre modelos existentes para que você possa fazer alterações neles                                                                                                              |
 
-equipe de ferramenta de modelagem de ameaça Olá trabalha constantemente experiência e a funcionalidade da ferramenta de tooimprove. Algumas pequenas alterações podem ocorrer durante saudação do ano hello, mas todas as alterações principais requerem regravações no guia de saudação. Consulte tooit geralmente tooensure obter anúncios mais recentes hello.
+A equipe do Threat Modeling Tool trabalha continuamente para melhorar a funcionalidade e a experiência da ferramenta. Algumas pequenas alterações podem ocorrer ao longo do ano, mas todas as alterações importantes exigem reformulação no guia. Consulte-o com frequência para garantir que você fique a par dos anúncios mais recentes.
 
 ## <a name="building-a-model"></a>Criando um modelo
 
@@ -64,82 +64,82 @@ Nesta seção, vamos seguir:
 - Ricardo (um gerente de programas) e
 - Ashish (um testador)
 
-Eles estão passando pelo processo de saudação do desenvolvimento de seu primeiro modelo de ameaça.
+Eles passarão pelo processo de desenvolver o primeiro modelo de ameaça.
 
-> Ricardo: Olá Cristina, trabalhar em um diagrama de modelo de ameaça hello e quisesse toomake-se de que temos detalhes de saudação à direita. Você pode me ajudar a examiná-lo?
+> Ricardo: Olá Cristina, estive trabalhando no diagrama do modelo de ameaça e quero me certificar de que entendemos os detalhes. Você pode me ajudar a examiná-lo?
 > Cristina: Com certeza. Vamos conferir isso.
-> Ricardo abre a ferramenta hello e compartilhe sua tela com Cristina.
+> Ricardo abre a ferramenta e compartilha sua tela com Cristina.
 
-![Modelo Básico de Ameaça](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Modelo básico de ameaça](./media/azure-security-threat-modeling-tool/basictmt.png)
 
 > Cristina: Certo, parece claro, mas você pode me explicar?
-> Ricardo: Claro! Aqui está a divisão de saudação:
+> Ricardo: Claro! Esta é a explicação:
 > - Nosso usuário humano é representado como uma entidade externa — um quadrado
-> - Eles estão enviando o servidor de Web tooour comandos — círculo Olá
-> - servidor Web de saudação é consultar um banco de dados (duas linhas paralelas)
+> - Ele está enviando comandos para nosso servidor Web — o círculo
+> - O servidor Web está consultando um banco de dados (duas linhas paralelas)
 
-O que Ricardo acabou de mostrar a Cristina é um DFD, isto é, **[Diagrama de Fluxo de Dados](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Olá, ferramenta de modelagem de ameaça permite que os limites de confiança toospecify usuários, indicados por linhas pontilhadas de saudação vermelho, tooshow onde diferentes entidades estão no controle. Por exemplo, os administradores de TI requerem um sistema de Active Directory para fins de autenticação, de forma saudação do Active Directory está fora de seu controle.
+O que Ricardo acabou de mostrar a Cristina é um DFD, isto é, **[Diagrama de Fluxo de Dados](https://en.wikipedia.org/wiki/Data_flow_diagram)**. A ferramenta Threat Modeling Tool permite que os usuários especifiquem limites confiáveis, indicados pelas linhas pontilhadas vermelhas, para mostrar onde as diferentes entidades estão no controle. Por exemplo, os administradores de TI exigem um sistema do Active Directory para fins de autenticação, de modo que o Active Directory está fora do controle deles.
 
-> Cristina: Parece toome à direita. E ameaças Olá?
+> Cristina: Para mim, parece que está tudo certo. E quanto às ameaças?
 > Ricardo: Deixe-me mostrar.
 
 ## <a name="analyzing-threats"></a>Analisando ameaças
 
-Quando ele clica no modo de exibição de análise de saudação da seleção de menu Olá ícone (arquivo com lupa), ele é obtido tooa lista de ameaças gerado hello ferramenta de modelagem de ameaça encontrada com base no modelo de padrão de saudação, que usa a abordagem do SDL Olá chamada  **[ STRIDE (falsificação, violação, divulgação de informações, negação de serviço e elevação de privilégio)](https://en.wikipedia.org/wiki/STRIDE_(security))**. ideia Olá é que o software é fornecido em um conjunto previsível de ameaças, que pode ser encontrado usando essas 6 categorias.
+Quando ele clica no modo de exibição de análise na seleção de menu do ícone (arquivo com a lupa), ele vê uma lista de ameaças geradas que o Threat Modeling Tool encontrou com base no modelo padrão, que usa a abordagem SDL chamada **[STRIDE (Falsificação, Adulteração, Divulgação de Informações, Negação de Serviço e Elevação de Privilégio)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A ideia é que o software incorra em um conjunto previsível de ameaças, que pode ser encontrado usando estas 6 categorias.
 
-Essa abordagem é como a proteção da sua casa, garantindo a cada porta e a janela tem um mecanismo de bloqueio em vigor antes de adicionar um sistema de alarme ou caça a registros após ladrão hello.
+Pense nessa abordagem como se você estivesse protegendo sua casa, garantindo que cada porta e janela tenha um mecanismo de trava, antes de ter um sistema de alarme ou de registrar um boletim de ocorrência por roubo.
 
 ![Ameaças básicas](./media/azure-security-threat-modeling-tool/basicthreats.png)
 
-Ricardo começa, selecionando primeiro o item na lista de Olá Olá. Veja o que acontece:
+Ricardo começa escolhendo o primeiro item na lista. Veja o que acontece:
 
-Primeiro, interação de saudação entre dois estênceis de saudação é aprimorada
+Primeiro, a interação entre os dois estênceis é aprimorada
 
 ![Interação](./media/azure-security-threat-modeling-tool/interaction.png)
 
-Segundo informações adicionais sobre a ameaça de saudação aparecem na janela de propriedades de ameaça de saudação
+Segundo, informações adicionais sobre a ameaça aparecem na janela Propriedades da Ameaça
 
 ![Informações da Interação](./media/azure-security-threat-modeling-tool/interactioninfo.png)
 
-ameaça Olá gerado ajuda a entender as falhas potenciais de design. categorização de STRIDE Olá lhe dá uma ideia em vetores de ataque potencial, durante a saudação descrição adicional informa que exatamente o que tem incorreto, juntamente com toomitigate de maneiras possíveis-lo. Ele pode usar anotações de toowrite campos editáveis nos detalhes de justificação hello ou alterar as classificações de prioridade dependendo da barra de erros da sua organização.
+A ameaça gerada ajuda ele a entender as possíveis falhas de design. A categorização STRIDE dá a ele uma ideia sobre os potenciais vetores de ataque, enquanto a descrição adicional diz exatamente o que está errado e as possíveis maneiras de mitigá-lo. Ele pode usar campos editáveis para fazer anotações nos detalhes da justificativa ou alterar as classificações de prioridade, dependendo da barra de bugs da organização.
 
-Modelos do Azure tem usuários de toohelp detalhes adicionais entender não apenas o que está errado, mas também como toofix-lo adicionando hiperlinks, exemplos e descrições de documentação de tooAzure específica.
+Os modelos do Azure têm detalhes adicionais que ajudam os usuários a entender não apenas o que está errado, mas também como corrigir acrescentando descrições, exemplos e hiperlinks para documentação específica do Azure.
 
-Descrição de saudação tornou a perceber a importância de saudação de adição de usuários de tooprevent do mecanismo de autenticação de serem falsificados, revelar Olá primeiro ameaça toobe trabalhado. Alguns minutos para discussão de saudação com Cristina, compreendia importância Olá da implementação de controle de acesso e funções. Ricardo preenchido alguns toomake anotações rápidas se que eles foram implementados.
+A descrição faz com que ele perceba a importância de adicionar um mecanismo de autenticação, a fim de impedir os usuários de falsificar, revelando a primeira ameaça na qual trabalhar. Depois do debate de alguns minutos com Cristina, eles entenderam a importância de implementar o controle de acesso e as funções. Ricardo fez algumas anotações rápidas para garantir essas implementações.
 
-Como Ricardo entrou em ameaças Olá em divulgação de informações, percebeu que o plano de controle de acesso Olá necessárias algumas contas somente leitura para auditoria e geração de relatórios. Ele se perguntou se isso deve ser uma ameaça de novo, mas Olá atenuações foram Olá iguais, portanto ele anotou ameaça Olá adequadamente.
-Ele também pensar um pouco mais divulgação de informações e percebeu que as fitas de backup Olá fosse tooneed criptografia, um trabalho para a equipe de operações de saudação.
+Depois que Ricardo verificou as ameaças na categoria de Divulgação de Informações, ele percebeu que o plano de controle de acesso exigia algumas contas somente leitura para auditoria e geração de relatório. Ele se perguntou se essa deveria ser uma nova ameaça, mas as mitigações eram as mesmas, de modo que ele anotou a ameaça corretamente.
+Ele também pensou um pouco mais sobre a divulgação de informações e percebeu que as fitas de backup precisariam de criptografia, um trabalho para a equipe de operações.
 
-Ameaças design toohello não aplicável devido tooexisting atenuações ou segurança garante que pode ser alterada muito "Não aplicável" da saudação Status suspenso. Há três outras opções: não iniciado a seleção padrão, precisa de investigação – usados toofollow de itens e Mitigated – depois que ele é totalmente trabalhado.
+As ameaças que não se aplicam ao design devido às mitigações existentes ou garantias de segurança podem ser alteradas para "Não Aplicável" no menu suspenso Status. Há mais três opções: Não iniciada – seleção padrão, Precisa de investigação – usada para acompanhamento de itens e Mitigada – depois que foram totalmente trabalhadas.
 
 ## <a name="reports--sharing"></a>Relatórios e compartilhamento
 
-Uma vez Ricardo percorre a lista de saudação com Cristina e adiciona observações importantes, atenuações/justificativas, prioridade e status muda, seleciona relatórios -> Criar relatório completo -> Salvar o relatório, que imprime uma boa de relatório para que ele toogo por meio de com trabalho de segurança adequadas colegas tooensure Olá é implementado.
+Depois que Ricardo percorre a lista com Cristina e adiciona observações importantes, mitigações/justificativas, prioridade e alterações de status, ele seleciona Relatórios -> Criar Relatório Completo -> Salvar Relatório, o que imprime um relatório para que ele examine com os colegas a fim de garantir que a segurança correta seja implementada.
 
 ![Informações da Interação](./media/azure-security-threat-modeling-tool/report.png)
 
-Se Ricardo quer tooshare arquivo de saudação em vez disso, ele pode fazer isso facilmente salvando na conta do OneDrive da sua organização. Depois que ele faz isso, ele pode copiar link para documento hello e compartilhá-lo com seus colegas. 
+Se Ricardo quiser compartilhar o arquivo, ele pode fazer isso facilmente salvando-o em sua conta do OneDrive na organização. Fazendo isso, ele pode copiar o link do documento e compartilhá-lo com seus colegas. 
 
 ## <a name="threat-modeling-meetings"></a>Reuniões sobre a modelagem de ameaça
 
-Envios Ricardo seu colega de toohis do modelo de ameaça usando OneDrive, Ashish, testador Olá foi underwhelmed. Parece que Ricardo e Cristina deixaram escapar alguns pontos importantes, que poderiam ser facilmente comprometidos. Sua ceticismo é modelos de toothreat um complemento.
+Quando Ricardo enviou seu modelo de ameaça para seu colega usando o OneDrive, Ashish, o testador, ficou desanimado. Parece que Ricardo e Cristina deixaram escapar alguns pontos importantes, que poderiam ser facilmente comprometidos. Sua ceticismo se juntou aos modelos de ameaça.
 
-Neste cenário, após Ashish assumiu modelo de ameaça Olá, ele chamou para duas reuniões para modelagem de ameaça: toosynchronize uma reunião no processo de saudação e passo a passo diagramas hello e, em seguida, uma segunda reunião para análise de ameaça e aprovação.
+Nesse cenário, depois que Ashish assumiu o modelo de ameaça, ele foi convocado para duas reuniões sobre a modelagem de ameaça: uma reunião para sincronização do processo e apresentação dos diagramas e a segunda reunião para revisão da ameaça e aprovação.
 
-Na primeira reunião de hello, Ashish levou 10 minutos descrevendo todos por meio do processo de modelagem de ameaças SDL hello. Ele, em seguida, retirado do diagrama de modelo de ameaça hello e iniciado explicar em detalhes. Em cinco minutos, foi identificada a ausência de um componente importante.
+Na primeira reunião, Ashish gastou 10 minutos explicando a cada um o processo de modelagem de ameaça do SDL. Em seguida, passou para o diagrama do modelo de ameaça e começou a explicá-lo em detalhes. Em cinco minutos, foi identificada a ausência de um componente importante.
 
-Alguns minutos mais tarde, Ashish e Ricardo iniciaram uma longa discussão sobre como o servidor de Web hello foi criado. Não era a maneira ideal Olá para tooproceed uma reunião, mas todos concordaram que descobrir discrepância Olá no início iria toosave tempo no futuro hello.
+Alguns minutos mais tarde, Ashish e Ricardo iniciaram uma longa discussão sobre como o servidor Web foi criado. Não é a maneira ideal de dar continuidade a uma reunião, mas, no fim, todos concordaram que descobrir a discrepância antecipadamente pouparia tempo no futuro.
 
-Olá segunda reunião, equipe Olá percorrido ameaças hello, discutidos tooaddress algumas maneiras-las e assinado off no modelo de ameaça hello. Eles marcado documento Olá para controle de origem e continuaram o desenvolvimento.
+Na segunda reunião, a equipe analisou as ameaças, discutiu algumas formas de solucioná-las e aprovou o modelo de ameaça. Ela verificou o documento no controle de código-fonte e prosseguiu com o desenvolvimento.
 
 ## <a name="thinking-about-assets"></a>Pensando sobre os ativos
 
-Alguns leitores com a modelagem de ameaça podem notar que não falamos sobre ativos. Descobrimos que muitos engenheiros de software entendem melhor do que eles entendam o conceito de saudação de ativos e ativos de que um invasor pode estar interessado em seu software.
+Alguns leitores com a modelagem de ameaça podem notar que não falamos sobre ativos. Descobrimos que muitos engenheiros de software entendem melhor o respectivo software do que o conceito de ativos e em quais ativos um invasor pode estar interessado.
 
-Se você vai toothreat uma casa de modelo, você pode iniciar, considere suas fotos de família, insubstituíveis ou obras de arte. Talvez comece pensando em possíveis invasores e um sistema de segurança atual hello. Ou você pode iniciar considerando Olá características físicas, como o pool de saudação ou entrada principal hello. Eles são análogo toothinking sobre ativos, invasores ou design de software. Qualquer uma dessas três abordagens funciona.
+Considerando o modelo de ameaça de uma casa, você pode começar pensando na sua família, em fotos insubstituíveis ou em obras valiosas. Talvez você possa começar pensando sobre quem poderia invadi-la e no atual sistema de segurança. Ou ainda considerando os aspectos físicos, como a piscina ou a varanda. Esses exemplos são uma analogia aos ativos, invasores ou design de software. Qualquer uma dessas três abordagens funciona.
 
-Olá toothreat a abordagem modelagem apresentados aqui é muito mais simples do que a Microsoft fez no hello anterior. Descobrimos que abordagem de design de software Olá funciona bem para muitas equipes. Esperamos que inclua a sua.
+A abordagem à modelagem de ameaça que apresentamos aqui é consideravelmente simples, em comparação com o que a Microsoft fez no passado. Descobrimos que a abordagem de design de software funciona bem para muitas equipes. Esperamos que inclua a sua.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Envie suas perguntas, comentários e preocupações tootmtextsupport@microsoft.com. **[Baixar](https://aka.ms/tmtpreview)**  Olá a ferramenta de modelagem de ameaça tooget iniciado.
+Envie seus comentários, dúvidas e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/tmtpreview)** a ferramenta Threat Modeling Tool para começar a usá-la hoje mesmo.

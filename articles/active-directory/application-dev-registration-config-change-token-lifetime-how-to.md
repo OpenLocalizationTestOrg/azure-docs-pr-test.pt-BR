@@ -1,6 +1,6 @@
 ---
-title: "vida útil do token de saudação de toochange do aaaHow padrões para um aplicativo personalizado | Microsoft Docs"
-description: "Como as políticas de vida útil do Token tooupdate para seu aplicativo que você está desenvolvendo no AD do Azure"
+title: "Como alterar os padrões de tempo de vida do token para um aplicativo personalizado | Microsoft Docs"
+description: "Como atualizar as políticas de tempo de vida do token para o aplicativo que você está desenvolvendo no Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6e1aa1f2a7c33c1f55c5fb619c618ad43cd96273
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toochange-hello-token-lifetime-defaults-for-a-custom-developed-application"></a>Como a vida útil do token Olá toochange padrões para um aplicativo personalizado
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os padrões de tempo de vida do token para um aplicativo personalizado
 
-O Azure AD Premium permite que os desenvolvedores de aplicativos e tempo de vida do locatário administradores tooconfigure Olá de tokens emitidos para clientes não-confidencial. Vida útil do token políticas é definidas em uma base de todo o locatário ou recursos de saudação que está sendo acessados.
+O Azure AD Premium permite que desenvolvedores de aplicativos e administradores de locatários configurem o tempo de vida de tokens emitidos para clientes não confidenciais. As políticas de tempo de vida do token são definidas com base em todos os locatários ou nos recursos que estão sendo acessados.
 
- * tooset uma política de vida útil do token, você precisa Olá toodownload [módulo PowerShell do AD do Azure](https://www.powershellgallery.com/packages/AzureADPreview).
+ * Para definir uma política de tempo de vida do token, você precisa baixar o [Módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
 
- * Executar Olá **AzureAD Connect-confirmar** comando.
+ * Execute o comando **Connect-AzureAD -Confirm**.
 
- * Aqui está um exemplo de política que define o token de atualização de fator único Olá idade máxima. Crie política hello:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+ * Veja um exemplo de política que define o token de atualização de fator único de idade máxima. Crie a política: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Saudação de check-out [vida útil do token configurando](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) documento toolearn como toocreate outros personalizado.
+ * Veja o documento [Configurando tempo de vida do token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) para saber como criar outro personalizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurando o tempo de vida do token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>

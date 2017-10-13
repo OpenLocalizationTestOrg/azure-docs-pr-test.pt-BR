@@ -1,6 +1,6 @@
 ---
-title: "aaaBack o Windows server ou estação de trabalho tooAzure (modelo clássico) | Microsoft Docs"
-description: "Fazer backup de servidores ou clientes tooa backup cofre do Windows no Azure. Percorrer Noções básicas para proteger arquivos e pastas tooa Cofre de Backup usando hello Azure Backup agent."
+title: "Fazer backup do servidor ou estação de trabalho do Windows no Azure (modelo clássico) | Microsoft Docs"
+description: "Fazer backup de servidores ou clientes do Windows em um cofre de backup no Azure. Confira as noções básicas da proteção de arquivos e pastas em um Cofre de backup usando o agente de Backup do Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,150 +15,150 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: c8f2a9bed1e5885f5c272c65b9282ededc05850a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="back-up-a-windows-server-or-workstation-tooazure-using-hello-classic-portal"></a>Fazer backup de um tooAzure de servidor ou estação de trabalho do Windows usando o portal clássico Olá
+# <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Fazer backup de um servidor ou estação de trabalho do Windows no Azure usando o portal clássico
 > [!div class="op_single_selector"]
 > * [Portal clássico](backup-configure-vault-classic.md)
 > * [Portal do Azure](backup-configure-vault.md)
 >
 >
 
-Este artigo aborda os procedimentos de saudação que você precisa toofollow tooprepare seu ambiente e fazer backup de um tooAzure de servidor (ou estação de trabalho) do Windows. Ele também aborda considerações para a implantação de sua solução de backup. Se você estiver interessado em testar o Backup do Azure para Olá primeira vez, este artigo rapidamente o orienta pelo processo de saudação.
+Este artigo aborda os procedimentos que você precisa realizar para preparar seu ambiente e fazer backup de um servidor (ou estação de trabalho) do Windows no Azure. Ele também aborda considerações para a implantação de sua solução de backup. Se você estiver interessado em experimentar o Backup do Azure pela primeira vez, este artigo orientará você rapidamente pelo processo.
 
-O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Gerenciador de Recursos e Clássico. Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
+O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Gerenciador de Recursos e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="before-you-start"></a>Antes de começar
-tooback backup de um servidor ou cliente tooAzure, você precisa de uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
+Para fazer backup de um servidor ou cliente no Azure, você precisará de uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
 ## <a name="create-a-backup-vault"></a>Criar um cofre de backup
-tooback backup de arquivos e pastas de um servidor ou cliente, é necessário toocreate um cofre de backup na região geográfica hello, onde você deseja toostore Olá dados.
+Para fazer o backup de arquivos e pastas de um servidor ou cliente, você deverá criar um cofre de backup na região geográfica em que deseja armazenar os dados.
 
 > [!IMPORTANT]
-> A partir de março de 2017, você não pode usar os cofres de Backup Olá toocreate portal clássico.
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
 >
-> Agora você pode atualizar seu cofres dos serviços de tooRecovery de cofres de Backup. Para obter detalhes, consulte o artigo Olá [atualizar um tooa de Cofre de Backup Cofre de serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva tooupgrade cofres de serviços tooRecovery os cofres de Backup.<br/> **15 de outubro de 2017**, não será capaz de toouse PowerShell toocreate os cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
->- Nenhum Cofre de Backup restante será automaticamente atualizado tooRecovery cofres de serviços.
->- Você não será capaz de tooaccess os dados de backup no portal clássico do hello. Em vez disso, use Olá tooaccess portal do Azure os dados de backup em cofres de serviços de recuperação.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
 
-## <a name="download-hello-vault-credential-file"></a>Baixe o arquivo de credencial de cofre Olá
-máquina local, Olá precisa toobe autenticado com um cofre de backup antes que ele pode fazer backup de dados tooAzure. Olá autenticação é obtida por meio de *Cofre de credenciais*. arquivo de credencial de cofre Olá é baixado por meio de um canal seguro do portal clássico do hello. chave privada do certificado Olá não persistem no portal de saudação ou serviço hello.
+## <a name="download-the-vault-credential-file"></a>Baixe o arquivo de credencial do cofre
+O computador local precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é obtida por meio das *credenciais do cofre*. O arquivo de credencial do cofre é baixado por meio de um canal seguro no portal clássico. A chave privada do certificado não persiste no portal ou serviço.
 
-### <a name="toodownload-hello-vault-credential-file-tooa-local-machine"></a>toodownload Olá cofre credencial arquivo tooa máquina local
-1. No painel de navegação esquerdo hello, clique em **dos serviços de recuperação**e, em seguida, selecione o Cofre de backup Olá que você criou.
+### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Para baixar o arquivo de credenciais do cofre para um computador local
+1. Clique em **Serviços de Recuperação**no painel de navegação à esquerda e selecione o cofre de backup criado.
 
     ![IR completo](./media/backup-configure-vault-classic/rs-left-nav.png)
-2. Na página início rápido hello, clique em **baixar credenciais do cofre**.
+2. Na página Início Rápido, clique em **Baixar credenciais do cofre**.
 
-   portal clássico do Hello gera uma credencial de cofre usando uma combinação do nome do cofre hello e hello data atual. o arquivo de credenciais de cofre Olá é usado somente durante o fluxo de trabalho de registro de saudação e expira após 48 horas.
+   O portal clássico gera uma credencial de cofre usando uma combinação do nome do cofre e a data atual. O arquivo de credenciais do cofre é usado somente durante o fluxo de trabalho de registro e expira após 48 horas.
 
-   arquivo de credencial de cofre Olá pode ser baixado do portal de saudação.
-3. Clique em **salvar** toodownload Olá cofre credencial arquivo toohello pasta Downloads da conta local hello. Você também pode selecionar **Salvar como** de saudação **salvar** menu toospecify um local para o arquivo de credencial de cofre hello.
+   O arquivo de credenciais do cofre pode ser baixado do portal.
+3. Clique em **Salvar** para baixar o arquivo de credenciais do cofre para a pasta local Downloads da conta local. Você também pode selecionar **Salvar Como** no menu **Salvar** para especificar um local para o arquivo de credencial do cofre.
 
    > [!NOTE]
-   > Verifique se o arquivo de credencial de cofre Olá é salvo em um local que possa ser acessado em seu computador. Se ele estiver armazenado em um bloco de mensagens de servidor ou compartilhamento de arquivo, verifique se você tem Olá permissões tooaccess-lo.
+   > Salve o arquivo de credenciais do cofre em um local que possa ser acessado em seu computador. Se ele estiver armazenado em um protocolo SMB ou em um compartilhamento de arquivos, verifique se você tem permissões para acessá-lo.
    >
    >
 
-## <a name="download-install-and-register-hello-backup-agent"></a>Baixar, instalar e registrar o agente de Backup Olá
-Depois de criar o Cofre de backup hello e arquivo de credencial de cofre download hello, um agente deve ser instalado em cada um de seus computadores Windows.
+## <a name="download-install-and-register-the-backup-agent"></a>Baixar, instalar e registrar o agente de Backup
+Depois de criar o cofre de backup e baixar o arquivo de credenciais do cofre, um agente deve ser instalado em cada uma de suas máquinas do Windows.
 
-### <a name="toodownload-install-and-register-hello-agent"></a>toodownload, instalar e registrar o agente Olá
-1. Clique em **dos serviços de recuperação**e, em seguida, selecione o Cofre de backup Olá que você deseja tooregister com um servidor.
-2. Na página de início rápido de saudação, clique em agente Olá **agente para Windows Server ou do cliente do System Center Data Protection Manager ou Windows**. Em seguida, clique em **Salvar**.
+### <a name="to-download-install-and-register-the-agent"></a>Para baixar, instalar e registrar o agente
+1. Clique em **Serviços de Recuperação**, depois selecione o cofre de backup que você quer registrar com um servidor.
+2. Na página Início Rápido, clique em **Agente para Windows Server ou System Center Data Protection Manager ou cliente Windows**. Em seguida, clique em **Salvar**.
 
     ![Salvar agente](./media/backup-configure-vault-classic/agent.png)
-3. Depois de saudação MARSagentinstaller.exe arquivo baixado, clique em **executar** (ou clique duas vezes em **MARSAgentInstaller.exe** de local de saudação salvada).
-4. Escolha a pasta de instalação de saudação e a pasta de cache que são necessários para o agente de saudação e, em seguida, clique em **próximo**. local de cache de saudação especificado deve ter tooat de espaço livre igual menos 5 por cento Olá dos dados de backup.
-5. Você pode continuar tooconnect toohello da Internet por meio de configurações de proxy padrão hello.             Se você usar um toohello de tooconnect do servidor proxy da Internet, na página de configuração de Proxy de saudação, selecione Olá **usar configurações de proxy personalizadas** caixa de seleção e, em seguida, insira detalhes de saudação do servidor de proxy. Se você usar um proxy autenticado, insira os detalhes de nome e senha de usuário hello e, em seguida, clique em **próximo**.
-6. Clique em **instalar** toobegin instalação do agente de saudação. Agente de Backup Olá instala o .NET Framework 4.5 e o Windows PowerShell (se ele ainda não estiver instalado) toocomplete instalação de saudação.
-7. Depois de saudação agente estiver instalado, clique em **continuar tooRegistration** toocontinue ao fluxo de trabalho de saudação.
-8. Na página de identificação de cofre hello, procure tooand Olá selecione cofre arquivo de credenciais que você baixou anteriormente.
+3. Depois do arquivo MARSagentinstaller.exe ser baixado, clique em **Executar** (ou clique duas vezes em **MARSAgentInstaller.exe** no local salvo).
+4. Escolha a pasta de instalação e a pasta de cache necessárias para o agente e clique em **Avançar**. O local do cache especificado deve ter espaço livre igual a pelo menos 5% dos dados de backup.
+5. Você pode continuar a conectar-se à Internet por meio das configurações de proxy padrão.             Se você usar um servidor proxy para conectar-se à Internet, na página Configuração de Proxy, marque a caixa de seleção **Usar configurações de proxy personalizadas** e insira os detalhes do servidor proxy. Se você usar um proxy autenticado, insira os detalhes de nome de usuário e senha e clique em **Avançar**.
+6. Clique em **Instalar** para iniciar a instalação do agente. O Agente de backup instala o .NET Framework 4.5 e o Windows PowerShell (se ele ainda não estiver instalado) para concluir a instalação.
+7. Após a instalação do agente, clique em **Prosseguir com o Registro** para continuar com o fluxo de trabalho.
+8. Na página Identificação do Cofre, navegue até o arquivo de credenciais do cofre que você baixou anteriormente e selecione-o.
 
-    arquivo de credencial de cofre Olá é válido para apenas 48 horas após o download do portal de saudação. Se você encontrar um erro nesta página (como "credenciais de cofre arquivo fornecido expirou"), entrar no portal de toohello e baixar o arquivo de credencial de cofre Olá novamente.
+    O arquivo de credenciais do cofre é válido apenas por 48 horas após seu download do portal. Se você encontrar qualquer erro nessa página (por exemplo "O arquivo de credenciais do cofre fornecido expirou"), entre no portal e baixe o arquivo de credenciais do cofre novamente.
 
-    Certifique-se de que esse arquivo de credencial de cofre hello está disponível em um local que possa ser acessado pelo aplicativo de instalação hello. Se você encontrar erros relacionados a acesso, copie Olá cofre credencial tooa temporário local do arquivo no hello mesmo computador e repita a operação de saudação.
+    Verifique se o arquivo de credenciais do cofre está disponível em um local que pode ser acessado pelo aplicativo de instalação. Se você encontrar erros relacionados a acesso, copie o arquivo de credenciais do cofre para um local temporário no mesmo computador e repita a operação.
 
-    Se você encontrar um erro de credencial de cofre, como "credenciais de Cofre inválido fornecido", o arquivo hello está danificado ou não ter Olá credenciais mais recentes associadas ao serviço de recuperação de saudação. Repita a operação Olá após o download de um novo arquivo de credencial do cofre no portal de saudação. Esse erro também poderá ocorrer se um usuário clica Olá **credencial do cofre Download** opção várias vezes em sucessão rápida. Nesse caso, somente Olá última cofre credencial arquivo é válido.
-9. Na página de configuração de criptografia Olá, você pode gerar uma senha ou forneça uma frase secreta (com um mínimo de 16 caracteres). Lembre-se toosave Olá senha em um local seguro.
-10. Clique em **Concluir**. Olá Assistente para registrar servidor registra o servidor de saudação com Backup.
+    Se você encontrar um erro de credencial de cofre (por exemplo, “Credenciais do cofre fornecidas inválidas”), significará que o arquivo está danificado ou não tem as credenciais mais recentes associadas ao serviço de recuperação. Repita a operação depois de baixar um novo arquivo de credencial de cofre no portal. Esse erro também poderá ocorrer se o usuário clicar várias vezes, em sucessão rápida, na opção **Baixar credencial do cofre** . Nesse caso, apenas o último arquivo de credencial de cofre é válido.
+9. Na tela Configuração de Criptografia, você pode gerar uma senha ou fornecer uma (com no mínimo 16 caracteres). Lembre-se de salvar a senha em um local seguro.
+10. Clique em **Concluir**. O Assistente de Registro do Servidor registrará o servidor no Backup.
 
     > [!WARNING]
-    > Se você perde ou esquecer a senha hello, Microsoft não pode ajudá-lo a recuperar os dados de backup hello. Você possui Olá senha de criptografia e a Microsoft não tem visibilidade Olá frase secreta que você usa. Salve o arquivo de saudação em um local seguro, pois ela será necessária durante uma operação de recuperação.
+    > Se você perder ou esquecer a senha, a Microsoft não poderá ajudar a recuperar os dados de backup. Você é proprietário da senha de criptografia, e a Microsoft não tem visibilidade da senha que é usada por você. Salve o arquivo em um local seguro, porque ele será necessário durante uma eventual operação de recuperação.
     >
     >
 
-11. Após a chave de criptografia de saudação é definida, deixe Olá **iniciar o Microsoft Azure Recovery Services Agent** selecionada de caixa de seleção e, em seguida, clique em **fechar**.
+11. Após definir a chave de criptografia, deixe a caixa de seleção **Iniciar Agente dos Serviços de Recuperação do Microsoft Azure** marcada, em seguida, clique em **Fechar**.
 
-## <a name="complete-hello-initial-backup"></a>Backup inicial completo Olá
-backup de saudação inicial inclui duas tarefas principais:
+## <a name="complete-the-initial-backup"></a>Completar o backup inicial
+O backup inicial inclui duas tarefas principais:
 
-* Criar agenda de backup Olá
-* Fazendo backup de arquivos e pastas para Olá primeira vez
+* Criar o agendamento de backup
+* Fazendo backup de arquivos e pastas pela primeira vez
 
-Concluída a política de backup Olá backup inicial hello, ele cria pontos de backup que podem ser usados se você precisar toorecover Olá dados. política de backup Olá faz isso com base em agendamento Olá que você definir.
+Após a política de backup concluir o backup inicial, ela criará pontos de backup que poderão ser usados se você precisar recuperar os dados. A política de backup faz isso com base no agendamento que você definir.
 
-### <a name="tooschedule-hello-backup"></a>backup de saudação tooschedule
-1. Abra o agente de Backup do Microsoft Azure hello. (Ela será aberta automaticamente se você deixou Olá **iniciar o Microsoft Azure Recovery Services Agent** caixa de seleção marcada quando você fechou Olá Assistente para registrar servidor.) Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
+### <a name="to-schedule-the-backup"></a>Para agendar o backup
+1. Abra o Agente de Backup do Microsoft Azure. (Ele será aberto automaticamente se você deixou a caixa de seleção **Iniciar Agente dos Serviços de Recuperação do Microsoft Azure** marcada quando fechou o Assistente para Registrar Servidor.) Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
-    ![Inicie o agente de Backup do Azure Olá](./media/backup-configure-vault-classic/snap-in-search.png)
-2. No agente de Backup hello, clique em **agendamento de Backup**.
+    ![Iniciar o agente de Backup do Azure](./media/backup-configure-vault-classic/snap-in-search.png)
+2. No agente de Backup, clique em **Agendar Backup**.
 
     ![Agendar um backup do Windows Server](./media/backup-configure-vault-classic/schedule-backup-close.png)
-3. Em Olá Introdução página do Assistente de agendamento de Backup de saudação, clique em **próximo**.
-4. Na página de tooBackup do hello selecionar itens, clique em **adicionar itens**.
-5. Selecione Olá arquivos e pastas que você deseja tooback backup e, em seguida, clique em **Okey**.
+3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
+4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
+5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
 6. Clique em **Avançar**.
-7. Em Olá **especificar agendamento de Backup** especifique Olá **agendamento de backup** e clique em **próximo**.
+7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (com uma taxa máxima de três vezes por dia) ou backups semanais.
 
     ![Itens para o backup do Windows Server](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Para obter mais informações sobre como toospecify Olá agendamento de backup, consulte o artigo Olá [tooreplace uso do Azure Backup sua infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
+   > Para saber mais sobre como especificar o agendamento de backup, confira o artigo [Usar o Backup do Azure para substituir a sua infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
    >
    >
 
-8. Em Olá **Selecionar política de retenção** página, selecione Olá **política de retenção** para cópia de backup de saudação.
+8. Na página **Selecionar Política de Retenção**, escolha a **Política de Retenção** para a cópia de backup.
 
-    política de retenção de saudação especifica a duração de saudação para o qual Olá backup será armazenado. Em vez de especificar apenas uma "política simples" para todos os pontos de backup, você pode especificar diferentes políticas de retenção com base em quando Olá backup ocorrer. Você pode modificar toomeet de políticas de retenção diária, semanal, mensal e anual Olá suas necessidades.
-9. Na página de escolher tipo de Backup inicial de saudação, escolha o tipo de backup inicial hello. Deixe a opção Olá **automaticamente pela rede Olá** selecionado e, em seguida, clique em **próximo**.
+    A política de retenção especifica a duração de armazenamento do backup. Em vez de especificar apenas uma “política simples” para todos os pontos de backup, você pode especificar políticas de retenção diferentes com base em quando o backup ocorre. Você pode modificar as políticas de retenção diária, semanal, mensal e anual para atender às suas necessidades.
+9. Na tela Escolher Tipo de Backup Inicial, escolha o tipo de backup inicial. Deixe a opção **Automaticamente pela rede** selecionada e clique em **Avançar**.
 
-    Você pode fazer backup automaticamente pela rede hello, ou você pode fazer backup offline. restante Olá deste artigo descreve o processo de saudação para fazer backup automaticamente. Se você preferir toodo um backup offline, leia o artigo de saudação [Offline fluxo de trabalho de backup no Backup do Azure](backup-azure-backup-import-export.md) para obter informações adicionais.
-10. Na página de confirmação hello, revise as informações de saudação e, em seguida, clique em **concluir**.
-11. Após criar o agendamento de backup Olá de conclusão do Assistente de saudação, clique em **fechar**.
+    Você pode fazer backup automaticamente pela rede ou pode fazer backup offline. O restante deste artigo descreve o processo para realização de backup automático. Se preferir fazer um backup offline, examine o artigo [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md) para obter informações adicionais.
+10. Na página Confirmação, examine as informações e clique em **Concluir**.
+11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
 ### <a name="enable-network-throttling-optional"></a>Habilitar a limitação da rede (opcional)
-Agente de Backup Olá fornece a limitação de rede. A limitação controles como a largura de banda de rede é usada durante a transferência de dados. Este controle pode ser útil se você precisar tooback os dados durante o horário de trabalho, mas não quiser Olá toointerfere de processo de backup com outro tráfego de Internet. Limitação se aplica a tooback backup e atividades de restauração.
+O Agente de backup fornece limitação de rede. A limitação controles como a largura de banda de rede é usada durante a transferência de dados. Esse controle poderá ser útil se você precisar fazer backup de dados durante o horário de expediente, mas não quiser que o processo de backup interfira em outro tráfego de Internet. A limitação aplica-se a atividades de backup e restauração.
 
-**a limitação de rede tooenable**
+**Para habilitar a limitação de rede**
 
-1. No agente de Backup hello, clique em **alterar propriedades**.
+1. No agente de Backup, clique em **Alterar Propriedades**.
 
     ![Alterar Propriedades](./media/backup-configure-vault-classic/change-properties.png)
-2. Em Olá **limitação** guia, selecione Olá **habilitar limitação para operações de backup do uso de largura de banda de internet** caixa de seleção.
+2. Na guia **Limitação**, marque a caixa de seleção **Habilitar limitação de uso de largura de banda da Internet para operações de backup**.
 
     ![Limitação de rede](./media/backup-configure-vault-classic/throttling-dialog.png)
-3. Depois de habilitar a limitação, especifique Olá permitido largura de banda para transferir dados de backup durante **horas de trabalho** e **horas não úteis**.
+3. Depois de habilitar a limitação, especifique a largura de banda permitida para transferência de dados de backup durante as **Horas úteis** e as **Horas não úteis**.
 
-    os valores de largura de banda Olá começam em 512 Kbps por segundo (Kbps) e podem subir too1, 023 megabytes por segundo (MBps). Você também pode designar início hello e Concluir para **horas de trabalho**, e quais dias da semana Olá são consideradas trabalho dias. Horas fora das horas úteis designadas são consideradas horas não úteis.
+    Os valores de largura de banda começam em 512 quilobits por segundo (Kbps) e podem ir até 1.023 megabytes por segundo (Mbps). Você também pode indicar o início e o término para **Horas úteis**e quais dias da semana são considerados dias úteis. Horas fora das horas úteis designadas são consideradas horas não úteis.
 4. Clique em **OK**.
 
-### <a name="tooback-up-now"></a>tooback backup agora
-1. No agente de Backup hello, clique em **backup agora** toocomplete saudação inicial de propagação pela rede hello.
+### <a name="to-back-up-now"></a>Fazer backup agora
+1. No Agente de backup, clique em **Fazer Backup Agora** para concluir a propagação inicial pela rede.
 
     ![Fazer backup do Windows Server agora](./media/backup-configure-vault-classic/backup-now.png)
-2. Na página de confirmação hello, configurações de saudação de revisão que Olá Assistente fazer backup agora usará tooback máquina hello. Em seguida, clique em **Fazer Backup**.
-3. Clique em **fechar** tooclose Assistente de saudação. Se você fizer isso, antes de concluir o processo de backup Olá, o assistente Olá continua toorun no plano de fundo de saudação.
+2. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, clique em **Fazer Backup**.
+3. Clique em **Fechar** para fechar o assistente. Se você fizer isso antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 
-Após o backup inicial hello, Olá **trabalho concluído** status aparece no console de Backup hello.
+Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
 ![IR completo](./media/backup-configure-vault-classic/ircomplete.png)
 
@@ -168,5 +168,5 @@ Após o backup inicial hello, Olá **trabalho concluído** status aparece no con
 Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, confira:
 
 * [Fazer backup de VMs IaaS](backup-azure-vms-prepare.md)
-* [Fazer backup de cargas de trabalho tooAzure com o Microsoft Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-* [Fazer backup de cargas de trabalho tooAzure com o DPM](backup-azure-dpm-introduction.md)
+* [Backup de cargas de trabalho no Azure com o Servidor de Backup do Microsoft Azure](backup-azure-microsoft-azure-backup.md)
+* [Fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md)

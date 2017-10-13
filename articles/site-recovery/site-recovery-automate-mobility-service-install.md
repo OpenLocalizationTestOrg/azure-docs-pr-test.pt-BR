@@ -1,6 +1,6 @@
 ---
-title: "Olá aaaDeploy serviço de mobilidade de recuperação de Site com DSC de automação do Azure | Microsoft Docs"
-description: "Descreve como toouse DSC de automação do Azure tooautomatically implantar o serviço de mobilidade do Azure Site Recovery hello e agente do Azure para VM do VMware e tooAzure de replicação de servidor físico"
+title: "Implantar o serviço de Mobilidade do Site Recovery com o DSC de Automação do Azure | Microsoft Docs"
+description: "Descreve como usar o DSC de Automação do Azure para implantar automaticamente o Serviço de Mobilidade do Azure Site Recovery e o agente do Azure para VM do VMware e replicação do servidor físico no Azure"
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
-ms.openlocfilehash: 52cdd13ceb61718a21137180c55db86919af5929
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="deploy-hello-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de mobilidade Olá com DSC de automação do Azure para a replicação de VM
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de Mobilidade com o DSC de Automação do Azure para replicação da VM
 No Operations Management Suite, oferecemos uma solução abrangente de backup e recuperação de desastre que pode ser usada como parte de seu plano de continuidade de negócios.
 
-Começamos esta jornada com o Hyper-V, usando a Réplica do Hyper-V. Mas, temos toosupport expandida de uma instalação heterogênea porque os clientes têm vários hipervisores e plataformas em suas nuvens.
+Começamos esta jornada com o Hyper-V, usando a Réplica do Hyper-V. Mas expandimos para dar suporte a uma configuração heterogênea porque os clientes têm vários hipervisores e plataformas em suas nuvens.
 
-Se você estiver executando cargas de trabalho do VMware e/ou servidores físicos hoje, um servidor de gerenciamento executa todos os Olá componentes do Azure Site Recovery em seu ambiente toohandle Olá comunicação e replicação de dados com o Azure, quando o Azure é o destino.
+Se você estiver executando servidores físicos e/ou cargas de trabalho da VMware, um servidor de gerenciamento executará todos os componentes do Azure Site Recovery no seu ambiente para lidar com a replicação dos dados e a comunicação com o Azure quando ele for seu destino.
 
-## <a name="deploy-hello-site-recovery-mobility-service-by-using-automation-dsc"></a>Implantar o serviço de mobilidade de recuperação de Site hello usando DSC de automação
+## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>Implantar o Serviço de Mobilidade do Site Recovery usando o DSC de Automação
 Vamos começar fazendo uma análise rápida do que este servidor de gerenciamento faz.
 
-servidor de gerenciamento Olá executa várias funções de servidor. Uma dessas funções é a de *configuração*, que coordena a comunicação e gerencia os processos de replicação e recuperação de dados.
+o servidor de gerenciamento executa várias funções de servidor. Uma dessas funções é a de *configuração*, que coordena a comunicação e gerencia os processos de replicação e recuperação de dados.
 
-Além disso, Olá *processo* função atua como um gateway de replicação. Essa função recebe dados de replicação das máquinas de origem protegido, otimizá-lo com o cache, a compactação e criptografia e, em seguida, envia tooan conta de armazenamento do Azure. Uma das funções de saudação para a função do processo de saudação também é toopush instalação de máquinas de tooprotected de serviço de mobilidade hello e executar a descoberta automática de máquinas virtuais do VMware.
+Além disso, a função de *processo* atua como um gateway de replicação. Essa função recebe dados de replicação de computadores de origem protegida, otimiza-os com caching, compactação e criptografia e os envia para uma conta de armazenamento do Azure. Uma das funções da função do processo também é a instalação do Serviço de Mobilidade por push nas máquinas protegidas e a execução da descoberta automática das VMs da VMware.
 
-Se houver um failback do Azure, Olá *destino mestre* função manipulará os dados de replicação de saudação como parte dessa operação.
+No caso de um failback do Azure, a função de *destino mestre* lidará com os dados de replicação como parte dessa operação.
 
-Para máquinas de saudação protegida, contamos com hello *serviço de mobilidade*. Esse componente é implantado tooevery máquina (VM VMware ou servidor físico) que você deseja tooreplicate tooAzure. Ele captura gravações de dados na máquina de saudação e encaminha-servidor de gerenciamento toohello (função de processo).
+Para os computadores protegidos, podemos contar com a *Serviço de Mobilidade*. Esse componente é implantado em cada computador (servidor físico ou VM da VMware) que você quiser replicar para o Azure. Ele captura dados gravados no computador e os encaminha para o servidor de gerenciamento (função de processo).
 
-Quando você está lidando com continuidade dos negócios, é importante toounderstand suas cargas de trabalho, sua infraestrutura e Olá componentes envolvidos. Em seguida, você pode atender aos requisitos de saudação para seu objetivo de tempo de recuperação (RTO) e o objetivo de ponto de recuperação (RPO). Nesse contexto, Olá serviço de mobilidade está tooensuring chave suas cargas de trabalho protegidos conforme o esperado.
+Quando se trata de continuidade de negócios, é importante compreender suas cargas de trabalho, sua infraestrutura e os componentes envolvidos. Assim, é possível atender os requisitos de RTO (objetivo do tempo de recuperação) e RPO (objetivo de ponto de recuperação). Nesse contexto, o Serviço de Mobilidade é fundamental para garantir que suas cargas de trabalho sejam protegidas da forma esperada.
 
 Sendo assim, como você pode assegurar, de forma otimizada, que tem uma configuração protegida confiável com a ajuda de alguns componentes do Operations Management Suite?
 
-Este artigo fornece um exemplo de como você pode usar o Azure Automation desejado configuração de estado (DSC), junto com a recuperação de Site, tooensure que:
+Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de Estado Desejado) da Automação do Azure em conjunto com o Site Recovery para garantir que:
 
-* serviço de mobilidade Hello e agente de VM do Azure são implantados toohello máquinas do Windows que você deseja tooprotect.
-* serviço de mobilidade Hello e agente de VM do Azure sempre em execução quando o Azure é o destino de replicação hello.
+* o Serviço de Mobilidade e o agente de VM do Azure sejam implantados nos computadores com Windows que você deseja proteger.
+* o Serviço de Mobilidade e o agente de VM do Azure sempre estejam em execução quando o Azure for o destino de replicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma configuração do repositório toostore Olá necessária
-* Uma frase secreta tooregister do repositório toostore Olá necessário com o servidor de gerenciamento Olá
+* Um repositório para armazenar a configuração necessária
+* Um repositório para armazenar a senha necessária para se registrar no servidor de gerenciamento
 
   > [!NOTE]
-  > Uma senha exclusiva é gerada para cada servidor de gerenciamento. Se você for toodeploy vários servidores de gerenciamento, você tem tooensure que Olá correto de senha é armazenada no arquivo de passphrase.txt de saudação.
+  > Uma senha exclusiva é gerada para cada servidor de gerenciamento. Se for implantar vários servidores de gerenciamento, você precisará garantir que a senha correta seja armazenada no arquivo passphrase.txt.
   >
   >
-* WMF Windows Management Framework () 5.0 instalado nos computadores de saudação que você deseja tooenable para proteção (um requisito para DSC de automação)
+* O WMF (Windows Management Framework) 5.0 instalado nos computadores que você deseja habilitar para proteção (requisito para o DSC de Automação)
 
   > [!NOTE]
-  > Se você quiser toouse máquinas de DSC do Windows que tem o WMF 4.0 instalado, consulte a seção de saudação [DSC de uso em ambientes desconectados](## Use DSC in disconnected environments).
+  > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](## Use DSC in disconnected environments).
   
 
-serviço de mobilidade Olá pode ser instalado por meio da linha de comando hello e aceita vários argumentos. É por isso que você precisa de binários de saudação toohave (depois de extrai-los da sua configuração) e armazená-los em um local onde você pode recuperá-los usando uma configuração DSC.
+O Serviço de Mobilidade pode ser instalado por meio da linha de comando e aceita vários argumentos. É por isso que você precisa ter os binários (após extraí-los de sua configuração) e armazená-los em algum lugar em que possa recuperá-los usando uma configuração de DSC.
 
 ## <a name="step-1-extract-binaries"></a>Etapa 1: Extrair os binários
-1. arquivos de saudação tooextract que você precisa para esta instalação, navegue toohello directory a seguir no servidor de gerenciamento:
+1. Para extrair os arquivos necessários para esta instalação, navegue até o seguinte diretório no servidor de gerenciamento:
 
     **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
@@ -72,28 +72,28 @@ serviço de mobilidade Olá pode ser instalado por meio da linha de comando hell
 
     **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
 
-    Use Olá instalador de saudação do tooextract de comando a seguir:
+    Use o seguinte comando para extrair o instalador:
 
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
-2. Selecione todos os arquivos e enviá-los a pasta compactada (zipada) da tooa.
+2. Selecione todos os arquivos e envie-os para uma pasta compactada (zipada).
 
-Agora você tem binários Olá que você precisa a instalação do serviço de mobilidade de saudação Olá tooautomate usando DSC de automação.
+Agora, você tem os binários necessários para automatizar a instalação do Serviço de Mobilidade usando o DSC de Automação.
 
 ### <a name="passphrase"></a>Senha
-Em seguida, você precisa toodetermine onde você deseja tooplace essa pasta compactada. Você pode usar uma conta de armazenamento do Azure, como mostrado posteriormente, toostore Olá frase secreta que você precisa para a instalação de saudação. agente Olá, em seguida, será registrado no servidor de gerenciamento hello como parte do processo de saudação.
+Em seguida, você precisa determinar onde deseja colocar essa pasta compactada. Você pode usar uma conta de armazenamento do Azure, como mostrado posteriormente, para armazenar a senha de que precisa para a instalação. O agente será registrado no servidor de gerenciamento como parte do processo.
 
-Olá frase secreta que você obteve quando você implantou o servidor de gerenciamento Olá pode ser salvo o arquivo de texto tooa como passphrase.txt.
+A senha que você recebeu quando implantou o servidor de gerenciamento pode ser salva em um arquivo de texto, como passphrase.txt.
 
-Coloca pasta compactada hello e a frase secreta de saudação em um contêiner dedicado em Olá conta de armazenamento do Azure.
+Coloque a pasta compactada e a senha em um contêiner dedicado na conta de armazenamento do Azure.
 
 ![Localização da pasta](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
-Se você preferir tookeep esses arquivos em um compartilhamento na rede, você pode fazer isso. Basta tooensure que recursos Olá DSC que você usará mais tarde tem acesso e podem obter a senha e a instalação de saudação.
+Se preferir manter esses arquivos em um compartilhamento na rede, você poderá fazer isso. Você só precisa garantir que o recurso de DSC que será usado posteriormente realmente tenha acesso e possa obter a instalação e a senha.
 
-## <a name="step-2-create-hello-dsc-configuration"></a>Etapa 2: Criar configuração Olá DSC
-instalação de saudação depende do WMF 5.0. Para Olá máquina toosuccessfully aplicar configuração Olá por meio da DSC de automação, WMF 5.0 precisa toobe presente.
+## <a name="step-2-create-the-dsc-configuration"></a>Etapa 2: Criar a configuração de DSC
+A instalação depende do WMF 5.0. Para o computador aplicar com êxito a configuração por meio do DSC de Automação, o WMF 5.0 deve estar presente.
 
-ambiente de saudação usa Olá exemplo de configuração de DSC a seguir:
+O ambiente usa o seguinte exemplo de configuração de DSC:
 
 ```powershell
 configuration ASRMobilityService {
@@ -190,42 +190,42 @@ configuration ASRMobilityService {
     }
 }
 ```
-configuração de saudação fará a seguir hello:
+A configuração fará o seguinte:
 
-* variáveis de saudação informará configuração Olá onde tooget Olá binários para o serviço de mobilidade hello e agente de VM do Azure hello, onde tooget Olá frase secreta, e toostore Olá de saída.
-* Olá configuração vai importar recurso de xPSDesiredStateConfiguration DSC Olá, para que você possa usar `xRemoteFile` arquivos de saudação toodownload do repositório de saudação.
-* configuração de saudação criará um diretório onde você deseja que os binários de saudação toostore.
-* recursos de arquivo Hello extrairá os arquivos de saudação da pasta compactada hello.
-* recurso de instalação do pacote de saudação instalará o serviço de mobilidade de saudação do hello UNIFIEDAGENT. Instalador do EXE com argumentos de saudação específico. (variáveis Olá construir argumentos Olá necessário tooreflect toobe alterado seu ambiente.)
-* pacote de saudação AzureAgent recurso instalará hello Azure VM agent, que é recomendado em cada VM que é executado no Azure. Agente de VM do Azure Olá também torna possível tooadd extensões toohello VM após o failover.
-* Olá recurso de serviço ou recursos garantirá que Olá relacionados a serviços de mobilidade e hello serviços do Azure sempre estão em execução.
+* As variáveis informarão a configuração sobre onde obter os binários para o Serviço de Mobilidade e o agente de VM do Azure, onde obter a senha e onde armazenar a saída.
+* A configuração importará o recurso de DSC xPSDesiredStateConfiguration para que você possa usar `xRemoteFile` para baixar os arquivos do repositório.
+* A configuração criará um diretório no qual você deseja armazenar os binários.
+* O recurso de arquivamento extrairá os arquivos da pasta compactada.
+* O pacote de instalação do recurso instalará o Serviço de Mobilidade do instalador UNIFIEDAGENT.EXE com os argumentos específicos. (As variáveis que criam os argumentos precisam ser alteradas para refletir seu ambiente).
+* O recurso de pacote AzureAgent instalará o agente de VM do Azure, que é recomendado em cada VM executada no Azure. O agente de VM do Azure também torna possível adicionar extensões à VM após o failover.
+* Os recursos de serviço garantirão que os serviços de Mobilidade relacionados e os serviços do Azure estejam sempre em execução.
 
-Salvar configuração hello como **ASRMobilityService**.
+Salve a configuração como **ASRMobilityService**.
 
 > [!NOTE]
-> Lembre-se tooreplace Olá CSIP no servidor de gerenciamento real de configuração tooreflect hello, para que hello agente será conectado corretamente e usará a senha correta da saudação.
+> Lembre-se de substituir o CSIP em sua configuração para refletir o servidor de gerenciamento real, para que o agente seja conectado corretamente e use a senha correta.
 >
 >
 
-## <a name="step-3-upload-tooautomation-dsc"></a>Etapa 3: Carregar tooAutomation DSC
-Como configuração Olá DSC feitas importará um módulo de recurso de DSC necessário (xPSDesiredStateConfiguration), é necessário tooimport que o módulo de automação antes de carregar a configuração de saudação DSC.
+## <a name="step-3-upload-to-automation-dsc"></a>Etapa 3: Carregar o DSC de Automação
+Como a configuração DSC que você fez importará um módulo de recursos DSC necessário (xPSDesiredStateConfiguration), você precisa importar esse módulo na Automação antes de carregar a configuração DSC.
 
-Entrar tooyour conta de automação, procurar muito**ativos** > **módulos**e clique em **procurar galeria**.
+Entre na sua conta de Automação, navegue até **Ativos** >  > **Módulos** e clique em **Procurar na Galeria**.
 
-Aqui você pode pesquisar Olá módulo e importá-lo tooyour conta.
+Aqui, você pode procurar o módulo e importá-lo para sua conta.
 
 ![Importar módulo](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
-Quando você terminar, vá tooyour máquina onde você tenha instalados os módulos do Azure Resource Manager hello e continuar a configuração de DSC tooimport Olá recém-criado.
+Feito isso, vá até o computador no qual os módulos do Azure Resource Manager estão instalados e prossiga para importar a configuração de DSC recém-criada.
 
 ### <a name="import-cmdlets"></a>Importar cmdlets
-No PowerShell, entrar tooyour assinatura do Azure. Modificar Olá cmdlets tooreflect seu ambiente e capturar informações de sua conta de automação em uma variável:
+No PowerShell, entre em sua assinatura do Azure. Modifique os cmdlets para refletir seu ambiente e capturar suas informações da conta de Automação em uma variável:
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-Carregar Olá configuração tooAutomation DSC usando Olá cmdlet a seguir:
+Carregue a configuração no DSC de Automação usando o seguinte cmdlet:
 
 ```powershell
 $ImportArgs = @{
@@ -236,44 +236,44 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### <a name="compile-hello-configuration-in-automation-dsc"></a>Compilar a configuração de saudação no DSC de automação
-Em seguida, você precisa toocompile configuração de saudação no DSC de automação, para que você possa iniciar tooregister nós tooit. Para fazer isso executando Olá cmdlet a seguir:
+### <a name="compile-the-configuration-in-automation-dsc"></a>Compilar a configuração no DSC de Automação
+Em seguida, é necessário compilar a configuração no DSC de Automação para poder começar a registrar os nós. Podemos fazer isso executando o seguinte cmdlet:
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-Isso pode levar alguns minutos, porque você basicamente estiver implantando o serviço de pull de DSC do hello configuração toohello hospedado.
+Isso pode levar alguns minutos, pois você está basicamente implantando a configuração no serviço hospedado de pull do DSC.
 
-Depois de compilar a configuração de saudação, você pode recuperar informações de trabalho de hello usando o PowerShell (Get-AzureRmAutomationDscCompilationJob) ou usando Olá [portal do Azure](https://portal.azure.com/).
+Após compilar a configuração, você pode recuperar as informações do trabalho usando o PowerShell (Get-AzureRmAutomationDscCompilationJob) ou usando o [Portal do Azure](https://portal.azure.com/).
 
 ![Recuperar trabalho](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-Você agora com êxito publicado e carregar sua configuração de DSC tooAutomation DSC.
+Agora, você publicou e carregou com êxito sua configuração de DSC no DSC de Automação.
 
-## <a name="step-4-onboard-machines-tooautomation-dsc"></a>Etapa 4: Carregar máquinas tooAutomation DSC
+## <a name="step-4-onboard-machines-to-automation-dsc"></a>Etapa 4: Integrar os computadores no DSC de Automação
 > [!NOTE]
-> Um dos pré-requisitos Olá para concluir este cenário é que as máquinas do Windows são atualizadas com a versão mais recente de saudação do WMF. Você pode baixar e instalar a versão correta do hello para sua plataforma de saudação [Centro de Download](https://www.microsoft.com/download/details.aspx?id=50395).
+> Um dos pré-requisitos para concluir esse cenário é que seus computadores com Windows estejam atualizados com a última versão do WMF. Você pode baixar e instalar a versão correta para sua plataforma no [Centro de Download](https://www.microsoft.com/download/details.aspx?id=50395).
 >
 >
 
-Agora, você criará um metaconfig para que você aplicará tooyour nós de DSC. toosucceed com isso, você precisa tooretrieve Olá ponto de extremidade URL e hello chave primária para sua conta de automação selecionada no Azure. Você pode encontrar esses valores em **chaves** em Olá **todas as configurações** folha para Olá conta de automação.
+Agora, você criará uma metaconfiguração para o DSC que será aplicado em seus nós. Para ter êxito com isso, você precisa recuperar a URL do ponto de extremidade e a chave primária de sua conta de Automação selecionada no Azure. Esses valores podem ser localizados em **Chaves** na folha **Todas as configurações** da conta de Automação.
 
 ![Valores da chave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-Neste exemplo, você tem um servidor físico do Windows Server 2012 R2 que você deseja tooprotect usando a recuperação de Site.
+Nesse exemplo, você tem um servidor físico do Windows Server 2012 R2 que quer proteger usando o Site Recovery.
 
-### <a name="check-for-any-pending-file-rename-operations-in-hello-registry"></a>Verificar as operações de renomeação de arquivo no registro Olá pendentes
-Antes de você iniciar o servidor de saudação do tooassociate com o ponto de extremidade do hello DSC de automação, recomendamos que você verifique as operações de renomeação de arquivo no registro Olá pendentes. Eles podem Proibir instalação Olá Concluindo devido tooa uma reinicialização pendente.
+### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>Verificar quaisquer operações de renomeação de arquivo pendentes no registro
+Antes de começar a associar o servidor ao ponto de extremidade do DSC de Automação, é recomendável verificar quaisquer operações de renomeação pendentes no Registro. Elas podem impedir que a instalação seja concluída devido a uma reinicialização pendente.
 
-Execute Olá tooverify cmdlet que não há nenhuma reinicialização pendente no servidor de saudação a seguir:
+Execute o seguinte cmdlet para verificar se não há nenhuma reinicialização pendente no servidor:
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-Se isso mostra vazio, você será tooproceed Okey. Caso contrário, você deve resolver isso, a reinicialização do servidor de saudação durante uma janela de manutenção.
+Se isso não mostrar nada, será OK continuar. Caso contrário, deverá lidar com isso reinicializando o servidor durante uma janela de manutenção.
 
-configuração de saudação tooapply no servidor de saudação, inicie Olá ambiente de script integrado do PowerShell (ISE) e execute Olá script a seguir. Isso é essencialmente uma configuração local do DSC que instruem Olá tooregister de mecanismo de Gerenciador de configurações Local com hello service de DSC de automação e recuperar a configuração específica da saudação (ASRMobilityService.localhost).
+Para aplicar a configuração no servidor, inicie o ISE (Ambiente de Script Integrado) do PowerShell e execute o script a seguir. Isso é basicamente uma configuração local do DSC que instruirá o mecanismo do Gerenciador de Configurações Local a se registrar no serviço de DSC de Automação e recuperar a configuração específica (ASRMobilityService.localhost).
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -314,63 +314,63 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-Essa configuração causará Olá Gerenciador de configurações Local tooregister mecanismo próprio com DSC de automação. Ele também determina como o mecanismo de saudação deve operar, que ele deve fazer se houver uma dessincronização da configuração (ApplyAndAutoCorrect) e como ele deve prosseguir com a configuração de saudação se uma reinicialização é necessária.
+Essa configuração fará com que o mecanismo do Gerenciador de Configurações Local se registre no DSC de Automação. Ela também determinará como o mecanismo deve operar, o que ele deverá fazer se houver falta de sincronia na configuração (ApplyAndAutoCorrect) e como deverá prosseguir com a configuração se uma reinicialização for necessária.
 
-Depois de executar esse script, o nó Olá deve começar tooregister com DSC de automação.
+Após você executar o script, o nó deve começar a se registrar no DSC de Automação.
 
 ![Registro de nó em andamento](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-Se você voltar toohello portal do Azure, você pode ver o nó recém-registrados Olá agora aparece no portal de saudação.
+Se voltar para o portal do Azure, você poderá ver que o nó recém-registrado agora apareceu no portal.
 
-![Nó registrado no portal de saudação](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
+![Nó registrado no portal](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-No servidor de saudação, você pode executar Olá PowerShell cmdlet tooverify que Olá nó foi registrado corretamente a seguir:
+No servidor, é possível executar o seguinte cmdlet do PowerShell para verificar se o nó foi registrado corretamente:
 
 ```powershell
 Get-DscLocalConfigurationManager
 ```
 
-Após a configuração Olá foi desconectado e aplicadas toohello server, você pode verificar isso executando Olá cmdlet a seguir:
+Depois da configuração ter sido extraída e aplicada no servidor, você pode verificar isso executando o seguinte cmdlet:
 
 ```powershell
 Get-DscConfigurationStatus
 ```
 
-saída de Hello mostra que servidor Olá foi extraída com êxito sua configuração:
+A saída mostra que o servidor extraiu com êxito sua configuração:
 
 ![Saída](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
-Além disso, a instalação de serviço de mobilidade Olá tem seu próprio log que pode ser encontrado em *SystemDrive*\ProgramData\ASRSetupLogs.
+Além disso, a instalação do Serviço de Mobilidade tem seu próprio log, que pode ser encontrado em *SystemDrive*\ProgramData\ASRSetupLogs.
 
-É isso. Você agora com êxito implantados e registrados de serviço de mobilidade Olá na máquina de saudação que você deseja tooprotect usando a recuperação de Site. DSC garantirá que serviços Olá necessárias sempre estão em execução.
+É isso. Você implantou e registrou com êxito o Serviço de Mobilidade no computador que deseja proteger usando o Site Recovery. O DSC garantirá que os serviços necessários estejam sempre em execução.
 
 ![Implantação bem-sucedida](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-Depois que o servidor de gerenciamento de saudação detecta uma implantação bem-sucedida Olá, você pode configurar a proteção e habilitar a replicação na máquina hello usando recuperação de Site.
+Após o servidor de gerenciamento detectar a implantação bem-sucedida, você poderá configurar a proteção e habilitar a replicação no computador usando o Site Recovery.
 
 ## <a name="use-dsc-in-disconnected-environments"></a>Usar o DSC em ambientes desconectados
-Se seus computadores não toohello conectado à Internet, ainda dependem toodeploy DSC e configurar o serviço de mobilidade Olá em cargas de trabalho de saudação que você deseja tooprotect.
+Se seus computadores não estiverem conectados à Internet, você ainda poderá contar com o DSC para implantar e configurar o Serviço de Mobilidade nas cargas de trabalho que gostaria de proteger.
 
-Você pode instanciar seu próprio servidor de pull de DSC em seu ambiente tooessentially fornecer Olá mesmos recursos que você obteve de DSC de automação. Ou seja, clientes Olá extrairá configuração hello (depois de registrado) toohello DSC de ponto de extremidade. No entanto, outra opção é máquinas toomanually push Olá DSC configuração tooyour, localmente ou remotamente.
+Você pode instanciar seu próprio servidor de recepção do DSC em seu ambiente para, essencialmente, fornecer os mesmos recursos que obtém com o DSC de Automação. Ou seja, os clientes efetuarão pull da configuração (após o registro) para o ponto de extremidade do DSC. No entanto, outra opção é enviar por push manualmente a configuração de DSC por push a seus computadores, local ou remotamente.
 
-Observe que neste exemplo, há um parâmetro adicional para o nome do computador hello. arquivos remotos Olá agora estão localizados em um compartilhamento remoto deve ser acessível por máquinas de saudação que você deseja tooprotect. fim de saudação do script hello aplica configuração hello e, em seguida, inicia o computador de destino tooapply Olá DSC configuração toohello.
+Observe que, neste exemplo, há um parâmetro adicional para o nome do computador. Agora, os arquivos remotos estão localizados em um compartilhamento remoto deve ser acessível pelos computadores que você deseja proteger. O final do script coloca a configuração em prática e começa a aplicar a configuração de DSC ao computador de destino.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que Olá xPSDesiredStateConfiguration PowerShell o módulo está instalado. Para máquinas do Windows onde o WMF 5.0 está instalado, você pode instalar o módulo xPSDesiredStateConfiguration de saudação executando Olá cmdlet a seguir em computadores de destino hello:
+Certifique-se de que o módulo xPSDesiredStateConfiguration do PowerShell esteja instalado. Para computadores com Windows em que o WMF 5.0 está instalado, você pode instalar o módulo xPSDesiredStateConfiguration executando o seguinte cmdlet nos computadores de destino:
 
 ```powershell
 Find-Module -Name xPSDesiredStateConfiguration | Install-Module
 ```
 
-Você também pode baixar e salvar o módulo Olá caso você precise toodistribute-tooWindows máquinas que tem o WMF 4.0. Execute este cmdlet em um computador em que o PowerShellGet (WMF 5.0) está presente:
+Você também pode baixar e salvar o módulo caso precise distribuí-lo para máquinas do Windows que têm o WMF 4.0. Execute este cmdlet em um computador em que o PowerShellGet (WMF 5.0) está presente:
 
 ```powershell
 Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 ```
 
-Para o WMF 4.0, assegure-se também que Olá [Windows 8.1 update KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) esteja instalado nos computadores de saudação.
+Também para o WMF 4.0, verifique se a [atualização do Windows 8.1 KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) está instalado nos computadores.
 
-Olá configuração a seguir pode ser enviada tooWindows máquinas que têm o WMF 5.0 e WMF 4.0:
+A configuração a seguir pode ser enviada por push para computadores com Windows com o WMF 5.0 e 4.0:
 
 ```powershell
 configuration ASRMobilityService {
@@ -471,28 +471,28 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-Se você quiser tooinstantiate seu próprio servidor de pull de DSC em seus recursos Olá toomimic de rede corporativa que você pode obter de DSC de automação, consulte [Configurando um servidor de pull da web de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
+Se você quiser criar uma instância de seu próprio servidor de recepção do DSC na rede corporativa para imitar os recursos que você pode obter do DSC de Automação, consulte [Configurando um servidor de pull da Web de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
 ## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>Opcional: implantar uma configuração de DSC usando um modelo do Azure Resource Manager
-Este artigo concentra-se em como você pode criar seu próprios tooautomatically de configuração DSC implantar o serviço de mobilidade hello e hello Azure VM Agent – e certifique-se de que eles sejam executados em máquinas de saudação que você deseja tooprotect. Também temos um modelo de Gerenciador de recursos do Azure que irá implantar essa DSC configuração tooa nova ou existente do Azure conta de automação. modelo de saudação usará ativos de automação de toocreate de parâmetros de entrada que contém variáveis Olá para o seu ambiente.
+Neste artigo, o foco é como você pode criar sua própria configuração de DSC para implantar automaticamente o Serviço de Mobilidade e o Agente de VM do Azure – e assegurar que eles estejam em execução nos computadores que você quer proteger. Também temos um modelo do Azure Resource Manager que implantará essa configuração de DSC em uma conta nova ou existente da Automação do Azure. O modelo usará parâmetros de entrada para criar ativos de Automação que conterão as variáveis para seu ambiente.
 
-Depois de implantar o modelo hello, você pode simplesmente consultar toostep 4 no tooonboard neste guia suas máquinas.
+Após implantar o modelo, você pode simplesmente consultar a etapa 4 deste guia para integrar suas máquinas.
 
-modelo de saudação fará a seguir hello:
+O modelo fará o seguinte:
 
 1. Usar uma conta existente ou criar uma nova conta de Automação
 2. Obter parâmetros de entrada para:
-   * ASRRemoteFile – local Olá onde você armazenou a instalação do serviço de mobilidade Olá
-   * ASRPassphrase – local Olá onde você armazenou o arquivo de passphrase.txt Olá
-   * ASRCSEndpoint - endereço IP de saudação do servidor de gerenciamento
-3. Importe o módulo do PowerShell xPSDesiredStateConfiguration Olá
-4. Criar e compilar a configuração de DSC Olá
+   * ASRRemoteFile – a localização na qual você armazenou a instalação do Serviço de Mobilidade
+   * ASRPassphrase – a localização na qual você armazenou o arquivo passphrase.txt
+   * ASRCSEndpoint – o endereço IP do seu servidor de gerenciamento
+3. Importar o módulo do PowerShell xPSDesiredStateConfiguration
+4. Criar e compilar a configuração de DSC
 
-Saudação de todas as etapas anteriores ocorrerá na ordem correta do hello, para que você pode iniciar a integração de suas máquinas para proteção.
+Todas as etapas anteriores serão executadas na ordem correta para que você possa começar a integrar suas máquinas para ter proteção.
 
-modelo de Hello, com instruções para implantação, está localizado em [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
+O modelo com instruções de implantação está localizado no [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
 
-Implante o modelo de saudação usando o PowerShell:
+Implantar o modelo usando o PowerShell:
 
 ```powershell
 $RGDeployArgs = @{
@@ -509,4 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de implantar os agentes de serviço de mobilidade hello, você pode [habilitar replicação](site-recovery-vmware-to-azure.md) para máquinas virtuais de saudação.
+Depois de implantar os agentes do Serviço de Mobilidade, você pode [habilitar a replicação](site-recovery-vmware-to-azure.md) para as máquinas virtuais.

@@ -1,6 +1,6 @@
 ---
-title: "Olá aaaUnderstanding do Azure Active Directory Application Manifest | Microsoft Docs"
-description: "Cobertura detalhada do manifesto de aplicativo do Active Directory do Azure hello, que representa a configuração de identidade de um aplicativo em um locatário do AD do Azure e é usado toofacilitate autorização de OAuth, experiência de consentimento e muito mais."
+title: "Noções básicas sobre o manifesto de aplicativo do Azure Active Directory | Microsoft Docs"
+description: "Cobertura detalhada do manifesto do aplicativo do Azure Active Directory, que representa a configuração de identidade de um aplicativo em um locatário do AD do Azure, e é usado para facilitar a autorização do OAuth, experiência de consentimento e muito mais."
 services: active-directory
 documentationcenter: 
 author: sureshja
@@ -16,87 +16,87 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 096c9d5501edbfc08731fea670cee559d4442ad1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="understanding-hello-azure-active-directory-application-manifest"></a>Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure Olá
-Aplicativos que se integram com o Azure AD (Active Directory) devem ser registrados com um locatário do AD do Azure, fornecendo uma configuração persistente de identidade para o aplicativo hello. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo toooutsource e agente de autenticação/autorização por meio do AD do Azure. Para obter mais informações sobre o modelo de aplicativo de saudação do AD do Azure, consulte Olá [adicionar, atualizar e remover um aplicativo] [ ADD-UPD-RMV-APP] artigo.
+# <a name="understanding-the-azure-active-directory-application-manifest"></a>Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
+Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo Azure AD, consulte o artigo [Adição, atualização e remoção de um aplicativo][ADD-UPD-RMV-APP].
 
 ## <a name="updating-an-applications-identity-configuration"></a>Atualizando a configuração de identidade de um aplicativo
-Na verdade, várias opções estão disponíveis para atualizar as propriedades de saudação na configuração de identidade do aplicativo, que variam em recursos e graus de dificuldade, incluindo Olá seguinte:
+Na verdade, várias opções estão disponíveis para atualizar propriedades de configuração de identidade do aplicativo, que variam em recursos e graus de dificuldade, incluindo o seguinte:
 
-* Olá  **[portal do Azure] [ AZURE-PORTAL] interface de usuário da Web** permite que você tooupdate Olá propriedades mais comuns de um aplicativo. Isso é hello mais rápido e menos maneira de propensas a erro de atualização de propriedades do aplicativo, mas não oferecem propriedades tooall de acesso completo, como Olá dois métodos.
-* Para cenários mais avançados em que é necessário tooupdate propriedades que não são expostas no hello portal clássico do Azure, você pode modificar Olá **o manifesto do aplicativo**. Este é o foco deste artigo hello e é discutido em mais detalhes, começando na próxima seção, Olá.
-* Também é possível muito**escrever um aplicativo que usa Olá [API do Graph] [ GRAPH-API]**  tooupdate seu aplicativo, o que exige Olá maior esforço. Isso pode ser uma opção atraente, se você estiver escrevendo o software de gerenciamento, ou precisar tooupdate propriedades do aplicativo regularmente de forma automática.
+* A **interface de usuário da Web do [Portal do Azure][AZURE-PORTAL]** permite que você atualize as propriedades mais comuns de um aplicativo. Essa é a maneira mais rápida e menos propensa a erro de atualizar as propriedades do aplicativo, mas não lhe dá acesso total a todas as propriedades como os dois métodos a seguir.
+* Para cenários mais avançados em que é necessário atualizar as propriedades que não são expostas no portal clássico do Azure, você pode modificar o **manifesto do aplicativo**. Esse é o foco deste artigo e será discutido mais detalhadamente, começando na próxima seção.
+* Também é possível **escrever um aplicativo que usa a [Graph API][GRAPH-API]** para atualizar seu aplicativo, o que requer maior esforço. Isso pode ser uma opção atraente se você estiver gravando o software de gerenciamento ou precisar atualizar as propriedades do aplicativo regularmente de forma automática.
 
-## <a name="using-hello-application-manifest-tooupdate-an-applications-identity-configuration"></a>Usando tooupdate de manifesto de aplicativo hello configuração de identidade do aplicativo
-Por meio de saudação [portal do Azure][AZURE-PORTAL], você pode gerenciar a configuração de identidade do aplicativo atualizando o manifesto do aplicativo hello usando o editor de manifesto do hello embutido. Você também pode baixar e carregar o manifesto do aplicativo hello como um arquivo JSON. Nenhum arquivo real é armazenado no diretório de saudação. manifesto do aplicativo Hello é simplesmente uma operação HTTP GET na entidade de aplicativo hello Azure AD Graph API e carregamento hello é uma operação HTTP PATCH na entidade de aplicativo hello.
+## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Usando o manifesto do aplicativo para atualizar a configuração de identidade do aplicativo
+Por meio do [Portal do Azure][AZURE-PORTAL], você pode gerenciar a configuração da identidade do seu aplicativo atualizando o manifesto do aplicativo usando o editor de manifesto embutido. Também é possível baixar e carregar o manifesto do aplicativo como um arquivo JSON. Nenhum arquivo real é armazenado no diretório. O manifesto do aplicativo é meramente uma operação HTTP GET na entidade Aplicativo do da API do Graph do Azure AD e o carregamento é uma operação HTTP PATCH na entidade Aplicativo.
 
-Como resultado, no formato de saudação toounderstand ordem e as propriedades do manifesto de aplicativo hello, você precisará Olá tooreference API do Graph [entidade aplicativos] [ APPLICATION-ENTITY] documentação. Exemplos de atualizações que podem ser executadas através do carregamento do manifesto do aplicativo incluem:
+Como resultado, para entender o formato e as propriedades do manifesto do aplicativo, você precisará consultar a documentação da [Entidade de aplicativo][APPLICATION-ENTITY] da API do Graph. Exemplos de atualizações que podem ser executadas através do carregamento do manifesto do aplicativo incluem:
 
-* **Declarar escopos de permissão (oauth2Permissions)** expostos pela sua API Web. Consulte o tópico "TooOther APIs da Web de exposição de aplicativos" Olá [integrando aplicativos com o Active Directory do Azure] [ INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de usuário usando Olá oauth2Permissions escopo de permissão delegado. Conforme mencionado anteriormente, as propriedades de entidade de aplicativo estão documentadas em Olá Graph API [entidade e o tipo complexo] [ APPLICATION-ENTITY] artigo de referência, incluindo Olá oauth2Permissions propriedade que é um coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-* **Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo**. Olá, propriedade de appRoles da entidade do aplicativo é uma coleção de tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consulte Olá [controle de acesso em aplicativos de nuvem usando o AD do Azure baseado em função] [ RBAC-CLOUD-APPS-AZUREAD] artigo para obter um exemplo de implementação.
-* **Declarar cliente conhecidos aplicativos (knownClientApplications)**, que permite o consentimento de saudação empate toologically de saudação especificado cliente aplicativos toohello recurso/API da web.
-* **Solicitação de declaração de associações de grupo do AD do Azure tooissue** para hello (groupMembershipClaims) do usuário conectado.  Isso também pode ser configurado tooissue declarações sobre associações de funções de diretório do usuário hello. Consulte Olá [autorização em aplicativos de nuvem usando grupos do AD] [ AAD-GROUPS-FOR-AUTHORIZATION] artigo para obter um exemplo de implementação.
-* **Permitir que a concessão implícita do OAuth 2.0 do aplicativo toosupport** fluxos (oauth2AllowImplicitFlow). Esse tipo de fluxo de concessão é usado com páginas da Web JavaScript ou SPA (Aplicativos de Única Página) inseridos. Para obter mais informações sobre concessão de autorização implícita hello, consulte [Olá Noções básicas sobre implícita do OAuth2 conceder fluxo no Azure Active Directory][IMPLICIT-GRANT].
-* **Habilitar o uso do X509 certificados como chave secreta Olá** (keyCredentials). Consulte Olá [compilar aplicativos de serviço e o daemon no Office 365] [ O365-SERVICE-DAEMON-APPS] e [tooauth de guia do desenvolvedor com a API do Gerenciador de recursos do Azure] [ DEV-GUIDE-TO-AUTH-WITH-ARM] artigos para obter exemplos de implementação.
-* **Adicionar um novo URI de ID do Aplicativo** para seu aplicativo (identifierURIs[]). URIs de ID de aplicativo são usados toouniquely identificar um aplicativo em seu locatário do AD do Azure (ou em vários locatários do AD do Azure, para cenários de multilocatários qualificado por meio do domínio personalizado verificado). Eles são usados ao solicitar o aplicativo de recurso de tooa de permissões, ou adquirir um token de acesso para um aplicativo de recurso. Quando você atualizar esse elemento, hello mesma atualização é feita servicePrincipalNames [] coleção toohello correspondente da entidade de serviço que reside no locatário inicial do aplicativo hello.
+* **Declarar escopos de permissão (oauth2Permissions)** expostos pela sua API Web. Veja o tópico "Expor APIs Web para outros aplicativos" em [Integração de aplicativos com o Azure Active Directory][INTEGRATING-APPLICATIONS-AAD] para saber mais sobre como implementar a representação de usuário usando o escopo de permissões delegadas do oauth2Permissions. Conforme mencionado anteriormente, todas as propriedades da entidade de aplicativo estão documentadas no artigo de referência [Entidade e Tipo Complexo][APPLICATION-ENTITY] da API do Graph, incluindo a propriedade oauth2Permissions, que é uma coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
+* **Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo**. A propriedade appRoles da entidade Application é uma coleção do tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Veja o artigo [Controle de acesso com base em função nos aplicativos em nuvem usando o Azure AD][RBAC-CLOUD-APPS-AZUREAD] para obter um exemplo de implementação.
+* **Declarar aplicativos cliente conhecidos (knownClientApplications)**, que permitem vincular de modo lógico o consentimento dos aplicativos cliente especificados à API de recurso/Web.
+* **Solicitar ao AD do Azure que emita uma declaração de associações de grupo** para o usuário conectado (groupMembershipClaims).  Isso também pode ser configurado para emitir declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
+* **Permitir que o aplicativo ofereça suporte aos fluxos de concessão implícitos do OAuth 2.0** (oauth2AllowImplicitFlow). Esse tipo de fluxo de concessão é usado com páginas da Web JavaScript ou SPA (Aplicativos de Única Página) inseridos. Para obter mais informações sobre a concessão de autorização implícita, consulte [Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory][IMPLICIT-GRANT].
+* **Habilitar o uso dos certificados X509 como chave secreta** (keyCredentials). Consulte os artigos [Compilar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] e [Guia do desenvolvedor para autenticação com a API do Azure Resource Manager][DEV-GUIDE-TO-AUTH-WITH-ARM] para ver exemplos de implementação.
+* **Adicionar um novo URI de ID do Aplicativo** para seu aplicativo (identifierURIs[]). URIs de ID do aplicativo são usados para identificar com exclusividade um aplicativo em seu locatário do Azure AD (ou em vários locatários do Azure AD, para cenários de multilocatário quando qualificados por meio do domínio personalizado verificado). São usados ao serem solicitadas permissões para um aplicativo de recurso ou ser adquirido um token de acesso para um aplicativo de recurso. Quando você atualiza esse elemento, a mesma atualização é feita na coleção de servicePrincipalNames[] da entidade de serviço correspondente, que reside no locatário inicial do aplicativo.
 
-Olá manifesto do aplicativo também fornece uma boa maneira tootrack Olá o estado de seu registro de aplicativo. Porque ele está disponível no formato JSON, a representação de arquivo hello pode ser inserida no seu controle de origem, juntamente com o código-fonte do seu aplicativo.
+O manifesto do aplicativo também fornece uma boa maneira de controlar o estado de seu registro de aplicativo. Porque ele está disponível no formato JSON, a representação de arquivo pode ser inserida no seu controle de origem, junto com o código-fonte do aplicativo.
 
 ## <a name="step-by-step-example"></a>Exemplo passo a passo
-Agora permite percorrer Olá etapas necessárias tooupdate configuração de identidade do aplicativo por meio de manifesto do aplicativo hello. Vamos destacar uma saudação anterior exemplos, mostrando como toodeclare uma nova permissão de escopo em um aplicativo de recurso:
+Agora, vamos percorrer as etapas necessárias para atualizar a configuração de identidade do aplicativo por meio do manifesto do aplicativo. Destacaremos um dos exemplos anteriores, mostrando como declarar um novo escopo de permissão em um aplicativo de recurso:
 
-1. Entrar toohello [portal do Azure][AZURE-PORTAL].
-2. Depois que você foi autenticado, escolha seu locatário do AD do Azure, selecionando-Olá parte superior direita da página de saudação.
-3. Selecione **Active Directory do Azure** extensão de saudação à esquerda o painel de navegação e clique na **registros do aplicativo**.
-4. Localize o aplicativo hello tooupdate na lista de saudação de desejado e clique nele.
-5. Na página de aplicativo hello, clique em **manifesto** editor de manifesto tooopen Olá embutido. 
-6. Você pode editar diretamente o manifesto hello usando este editor. Observe que manifesto Olá segue o esquema Olá Olá [entidade aplicativos] [ APPLICATION-ENTITY] como mencionamos anteriormente: por exemplo, supondo que queremos tooimplement/expor uma nova permissão chamado "Employees.Read.All" em nosso aplicativo de recurso (API), simplesmente adicione uma coleção de oauth2Permissions novo/segundo elemento toohello, ou seja:
+1. Entre no [Portal do Azure][AZURE-PORTAL].
+2. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
+3. Escolha a extensão **Azure Active Directory** no painel de navegação esquerdo e clique em **Registros de Aplicativo**.
+4. Localize o aplicativo que você quer atualizar na lista e clique nele.
+5. Na página do aplicativo, clique em **Manifesto** para abrir o editor de manifesto embutido. 
+6. Você pode editar diretamente o manifesto usando esse editor. Observe que o manifesto segue o esquema da [entidade Aplicativo][APPLICATION-ENTITY], como mencionamos anteriormente. Por exemplo, supondo que queremos implementar/expor uma nova permissão chamada "Employees.Read.All" em nosso aplicativo de recurso (API). Para isso, basta adicionar um elemento novo/secundário à coleção oauth2Permissions, isto é:
    
         "oauth2Permissions": [
         {
-        "adminConsentDescription": "Allow hello application tooaccess MyWebApplication on behalf of hello signed-in user.",
+        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
         "adminConsentDisplayName": "Access MyWebApplication",
         "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
         "isEnabled": true,
         "type": "User",
-        "userConsentDescription": "Allow hello application tooaccess MyWebApplication on your behalf.",
+        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
         "userConsentDisplayName": "Access MyWebApplication",
         "value": "user_impersonation"
         },
         {
-        "adminConsentDescription": "Allow hello application toohave read-only access tooall Employee data.",
-        "adminConsentDisplayName": "Read-only access tooEmployee records",
+        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
+        "adminConsentDisplayName": "Read-only access to Employee records",
         "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
         "isEnabled": true,
         "type": "User",
-        "userConsentDescription": "Allow hello application toohave read-only access tooyour Employee data.",
-        "userConsentDisplayName": "Read-only access tooyour Employee records",
+        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
+        "userConsentDisplayName": "Read-only access to your Employee records",
         "value": "Employees.Read.All"
         }
         ],
    
-    saudação de entrada deve ser exclusiva e, portanto, você deve gerar um novo globalmente ID exclusiva (GUID) do hello `"id"` propriedade. Nesse caso, pois especificamos `"type": "User"`, essa permissão pode ser tooby consentido qualquer conta autenticada por Olá locatário do AD do Azure na qual Olá aplicativo/API de recursos está registrado. Este concede Olá cliente aplicativo permissão tooaccess-lo em nome da conta de saudação. cadeias de nome de exibição e a descrição Hello são usadas durante a autorização e para exibição no hello portal do Azure.
-6. Quando você terminar de atualizar o manifesto de saudação, clique em **salvar** toosave manifesto de saudação.  
+    A entrada deve ser exclusiva e, portanto, você deve gerar um novo GUID (identificador global exclusivo) para a propriedade `"id"` . Nesse caso, como especificamos `"type": "User"`, essa permissão pode ser consentida por qualquer conta autenticada pelo locatário do AD do Azure no qual o aplicativo de recurso/API está registrado. Isso concede ao aplicativo cliente a permissão para acessá-lo em nome da conta. As cadeias de caracteres de descrição e nome de exibição são usadas durante o consentimento e para exibição no Portal do Azure.
+6. Quando terminar de atualizar o manifesto, clique em **Salvar** para salvar o manifesto.  
    
-Agora que hello manifesto é salvo, você pode dar a um cliente registrado aplicativo toohello nova permissão de acesso, adicionamos acima. Neste momento, que você pode usar Olá Web da interface do usuário do portal do Azure em vez de editar o manifesto do aplicativo de cliente hello:  
+Agora que o manifesto está salvo, você pode dar acesso a um aplicativo cliente registrado à a nova permissão que adicionamos acima. Neste momento, você pode usar a interface de usuário da Web do Portal do Azure em vez de editar o manifesto do aplicativo cliente:  
 
-1. Vá primeiro toohello **configurações** folha de saudação toowhich do aplicativo cliente desejar tooadd acesso toohello nova API, clique em **permissões necessárias** e escolha **selecionar uma API** .
-2. Em seguida, você verá com lista de saudação de aplicativos (APIs) do recursos registrados no locatário Olá. Clique em tooselect de aplicativo de recurso hello, ou nome de saudação do tipo da caixa de pesquisa do hello aplicativo hello. Quando encontrar um aplicativo hello, clique em **selecione**.  
-3. Isso o levará toohello **selecionar permissões** página, que mostrará Olá lista permissões de aplicativo e permissões delegadas disponíveis para o aplicativo de recurso hello. Selecione Olá nova permissão na ordem tooadd-lista de permissões solicitada pelo cliente toohello. Essa nova permissão será armazenado na configuração de identidade do aplicativo do cliente hello, na propriedade de coleção de "requiredResourceAccess" hello.
+1. Primeiramente, vá para a folha **Configurações** do aplicativo cliente ao qual você quer adicionar acesso à nova API, clique em **Permissões Necessárias** e escolha **Selecionar uma API**.
+2. Em seguida, você verá uma lista de aplicativos de recurso registrados (APIs) no locatário. Clique no aplicativo de recurso para selecioná-lo ou digite o nome do aplicativo na caixa de pesquisa. Quando tiver encontrado o aplicativo, clique em **Selecionar**.  
+3. Isso redirecionará você para a página **Selecionar Permissões**, que mostrará a lista de Permissões do Aplicativo e Permissões Delegadas disponíveis para o aplicativo de recurso. Selecione a nova permissão para adicioná-la à lista de permissões solicitadas do cliente. Essa nova permissão será armazenada na configuração da identidade do aplicativo cliente, na propriedade da coleção "requiredResourceAccess".
 
 
 É isso. Agora seus aplicativos serão executados usando a nova configuração de identidade.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais detalhes sobre a relação de saudação entre os objetos de aplicativo e entidade de serviço do aplicativo, consulte [objetos de aplicativo e serviço principal no Azure AD][AAD-APP-OBJECTS].
-* Consulte Olá [Glossário de desenvolvedor do AD do Azure] [ AAD-DEVELOPER-GLOSSARY] para definições de alguns dos conceitos de desenvolvedor Olá básicos do Azure AD (Active Directory).
+* Para obter mais detalhes sobre a relação entre os objetos Entidade de Serviço e Aplicativo do aplicativo, veja [Objetos Aplicativo e Entidade de Serviço no Azure AD][AAD-APP-OBJECTS].
+* Veja as definições do [Glossário de desenvolvedor do Azure AD][AAD-DEVELOPER-GLOSSARY] de alguns dos conceitos de desenvolvedor do Azure Active Directory (AD).
 
-. Use a seção de comentários Olá abaixo tooprovide comentários e ajudar a refinar e formatar o nosso conteúdo.
+Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refinar e moldar nosso conteúdo.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

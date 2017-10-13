@@ -1,4 +1,4 @@
-Olá limites a seguir se aplicam somente usando hello Azure Resource Manager e grupos de recursos do Azure.
+Os limites a seguir se aplicam somente ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure.
 
 | Recurso | Limite padrão |
 | --- | --- |

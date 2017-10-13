@@ -1,6 +1,6 @@
 ---
-title: aaaAzure provedores de recursos e tipos de recurso | Microsoft Docs
-description: "Descreve os provedores de recursos Olá que dão suporte ao Gerenciador de recursos, esquemas e as versões de API disponíveis e regiões de saudação que podem hospedar recursos hello."
+title: Provedores de recursos e tipos de recursos do Azure | Microsoft Docs
+description: "Descreve os provedores de recursos que oferecem suporte ao Gerenciador de Recursos, aos respectivos esquemas e versões de API disponíveis, bem como às regiões que podem hospedar os recursos."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 23db1d3808a20166f3b44ec801e1bcc46fbb9bd3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="resource-providers-and-types"></a>Provedores e tipos de recursos
 
-Ao implantar os recursos, você precisa frequentemente tooretrieve informações sobre provedores de recursos hello e tipos. Neste artigo, você aprende a:
+Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Neste artigo, você aprende a:
 
 * Exibir todos os provedores de recursos no Azure
 * Verificar o status do registro de um provedor de recursos
@@ -31,11 +31,11 @@ Ao implantar os recursos, você precisa frequentemente tooretrieve informações
 * Exibir localizações válidas para um tipo de recurso
 * Exibir versões de API válidas para um tipo de recurso
 
-Você pode executar essas etapas através do portal hello, PowerShell ou CLI do Azure.
+Você pode executar essas etapas por meio do portal, do PowerShell ou da CLI do Azure.
 
 ## <a name="powershell"></a>PowerShell
 
-toosee todos os provedores de recursos no Azure e o status de registro Olá para sua assinatura, usam:
+Para ver todos os provedores de recursos no Azure e o status do registro para a sua assinatura, use:
 
 ```powershell
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrando um provedor de recursos configura toowork sua assinatura com o provedor de recursos de saudação. escopo de saudação para o registro é sempre assinatura hello. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário toomanually registrar alguns provedores de recursos. tooregister um provedor de recursos, você deve ter a saudação de tooperform permissão `/register/action` operação para o provedor de recursos hello. Esta operação está incluída no hello Colaborador e funções de proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação do `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -70,7 +70,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 Você não poderá cancelar o registro de um provedor de recursos enquanto ainda tiver tipos de recursos desse provedor de recursos em sua assinatura.
 
-informações de toosee para um provedor de recursos específico, use:
+Para obter informações para um provedor de recursos específico, use:
 
 ```powershell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -87,7 +87,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 ...
 ```
 
-tipos de recurso de saudação toosee para um provedor de recursos, use:
+Para ver os tipos de recurso para um provedor de recursos, use:
 
 ```powershell
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
@@ -102,9 +102,9 @@ locations
 locations/quotas
 ```
 
-versão da API Olá corresponde versão tooa de operações da API REST que são lançadas pelo provedor de recursos de saudação. Como um provedor de recursos permite que os novos recursos, ele lança uma nova versão de hello API REST. 
+A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Conforme um provedor de recursos habilita novos recursos, ele lança uma nova versão da API REST. 
 
-tooget Olá API versões disponíveis para um tipo de recurso, use:
+Para obter versões de API disponíveis para um tipo de recurso, use:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
@@ -120,9 +120,9 @@ Que retorna:
 2015-07-01
 ```
 
-Gerenciador de recursos tem suporte em todas as regiões, mas os recursos de saudação que implantar talvez não tenha suporte em todas as regiões. Além disso, pode haver limitações que impedem o uso de algumas regiões que dão suporte ao recurso de saudação em sua assinatura. 
+O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. 
 
-use tooget locais de saudação com suporte para um tipo de recurso.
+Para obter as localizações com suporte para um tipo de recurso, use.
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
@@ -139,7 +139,7 @@ West US
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
-toosee todos os provedores de recursos no Azure e o status de registro Olá para sua assinatura, usam:
+Para ver todos os provedores de recursos no Azure e o status do registro para a sua assinatura, use:
 
 ```azurecli
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrando um provedor de recursos configura toowork sua assinatura com o provedor de recursos de saudação. escopo de saudação para o registro é sempre assinatura hello. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário toomanually registrar alguns provedores de recursos. tooregister um provedor de recursos, você deve ter a saudação de tooperform permissão `/register/action` operação para o provedor de recursos hello. Esta operação está incluída no hello Colaborador e funções de proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação do `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -167,7 +167,7 @@ Que retorna uma mensagem de que o registro está em andamento.
 
 Você não poderá cancelar o registro de um provedor de recursos enquanto ainda tiver tipos de recursos desse provedor de recursos em sua assinatura.
 
-informações de toosee para um provedor de recursos específico, use:
+Para obter informações para um provedor de recursos específico, use:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch
@@ -186,7 +186,7 @@ Que retorna resultados semelhantes a:
 }
 ```
 
-tipos de recurso de saudação toosee para um provedor de recursos, use:
+Para ver os tipos de recurso para um provedor de recursos, use:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
@@ -203,9 +203,9 @@ locations
 locations/quotas
 ```
 
-versão da API Olá corresponde versão tooa de operações da API REST que são lançadas pelo provedor de recursos de saudação. Como um provedor de recursos permite que os novos recursos, ele lança uma nova versão de hello API REST. 
+A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Conforme um provedor de recursos habilita novos recursos, ele lança uma nova versão da API REST. 
 
-tooget Olá API versões disponíveis para um tipo de recurso, use:
+Para obter versões de API disponíveis para um tipo de recurso, use:
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
@@ -223,9 +223,9 @@ Result
 2015-07-01
 ```
 
-Gerenciador de recursos tem suporte em todas as regiões, mas os recursos de saudação que implantar talvez não tenha suporte em todas as regiões. Além disso, pode haver limitações que impedem o uso de algumas regiões que dão suporte ao recurso de saudação em sua assinatura. 
+O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. 
 
-use tooget locais de saudação com suporte para um tipo de recurso.
+Para obter as localizações com suporte para um tipo de recurso, use.
 
 ```azurecli
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
@@ -245,29 +245,29 @@ West US
 
 ## <a name="portal"></a>Portal
 
-toosee todos os provedores de recursos no Azure e o status de registro Olá para sua assinatura, selecione **assinaturas**.
+Para ver todos os provedores de recursos no Azure e o status do registro para a sua assinatura, selecione **Assinaturas**.
 
 ![selecionar assinaturas](./media/resource-manager-supported-services/select-subscriptions.png)
 
-Escolha Olá tooview de assinatura.
+Escolha a assinatura para exibir.
 
 ![especificar a assinatura](./media/resource-manager-supported-services/subscription.png)
 
-Selecione **provedores de recursos** e exiba a lista de saudação de provedores de recursos disponíveis.
+Selecione **Provedores de recursos** e exiba a lista de provedores de recursos disponíveis.
 
 ![mostrar provedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Registrando um provedor de recursos configura toowork sua assinatura com o provedor de recursos de saudação. escopo de saudação para o registro é sempre assinatura hello. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário toomanually registrar alguns provedores de recursos. tooregister um provedor de recursos, você deve ter a saudação de tooperform permissão `/register/action` operação para o provedor de recursos hello. Esta operação está incluída no hello Colaborador e funções de proprietário. tooregister um provedor de recursos, selecione **registrar**.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação do `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Para registrar um provedor de recursos, selecione **Registrar**.
 
 ![registrar provedor de recursos](./media/resource-manager-supported-services/register-provider.png)
 
 Você não poderá cancelar o registro de um provedor de recursos enquanto ainda tiver tipos de recursos desse provedor de recursos em sua assinatura.
 
-informações de toosee para um provedor de recurso específico, selecione **mais serviços**.
+Para obter informações para um provedor de recursos específico, selecione **Mais serviços**.
 
 ![selecionar mais serviços](./media/resource-manager-supported-services/more-services.png)
 
-Procurar **Gerenciador de recursos** e selecioná-lo entre as opções disponíveis de saudação.
+Pesquise por **Resource Explorer** e selecione-o nas opções disponíveis.
 
 ![selecionar resource explorer](./media/resource-manager-supported-services/select-resource-explorer.png)
 
@@ -275,20 +275,20 @@ Selecione **Provedores**.
 
 ![Selecionar provedores](./media/resource-manager-supported-services/select-providers.png)
 
-Recursos e o provedor de recursos Olá selecione tipo que você deseja tooview.
+Selecione o provedor de recursos e o tipo de recurso que você deseja exibir.
 
 ![Selecionar tipo de recurso](./media/resource-manager-supported-services/select-resource-type.png)
 
-Gerenciador de recursos tem suporte em todas as regiões, mas os recursos de saudação que implantar talvez não tenha suporte em todas as regiões. Além disso, pode haver limitações que impedem o uso de algumas regiões que dão suporte ao recurso de saudação em sua assinatura. Gerenciador de recursos de saudação exibe locais válidos para o tipo de recurso hello.
+O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. O Resource Explorer mostra localizações válidas para o tipo de recurso.
 
 ![Mostrar localizações](./media/resource-manager-supported-services/show-locations.png)
 
-versão da API Olá corresponde versão tooa de operações da API REST que são lançadas pelo provedor de recursos de saudação. Como um provedor de recursos permite que os novos recursos, ele lança uma nova versão de hello API REST. Gerenciador de recursos de saudação exibe as versões de API válidas para o tipo de recurso hello.
+A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Conforme um provedor de recursos habilita novos recursos, ele lança uma nova versão da API REST. O Resource Explorer mostra versões de API válidas para o tipo de recurso.
 
 ![Mostrar versões de API](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* toolearn sobre como criar modelos do Gerenciador de recursos, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
-* toolearn sobre a implantação de recursos, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
-* operações de saudação tooview para um provedor de recursos, consulte [API REST do Azure](/rest/api/).
+* Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+* Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+* Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).
 

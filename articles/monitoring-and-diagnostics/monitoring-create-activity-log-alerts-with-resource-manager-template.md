@@ -1,5 +1,5 @@
 ---
-title: um alerta de log de atividade com um modelo do Gerenciador de recursos de aaaCreate | Microsoft Docs
+title: Criar um alerta do log de atividades com um modelo do Resource Manager | Microsoft Docs
 description: Seja notificado quando seus recursos do Azure forem criados.
 author: anirudhcavale
 manager: orenr
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 0fb8aa037b9dce54ce35498622770955f2341bc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Criar um alerta do log de atividades com um modelo do Resource Manager
-Este artigo mostra como toouse uma [modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) tooconfigure alertas de log de atividade. Usando modelos, você pode facilmente configurar vários alertas que são ativados com base em condições específicas de evento de log de atividades como parte do processo de implantação automática.
+Este artigo mostra como usar um [modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) para configurar alertas do log de atividades. Usando modelos, você pode facilmente configurar vários alertas que são ativados com base em condições específicas de evento de log de atividades como parte do processo de implantação automática.
 
-etapas básicas de saudação são:
+As etapas básicas são:
 
-1. Crie um modelo como um arquivo JSON que descreve como a atividade de saudação toocreate log alerta.
+1. Crie um modelo como um arquivo JSON que descreve como criar o alerta do log de atividades.
 
-2. Implantar o modelo de saudação usando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implantar o modelo usando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Modelo do Resource Manager para um alerta do log de atividades
-toocreate um alerta do log de atividade usando um modelo do Gerenciador de recursos, você cria um recurso do tipo hello `microsoft.insights/activityLogAlerts`. Em seguida, você preencherá todas as propriedades relacionadas. Veja abaixo um modelo que cria um alerta do log de atividades.
+Para criar um alerta do log de atividades usando um modelo do Resource Manager, você cria um recurso do tipo `microsoft.insights/activityLogAlerts`. Em seguida, você preencherá todas as propriedades relacionadas. Veja abaixo um modelo que cria um alerta do log de atividades.
 
 ```json
 {
@@ -40,20 +40,20 @@ toocreate um alerta do log de atividade usando um modelo do Gerenciador de recur
     "activityLogAlertName": {
       "type": "string",
       "metadata": {
-        "description": "Unique name (within hello Resource Group) for hello Activity log alert."
+        "description": "Unique name (within the Resource Group) for the Activity log alert."
       }
     },
     "activityLogAlertEnabled": {
       "type": "bool",
       "defaultValue": true,
       "metadata": {
-        "description": "Indicates whether or not hello alert is enabled."
+        "description": "Indicates whether or not the alert is enabled."
       }
     },
     "actionGroupResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Resource Id for hello Action group."
+        "description": "Resource Id for the Action group."
       }
     }
   },
@@ -102,6 +102,6 @@ Visite nossa [Galeria de Início Rápido](https://azure.microsoft.com/resources/
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [alertas](monitoring-overview-alerts.md).
-- Saiba como tooadd [grupos de ação usando um modelo do Gerenciador de recursos](monitoring-create-action-group-with-resource-manager-template.md).
-- Saiba como muito[criar um toomonitor alerta do log de atividade de todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- Saiba como muito[criar um toomonitor alerta do log de atividade de todas as operações de escala-em/expansão de dimensionamento automático com falha em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Saiba como adicionar [grupos de ações usando um modelo do Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
+- Saiba como [criar um alerta do log de atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Saiba como [criar um alerta do log de atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).

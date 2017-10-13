@@ -1,6 +1,6 @@
 ---
-title: etapa aaaGeneric etapa por conector do SQL | Microsoft Docs
-description: "Este artigo é percorrer você através de um sistema de RH simple usando o passo a passo Olá conector do SQL genérico."
+title: "Passo a passo do Conector SQL Genérico | Microsoft Docs"
+description: "Este artigo explicará um passo a passo simples do sistema de RH usando o Conector do SQL Genérico."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: b1b5f89ab588de6f92f173a7bc00f97180067669
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Passo a passo do Conector do SQL Genérico
 Este tópico é um guia passo a passo. Ele cria um banco de dados de RH de exemplo simples e o usará para a importação de alguns usuários e sua associação a um grupo.
 
-## <a name="prepare-hello-sample-database"></a>Preparar o banco de dados de exemplo hello
-Em um servidor executando o SQL Server, execute o script SQL de saudação encontrado no [Apêndice A](#appendix-a). Esse script cria um banco de dados de exemplo com o nome hello GSQLDEMO. modelo de objeto de saudação do hello criados nesta imagem parece de banco de dados:  
+## <a name="prepare-the-sample-database"></a>Preparar o banco de dados de exemplo
+Em um servidor que executa o SQL Server, execute o script SQL encontrado no [Apêndice A](#appendix-a). Esse script cria um banco de dados de exemplo com o nome GSQLDEMO. O modelo de objeto para o banco de dados criado é semelhante a esta imagem:   
 ![Modelo de objeto](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
-Também crie um usuário de banco de dados do toouse tooconnect toohello. Neste passo a passo, usuário Olá é chamado FABRIKAM\SQLUser e localizado no domínio hello.
+Também crie um usuário que deseja usar para se conectar ao banco de dados. Neste passo a passo, o usuário é chamado FABRIKAM\SQLUser e está localizado no domínio.
 
-## <a name="create-hello-odbc-connection-file"></a>Criar arquivo de conexão ODBC Olá
-Olá conector do SQL genérico é usando o servidor remoto do ODBC tooconnect toohello. Primeiro, precisamos toocreate um arquivo com hello informações de conexão do ODBC.
+## <a name="create-the-odbc-connection-file"></a>Criar o arquivo de conexão ODBC
+O Conector do SQL Genérico está usando o ODBC para se conectar ao servidor remoto. Primeiro, precisamos criar um arquivo com as informações de conexão ODBC.
 
-1. Inicie o utilitário de gerenciamento de ODBC Olá em seu servidor:  
+1. Inicie o utilitário de gerenciamento ODBC no servidor:   
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Guia de saudação selecione **DSN de arquivo**. Clique em **Adicionar...**.  
+2. Selecione a guia **DSN de Arquivo**. Clique em **Adicionar...**.  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
-3. Olá out-of-box drivers funciona bem, para selecioná-lo e clique em **próximo >**.  
+3. O driver pronto para uso funciona bem, então, selecione-o e clique em **Avançar>**.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
-4. Dê um nome de arquivo hello como **GenericSQL**.  
+4. Nomeie o arquivo, como **GenericSQL**.  
    ![ODBC3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc3.png)
 5. Clique em **Concluir**.  
    ![ODBC4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc4.png)
-6. Conexão de saudação do tooconfigure de tempo. Dê a fonte de dados Olá uma descrição válida e fornecer o nome de saudação do servidor de saudação executando o SQL Server.  
+6. Hora de configurar a conexão. Forneça uma boa descrição à fonte de dados e o nome do servidor que executa o SQL Server.  
    ![ODBC5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc5.png)
-7. Selecione como tooauthenticate com SQL. Nesse caso, usamos a Autenticação do Windows.  
+7. Selecione como deseja se autenticar com o SQL. Nesse caso, usamos a Autenticação do Windows.  
    ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
-8. Fornecer nome de saudação do banco de dados de exemplo hello, **GSQLDEMO**.  
+8. Forneça o nome do banco de dados de exemplo, **GSQLDEMO**.  
    ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
 9. Mantenha todas as opções como padrão nesta tela. Clique em **Concluir**.  
    ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
-10. tooverify tudo está funcionando conforme o esperado, clique em **fonte de dados de teste**.  
+10. Para verificar se tudo está funcionando como esperado, clique em **Testar Fonte de Dados**.  
     ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)
-11. Certifique-se de saudação teste for bem-sucedido.  
+11. Verifique se o teste foi bem-sucedido.  
     ![ODBC10](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc10.png)
-12. arquivo de configuração de ODBC Olá agora deve estar visível no DSN de arquivo.  
+12. O arquivo de configuração ODBC agora deverá estar visível no DSN de Arquivo.  
     ![ODBC11](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc11.png)
 
-Agora temos arquivo hello precisamos e pode começar a criar hello conector.
+Agora temos o arquivo necessário e podemos começar a criar o Conector.
 
-## <a name="create-hello-generic-sql-connector"></a>Criar hello conector do SQL genérico
-1. No hello UI Synchronization Service Manager, selecione **conectores** e **criar**. Selecione **SQL Genérico (Microsoft)** e dê a ele um nome descritivo.  
+## <a name="create-the-generic-sql-connector"></a>Criar o Conector do SQL Genérico
+1. Na interface do usuário do Synchronization Service Manager, selecione **Conectores** e **Criar**. Selecione **SQL Genérico (Microsoft)** e dê a ele um nome descritivo.  
    ![Connector1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
-2. Localizar o arquivo DSN Olá que você criou na seção anterior hello e carregá-lo toohello server. Fornece o banco de dados do hello credenciais tooconnect toohello.  
+2. Encontre o arquivo DSN criado na seção anterior e o carregue no servidor. Forneça as credenciais para se conectar ao banco de dados.  
    ![Connector2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector2.png)
 3. Neste passo a passo, estamos facilitando nosso trabalho dizendo que há dois tipos de objeto, **User** e **Group**.
    ![Connector3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector3.png)
-4. atributos de saudação toofind, queremos Olá conector toodetect desses atributos, observando a própria tabela hello. Como **usuários** é uma palavra reservada no SQL, é preciso tooprovide-lo no quadrado colchetes [].  
+4. Para encontrar os atributos, queremos que o Conector os detecte observando a própria tabela. Já que **Users** é uma palavra reservada no SQL, precisamos fornecê-la entre colchetes [ ].  
    ![Connector4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector4.png)
-5. Atributo de âncora tempo toodefine hello e atributo DN de saudação. Para **usuários**, usamos a combinação de saudação do nome de usuário do hello dois atributos e EmployeeID. Para **Group**, usamos GroupName (não realista na vida real, mas funcionará nesse passo a passo).
+5. Hora de definir o atributo de âncora e o atributo DN. Para **Users**, usamos a combinação dos dois atributos username e EmployeeID. Para **Group**, usamos GroupName (não realista na vida real, mas funcionará nesse passo a passo).
    ![Connector5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector5.png)
-6. Nem todos os tipos de atributo podem ser detectados em um banco de dados SQL. tipo de atributo de referência de saudação em particular não pode. Para o tipo de objeto de grupo hello, precisamos toochange Olá OwnerID e MemberID tooreference.  
+6. Nem todos os tipos de atributo podem ser detectados em um banco de dados SQL. Em particular, o tipo de atributo de referência não tem essa capacidade. Para o tipo de objeto de grupo, precisamos alterar a OwnerID e a MemberID para fazer referência a elas.  
    ![Connector6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector6.png)
-7. atributos de saudação selecionamos como atributos de referência na etapa anterior Olá exigem esses valores são uma referência ao tipo de objeto de Olá. Em nosso caso, Olá tipo de objeto do usuário.  
+7. Os atributos que selecionamos como referência na etapa anterior exigem o tipo de objeto para o qual esses valores são uma referência. Em nosso caso, o tipo de objeto de Usuário.  
    ![Connector7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector7.png)
-8. Na página de parâmetros globais hello, selecione **marca d'água** como estratégia de delta hello. Digite também no formato de data/hora Olá **AAAA-MM-dd hh**.
+8. Na página Parâmetros Globais, selecione **Marca-d'água** como a estratégia delta. Digite também o formato de data/hora **aaaa-MM-dd HH:mm:ss**.
    ![Connector8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector8.png)
-9. Em Olá **configurar partições e hierarquias** , selecione os dois tipos de objeto.
+9. Na página **Configurar Partições e Hierarquias**, escolha ambos os tipos de objeto.
    ![Connector9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
-10. Em Olá **selecionar tipos de objeto** e **selecionar atributos**, selecione os tipos de objeto e todos os atributos. Em Olá **configurar âncoras** , clique em **concluir**.
+10. Em **Selecionar Tipos de Objeto** e **Selecionar Atributos**, selecione os dois tipos de objeto e todos os atributos. Na página **Configurar Âncoras**, clique em **Concluir**.
 
 ## <a name="create-run-profiles"></a>Criar perfis de execução
-1. No hello UI Synchronization Service Manager, selecione **conectores**, e **configurar perfis de execução**. Clique em **Novo Perfil**. Começamos com **Importação Completa**.  
+1. Na interface do usuário do Synchronization Service Manager, selecione **Conectores** e **Configurar Perfis de Execução**. Clique em **Novo Perfil**. Começamos com **Importação Completa**.  
    ![Runprofile1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
-2. Selecione o tipo de saudação **importação completa (somente estágio)**.  
+2. Selecione o tipo **Importação Completa (Somente Estágio)**.  
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
-3. Selecione a partição Olá **objeto = usuário**.  
+3. Selecione a partição **OBJECT=User**.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Selecione **Tabela** e digite **[USERS]**. Role para baixo da seção de tipo de objeto múltiplos toohello e inserir dados de saudação como Olá figura abaixo. Selecione **concluir** toosave etapa de saudação.  
+4. Selecione **Tabela** e digite **[USERS]**. Role para baixo até a seção de tipo de objeto com vários valores e insira os dados como na imagem a seguir. Selecione **Concluir** para salvar a etapa.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
-5. Selecione **Nova Etapa**. Desta vez, selecione **OBJECT=Group**. Na última página de hello, use a configuração de hello como Olá figura abaixo. Clique em **Concluir**.  
+5. Selecione **Nova Etapa**. Desta vez, selecione **OBJECT=Group**. Na última página, use a configuração como na imagem a seguir. Clique em **Concluir**.  
    ![Runprofile5a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5a.png)  
    ![Runprofile5b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5b.png)  
-6. Opcional: se quiser, você poderá configurar perfis de execução adicionais. Para este passo a passo, Olá importação completa é usada.
-7. Clique em **Okey** toofinish alterando perfis de execução.
+6. Opcional: se quiser, você poderá configurar perfis de execução adicionais. Para este passo a passo, foi usada apenas a Importação Completa.
+7. Clique em **OK** para concluir a alteração de perfis de execução.
 
-## <a name="add-some-test-data-and-test-hello-import"></a>Adicione alguns importação de saudação teste dados e de teste
+## <a name="add-some-test-data-and-test-the-import"></a>Adicionar alguns dados de teste e testar a importação
 Preencha alguns dados de teste no banco de dados de exemplo. Quando estiver pronto, selecione **Executar** e **Importação completa**.
 
 Aqui está um usuário com dois números de telefone e um grupo com alguns membros.  
@@ -104,13 +104,13 @@ Aqui está um usuário com dois números de telefone e um grupo com alguns membr
 ![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Apêndice A
-**Banco de dados do SQL script toocreate Olá exemplo**
+**Script SQL para criar o banco de dados de exemplo**
 
 ```SQL
----Creating hello Database---------
+---Creating the Database---------
 Create Database GSQLDEMO
 Go
--------Using hello Database-----------
+-------Using the Database-----------
 Use [GSQLDEMO]
 Go
 -------------------------------------

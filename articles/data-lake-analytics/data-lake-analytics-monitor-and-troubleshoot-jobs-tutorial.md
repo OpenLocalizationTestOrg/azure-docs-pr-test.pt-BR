@@ -1,6 +1,6 @@
 ---
-title: "trabalhos de análise do Azure Data Lake aaaTroubleshoot usando o Portal do Azure | Microsoft Docs"
-description: "Saiba como toouse Olá trabalhos de análise Data Lake tootroubleshoot Portal do Azure. "
+title: Solucionar problemas em trabalhos do Azure Data Lake Analytics usando o Portal do Azure | Microsoft Docs
+description: "Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake. "
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e810d56bab8f1a8254721ec9906bb6a4508dc22a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure
-Saiba como toouse Olá trabalhos de análise Data Lake tootroubleshoot Portal do Azure.
+Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake.
 
-Neste tutorial, você será um problema ausente do arquivo de origem de instalação e usar hello Azure Portal tootroubleshoot Olá problema.
+Neste tutorial, você criará um problema de arquivo de origem ausente e usará o Portal do Azure para solucionar o problema.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Enviar um trabalho da Análise Data Lake
 
-Envie Olá trabalho U-SQL a seguir:
+Envie o seguinte trabalho U-SQL:
 
 ```
 @searchlog =
@@ -42,38 +42,38 @@ Envie Olá trabalho U-SQL a seguir:
    USING Extractors.Tsv();
 
 OUTPUT @searchlog   
-   too"/output/SearchLog-from-adls.csv"
+   TO "/output/SearchLog-from-adls.csv"
    USING Outputters.Csv();
 ```
     
-Olá definido no script de saudação do arquivo de origem é **/Samples/Data/SearchLog.tsv1**, onde deve ser **/Samples/Data/SearchLog.tsv**.
+O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, em que ele deverá ser **/Samples/Data/SearchLog.tsv**.
 
 
-## <a name="troubleshoot-hello-job"></a>Solucionar problemas de trabalho Olá
+## <a name="troubleshoot-the-job"></a>Solucionar problemas no trabalho
 
-**toosee todos os trabalhos de Olá**
+**Para ver todos os trabalhos**
 
-1. De Olá portal do Azure, clique em **Microsoft Azure** no canto superior esquerdo da saudação.
-2. Clique em Olá lado a lado com o seu nome de conta da análise Data Lake.  Resumo do trabalho de saudação é mostrado na Olá **Job Management** lado a lado.
+1. No portal do Azure, clique em **Microsoft Azure** no canto superior esquerdo.
+2. Clique no bloco com o nome da conta da Análise Data Lake.  O resumo do trabalho é mostrado no bloco **Gerenciamento de Trabalhos** .
 
     ![Gerenciamento de trabalhos da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    Gerenciamento de trabalho de saudação fornece rapidamente Olá status do trabalho. Observe que há um trabalho com falha.
-3. Clique em Olá **gerenciamento de trabalho** trabalhos de saudação toosee lado a lado. trabalhos de saudação são categorizados em **executando**, **em fila**, e **finalizado**. Você deverá ver o trabalho com falha em Olá **finalizado** seção. Ele deverá ser o primeiro na lista de saudação. Quando você tiver muitos trabalhos, você pode clicar em **filtro** toohelp você toolocate trabalhos.
+    O Gerenciamento do trabalho mostra rapidamente o status do trabalho. Observe que há um trabalho com falha.
+3. Clique no bloco **Gerenciamento de Trabalhos** para ver os trabalhos. Os trabalhos são categorizados como **Em execução**, **Em fila** e **Concluído**. Você deverá ver o trabalho com falha na seção **Concluído** . Ele deve ser primeiro na lista. Quando tiver vários trabalhos, é possível clicar em **Filtrar** para ajudar a encontrar os trabalhos.
 
     ![Trabalhos de filtragem da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Clique em trabalho com falha de saudação de detalhes do trabalho Olá lista tooopen Olá em uma nova folha:
+4. Clique no trabalho com falha na lista para abrir os detalhes do trabalho em uma nova folha:
 
     ![Trabalho com falha da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Saudação de aviso **reenviar** botão. Depois de corrigir o problema de saudação, você pode enviar novamente trabalho hello.
-5. Clique em parte destacada da saudação anterior captura de tela tooopen Olá detalhes do erro.  Você verá algo semelhante ao seguinte:
+    Observe o botão **Enviar novamente** . Depois de corrigir o problema, você poderá enviar novamente o trabalho.
+5. Clique na parte realçada na captura de tela anterior para abrir os detalhes do erro.  Você verá algo semelhante ao seguinte:
 
     ![Detalhes do trabalho com falha da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    Ele informa a pasta de origem Olá não foi encontrada.
+    Isso indica que a pasta de origem não foi encontrada.
 6. Clique em **Duplicar Script**.
-7. Saudação de atualização **FROM** a seguir toohello caminho:
+7. Atualize o caminho **FROM** para o seguinte:
 
     "/Samples/Data/SearchLog.tsv"
 8. Clique em **Enviar Trabalho**.

@@ -1,6 +1,6 @@
 ---
-title: disco aaaExpand SO na VM do Linux com hello 1.0 da CLI do Azure | Microsoft Docs
-description: "Saiba como tooexpand Olá disco virtual do sistema operacional (SO) em uma VM do Linux usando hello Azure CLI 1.0 e o modelo de implantação do Gerenciador de recursos de saudação"
+title: Expandir o disco do sistema operacional em uma VM Linux com a CLI do Azure 1.0 | Microsoft Docs
+description: "Saiba como expandir o disco virtual do sistema operacional em uma VM Linux usando a CLI do Azure 1.0 e o modelo de implantação do Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0db78c0b86b48b2c5358611e11bb0b7ad781a559
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="expand-os-disk-on-a-linux-vm-using-hello-azure-cli-with-hello-azure-cli-10"></a>Expanda o disco do sistema operacional em uma VM do Linux usando Olá CLI do Azure com hello 1.0 da CLI do Azure
-tamanho de disco rígido virtual saudação padrão para o sistema operacional de saudação (SO) normalmente é 30 GB em uma máquina virtual do Linux (VM) no Azure. Você pode [adicionar discos de dados](add-disk.md) tooprovide para espaço de armazenamento adicional, mas você também poderá tooexpand disco de saudação sistema operacional. Este artigo fornece detalhes sobre como tooexpand Olá SO de disco para uma VM do Linux usando discos gerenciados por hello 1.0 da CLI do Azure.
+# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expandir o disco do sistema operacional em uma VM Linux usando a CLI do Azure 1.0
+Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir o disco do sistema operacional. Este artigo fornece detalhes sobre como expandir o disco do sistema operacional de uma VM Linux usando discos não gerenciados com a CLI do Azure 1.0.
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
-Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- [1.0 de CLI do Azure](#prerequisites) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
-- [2.0 do CLI do Azure](expand-disks.md) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
+- [CLI 1.0 do Azure](#prerequisites) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
+- [CLI 2.0 do Azure](expand-disks.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisa Olá [1.0 mais recente de CLI do Azure](../../cli-install-nodejs.md) instalado e registrado no tooan [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) usando o modo do Gerenciador de recursos de saudação da seguinte maneira:
+Você precisa da [última CLI do Azure 1.0](../../cli-install-nodejs.md) instalada e conectada a uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) usando o modo do Resource Manager, da seguinte maneira:
 
 ```azurecli
 azure config mode arm
 ```
 
-Em Olá exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup* e *myVM*.
+Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup* e *myVM*.
 
 ## <a name="expand-os-disk"></a>Expandir o disco do sistema operacional
 
-1. Não é possível executar operações em discos rígidos virtuais com hello VM em execução. Olá exemplo a seguir interrompe e desaloca Olá VM denominada *myVM* no grupo de recursos de saudação denominado *myResourceGroup*:
+1. As operações em discos rígidos virtuais não podem ser executadas com a VM em execução. O exemplo a seguir interrompe e desaloca a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
     ```azurecli
     azure vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > `azure vm stop`não liberar recursos de computação de saudação. toorelease recursos de computação, use `azure vm deallocate`. Olá VM deve ser desalocada tooexpand saudação do disco rígido virtual.
+    > `azure vm stop` não libera os recursos de computação. Para liberar os recursos de computação, use `azure vm deallocate`. A VM deve ser desalocada para que o disco rígido virtual seja expandido.
 
-2. Atualizar Olá tamanho do disco do sistema operacional Olá não gerenciado usando Olá `azure vm set` comando. Olá atualizações de exemplo a seguir Olá VM denominada *myVM* no grupo de recursos de saudação denominado *myResourceGroup* toobe *50* GB:
+2. Atualize o tamanho do disco não gerenciado do sistema operacional usando o comando `azure vm set`. O exemplo a seguir atualiza a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup* para ser *50* GB:
 
     ```azurecli
     azure vm set \
@@ -64,7 +64,7 @@ Em Olá exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus 
     azure vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH tooyour VM com as credenciais apropriadas hello. disco de SO de saudação tooverify foi redimensionado, use `df -h`. Olá saída de exemplo a seguir mostra a partição primária hello (*/desenvolvimento/sda1*) agora é 50 GB:
+4. SSH da VM com as credenciais apropriadas. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A saída de exemplo a seguir mostra que a partição primária (*/dev/sda1*) agora tem 50 GB:
 
     ```bash
     Filesystem      Size  Used Avail Use% Mounted on
@@ -74,4 +74,4 @@ Em Olá exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus 
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você precisar de armazenamento adicional, você também [adicionar discos de dados tooa VM Linux](add-disk.md). Para obter mais informações sobre criptografia de disco, consulte [Olá criptografar discos em uma VM do Linux usando a CLI do Azure](encrypt-disks.md).
+Se precisar de armazenamento adicional, também [adicione discos de dados a uma VM do Linux](add-disk.md). Para obter mais informações sobre a criptografia de disco, consulte [Criptografar discos em uma VM do Linux usando a CLI do Azure](encrypt-disks.md).

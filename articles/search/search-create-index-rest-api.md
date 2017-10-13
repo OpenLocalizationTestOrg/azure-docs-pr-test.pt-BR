@@ -1,6 +1,6 @@
 ---
-title: "AAA \"criar um índice (API REST - pesquisa do Azure) | Microsoft Docs\""
-description: "Crie um índice no código usando Olá API de REST de HTTP de pesquisa do Azure."
+title: "Criar um índice (API REST - Azure Search) | Microsoft Docs"
+description: "Crie um índice no código usando a API REST HTTP da Pesquisa do Azure."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: 117ab64a9874a443351a8a02a9b959b8f7beb7c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="create-an-azure-search-index-using-hello-rest-api"></a>Criar um índice de pesquisa do Azure usando a API REST de saudação
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Criar um índice de pesquisa do Azure usando a API REST
 > [!div class="op_single_selector"]
 >
 > * [Visão geral](search-what-is-an-index.md)
@@ -31,33 +31,33 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Este artigo o guiará pelo processo de saudação de criação de uma pesquisa do Azure [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) Olá usando a API de REST de pesquisa do Azure.
+Este artigo o orientará ao longo do processo de criação de um [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) de Pesquisa do Azure usando a API REST da Pesquisa do Azure.
 
-Antes de seguir este guia e criar um índice, você já deverá ter [criado um serviço do Azure Search](search-create-service-portal.md).
+Antes de seguir este guia e criar um índice, você já deverá ter [criado um serviço de Pesquisa do Azure](search-create-service-portal.md).
 
-toocreate um índice de pesquisa do Azure usando Olá API REST, você emitir ponto de extremidade de URL de um único HTTP POST solicitação tooyour pesquisa do Azure do serviço. Definição do índice estarão contida no corpo da solicitação de hello como o conteúdo JSON bem formado.
+Para criar um índice de Pesquisa do Azure usando a API REST, você emitirá uma única solicitação HTTP POST para o ponto de extremidade da URL do serviço de Pesquisa do Azure. A definição de índice estará contida no corpo da solicitação como conteúdo JSON bem formado.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a api-key do administrador de seu serviço do Azure Search
-Agora que você possua um serviço de pesquisa do Azure, você pode emitir solicitações HTTP no ponto de extremidade de URL do serviço usando a API REST de saudação. *Todos os* solicitações de API devem incluir Olá api-chave que foi gerada para Olá Você provisionou do serviço de pesquisa. Ter uma chave válida estabelece confiança, em uma base por solicitação, entre solicitação de envio Olá Olá aplicativo e serviço de saudação que lida com ele.
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
+Agora que provisionou um serviço de Pesquisa do Azure, você pode emitir solicitações HTTP em relação ao ponto de extremidade de URL do serviço usando a API REST. *Todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa que você provisionou. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. toofind api-chaves do serviço, você deve efetuar login Olá [portal do Azure](https://portal.azure.com/)
-2. Vá folha do serviço de pesquisa do Azure tooyour
-3. Clique em Olá ícone "Chaves"
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
+2. Vá para a folha do serviço de Pesquisa do Azure
+3. Clique no ícone de "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
 
-* O primário e secundário *chaves de administração* conceder direitos totais tooall operações, incluindo Olá capacidade toomanage Olá serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar chave secundária do toouse Olá se você decidir chave primária do tooregenerate hello e vice-versa.
-* O *chaves de consulta* conceder acesso somente leitura tooindexes e documentos, e são normalmente distribuídos tooclient aplicativos que emitem solicitações de pesquisa.
+* Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+* As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas a aplicativos cliente que emitem solicitações de pesquisa.
 
-Para fins de saudação de criação de um índice, você pode usar a chave primária ou secundária de administração.
+Para criar um índice, você pode usar a chave de administração principal ou secundária.
 
 ## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definir o índice de Pesquisa do Azure usando JSON bem formado
-Um único serviço tooyour de solicitação HTTP POST criará seu índice. corpo de saudação da solicitação HTTP POST conterá um único objeto JSON que define o índice de pesquisa do Azure.
+Uma única solicitação HTTP POST para o serviço criará o índice. O corpo da solicitação HTTP POST conterá um único objeto JSON que define o índice de Pesquisa do Azure.
 
-1. a primeira propriedade saudação do objeto JSON é o nome de saudação do índice.
-2. Olá segunda propriedade do objeto JSON é uma matriz JSON chamada `fields` que contém um objeto JSON separado para cada campo no índice. Cada um desses objetos JSON contém vários pares de nome/valor para cada Olá campo atributos, incluindo "name", "tipo", etc.
+1. A primeira propriedade desse objeto JSON é o nome do índice.
+2. A segunda propriedade do objeto JSON é uma matriz JSON chamada `fields` que contém um objeto JSON separado para cada campo no índice. Cada um desses objetos JSON contém vários pares de nome/valor para cada um dos atributos do campo, incluindo "nome", "tipo", etc.
 
-É importante que você mantenha suas necessidades de negócios e experiência de usuário pesquisa em mente ao criar o índice de cada campo deve ser atribuída a saudação [atributos adequados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Esses atributos controlam a qual pesquisar recursos (filtragem, facetas, classificação de pesquisa de texto completo, etc.) se aplicam a campos de toowhich. Para qualquer atributo que não for especificado, o padrão de Olá será recurso de pesquisa tooenable Olá correspondente, a menos que especificamente desativá-lo.
+É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Esses atributos controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo, etc.) se aplicam a quais campos. Para qualquer atributo que você não especificar, o padrão será habilitar o recurso de pesquisa correspondente, a menos que você o desabilite especificamente.
 
 Para nosso exemplo, chamamos o índice de "hotels" e definimos os campos da seguinte maneira:
 
@@ -81,30 +81,30 @@ Para nosso exemplo, chamamos o índice de "hotels" e definimos os campos da segu
 }
 ```
 
-Escolhemos cuidadosamente Olá indexar atributos de cada campo com base em como achamos que serão usados em um aplicativo. Por exemplo, `hotelId` é uma chave exclusiva que as pessoas procurando hotéis provavelmente não saberão, assim, podemos desabilitar pesquisa de texto completo para esse campo definindo `searchable` muito`false`, que economiza espaço no índice de saudação.
+Escolhemos cuidadosamente os atributos de índice para cada campo com base em como achamos que serão usados em um aplicativo. Por exemplo, `hotelId` é uma chave exclusiva que as pessoas que pesquisam hotéis provavelmente não conhecerão. Portanto, desabilitamos a pesquisa de texto completo para esse campo definindo `searchable` como `false`, o que economiza espaço no índice.
 
-Observe que exatamente um campo no índice de tipo `Edm.String` deve ser Olá designado como um campo de 'key' hello.
+Observe que exatamente um campo no índice do tipo `Edm.String` deve ser designado como o campo 'key'.
 
-definição de índice de saudação acima usa um analisador de linguagem para Olá `description_fr` campo porque ele é um texto em francês toostore pretendido. Consulte [tópico de suporte de idioma Olá](https://docs.microsoft.com/rest/api/searchservice/Language-support) , bem como Olá correspondente [postagem de blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) para obter mais informações sobre os analisadores de idioma.
+A definição de índice acima usa um analisador de idioma para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no](https://docs.microsoft.com/rest/api/searchservice/Language-support), bem como a [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analisadores de linguagem.
 
-## <a name="issue-hello-http-request"></a>Solicitação HTTP de saudação do problema
-1. Usando a definição de índice como o corpo da solicitação hello, emita uma URL de ponto de extremidade de serviço HTTP POST solicitação tooyour pesquisa do Azure. Na URL hello, ser toouse-se de que o nome do serviço como o nome de host hello e coloque Olá adequada `api-version` como um parâmetro de cadeia de caracteres de consulta (Olá atual versão da API é `2016-09-01` em tempo de saudação da publicação neste documento).
-2. Nos cabeçalhos de solicitação hello, especifique Olá `Content-Type` como `application/json`. Você também precisará tooprovide chave de administração do serviço que você identificou na etapa I no hello `api-key` cabeçalho.
+## <a name="issue-the-http-request"></a>Emitir a solicitação HTTP
+1. Usando a definição do índice como o corpo da solicitação, emita uma solicitação HTTP POST para a URL do ponto de extremidade do serviço de Pesquisa do Azure. Na URL, use o nome do serviço como o nome do host e coloque o `api-version` adequado como um parâmetro de cadeia de caracteres de consulta (a versão atual da API é `2016-09-01` no momento da publicação deste documento).
+2. Nos cabeçalhos de solicitação, especifique o `Content-Type` como `application/json`. Você também precisará fornecer a chave de administração do serviço que identificou na Etapa I no cabeçalho `api-key` .
 
-Você terá tooprovide seu próprio nome e a api chave tooissue Olá solicitação de serviço abaixo:
+Você terá que fornecer sua própria chave de api e o nome do serviço para emitir a solicitação abaixo:
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Para uma solicitação bem-sucedida, você deverá ver o código de status 201 (Criado). Para obter mais informações sobre como criar um índice por meio de saudação API REST, visite Olá [referência da API aqui](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para uma solicitação bem-sucedida, você deverá ver o código de status 201 (Criado). Para obter mais informações sobre como criar um índice por meio da API REST, acesse a [referência de API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-Quando tiver terminado com um índice e quiser toodelete-lo, basta emita uma solicitação HTTP DELETE. Por exemplo, isso é como podemos seria Excluir índice de "hotéis" hello:
+Quando você terminar de usar um índice e desejar excluí-lo, bastará emitir uma solicitação HTTP DELETE. Por exemplo, veja como podemos excluir o índice "hotels":
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de criar um índice de pesquisa do Azure, você estará pronto muito[carregar o conteúdo no índice Olá](search-what-is-data-import.md) para que você pode começar a procurar seus dados.
+Após criar um índice do Azure Search, você estará pronto para [carregar o conteúdo no índice](search-what-is-data-import.md) para que possa começar a pesquisar os dados.

@@ -1,6 +1,6 @@
 ---
-title: "as atualizações em uma matriz do Microsoft Azure StorSimple Virtual aaaInstall | Microsoft Docs"
-description: "Descreve como toouse Olá matriz Virtual StorSimple web da interface do usuário tooapply atualizações usando o método de portal e o hotfix hello"
+title: "Instalar Atualizações em uma Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs"
+description: "Descreve como usar a IU da Web do StorSimple Virtual Array para aplicar atualizações usando o portal e o método de hotfix"
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,95 +15,95 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7424abc7e46d4f08b4eae1194642b263f32c4318
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instalar Atualizações em seu StorSimple Virtual Array — portal do Azure
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo descreve Olá etapas tooinstall necessárias atualizações em sua matriz Virtual StorSimple através da interface do usuário da web local hello e Olá portal do Azure. Você precisa de tookeep de hotfixes ou atualizações de software tooapply sua matriz Virtual StorSimple atualizado. 
+Este artigo descreve as etapas necessárias para instalar atualizações na sua Matriz Virtual StorSimple usando a interface do usuário da Web local e por meio do portal do Azure. É necessário aplicar atualizações de software ou hotfixes para manter seu StorSimple Virtual Array atualizado. 
 
-Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Considerando que Olá matriz Virtual StorSimple é um dispositivo de nó único, qualquer e/s em andamento será interrompido e o dispositivo apresenta o tempo de inatividade. 
+Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Uma vez que o StorSimple Virtual Array é um dispositivo de nó único, qualquer processo de E/S em andamento será interrompido e o dispositivo apresentará tempo de inatividade. 
 
-Antes de aplicar uma atualização, é recomendável colocar Olá volumes ou compartilhamentos offline Olá hospedam primeiro e hello, em seguida, o dispositivo. Isso minimiza a possibilidade de dados corrompidos.
+Antes de aplicar uma atualização, é recomendável que você deixe os volumes ou compartilhamentos offline no host primeiro e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos.
 
 > [!IMPORTANT]
-> Se você estiver executando a atualização 0,1 ou versões de software GA, você deverá usar o método de hotfix do hello via Olá web local da interface do usuário tooinstall atualização 0.3. Se você estiver executando a atualização 0,2, recomendamos que você instale atualizações Olá via Olá portal clássico do Azure.
+> Se estiver executando a Atualização 0.1 ou versões de software GA, você deverá usar o método de hotfix por meio da interface do usuário da Web local para instalar a atualização 0.3. Caso esteja executando a Atualização 0.2, recomendamos que você instale as atualizações por meio do portal clássico do Azure.
  
 
-## <a name="use-hello-local-web-ui"></a>Use a interface da web local Olá
+## <a name="use-the-local-web-ui"></a>Usar a interface do usuário da Web local
 
-Há duas etapas ao usar a interface da web local hello:
+Há duas etapas ao usar a interface do usuário da Web local:
 
-* Baixar atualização hello ou hotfix Olá
-* Instalação da atualização de saudação ou hotfix Olá
+* Baixe a atualização ou o hotfix
+* Instale a atualização ou o hotfix
 
-### <a name="download-hello-update-or-hello-hotfix"></a>Baixar atualização hello ou hotfix Olá
+### <a name="download-the-update-or-the-hotfix"></a>Baixe a atualização ou o hotfix
 
-Execute Olá após atualização de software etapas toodownload Olá Olá catálogo do Microsoft Update.
+Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-#### <a name="toodownload-hello-update-or-hello-hotfix"></a>hotfix de atualização ou Olá Olá toodownload
+#### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue muito[http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. Se for a primeira vez usando Olá catálogo do Microsoft Update neste computador, clique em **instalar** quando tooinstall solicitada Olá complemento do catálogo do Microsoft Update.
+2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
-3. Na caixa de pesquisa de saudação do hello catálogo do Microsoft Update, insira o número de Base de dados de Conhecimento (KB) de Olá Olá hotfix que você deseja toodownload. Digite **3182061** para a Atualização 0.3 e clique em **Pesquisar**.
+3. Na caixa de pesquisa do catálogo do Microsoft Update, insira o número da KB (base de dados de conhecimento) do hotfix que deseja baixar. Digite **3182061** para a Atualização 0.3 e clique em **Pesquisar**.
    
-    Olá hotfix listagem aparece, por exemplo, **StorSimple Virtual Array atualização 0.3**.
+    A listagem de hotfix aparece, por exemplo, como **StorSimple Virtual Array Atualização 0.3**.
    
     ![Pesquisar o catálogo](./media/storsimple-virtual-array-install-update/download1.png)
 
-4. Clique em **Adicionar**. atualização de saudação é adicionada toohello carrinho.
+4. Clique em **Adicionar**. A atualização é adicionada ao carrinho de compras.
 
 5. Clique em **Exibir carrinho**.
 
-6. Clique em **Download**. Especifique ou **procurar** tooa local local onde você deseja Olá downloads tooappear. Olá as atualizações são baixadas toohello local especificado e colocada em uma subpasta com mesmo nome como atualização de saudação do hello. pasta Olá também pode ser copiados tooa compartilhamento de rede que seja acessível a partir do dispositivo de saudação.
+6. Clique em **Download**. Especifique ou **Procure** a localização em que deseja que o download apareça. As atualizações são baixadas para o local especificado e colocadas em uma subpasta com o mesmo nome que a atualização. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 
-7. Abra Olá copiou a pasta, você deve ver um arquivo de pacote do Microsoft Update autônomo `WindowsTH-KB3011067-x64`. Esse arquivo é usado tooinstall Olá atualização ou hotfix.
+7. Abra a pasta copiada, você verá um arquivo `WindowsTH-KB3011067-x64`do Pacote Autônomo do Microsoft Update. Esse arquivo é usado para instalar a atualização ou hotfix.
 
-### <a name="install-hello-update-or-hello-hotfix"></a>Instalação da atualização de saudação ou hotfix Olá
+### <a name="install-the-update-or-the-hotfix"></a>Instale a atualização ou o hotfix
 
-Instalação de atualização ou hotfix toohello anterior, verifique se você tem Olá atualização ou hotfix Olá baixado localmente no seu host ou acessível por meio de um compartilhamento de rede. 
+Antes da instalação da atualização ou hotfix, certifique-se de que você tem a atualização ou hotfix baixado localmente em seu host ou acessível por meio de um compartilhamento de rede. 
 
-Usar atualizações de tooinstall este método em um dispositivo que executa o GA ou 0,1 versões de software de atualização. Esse procedimento leva menos de 2 minutos toocomplete. Executar o seguinte Olá etapas tooinstall Olá atualização ou hotfix.
+Use esse método para instalar atualizações em um dispositivo que executa as versões de software GA ou a Atualização 0.1. Esse procedimento leva menos de 2 minutos para ser concluído. Execute as etapas a seguir para instalar a atualização ou o hotfix.
 
-#### <a name="tooinstall-hello-update-or-hello-hotfix"></a>tooinstall Olá atualização ou hotfix de Olá
+#### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Olá interface da web local, vá muito**manutenção** > **atualização de Software**.
+1. Na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. Em **caminho do arquivo de atualização**, insira o nome do arquivo hello para atualização de saudação ou Olá hotfix. Você também pode procurar o arquivo de instalação de atualização ou hotfix toohello se colocado em um compartilhamento de rede. Clique em **Aplicar**.
+2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update/update2m.png)
 
-3. Será exibido um aviso. Fornecido isso é um dispositivo de nó único, depois Olá atualização seja aplicada, Olá dispositivo for reiniciado, e não há tempo de inatividade. Clique o ícone de verificação de saudação.
+3. Será exibido um aviso. Dado que esse é um dispositivo de nó único, depois que a atualização for aplicada, o dispositivo será reiniciado e haverá tempo de inatividade. Clique no ícone de verificação.
    
    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update/update3m.png)
 
-4. Inicia a atualização de saudação. Depois que o dispositivo Olá foi atualizado com êxito, ele será reiniciado. Olá interface de usuário local não está acessível durante esse período.
+4. A atualização será iniciada. Depois que for atualizado com êxito, o dispositivo será reiniciado. A interface do usuário local não estará acessível durante esse tempo.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. Após a conclusão da reinicialização hello, você será direcionado toohello **entrar** página. tooverify Olá dispositivo atualizado, na interface do usuário da web local Olá ir muito**manutenção** > **atualização de Software**. Olá exibido software versão deve ser **10.0.0.0.0.10288.0** para atualização 0.3.
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para confirmar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. A versão de software exibida deve ser **10.0.0.0.0.10288.0** para a Atualização 0.3.
    
    > [!NOTE]
-   > Estamos versões de software de saudação de relatório de forma ligeiramente diferente na interface da web local hello e Olá portal do Azure. Por exemplo, Olá relatórios de interface do usuário da web local **10.0.0.0.0.10288** e Olá relatórios portais do Azure **10.0.10288.0** para Olá mesma versão.
+   > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10288** e o portal do Azure informa **10.0.10288.0** para a mesma versão.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update/update6m.png)
 
-## <a name="use-hello-azure-portal"></a>Use Olá portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
-Se executar o Update 0,2, recomendamos que você instale atualizações por meio de saudação portal do Azure. requer o procedimento portal Olá Olá usuário tooscan, baixar e instalar atualizações de saudação. Esse procedimento utiliza toocomplete cerca de 7 minutos. Executar o seguinte Olá etapas tooinstall Olá atualização ou hotfix.
+Caso esteja executando a Atualização 0.2, é recomendável que você instale atualizações por meio do portal do Azure. O procedimento do portal requer que o usuário verifique, baixe e instale as atualizações. Esse procedimento leva cerca de 7 minutos para ser concluído. Execute as etapas a seguir para instalar a atualização ou o hotfix.
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
 
-Após a saudação instalação é tooyour vá completo (como indicado pelo status do trabalho em 100%), o serviço de Gerenciador de dispositivos do StorSimple. Selecione **dispositivos** e selecione e clique em dispositivo Olá desejado tooupdate de lista de saudação de dispositivos conectados toothis serviço. Em Olá **configurações** folha, ir muito**gerenciar** seção e selecione **atualizações de dispositivo**. Olá exibido software versão deve ser **10.0.10288.0**.
+Após a instalação ser concluída (conforme indicado pelo status do trabalho em 100%), vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Selecione **Dispositivos** e selecione e clique no dispositivo que deseja atualizar a partir da lista de dispositivos conectados ao serviço. Na folha **Configurações**, vá para a seção **Gerenciar** e selecione **Atualizações de dispositivo**. A versão de software exibida deve ser **10.0.10288.0**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

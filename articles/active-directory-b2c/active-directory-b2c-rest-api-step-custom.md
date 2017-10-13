@@ -14,48 +14,48 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: 90a495029f48d70232ef3f99de4ea4d351395aa7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dc319c97e64e55861b84cc3943667418077a05d8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração
 
-saudação do Framework de experiência de identidade (IEF) que serve como base para o Azure Active Directory B2C (Azure AD B2C) habilita Olá identidade desenvolvedor toointegrate uma interação com uma API RESTful em uma viagem de usuário.  
+A IEF (Estrutura de Experiência de Identidade) subjacente ao Azure AD B2C (Azure Active Directory B2C) permite que o desenvolvedor de identidade integre uma interação com uma API RESTful em um percurso do usuário.  
 
-Final Olá deste passo a passo, você será capaz de toocreate uma jornada de usuário do Azure AD B2C interage com os serviços RESTful.
+Ao final deste passo a passo, você estará apto a criar um percurso do usuário do Azure AD B2C que interage com serviços RESTful.
 
-Olá IEF envia dados em declarações e recebe dados de volta em declarações. Olá exchange de declarações de API REST:
+A IEF envia dados em declarações e recebe dados de volta em declarações. A troca de declarações da API REST:
 
 - Pode ser projetada como uma etapa de orquestração.
 - Pode disparar uma ação externa. Por exemplo, ela pode registrar um evento em um banco de dados externo.
-- Pode ser usado toofetch um valor e, em seguida, armazená-lo no banco de dados de usuário de saudação.
+- Pode ser usada para buscar um valor e, em seguida, armazená-lo no banco de dados do usuário.
 
-Você pode usar as declarações recebida de saudação fluxo de saudação toochange posterior de execução.
+Você pode usar as declarações recebidas posteriormente para alterar o fluxo de execução.
 
-Você também pode criar interação hello como um perfil de validação. Para obter mais informações, veja [Passo a passo: integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como validação sobre a entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
+Você também pode projetar a interação como um perfil de validação. Para obter mais informações, veja [Passo a passo: integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como validação sobre a entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
 
-cenário de saudação é que quando um usuário executa uma edição de perfil, desejamos:
+O cenário é aquele em que, quando um usuário realiza uma edição de perfil, desejamos:
 
-1. Pesquise Olá usuário em um sistema externo.
-2. Obter cidade Olá onde o usuário está registrado.
-3. Retorne o aplicativo toohello atributo como uma declaração.
+1. Procurar pelo usuário em um sistema externo.
+2. Obter a cidade em que o usuário está registrado.
+3. Retornar o atributo para o aplicativo como uma declaração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um toocomplete de locatário do Azure AD B2C uma conta local de entrada-o/entrada, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
-- Um ponto de extremidade do REST API toointeract com. Este passo a passo usa um webhook de aplicativo de funções simples do Azure como um exemplo.
-- *Recomendado*: Olá completa [exchange passo a passo como uma etapa de validação de solicitações de API REST](active-directory-b2c-rest-api-validation-custom.md).
+- Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
+- Um ponto de extremidade de API REST com o qual se irá interagir. Este passo a passo usa um webhook de aplicativo de funções simples do Azure como um exemplo.
+- *Recomendado*: conclua o [passo a passo da troca de declarações da API REST como uma etapa de validação](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-hello-rest-api-function"></a>Etapa 1: Preparar a função de API REST hello
+## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: preparar a função da API REST
 
 > [!NOTE]
-> A instalação das funções de API REST está fora do escopo deste artigo hello. [As funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um excelente toolkit toocreate os serviços RESTful na nuvem hello.
+> A configuração das funções da API REST está fora do escopo deste artigo. O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
 
-Configuramos a uma função do Azure que recebe uma declaração chamada `email`, e, em seguida, retorna Olá declaração `city` com valor de saudação atribuída de `Redmond`. exemplo Hello função do Azure está em [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Definimos uma função do Azure que recebe uma declaração chamada `email` e, em seguida, retorna a declaração `city` com o valor atribuído de `Redmond`. A função do Azure de exemplo está no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-Olá `userMessage` declaração que Olá retorna a função do Azure é opcional neste contexto, e Olá IEF irá ignorar essa configuração. Você pode potencialmente usá-lo como uma mensagem passada aplicativo toohello e apresentados toohello usuário mais tarde.
+A declaração `userMessage` que a função do Azure retorna é opcional nesse contexto e a IEF vai ignorá-la. Você pode usá-la como uma mensagem passada para o aplicativo e apresentada ao usuário mais tarde.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -78,14 +78,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Um aplicativo de função do Azure torna fácil tooget Olá função URL, que inclui o identificador de saudação de função específica de saudação. Nesse caso, é a URL de saudação: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Você pode usá-la para teste.
+Um aplicativo de funções do Azure facilita a obtenção da URL da função, a qual inclui o identificador da função específica. Nesse caso, a URL é: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Você pode usá-la para teste.
 
-## <a name="step-2-configure-hello-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Etapa 2: Configurar Olá API RESTful declarações exchange como um perfil técnico em seu arquivo TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Etapa 2: configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworExtensions.xml
 
-Um perfil técnico é a configuração completa de saudação do exchange Olá desejado com hello serviço RESTful. Abrir o arquivo de TrustFrameworkExtensions.xml hello e adicione Olá seguindo o trecho XML dentro de saudação `<ClaimsProvider>` elemento.
+Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte trecho de código XML dentro do elemento `<ClaimsProvider>`.
 
 > [!NOTE]
-> Em Olá RESTful provedor XML a seguir `Version=1.0.0.0` é descrito como protocolo de saudação. Considere-a como a função hello irá interagir com o serviço externo hello. <!-- TODO: A full definition of hello schema can be found...link tooRESTful Provider schema definition>-->
+> No XML a seguir, o provedor RESTful `Version=1.0.0.0` é descrito como o protocolo. Considere-o como a função que interagirá com o serviço externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -111,18 +111,18 @@ Um perfil técnico é a configuração completa de saudação do exchange Olá d
 </ClaimsProvider>
 ```
 
-Olá `<InputClaims>` elemento define declarações Olá Olá serviço REST toohello IEF serão enviadas. Neste exemplo, Olá conteúdo da declaração Olá `givenName` será enviado serviço REST de toohello como Olá declaração `email`.  
+O elemento `<InputClaims>` define as declarações que serão enviadas pela IEF para o serviço REST. Neste exemplo, o conteúdo da declaração `givenName` será enviado para o serviço REST como a declaração `email`.  
 
-Olá `<OutputClaims>` elemento define Olá declarações que Olá IEF espera do serviço REST de saudação do. Independentemente do número de saudação de declarações que são recebidos, Olá IEF usará somente os identificado aqui. Neste exemplo, uma declaração recebida como `city` será chamada tooan mapeada IEF declaração `city`.
+O elemento `<OutputClaims>` define as declarações que a IEF espera do serviço REST. Independentemente do número de declarações recebidas, a IEF usará apenas aquelas identificadas aqui. Neste exemplo, uma declaração recebida como `city` será mapeada para uma declaração da IEF chamada `city`.
 
-## <a name="step-3-add-hello-new-claim-city-toohello-schema-of-your-trustframeworkextensionsxml-file"></a>Etapa 3: Adicionar nova declaração de saudação `city` toohello esquema do arquivo TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Etapa 3: adicionar a nova declaração `city` ao esquema do arquivo TrustFrameworkExtensions.xml
 
-Olá declaração `city` ainda não está definido em qualquer lugar no nosso esquema. Portanto, adicione uma definição de dentro do elemento de saudação `<BuildingBlocks>`. Você pode encontrar esse elemento no início de saudação do arquivo de TrustFrameworkExtensions.xml hello.
+A declaração `city` não está definida em nenhum outro lugar no nosso esquema. Portanto, adicione uma definição dentro do elemento `<BuildingBlocks>`. Você encontra esse elemento no início do arquivo TrustFrameworkExtensions.xml.
 
 ```XML
 <BuildingBlocks>
-    <!--hello claimtype city must be added toohello TrustFrameworkPolicy-->
-    <!-- You can add new claims in hello BASE file Section III, or in hello extensions file-->
+    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
+    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
     <ClaimsSchema>
         <ClaimType Id="city">
             <DisplayName>City</DisplayName>
@@ -134,14 +134,14 @@ Olá declaração `city` ainda não está definido em qualquer lugar no nosso es
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-hello-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Etapa 4: Incluir Olá REST serviço declarações exchange como uma etapa de orquestração em sua jornada de usuário de edição de perfil em TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Etapa 4: incluir a troca de declarações do serviço REST como uma etapa de orquestração em seu percurso do usuário de edição de perfil no TrustFrameworkExtensions.xml
 
-Adicionar uma etapa toohello perfil Editar usuário jornada depois Olá usuário foi autenticado (orquestração etapas 1 a 4 Olá XML a seguir) e Olá usuário forneceu informações de perfil Olá atualizado (etapa 5).
+Adicione uma etapa ao percurso do usuário de edição de perfil após a autenticação do usuário (etapas de orquestração 1 a 4 no XML a seguir) e depois que ele tenha fornecido as informações de perfil atualizado (etapa 5).
 
 > [!NOTE]
-> Há muitos casos de uso onde Olá chamada à API REST pode ser usada como uma etapa de orquestração. Como uma etapa de orquestração, que pode ser usado como um sistema externo de tooan atualização depois que um usuário for concluída com êxito uma tarefa, como o registro pela primeira vez, ou como um perfil de atualização tookeep informações sincronizadas. Nesse caso, é usado tooaugment Olá informações toohello aplicativo depois de editar o perfil de saudação.
+> Há muitos casos de uso em que a chamada à API REST pode ser usada como uma etapa de orquestração. Como uma etapa de orquestração, ela pode ser usada como uma atualização para um sistema externo depois que um usuário tenha concluído uma tarefa com êxito, como o primeiro registro, ou como uma atualização de perfil para manter as informações sincronizadas. Nesse caso, ela é usada para aumentar as informações fornecidas para o aplicativo depois da edição do perfil.
 
-Copiar Olá perfil Editar código XML do usuário jornada de saudação TrustFrameworkBase.xml tooyour TrustFrameworkExtensions.xml arquivo dentro de saudação `<UserJourneys>` elemento. Em seguida, fazer a modificação de saudação na etapa 6.
+Copie o código XML do percurso do usuário de edição de perfil do arquivo TrustFrameworkBase.xml para o seu arquivo TrustFrameworkExtensions.xml dentro do elemento `<UserJourneys>`. Em seguida, faça a modificação conforme a etapa 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -152,9 +152,9 @@ Copiar Olá perfil Editar código XML do usuário jornada de saudação TrustFra
 ```
 
 > [!IMPORTANT]
-> Se a ordem de saudação não coincide com a versão, certifique-se de que você inserir o código de saudação como etapa Olá antes de saudação `ClaimsExchange` tipo `SendClaims`.
+> Se a ordem não corresponde à sua versão, verifique se você inseriu o código como a etapa antes do tipo `ClaimsExchange` `SendClaims`.
 
-Olá XML final jornada de usuário Olá deve ser assim:
+O XML final da jornada do usuário deve ter esta aparência:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -200,7 +200,7 @@ Olá XML final jornada de usuário Olá deve ser assim:
                 <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
             </ClaimsExchanges>
         </OrchestrationStep>
-        <!-- Add a step 6 toohello user journey before hello JWT token is created-->
+        <!-- Add a step 6 to the user journey before the JWT token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
             <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
@@ -212,11 +212,11 @@ Olá XML final jornada de usuário Olá deve ser assim:
 </UserJourney>
 ```
 
-## <a name="step-5-add-hello-claim-city-tooyour-relying-party-policy-file-so-hello-claim-is-sent-tooyour-application"></a>Etapa 5: Adicionar Olá declaração `city` tooyour terceira política de parte do arquivo para declaração de saudação é enviada tooyour aplicativo
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Etapa 5: adicionar a declaração `city` ao seu arquivo de política de terceira parte confiável para que a declaração seja enviada ao seu aplicativo
 
-Edite o arquivo do ProfileEdit.xml terceira parte confiável (RP) e modificar Olá `<TechnicalProfile Id="PolicyProfile">` seguinte de saudação do elemento tooadd: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Edite o arquivo RP (terceira parte confiável), ProfileEdit.xml e modifique o elemento `<TechnicalProfile Id="PolicyProfile">` para adicionar o seguinte: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-Depois de adicionar nova declaração de hello, perfil técnico Olá terá esta aparência:
+Depois de adicionar a nova declaração, o perfil técnico terá esta aparência:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -231,15 +231,15 @@ Depois de adicionar nova declaração de hello, perfil técnico Olá terá esta 
 
 ## <a name="step-6-upload-your-changes-and-test"></a>Etapa 6: carregar suas alterações e testar
 
-Substitua as versões existentes da política de Olá Olá.
+Substitua as versões existentes da política.
 
-1.  (Opcional:) Salve versão existente da saudação (Baixando) do seu arquivo de extensões antes de continuar. tookeep saudação inicial complexidade baixa, é recomendável que você não carregar várias versões do arquivo de extensões de saudação.
-2.  (Opcional:) Renomeie a nova versão Olá Olá ID da política de arquivo de edição de política de saudação alterando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Carregar arquivo de extensões de saudação.
-4.  Carregar arquivo do hello política Editar RP.
-5.  Use **executar agora** tootest política de saudação. Token de saudação de revisão que Olá IEF retorna toohello aplicativo.
+1.  (Opcional:) Salve a versão existente (baixando-a) do seu arquivo de extensões antes de continuar. Para reduzir a complexidade inicial, é recomendável que você não carregue várias versões do arquivo de extensões.
+2.  (Opcional:) Renomeie a nova versão da ID de política do arquivo de edição de política alterando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.  Carregue o arquivo de extensões.
+4.  Carregue o arquivo RP de edição de política.
+5.  Use **Executar Agora** para testar a política. Examine o token que a IEF retorna ao aplicativo.
 
-Se tudo está configurado corretamente, o token Olá incluirá a nova declaração de saudação `city`, com valor de saudação `Redmond`.
+Se tudo estiver configurado corretamente, o token incluirá a nova declaração `city`, com o valor `Redmond`.
 
 ```JSON
 {
@@ -261,4 +261,4 @@ Se tudo está configurado corretamente, o token Olá incluirá a nova declaraç�
 
 [Usar uma API REST como uma etapa de validação](active-directory-b2c-rest-api-validation-custom.md)
 
-[Modificar Olá perfil Editar toogather informações adicionais de seus usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modificar a edição de perfil para coletar informações adicionais de seus usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

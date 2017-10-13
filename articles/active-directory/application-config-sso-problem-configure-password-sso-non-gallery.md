@@ -1,6 +1,6 @@
 ---
-title: "aaaProblem configurando senha single sign-on para um aplicativo da Galeria não | Microsoft Docs"
-description: "Entender a face de pessoas problemas comuns Olá ao configurar logon único de senha para aplicativos não-Galeria personalizados que não estão listados em Olá Galeria de aplicativos do Azure AD"
+title: "Como configurar o logon único com senha para um aplicativo que não seja da galeria | Microsoft Docs"
+description: "Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos personalizados que não estão listados na Galeria do Aplicativo Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3aee0a4c525bb3da338da2da0882ec572cf0e5e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
-Este artigo ajuda face de pessoas de problemas comuns do toounderstand Olá ao configurar **senha SSO** com um aplicativo não Galeria.
+Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo que não seja da Galeria.
 
-## <a name="how-toocapture-sign-in-fields-for-an-application"></a>Como entrar toocapture os campos para um aplicativo
+## <a name="how-to-capture-sign-in-fields-for-an-application"></a>Como capturar campos de entrada para um aplicativo
 
 Captura de campo de entrada só tem suporte para páginas de entrada habilitadas por HTML e **não tem suporte para páginas de entrada não padrão**, como aquelas que usam Flash ou outras tecnologias de HTML não habilitado.
 
@@ -33,228 +33,228 @@ Há duas maneiras que você pode capturar campos de entrada para aplicativos per
 
 -   Captura manual de campo de entrada
 
-**Captura de campo de entrada automática** funciona bem com a maioria dos habilitado HTML páginas de entrada, se eles usarem **IDs DIV conhecidos Olá nome de usuário e senha de entrada** campo. Isso funciona de maneira de saudação é por atrito Olá HTML na página de saudação toofind IDs DIV que correspondem a certos critérios e, em seguida, salvando metadados para esse aplicativo para que pode reproduzir senhas tooit mais tarde.
+**Captura automática de campo de entrada** funciona bem com a maioria das páginas de entrada habilitadas com HTML, se eles usarem **IDs DIV conhecidos para o campo de nome de usuário e a senha de entrada**. A maneira como isso funciona é pela captura do HTML na página para localizar IDs de DIV que correspondem a determinados critérios e salvando esses metadados para este aplicativo, para que possamos repetir senhas mais tarde.
 
-**Captura de campo de entrada manual** pode ser usado em caso de Olá Olá aplicativo **fornecedor não rotula** Olá entrada campos usados para entrar. Captura de campo de entrada manual também pode ser usada no caso de Olá quando hello **fornecedor renderiza vários campos** que não pode ser detectado automaticamente. AD do Azure pode armazenar dados para vários campos que estejam na Olá entrar na página, desde que você Conte-nos onde esses campos estão na página de saudação.
+**Captura manual de campo de entrada** pode ser usada no caso do **fornecedor do aplicativo não rotular** os campos de entrada usados para entrar. Captura manual de campo de entrada também pode ser usado no caso de quando o **fornecedor renderiza vários campos** que não podem ser detectados automaticamente. O Azure AD pode armazenar dados para quantos campos forem necessários na página de entrada, contanto que você nos informe onde esses campos estão na página.
 
-Em geral, **se a captura de campo de entrada automática não funcionar, sugerimos sempre tentar opção manual de saudação.**
+Em geral, **se captura manual do campo de entrada não funcionar, é recomendável sempre tentar a opção manual.**
 
-### <a name="how-tooautomatically-capture-sign-in-fields-for-an-application"></a>Como tooautomatically capturar campos de entrada para um aplicativo
+### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Como capturar automaticamente os campos de entrada para um aplicativo
 
-tooconfigure **com base em senha de logon único** para um aplicativo usando **captura automática campo entrar**, siga as etapas de saudação abaixo:
+Configurar **Logon único baseado em senha** para um aplicativo usando **captura automática do campo de entrada**, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione aplicativo hello deseja tooconfigure-logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Modo de seleção Olá **com base em senha de logon.**
+8.  Selecione o modo **Logon baseado em senha.**
 
-9.  Digite hello **URL de logon**. Isso é Olá URL onde os usuários digitarão seu nome de usuário e senha toosign em para. **Certifique-se de campos de entrada hello são visíveis na URL Olá você fornecer**.
+9.  Insira a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique em Olá **salvar** botão.
+10. Clique no botão **Salvar** .
 
-11. Depois de você fazer isso, podemos será arranhar automaticamente essa URL para um nome de usuário e senha caixa de entrada e permitem que você toouse AD do Azure toosecurely transmitir aplicativos de toothat senhas usando a extensão de navegador do painel de acesso de saudação.
+11. Depois de fazer isso, vamos extrair automaticamente essa URL para uma caixa de entrada de nome de usuário e de senha e permitir que você use o Azure AD para transmitir com segurança as senhas para o aplicativo usando a extensão de navegador de painel de acesso.
 
-## <a name="how-toomanually-capture-sign-in-fields-for-an-application"></a>Como toomanually capturar campos de entrada para um aplicativo
+## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Como capturar manualmente campos de entrada para um aplicativo
 
-toomanually captura campos de entrada, primeiro você deve ter extensão de navegador do painel de acesso Olá instalado e **não esteja em execução em modo privado, inPrivate ou incognito.** extensão de navegador tooinstall hello, siga etapas Olá Olá [como tooinstall Olá extensão de navegador do painel de acesso](#i-cannot-manually-detect-sign-in-fields-for-my-application) seção.
+Para capturar manualmente os campos de entrada, você deve primeiramente ter a extensão de navegador do painel de acesso instalada e **não estar sendo executado no modo inPrivate, incógnito ou privado.** Para instalar a extensão do navegador, siga as etapas na seção [Como instalar a extensão de navegador do painel de acesso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
-tooconfigure **com base em senha de logon único** para um aplicativo usando **captura do campo de entrada manual**, siga as etapas de saudação abaixo:
+Para configurar **Logon único baseado em senha** para um aplicativo usando **captura manual do campo de entrada**, siga as etapas abaixo:
 
-1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
 
-2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione aplicativo hello deseja tooconfigure-logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Modo de seleção Olá **com base em senha de logon.**
+8.  Selecione o modo **Logon baseado em senha.**
 
-9.  Digite hello **URL de logon**. Isso é Olá URL onde os usuários digitarão seu nome de usuário e senha toosign em para. **Certifique-se de campos de entrada hello são visíveis na URL Olá você fornecer**.
+9.  Insira a **URL de Logon**. Esta é a URL no qual os usuários introduzem o nome de usuário e a senha para se conectarem. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique em Olá **salvar** botão.
+10. Clique no botão **Salvar** .
 
-11. Depois de você fazer isso, podemos será arranhar automaticamente essa URL para um nome de usuário e senha caixa de entrada e permitem que você toouse AD do Azure toosecurely transmitir aplicativos de toothat senhas usando a extensão de navegador do painel de acesso de saudação. No caso de Olá que isso falhar, você pode **Olá entrar no modo toouse campo de entrada manual captura de alteração** continuando toostep 12.
+11. Depois de fazer isso, vamos extrair automaticamente essa URL para uma caixa de entrada de nome de usuário e de senha e permitir que você use o Azure AD para transmitir com segurança as senhas para o aplicativo usando a extensão de navegador de painel de acesso. No caso em que isso falhar, você pode **alterar o modo de entrada para usar a captura manual do campo de entrada** continuando para a etapa 12.
 
 12. clique em **Configurar &lt;appname&gt; configurações de logon único com senha**.
 
-13. Selecione Olá **detectar manualmente os campos de entrada** opção de configuração.
+13. Selecione a opção de configuração **Detectar manualmente os campos de entrada**.
 
 14. Clique em **OK**.
 
 15. Clique em **Salvar**.
 
-16. Execute Olá na tela instruções toouse Olá painel de acesso.
+16. Siga as instruções na tela para usar o painel de acesso.
 
 ## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Vejo o erro "Não foi possível encontrar os campos de entrada nessa URL"
 
-Você vê este erro quando a detecção automática de campos de entrada falha. tooresolve esse problema, tente detecção de campo de entrada manual por Olá seguindo as etapas em Olá [como toomanually capturar campos de entrada para um aplicativo](#how-to-manually-capture-sign-in-fields-for-an-application) seção.
+Você vê este erro quando a detecção automática de campos de entrada falha. Para resolver esse problema, tente detecção de campo de entrada manual, seguindo as etapas na seção [Como capturar manualmente os campos de entrada para um aplicativo](#how-to-manually-capture-sign-in-fields-for-an-application).
 
-## <a name="i-see-an-unable-toosave-single-sign-on-configuration-error"></a>Consulte o erro "não é possível toosave Single Sign-on configuração"
+## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Vejo um erro de "não é possível salvar a configuração de logon único"
 
-Em alguns casos raros, a configuração de logon único Olá a atualização pode falhar. tooresolve esse tente salvar Olá única configuração de logon novamente.
+Em alguns casos raros, atualizar a configuração de logon único pode falhar. Para resolver isso, tente salvar a configuração de logon único novamente.
 
-Se isso continuar toofail consistentemente, abrir um caso de suporte e fornecer informações de saudação coletadas Olá [como detalhes de saudação toosee de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como tooget ajuda enviando tooa de detalhes de notificação engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) seções.
+Se isso continuar falhando consistentemente, abra um caso de suporte e forneça as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
 
 ## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Não posso manualmente detectar os campos de entrada para meu aplicativo
 
-Alguns dos comportamentos de saudação que podem ocorrer ao detecção manual não está funcionando:
+Alguns dos comportamentos que você pode ver quando a detecção manual não está funcionando incluem:
 
--   processo de captura manual Olá apareceu toowork, mas campos Olá capturados não estavam corretos
+-   O processo de captura manual pareceu funcionar, mas os campos capturados não estavam corretos
 
--   Olá direita campos não destacados ao executar o processo de captura Olá
+-   Os campos à direita não são destacados ao executar o processo de captura
 
--   o processo de captura Olá leva-me a página de logon do aplicativo toohello conforme o esperado, mas nada acontece
+-   O processo de captura me leva à página de logon do aplicativo conforme o esperado, mas nada acontece
 
--   Captura manual aparece toowork, mas SSO não acontece quando os usuários navegam toohello aplicativo hello painel de acesso.
+-   Captura manual parece funcionar, mas SSO não acontece quando meus usuários navegam para o aplicativo de painel de acesso.
 
-Se você encontrar qualquer um desses problemas, verifique o seguinte de saudação:
+Verifique se você encontra algum desses problemas:
 
--   Verifique se você tem a versão mais recente de saudação da extensão de navegador do painel de acesso Olá **instalado** e **habilitado** , seguindo as etapas de Olá Olá [como tooinstall Olá navegador do painel de acesso extensão](#how-to-install-the-access-panel-browser-extension) seção.
+-   Verifique se você tem a versão mais recente da extensão de navegador do painel de acesso **instalada** e **habilitada**, seguindo as etapas na seção [Como instalar a extensão de navegador do painel de acesso](#how-to-install-the-access-panel-browser-extension).
 
--   Certifique-se de que você está tentando não o processo de captura Olá ao seu navegador **modo privado, inPrivate ou incognito**. Não há suporte para a extensão do painel de acesso Olá nesses modos.
+-   Certifique-se de que você não está tentando o processo de captura ao seu navegador em **modo incógnito, inPrivate ou privado**. Não há suporte para a extensão do painel de acesso nesses modos.
 
--   Certifique-se de que os usuários não estão tentando toosign no aplicativo toohello do painel de acesso Olá ao mesmo tempo em **modo privado, inPrivate ou incognito**. Não há suporte para a extensão do painel de acesso Olá nesses modos.
+-   Certifique-se de que os usuários não estão tentando entrar no aplicativo usando o painel de acesso no **modo incógnita, inPrivate ou privado**. Não há suporte para a extensão do painel de acesso nesses modos.
 
--   Repita o processo de captura manual hello, garantindo marcadores Olá vermelho sobre campos corretos de saudação.
+-   Tente o processo de captura manual novamente, garantindo que os marcadores vermelhos estão sobre os campos corretos.
 
--   Se o processo de captura manual Olá parece toohang, ou na página de entrada hello não faz nada (caso 3 acima), tente Olá captura manual processo novamente. Mas, desta vez depois de concluir o processo hello, pressione Olá **F12** botão tooopen console do desenvolvedor do navegador. Uma vez aberto, Olá **console** e tipo **window.location= "&lt;digite Olá logon na url que você especificou ao configurar o aplicativo hello&gt;"** e, em seguida, pressione  **Digite**. Essa força uma página redirecionar que terminar o processo de captura hello e armazenar os campos de saudação que foram capturados.
+-   Se o processo de captura manual parece parar de responder, ou na página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt; insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento da página que termina o processo de captura e armazena os campos que foram capturados.
 
-Se nenhuma dessas abordagens funcionar para você, podemos ajudar. Abrir um caso de suporte com detalhes de saudação do que você tentou, bem como informações de saudação coletadas Olá [como detalhes de saudação toosee de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como tooget ajuda enviando detalhes de notificação tooa suporte engenheiro](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) seções (se aplicável).
+Se nenhuma dessas abordagens funcionar para você, podemos ajudar. Abra um caso de suporte com os detalhes de que você tentou, bem como as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se aplicável).
 
-## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Como tooinstall Olá extensão de navegador do painel de acesso
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
-Olá tooinstall extensão de navegador do painel de acesso, execute as etapas de saudação abaixo:
+Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
 
-1.  Olá abrir [painel de acesso](https://myapps.microsoft.com) em um dos navegadores Olá com suporte e entre como um **usuário** no AD do Azure.
+1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  Clique em uma **aplicativo SSO de senha** no painel de acesso de saudação.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
-3.  Olá prompt perguntando tooinstall Olá software, selecione **instalar agora**.
+3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
-4.  Com base em seu navegador é direcionado toohello link para download. **Adicionar** navegador de tooyour Olá extensão.
+4.  Com base no seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
 
-5.  Se seu navegador solicita, selecione tooeither **habilitar** ou **permitir** Olá extensão.
+5.  Se o navegador solicitar, selecione como **Habilitar** ou **Permitir** a extensão.
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar painel de acesso de saudação e veja se é possível **iniciar** seus aplicativos de SSO de senha.
+7.  Entrar no Painel de Acesso e ver se é possível **iniciar** os aplicativos de SSO de senha.
 
-Você também pode baixar a extensão Olá para Chrome e Firefox de links diretos da saudação abaixo:
+Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-toosee-hello-details-of-a-portal-notification"></a>Como detalhes de saudação toosee de uma notificação de portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 
-Você pode ver os detalhes de saudação de qualquer notificação de portal, seguindo as etapas de saudação abaixo:
+Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Clique em Olá **notificações** ícone (bell Olá) no canto superior direito de saudação do hello Portal do Azure
+1.  Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
 
-2.  Selecione qualquer notificação em um **erro** estado (aquelas com um toothem de Avançar vermelho (!)).
+2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
   >!NOTA] Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
   >
   >
 
-3.  Este Olá abrir **detalhes da notificação** folha.
+3.  Isso abre a folha **Detalhes da Notificação**.
 
-4.  Use essas informações por conta própria toounderstand mais detalhes sobre o problema de saudação.
+4.  Use essas informações para saber mais detalhes sobre o problema.
 
-5.  Se você ainda precisar de Ajuda, você também pode compartilhar essas informações com um suporte engenheiro ou hello grupo tooget Ajuda do produto com o problema.
+5.  Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique em Olá **cópia** **ícone** toohello direito da saudação **copiar erro** textbox toocopy todos os Olá tooshare de detalhes de notificação com um engenheiro de suporte ou produto de grupo.
+6.  Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
-## <a name="how-tooget-help-by-sending-notification-details-tooa-support-engineer"></a>Como ajudar a tooget enviando o engenheiro de suporte de tooa de detalhes de notificação
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
-É muito importante que você compartilhe **todos os detalhes abaixo de Olá** com um engenheiro de suporte se você precisar de Ajuda, para que eles podem ajudá-lo rapidamente. Você pode fazer isso facilmente por **tirar uma captura de tela,** ou clicando Olá **ícone de erro de cópia**, encontrado toohello direito da saudação **copiar erro** caixa de texto.
+É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Faça isso facilmente **tirando uma captura de tela** ou clicando no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
 
 ## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
-Olá abaixo explica mais que cada um dos itens de notificação Olá significa e fornece exemplos de cada um deles.
+Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – Olá título descritivo da notificação de saudação
+-   **Título** – o título descritivo da notificação
 
     -   Exemplo – **Configurações do proxy do aplicativo**
 
--   **Descrição** – Olá descrição do que ocorreu como resultado da operação de saudação
+-   **Descrição** – a descrição do que ocorreu como resultado da operação
 
     -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
--   **Id de notificação** – a id exclusiva Olá da notificação de saudação
+-   **ID da Notificação** – a ID exclusiva da notificação
 
     -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Id de solicitação do cliente** – id de solicitação específica de saudação feita pelo seu navegador
+-   **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
 
     -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Hora UTC de carimbo de data /** – Olá timestamp durante o qual ocorreu notificação hello, em UTC
+-   **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
 
     -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **Id de transação interna** – Olá ID interna, podemos usar erro de saudação toolook em nossos sistemas
+-   **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
 
     -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – usuário Olá que realizou a operação de saudação
+-   **UPN** – o usuário que realizou a operação
 
     -   Exemplo – **tperkins@f128.info**
 
--   **Id do locatário** – ID exclusiva de saudação do locatário Olá Olá usuário que realizou a operação de saudação era um membro de
+-   **Id do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
     -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Id do objeto de usuário** – Olá ID exclusiva do usuário Olá que realizou a operação de saudação
+-   **Id de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
 
     -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
--   **Nome de exibição** – **(pode estar vazia)** um nome para exibição mais detalhado para o erro Olá
+-   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
     -   Exemplo *– **Configurações do proxy do aplicativo**
 
--   **Status** – Olá status específicos de notificação de saudação
+-   **Status** – o status específico da notificação
 
     -   Exemplo – **Falha**
 
--   **Id de objeto** – **(pode estar vazia)** Olá ID de objeto em relação a quais Olá a operação foi executada
+-   **Id do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalhes** – Olá descrição detalhada do que ocorreu como resultado da operação de saudação
+-   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
     -   Exemplo – **A URL interna 'http://bing.com/' é inválida, uma vez que está sendo utilizada**
 
--   **Erro de cópia** – clique Olá **ícone para copiar** toohello direito da saudação **copiar erro** textbox toocopy todos os Olá tooshare de detalhes de notificação com um engenheiro de suporte ou produto de grupo
+-   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 
     -   Exemplo – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer aplicativos de tooyour de logon único com o Proxy de aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

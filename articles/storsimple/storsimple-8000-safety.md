@@ -1,6 +1,6 @@
 ---
-title: aaaSafety para seu dispositivo StorSimple | Microsoft Docs
-description: "Descreve considerações, diretrizes e convenções de segurança e explica como toosafely instalar e operar o seu dispositivo StorSimple."
+title: "Segurança para seu dispositivo StorSimple | Microsoft Docs"
+description: "Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 68523216beab75e2b1f78c3cca23f149f5879dae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
 ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
 
-Ler todas as informações de integridade neste artigo aplica-se o dispositivo do Microsoft Azure StorSimple tooyour e segurança de saudação. Mantenha que todos Olá guias impressos fornecidos com o dispositivo StorSimple para referência futura. Instruções de toofollow falha e corretamente configurado, usar e cuidado para este produto pode aumentar o risco de saudação de lesões graves ou morte, ou danos toohello dispositivo ou os dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
+Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
 
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
-Aqui estão os ícones de saudação que você encontrará ao revisar toobe de precauções de segurança Olá observada ao configurar e executar seu dispositivo StorSimple do Microsoft Azure.
+Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
 | ícone | Descrição |
 |:--- |:--- |
-| ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Esta palavra é toobe limitado a situações mais extremas toohello. |
+| ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
@@ -44,87 +44,87 @@ Aqui estão os ícones de saudação que você encontrará ao revisar toobe de p
 ## <a name="handling-precautions"></a>Precauções de manuseio
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **AVISO!** 
 
-tooreduce o risco de saudação de lesões:
+Para reduzir o risco de lesões:
 
-* Um compartimento completamente configurado pode pesar backup too32 kg (70 lbs); Não tente toolift-lo sozinho.
-* Antes de mover compartimento de hello, sempre verifique se duas pessoas são peso de saudação toohandle disponíveis. Lembre-se que uma pessoa tentar toolift esse peso sozinho pode ocasionar lesões.
-* Não Levante o compartimento de saudação por identificadores Olá Olá Power módulos e resfriamento (PCMs) que o localizado na traseira de saudação da unidade de saudação. Eles não são projetados de peso de saudação tootake.
+* Um gabinete completamente configurado pode pesar até 32 kg (70 lbs); não tente erguê-lo por conta própria.
+* Antes de mover o compartimento, certifique-se sempre de que duas pessoas estejam disponíveis para dar suporte ao peso. Esteja ciente que uma pessoa que tente erguer esse peso sozinha pode sofrer lesões.
+* Não erga o compartimento pelas alças nos PCMs (Módulos de Energia e Resfriamento) localizados na parte traseira da unidade. Eles não se destinam para aguentar esse peso.
 
 ## <a name="connection-precautions"></a>Precauções de conexão
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
 
-probabilidade de saudação do tooreduce de lesões, choques elétricos ou morte:
+Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
 * Quando alimentado por várias fontes de CA, desconecte todas as fontes de energia para um isolamento completo.
-* Desconecte permanentemente a unidade de saudação antes de movê-la ou se você acha que seja danificado de alguma forma.
-* Forneça que uma fonte de alimentação de toohello de conexão de aterramento segura os cabos. Verifica se o aterramento de saudação do compartimento de saudação atende aos requisitos de locais e nacionais Olá antes da aplicação de energia.
-* Certifique-se de que conexão de alimentação Olá sempre está desconectada toohello anterior de remoção de um PCM de compartimento de saudação.
-* Considerando que o plugue no cabo da fonte de alimentação Olá Olá é hello principal Desconecte o dispositivo, verifique se tomadas de soquete Olá ficam localizadas perto equipamento Olá e podem ser facilmente acessadas.
+* Desconecte permanentemente a unidade antes de movê-la ou se achar que ela foi danificada de alguma forma.
+* Forneça uma conexão terra elétrica segura para os cabos de alimentação. Verifique se o aterramento do compartimento cumpre os requisitos locais e nacionais antes de ligar a energia.
+* Certifique-se de que a conexão de energia esteja sempre desconectada antes de remover um PCM do compartimento.
+* Considerando que o plugue no cabo de alimentação é o dispositivo de desconexão principal, verifique se as saídas de soquete localizadas perto do equipamento e são de fácil acesso.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
 
-probabilidade de saudação do tooreduce de superaquecimento ou incêndio de conexões elétricas hello:
+Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétricas:
 
-* Forneça uma fonte de alimentação adequada com toomeet de proteção contra sobrecarga elétrica requisitos de saudação detalhados na especificação técnica da saudação.
+* Forneça uma fonte de energia adequada com a proteção contra sobrecarga elétrica para atender aos requisitos detalhados nas especificações técnicas.
 * Não use cabos de alimentação bifurcados (conectores em "Y").
-* toocomply com segurança, emissões e requisitos térmicos, nenhuma proteção deve ser removida e todos os compartimentos devem ser preenchidos com módulos de plug-in ou espaços em branco da unidade.
-* Certifique-se de que equipamento Olá é usado da maneira especificada pelo fabricante de saudação. Se esse equipamento for usado em uma forma não especificada pelo fabricante hello, proteção de saudação fornecida pelo equipamento Olá pode ser prejudicada.
+* Para atender aos requisitos térmicos, de emissão e de segurança aplicáveis, nenhuma tampa deverá ser removida e todos os compartimentos devem ser preenchidos com ou módulos plug-in ou unidades em branco.
+* Certifique-se de que o equipamento seja usado da maneira especificada pelo fabricante. Se este equipamento for usado de maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser afetada.
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Para a operação correta de danos ao seu produto equipamentos e tooprevent hello:
+Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
-* portas RJ45 de saudação em Olá parte posterior do dispositivo de saudação são para uma conexão Ethernet apenas. Eles não devem ser rede de telecomunicações tooa conectado.
-* Ser dispositivo de saudação tooinstall-se em um rack que pode acomodar um design de resfriamento de frente para trás.
-* Todos os módulos e placas vazias são parte do compartimento do sistema hello. Eles devem ser removidos somente caso um substituto possa ser adicionado imediatamente. sistema de saudação não deve ser executado sem todos os módulos ou espaços em branco em vigor.
+* As portas RJ45 na parte posterior do dispositivo servem somente para conexão Ethernet. Elas não devem estar conectadas a uma rede de telecomunicações.
+* Instale o dispositivo em um rack que possa acomodar um design de resfriamento de frente para trás.
+* Todos os módulos de plug-in e placas em branco fazem parte do compartimento do sistema. Eles devem ser removidos somente caso um substituto possa ser adicionado imediatamente. O sistema não deve ser executado sem todos os módulos ou módulos em branco no devido lugar.
 
 ## <a name="rack-system-precautions"></a>Precauções do sistema de rack
-Olá seguintes requisitos de segurança devem ser considerados ao montar o dispositivo de saudação em um gabinete de rack.
+Os seguintes requisitos de segurança devem ser considerados ao montar o dispositivo em um gabinete de rack.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **AVISO!**
 
-probabilidade de saudação tooreduce de lesões ocasionadas por uma dica sobre:
+Para reduzir a probabilidade de lesões causadas por tombamento:
 
-* design do rack Olá deve suportar o peso total de Olá de compartimentos Olá instalado e deve incorporar estabilização recursos tooprevent adequado Olá para rack caia ou seja derrubado durante a instalação ou uso normal.
-* Ao carregar um rack, preencha rack Olá de baixo Olá para cima e vazias a partir de cima para baixo hello.
-* Não retire mais de um compartimento rack Olá no tempo tooavoid Olá em risco de queda do rack de saudação.
+* O design de rack deve dar suporte ao peso total dos compartimentos instalados e deve incorporar recursos de estabilização adequados para impedir que o rack tombe ou deslize durante a instalação ou uso normal.
+* Ao montar um rack, preencha-o de baixo para cima e esvazie-o de cima para baixo.
+* Não retire mais de um gabinete do rack por vez para evitar o risco de o rack tombar.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
 
-probabilidade de saudação do tooreduce de lesões, choques elétricos ou morte:
+Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
-* rack Olá deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção contra sobretensão para o compartimento hello e não deve ser sobrecarregado pelo número total de saudação de compartimentos instalados. classificação de consumo de energia elétrica Olá mostrada na placa de identificação de saudação deve ser observada.
-* sistema de distribuição elétrica Olá deve fornecer um aterramento confiável para cada compartimento no rack hello.
-* design de saudação do sistema de distribuição elétrica Olá deve levar em de fuga consideração saudação à Terra atual de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. Olá rack pode exigir um rótulo com "corrente de FUGA alta. O aterramento é essencial para conectar a alimentação."
-* rack de Hello, quando configurado com compartimentos hello, deve atender aos requisitos de segurança Olá UL 60950-1 e IEC 60950-1/EN 60950-1.
+* O rack deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção contra sobrecarga para o compartimento e não deve ser sobrecarregado pelo número total de compartimentos instalados. A classificação de consumo de energia elétrica mostrada na placa deve ser observada.
+* O sistema de distribuição elétrica deve fornecer aterramento confiável para cada compartimento no rack.
+* O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rótulos como "CORRENTE DE ALTA PERDA. O aterramento é essencial para conectar a alimentação."
+* O rack, quando configurado com os compartimentos deve atender aos requisitos de segurança UL 60950-1 e IEC 60950-1/EN 60950-1.
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Para Olá resfriamento do seu sistema de rack apropriado:
+Para o resfriamento correto do seu sistema de rack:
 
-* Certifique-se de que o design do rack Olá leva em consideração Olá máximo do compartimento temperatura ambiente de 35 ° c (95 ° f).
-* Olá sistema é operado com baixa pressão de instalação de exaustão traseira (pressão traseira criada por portas do rack e obstáculos não tooexceed 5 Pascais [medidor de água de 0,5 mm]).
+* Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F).
+* O sistema é operado com instalação de exaustor traseiro de baixa pressão (a pressão traseira criada pelas portas e obstáculos do rack não excedem 5 Pascal [0,5 mm no medidor de água]).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauções do PCM (Módulo de Resfriamento de Energia)
-dispositivo de saudação é projetado toooperate com dois PCMs. Cada um dos PCMs Olá tem uma fonte de alimentação e um ventilador de eixo duplo. Durante uma condição crítica, Olá sistema permite uma falha de uma fonte de alimentação ao continuar as operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Portanto, falha de saudação do mesmo um PCM pode resultar em tempo de inatividade ou possível perda de dados.
+Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma fonte de energia e uma ventoinha de dois eixos. Durante uma condição crítica, o sistema dá suporte à falha de uma fonte de alimentação e continua com suas operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Por isso, a falha de um dos PCMs pode resultar em tempo de inatividade ou possível perda de dados.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
 
-probabilidade de saudação do tooreduce de lesões, choques elétricos ou morte:
+Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
-* Não remova abrange Olá Olá PCM. Há risco de choque elétrico no interior. tooreturn Olá PCM e obter uma substituição, [entre em contato com o Microsoft Support](storsimple-contact-microsoft-support.md).
+* Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Para a operação correta de danos ao seu produto equipamentos e tooprevent hello:
+Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
-* Você deve substituir Olá falha PCM dentro de 24 horas. Depois que um PCM é removido para substituição, a substituição de saudação deve ser concluída em 10 minutos após a remoção.
-* Não remova um PCM a menos que um substituto possa ser instalado imediatamente. compartimento de saudação não deve ser operado sem todos os módulos em vigor.
+* Você deve substituir o PCM com falha dentro de 24 horas. Após a remoção de um PCM para substituição, ela deve ser concluída dentro de 10 minutos após a remoção.
+* Não remova um PCM a menos que um substituto possa ser instalado imediatamente. O compartimento não deve ser operado sem todos os módulos no lugar.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Precauções contra ESD (descarga elétrica)
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Observe Olá seguintes precauções relacionadas á ESD.
+Observe as seguintes precauções relacionada a ESD.
 
 * Instale e confira o funcionamento de uma pulseira ou tornozeleira antiestática adequada.
 * Observe todas as precauções contra ESD convencionais ao manusear os módulos e componentes.
@@ -132,23 +132,23 @@ Observe Olá seguintes precauções relacionadas á ESD.
 * Danos de ESD não são cobertos pela garantia.
 
 ## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
-fonte de alimentação Olá usa um conteúdo de saudação tooprotect bateria especial da memória durante interrupções elétricas temporárias ou curtas. Olá bateria está localizada em Olá PCM. Lembre-Olá informações em mente sobre bateria Olá a seguir.
+A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!**
 
-tooreduce o risco de saudação do shorts, incêndio, explosão, lesões ou morte:
+Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 * Descarte as baterias usadas de acordo com as regulamentações nacionais/regionais.
-* Não desmonte, amasse, aqueça acima de 60 °C (140 °F) ou incinere a bateria. Substitua a bateria do PCM Olá com uma bateria fornecida apenas. Usar outra bateria pode apresentar risco de incêndio ou explosão.
-* Use tampas de proteção baterias Olá se elas forem removidas da fonte de alimentação hello.
+* Não desmonte, amasse, aqueça acima de 60 °C (140 °F) ou incinere a bateria. Substitua a bateria do PCM apenas por uma bateria fornecida. Usar outra bateria pode apresentar risco de incêndio ou explosão.
+* Use tampas protetoras nas baterias se elas forem removidas da fonte de alimentação.
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Quando enviar ou transportar as baterias de saudação aérea, depois de documento de guia de baterias de lítio IATA Olá disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar as baterias por via aérea, siga o documento de Diretrizes de Bateria de Lítio IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-Depois de revisar esses avisos de segurança, o hello próximas etapas são toounpack, rack e o cabeamento do dispositivo.
+Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para um dispositivo 8100, vá muito[instalar seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
-* Para um dispositivo 8600 ir muito[instalar seu dispositivo 8600 StorSimple](storsimple-8600-hardware-installation.md).
+* Para um dispositivo 8100, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
+* Para um dispositivo 8600, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 

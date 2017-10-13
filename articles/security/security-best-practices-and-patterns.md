@@ -1,6 +1,6 @@
 ---
-title: "segurança aaaAzure práticas recomendadas e padrões | Microsoft Docs"
-description: "artigo Olá fornece uma introdução sobre práticas recomendadas de segurança do Azure e padrões e uma lista de curadoria de práticas recomendadas de segurança para diferentes recursos do Azure."
+title: "Padrões e práticas recomendadas de segurança do Azure | Microsoft Docs"
+description: "O artigo fornece uma introdução sobre padrões e práticas recomendadas de segurança do Azure e uma lista selecionada de práticas recomendadas de segurança para diferentes recursos do Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-ms.openlocfilehash: eaaa9457faa1d5906275eb1fd8988d4d4aad101a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Padrões e práticas recomendadas de segurança do Azure
-No momento, temos Olá seguintes artigos padrões e práticas recomendados do segurança do Azure. Tornar toovisit-se de que este site toosee atualiza periodicamente a lista crescente tooour dos padrões e práticas recomendadas de segurança do Azure:  
+No momento, temos os artigos de padrões e práticas recomendadas de segurança do Azure a seguir. Não deixe de visitar este site periodicamente para ver as atualizações para nossa lista crescente de padrões e práticas recomendadas de segurança do Azure:  
 
 * [Práticas recomendadas de segurança de rede do Azure](azure-security-network-security-best-practices.md)
 * [Práticas recomendadas de segurança de dados e criptografia do Azure](azure-security-data-encryption-best-practices.md)
@@ -32,18 +32,18 @@ No momento, temos Olá seguintes artigos padrões e práticas recomendados do se
 * [Implementar uma arquitetura de rede híbrida segura no Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [Melhores Práticas de PaaS do Azure] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
-O Azure fornece uma plataforma segura na qual você pode criar suas soluções. Nós também fornecemos serviços e tecnologias toomake suas soluções no Azure mais seguro. Devido a saudação muitos tooyou disponíveis de opções, muitos de vocês têm pronunciado interesse em que a Microsoft recomenda como melhores práticas e padrões para aprimorar a segurança.
+O Azure fornece uma plataforma segura na qual você pode criar suas soluções. Também fornecemos serviços e tecnologias para tornar as suas soluções no Azure mais seguras. Devido às muitas opções disponíveis, muitos de vocês expressaram interesse no que a Microsoft aconselha como práticas recomendadas e padrões para aprimorar a segurança.
 
-Vamos entender seu interesse e criou uma coleção de documentos que descrevem as coisas que você pode fazer, determinado contexto certo hello, segurança de saudação tooimprove das implantações do Azure.
+Compreendemos seu interesse e criamos uma coleção de documentos que descrevem o que você pode fazer, levando em conta o contexto certo, para melhorar a segurança de implantações do Azure.
 
-Nesses artigos sobre práticas recomendadas e padrões, discutimos uma coleção de práticas recomendadas e padrões úteis para tópicos específicos. Esses padrões e práticas recomendadas são derivados de nossas experiências com essas tecnologias e experiências de saudação de clientes, como por conta própria.
+Nesses artigos sobre práticas recomendadas e padrões, discutimos uma coleção de práticas recomendadas e padrões úteis para tópicos específicos. Essas práticas recomendadas e padrões derivam das nossas experiências com essas tecnologias e da experiência de clientes como você.
 
-Para cada prática recomendada buscamos tooexplain:
+Para cada prática recomendada, buscamos explicar:
 
-* A prática recomendada que Olá é
-* Por que você deseja tooenable essa prática recomendada
-* O que pode ser resultado de saudação se você não a prática recomendada de saudação tooenable
-* Prática recomendada de toohello possíveis alternativas
-* Como você pode aprender a prática recomendada de saudação tooenable
+* O que é a prática recomendada
+* Por que é ideal habilitar essa prática recomendada
+* O que poderá acontecer se você não habilitar a prática recomendada
+* Possíveis alternativas à prática recomendada
+* Como você pode aprender a habilitar a prática recomendada
 
-Estamos ansiosos tooincluding muitos artigos mais sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver que você gostaria de tópicos tooinclude, nos informar na área de discussão Olá na parte inferior da saudação desta página.
+Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.

@@ -1,6 +1,6 @@
 ---
-title: aaaList das imagens de VM do Oracle no Azure | Microsoft Docs
-description: "Obter lista de Olá de imagens da Oracle em Olá Galeria do Azure e aprenda como toocreate uma máquina virtual de Oracle."
+title: Lista de imagens de VM Oracle no Azure | Microsoft Docs
+description: "Obtenha a lista de imagens da Oracle na Galeria do Azure e aprenda a criar uma máquina virtual Oracle."
 services: virtual-machines-linux
 documentationcenter: 
 author: rickstercdn
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c44bd8e92699d573385705908e8b2e7283b9ec1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 93c8f64ef3561d0fee704940f164f86a032deda9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="list-of-oracle-virtual-machine-images-for-linux"></a>Lista de imagens de máquinas virtuais Oracle para Linux 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]

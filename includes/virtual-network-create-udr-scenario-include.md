@@ -1,14 +1,14 @@
 ## <a name="scenario"></a>Cenário
-toobetter ilustram como toocreate UDRs, este documento usará cenário de saudação abaixo.
+Para ilustrar melhor como criar UDRs, este documento usará o cenário abaixo.
 
 ![DESCRIÇÃO DA IMAGEM](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-Nesse cenário, você criará um UDR para Olá *sub-rede do Front end* e outro UDR para Olá *subrede Back end* , conforme descrito abaixo: 
+Neste cenário, você criará um UDR para a *Sub-rede de front-end* e outro UDR para a *Sub-rede de back-end*, como descrito abaixo: 
 
-* **UDR-FrontEnd**. Olá front-end UDR será aplicado toohello *front-end* sub-rede e conter uma rota:    
-  * **RouteToBackend**. Essa rota enviará todos os tráfego toohello back-end subrede toohello **FW1** máquina virtual.
-* **UDR-BackEnd**. back-end de saudação UDR será aplicado toohello *back-end* sub-rede e conter uma rota:    
-  * **RouteToFrontend**. Essa rota enviará todos os tráfego toohello front-end subrede toohello **FW1** máquina virtual.
+* **UDR-FrontEnd**. O UDR de front-end será aplicado à sub-rede *FrontEnd* e contém uma rota:    
+  * **RouteToBackend**. Essa rota enviará todo o tráfego à sub-rede de back-end para a máquina virtual **FW1** .
+* **UDR-BackEnd**. O UDR de back-end será aplicado à sub-rede *BackEnd* e contém uma rota:    
+  * **RouteToFrontend**. Essa rota enviará todo o tráfego à sub-rede de front-end para a máquina virtual **FW1** .
 
-combinação de saudação dessas rotas garantirá que todo o tráfego destinado a partir de um tooanother de sub-rede será roteado toohello **FW1** máquina virtual, que está sendo usada como um dispositivo virtual. Você também precisa tooturn no encaminhamento IP para a VM, tooensure pode receber o tráfego destinado tooother VMs.
+A combinação dessas rotas garantirá que todo o tráfego destinado de uma sub-rede a outra será roteado para a máquina virtual **FW1** , que está sendo usada como um dispositivo virtual. Você também precisa ativar o encaminhamento IP para essa VM para garantir que ela possa receber o tráfego destinado a outras VMs.
 

@@ -1,6 +1,6 @@
 ---
-title: "Painel de serviço do Gerenciador de aaaStorSimple | Microsoft Docs"
-description: "Descreve o painel do serviço StorSimple Manager hello e explica como toouse-toomonitor integridade de saudação da sua solução StorSimple."
+title: "Painel do serviço do StorSimple Manager | Microsoft Docs"
+description: "Descreve o painel de serviço do StorSimple Manager e explica como usá-lo para monitorar a integridade de sua solução StorSimple."
 services: storsimple
 documentationcenter: 
 author: SharS
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.openlocfilehash: dc1197eb5deac337215b260845631a4f04be1011
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-dashboard"></a>Use o painel do serviço StorSimple Manager Olá
+# <a name="use-the-storsimple-manager-service-dashboard"></a>Use o painel de serviço do StorSimple Manager
 ## <a name="overview"></a>Visão geral
-página de painel de serviço Olá StorSimple Manager fornece um resumo de todos os dispositivos de saudação que são conectado toohello serviço StorSimple Manager, destacando aqueles que precisam de atenção do administrador do sistema. Este tutorial apresenta a página de painel hello, explica a função e o conteúdo do painel hello e descreve Olá as tarefas que você pode executar nessa página.
+A página do painel serviço do StorSimple Manager fornece uma exibição resumida de todos os dispositivos conectados ao serviço StorSimple Manager, destacando aqueles que precisam de atenção do administrador do sistema. Este tutorial apresenta a página do painel, explica seu conteúdo e função e descreve as tarefas que podem ser executadas nesta página.
 
 ![Painel de serviço](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
-painel do serviço StorSimple Manager Olá exibe Olá informações a seguir:
+O painel de serviço do StorSimple Manager exibe as seguintes informações:
 
-* Em Olá **gráfico** área, você pode ver relevante de métricas de saudação do gráfico para seus dispositivos. Você pode exibir o armazenamento primário de saudação (localmente fixados e em camadas) usado em todos os dispositivos hello, bem como o armazenamento em nuvem Olá consumidos pelos dispositivos em um período de tempo. Use controles de saudação no canto superior direito Olá Olá gráfico toospecify uma escala de tempo de 1 semana, 1 mês, 3 meses ou 1 ano.
-* Olá **visão geral de uso** mostra Olá armazenamento primário provisionado e consumido por todos os dispositivos relativos toohello armazenamento total disponível em todos os dispositivos. **Provisionado** refere-se a quantidade de toohello de armazenamento preparado e alocado para uso, enquanto **usado** refere-se toousage de volumes conforme exibido pelos iniciadores Olá dispositivos toohello conectado.
-* Olá **alertas** área fornece um instantâneo de todos os alertas ativos de saudação em todos os dispositivos de hello, agrupados pela gravidade do alerta. Clicando em nível de severidade Olá abre Olá **alertas** página, no escopo tooshow esses alertas. Em Olá **alertas** página, você pode clicar em um tooview alertas individuais mais detalhes sobre esse alerta, incluindo todas as ações recomendadas. Você também pode limpar o alerta de saudação se Olá problema foi resolvido.
-* Olá **trabalhos** área fornece um instantâneo dos trabalhos recentes em todos os dispositivos conectados tooyour serviço. Contém links que você pode usar toolook em trabalhos que estão atualmente em andamento, os que falharam em Olá últimas 24 horas, ou aqueles que estão agendados toorun em Olá próximas 24 horas.
-* Olá **visão rápida** área fornece informações úteis, como o status do serviço, o número de dispositivos conectados toohello serviço, local do serviço de saudação e detalhes da assinatura de saudação que é associado ao serviço de saudação. Também há um log de operações de toohello do link. Clique em Olá link toosee uma lista de todas as operações concluídas de serviço StorSimple Manager.
+* Na área **gráfico** , você pode ver o gráfico relevante de métricas para seus dispositivos. É possível exibir o armazenamento primário (fixo localmente e em camadas) usado em todos os dispositivos, bem como o armazenamento em nuvem consumido pelos dispositivos durante determinado período. Use os controles no canto superior direito do gráfico para especificar uma escala de tempo de 1 semana, 1 mês, 3 meses ou 1 ano.
+* A **visão geral de uso** mostra o armazenamento primário provisionado e consumido por todos os dispositivos relativos ao armazenamento total disponível em todos os dispositivos. **Provisionado** refere-se à quantidade de armazenamento que é preparado e alocado para uso, enquanto **Usado** refere-se ao uso de volumes conforme exibido pelos iniciadores conectados aos dispositivos.
+* A área de **alertas** fornece um instantâneo de todos os alertas ativos em todos os dispositivos, agrupados por gravidade do alerta. Clicar no nível de gravidade abre a página **Alertas** , projetada para mostrar os alertas. Sobre a página **Alertas** , é possível clicar em um alerta individual para exibir detalhes adicionais sobre esse alerta, incluindo todas as ações recomendadas. Você também pode limpar o alerta se o problema foi resolvido.
+* A área de **trabalhos** fornece um instantâneo dos trabalhos recentes em todos os dispositivos conectados ao seu serviço. Há links que você pode usar para examinar os trabalhos que estão atualmente em andamento, os que falharam nas últimas 24 horas ou aqueles que estão agendados para execução nas próximas 24 horas.
+* A área de **visualização rápida** fornece informações úteis como o status do serviço, o número de dispositivos conectados ao serviço, local do serviço e detalhes da assinatura que está associada ao serviço. Também há um link para o log de operações. Clique no link para ver uma lista de todas as operações de serviço concluídas do StorSimple Manager.
 
-Você pode usar o hello StorSimple Manager serviço painel página tooinitiate Olá tarefas a seguir:
+Você pode usar a página do painel serviço do StorSimple Manager para iniciar as seguintes tarefas:
 
-* Exibir ou regenerar a chave de registro do serviço de saudação.
-* Alterar chave de criptografia de dados de serviço de saudação.
-* Exibir logs de operação de saudação.
+* Exibir ou regenerar a chave de registro.
+* Alterar a chave de criptografia de dados do serviço.
+* Exibir os logs de operação.
 
-## <a name="view-or-regenerate-hello-service-registration-key"></a>Exibir ou regenerar a chave de registro de serviço Olá
-chave de registro do serviço de saudação é tooregister usado um dispositivo do Microsoft Azure StorSimple com o serviço StorSimple Manager hello, para que hello dispositivo aparece na Olá portal clássico do Azure para ações de gerenciamento adicionais. chave de saudação é criada no primeiro dispositivo de saudação e compartilhado com o restante da saudação de seus dispositivos.
+## <a name="view-or-regenerate-the-service-registration-key"></a>Exibir ou regenerar a chave de registro
+A chave de registro é usada para registrar um dispositivo Microsoft Azure StorSimple com o serviço StorSimple Manager, para que o dispositivo seja exibido no Portal clássico do Azure para ações de gerenciamento adicionais. A chave é criada no primeiro dispositivo e compartilhada com o resto dos dispositivos.
 
-Clicando em **chave de registro** (final Olá Olá página) abre Olá **chave de registro de serviço** caixa de diálogo onde você pode qualquer cópia Olá serviço Registro toohello chave de transferência atual ou regenerar a chave de registro de serviço de saudação.
+Clicar em **Chave do registro** (na parte inferior da página) abre a caixa de diálogo **Chave de registro de serviço** em que você pode copiar a chave de registro de serviço atual para a área de transferência ou regenerar a chave de registro de serviço.
 
-Regenerando chave de saudação não afeta os dispositivos registrados anteriormente: ele afeta somente os dispositivos de saudação registrados com o serviço de saudação depois Olá chave é regenerada.
+Regenerar a chave não afeta os dispositivos registrados anteriormente: afeta apenas os dispositivos registrados com o serviço depois que a chave é regenerada.
 
-Para obter mais informações sobre como exibir e gerar go chave do registro Olá serviço muito[chave de registro de serviço Get hello](storsimple-manage-service.md#get-the-service-registration-key).
+Para obter mais informações sobre como exibir e gerar a chave de registro de serviço, vá para [Obter a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key).
 
-## <a name="change-hello-service-data-encryption-key"></a>Alterar a chave de criptografia de dados de serviço Olá
-Chaves de criptografia de dados de serviço são dados confidenciais do cliente de tooencrypt usadas, como credenciais de conta de armazenamento, que são enviadas de seu dispositivo do StorSimple Manager serviço toohello StorSimple. Você precisará toochange essas chaves periodicamente se sua organização de TI tiver uma política de rotação de chaves em dispositivos de armazenamento de saudação. Olá processo de alteração de chave pode ser ligeiramente diferente dependendo se há um único ou vários dispositivos gerenciados pelo Olá serviço StorSimple Manager.
+## <a name="change-the-service-data-encryption-key"></a>Alterar a chave de criptografia de dados do serviço
+As chaves de criptografia de dados de serviço são usadas para criptografar dados confidenciais, como credenciais de conta de armazenamento, que são enviadas de seu serviço StorSimple Manager ao dispositivo StorSimple. Você precisará alterar essas chaves periodicamente se sua organização de TI tiver uma política de rotação de chave nos dispositivos de armazenamento. O processo de alteração de chave pode ser ligeiramente diferente dependendo se há um só ou vários dispositivos gerenciados pelo serviço StorSimple Manager.
 
-Alterar chave de criptografia de dados para serviço Olá é um processo de 3 etapas:
+A alteração da chave de criptografia de dados de serviço é um processo de três etapas:
 
-1. Usando Olá portal clássico do Azure, autorize uma chave de criptografia do dispositivo toochange Olá serviço dados.
-2. Usando o Windows PowerShell para StorSimple, inicie a alteração de criptografia de dados chave serviço hello.
-3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço de saudação em Olá outros dispositivos.
+1. Autorizar um dispositivo para alterar a chave de criptografia de dados de serviço no Portal clássico do Azure.
+2. Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço.
+3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço nos outros dispositivos.
 
-Olá etapas a seguir descrevem o processo de renovação de Olá para chave de criptografia de dados de serviço de saudação.
+As etapas a seguir descrevem o processo de substituição da chave de criptografia de dados de serviço.
 
 [!INCLUDE [storsimple-change-data-encryption-key](../../includes/storsimple-change-data-encryption-key.md)]
 
-## <a name="view-hello-operations-logs"></a>Exibir logs de operações de saudação
-Você pode exibir os logs de operação Olá clicando Olá link dos logs disponíveis no hello **visão rápida** painel do painel de saudação. Isso o levará toohello gerenciamento página serviços, onde você pode filtrar e ver Olá registra o serviço StorSimple Manager tooyour específico.
+## <a name="view-the-operations-logs"></a>Exibir os logs de operações
+Você pode exibir os logs de operação clicando no link de logs de operação disponível na área de **visualização rápida** do painel. Você será levado à página de serviços de gerenciamento, onde você poderá filtrar e consultar os logs específicos ao serviço do StorSimple Manager.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como muito[solucionar problemas de um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
-* Saiba mais sobre como muito[use Olá tooadminister do serviço StorSimple Manager seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Saiba como [solucionar problemas com um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
+* Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

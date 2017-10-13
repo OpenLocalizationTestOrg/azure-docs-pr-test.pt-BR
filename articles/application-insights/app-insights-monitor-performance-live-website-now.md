@@ -1,5 +1,5 @@
 ---
-title: aplicativo com o Azure Insights de aplicativo da web aaaMonitor um ASP.NET ao vivo | Microsoft Docs
+title: "Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Insights | Microsoft Docs"
 description: "Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure."
 services: application-insights
 documentationcenter: .net
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
-ms.openlocfilehash: 0d53f0a59974f40767fae681bafc4f358d1283a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d07a0c81f89100c378456bbea8dca1c009cc8d77
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
 
 
-Você pode instrumentar um aplicativo web em tempo real com informações de aplicativo do Azure, sem ter que toomodify ou reimplantar seu código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Caso de aplicativos web do Azure ou executados em uma VM do Azure, você pode alternar no monitoramento do Application Insights hello Azure no painel de controle. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
+Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Se forem aplicativos Web do Azure ou estiverem sendo executados em uma VM do Azure, ative o monitoramento do Application Insights no painel de controle do Azure. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
 
 ![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-Você tem a opção de três rotas tooapply Application Insights tooyour .NET web aplicativos:
+Você tem a opção de três rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
-* **Tempo de compilação:** [Olá adicionar SDK do Application Insights] [ greenbrown] tooyour código de aplicativo de web.
-* **Tempo de execução:** instrumentar seu aplicativo web no servidor de saudação, conforme descrito abaixo, sem recompilar e reimplantar o código de saudação.
-* **Ambos:** criar hello SDK em seu código de aplicativo web e também se aplicam a extensões de tempo de execução de saudação. Olá obter o melhor de ambas as opções.
+* **Tempo de compilação:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
+* **Tempo de execução:** instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
+* **Ambos:** crie o SDK em seu código de aplicativo Web e também aplique as extensões de tempo de execução. Obtenha o melhor de ambas as opções.
 
 Aqui está um resumo do que você tem com cada rota:
 
@@ -43,19 +43,19 @@ Aqui está um resumo do que você tem com cada rota:
 | [API de telemetria personalizada][api] |Sim |Não |
 | [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim |Não |
 | [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim |Não |
-| Código de toorebuild necessário |Sim | Não |
+| É necessário recompilar o código |Sim | Não |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorar um aplicativo da web ao vivo
 
-Se seu aplicativo é executado como um serviço de web do Azure, aqui como tooswitch no monitoramento:
+Se seu aplicativo for executado como um serviço Web do Azure, veja como ativar o monitoramento:
 
-* Selecione o Application Insights no painel de controle de saudação do aplicativo no Azure.
+* Selecione o Application Insights no painel de controle do aplicativo no Azure.
 
     ![Configurar o Application Insights para um aplicativo Web do Azure](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
-* Quando abre a página Resumo do Application Insights hello, clique o link de saudação na Olá inferior tooopen Olá completo recurso do Application Insights.
+* Quando a página de resumo do Application Insights for aberta, clique no link na parte inferior para abrir o recurso Application Insights completo.
 
-    ![Clique nas tooApplication Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
+    ![Clique até o Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitoramento de aplicativos de nuvem e a VM](app-insights-azure.md).
 
@@ -69,57 +69,57 @@ Se você tiver habilitado o Application Insights no Azure, você poderá adicion
     Chave: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
     
     Valor: `true`
-3. **Salvar** Olá configurações e **reiniciar** seu aplicativo.
+3. **Salve** as configurações e **Reinicie** seu aplicativo.
 
-Olá SDK de JavaScript do Application Insights agora é injetado em cada página da web.
+O SDK JavaScript do Application Insights agora é injetado em cada página da Web.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Monitorar um aplicativo de web IIS ao vivo
 
 Se seu aplicativo estiver hospedado em um servidor do IIS, habilite o Application Insights usando o Monitor de Status.
 
 1. No servidor Web IIS, entre com as credenciais de administrador.
-2. Se o Application Insights Status Monitor não estiver instalado, baixe e execute Olá [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648) (ou execute [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) e procure nele Application Insights Status Monitor).
-3. No Monitor de Status, selecione o aplicativo hello instalado ou o site que você deseja toomonitor. Entre com suas credenciais do Azure.
+2. Se Application Insights Status Monitor ainda não estiver instalado, baixe e execute o [instalador do Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) (ou execute o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) e procure nele o Application Insights Status Monitor).
+3. No Monitor de Status, selecione o aplicativo Web ou o site que você deseja monitorar. Entre com suas credenciais do Azure.
 
-    Configure o recurso de saudação onde você deseja que os resultados de saudação toosee no portal do Application Insights hello. (Normalmente, é melhor toocreate um novo recurso. Selecione um recurso existente se você já tiver [testes da web][availability] ou [monitoramento de cliente][client] para esse aplicativo). 
+    Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da web][availability] ou [monitoramento de cliente][client] para esse aplicativo). 
 
     ![Escolha um aplicativo e um recurso.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
 4. Reinicie o IIS.
 
-    ![Escolha reiniciar na parte superior de saudação da caixa de diálogo de saudação.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
+    ![Escolha Reiniciar na parte superior da caixa de diálogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     O serviço Web é interrompido por um período curto.
 
 ## <a name="customize-monitoring-options"></a>Personalizar opções de monitoramento
 
-A habilitação do Application Insights adiciona DLLs e Applicationinsights tooyour web app. Você pode [editar o arquivo. config de saudação](app-insights-configuration-with-applicationinsights-config.md) toochange algumas das opções de saudação.
+Habilitar o Application Insights adiciona DLLs e applicationinsights.config ao seu aplicativo Web. Você pode [editar o arquivo .config](app-insights-configuration-with-applicationinsights-config.md) para alterar algumas opções.
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>Quando você publicar novamente seu aplicativo, habilite novamente o Application Insights
 
-Antes de publicar seu aplicativo novamente, considere [adicionando o código de toohello do Application Insights no Visual Studio][greenbrown]. Você obterá mais detalhada de telemetria e telemetria personalizada de toowrite de capacidade de saudação.
+Antes de publicar novamente seu aplicativo, considere [adicionar Application Insights ao código no Visual Studio][greenbrown]. Você obterá uma telemetria mais detalhada e a capacidade de escrever telemetria personalizada.
 
-Se você quiser toore-publicar sem adicionar Application Insights toohello código, lembre-se de que o processo de implantação Olá pode excluir Olá DLLs e applicationinsights. config de saudação publicado o site da web. Portanto:
+Se você deseja publicar novamente sem adicionar Application Insights no código, lembre-se de que o processo de implantação pode excluir as DLLs e applicationinsights.config do site publicado. Portanto:
 
 1. Se você tiver editado applicationinsights.config, faça uma cópia dele antes de publicar seu aplicativo novamente.
 2. Republique seu aplicativo.
-3. Habilite novamente o monitoramento do Application Insights. (Use o método apropriado de saudação: painel de controle de aplicativo web do Azure Olá ou Olá Monitor de Status em um host IIS.)
-4. Reaplicar as edições realizadas no arquivo. config de saudação.
+3. Habilite novamente o monitoramento do Application Insights. (Use o método apropriado: o painel de controle do aplicativo Web do Azure ou o Monitor de Status em um host do IIS).
+4. Reaplique as edições realizadas no arquivo .config.
 
 
 ## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Solução de problemas de configuração de tempo de execução do Application Insights
 
 ### <a name="cant-connect-no-telemetry"></a>Não consegue se conectar? Sem telemetria?
 
-* Abra [Olá portas de saída necessário](app-insights-ip-addresses.md#outgoing-ports) no toowork de Monitor de Status de tooallow de firewall do servidor.
+* Abra [as portas de saída necessárias](app-insights-ip-addresses.md#outgoing-ports) no firewall de seu servidor para permitir o funcionamento do Status Monitor.
 
-* Abra o Monitor de Status e selecione seu aplicativo no painel esquerdo. Verifique se há mensagens de diagnóstico para este aplicativo no hello seção "Configuração de notificações":
+* Abra o Monitor de Status e selecione seu aplicativo no painel esquerdo. Verifique se há mensagens de diagnóstico para este aplicativo na seção "Configuração de notificações":
 
-  ![Abra a solicitação de toosee Olá desempenho folha, tempo de resposta, dependências e outros dados](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
-* No servidor de saudação, se você vir uma mensagem sobre "permissões insuficientes", tente seguir hello:
-  * No Gerenciador do IIS, selecione o pool de aplicativos, abra **configurações avançadas**e, em **modelo de processo** Observe identidade hello.
-  * No painel de controle de gerenciamento do computador, adicione esse grupo de usuários de Monitor de desempenho de toohello de identidade.
-* Se você tiver o MMA/SCOM (Systems Center Operations Manager) instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstalar o SCOM e o Monitor de Status e reinstale em versões mais recentes de saudação.
+  ![Abra a folha de Desempenho para ver as solicitações, tempos de resposta, dependências e outros dados](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+* No servidor, se você encontrar uma mensagem sobre "permissões insuficientes", tente fazer o seguinte:
+  * No Gerenciador do IIS, selecione o pool de aplicativos, abra **Configurações Avançadas** e no **Modelo de Processo**, anote a identidade.
+  * No painel de controle de gerenciamento do computador, adicione essa identidade ao grupo Usuários do Monitor de Desempenho.
+* Se você tiver o MMA/SCOM (Systems Center Operations Manager) instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstale o SCOM e o Monitor de Status e reinstale as versões mais recentes.
 * Consulte [Solução de problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos do Sistema
@@ -133,14 +133,14 @@ Suporte de sistema operacional para Application Insights Status Monitor no servi
 
 com o SP mais recente e o .NET Framework 4.5
 
-No lado do cliente Olá: Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
+No lado do cliente, Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
 Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 
 ## <a name="automation-with-powershell"></a>Automação com o PowerShell
 Você pode iniciar e interromper o monitoramento usando o PowerShell no servidor IIS.
 
-Primeiro importe o módulo do Application Insights hello:
+Primeiro, importe o módulo do Application Insights:
 
 `Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
 
@@ -148,28 +148,28 @@ Saiba quais aplicativos estão sendo monitorados:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
-* `-Name`Nome da saudação (opcional) de um aplicativo web.
-* Exibe Olá status de monitoramento do Application Insights para cada aplicativo web (ou Olá denominado aplicativo) neste servidor IIS.
+* `-Name` (Opcional) O nome de um aplicativo Web.
+* Exibe o status de monitoramento do Application Insights para cada aplicativo Web (ou o aplicativo nomeado) nesse servidor IIS.
 * Retorna `ApplicationInsightsApplication` para cada aplicativo:
 
-  * `SdkState==EnabledAfterDeployment`: O aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta de Monitor de Status de hello, ou por `Start-ApplicationInsightsMonitoring`.
-  * `SdkState==Disabled`: aplicativo hello não está instrumentado para o Application Insights. Ele nunca foi instrumentado, tanto o monitoramento de tempo de execução foi desabilitado com a ferramenta de Monitor de Status de saudação ou com `Stop-ApplicationInsightsMonitoring`.
-  * `SdkState==EnabledByCodeInstrumentation`: aplicativo hello foi instrumentado, adicionando o código-fonte toohello Olá SDK. Seu SDK não pode ser atualizado ou interrompido.
-  * `SdkVersion`mostra a versão de saudação em uso para este aplicativo de monitoramento.
-  * `LatestAvailableSdkVersion`mostra a versão de hello atualmente disponível na Galeria do NuGet hello. tooupgrade Olá aplicativo toothis a versão `Update-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledAfterDeployment`: o aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Monitor de Status ou pelo `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==Disabled`: o aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledByCodeInstrumentation`: o aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
+  * `SdkVersion` mostra a versão em uso para o monitoramento do aplicativo.
+  * `LatestAvailableSdkVersion`mostra a versão atualmente disponível na galeria do NuGet. Para atualizar o aplicativo para esta versão, use `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
-* `-Name`nome de saudação do aplicativo hello no IIS
-* `-InstrumentationKey`Olá ikey de saudação recurso do Application Insights onde você deseja Olá resultados toobe exibida.
+* `-Name` O nome do aplicativo no IIS
+* `-InstrumentationKey` O ikey do recurso Application Insights em que você deseja que os resultados sejam exibidos.
 * Este cmdlet afeta apenas os aplicativos que ainda não estão instrumentados - ou seja, SdkState==NotInstrumented.
 
-    Olá cmdlet não afeta um aplicativo que já está instrumentado. Não importa se o aplicativo hello foi instrumentado no momento da compilação, adicionando Olá SDK toohello código, ou em tempo de execução por um uso anterior deste cmdlet.
+    O cmdlet não afeta um aplicativo que já é instrumentado. Não importa se o aplicativo tiver sido instrumentado no momento da compilação por meio da adição do SDK ao código, ou em tempo de execução por meio de um uso anterior desse cmdlet.
 
-    Olá SDK versão usada tooinstrument Olá aplicativo é versão hello mais recentemente baixado toothis server.
+    A versão do SDK usada para instrumentar o aplicativo é a versão baixada mais recentemente para este servidor.
 
-    versão mais recente do toodownload hello, use ApplicationInsightsVersion de atualização.
-* Retorna `ApplicationInsightsApplication` se há êxito. Se ele falhar, ele registra um toostderr de rastreamento.
+    Para baixar a versão mais recente, use Update-ApplicationInsightsVersion.
+* Retorna `ApplicationInsightsApplication` se há êxito. Se ele falhar, registrará em log um rastreamento para stderr.
 
           Name                      : Default Web Site/WebApp1
           InstrumentationKey        : 00000000-0000-0000-0000-000000000000
@@ -180,22 +180,22 @@ Saiba quais aplicativos estão sendo monitorados:
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
-* `-Name`nome de saudação de um aplicativo no IIS
+* `-Name` O nome de um aplicativo no IIS
 * `-All` Para o monitoramento de todos os aplicativos desse servidor IIS para o qual `SdkState==EnabledAfterDeployment`
-* Interrompe o monitoramento Olá determinados aplicativos e remove a instrumentação. Ele só funciona para aplicativos que foram instrumentados em tempo de execução usando Olá, ferramenta de monitoramento de Status ou ApplicationInsightsApplication de início. (`SdkState==EnabledAfterDeployment`)
+* Para o monitoramento de aplicativos especificados e remove a instrumentação. Ele só funciona para aplicativos que foram instrumentados em tempo de execução usando a ferramenta Monitoramento de Status ou Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
 * Retorna ApplicationInsightsApplication.
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`: nome de saudação de um aplicativo web no IIS.
-* `-InstrumentationKey` (Opcional.) Use que este toochange Olá recurso toowhich Olá telemetria do aplicativo é enviada.
+* `-Name`: o nome de um aplicativo Web no IIS.
+* `-InstrumentationKey` (Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
-  * Olá atualizações chamado toohello do aplicativo versão do SDK do hello mais recentemente baixado toothis máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
-  * Se você fornecer uma chave de instrumentação, Olá denominado aplicativo é reconfigurado toosend telemetria toohello recursos com essa chave. (Funciona se `SdkState != Disabled`)
+  * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
+  * Se você fornecer uma chave de instrumentação, o aplicativo nomeado será reconfigurado para enviar telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)
 
 `Update-ApplicationInsightsVersion`
 
-* Faz o download do servidor de toohello do SDK do Application Insights mais recente hello.
+* Baixa o SDK mais recente do Application Insights para o servidor.
 
 ## <a name="questions"></a>Perguntas sobre o Status Monitor
 
@@ -205,35 +205,35 @@ Um aplicativo de desktop instalado no servidor web IIS. Ele ajuda você instrume
 
 ### <a name="when-do-i-use-status-monitor"></a>Quando eu devo usar o Status Monitor?
 
-* tooinstrument qualquer aplicativo da web que está em execução no servidor IIS - mesmo se ele já está em execução.
-* tooenable a telemetria adicional para aplicativos web que foram [criados com hello SDK do Application Insights](app-insights-asp-net.md) em tempo de compilação. 
+* Para instrumentar qualquer aplicativo web em execução no servidor IIS - mesmo se ele já esteja em execução.
+* Para habilitar a telemetria adicional para aplicativos web que foram [compilados com o SDK do Application Insights](app-insights-asp-net.md). 
 
 ### <a name="can-i-close-it-after-it-runs"></a>Eu posso fechá-lo depois de ser executado?
 
-Sim. Depois que ele foi instrumentado sites Olá que você selecionar, você pode fechá-lo.
+Sim. Depois dele instrumentar os sites selecionados, você pode fechá-lo.
 
-Ele não coleta telemetria por si só. Ele apenas configura os aplicativos web hello e define algumas permissões.
+Ele não coleta telemetria por si só. Ele apenas configura os aplicativos web e define algumas permissões.
 
 ### <a name="what-does-status-monitor-do"></a>O que o Status Monitor faz?
 
-Quando você seleciona um aplicativo web para o Monitor de Status tooinstrument:
+Quando você seleciona um aplicativo web para o Status Monitor para instrumentar:
 
-* Baixa e coloca os assemblies do Application Insights hello e arquivo. config na pasta de binários do aplicativo da web de saudação.
-* Modifica `web.config` módulo de controle de aplicativo Insights HTTP tooadd hello.
-* Habilita o CLR toocollect chamadas de dependência de criação de perfil.
+* Baixa e coloca os assemblies do Application Insights e o arquivo .config na pasta de binários do aplicativo web.
+* Modifica `web.config` para adicionar o módulo de rastreamento de HTTP do Application Insights.
+* Permite a criação de perfil do CLR para coletar chamadas de dependência.
 
-### <a name="do-i-need-toorun-status-monitor-whenever-i-update-hello-app"></a>É necessário o Monitor de Status de toorun sempre que atualiza o aplicativo hello?
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>É necessário executar o Status Monitor sempre que eu atualizar o aplicativo?
 
 Não ocorre se você reimplantar incrementalmente. 
 
-Se você selecionar a opção de 'Excluir os arquivos existentes' de saudação em Olá processo de publicação, você deve executar toore Status Monitor tooconfigure Application Insights.
+Se você selecionar a opção "Excluir arquivos existentes" no processo de publicação, você precisará executar novamente o Status Monitor para configurar o Application Insights.
 
 ### <a name="what-telemetry-is-collected"></a>Qual telemetria é coletada?
 
 Para aplicativos que você instrumenta apenas em tempo de execução usando o Status Monitor:
 
 * Solicitações HTTP
-* Chamadas toodependencies
+* Chamadas para dependências
 * Exceções
 * Contadores de desempenho
 
@@ -253,16 +253,16 @@ Para aplicativos já instrumentados em tempo de compilação:
 
 Exiba sua telemetria:
 
-* [Explorar as métricas](app-insights-metrics-explorer.md) toomonitor desempenho e uso
-* [Pesquisar eventos e logs de] [ diagnostic] toodiagnose problemas
+* [Explore as métricas](app-insights-metrics-explorer.md) para monitorar o desempenho e o uso
+* [Pesquise eventos e logs][diagnostic] para diagnosticar problemas
 * [Analise](app-insights-analytics.md) para obter mais consultas avançadas
 * [Crie painéis](app-insights-dashboards.md)
 
 Adicione mais telemetria:
 
-* [Criar testes da web] [ availability] toomake-se de que o site permanece ativo.
-* [Adicionar telemetria do cliente web] [ usage] toosee exceções do código de página da web e toolet inserir chamadas de rastreamento.
-* [Adicione o código do SDK do Application Insights tooyour] [ greenbrown] para que você pode inserir o rastreamento e chamadas de log
+* [Crie testes na Web][availability] para ter a certeza de que seu site continua ativo.
+* [Adicione telemetria de cliente Web][usage] para ver exceções de código de página Web e permitir que você insira rastreamento de chamadas.
+* [Adicione SDK do Application Insights ao seu código][greenbrown] para que você possa inserir o rastreamento de chamadas de log
 
 <!--Link references-->
 

@@ -1,6 +1,6 @@
 ---
-title: icenses aaaAssign para o Azure MFA | Microsoft Docs
-description: "Saiba como o usuário tooassign licenças para o Microsoft Azure multi-Factor Authentication."
+title: "Atribuir licenças para o Azure MFA | Microsoft Docs"
+description: "Saiba como atribuir as licenças do usuário para a Microsoft Azure Multi-Factor Authentication"
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -16,26 +16,26 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca324eb4d6622fdad8bd3d74b7e1595919e36535
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-toousers"></a>Atribuindo um toousers de licença MFA do Azure, Azure AD Premium ou Enterprise Mobility
-Se você tiver comprado licenças Enterprise Mobility Suite, Azure AD Premium ou Azure MFA, não é necessário toocreate um provedor de autenticação multifator. Depois de atribuir licenças Olá tooyour usuários, você pode começar a ativá-los para MFA.
+# <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Atribuindo uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility aos usuários
+Se você tiver comprado licenças do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite, não precisará criar um provedor Multi-Factor Auth. Depois de atribuir as licenças para seus usuários, você poderá começar a ativá-los para a MFA.
 
-## <a name="tooassign-a-license"></a>tooassign uma licença
-1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
-2. Olá esquerda, selecione **do Active Directory**.
-3. Na página do Active Directory Olá, clique duas vezes no diretório Olá com usuários Olá desejar tooenable.
-4. Na parte superior de saudação da página de diretório Olá, selecione **licenças**.
+## <a name="to-assign-a-license"></a>Para atribuir uma licença
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
+2. Selecione **Active Directory**à esquerda.
+3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
+4. Na parte superior da página do diretório, selecione **Licenças**.
    ![Atribuir licenças](./media/multi-factor-authentication-get-started-assign-licenses/assign1.png)
-5. Na página de licenças hello, selecione **Azure multi-Factor Authentication**, **Active Directory Premium**, ou **Enterprise Mobility Suite**.  Se você tiver apenas uma, então, ela deverá ser selecionada automaticamente.
-6. Final Olá Olá página, clique em **atribuir**.
+5. Na página de licenças, selecione **Autenticação Multifator do Azure**, **Active Directory Premium** ou **Enterprise Mobility Suite**.  Se você tiver apenas uma, então, ela deverá ser selecionada automaticamente.
+6. Na parte inferior da página, clique em **Atribuir**.
    ![Atribuir licenças](./media/multi-factor-authentication-get-started-assign-licenses/assign3.png)
-7. Na caixa de saudação que aparece, clique próximo toohello usuários ou grupos que você deseja tooassign licenças para.  Você deverá ver uma marca de seleção verde aparecer.
-8. Clique em Olá marca de seleção ícone toosave Olá alterações.
+7. Na caixa que aparece, clique ao lado dos usuários ou grupos aos quais você deseja atribuir licenças.  Você deverá ver uma marca de seleção verde aparecer.
+8. Clique no ícone da marca de seleção para salvar as alterações.
    ![Atribuir licenças](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 9. Você deverá ver uma mensagem informando quantas licenças foram atribuídas e quantas podem ter falhado.  Clique em **Ok**.
    ![Atribuir licenças](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)

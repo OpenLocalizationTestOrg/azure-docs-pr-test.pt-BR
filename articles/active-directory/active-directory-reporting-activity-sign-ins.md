@@ -1,6 +1,6 @@
 ---
-title: "relatórios de atividade aaaSign no portal do Azure Active Directory Olá | Microsoft Docs"
-description: "Relatórios de atividade toosign de Introdução no portal do Azure Active Directory Olá"
+title: "Relatórios de atividade de entrada no portal do Azure Active Directory | Microsoft Docs"
+description: "Introdução aos relatórios de atividades de entrada no portal do Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,47 +15,47 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 49590d625a08d7dc189a629b89bab2261c2b4780
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="sign-in-activity-reports-in-hello-azure-active-directory-portal"></a>Relatórios de atividade de entrada no portal do Azure Active Directory Olá
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
-Com o Azure Active Directory (AD do Azure) reporting em Olá [portal do Azure](https://portal.azure.com), você pode obter informações de saudação necessário toodetermine como seu ambiente está fazendo.
+Com os relatórios do Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
-Olá arquitetura de relatórios no Active Directory do Azure consiste em Olá componentes a seguir:
+A arquitetura de relatório no Azure Active Directory consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Atividades de entrada** – informações sobre o uso de saudação de aplicativos gerenciados e atividades de entrada do usuário
+    - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
     - **Logs de auditoria** – informações de atividade do sistema sobre o gerenciamento de usuários e de grupos, sobre os aplicativos gerenciados e sobre as atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** -uma entrada arriscado é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é proprietário legítimo Olá uma conta de usuário. Para obter mais detalhes, veja Entradas de risco.
+    - **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja Entradas de risco.
     - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, consulte Usuários sinalizados para risco.
 
-Este tópico fornece uma visão geral das atividades de entrada hello.
+Este tópico fornece uma visão geral das atividades de entrada.
 
 ## <a name="pre-requisite"></a>Pré-requisito
 
-### <a name="who-can-access-hello-data"></a>Quem pode acessar dados Olá?
-* Usuários na função de administrador de segurança ou segurança leitor Olá
+### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+* Usuários na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Qualquer usuário (não administradores) pode acessar suas próprias entradas 
 
-### <a name="what-azure-ad-license-do-you-need-tooaccess-sign-in-activity"></a>Qual licença do AD do Azure precisa de atividade de entrada tooaccess?
-* Seu locatário deve ter uma licença Azure AD Premium associada a ele toosee Olá tudo sign-relatório de atividade
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
+* Seu locatário deve ter uma licença do Azure AD Premium associada a ele para ver o relatório de atividade de entrada
 
 
 ## <a name="signs-in-activities"></a>Atividades de entrada
 
-Com informações de saudação fornecidas pelo relatório de entrada do usuário de saudação, você encontrar respostas tooquestions como:
+Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
-* O que é Olá entrar padrão de um usuário?
+* O que é o padrão de entrada de um usuário?
 * Quantos usuários entraram em uma semana?
-* Qual é o status de saudação destas entradas?
+* Qual é o status dessas entradas?
 
-Seu primeiro entrada tooall de ponto de entrada atividades dados **entradas** na seção de atividade de saudação do **Azure Active**.
+O seu primeiro ponto de entrada para todos os dados de atividades de entrada é **Entradas** na seção Atividade do **Azure Active**.
 
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/61.png "Atividade de entrada")
@@ -63,29 +63,29 @@ Seu primeiro entrada tooall de ponto de entrada atividades dados **entradas** na
 
 Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 
-- usuário relacionado Olá
-- Olá aplicativo hello tenha assinado do usuário para
-- status de entrada Hello
-- hora de entrada Hello
+- o usuário relacionado
+- o aplicativo no qual o usuário entrou
+- o status de entrada
+- a hora de entrada
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de entrada")
 
-Você pode personalizar o modo de exibição de lista Olá clicando **colunas** na barra de ferramentas de saudação.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/19.png "Atividade de entrada")
 
-Isso permite que os campos adicionais toodisplay ou remover campos que já estão sendo exibidos.
+Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/42.png "Atividade de entrada")
 
-Ao clicar em um item na exibição de lista Olá, você deve obter todos os detalhes disponíveis sobre ele.
+Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre ele.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/43.png "Atividade de entrada")
 
 
 ## <a name="filtering-sign-in-activities"></a>Filtragem de atividades de entrada
 
-toonarrow inativo saudação relatados nível tooa de dados que funciona para você, você pode filtrar dados de entradas de saudação usando Olá campos a seguir:
+Para restringir os dados relatados a um nível que funciona para você, filtre os dados de entradas usando os seguintes campos:
 
 - Intervalo de tempo
 - Usuário
@@ -96,7 +96,7 @@ toonarrow inativo saudação relatados nível tooa de dados que funciona para vo
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/44.png "Atividade de entrada")
 
 
-Olá **intervalo de tempo** filtro habilita tooyou toodefine um período de tempo para Olá retornou dados.  
+O filtro **intervalo de tempo** permite a você definir um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
 - 1 mês
@@ -106,13 +106,13 @@ Os valores possíveis são:
 
 Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
 
-Olá **usuário** filtro permite que nome de saudação toospecify ou Olá principal nome de usuário (UPN) do usuário Olá importantes para você.
+O filtro **usuário** permite que você especifique o nome ou o UPN (nome principal do usuário) do usuário desejado.
 
-Olá **aplicativo** filtro permite toospecify nome de saudação do aplicativo hello importantes para você.
+O filtro **aplicativo** permite que você especifique o nome do aplicativo desejado.
 
-Olá **cliente** filtro permite que você toospecify informações sobre o dispositivo Olá importantes para você.
+O filtro **cliente** permite que você especifique informações sobre o dispositivo desejado.
 
-Olá **status de entrada** filtro permite tooselect de saudação filtro a seguir:
+O filtro **status de entrada** permite que você selecione um dos filtros abaixo:
 
 - Todos
 - Sucesso
@@ -121,7 +121,7 @@ Olá **status de entrada** filtro permite tooselect de saudação filtro a segui
 
 ## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de entrada
 
-Além disso tooAzure do Active Directory, Olá portal do Azure oferece dois dados de toosign em atividades de pontos de entrada adicional:
+Além do Azure Active Directory, o portal do Azure fornece dois pontos de entrada adicionais para dados de atividade de entrada:
 
 - Usuários e grupos
 - Aplicativos empresariais
@@ -129,35 +129,35 @@ Além disso tooAzure do Active Directory, Olá portal do Azure oferece dois dado
 
 ### <a name="users-and-groups-sign-ins-activities"></a>Atividades de entrada de usuários e grupos
 
-Com informações de saudação fornecidas pelo relatório de entrada do usuário de saudação, você encontrar respostas tooquestions como:
+Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
-- O que é Olá entrar padrão de um usuário?
+- O que é o padrão de entrada de um usuário?
 - Quantos usuários entraram em uma semana?
-- Qual é o status de saudação destas entradas?
+- Qual é o status dessas entradas?
 
 
 
-Os dados de toothis de ponto de entrada são Olá usuário entrar no gráfico de saudação **visão geral** seção em **usuários e grupos**.
+O ponto de entrada para esses dados é o gráfico de entrada do usuário na seção **Visão geral** em **Usuários e grupos**.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/45.png "Atividade de entrada")
 
-Olá usuário entrar gráfico mostra agregações semanais do sinal ins para todos os usuários em um determinado período de tempo. padrão de saudação para Olá o período de tempo é 30 dias.
+O gráfico de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/46.png "Atividade de entrada")
 
-Quando você clica em um dia no gráfico de entrada hello, você obtém uma lista detalhada das atividades de entrada hello para esse dia.
+Quando você clica em um dia no gráfico de entradas, obtém uma lista detalhada das atividades de entrada do dia.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de entrada")
 
-Cada linha na permite de lista de atividades de entrada hello que Olá informações detalhadas sobre Olá selecionado entrar como:
+Cada linha na lista de atividades de entrada oferece as informações detalhadas sobre a entrada selecionada, como:
 
 * Quem entrou?
-* O que foi Olá relacionadas UPN?
-* Qual aplicativo era o destino de saudação de saudação entrar?
-* O que é o endereço IP de saudação do hello entrar?
-* Qual era o status de saudação do hello entrar?
+* Qual era o UPN relacionado?
+* Qual aplicativo era o destino da entrada?
+* Qual é o endereço IP da entrada?
+* Qual era o status da entrada?
 
-Olá **entradas** opção fornece uma visão geral completa de todas as entradas do usuário.
+A opção **entradas** fornece uma visão geral completa de todas as entradas de usuário.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/51.png "Atividade de entrada")
 
@@ -168,29 +168,29 @@ Olá **entradas** opção fornece uma visão geral completa de todas as entradas
 Com uma exibição centrada no aplicativo de seus dados de entrada, você pode responder a perguntas como:
 
 * Quem está usando meus aplicativos?
-* Quais são os principais 3 aplicativos Olá em sua organização?
+* Quais são os três principais aplicativos em sua organização?
 * Recentemente, eu implantei um aplicativo. Como ele está se saindo?
 
-Os dados de toothis de ponto de entrada são maiores 3 aplicativos Olá em sua organização no último relatório de 30 dias Olá no hello **visão geral** seção em **aplicativos empresariais**.
+Seu ponto de entrada para esses dados é composto pelos três principais aplicativos em sua organização no relatório dos 30 últimos dias, presente na seção **Visão geral**, em **Aplicativos empresariais**.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/64.png "Atividade de entrada")
 
-Olá aplicativo uso gráfico semanal agregações de entradas para seus aplicativos de 3 principais em um determinado período de tempo. padrão de saudação para Olá o período de tempo é 30 dias.
+As agregações semanais ao gráfico de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/47.png "Atividade de entrada")
 
-Se desejar, você pode definir o foco de saudação em um aplicativo específico.
+Se desejar, você pode definir o foco em um aplicativo específico.
 
 
 ![Relatórios](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Relatórios")
 
-Quando você clica em um dia no gráfico de uso do aplicativo hello, você pode obter uma lista detalhada das atividades de entrada hello.
+Quando você clica em um dia no gráfico de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/48.png "Atividade de entrada")
 
 
-Olá **entradas** opção fornece uma visão geral completa de todos os aplicativos de tooyour de eventos de entrada.
+A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/49.png "Atividade de entrada")
 
@@ -198,5 +198,5 @@ Olá **entradas** opção fornece uma visão geral completa de todos os aplicati
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser tooknow mais informações sobre códigos de erro de atividade de entrada, consulte Olá [entrar códigos de erro do atividade relatórios no portal do Azure Active Directory Olá](active-directory-reporting-activity-sign-ins-errors.md).
+Se você quiser saber mais sobre os códigos de erro da atividade de entrada, confira o [Códigos de erro do relatório de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 

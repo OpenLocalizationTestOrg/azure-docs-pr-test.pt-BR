@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooBuild agendas complexos e recorrência avançadas com o Agendador do Azure"
-description: "Como tooBuild complexo agenda e recorrência avançadas com o Agendador do Azure"
+title: "Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure"
+description: "Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,29 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 02172791978b12be0ccb3078125d057b2efe8523
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toobuild-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como tooBuild complexo agenda e recorrência avançadas com o Agendador do Azure
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure
 ## <a name="overview"></a>Visão geral
-Essência Olá um agendador do Azure o trabalho é hello *agenda*. agendamento de saudação determina quando e como Olá Agendador executa trabalho hello.
+O centro de um trabalho do Agendador do Azure é o *agendamento*. O agendamento determina quando e como o Agendador executa o trabalho.
 
-O Agendador do Azure permite que você toospecify única e recorrente cronogramas diferentes para um trabalho. Os agendamentos *únicos* são acionados uma vez em um momento especificado: na verdade, eles são agendamentos *recorrentes* que são executados somente uma vez. Os agendamentos recorrentes são acionados com uma frequência predeterminada.
+O Agendador do Azure permite que você especifique diferentes agendamentos únicos e recorrentes para um trabalho. Os agendamentos *únicos* são acionados uma vez em um momento especificado: na verdade, eles são agendamentos *recorrentes* que são executados somente uma vez. Os agendamentos recorrentes são acionados com uma frequência predeterminada.
 
 Com essa flexibilidade, o Agendador do Azure permite que você dê suporte a uma ampla variedade de cenários de negócios:
 
 * Limpeza periódica de dados: por exemplo, todos os dias, excluir todos os tweets com mais de três meses
-* Arquivamento – por exemplo, cada mês, por push fatura histórico toobackup serviço
+* Arquivamento: por exemplo, a cada mês, enviar o histórico da fatura para o serviço de backup
 * Solicitações de dados externos: por exemplo, a cada 15 minutos, receber um novo relatório de previsão do tempo de Esqui da NOAA
-* Imagem de processamento – por exemplo, cada dia da semana, fora do horário de pico, usar imagens de computação toocompress carregado naquele dia de nuvem
+* Processamento: por exemplo, a cada dia da semana, fora do horário de pico, usar computação em nuvem para compactar as imagens carregadas no dia
 
-Neste artigo, percorreremos trabalhos de exemplo que você pode criar com o Agendador do Azure. Podemos fornecer dados JSON Olá que descreve cada agenda. Se você usar o hello [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx), você pode usar esse mesmo JSON para [criando um trabalho do Agendador do Azure](https://msdn.microsoft.com/library/mt629145.aspx).
+Neste artigo, percorreremos trabalhos de exemplo que você pode criar com o Agendador do Azure. Nós fornecemos os dados JSON que descrevem cada agendamento. Se você usar a [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx), poderá usar esse mesmo JSON para [criar um trabalho do Agendador do Azure](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
-Olá que muitos exemplos neste tópico ilustram amplitude Olá dos cenários que dá suporte ao Agendador do Azure. Em larga escala, estes exemplos ilustram como toocreate agendas para vários padrões de comportamento, incluindo Olá aquelas abaixo:
+Os vários exemplos neste tópico ilustram a variedade de cenários com suporte no Agendador do Azure. No geral, esses exemplos ilustram como criar agendamentos para vários padrões de comportamento, incluindo estes abaixo:
 
 * Executar uma vez em uma determinada data e hora
 * Executar e repetir um número de vezes específico
@@ -46,12 +46,12 @@ Olá que muitos exemplos neste tópico ilustram amplitude Olá dos cenários que
 * Executar e repetir várias vezes em um período: por exemplo, na última sexta-feira e segunda-feira de cada mês ou às 5h15 e 17h15 todos os dias
 
 ## <a name="dates-and-datetimes"></a>Datas e DateTimes
-Execute as datas em trabalhos do Agendador do Azure Olá [especificação ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e incluir apenas Olá Data.
+As datas em trabalhos do Agendador do Azure seguem a [especificação ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e incluem apenas a data.
 
-Referências de data e hora em trabalhos do Agendador do Azure seguem Olá [ISO 8601 especificação](http://en.wikipedia.org/wiki/ISO_8601) e inclua as partes de data e hora. Uma data e hora que não especifica um deslocamento UTC será assumida toobe UTC.  
+As referências de data e hora em trabalhos do Agendador do Azure seguem a [especificação ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e incluem partes de data e hora. Uma data e hora que não especifique um deslocamento UTC é considerada como UTC.  
 
 ## <a name="how-to-use-json-and-rest-api-for-creating-schedules"></a>Como usar JSON e API REST para criar agendamentos
-Olá toocreate um agendamento simples usando [API de REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143), primeiro [registrar sua assinatura com um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (Olá nome do provedor para o Agendador é  *Microsoft.Scheduler*), em seguida, [criar uma coleção de trabalhos](https://msdn.microsoft.com/library/mt629159.aspx)e, finalmente, [criar um trabalho](https://msdn.microsoft.com/library/mt629145.aspx). Quando você cria um trabalho, você pode especificar o agendamento e a recorrência usando JSON como Olá um extraídas abaixo:
+Para criar um agendamento simples usando a [API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143), primeiro [registre a sua assinatura com um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (o nome do provedor do Agendador é *Microsoft.Scheduler*), [crie uma coleção de trabalhos](https://msdn.microsoft.com/library/mt629159.aspx) e, por fim, [crie um trabalho](https://msdn.microsoft.com/library/mt629145.aspx). Quando você cria um trabalho, pode especificar o agendamento e recorrência usando JSON, como representado abaixo:
 
     {
         "startTime": "2012-08-04T00:00Z", // optional
@@ -59,29 +59,29 @@ Olá toocreate um agendamento simples usando [API de REST do Agendador do Azure]
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often toofire (default too1)
+            "interval": 1,                // optional, how often to fire (default to 1)
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
                 "hours": [10, 22]                      
             },
-            "count": 10,                  // optional (default toorecur infinitely)
-            "endTime": "2012-11-04",      // optional (default toorecur infinitely)
+            "count": 10,                  // optional (default to recur infinitely)
+            "endTime": "2012-11-04",      // optional (default to recur infinitely)
         },
         …
     }
 
 ## <a name="overview-job-schema-basics"></a>Visão geral: Noções básicas sobre esquemas de trabalho
-Olá, a tabela a seguir fornece uma visão geral de saudação elementos principais relacionados toorecurrence e agendar um trabalho:
+A tabela a seguir fornece uma visão geral de alto nível dos principais elementos relacionados a recorrência e planejamento em um trabalho:
 
 | **Nome JSON** | **Descrição** |
 |:--- |:--- |
-| ***startTime*** |*startTime* é uma Data/Hora. Para agendamentos simples, *startTime* é a primeira ocorrência de saudação e para agendamentos complexos, trabalho Olá será iniciado sem antes do *startTime*. |
-| ***recurrence*** |Olá *recorrência* objeto especifica regras de recorrência para trabalhos de saudação e Olá Olá de recorrência serão executada com. objeto de recorrência Olá dá suporte a elementos de saudação *frequência, intervalo, endTime, contagem,* e *agenda*. Se *recorrência* for definida, *frequência* é necessário; Olá outros elementos de *recorrência* são opcionais. |
-| ***frequency*** |Olá *frequência* cadeia de caracteres que representa a unidade de frequência de saudação com quais Olá trabalho se repete. Os valores com suporte são *"minute", "hour", "day", "week"* ou *"month"*. |
-| ***interval*** |Olá *intervalo* é um inteiro positivo e indica o intervalo de saudação para Olá *frequência* que determina com que frequência hello trabalho será executado. Por exemplo, se *intervalo* é 3 e *frequência* é "semana" trabalho Olá se repete a cada três semanas. O Agendador do Azure dá suporte a um valor máximo de *interval* de 18 meses para a frequência mensal, 78 semanas para a frequência semanal ou 548 dias para a frequência diária. De hora e minuto frequência, o intervalo de saudação com suporte é 1 < = *intervalo* < = 1000. |
-| ***endTime*** |Olá *endTime* cadeia de caracteres Especifica Olá data e hora após a qual Olá trabalho não deve executar. Não é válido toohave um *endTime* em Olá anterior. Se nenhum *endTime* ou contagem é especificada, o trabalho Olá é executado infinitamente. Ambos *endTime* e *contagem* não podem ser incluídas para Olá mesmo trabalho. |
-| ***count*** |<p>Olá *contagem* é um inteiro positivo (maior que zero) que especifica o número de saudação de vezes que esse trabalho deve ser executado antes da conclusão.</p><p>Olá *contagem* representa Olá o número de vezes que trabalho Olá é executado antes que está sendo determinado como concluída. Por exemplo, para um trabalho que é executado diariamente com *contagem* 5 e a data de início do segunda-feira, conclui o trabalho Olá após a execução na sexta-feira. Se iniciar Olá data está em Olá anterior, execução primeiro Olá é calculada de tempo de criação de saudação.</p><p>Se nenhum *endTime* ou *contagem* for especificado, o trabalho de saudação é executado infinitamente. Ambos *endTime* e *contagem* não podem ser incluídas para Olá mesmo trabalho.</p> |
+| ***startTime*** |*startTime* é uma Data/Hora. Para agendamentos simples, *startTime* é a primeira ocorrência e, para agendamentos complexos, o trabalho será iniciado somente na *startTime*. |
+| ***recurrence*** |O objeto *recurrence* especifica regras de recorrência do trabalho e a recorrência de execução dele. O objeto recurrence dá suporte aos elementos *frequency, interval, endTime, count* e *schedule*. Se *recurrence* for definido, *frequency* será necessário; os outros elementos de *recurrence* serão opcionais. |
+| ***frequency*** |A cadeia de caracteres *frequency* que representa a unidade de frequência com a qual o trabalho se repete. Os valores com suporte são *"minute", "hour", "day", "week"* ou *"month"*. |
+| ***interval*** |O *interval* é um inteiro positivo e denota o intervalo para *frequency*, que determina a frequência de execução do trabalho. Por exemplo, se *interval* for 3 e *frequency* for "week", o trabalho se repetirá a cada três semanas. O Agendador do Azure dá suporte a um valor máximo de *interval* de 18 meses para a frequência mensal, 78 semanas para a frequência semanal ou 548 dias para a frequência diária. Para a frequência em hora e em minuto, o intervalo com suporte é 1 <= *interval* <= 1.000. |
+| ***endTime*** |A cadeia de caracteres *endTime* especifica a data/hora depois da qual o trabalho não deverá ser executado. Não é válido ter um *endTime* no passado. Se nem *endTime* nem count forem especificados, o trabalho será executado de maneira infinita. Não é possível incluir *endTime* e *count* em um mesmo trabalho. |
+| ***count*** |<p>O valor de *count* é um inteiro positivo (maior que zero) que especifica o número de vezes que o trabalho deve ser executado antes de ser concluído.</p><p>O elemento *count* representa o número de vezes que o trabalho é executado antes de ser considerado concluído. Por exemplo, para um trabalho executado diariamente com *count* 5 e a data inicial na segunda-feira, o trabalho será concluído depois ser executado na sexta-feira. Se a data de início estiver no passado, a primeira execução é calculada do momento da criação.</p><p>Se nem *endTime* nem *count* forem especificados, o trabalho será executado de maneira infinita. Não é possível incluir *endTime* e *count* em um mesmo trabalho.</p> |
 | ***schedule*** |Um trabalho com uma frequência especificada altera sua recorrência com base em um agendamento de recorrência. Um elemento *schedule* contém as modificações com base em minutos, em horas, em dias da semana, em dias do mês e em número da semana. |
 
 ## <a name="overview-job-schema-defaults-limits-and-examples"></a>Visão geral: padrões de esquema, limites e exemplos de trabalho
@@ -92,59 +92,59 @@ Após essa visão geral, vamos examinar cada um desses elementos em detalhes.
 | ***startTime*** |Cadeia de caracteres |Não |Nenhum |Data e hora ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
 | ***recurrence*** |Objeto |Não |Nenhum |Objeto de recorrência |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
 | ***frequency*** |string |Sim |Nenhum |"minuto", "hora", "dia", "semana", "mês" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Número |Não |1 |1 too1000. |<code>"interval":10</code> |
-| ***endTime*** |Cadeia de caracteres |Não |Nenhum |Valor de data e hora que representa uma hora no futuro de saudação |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***interval*** |Número |Não |1 |1 a 1000. |<code>"interval":10</code> |
+| ***endTime*** |Cadeia de caracteres |Não |Nenhum |Valor de data e hora que representa um momento no futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 | ***count*** |Número |Não |Nenhum |>= 1 |<code>"count": 5</code> |
 | ***schedule*** |Objeto |Não |Nenhum |Objeto Agendamento |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Análise aprofundada: *startTime*
-tabela a seguir Olá capturas como *startTime* controla como um trabalho é executado.
+A tabela a seguir mostra como *startTime* controla a execução de um trabalho.
 
 | **valor startTime** | **Sem recorrência** | **Recorrência. Sem agendamento** | **Recorrência com agendamento** |
 |:--- |:--- |:--- |:--- |
 | **Sem hora de início** |Executar uma vez imediatamente |Executar uma vez imediatamente. Fazer as execuções subsequentes com base no cálculo do tempo da última execução |<p>Executar uma vez imediatamente</p><p>Fazer as execuções subsequentes com base no agendamento de recorrência</p> |
-| **Hora de início no passado** |Executar uma vez imediatamente |<p>Calcular a primeira hora de execução futura após a hora de início e executar naquela hora</p><p>Fazer as execuções subsequentes com base no cálculo da hora da última execução</p><p>Veja o exemplo depois desta tabela para obter uma explicação mais detalhada</p> |<p>Trabalho iniciado *não antes do* saudação inicial especificada. primeira ocorrência de saudação baseia-se a agenda Olá calculada a partir da hora de início da saudação</p><p>Fazer as execuções subsequentes com base no agendamento de recorrência</p> |
-| **Hora de início no futuro ou no momento** |Executar uma vez na hora de início especificada |<p>Executar uma vez na hora de início especificada</p><p>Fazer as execuções subsequentes com base no cálculo do tempo da última execução</p> |<p>Trabalho iniciado *não antes do* saudação inicial especificada. primeira ocorrência de saudação baseia-se a agenda Olá calculada a partir da hora de início da saudação</p><p>Fazer as execuções subsequentes com base no agendamento de recorrência</p> |
+| **Hora de início no passado** |Executar uma vez imediatamente |<p>Calcular a primeira hora de execução futura após a hora de início e executar naquela hora</p><p>Fazer as execuções subsequentes com base no cálculo da hora da última execução</p><p>Veja o exemplo depois desta tabela para obter uma explicação mais detalhada</p> |<p>O trabalho é iniciado *somente na* hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado a partir da hora de início</p><p>Fazer as execuções subsequentes com base no agendamento de recorrência</p> |
+| **Hora de início no futuro ou no momento** |Executar uma vez na hora de início especificada |<p>Executar uma vez na hora de início especificada</p><p>Fazer as execuções subsequentes com base no cálculo do tempo da última execução</p> |<p>O trabalho é iniciado *somente na* hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado a partir da hora de início</p><p>Fazer as execuções subsequentes com base no agendamento de recorrência</p> |
 
-Vamos ver um exemplo do que acontece onde *startTime* está em Olá anterior, com *recorrência* mas não *agenda*.  Suponha que Olá hora atual for 2015-04-08 13:00, *startTime* é 2015-04-07 14:00 e *recorrência* é a cada 2 dias (definida com *frequência*: dia e *intervalo*: 2.) Observe que Olá *startTime* está em Olá anterior e ocorre antes da saudação hora atual
+Vejamos um exemplo do que acontece quando *startTime* está no passado, com *recurrence*, mas sem *schedule*.  Suponha que a hora atual seja 2015-04-08 13:00, que *startTime* seja 2015-04-07 14:00 e que *recurrence* seja a cada dois dias (definida com *frequency*: day e *interval*: 2.) Observe que *startTime* está no passado e ocorre antes da hora atual
 
-Sob essas condições, Olá *primeira execução* será 2015-04-09 às 14:00\. o mecanismo agendador Olá calcula ocorrências de execução da hora de início da saudação.  Todas as instâncias no hello anterior são descartadas. mecanismo de saudação usa próxima ocorrência do hello que ocorre no hello futuras.  Portanto nesse caso, *startTime* é 2015-04-07 às 2:00, portanto, Olá próxima instância 2 dias a partir dessa hora, que é 2015-04-09 às 2:00.
+Sob essas condições, o *primeira execução* será 2015-04-09 às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início.  As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro.  Nesse caso, *startTime* é 2015-04-07, às 14:00; portanto, a próxima instância ocorrerá dois dias depois desse momento, o que será 2015-04-09, às 14:00.
 
-Observe que a primeira execução do hello seria Olá mesmo mesmo se Olá startTime 2015-04-05 14:00 ou 14:00\ 2015-04-01. Após a execução da primeira hello, as execuções subsequentes são calculadas usando Olá agendada – portanto eles seriam em 2015-04-11 às 2:00, em seguida, 2015-04-13 às 2:00, em seguida, 2015-04-15 às 2:00, etc.
+Observe que a primeira execução deve ser do mesmo se a mesmo hora de início 2015-04-05 14:00 ou 14:00\ 2015-04-01. Após a primeira execução, as execuções subsequentes são calculadas usando a agendada; portanto, seriam em 11-04-2015 às 14:00, 13-04-2015 às 14:00, 15-04-2015 às 14:00, etc.
 
-Finalmente, quando um trabalho tiver uma agenda, se as horas e/ou minutos não estão definidos na agenda hello, eles horas de toohello padrão e/ou minutos de primeira execução do hello, respectivamente.
+Finalmente, quando um trabalho tiver um agendamento, se as horas e/ou minutos não estiverem definidos no agendamento, serão adotadas as horas e/ou minutos da primeira execução, respectivamente.
 
 ## <a name="deep-dive-schedule"></a>Análise aprofundada: *schedule*
-Por um lado, uma *agenda* pode *limite* Olá número de execuções de trabalho.  Por exemplo, se um trabalho com uma frequência de "mês" tem um *agenda* que são executados em um único dia 31, o trabalho Olá é executado em apenas esses meses que têm um 31<sup>st</sup> dia.
+Por um lado, um elemento *schedule* pode *limitar* o número de execuções do trabalho.  Por exemplo, se um trabalho com o elemento frequency definido como "month" tiver um *schedule* para ser executado somente no dia 31, o trabalho será executado apenas nos meses que têm o dia 31<sup></sup>.
 
-Olá por outro lado, uma *agenda* também pode *expanda* Olá número de execuções de trabalho. Por exemplo, se um trabalho com uma frequência de "mês" tem um *agenda* que é executada em dias do mês 1 e 2, Olá trabalho é executado em Olá 1<sup>st</sup> e 2<sup>nd</sup> dias do mês de saudação em vez de apenas uma vez um mês.
+Por outro lado, um elemento *schedule* também pode *expandir* o número de execuções do trabalho. Por exemplo, se um trabalho com o elemento frequency definido como "month" tiver um *schedule* para ser executado nos dias 1 e 2 do mês, o trabalho será executado no 1º e 2º dias do mês em vez de apenas uma vez por mês<sup></sup><sup></sup>.
 
-Se forem especificados vários elementos de programação, ordem de saudação de avaliação é de toosmallest maior hello – número da semana, dia, mês, dia da semana, hora e minuto.
+Se forem especificados vários elementos de agendamento, a ordem de avaliação é do maior para o menor: número da semana, dia do mês, dia da semana, hora e minuto.
 
-Olá tabela a seguir descreve *agenda* elementos em detalhes.
+A tabela a seguir descreve elementos de *schedule* em detalhes.
 
 | **Nome JSON** | **Descrição** | **Valores Válidos** |
 |:--- |:--- |:--- |
-| **minutos** |Minutos da hora de saudação na qual Olá trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
-| **horas** |Horas do dia Olá no qual Olá trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
-| **Dias da semana** |Dias de trabalho de Olá Olá semana serão executado. Só pode ser especificado com uma frequência semanal. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ou "Sunday"</li><li>Matriz de qualquer um dos Olá acima valores (tamanho da matriz max 7)</li></ul>*Não* diferencia maiúsculas de minúsculas |
-| **monthlyOccurences** |Determina quais dias de trabalho de Olá Olá mês serão executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Matriz de objetos monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dia* é o dia de saudação do trabalho de saudação do hello semana será executado, por exemplo, {domingo} é todo domingo do mês de saudação. Obrigatório.</p><p>A ocorrência é *ocorrência* do dia Olá durante o mês de hello, por exemplo, {domingo, -1} é Olá último domingo do mês de saudação. Opcional.</p> |
-| **Dias do mês** |Dia de trabalho de Olá Olá mês será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Qualquer valor <= -1 e >= -31.</li><li>Qualquer valor >= 1 e <= 31.</li><li>Uma matriz dos valores acima</li></ul> |
+| **minutos** |Minutos da hora em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
+| **horas** |Horas do dia em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
+| **Dias da semana** |Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ou "Sunday"</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz: 7)</li></ul>*Não* diferencia maiúsculas de minúsculas |
+| **monthlyOccurences** |Determina em quais dias do mês o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Matriz de objetos monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dia* é o dia da semana no qual o trabalho será executado, por exemplo, {Sunday} representa todos os domingos do mês. Obrigatório.</p><p>*ocorrência* é o valor do elemento ocurrence que se refere ao dia durante o mês, por exemplo, {Sunday, -1} é o último domingo do mês. Opcional.</p> |
+| **Dias do mês** |Dia do mês em que o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Qualquer valor <= -1 e >= -31.</li><li>Qualquer valor >= 1 e <= 31.</li><li>Uma matriz dos valores acima</li></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
-Olá seguem vários exemplos de agendas de recorrência – nos concentrarmos no objeto do cronograma hello e seus subelementos.
+Seguem diversos exemplos de agendamentos de recorrência voltados para o objeto de agendamento e seus subelementos.
 
-agendas abaixo todos Hello supõem que Olá *intervalo* está definido too1\. Além disso, um deve assumir a frequência de direito Olá no acordo toowhat está em Olá *agenda* – por exemplo, não é possível usar a frequência de "dia" e ter uma modificação "dias do mês" no agendamento de saudação. As restrições estão descritas acima.
+As agendas abaixo todos presumem que o *intervalo* é definido como 1\. Além disso, um deve assumir a frequência de direito de acordo com o que há de *agenda* – por exemplo, não é possível usar a frequência de "dia" e ter uma modificação "dias do mês" no agendamento. As restrições estão descritas acima.
 
 | **Exemplo** | **Descrição** |
 |:--- |:--- |
-| <code>{"hours":[5]}</code> |Executar às 5h da manhã todos os dias. O Agendador do Azure corresponde a cada valor em "horas" com cada valor em "minutos", um por um, toocreate uma lista de todos os tempos de saudação no qual Olá trabalho é toobe de execução. |
+| <code>{"hours":[5]}</code> |Executar às 5h da manhã todos os dias. O Agendador do Azure corresponde a cada valor em "horas" com cada valor em "minutos", um a um, para criar uma lista de todos os horários em que o trabalho deve ser executado. |
 | <code>{"minutes":[15], "hours":[5]}</code> |Executar às 5:15 todos os dias |
 | <code>{"minutes":[15], "hours":[5,17]}</code> |Executar às 5:15 e 17:15 todos os dias |
 | <code>{"minutes":[15,45], "hours":[5,17]}</code> |Executar às 5:15, 5:45, 17:15 e 17:45 todos os dias |
 | <code>{"minutes":[0,15,30,45]}</code> |Executar a cada 15 minutos |
-| <code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code> |Executar a cada hora. Esse trabalho é executado a cada hora. minuto de saudação é controlado pelo Olá *startTime*, se um for especificado ou se nenhum for especificado, por hora de criação de saudação. Por exemplo, se o início de saudação hora ou criação (o que for aplicável) é 12:25 PM, Olá trabalho será executado em 25-00:01:25, 02:25,..., 23:25. Olá agenda é equivalente toohaving um trabalho com *frequência* de "Hora", um *intervalo* de 1 e não *agenda*. Olá diferença é que esta agenda pode ser usada com diferentes *frequência* e *intervalo* toocreate outros trabalhos muito. Por exemplo, se hello *frequência* fosse "mês", Olá agenda será executada somente uma vez por mês, em vez de todos os dias se *frequência* foram "dia" |
-| <code>{minutes:[0]}</code> |Execute a cada hora em Olá hora. Esse trabalho também será executado a cada hora, mas na hora da saudação (por exemplo, 12 AM, 1 hora, 2 horas etc.) Este é o trabalho tooa equivalente com frequência de "Hora", uma hora de início com zero minutos e nenhuma agenda se frequência hello "dia", mas se frequência hello "semana" ou "mês", agenda Olá seria executado somente um dia de uma semana ou um dia de um mês, respectivamente. |
+| <code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code> |Executar a cada hora. Esse trabalho é executado a cada hora. O minuto será controlado por *startTime*, se especificado, caso contrário, será controlado pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 00:25, o trabalho será executado às 00:25, 01:25, 02:25, …, 23:25. O agendamento é equivalente a ter um trabalho com *frequency* de "hour", *interval* de 1 e sem *schedule*. A diferença é que esse agendamento também pode ser usado com valores diferentes de *frequency* e de *interval* para criar outros trabalhos. Por exemplo, se *frequency* fosse "month", o agendamento seria executado somente uma vez por mês, em vez de todos os dias se *frequency* fosse "day" |
+| <code>{minutes:[0]}</code> |Execute a cada hora em hora exata. Esse trabalho também é executado a cada hora, mas na hora exata (por exemplo, 00:00, 1:00, 2:00, etc.) Isso equivale a um trabalho com frequência de "hora", startTime com zero minutos e sem agendamento se a frequência fosse "dia", mas, sendo a frequência "semana" ou "mês", o agendamento deve executar apenas uma vez por semana ou por mês, respectivamente. |
 | <code>{"minutes":[15]}</code> |Executar 15 minutos após a hora exata a cada hora. É executado a cada hora, começando em 00:15, 1:15, 2:15, etc. e terminando às 22:15 e 23:15. |
 | <code>{"hours":[17], "weekDays":["saturday"]}</code> |Executar às 17h aos sábados toda semana |
 | <code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code> |Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana |
@@ -155,27 +155,27 @@ agendas abaixo todos Hello supõem que Olá *intervalo* está definido too1\. Al
 | <code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code> |Executar a cada 15 minutos nos dias úteis entre 9:00 e 16:45 |
 | <code>{"weekDays":["sunday"]}</code> |Executar aos domingos na hora de início |
 | <code>{"weekDays":["tuesday", "thursday"]}</code> |Executar às terças e quintas-feiras na hora de início |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code> |Executar às 6: 00 em Olá 28 de dia de cada mês (supondo que a frequência do mês) |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code> |Execute às 6: 00 no último dia do mês de saudação do hello. Se você quiser toorun um trabalho em Olá último dia do mês, use -1 em vez de dia de 28, 29, 30 ou 31. |
-| <code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code> |Executar às 6: 00 em Olá primeiro e último dia de cada mês |
-| <code>{monthDays":[1,-1]}</code> |Executar em Olá primeiro e último dia de cada mês na hora de início |
-| <code>{monthDays":[1,14]}</code> |Executar em Olá primeiro e Fourteenth dia de cada mês na hora de início |
-| <code>{monthDays":[2]}</code> |Executar no segundo dia de saudação mês, a hora de início da saudação |
+| <code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code> |Executar às 6h no 28º dia de cada mês (supondo a frequência do mês) |
+| <code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code> |Executar às 6h no último dia do mês. Se você quiser executar um trabalho no último dia de um mês, use -1 em vez de dia 28, 29, 30 ou 31. |
+| <code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code> |Executar às 6h no primeiro e no último dia de cada mês |
+| <code>{monthDays":[1,-1]}</code> |Executar no primeiro e no último dia de cada mês na hora de início |
+| <code>{monthDays":[1,14]}</code> |Executar no primeiro e no décimo quarto dia de cada mês na hora de início |
+| <code>{monthDays":[2]}</code> |Executar no segundo dia do mês na hora de início |
 | <code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code> |Executar na primeira sexta-feira de cada mês às 5h |
 | <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code> |: Executar na primeira sexta-feira de cada mês na hora de início |
 | <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code> |Executar na terceira sexta-feira do final do mês, todo mês, na hora de início |
 | <code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code> |Executar na primeira e na última sexta-feira de cada mês às 5:15 |
 | <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code> |Executar na primeira e na última sexta-feira de cada mês na hora de início |
-| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code> |Executar na quinta sexta-feira de cada mês na hora de início. Se não houver nenhum quinto sexta-feira em um mês, isso não não executado, pois é toorun agendado no quinto somente sextas-feiras. Você pode considerar o uso de -1 em vez de 5 para ocorrência hello, se desejar que o trabalho toorun Olá Olá ocorrendo última sexta-feira do mês de saudação. |
-| <code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code> |Executar a cada 15 minutos na última sexta-feira do mês de saudação |
-| <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Executar em 5:15 AM, 5:45 AM, 5:15 PM e 5:45 PM em Olá 3º quarta-feira de cada mês |
+| <code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code> |Executar na quinta sexta-feira de cada mês na hora de início. Se não houver nenhuma quinta sexta-feira em um mês, ele não é executado, uma vez que está agendado para executar apenas nas quintas sextas-feiras. Considere o uso de -1 em vez de 5 na ocorrência se você quiser executar o trabalho na última sexta-feira do mês. |
+| <code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code> |Executar a cada 15 minutos na última sexta-feira do mês |
+| <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês |
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toodebug baseado no SAML único logon tooapplications no Active Directory do Azure | Microsoft Docs"
-description: "Saiba como toodebug baseado no SAML único logon tooapplications no Active Directory do Azure "
+title: "Como depurar o logon único baseado em SAML nos aplicativos no Azure Active Directory | Microsoft Docs"
+description: "Saiba como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure  "
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,27 +15,27 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 846c7b3497c8842947c5b406f4362b9e06785b14
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 31447d597296bac57481dc2acb4a95ee3a104161
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toodebug-saml-based-single-sign-on-tooapplications-in-azure-active-directory"></a>Como toodebug baseado no SAML único logon tooapplications no Active Directory do Azure
-Ao depurar uma integração de aplicativos baseados em SAML, é geralmente útil toouse uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) toosee Olá solicitação SAML, resposta SAML hello e token SAML real Olá emitido toohello aplicativo. Examinando o token SAML hello, certifique-se de que todos os Olá atributos necessários, Olá nome de usuário no assunto SAML hello e Olá emissor URI são provenientes conforme o esperado.
+# <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure
+Ao depurar uma integração de aplicativo baseada em SAML, geralmente é útil usar uma ferramenta como o [Fiddler](http://www.telerik.com/fiddler) para ver a solicitação SAML, a resposta SAML e o token SAML real que é emitido para o aplicativo. Examinando o token SAML, você pode garantir que todos os atributos necessários, o nome de usuário no assunto SAML e o URI do emissor estejam chegando conforme o esperado.
 
 ![][1]
 
-Olá resposta do AD do Azure que contém o token SAML Olá é normalmente Olá que ocorre após um redirecionamento HTTP 302 de https://login.windows.net e toohello enviado configurado **URL de resposta** do aplicativo hello. 
+A resposta do Azure AD que contém o token SAML normalmente é aquela que ocorre depois de um redirecionamento HTTP 302 de https://login.windows.net e é enviada para a **URL de Resposta** do aplicativo configurado. 
 
-Você pode exibir o token SAML Olá selecionando essa linha e, em seguida, selecionando Olá **inspetores > WebForms** guia no painel direito da saudação. A partir daí, clique com botão direito Olá **SAMLResponse** valor e selecione **enviar tooTextWizard**. Em seguida, selecione **de Base64** de saudação **transformar** menu toodecode Olá token e ver seu conteúdo.
+Você pode exibir o token SAML selecionando essa linha e, em seguida, selecionando a guia **Inspetores > WebForms** no painel à direita. Nela, clique com botão direito no valor **SAMLResponse** e selecione **Enviar para TextWizard**. Selecione **De Base64** no menu **Transformar** para decodificar o token e ver seu conteúdo.
 
-**Observação**: solicitar conteúdo Olá toosee este HTTP, Fiddler pode solicitar que você tooconfigure descriptografia do tráfego HTTPS, o que você precisará toodo.
+**Observação**: para ver o conteúdo dessa solicitação HTTP, o Fiddler pode solicitar que você configure a descriptografia de tráfego HTTPS, o que você precisará fazer.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](../active-directory-apps-index.md)
-* [Configurando um único logon tooapplications que não estão na Galeria de aplicativos do Active Directory do Azure Olá](../active-directory-saas-custom-apps.md)
-* [Como tooCustomize as declarações emitidas no hello Token SAML para aplicativos Pre-Integrated](active-directory-saml-claims-customization.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../active-directory-saas-custom-apps.md)
+* [Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ../media/active-directory-saml-debugging/fiddler.png

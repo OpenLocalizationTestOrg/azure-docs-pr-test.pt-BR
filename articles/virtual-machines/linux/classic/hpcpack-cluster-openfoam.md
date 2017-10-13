@@ -1,5 +1,5 @@
 ---
-title: aaaRun OpenFOAM com HPC Pack em VMs do Linux | Microsoft Docs
+title: Executar o OpenFOAM com o HPC Pack nas VMs do Linux | Microsoft Docs
 description: "Implante um cluster do Microsoft HPC Pack no Azure e execute um trabalho OpenFOAM em vários nós de computação do Linux em uma rede RDMA."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,91 +15,91 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 1a51ffe6804abb5156f01d580c9b7a4a9649377a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
-Este artigo mostra uma maneira toorun OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para nós de computação hello, para que nós de computação Olá se comunicar pela rede de RDMA do Azure hello. Outros toorun opções OpenFoam no Azure incluem totalmente configurado comerciais imagens disponíveis na Olá Marketplace, como do UberCloud [OpenFoam 2.3 em CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/)e executando em [do Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
+Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-OpenFOAM (Operação e Manipulação de Campo Aberto) é um pacote de software com CFD (dinâmica de fluido computacional) aberto, amplamente utilizado na Engenharia e nas Ciências em organizações comerciais e acadêmicas. Ele inclui ferramentas para criar malhas, especialmente o snappyHexMesh, um mesher em paralelo para geometrias CAD complexas e de pré e pós-processamento. Quase todos os processos executados em paralelo, permitindo que os usuários tootake proveito do hardware do computador à sua disposição.  
+OpenFOAM (Operação e Manipulação de Campo Aberto) é um pacote de software com CFD (dinâmica de fluido computacional) aberto, amplamente utilizado na Engenharia e nas Ciências em organizações comerciais e acadêmicas. Ele inclui ferramentas para criar malhas, especialmente o snappyHexMesh, um mesher em paralelo para geometrias CAD complexas e de pré e pós-processamento. Quase todos os processos são executados em paralelo, permitindo que os usuários se beneficiam do hardware do computador à sua disposição.  
 
-Microsoft HPC Pack fornece recursos toorun HPC em larga escala e aplicativos em paralelo, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. O HPC Pack também dá suporte a aplicativos de HPC no Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Consulte [começar conosco de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para uma introdução toousing nós com o HPC Pack de computação do Linux.
+O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. O HPC Pack também dá suporte a aplicativos de HPC no Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Consulte a [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](hpcpack-cluster.md) para saber como começar a usar os nós de computação do Linux com o HPC Pack.
 
 > [!NOTE]
-> Este artigo ilustra como toorun uma carga de trabalho do Linux MPI com HPC Pack. Ele pressupõe que você tem alguma familiaridade com a administração do sistema Linux e com a execução das cargas de trabalho MPI nos clusters do Linux. Se você usar versões de MPI e OpenFOAM diferente da saudação aqueles mostrados neste artigo, você pode ter toomodify algumas etapas de instalação e configuração. 
+> Este artigo ilustra como executar uma carga de trabalho do Linux MPI com o HPC Pack. Ele pressupõe que você tem alguma familiaridade com a administração do sistema Linux e com a execução das cargas de trabalho MPI nos clusters do Linux. Se você usar versões do MPI e do OpenFOAM diferentes daquelas mostradas neste artigo, você talvez precise modificar algumas etapas de instalação e configuração. 
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Cluster HPC Pack com nós de computação do Linux compatíveis com RDMA** – Implante um cluster HPC Pack com nós de computação do Linux do tamanho A8, A9, H16r ou H16rm usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [começar conosco de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para pré-requisitos hello e as etapas para qualquer uma das opções. Se você escolher Olá opção de implantação de script do PowerShell, consulte o arquivo de configuração de exemplo hello nos arquivos de exemplo hello final Olá deste artigo. Use este cluster de HPC Pack configuração toodeploy um baseado no Azure consiste em um nó de cabeçalho de tamanho A8 Windows Server 2012 R2 e nós de computação de tamanho de 2 A8 SUSE Linux Enterprise Server 12. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
+* **Cluster HPC Pack com nós de computação do Linux compatíveis com RDMA** – Implante um cluster HPC Pack com nós de computação do Linux do tamanho A8, A9, H16r ou H16rm usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para encontrar os pré-requisitos e etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, consulte o arquivo de configuração de exemplo nos arquivos de exemplo no final deste artigo. Use esta configuração para implantar um cluster de HPC Pack com base no Azure consistindo em um nó principal do tamanho do A8 Windows Server 2012 R2 e dois nós de computação do tamanho do A8 SUSE Linux Enterprise Server 12. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
   
-  **Outras coisas que você tooknow**
+  **Informações adicionais importantes**
   
   * Para pré-requisitos de rede RDMA Linux no Azure, consulte [Tamanhos de VM de computação de alto desempenho](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  * Se você usar Olá opção de implantação de script do Powershell, implante todos os nós de computação Linux hello dentro de conexão de rede RDMA uma nuvem serviço toouse hello.
-  * Depois de implantar nós do Linux hello, conecte-se SSH tooperform outras tarefas administrativas. Localize detalhes de conexão SSH Olá para cada VM do Linux no hello portal do Azure.  
-* **Intel MPI** -toorun OpenFOAM em SLES 12 HPC nós de computação no Azure, é necessário em tempo de execução do tooinstall Olá Intel MPI biblioteca 5 da saudação [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. tooprepare para esta etapa, depois de registrar com a Intel, siga o link de saudação na Olá email toohello relacionados web página de confirmação. Em seguida, Olá cópia baixar link para arquivo hello. tgz versão apropriada de saudação do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
-* **Pacote de origem OpenFOAM** -baixar o software de pacote de origem OpenFOAM Olá para Linux de saudação [site OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga instruções Olá posteriormente neste artigo toounpack e compilar OpenFOAM em nós de computação Linux hello.
-* **EnSight** (opcional) - resultados de saudação toosee de simulação OpenFOAM, baixe e instale Olá [EnSight](https://www.ceisoftware.com/download/) programa de visualização e análise. São informações de licença e o download no site de EnSight hello.
+  * Se você usar a opção de implantação de script do Powershell, implante todos os nós de computação Linux em um serviço de nuvem para usar a conexão de rede RDMA.
+  * Depois de implantar os nós do Linux, conecte-se via SSH para executar tarefas administrativas adicionais. Encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.  
+* **Intel MPI** – Para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no site [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. Para se preparar para essa etapa, depois de se registrar na Intel, siga o link no email de confirmação para a página da Web relacionada. Em seguida, copie o link de download do arquivo .tgz para a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
+* **OpenFOAM Source Pack** - baixe o software OpenFOAM Source Pack do Linux no [site OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga as instruções neste artigo para descompactar e compilar o OpenFOAM nos nós de computação do Linux.
+* **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://www.ceisoftware.com/download/) . As informações de licenciamento e download estão no site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configurar a relação de confiança mútua entre os nós de computação
-Executar um trabalho de nó cruzado em vários nós do Linux requer Olá nós tootrust entre si (por **rsh** ou **ssh**). Quando você cria o cluster de HPC Pack Olá com hello script de implantação do Microsoft HPC Pack IaaS, o script hello configura automaticamente confiança mútua permanente da conta de administrador Olá que você especificar. Para usuários não-administrador que criar no domínio do cluster hello, você tem tooset a relação de confiança mútua temporária entre nós hello quando um trabalho é alocada toothem e destruir relação Olá após a conclusão do trabalho de saudação. confiança tooestablish para cada usuário, forneça um cluster de toohello de par de chaves RSA HPC Pack usa Olá relação de confiança.
+Executar um trabalho de nós cruzados em vários nós do Linux requer que os nós tenham uma relação de confiança entre si (por **rsh** ou **ssh**). Quando você cria o cluster do HPC Pack com o script de implantação de IaaS do Microsoft HPC Pack, o script configura automaticamente uma relação de confiança mútua permanente para a conta de administrador que você especificar. Para usuários que não sejam administradores criados no domínio do cluster, é necessário configurar uma relação de confiança mútua temporária entre os nós quando um trabalho é alocado para eles e destruir a relação depois que o trabalho for concluído. Para estabelecer confiança para cada usuário, forneça um par de chaves RSA para o cluster usado pelo HPC Pack para a relação de confiança.
 
 ### <a name="generate-an-rsa-key-pair"></a>Gerar um par de chaves RSA
-É fácil toogenerate um par de chaves RSA, que contém uma chave pública e uma chave privada, executando Olá Linux **ssh-keygen** comando.
+É fácil gerar um par de chaves RSA, que contém uma chave pública e uma chave privada, executando o comando **ssh-keygen** do Linux.
 
-1. Faça logon no tooa computador Linux.
-2. Execute Olá comando a seguir:
+1. Faça logon em um computador com Linux.
+2. Execute o comando a seguir:
    
    ```
    ssh-keygen -t rsa
    ```
    
    > [!NOTE]
-   > Pressione **Enter** toouse Olá configurações até que o comando Olá é concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
+   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
    > 
    > 
    
    ![Gerar um par de chaves RSA][keygen]
-3. Altere o diretório de ~/.ssh toohello do diretório. chave privada Olá é armazenado na chave pública id_rsa e hello em id_rsa.pub.
+3. Altere o diretório para o diretório ~/.ssh. A chave privada é armazenada em id_rsa e a chave pública em id_rsa.pub.
    
    ![Chaves públicas e privadas][keys]
 
-### <a name="add-hello-key-pair-toohello-hpc-pack-cluster"></a>Adicionar um cluster de HPC Pack em toohello Olá par de chaves
-1. Fazer um nó de cabeçalho de tooyour de conexão de área de trabalho remota com sua conta de administrador do HPC Pack (conta de administrador Olá configurada durante a execução do script de implantação de saudação).
-2. Use toocreate de procedimentos padrão do Windows Server uma conta de usuário de domínio no domínio do Active Directory do cluster hello. Por exemplo, use o hello usuário do Active Directory e a ferramenta de computadores no nó de cabeçalho hello. exemplos de saudação neste artigo presumem que você criar um usuário de domínio chamado hpclab\hpcuser.
-3. Crie um arquivo chamado C:\cred.xml e copiar Olá RSA chave dados nele. É um arquivo de exemplo cred.xml final Olá deste artigo.
+### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Adicionar o par de chaves ao cluster do HPC Pack
+1. Faça uma conexão da Área de Trabalho Remota com o nó principal com sua conta de administrador do HPC Pack (a conta de administrador criada quando você executou o script de implantação).
+2. Use os procedimentos padrão do Windows Server para criar uma conta de usuário de domínio no domínio do Active Directory do cluster. Por exemplo, use o Usuário do Active Directory e a ferramenta Computers no nó principal. Com os exemplos neste artigo, supomos que você criará um usuário de domínio chamado hpclab\hpcuser.
+3. Crie um arquivo chamado C:\cred.xml e copie os dados da chave RSA nele. Um arquivo cred.xml de exemplo está no final deste artigo.
    
    ```
    <ExtendedData>
-     <PrivateKey>Copy hello contents of private key here</PrivateKey>
-     <PublicKey>Copy hello contents of public key here</PublicKey>
+     <PrivateKey>Copy the contents of private key here</PrivateKey>
+     <PublicKey>Copy the contents of public key here</PublicKey>
    </ExtendedData>
    ```
-4. Abra um Prompt de comando e digite Olá Olá tooset credenciais dados da conta de hpclab\hpcuser de saudação do comando a seguir. Use Olá **extendeddata** toopass parâmetro hello nome de arquivo C:\cred.xml criado para dados de chave hello.
+4. Abra um Prompt de Comando e digite o seguinte comando para definir os dados de credenciais para a conta de hpclab\hpcuser. Use o parâmetro **extendeddata** para transmitir o nome do arquivo C:\cred.xml que você criou para os dados da chave.
    
    ```
    hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
    ```
    
-   Esse comando é concluído com êxito sem resultados. Depois de definir credenciais Olá Olá para contas de usuário que é necessário toorun trabalhos, armazenar o arquivo de cred.xml Olá em um local seguro ou exclua-o.
-5. Se você gerou Olá par de chaves RSA em um de seus nós do Linux, lembre-se as chaves de saudação toodelete depois de terminar de usá-los. Se o HPC Pack encontrar um arquivo id_rsa ou id_rsa.pub existente, ele não definirá uma relação de confiança mútua.
+   Esse comando é concluído com êxito sem resultados. Depois de definir as credenciais para as contas de usuário, você precisa executar os trabalhos, armazenar o arquivo cred.xml em um local seguro ou excluí-lo.
+5. Se você gerou o par de chaves RSA em um dos nós do Linux, lembre-se de excluir as chaves após terminar de usá-las. Se o HPC Pack encontrar um arquivo id_rsa ou id_rsa.pub existente, ele não definirá uma relação de confiança mútua.
 
 > [!IMPORTANT]
-> Não é recomendável executar um trabalho de Linux como um administrador de cluster em um cluster compartilhado, porque um trabalho enviada por um administrador é executado na conta de raiz de saudação em nós do Linux hello. No entanto, um trabalho enviada por um usuário não administrador é executado sob uma conta de usuário local do Linux com hello mesmo nome como usuário do trabalho de saudação. Nesse caso, HPC Pack define a relação de confiança mútua para esse usuário do Linux em nós Olá alocadas toohello trabalho. Você pode configurar o usuário do Linux Olá manualmente em nós do Linux Olá antes de executar o trabalho de saudação ou HPC Pack cria usuário Olá automaticamente quando o trabalho de saudação é enviado. Se o HPC Pack cria usuário hello, HPC Pack excluirá Olá trabalho concluído. ameaças de segurança tooreduce, HPC Pack remove chaves Olá após a conclusão do trabalho.
+> Não recomendamos executar um trabalho do Linux como um administrador de cluster em um cluster compartilhado, já que um trabalho enviado por um administrador é executado na conta raiz nos nós do Linux. No entanto, um trabalho enviado por um usuário não administrador é executado sob uma conta de usuário local do Linux com o mesmo nome que o usuário do trabalho. Nesse caso, HPC Pack define a relação de confiança mútua para este usuário Linux em todos os nós alocados para o trabalho. Você pode configurar o usuário do Linux manualmente nos nós do Linux antes de executar o trabalho, ou o HPC Pack criará o usuário automaticamente quando o trabalho for enviado. Se o HPC Pack criar o usuário, ele o excluirá depois que o trabalho for concluído. Para reduzir ameaças de segurança, o HPC Pack remove as chaves após a conclusão do trabalho.
 > 
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configurar um compartilhamento de arquivos para nós do Linux
-Agora, configure um compartilhamento SMB padrão em uma pasta no nó principal hello. tooallow Olá Linux nós tooaccess arquivos de aplicativo com um caminho comum montagem Olá compartilhados pasta em nós do Linux hello. Se desejar, você pode usar outra opção de compartilhamento de arquivos, como o compartilhamento de Arquivos do Azure - recomendado para muitos cenários - ou um compartilhamento NFS. Consulte informações e etapas detalhadas de compartilhamento de arquivo hello [começar conosco de computação do Linux em um Cluster do HPC Pack no Azure](hpcpack-cluster.md).
+Agora, configure um compartilhamento SMB padrão em uma pasta no nó principal. Para permitir que os nós do Linux acessem os arquivos do aplicativo com um caminho comum, monte a pasta compartilhada nos nós do Linux. Se desejar, você pode usar outra opção de compartilhamento de arquivos, como o compartilhamento de Arquivos do Azure - recomendado para muitos cenários - ou um compartilhamento NFS. Consulte as informações de compartilhamento arquivos e as etapas detalhadas em [Introdução aos nós de computação Linux em um Cluster do HPC Pack no Azure](hpcpack-cluster.md).
 
-1. Crie uma pasta no nó principal hello e compartilhá-lo tooEveryone Configurando os privilégios de leitura/gravação. Por exemplo, compartilhar C:\OpenFOAM no nó principal do hello como \\ \\SUSE12RDMA HN\OpenFOAM. Aqui, *SUSE12RDMA HN* é nome do host de saudação do nó principal hello.
-2. Abra uma janela do Windows PowerShell e execute Olá comandos a seguir:
+1. Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de leitura/gravação. Por exemplo, compartilhe C:\OpenFOAM no nó principal como \\\\SUSE12RDMA-HN\OpenFOAM. Aqui, *SUSE12RDMA-HN* é o nome de host do nó principal.
+2. Abra uma janela do Windows PowerShell e execute os seguintes comandos:
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -107,27 +107,27 @@ Agora, configure um compartilhamento SMB padrão em uma pasta no nó principal h
    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
    ```
 
-Olá primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo de LinuxNodes hello. comando segundo Olá monta Olá compartilhado pasta //SUSE12RDMA-HN/OpenFOAM em nós do Linux Olá com dir_mode e file_mode too777 de conjunto de bits. Olá *username* e *senha* Olá comando deve ser credenciais de saudação de um usuário no nó de cabeçalho hello.
+O primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo LinuxNodes. O segundo comando monta a pasta compartilhada //SUSE12RDMA-HN/OpenFOAM nos nós do Linux com os bits dir_mode e file_mode definidos como 777. O *nome de usuário* e a *senha* no comando devem ser as credenciais de um usuário no nó principal.
 
 > [!NOTE]
-> Olá "\`" símbolo no segundo comando de saudação é um símbolo de escape para o PowerShell. "\`,"significa hello"," (vírgula) é uma parte do comando hello.
+> O símbolo "\`" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
 > 
 > 
 
 ## <a name="install-mpi-and-openfoam"></a>Instalar o MPI e o OpenFOAM
-toorun OpenFOAM como um trabalho MPI na rede RDMA Olá, é necessário toocompile OpenFOAM com bibliotecas de MPI Intel hello. 
+Para executar o OpenFOAM como um trabalho MPI na rede RDMA, você precisa compilar o OpenFOAM com as bibliotecas do Intel MPI. 
 
-Primeiro, execute várias **clusrun** comandos tooinstall bibliotecas de MPI Intel (se ainda não estiver instalado) e OpenFOAM em seus nós do Linux. Compartilhamento de nó principal do uso Olá configurado anteriormente arquivos de instalação de saudação tooshare entre nós do Linux hello.
+Primeiro, execute vários comandos **clusrun** para instalar as bibliotecas do Intel MPI (se ainda não estiverem instaladas) e o OpenFOAM nos seus nós do Linux. Use o compartilhamento de nós principais configurado anteriormente para compartilhar os arquivos de instalação entre os nós do Linux.
 
 > [!IMPORTANT]
-> Essas etapas de instalação e compilação são exemplos. É necessário algum conhecimento dos tooensure de administração do sistema Linux bibliotecas e compiladores dependentes estão instaladas corretamente. Talvez seja necessário toomodify determinadas variáveis de ambiente ou outras configurações para suas versões do Intel MPI e OpenFOAM. Para obter detalhes, consulte [Guia de instalação do Intel MPI Library para Linux](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) e [Instalação do OpenFOAM Source Pack](http://openfoam.org/download/2-3-1-source/) para seu ambiente.
+> Essas etapas de instalação e compilação são exemplos. Você precisa de algum conhecimento de administração do sistema Linux para garantir a instalação correta dos compiladores dependentes e das bibliotecas. Talvez você precise modificar determinadas variáveis de ambiente ou outras configurações para as versões do Intel MPI e do OpenFOAM. Para obter detalhes, consulte [Guia de instalação do Intel MPI Library para Linux](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) e [Instalação do OpenFOAM Source Pack](http://openfoam.org/download/2-3-1-source/) para seu ambiente.
 > 
 > 
 
 ### <a name="install-intel-mpi"></a>Instalar o Intel MPI
-Salve pacote de instalação baixado de saudação para Intel MPI (l_mpi_p_5.0.3.048.tgz neste exemplo) em C:\OpenFoam no nó de cabeçalho Olá para que nós do Linux Olá podem acessar esse arquivo de /openfoam. Em seguida, execute **clusrun** biblioteca de MPI Intel tooinstall em todos os nós do Linux hello.
+Salve o pacote de instalação baixado para o Intel MPI (l_mpi_p_5.0.3.048.tgz neste exemplo) em C:\OpenFoam no nó principal para que os nós do Linux possam acessar esse arquivo em /openfoam. Em seguida, execute **clusrun** para instalar a biblioteca do Intel MPI em todos os nós do Linux.
 
-1. a seguir Olá comandos do pacote de instalação de saudação de cópia e extraia-muito/opt/intel em cada nó.
+1. Os comandos a seguir copiam o pacote de instalação e extrai-o para /opt/intel em cada nó.
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
@@ -136,10 +136,10 @@ Salve pacote de instalação baixado de saudação para Intel MPI (l_mpi_p_5.0.3
    
    clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
    ```
-2. tooinstall Intel MPI biblioteca silenciosamente, use um arquivo silent.cfg. Você pode encontrar um exemplo no hello arquivos de exemplo no final deste artigo hello. Coloque esse arquivo no hello compartilhados /openfoam de pasta. Para obter detalhes sobre o arquivo de silent.cfg hello, consulte [Intel MPI biblioteca para o guia de instalação do Linux - instalação silenciosa](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
+2. Para instalar a Intel MPI Library silenciosamente, use um arquivo silent.cfg. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo. Coloque esse arquivo na pasta compartilhada /openfoam. Para obter detalhes sobre o arquivo silent.cfg, consulte [Intel MPI Library para o Guia de Instalação do Linux - Instalação Silenciosa](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
    
    > [!TIP]
-   > Salve o arquivo silent.cfg como um arquivo de texto com as terminações de linha do Linux (LF apenas, não CR LF). Essa etapa garante que ele seja executado corretamente em nós do Linux hello.
+   > Salve o arquivo silent.cfg como um arquivo de texto com as terminações de linha do Linux (LF apenas, não CR LF). Esta etapa garante que ele seja executado corretamente nos nós do Linux.
    > 
    > 
 3. Instale a Intel MPI Library no modo silencioso.
@@ -149,24 +149,24 @@ Salve pacote de instalação baixado de saudação para Intel MPI (l_mpi_p_5.0.3
    ```
 
 ### <a name="configure-mpi"></a>Configurar o MPI
-Para testar, você deve adicionar Olá linhas toohello /etc/security/limits.conf a seguir em cada um de nós do Linux hello:
+Para testar, adicione as seguintes linhas a /etc/security/limits.conf em cada um dos nós do Linux:
 
     clusrun /nodegroup:LinuxNodes echo "*               hard    memlock         unlimited" `>`> /etc/security/limits.conf
     clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
 
 
-Reinicie nós do Linux Olá depois de atualizar o arquivo de limits.conf hello. Por exemplo, use o seguinte Olá **clusrun** comando:
+Depois de atualizar o arquivo limits.conf, reinicie os nós do Linux. Por exemplo, use o comando **clusrun** :
 
 ```
 clusrun /nodegroup:LinuxNodes systemctl reboot
 ```
 
-Depois de reiniciar, verifique a que pasta compartilhada hello está montada como /openfoam.
+Depois de reiniciar, verifique se a pasta compartilhada está montada como /openfoam.
 
 ### <a name="compile-and-install-openfoam"></a>Compilar e instalar o OpenFOAM
-Salve o pacote de instalação baixado de saudação para Olá tooC:\OpenFoam OpenFOAM fonte Pack (OpenFOAM 2.3.1.tgz neste exemplo) no nó de cabeçalho Olá para que nós do Linux Olá podem acessar esse arquivo de /openfoam. Em seguida, execute **clusrun** comandos Olá de toocompile OpenFOAM em todos os nós do Linux.
+Salve o pacote de instalação baixado para o OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz neste exemplo) em C:\OpenFoam no nó principal para que os nós do Linux possam acessar esse arquivo em /openfoam. Em seguida, execute comandos **clusrun** para compilar o OpenFOAM em todos os nós do Linux.
 
-1. Criar uma pasta /opt/OpenFOAM em cada nó do Linux, pasta de toothis do pacote de origem de saudação cópia e extraia-o lá.
+1. Crie uma pasta /opt/OpenFOAM em cada nó do Linux, copie o pacote de origem para essa pasta e extraia-o nesse local.
    
    ```
    clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
@@ -175,8 +175,8 @@ Salve o pacote de instalação baixado de saudação para Olá tooC:\OpenFoam Op
    
    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
    ```
-2. toocompile OpenFOAM com hello Intel MPI biblioteca, primeiro configure algumas variáveis de ambiente para Intel MPI e OpenFOAM. Use um script de bash chamado settings.sh tooset Olá variáveis. Você pode encontrar um exemplo no hello arquivos de exemplo no final deste artigo hello. O local deste arquivo (salvo com terminações de linha do Linux) em Olá compartilhados /openfoam de pasta. Esse arquivo também contém configurações para Olá MPI OpenFOAM tempos de execução e que você use toorun posteriormente um trabalho OpenFOAM.
-3. Instale pacotes dependentes necessário toocompile OpenFOAM. Dependendo da distribuição do Linux, talvez seja necessário primeiro tooadd um repositório. Executar **clusrun** comandos a seguir toohello semelhante:
+2. Para compilar o OpenFOAM com a Intel MPI Library, primeiro configure algumas variáveis de ambiente para o Intel MPI e o OpenFOAM. Use um script bash chamado settings.sh para definir as variáveis. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo. Coloque esse arquivo (salvo com as terminações de linha do Linux) na pasta compartilhada /openfoam. Esse arquivo também contém configurações para os tempos de execução MPI e OpenFOAM que você usará posteriormente para executar um trabalho do OpenFOAM.
+3. Instale os pacotes dependentes necessários para compilar o OpenFOAM. Dependendo de sua distribuição do Linux, você precisará primeiro adicionar um repositório. Execute comandos **clusrun** semelhantes ao seguinte:
    
     ```
     clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
@@ -184,51 +184,51 @@ Salve o pacote de instalação baixado de saudação para Olá tooC:\OpenFoam Op
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
    
-    Se necessário, a saudação do SSH tooeach Linux nó toorun comandos tooconfirm que são executadas corretamente.
-4. Execute Olá comando toocompile OpenFOAM a seguir. o processo de compilação Olá leva algum tempo toocomplete e gera uma grande quantidade de saída de toostandard de informações de log, use Olá **/ intercaladas** opção de saída de hello toodisplay intercalada.
+    Se necessário, use SSH em cada nó do Linux para executar os comandos a fim de confirmar se são executados corretamente.
+4. Execute o comando a seguir para compilar o OpenFOAM. O processo de compilação leva algum tempo para ser concluído e gera uma grande quantidade de informações de log na saída padrão. Portanto, use a opção **/interleaved** para exibir a saída intercalada.
    
    ```
    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
    ```
    
    > [!NOTE]
-   > Olá "\`" símbolo no comando Olá é um símbolo de escape para o PowerShell. "\`&" significa Olá "&" é uma parte do comando hello.
+   > O símbolo "\`" no comando é um símbolo de escape para o PowerShell. "\`&" significa que o "&" é uma parte do comando.
    > 
    > 
 
-## <a name="prepare-toorun-an-openfoam-job"></a>Preparar um trabalho de OpenFOAM de toorun
-Agora Obtenha pronto toorun um trabalho MPI chamado sloshingTank3D, que é um dos exemplos de OpenFoam hello, em dois nós do Linux. 
+## <a name="prepare-to-run-an-openfoam-job"></a>Preparar para executar um trabalho do OpenFOAM
+Agora, prepare-se executar um trabalho MPI chamado sloshingTank3D, que é um dos exemplos de OpenFoam, em dois nós do Linux. 
 
-### <a name="set-up-hello-runtime-environment"></a>Configurar o ambiente de tempo de execução de saudação
-tooset ambientes de tempo de execução Olá para MPI e OpenFOAM em nós do Linux hello, executados Olá comando em uma janela do Windows PowerShell a seguir no nó de cabeçalho hello. (Este comando é válido apenas para o Linux SUSE)
+### <a name="set-up-the-runtime-environment"></a>Configurar o ambiente do tempo de execução
+Para configurar os ambientes do tempo de execução para o MPI e o OpenFOAM em todos os nós do Linux, execute o seguinte comando em uma janela do Windows PowerShell no nó principal. (Este comando é válido apenas para o Linux SUSE)
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 ```
 
 ### <a name="prepare-sample-data"></a>Preparar os dados de exemplo
-Compartilhamento de nó principal do uso Olá foi configurado anteriormente tooshare arquivos entre os nós do Linux hello (montados como /openfoam).
+Use o compartilhamento de nós principais configurado anteriormente para compartilhar os arquivos entre os nós do Linux (montados as /openfoam).
 
-1. Nós de computação tooone SSH do seu Linux.
-2. Execute Olá após o comando tooset o ambiente de tempo de execução de OpenFOAM hello, se você ainda não tiver feito isso.
+1. SSH para um dos nós de computação do Linux.
+2. Execute o seguinte comando para configurar o ambiente do tempo de execução do OpenFOAM, se você ainda não fez isso.
    
    ```
    $ source /openfoam/settings.sh
    ```
-3. Copie a pasta compartilhada do hello sloshingTank3D exemplo toohello e navegue tooit.
+3. Copie o exemplo sloshingTank3D para a pasta compartilhada e navegue até ele.
    
    ```
    $ cp -r $FOAM_TUTORIALS/multiphase/interDyMFoam/ras/sloshingTank3D /openfoam/
    
    $ cd /openfoam/sloshingTank3D
    ```
-4. Quando você usa os parâmetros padrão Olá deste exemplo, pode levar dezenas de toorun minutos, portanto, talvez você queira toomodify toomake alguns parâmetros que ele executado mais rapidamente. Uma opção simple é toomodify Olá tempo Etapa variáveis deltaT e writeInterval no arquivo de sistema/controlDict hello. Esse arquivo armazena todos os dados de entrada relacionados toohello controle de tempo e leitura e gravação de dados da solução. Por exemplo, você pode alterar o valor de Olá de deltaT de 0,05 too0.5 e valor de saudação do writeInterval de too0.5 0,05.
+4. Quando você usa os parâmetros padrão desse exemplo, pode levar vários minutos para ele ser executado, portanto, convém modificar alguns parâmetros para que ele seja executado mais rapidamente. Uma opção simples é modificar as variáveis da etapa de tempo deltaT e writeInterval no arquivo de sistema/controlDict. Esse arquivo armazena todos os dados de entrada relacionados ao controle de tempo e leitura e gravação de dados da solução. Por exemplo, você pode alterar o valor de deltaT de 0,05 para 0,5 e o valor de writeInterval de 0,05 para 0,5.
    
    ![Modificar as variáveis da etapa][step_variables]
-5. Especifique os valores desejados para variáveis de saudação no arquivo de sistema/decomposeParDict hello. Este exemplo usa dois nós Linux cada com 8 núcleos, portanto, definir numberOfSubdomains too16 e n hierarchicalCoeffs too(1 1 16), que significa OpenFOAM ser executados em paralelo com 16 processos. Para obter mais informações, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)(Guia do usuário OpenFOAM: 3.4 Execução de aplicativos em paralelo).
+5. Especifique os valores desejados para as variáveis no arquivo system/decomposeParDict. Este exemplo usa dois nós do Linux, cada um com oito núcleos, portanto, defina numberOfSubdomains para 16 e n de hierarchicalCoeffs para (1 1 16), que significa executar o OpenFOAM em paralelo com 16 processos. Para obter mais informações, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)(Guia do usuário OpenFOAM: 3.4 Execução de aplicativos em paralelo).
    
    ![Decompor processos][decompose]
-6. Execute Olá comandos a seguir de dados de exemplo hello sloshingTank3D directory tooprepare hello.
+6. Execute os seguintes comandos no diretório sloshingTank3D para preparar os dados de exemplo.
    
    ```
    $ . $WM_PROJECT_DIR/bin/tools/RunFunctions
@@ -241,15 +241,15 @@ Compartilhamento de nó principal do uso Olá foi configurado anteriormente toos
    
    $ runApplication setFields  
    ```
-7. No nó de cabeçalho Olá, você deve ver os arquivos de dados de exemplo hello são copiados para C:\OpenFoam\sloshingTank3D. (C:\OpenFoam é a pasta compartilhada Olá no nó de cabeçalho hello.)
+7. No nó principal, você deve ver que os arquivos de dados de exemplo são copiados para C:\OpenFoam\sloshingTank3D. (C:\OpenFoam é a pasta compartilhada no nó principal.)
    
-   ![Arquivos de dados no nó principal Olá][data_files]
+   ![Arquivos de dados no nó principal][data_files]
 
 ### <a name="host-file-for-mpirun"></a>Arquivo de host para mpirun
-Nesta etapa, você criar um arquivo de host (uma lista de nós de computação) que Olá **mpirun** comando usa.
+Nesta etapa, crie um arquivo de host (uma lista de nós de computação) que o comando **mpirun** usa.
 
-1. Em um de nós do Linux hello, crie um arquivo chamado arquivo de host em /openfoam, para que esse arquivo pode ser contatado pelo /openfoam/hostfile em todos os nós do Linux.
-2. Grave os nomes dos nós do Linux nesse arquivo. Neste exemplo, o arquivo hello contém Olá nomes a seguir:
+1. Em um dos nós do Linux, crie um arquivo chamado hostfile em /openfoam, para que esse arquivo possa ser obtido em /openfoam/hostfile em todos os nós do Linux.
+2. Grave os nomes dos nós do Linux nesse arquivo. Neste exemplo, o arquivo contém os seguintes nomes:
    
    ```       
    SUSE12RDMA-LN1
@@ -257,22 +257,22 @@ Nesta etapa, você criar um arquivo de host (uma lista de nós de computação) 
    ```
    
    > [!TIP]
-   > Você também pode criar esse arquivo no C:\OpenFoam\hostfile no nó de cabeçalho hello. Se você escolher esta opção, salve-o como um arquivo de texto com as terminações de linha do Linux (LF apenas, não CR LF). Isso garante que ele seja executado corretamente em nós do Linux hello.
+   > Você também pode criar esse arquivo em C:\OpenFoam\hostfile no nó principal. Se você escolher esta opção, salve-o como um arquivo de texto com as terminações de linha do Linux (LF apenas, não CR LF). Isso garante que ele seja executado corretamente nos nós do Linux.
    > 
    > 
    
    **Wrapper de script bash**
    
-   Se você tiver muitos nós do Linux, e você desejar toorun seu trabalho em apenas alguns deles, não é um toouse recomendável um host fixo de arquivos, porque você não sabe quais nós serão alocados tooyour trabalho. Nesse caso, grave um wrapper de script bash para **mpirun** toocreate Olá arquivo host automaticamente. Você pode encontrar um wrapper de script do exemplo bash chamado hpcimpirun.sh no final deste artigo hello e salve-o como /openfoam/hpcimpirun.sh. Esse script de exemplo hello a seguir:
+   Se você tiver vários nós do Linux e desejar que seu trabalho seja executado somente em alguns deles, não será uma boa ideia usar um arquivo de host fixo porque você não sabe quais nós serão alocados para seu trabalho. Neste caso, escreva um wrapper de script bash para **mpirun** a fim de criar o arquivo de host automaticamente. Você pode encontrar um wrapper de script bash de exemplo chamado hpcimpirun.sh no final deste artigo e salvá-lo como /openfoam/hpcimpirun.sh. Esse script de exemplo faz o seguinte:
    
-   1. Define as variáveis de ambiente Olá para **mpirun**e alguns adição comando parâmetros toorun Olá MPI trabalho por meio da rede RDMA hello. Nesse caso, ele define Olá variáveis a seguir:
+   1. Define as variáveis de ambiente para **mpirun**e alguns parâmetros do comando de adição para executar o trabalho MPI por meio da rede RDMA. Nesse caso, ele define as seguintes variáveis:
       
       * I_MPI_FABRICS=shm:dapl
       * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
       * I_MPI_DYNAMIC_CONNECTION=0
-   2. Cria um arquivo de host de acordo com toohello variável de ambiente $CCP_NODES_CORES, que é definido por nó principal do HPC hello quando o trabalho de saudação é ativado.
+   2. Cria um arquivo de host de acordo com a variável de ambiente $CCP_NODES_CORES, que é definida pelo nó principal do HPC quando o trabalho é ativado.
       
-      formato de saudação do $CCP_NODES_CORES segue este padrão:
+      O formato $CCP_NODES_CORES segue este padrão:
       
       ```
       <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -280,106 +280,106 @@ Nesta etapa, você criar um arquivo de host (uma lista de nós de computação) 
       
       onde
       
-      * `<Number of nodes>`-número de saudação de nós alocado toothis trabalho.  
-      * `<Name of node_n_...>`-nome de saudação de cada nó alocada toothis trabalho.
-      * `<Cores of node_n_...>`-Olá número de núcleos no trabalho do hello nó toothis alocado.
+      * `<Number of nodes>` : o número de nós alocados para esse trabalho.  
+      * `<Name of node_n_...>` : o nome de cada nó alocado para esse trabalho.
+      * `<Cores of node_n_...>`: o número de núcleos no nó alocado para esse trabalho.
       
-      Por exemplo, se o trabalho de saudação precisa toorun de dois nós, $CCP_NODES_CORES é semelhante a
+      Por exemplo, se o trabalho precisar de dois núcleos para ser executado, $CCP_NODES_CORES será semelhante a
       
       ```
       2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
       ```
-   3. Saudação de chamadas **mpirun** de comando e acrescenta dois parâmetros toohello comando linha.
+   3. Chama o comando **mpirun** e acrescenta dois parâmetros à linha de comando.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>`-Olá caminho do script de saudação do arquivo de host Olá cria
-      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`-uma variável de ambiente definida pelo Olá HPC Pack nó principal, que armazena o número de saudação de núcleos total alocada toothis trabalho. Nesse caso, ele especifica o número de saudação de processos para **mpirun**.
+      * `--hostfile <hostfilepath>: <hostfilepath>` - o caminho do arquivo de host que o script cria
+      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - uma variável de ambiente definida pelo nó principal do HPC Pack, que armazena o número de núcleos totais alocados para esse trabalho. Nesse caso, especifica o número de processos para **mpirun**.
 
 ## <a name="submit-an-openfoam-job"></a>Enviar um trabalho do OpenFOAM
-Agora, você pode enviar um trabalho no Gerenciador de Cluster de HPC. É necessário toopass Olá script hpcimpirun.sh nas linhas de comando Olá para algumas das tarefas de trabalho hello.
+Agora, você pode enviar um trabalho no Gerenciador de Cluster de HPC. Você precisa passar o script hpcimpirun.sh nas linhas de comando para algumas das tarefas de trabalho.
 
-1. Conecte-se o nó principal do cluster tooyour e iniciar o Gerenciador de Cluster de HPC.
-2. **No gerenciamento de recursos**, verifique se nós de computação Olá Linux estão em Olá **Online** estado. Se não estiverem, selecione-os e clique em **Colocar Online**.
+1. Conecte-se ao nó principal do cluster e inicie o Gerenciador de Cluster do HPC.
+2. Em **Gerenciamento de Recursos**, verifique se os nós de computação do Linux estão no estado **Online**. Se não estiverem, selecione-os e clique em **Colocar Online**.
 3. Em **Gerenciamento de Trabalhos**, clique em **Novo Trabalho**.
 4. Insira um nome para o trabalho, como *sloshingTank3D*.
    
    ![Detalhes do trabalho][job_details]
-5. Em **recursos de trabalho**, escolha o tipo de saudação do recurso como "Nó" e defina Olá mínimo too2. Essa configuração executa o trabalho de saudação em dois nós do Linux, cada um deles tem oito núcleos neste exemplo.
+5. Em **Recursos de trabalho**, selecione o tipo de recurso como “Nó” e defina o Mínimo para 2. Essa configuração executa o trabalho em dois nós do Linux, cada um deles tem oito núcleos neste exemplo.
    
    ![Recursos de trabalho][job_resources]
-6. Clique em **editar tarefas** Olá navegação esquerdo e, em seguida, clique em **adicionar** tooadd um trabalho de toohello de tarefa. Adicionar quatro tarefas toohello trabalho Olá linhas de comando e as configurações a seguir.
+6. Clique em **Editar Tarefas** na navegação esquerda e clique em **Adicionar** para adicionar uma tarefa ao trabalho. Adicione quatro tarefas ao trabalho com as seguintes linhas de comando e configurações para as tarefas.
    
    > [!NOTE]
-   > Executando `source /openfoam/settings.sh` configura ambientes de tempo de execução de OpenFOAM e MPI da saudação, para cada uma das seguintes tarefas de saudação chamá-lo antes de saudação OpenFOAM comando.
+   > A execução `source /openfoam/settings.sh` configura os ambientes do tempo de execução OpenFOAM e MPI para que cada uma das tarefas a seguir chame antes do comando OpenFOAM.
    > 
    > 
    
-   * **Tarefa 1**. Executar **decomposePar** toogenerate arquivos de dados para a execução **interDyMFoam** em paralelo.
+   * **Tarefa 1**. Execute **decomposePar** para gerar arquivos de dados a fim de executar o **interDyMFoam** em paralelo.
      
-     * Atribuir uma tarefa de toohello de nó
+     * Atribuir um nó à tarefa
      * **Linha de comando** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
      * **Diretório de trabalho** - /openfoam/sloshingTank3D
      
-     Consulte Olá figura a seguir. Você pode configurar as tarefas restantes Olá da mesma forma.
+     Consulte a figura a seguir. Você pode configurar as tarefas restantes da mesma forma.
      
      ![Detalhes da tarefa 1][task_details1]
-   * **Tarefa 2**. Executar **interDyMFoam** no exemplo de hello toocompute paralela.
+   * **Tarefa 2**. Execute **interDyMFoam** em paralelo para calcular o exemplo.
      
-     * Atribuir tarefas de toohello dois nós
+     * Atribuir dois nós à tarefa
      * **Linha de comando** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
      * **Diretório de trabalho** - /openfoam/sloshingTank3D
-   * **Tarefa 3**. Executar **reconstructPar** toomerge Olá conjuntos dos diretórios de tempo de cada diretório processor_N_ em um único conjunto.
+   * **Tarefa 3**. Execute **reconstructPar** para mesclar os conjuntos de diretórios de tempo de cada diretório processor_N_ em um único conjunto.
      
-     * Atribuir uma tarefa de toohello de nó
+     * Atribuir um nó à tarefa
      * **Linha de comando** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
      * **Diretório de trabalho** - /openfoam/sloshingTank3D
-   * **Tarefa 4**. Executar **foamToEnsight** em paralelo tooconvert arquivos de resultado Olá OpenFOAM em EnSight formatar em colocar arquivos de EnSight de saudação em um diretório chamado Ensight no diretório caso hello.
+   * **Tarefa 4**. Execute **foamToEnsight** em paralelo para converter os arquivos de resultado do OpenFOAM no formato EnSight e colocar os arquivos EnSight em um diretório chamado Ensight no diretório de caso.
      
-     * Atribuir tarefas de toohello dois nós
+     * Atribuir dois nós à tarefa
      * **Linha de comando** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
      * **Diretório de trabalho** - /openfoam/sloshingTank3D
-7. Adicione tarefas de toothese dependências na tarefa ordem crescente.
+7. Adicione dependências a essas tarefas na  ordem de tarefas crescente.
    
    ![Dependências da tarefa][task_dependencies]
-8. Clique em **enviar** toorun esse trabalho.
+8. Clique em **Enviar** para executar este trabalho.
    
-   Por padrão, o HPC Pack envia trabalho hello como sua conta de logon do usuário atual. Depois de clicar em **enviar**, você verá uma caixa de diálogo solicitando que você tooenter Olá nome e uma senha.
+   Por padrão, o HPC Pack envia o trabalho como a sua atual conta de usuário conectado. Depois de clicar em **Enviar**, uma caixa de diálogo pode solicitar que você insira o nome de usuário e a senha.
    
    ![Credenciais de trabalho][creds]
    
-   Sob algumas condições, o HPC Pack lembra informações de usuário de saudação antes de entrada e não mostrar esta caixa de diálogo. toomake HPC Pack mostrá-la novamente, insira Olá comando no prompt de comando a seguir e, em seguida, enviar o trabalho de saudação.
+   Em algumas condições, o HPC Pack memoriza as informações do usuário inseridas anteriormente e não mostra esta caixa de diálogo. Para fazer o HPC Pack mostrar novamente, digite o seguinte comando em um prompt de comando e, então, envie o trabalho.
    
    ```
    hpccred delcreds
    ```
-9. trabalho de saudação leva de dezenas de minutos tooseveral horas de acordo com os parâmetros de toohello que você definiu para o exemplo hello. Mapa de calor hello, você verá trabalho Olá em execução em nós do Linux hello. 
+9. O trabalho leva de alguns minutos a várias horas de acordo com os parâmetros que você definiu para o exemplo. No mapa de calor, você vê o trabalho em execução em dois nós do Linux. 
    
    ![Mapa de calor][heat_map]
    
    Em cada nó, oito processos são iniciados.
    
    ![Processos do Linux][linux_processes]
-10. Quando termina de trabalho hello, localize resultados do trabalho Olá nas pastas C:\OpenFoam\sloshingTank3D e os arquivos de log de saudação em C:\OpenFoam.
+10. Quando o trabalho for concluído, localize os resultados do trabalho nas pastas em C:\OpenFoam\sloshingTank3D e os arquivos de log em C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Exibir resultados no EnSight
-Opcionalmente, use [EnSight](https://www.ceisoftware.com/) toovisualize e analisar os resultados de saudação do trabalho de OpenFOAM hello. Para obter mais informações sobre a visualização e a animação no EnSight, consulte o [guia em vídeo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Opcionalmente, use o [EnSight](https://www.ceisoftware.com/) para visualizar e analisar os resultados do trabalho do OpenFOAM. Para obter mais informações sobre a visualização e a animação no EnSight, consulte o [guia em vídeo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
-1. Depois de instalar EnSight no nó principal do hello, inicie-o.
+1. Depois de instalar o EnSight no nó principal, inicie-o.
 2. Abra o C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
    
-   Você verá um tanque no Visualizador de saudação.
+   Você verá um tanque no visualizador.
    
    ![Tanque no EnSight][tank]
-3. Criar um **Isosurface** de **internalMesh**e, em seguida, escolha variável Olá **alpha_water**.
+3. Crie um **Isosurface** em **internalMesh**, em seguida, escolha a variável **alpha_water**.
    
    ![Criar um isosurface][isosurface]
-4. Definir cor Olá para **Isosurface_part** criado na etapa anterior hello. Por exemplo, defina-toowater azul.
+4. Defina a cor do **Isosurface_part** criado na etapa anterior. Por exemplo, defina-a para água azul.
    
    ![Editar cor do isosurface][isosurface_color]
-5. Criar um **volume Iso** de **paredes** selecionando **paredes** em Olá **partes** painel e clique em Olá **Isosurfaces**  botão na barra de ferramentas de saudação.
-6. Na caixa de diálogo hello, selecione **tipo** como **Isovolume** e defina Olá Min de **Isovolume intervalo** too0.5. toocreate Olá isovolume, clique em **criar com partes selecionadas**.
-7. Definir cor Olá para **Iso_volume_part** criado na etapa anterior hello. Por exemplo, defina-água toodeep azul.
-8. Definir cor Olá para **paredes**. Por exemplo, defina-tootransparent branco.
-9. Agora clique **reproduzir** toosee resultados de saudação de simulação de saudação.
+5. Crie um **volume Iso** em **paredes** selecionando **paredes** no painel **Partes** e clique no botão **Isosurfaces** na barra de ferramentas.
+6. Na caixa de diálogo, selecione **Tipo** como **Isovolume** e defina o Mín. do **Intervalo Isovolume** para 0,5. Para criar o isovolume, clique em **Criar com partes selecionadas**.
+7. Defina a cor de **Iso_volume_part** criado na etapa anterior. Por exemplo, defina para água azul profundo.
+8. Defina a cor de **paredes**. Por exemplo, defina para branco transparente.
+9. Agora, clique em **Reproduzir** para ver os resultados da simulação.
    
     ![Resultado do tanque][tank_result]
 
@@ -454,14 +454,14 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
   <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
 </ExtendedData>
 ```
-### <a name="sample-silentcfg-file-tooinstall-mpi"></a>Exemplo silent.cfg arquivo tooinstall MPI
+### <a name="sample-silentcfg-file-to-install-mpi"></a>Arquivo silent.cfg de exemplo para instalar MPI
 ```
-# Patterns used toocheck silent configuration file
+# Patterns used to check silent configuration file
 #
 # anythingpat - any string
-# filepat     - hello file location pattern (/file/location/to/license.lic)
-# lspat       - hello license server address pattern (0123@hostname)
-# snpat       - hello serial number pattern (ABCD-01234567)
+# filepat     - the file location pattern (/file/location/to/license.lic)
+# lspat       - the license server address pattern (0123@hostname)
+# snpat       - the serial number pattern (ABCD-01234567)
 
 # accept EULA, valid values are: {accept, decline}
 ACCEPT_EULA=accept
@@ -475,7 +475,7 @@ PSET_INSTALL_DIR=/opt/intel
 # continue with overwrite of existing installation directory, valid values are: {yes, no}
 CONTINUE_WITH_INSTALLDIR_OVERWRITE=yes
 
-# list of components tooinstall, valid values are: {ALL, DEFAULTS, anythingpat}
+# list of components to install, valid values are: {ALL, DEFAULTS, anythingpat}
 COMPONENTS=DEFAULTS
 
 # installation mode, valid values are: {install, modify, repair, uninstall}
@@ -493,7 +493,7 @@ PSET_MODE=install
 # Activation type, valid values are: {exist_lic, license_server, license_file, trial_lic, serial_number}
 ACTIVATION_TYPE=trial_lic
 
-# Path toohello cluster description file, valid values are: {filepat}
+# Path to the cluster description file, valid values are: {filepat}
 #CLUSTER_INSTALL_MACHINES_FILE=filepat
 
 # Intel(R) Software Improvement Program opt-in, valid values are: {yes, no}
@@ -502,10 +502,10 @@ PHONEHOME_SEND_USAGE_DATA=no
 # Perform validation of digital signatures of RPM files, valid values are: {yes, no}
 SIGNING_ENABLED=yes
 
-# Select yes tooenable mpi-selector integration, valid values are: {yes, no}
+# Select yes to enable mpi-selector integration, valid values are: {yes, no}
 ENVIRONMENT_REG_MPI_ENV=no
 
-# Select yes tooupdate ld.so.conf, valid values are: {yes, no}
+# Select yes to update ld.so.conf, valid values are: {yes, no}
 ENVIRONMENT_LD_SO_CONF=no
 
 
@@ -533,7 +533,7 @@ export WM_MPLIB=INTELMPI
 ```
 #!/bin/bash
 
-# hello path of this script
+# The path of this script
 SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 
 # Set mpirun runtime evironment
@@ -556,13 +556,13 @@ COUNT=${#NODESCORES[@]}
 
 if [ ${COUNT} -eq 0 ]
 then
-    # CCP_NODES_CORES is not found or is empty, just run hello mpirun without hostfile arg.
+    # CCP_NODES_CORES is not found or is empty, just run the mpirun without hostfile arg.
     ${MPIRUN} $*
 else
-    # Create hello hostfile file
+    # Create the hostfile file
     NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
 
-    # Get every node name and write into hello hostfile file
+    # Get every node name and write into the hostfile file
     I=1
     while [ ${I} -lt ${COUNT} ]
     do
@@ -570,7 +570,7 @@ else
         let "I=${I}+2"
     done
 
-    # Run hello mpirun with hostfile arg
+    # Run the mpirun with hostfile arg
     ${MPIRUN} ${NUMPROCESS_OPT} ${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
     RTNSTS=$?

@@ -1,5 +1,5 @@
 ---
-title: "tipos de conteúdo aaaHandle - os aplicativos lógicos do Azure | Microsoft Docs"
+title: "Manipulação de tipos de conteúdo - Aplicativos lógicos do Azure | Microsoft Docs"
 description: "Como os aplicativos lógicos do Azure lidam com tipos de conteúdo em tempo de execução e de design"
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a823249c5388b15ae0aae450b40499b420ea005e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Gerenciamento de tipos de conteúdo em aplicativos lógicos
 
-JSON, XML, arquivos simples e dados binários são alguns dos diversos tipos de conteúdo que podem fluir em um aplicativo lógico. Enquanto o hello lógica aplicativos mecanismo dá suporte a todos os tipos de conteúdo, algumas nativamente são entendidas pelo Olá lógica de mecanismo de aplicativos. Outros podem exigir transmissões ou conversões conforme necessário. Este artigo descreve como o mecanismo de saudação lida com diferentes tipos de conteúdo e como toocorrectly tratar desses tipos, quando necessário.
+JSON, XML, arquivos simples e dados binários são alguns dos diversos tipos de conteúdo que podem fluir em um aplicativo lógico. O mecanismo de aplicativos lógicos oferece suporte a todos os tipos de conteúdo e também é capaz de compreender nativamente o mecanismo de aplicativos lógicos. Outros podem exigir transmissões ou conversões conforme necessário. Este artigo descreve como o mecanismo gerencia diferentes tipos de conteúdo e como lidar corretamente com esses tipos quando necessário.
 
 ## <a name="content-type-header"></a>Cabeçalho Content-Type
 
-toostart basicamente, vejamos Olá dois `Content-Types` que não exigem conversão ou conversão que você pode usar em um aplicativo lógico: `application/json` e `text/plain`.
+Para iniciar, vamos examinar os dois `Content-Types` que não requerem transmissão nem conversão que podem ser usados em um aplicativo lógico: `application/json` e `text/plain`.
 
 ## <a name="applicationjson"></a>Aplicativo/JSON
 
-mecanismo de fluxo de trabalho Olá depende Olá `Content-Type` cabeçalho de HTTP chama o tratamento do toodetermine Olá apropriado. Qualquer solicitação com o tipo de conteúdo Olá `application/json` são armazenados e manipulados como um objeto JSON. Além disso, o conteúdo JSON pode ser analisado por padrão sem a necessidade de conversão. 
+O mecanismo de fluxo de trabalho depende do cabeçalho `Content-Type` de chamadas HTTP para determinar o tratamento apropriado. Qualquer solicitação com o tipo de conteúdo `application/json` será armazenada e tratada como um objeto JSON. Além disso, o conteúdo JSON pode ser analisado por padrão sem a necessidade de conversão. 
 
-Por exemplo, você poderia analisar uma solicitação que tem o cabeçalho de tipo de conteúdo de saudação `application/json ` em um fluxo de trabalho usando uma expressão como `@body('myAction')['foo'][0]` valor de saudação tooget `bar` nesse caso:
+Por exemplo, para analisar uma solicitação com o cabeçalho de tipo de conteúdo `application/json ` em um fluxo de trabalho, use uma expressão como `@body('myAction')['foo'][0]` para obter o valor `bar`, nesse caso:
 
 ```
 {
@@ -43,42 +43,42 @@ Por exemplo, você poderia analisar uma solicitação que tem o cabeçalho de ti
 }
 ```
 
-Nenhuma conversão adicional é necessária. Se você estiver trabalhando com dados JSON mas não tinham um cabeçalho especificado, você pode manualmente convertê-lo tooJSON usando Olá `@json()` funcionar, por exemplo: `@json(triggerBody())['foo']`.
+Nenhuma conversão adicional é necessária. Se estiver trabalhando com dados JSON, mas não tiver um cabeçalho especificado, você poderá convertê-lo manualmente para JSON usando a função `@json()`, por exemplo: `@json(triggerBody())['foo']`.
 
 ### <a name="schema-and-schema-generator"></a>Esquema e gerador de esquema
 
-Olá gatilho de solicitação permite que você tooenter um esquema JSON para carga Olá esperado tooreceive. Esse esquema permite que o designer Olá gerar tokens para que você poder consumir conteúdo de saudação da solicitação de saudação. Se você não tiver um esquema pronto, selecione **esquema de toogenerate de carga de exemplo de uso**, portanto, você pode gerar um esquema JSON de uma carga de exemplo.
+O gatilho da solicitação permite que você insira um esquema JSON para o conteúdo que espera receber. Esse esquema permite que o designer gere tokens para que você possa consumir o conteúdo da solicitação. Se não tiver um esquema pronto, escolha **Usar o conteúdo de exemplo para gerar esquema** para poder gerar um esquema JSON de um conteúdo de exemplo.
 
 ![Esquema](./media/logic-apps-http-endpoint/manualtrigger.png)
 
 ### <a name="parse-json-action"></a>Ação "Parse JSON"
 
-Olá `Parse JSON` ação lhe permite analisar o conteúdo JSON em tokens amigáveis para o consumo lógica de aplicativo. Gatilho de solicitação toohello semelhante, esta ação permite que você insira ou gere um esquema JSON para Olá conteúdo que você deseja tooparse. Essa ferramenta facilita grande parte do consumo de dados do Barramento de Serviço, do Azure Cosmos DB e assim por diante.
+A ação `Parse JSON` permite que você analise o conteúdo JSON em tokens amigáveis para o consumo do aplicativo lógico. Assim como com o gatilho da solicitação, essa ação permite que você insira ou gere um esquema JSON para o conteúdo que você deseja analisar. Essa ferramenta facilita grande parte do consumo de dados do Barramento de Serviço, do Azure Cosmos DB e assim por diante.
 
 ![Analisar o JSON](./media/logic-apps-content-type/ParseJSON.png)
 
 ## <a name="textplain"></a>Text/plain
 
-Semelhante muito`application/json`, mensagens HTTP recebidas com hello `Content-Type` cabeçalho de `text/plain` são armazenados em formato bruto. Além disso, se essas mensagens são incluídas em ações subsequentes sem conversão, essas solicitações saem com o cabeçalho `Content-Type`: `text/plain`. Por exemplo, ao trabalhar com um arquivo simples, você pode obter esse conteúdo HTTP como `text/plain`:
+Assim como `application/json`, as mensagens HTTP recebidas com o cabeçalho `Content-Type` de `text/plain` são armazenadas em sua forma bruta. Além disso, se essas mensagens são incluídas em ações subsequentes sem conversão, essas solicitações saem com o cabeçalho `Content-Type`: `text/plain`. Por exemplo, ao trabalhar com um arquivo simples, você pode obter esse conteúdo HTTP como `text/plain`:
 
 ```
 Date,Name,Address
 Oct-1,Frank,123 Ave.
 ```
 
-Se na ação de Avançar hello, enviar solicitação hello como corpo de saudação da outra solicitação (`@body('flatfile')`), solicitação Olá teria um `text/plain` cabeçalho Content-Type. Se você estiver trabalhando com dados que é um texto sem formatação, mas não tinham um cabeçalho especificado, você pode converter manualmente Olá dados tootext usando Olá `@string()` funcionar, por exemplo: `@string(triggerBody())`.
+Se na próxima ação, você a enviar como o corpo de outra solicitação (`@body('flatfile')`), a solicitação terá um cabeçalho Content-Type `text/plain`. Se estiver trabalhando com dados de texto sem formatação, mas não tiver um cabeçalho especificado, você poderá converter os dados manualmente para texto usando a função `@string()`, por exemplo: `@string(triggerBody())`.
 
 ## <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml e Application/octet-stream e funções de conversor
 
-Olá lógica aplicativos mecanismo sempre preserva Olá `Content-Type` que foi recebido no hello HTTP solicitação ou resposta. Portanto, se o mecanismo de saudação recebe o conteúdo com hello `Content-Type` de `application/octet-stream`, e você incluir que conteúdo em uma ação subsequente sem conversão, solicitação de saída de hello tem `Content-Type`: `application/octet-stream`. Dessa forma, mecanismo de saudação pode garantir a dados não sejam perdidos durante a movimentação por meio do fluxo de trabalho de saudação. No entanto, o estado de ação de saudação (entradas e saídas) é armazenado em um objeto JSON como Olá move estado por meio do fluxo de trabalho de saudação. Portanto toopreserve converte alguns tipos de dados, o mecanismo de Olá Olá tooa conteúdo binário codificado na base64 cadeia de caracteres com os metadados apropriados que preserva as `$content` e `$content-type`, que são automaticamente ser convertido. 
+O mecanismo de aplicativos lógicos sempre mantém o `Content-Type` recebido na resposta ou solicitação HTTP. Portanto, se o mecanismo recebe o conteúdo com o `Content-Type` de `application/octet-stream`, e você inclui o conteúdo em uma ação subsequente sem conversão, a solicitação de saída tem `Content-Type`: `application/octet-stream`. Dessa forma, o mecanismo garante que dados não sejam perdidos ao movê-los pelo fluxo de trabalho. No entanto, o estado de ação (entradas e saídas) é armazenado em um objeto JSON conforme o estado se move no fluxo de trabalho. Ou seja, para preservar alguns tipos de dados, o mecanismo converte o conteúdo em uma cadeia de caracteres codificada em base64 binária com os metadados apropriados que preservam `$content` e `$content-type`, que são convertidos automaticamente. 
 
-* `@json()`-Converte dados muito`application/json`
-* `@xml()`-Converte dados muito`application/xml`
-* `@binary()`-Converte dados muito`application/octet-stream`
-* `@string()`-Converte dados muito`text/plain`
-* `@base64()`-Converte a cadeia de caracteres de base64 tooa conteúdo
-* `@base64toString()`-Converte uma cadeia de caracteres codificada em base64 muito`text/plain`
-* `@base64toBinary()`-Converte uma cadeia de caracteres codificada em base64 muito`application/octet-stream`
+* `@json()` - converte dados em `application/json`
+* `@xml()` - converte dados em `application/xml`
+* `@binary()` - converte dados em `application/octet-stream`
+* `@string()` - converte dados em `text/plain`
+* `@base64()` - converte conteúdo em uma cadeia de caracteres de base64
+* `@base64toString()` - converte uma cadeia de caracteres codificada em base64 em `text/plain`
+* `@base64toBinary()` - converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
 * `@encodeDataUri()` - codifica uma cadeia de caracteres como uma matriz de bytes dataUri
 * `@decodeDataUri()` - decodifica uma dataUri em uma matriz de bytes
 
@@ -93,13 +93,13 @@ Você pode converter e usar mais tarde com algo como `@xml(triggerBody())`, ou e
 
 ## <a name="other-content-types"></a>Outros tipos de conteúdo
 
-Outros tipos de conteúdo são suportados e trabalhar com aplicativos lógicos, mas pode exigir o corpo da mensagem de saudação recuperar manualmente decodificando Olá `$content`. Por exemplo, suponha que você acionar uma `application/x-www-url-formencoded` solicitação onde `$content` é carga Olá codificado como uma toopreserve de cadeia de caracteres base64 todos os dados:
+Outros tipos de conteúdo têm suporte e funcionam com aplicativos lógicos, mas podem exigir a recuperação manual do corpo da mensagem por meio da decodificação do `$content`. Por exemplo, suponha que você dispare uma solicitação `application/x-www-url-formencoded` onde `$content` é o conteúdo codificado como uma cadeia de caracteres base64 para preservar todos os dados:
 
 ```
 CustomerName=Frank&Address=123+Avenue
 ```
 
-Porque a solicitação de saudação não for texto sem formatação ou JSON, Olá armazenado na ação de saudação da seguinte maneira:
+Como a solicitação não é texto sem formatação, nem JSON, ela é armazenada na ação da seguinte maneira:
 
 ```
 ...
@@ -109,5 +109,5 @@ Porque a solicitação de saudação não for texto sem formatação ou JSON, Ol
 }
 ```
 
-Atualmente, não existe uma função nativa para dados do formulário, para que você ainda pode usar esses dados em um fluxo de trabalho manualmente acessando dados Olá com uma função, como `@string(body('formdataAction'))`. Se você quisesse Olá solicitação de saída tooalso ter Olá `application/x-www-url-formencoded` cabeçalho de tipo de conteúdo, você pode adicionar o corpo de ação de toohello Olá solicitação sem qualquer conversão como `@body('formdataAction')`. No entanto, esse método funciona somente se o corpo Olá é parâmetro somente Olá Olá `body` entrada. Se você tentar toouse `@body('formdataAction')` em um `application/json` solicitar, você obtém um erro de tempo de execução porque o corpo da saudação codificado é enviado.
+Quando não houver uma função nativa para dados de formulário, você ainda pode usar esses dados em um fluxo de trabalho ao acessar manualmente os dados com uma função como `@string(body('formdataAction'))`. Se desejar que a solicitação de saída também tenha o cabeçalho de tipo de conteúdo `application/x-www-url-formencoded` , você pode adicionar a solicitação ao corpo de ação sem conversões, como `@body('formdataAction')`. No entanto, esse método só funciona se o corpo é o único parâmetro na entrada `body`. Se você tentar usar `@body('formdataAction')` em uma solicitação `application/json`, o corpo codificado será enviado causando erro de tempo de execução.
 

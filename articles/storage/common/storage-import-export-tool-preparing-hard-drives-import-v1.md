@@ -1,6 +1,6 @@
 ---
-title: "unidades de disco rígido para uma importação/exportação do Azure aaaPreparing importar trabalho - v1 | Microsoft Docs"
-description: "Saiba como tooprepare discos rígidos usando Olá WAImportExport v1 ferramenta toocreate um trabalho de importação para o serviço de importação/exportação do Azure hello."
+title: "Preparando discos rígidos para um trabalho de importação da Importação/Exportação do Azure — v1 | Microsoft Docs"
+description: "Saiba como preparar os discos rígidos usando a ferramenta WAImportExport v1 para criar um trabalho de importação para o serviço de Importação/Exportação do Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 1eb0c3c51e984e2869b5268254f468d4b43e9d85
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparando discos rígidos para um trabalho de importação
-tooprepare um ou mais discos rígidos para um trabalho de importação, siga estas etapas:
+Para preparar um ou mais discos rígidos para um trabalho de importação, execute estas etapas:
 
--   Identificar Olá dados tooimport em Olá serviço Blob
+-   Identificar os dados para importar no serviço Blob
 
--   Identificar os diretórios virtuais de destino e blobs no serviço Blob da saudação
+-   Identificar os diretórios virtuais de destino e blobs no serviço Blob
 
 -   Determinar quantas unidades você precisará
 
--   Copiar Olá dados tooeach os discos rígidos
+-   Copiar os dados para cada um de seus discos rígidos
 
- Para um fluxo de trabalho de exemplo, consulte [tooPrepare de fluxo de trabalho de exemplo, discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+ Para obter um exemplo de fluxo de trabalho, confira [Exemplo de fluxo de trabalho para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
-## <a name="identify-hello-data-toobe-imported"></a>Identificar Olá toobe de dados importado
- Olá primeira etapa toocreating um trabalho de importação é toodetermine quais diretórios e arquivos que você vai tooimport. Isso pode ser uma lista de diretórios, uma lista de arquivos exclusivos ou uma combinação dos dois. Quando um diretório é incluído, todos os arquivos no diretório hello e seus subdiretórios farão parte do trabalho de importação de saudação.
+## <a name="identify-the-data-to-be-imported"></a>Identificar os dados a serem importados
+ A primeira etapa para criar um trabalho de importação é determinar quais diretórios e arquivos você pretende importar. Isso pode ser uma lista de diretórios, uma lista de arquivos exclusivos ou uma combinação dos dois. Quando um diretório é incluído, todos os arquivos no diretório e seus subdiretórios farão parte do trabalho de importação.
 
 > [!NOTE]
->  Como os subdiretórios são incluídos recursivamente quando um diretório pai é incluído, especifique o diretório de pai de Olá somente. Não especifique nenhum de seus subdiretórios.
+>  Como os subdiretórios são incluídos recursivamente quando um diretório pai é incluído, especifique apenas o diretório pai. Não especifique nenhum de seus subdiretórios.
 >
->  Atualmente, Olá, ferramenta de importação/exportação do Microsoft Azure tem Olá limitação a seguir: se um diretório contiver mais dados do que um disco rígido pode conter, o diretório de saudação precisa toobe dividido em diretórios menores. Por exemplo, se um diretório contiver 2,5 TB de dados e Olá a capacidade do disco rígido é apenas de 2TB, é necessário o diretório de 2,5 TB Olá toobreak em diretórios menores. Essa limitação será corrigida em uma versão mais recente da ferramenta de saudação.
+>  Atualmente, a Ferramenta de Importação/Exportação do Microsoft Azure tem a seguinte limitação: se um diretório contiver mais dados do que um disco rígido pode conter, o diretório precisará ser dividido em diretórios menores. Por exemplo, se um diretório contiver 2,5 TB de dados e a capacidade do disco rígido for apenas 2 TB, será necessário dividir o diretório de 2,5 TB em diretórios menores. Essa limitação será corrigida em uma versão mais recente da ferramenta.
 
-## <a name="identify-hello-destination-locations-in-hello-blob-service"></a>Identificar Olá locais de destino no serviço de blob Olá
- Para cada diretório ou arquivo que será importado, você precisa tooidentify um diretório virtual de destino ou blob em Olá serviço Blob do Azure. Você usará esses destinos como entradas toohello ferramenta de importação/exportação do Azure. Observe que os diretórios devem ser delimitados pelo caractere de barra invertida hello "/".
+## <a name="identify-the-destination-locations-in-the-blob-service"></a>Identificar os locais de destino no serviço Blob
+ Para cada diretório ou arquivo que será importado, você precisa identificar um diretório virtual de destino ou um blob no serviço Blob do Azure. Você usará esses destinos como entradas para a Ferramenta de Importação/Exportação do Azure. Observe que os diretórios devem ser delimitados com o caractere de barra "/".
 
- Olá, a tabela a seguir mostra alguns exemplos de destinos de blob:
+ A tabela a seguir mostra alguns exemplos de blobs de destino:
 
 |Arquivo ou diretório de origem|Blob de destino ou diretório virtual|
 |------------------------------|-------------------------------------------|
@@ -54,131 +54,131 @@ tooprepare um ou mais discos rígidos para um trabalho de importação, siga est
 |\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
 
 ## <a name="determine-how-many-drives-are-needed"></a>Determinar quantas unidades serão necessárias
- Em seguida, você precisa toodetermine:
+ Em seguida, será necessário determinar:
 
--   número de saudação de discos rígidos necessários dados de saudação toostore.
+-   O número de discos rígidos necessários para armazenar os dados.
 
--   diretórios de saudação e/ou arquivos independentes que serão copiado tooeach do disco rígido.
+-   Os diretórios e/ou os arquivos independentes que serão copiados em cada disco rígido.
 
- Certifique-se de que você tem o número de saudação de discos rígidos, que você precisará toostore Olá dados que está transferindo.
+ Verifique se você tem o número de discos rígidos necessários para armazenar os dados que você está transferindo.
 
-## <a name="copy-data-tooyour-hard-drive"></a>Copie o disco rígido tooyour dados
- Esta seção descreve como toocall Olá toocopy ferramenta de importação/exportação do Azure tooone seus dados ou mais discos rígidos. Cada vez que você chamar Olá, ferramenta de importação/exportação do Azure, você cria um novo *copiar sessão*. Crie pelo menos uma sessão de cópia para cada unidade toowhich você copiar dados. em alguns casos, talvez seja necessário mais de um toocopy de sessão de cópia tudo de sua unidade de toosingle de dados. Veja alguns motivos pelos quais talvez você precise de várias sessões de cópia:
+## <a name="copy-data-to-your-hard-drive"></a>Copiar dados para o disco rígido
+ Esta seção descreve como chamar a Ferramenta de Importação/Exportação do Azure para copiar seus dados em um ou mais discos rígidos. Sempre que você chama a Ferramenta de Importação/Exportação do Azure, uma nova *sessão de cópia* é criada. Crie pelo menos uma sessão de cópia para cada unidade na qual você copia dados; em alguns casos, talvez seja necessário mais de uma sessão de cópia para copiar todos os dados em uma única unidade. Veja alguns motivos pelos quais talvez você precise de várias sessões de cópia:
 
 -   Você deve criar uma sessão de cópia separada para cada unidade na qual você copia.
 
--   Uma sessão de cópia pode copiar um único diretório ou unidade de toohello um único blob. Se você estiver copiando vários diretórios, vários blobs ou uma combinação de ambos, você precisará toocreate várias sessões de cópia.
+-   Uma sessão de cópia pode copiar um único diretório ou um único blob na unidade. Se você estiver copiando vários diretórios, vários blobs ou uma combinação de ambos, será necessário criar várias sessões de cópia.
 
--   Você pode especificar propriedades e metadados que serão definidos em blobs Olá importados como parte de um trabalho de importação. Propriedades de saudação ou metadados que você especificar para uma sessão de cópia aplicará blobs tooall especificados por essa sessão de cópia. Se você quiser toospecify propriedades ou metadados diferentes para alguns blobs, você precisará toocreate sessão de cópia de um separado. Consulte [definindo as propriedades e metadados durante o processo de importação de saudação](storage-import-export-tool-setting-properties-metadata-import-v1.md)para obter mais informações.
+-   Você pode especificar propriedades e metadados que serão definidos nos blobs importados como parte de um trabalho de importação. As propriedades ou metadados que você especifica para uma sessão de cópia serão aplicados a todos os blobs especificados por essa sessão de cópia. Se você quiser especificar propriedades ou metadados diferentes para alguns blobs, será necessário criar uma sessão de cópia separada. Confira [Configuração de propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import-v1.md) para saber mais.
 
 > [!NOTE]
->  Se você tiver vários computadores que atendem aos requisitos de saudação descritos em [Configurando Olá ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md), você pode copiar os discos rígidos toomultiple dados em paralelo executando uma instância da ferramenta em cada computador.
+>  Se você tiver vários computadores que atendem aos requisitos descritos em [Configurando a Ferramenta de Importação/Exportação do Azure ](storage-import-export-tool-setup-v1.md), copie os dados em vários discos rígidos em paralelo executando uma instância dessa ferramenta em cada computador.
 
- Para cada disco rígido que você prepara com Olá, ferramenta de importação/exportação do Azure, a ferramenta de saudação criará um único arquivo de diário. Você precisará arquivos de diário de saudação de seu trabalho de importação unidades toocreate Olá todas. arquivo de diário Olá também pode ser usados tooresume preparação da unidade se Olá ferramenta for interrompida.
+ Para cada disco rígido que você prepara com a Ferramenta de Importação/Exportação do Azure, a ferramenta criará um único arquivo de diário. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação. O arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
 
 ### <a name="azure-importexport-tool-syntax-for-an-import-job"></a>Sintaxe da Ferramenta de Importação/Exportação do Azure para um trabalho de importação
- unidades de tooprepare para um trabalho de importação, chame Olá ferramenta de importação/exportação do Azure com hello **PrepImport** comando. Quais parâmetros você incluir depende se isso for Olá primeira sessão de cópia ou uma sessão de cópia subsequentes.
+ Para preparar unidades para um trabalho de importação, chame a Ferramenta de Importação/Exportação do Azure com o comando **PrepImport**. Os parâmetros que você inclui dependem se esta for a primeira sessão de cópia ou uma sessão de cópia subsequente.
 
- Olá, primeira sessão de cópia para uma unidade exige alguns parâmetros adicionais toospecify Olá chave conta de armazenamento; Letra de unidade de destino Olá; Se a unidade de saudação deve ser formatada; Se a unidade de saudação deve ser criptografada e nesse caso, Olá chave de BitLocker; e o diretório de log hello. Aqui está a sintaxe Olá para um toocopy de sessão de cópia inicial um diretório ou um único arquivo:
+ A primeira sessão de cópia para uma unidade exige alguns parâmetros adicionais para especificar a chave da conta de armazenamento; a letra da unidade de destino; se a unidade deve ser formatada; se a unidade deve ser criptografada e, em caso positivo, a chave do BitLocker; e o diretório do log. Veja a sintaxe de uma sessão de cópia inicial para copiar um diretório ou um único arquivo:
 
- **Primeiro copiar sessão toocopy um único diretório**
+ **Primeira sessão de cópia para copiar um único diretório**
 
  `WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
- **Primeiro copiar sessão toocopy um único arquivo**
+ **Primeira sessão de cópia para copiar um único arquivo**
 
  `WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
- Em sessões de cópia subsequentes, não é necessário parâmetros iniciais do toospecify hello. Aqui é sintaxe Olá um toocopy de sessão de cópia subsequentes um diretório ou um único arquivo:
+ Em sessões de cópia subsequentes, não é necessário especificar os parâmetros iniciais. Veja a sintaxe de uma sessão de cópia subsequente para copiar um diretório ou um único arquivo:
 
- **Sessões de cópia subsequentes toocopy um único diretório**
+ **Sessões de cópia subsequentes para copiar um único diretório**
 
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
- **Sessões de cópia subsequentes toocopy um único arquivo**
+ **Sessões de cópia subsequentes para copiar um único arquivo**
 
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
-### <a name="parameters-for-hello-first-copy-session-for-a-hard-drive"></a>Parâmetros para Olá primeiro copiar a sessão para um disco rígido
- Cada vez que executar arquivos de toocopy ferramenta de importação/exportação do Azure Olá toohello disco rígido, a ferramenta Olá cria uma sessão de cópia. Cada sessão de cópia copia um único diretório ou um único arquivo tooa disco rígido. estado de saudação de sessão de cópia de saudação é gravado toohello arquivo de diário. Se uma sessão de cópia for interrompida (por exemplo, devido a perda de energia do sistema tooa), ele poderá ser retomado executando a ferramenta Olá novamente e especificando o arquivo de diário Olá na linha de comando de saudação.
+### <a name="parameters-for-the-first-copy-session-for-a-hard-drive"></a>Parâmetros para a primeira sessão de cópia de um disco rígido
+ Sempre que você executar a Ferramenta de Importação/Exportação do Azure para copiar arquivos no disco rígido, a ferramenta criará uma sessão de cópia. Cada sessão de cópia copia um único diretório ou um único arquivo em um disco rígido. O estado da sessão de cópia é gravado no arquivo de diário. Se uma sessão de cópia for interrompida (por exemplo, devido a uma perda de energia do sistema), ela poderá ser retomada executando a ferramenta novamente e especificando o arquivo de diário na linha de comando.
 
 > [!WARNING]
->  Se você especificar Olá **/formato** parâmetro hello primeira sessão de cópia, Olá unidade será formatada e todos os dados na unidade hello serão apagados. Recomendamos o uso de unidades em branco apenas para a sessão de cópia.
+>  Se você especificar o parâmetro **/format** para a primeira sessão de cópia, a unidade será formatada e todos os dados no disco serão apagados. Recomendamos o uso de unidades em branco apenas para a sessão de cópia.
 
- comando Olá usado para Olá a primeira sessão de cópia para cada unidade exige parâmetros diferentes comandos de saudação para sessões de cópia subsequentes. Olá tabela a seguir lista parâmetros adicionais de saudação que estão disponíveis para Olá primeira sessão de cópia:
+ O comando usado para a primeira sessão de cópia de cada unidade exige parâmetros diferentes dos comandos para sessões de cópia subsequentes. A tabela a seguir lista os parâmetros adicionais disponíveis para a primeira sessão de cópia:
 
 |Parâmetro de linha de comando|Descrição|
 |-----------------------------|-----------------|
-|**/sk:**<StorageAccountKey\>|`Optional.`chave de conta de armazenamento Olá para dados de saudação do hello armazenamento conta toowhich será importado. Você deve incluir **/sk:**< StorageAccountKey\> ou **/csas:**< ContainerSas\> no comando hello.|
-|**/csas:**<ContainerSas\>|`Optional`. contêiner de saudação conta de armazenamento SAS toouse tooimport dados toohello. Você deve incluir **/sk:**< StorageAccountKey\> ou **/csas:**< ContainerSas\> no comando hello.<br /><br /> valor Olá para este parâmetro deve começar com o nome do contêiner hello, seguido por um ponto de interrogação (?) e o token SAS hello. Por exemplo:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Olá permissões, se especificado na URL de saudação ou em uma política de acesso armazenada, devem incluir ler, gravam e excluir para trabalhos de importação e leitura, gravação e lista de trabalhos de exportação.<br /><br /> Quando esse parâmetro for especificado, todos os toobe blobs importados ou exportados deve estar dentro contêiner Olá especificado na assinatura de acesso compartilhado hello.|
-|**/t:**<TargetDriveLetter\>|`Required.`Letra de unidade de saudação do disco rígido de destino Olá para sessão de cópia atual hello, sem saudação à direita de dois-pontos.|
-|**/format**|`Optional.`Especifique esse parâmetro quando precisa de unidade Olá toobe formatado; Caso contrário, omiti-lo. Antes de ferramenta Olá formatos unidade hello, ele solicitará uma confirmação do console. toosuppress Olá confirmação, especifique o parâmetro /silentmode. de saudação.|
-|**/silentmode**|`Optional.`Especifique essa confirmação de saudação do parâmetro toosuppress para formatar a unidade de destino hello.|
-|**/encrypt**|`Optional.`Especifique esse parâmetro quando a unidade de saudação ainda não tiver sido criptografada com BitLocker e necessidades toobe criptografada pela ferramenta hello. Se a unidade de saudação já foi criptografada com BitLocker, omitir esse parâmetro e especifique Olá `/bk` parâmetro, fornecendo a chave de BitLocker existente hello.<br /><br /> Se você especificar Olá `/format` parâmetro, você também deve especificar Olá `/encrypt` parâmetro.|
-|**/bk:**<BitLockerKey\>|`Optional.` Se `/encrypt` for especificado, omita este parâmetro. Se `/encrypt` for omitido, você precisa toohave já ter criptografado a unidade Olá com o BitLocker. Use esta chave de BitLocker do parâmetro toospecify hello. A criptografia do BitLocker é exigida em todos os discos rígidos para trabalhos de importação.|
-|**/logdir:**<LogDirectory\>|`Optional.`diretório de log Olá Especifica que um diretório toobe usado logs detalhados toostore, bem como arquivos de manifesto temporários. Se não for especificado, diretório atual Olá será usado como diretório de log hello.|
+|**/sk:**<StorageAccountKey\>|`Optional.` A chave da conta de armazenamento na qual os dados serão importados. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.|
+|**/csas:**<ContainerSas\>|`Optional`. O SAS do contêiner a ser usado para importar dados na conta de armazenamento. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.<br /><br /> O valor desse parâmetro deve começar com o nome do contêiner, seguido por um ponto de interrogação (?) e o token SAS. Por exemplo:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> As permissões, especificadas na URL ou em uma política de acesso armazenada, devem incluir Leitura, Gravação e Exclusão para trabalhos de importação, e Leitura, Gravação e Lista para trabalhos de exportação.<br /><br /> Quando este parâmetro for especificado, todos os blobs a serem importados ou exportados deverão estar dentro do contêiner especificado na assinatura de acesso compartilhado.|
+|**/t:**<TargetDriveLetter\>|`Required.` A letra da unidade do disco rígido de destino para a sessão de cópia atual, sem os dois-pontos no final.|
+|**/format**|`Optional.` Especifique esse parâmetro quando for necessário formatar a unidade; caso contrário, omita-o. Antes de a ferramenta formatar a unidade, ela solicitará uma confirmação no console. Para suprimir a confirmação, especifique o parâmetro /silentmode.|
+|**/silentmode**|`Optional.` Especifique esse parâmetro para suprimir a confirmação de formatação da unidade de destino.|
+|**/encrypt**|`Optional.` Especifique esse parâmetro quando a unidade ainda não tiver sido criptografada com o BitLocker e precisar ser criptografada pela ferramenta. Se a unidade já tiver sido criptografada com o BitLocker, omita esse parâmetro e especifique o parâmetro `/bk`, fornecendo a chave do BitLocker existente.<br /><br /> Se você especificar o parâmetro `/format`, também deverá especificar o parâmetro `/encrypt`.|
+|**/bk:**<BitLockerKey\>|`Optional.` Se `/encrypt` for especificado, omita este parâmetro. Se `/encrypt` for omitido, você já precisa ter criptografado a unidade com o BitLocker. Use esse parâmetro para especificar a chave do BitLocker. A criptografia do BitLocker é exigida em todos os discos rígidos para trabalhos de importação.|
+|**/logdir:**<LogDirectory\>|`Optional.` O diretório de log especifica um diretório a ser usado para armazenar logs detalhados, bem como arquivos de manifesto temporários. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>Parâmetros obrigatórios para todas as sessões de cópia
- arquivo de diário Olá contém o status de saudação para todas as sessões de cópia para um disco rígido. Ele também contém informações de saudação necessário Olá toocreate trabalho de importação. Você sempre deve especificar um arquivo de diário ao executar Olá, ferramenta de importação/exportação do Azure, bem como uma ID de sessão de cópia:
+ O arquivo de diário contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você sempre deve especificar um arquivo de diário ao executar a Ferramenta de Importação/Exportação do Azure, bem como uma ID da sessão de cópia:
 
 |||
 |-|-|
 |Parâmetro de linha de comando|Descrição|
-|**/j:**<JournalFile\>|`Required.`arquivo de diário do Hello caminho toohello. Cada unidade deve ter exatamente um arquivo de diário. Observe que esse arquivo de diário Olá não deve residir na unidade de destino hello. extensão de arquivo de diário Olá é `.jrn`.|
-|**/id:**<SessionId\>|`Required.`ID da sessão Olá identifica uma sessão de cópia. É usado tooensure de recuperação precisa de uma sessão de cópia interrompida. Arquivos que são copiados em uma sessão de cópia são armazenados em um diretório chamado após Olá ID da sessão na unidade de destino hello.|
+|**/j:**<JournalFile\>|`Required.` O caminho para o arquivo de diário. Cada unidade deve ter exatamente um arquivo de diário. Observe que o arquivo de diário não deve residir na unidade de destino. A extensão do arquivo de diário é `.jrn`.|
+|**/id:**<SessionId\>|`Required.` A ID de sessão identifica uma sessão de cópia. Ela é usada para garantir a recuperação correta de uma sessão de cópia interrompida. Os arquivos copiados em uma sessão de cópia são armazenados em um diretório nomeado como a ID de sessão na unidade de destino.|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>Parâmetros para copiar um único diretório
- Ao copiar um único diretório, seguinte Olá necessárias e os parâmetros opcionais se aplicam:
+ Ao copiar um único diretório, os seguintes parâmetros obrigatórios e opcionais serão aplicáveis:
 
 |Parâmetro de linha de comando|Descrição|
 |----------------------------|-----------------|
-|**/srcdir:**<SourceDirectory\>|`Required.`diretório de origem de saudação que contém arquivos toobe copiados toohello unidade de destino. caminho do diretório Olá deve ser um caminho absoluto (não um caminho relativo).|
-|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.`Olá caminho toohello diretório virtual de destino em sua conta de armazenamento do Windows Azure. diretório virtual Olá pode ou não existir.<br /><br /> Você pode especificar um contêiner ou um prefixo de blob como `music/70s/`. Olá diretório de destino deve começar com o nome do contêiner de hello, seguido por uma barra "/" e pode incluir opcionalmente um diretório virtual de blob que termina com "/".<br /><br /> Quando o contêiner de destino Olá é contêiner raiz de saudação, você deve especificar explicitamente contêiner raiz de hello, incluindo a barra hello, como `$root/`. Como blobs no contêiner raiz de saudação não podem incluir "/" em seus nomes, os subdiretórios no diretório de origem de saudação não serão copiados quando o diretório de destino de saudação é o contêiner raiz de saudação.<br /><br /> Ser toouse-se de que os nomes de contêiner válido ao especificar diretórios virtuais de destino ou blobs. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
-|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`Especifica o comportamento de saudação quando um blob com hello especificado já existe um endereço. Os valores válidos para este parâmetro são: `rename`, `no-overwrite` e `overwrite`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão de saudação é `rename`.<br /><br /> Olá valor especificado para esse parâmetro afeta todos os arquivos de saudação no diretório de saudação especificado por Olá `/srcdir` parâmetro.|
-|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`Especifica o tipo de blob de saudação para blobs de destino hello. Os valores válidos são: `BlockBlob` e `PageBlob`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão de saudação é `BlockBlob`.<br /><br /> Na maioria dos casos, `BlockBlob` é recomendado. Se você especificar `PageBlob`, comprimento de saudação de cada arquivo no diretório Olá deve ser um múltiplo de 512, tamanho de saudação de uma página para blobs de página.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.`Arquivo de propriedade caminho toohello para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
-|**/MetadataFile:**<MetadataFile\>|`Optional.`Arquivo de metadados de toohello de caminho para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
+|**/srcdir:**<SourceDirectory\>|`Required.` O diretório de origem que contém os arquivos a serem copiados para a unidade de destino. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
+|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` O caminho até o diretório virtual de destino em sua conta de armazenamento do Microsoft Azure. O diretório virtual pode ou não existir.<br /><br /> Você pode especificar um contêiner ou um prefixo de blob como `music/70s/`. O diretório de destino deve começar com o nome do contêiner, seguido por uma barra "/" e, opcionalmente, pode incluir um diretório virtual de blob que termina com "/".<br /><br /> Quando o contêiner de destino for o contêiner raiz, especifique explicitamente o contêiner raiz, incluindo a barra, como `$root/`. Como os blobs no contêiner raiz não podem incluir "/" em seus nomes, quaisquer subdiretórios no diretório de origem não serão copiados quando o diretório de destino for o contêiner raiz.<br /><br /> Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
+|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Especifica o comportamento quando um blob com o endereço especificado já existe. Os valores válidos para este parâmetro são: `rename`, `no-overwrite` e `overwrite`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão será `rename`.<br /><br /> O valor especificado para esse parâmetro afeta todos os arquivos no diretório especificado pelo parâmetro `/srcdir`.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Especifica o tipo de blob para os blobs de destino. Os valores válidos são: `BlockBlob` e `PageBlob`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão será `BlockBlob`.<br /><br /> Na maioria dos casos, `BlockBlob` é recomendado. Se você especificar `PageBlob`, o comprimento de cada arquivo no diretório deverá ser um múltiplo de 512, o tamanho de uma página para blobs de página.|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
 
 ### <a name="parameters-for-copying-a-single-file"></a>Parâmetros para copiar um único arquivo
- Ao copiar um único arquivo, hello parâmetros obrigatórios e opcionais a seguir se aplicam:
+ Ao copiar um único arquivo, os seguintes parâmetros obrigatórios e opcionais serão aplicáveis:
 
 |Parâmetro de linha de comando|Descrição|
 |----------------------------|-----------------|
-|**/srcfile:**<SourceFile\>|`Required.`Olá caminho completo toohello arquivo toobe copiado. caminho do diretório Olá deve ser um caminho absoluto (não um caminho relativo).|
-|**/dstblob:**<DestinationBlobPath\>|`Required.`Olá caminho toohello blob de destino em sua conta de armazenamento do Windows Azure. blob Olá pode ou não existir.<br /><br /> Especifique nome que começa Olá blob com o nome do contêiner de saudação. nome do blob Olá não pode começar com "/" ou o nome de conta de armazenamento hello. Para conhecer as regras de nomenclatura de blobs, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Quando o contêiner de destino Olá é contêiner raiz de saudação, você deve especificar explicitamente `$root` como Olá contêiner, como `$root/sample.txt`. Observe que os blobs no contêiner raiz de saudação não pode incluir "/" em seus nomes.|
-|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`Especifica o comportamento de saudação quando um blob com hello especificado já existe um endereço. Os valores válidos para este parâmetro são: `rename`, `no-overwrite` e `overwrite`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão de saudação é `rename`.|
-|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`Especifica o tipo de blob de saudação para blobs de destino hello. Os valores válidos são: `BlockBlob` e `PageBlob`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão de saudação é `BlockBlob`.<br /><br /> Na maioria dos casos, `BlockBlob` é recomendado. Se você especificar `PageBlob`, comprimento de saudação de cada arquivo no diretório Olá deve ser um múltiplo de 512, tamanho de saudação de uma página para blobs de página.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.`Arquivo de propriedade caminho toohello para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
-|**/MetadataFile:**<MetadataFile\>|`Optional.`Arquivo de metadados de toohello de caminho para blobs de destino hello. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
+|**/srcfile:**<SourceFile\>|`Required.` O caminho completo até o arquivo a ser copiado. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
+|**/dstblob:**<DestinationBlobPath\>|`Required.` O caminho até o blob de destino em sua conta de armazenamento do Windows Azure. O blob pode ou não existir.<br /><br /> Especifique o nome do blob, começando com o nome do contêiner. O nome do blob não pode começar com "/" ou com o nome da conta de armazenamento. Para conhecer as regras de nomenclatura de blobs, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Quando o contêiner de destino for o contêiner raiz, especifique explicitamente `$root` como o contêiner, por exemplo `$root/sample.txt`. Observe que os blobs no contêiner raiz não podem incluir "/" em seus nomes.|
+|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Especifica o comportamento quando um blob com o endereço especificado já existe. Os valores válidos para este parâmetro são: `rename`, `no-overwrite` e `overwrite`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão será `rename`.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Especifica o tipo de blob para os blobs de destino. Os valores válidos são: `BlockBlob` e `PageBlob`. Observe que esses valores diferenciam maiúsculas de minúsculas. Se nenhum valor for especificado, o padrão será `BlockBlob`.<br /><br /> Na maioria dos casos, `BlockBlob` é recomendado. Se você especificar `PageBlob`, o comprimento de cada arquivo no diretório deverá ser um múltiplo de 512, o tamanho de uma página para blobs de página.|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação](../storage-import-export-file-format-metadata-and-properties.md) para saber mais.|
 
 ### <a name="resuming-an-interrupted-copy-session"></a>Retomando uma sessão de cópia interrompida
- Se uma sessão de cópia for interrompida por qualquer motivo, você poderá retomá-la executando a ferramenta de saudação com apenas Olá arquivo de diário especificado:
+ Se uma sessão de cópia for interrompida por qualquer motivo, você poderá retomá-la executando a ferramenta apenas com o arquivo de diário especificado:
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 ```
 
- Apenas hello mais recente sessão de cópia, se for finalizada de maneira anormal, poderá ser retomada.
+ Somente a sessão de cópia mais recente, se for finalizada de maneira anormal, poderá ser retomada.
 
 > [!IMPORTANT]
->  Quando você retomar uma sessão de cópia, não modifique diretórios e arquivos de dados de origem Olá adicionando ou removendo arquivos.
+>  Ao retomar uma sessão de cópia, não modifique os diretórios e arquivos de dados de origem adicionando ou removendo arquivos.
 
 ### <a name="aborting-an-interrupted-copy-session"></a>Anulando uma sessão de cópia interrompida
- Se uma sessão de cópia for interrompida e não é possível tooresume (por exemplo, se um diretório de origem ficar inacessível), você deverá abortar Olá sessão atual para que ela pode ser revertida volta e novas sessões de cópia podem ser iniciadas:
+ Se uma sessão de cópia for interrompida e não for possível retomá-la (por exemplo, se um diretório de origem ficar inacessível), será necessário anular a sessão atual para que ela possa ser revertida e novas sessões de cópia possam ser iniciadas:
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 ```
 
- Olá somente última sessão de cópia, se for finalizada de maneira anormal, poderá ser abortada. Observe que você não é possível anular Olá a primeira sessão de cópia para uma unidade. Em vez disso, você deve reiniciar a sessão de cópia de saudação com um novo arquivo de diário.
+ Somente a última sessão de cópia, se for finalizada de maneira anormal, poderá ser anulada. Observe que não é possível anular a primeira sessão de cópia de uma unidade. Em vez disso, reinicie a sessão de cópia com um novo arquivo de diário.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurando Olá ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)
-* [Processo de importação de definição de propriedades e metadados durante a saudação](storage-import-export-tool-setting-properties-metadata-import-v1.md)
-* [Discos rígidos de tooprepare do fluxo de trabalho de exemplo para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+* [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)
+* [Definindo propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+* [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 * [Referência rápida para comandos usados frequentemente](storage-import-export-tool-quick-reference-v1.md) 
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Olá, ferramenta de importação/exportação do Azure de solução de problemas](storage-import-export-tool-troubleshooting-v1.md)
+* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)

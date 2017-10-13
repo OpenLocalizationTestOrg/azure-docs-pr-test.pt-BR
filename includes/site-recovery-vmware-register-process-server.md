@@ -1,9 +1,9 @@
-* Conecte-se a máquina de virtual do servidor de processo toohello usando a Conexão de área de trabalho remota.
-* Você pode iniciar cspsconfigtool.exe Olá clicando no atalho do hello disponível na área de trabalho de saudação. (ferramenta de saudação será iniciada automaticamente se este Olá primeira vez que você está entrando no processo de saudação sever).
+* Conecte-se à máquina virtual do Servidor de Processo usando a Conexão de Área de Trabalho Remota.
+* Você pode iniciar o cspsconfigtool.exe clicando no atalho disponível na área de trabalho. (A ferramenta será iniciada automaticamente se essa for a primeira vez que você está fazendo logon no servidor de processo).
   - Nome totalmente qualificado (FQDN) ou endereço IP do servidor de configuração
-  - Porta na qual configuração Olá server está escutando. valor de saudação deverá ser 443
-  - Servidor de configuração toohello do tooconnect de senha de Conexão.
-  - Toobe de porta de transferência de dados configurado para esse servidor de processo. Deixe o valor de padrão de saudação como está a menos que você alterou-número de porta diferente de tooa em seu ambiente.
+  - Porta na qual o servidor de configuração está escutando. O valor deve ser 443
+  - Senha de Conexão para se conectar ao servidor de configuração.
+  - Porta de Transferência de Dados a ser configurada para esse Servidor de Processo. Deixe o valor padrão como está a menos que você alterou-lo para um número de porta diferente em seu ambiente.
 
     ![Registrar o Servidor de Processo](./media/site-recovery-vmware-register-process-server/register-ps.png)
-* Clique em Olá Salvar configuração de saudação do botão toosave e registre saudação do servidor em processo.
+* Clique no botão salvar para salvar a configuração e registrar o Servidor de Processo.

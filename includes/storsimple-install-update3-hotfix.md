@@ -1,40 +1,40 @@
 <!--author=alkohli last changed: 09/01/16-->
 
-#### <a name="toodownload-hotfixes"></a>hotfixes toodownload
-Execute Olá após atualização de software etapas toodownload Olá Olá catálogo do Microsoft Update.
+#### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
+Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-1. Inicie o Internet Explorer e navegue muito[http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. Se for a primeira vez usando Olá catálogo do Microsoft Update neste computador, clique em **instalar** quando tooinstall solicitada Olá complemento do catálogo do Microsoft Update.
+1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
-3. Na caixa de pesquisa de saudação do hello catálogo do Microsoft Update, insira o número de Base de dados de Conhecimento (KB) de saudação de saudação hotfix que você deseja toodownload, por exemplo **3186843**e, em seguida, clique em **pesquisa**.
+3. Na caixa de pesquisa do Catálogo do Microsoft Update, insira o número do KB (Base de Dados de Conhecimento) do hotfix que você quer baixar, por exemplo, **3186843** e clique em **Pesquisar**.
    
-    Olá hotfix listagem aparece, por exemplo, **cumulativa 3.0 de atualização de pacote de Software para StorSimple 8000 Series**.
+    A listagem de hotfixes aparece, por exemplo, **Atualização de pacote cumulativo de software 3.0 para a série 8000 do StorSimple**.
    
     ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Clique em **Adicionar**. atualização de saudação é adicionada toohello carrinho.
-5. Procure os hotfixes adicionais listadas na tabela de saudação acima (**3186859**) e adicionar cada carrinho toohello.
+4. Clique em **Adicionar**. A atualização é adicionada ao carrinho de compras.
+5. Pesquise quaisquer hotfixes adicionais relacionados na tabela acima (**3186859**) e adicione cada um deles ao carrinho de compras.
 6. Clique em **Exibir carrinho**.
-7. Clique em **Download**. Especifique ou **procurar** tooa local local onde você deseja Olá downloads tooappear. Olá as atualizações são baixadas toohello local especificado e colocada em uma subpasta com mesmo nome como atualização de saudação do hello. pasta Olá também pode ser copiados tooa compartilhamento de rede que seja acessível a partir do dispositivo de saudação.
+7. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. As atualizações são baixadas para o local especificado e colocadas em uma subpasta com o mesmo nome que a atualização. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 
 > [!NOTE]
-> Olá hotfixes deve ser acessíveis de ambos os toodetect controladores mensagens de qualquer erro em potencial do controlador de par de saudação.
+> Os hotfixes devem estar acessíveis nos dois controladores para detectar mensagens de erro potenciais do controlador em par.
 > 
 > 
 
-#### <a name="tooinstall-and-verify-regular-mode-hotfixes"></a>tooinstall e verifique se os hotfixes do modo normal
-Executar Olá tooinstall as etapas a seguir e verifique se a hotfixes do modo normal. Se você já instalou usando Olá Portal do Azure, vá em frente muito[instalar e verificar os hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Para instalar e verificar os hotfixes do modo normal
+Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso você já os tenha instalado usando o Portal do Azure, ignore essa etapa e vá para [Instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. tooinstall Olá hotfixes, interface do acesso saudação do Windows PowerShell no seu console serial do dispositivo StorSimple. Siga Olá detalhadas instruções [console serial do PuTTy Use tooconnect toohello](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando hello, pressione **Enter**.
-2. Selecione **opção 1** toolog toohello dispositivo com acesso completo. É recomendável que você instale o hotfix Olá no controlador passivo Olá primeiro.
-3. tooinstall Olá hotfix, no prompt de comando hello, digite:
+1. Para instalar os hotfixes, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**.
+2. Selecione a **Opção 1** para fazer logon no dispositivo com acesso completo. Recomendamos que você instale o hotfix no controlador passivo primeiro.
+3. Para instalar o hotfix, no prompt de comando, digite:
    
-    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Use o IP em vez de DNS no caminho de compartilhamento Olá acima de comando. parâmetro de credencial de saudação é usado somente se você estiver acessando um compartilhamento autenticado.
+    Use o IP em vez do DNS no caminho de compartilhamento no comando acima. O parâmetro credential é usado somente para acessar um compartilhamento autenticado.
    
-    É recomendável que você use compartilhamentos de tooaccess de parâmetro de credencial de saudação. Mesmo compartilhamentos que estão abertos muito "everyone" é normalmente não abrir toounauthenticated usuários.
+    É recomendável usar o parâmetro de credencial para acessar compartilhamentos. Até mesmo os compartilhamentos abertos para "todos" geralmente não são abertos para usuários não autenticados.
    
-    Fornece Olá senha quando solicitado.
+    Forneça a senha, quando solicitado.
    
     Um exemplo de saída é mostrado abaixo.
    
@@ -44,16 +44,16 @@ Executar Olá tooinstall as etapas a seguir e verifique se a hotfixes do modo no
    
         Confirm
    
-        This operation starts hello hotfix installation and could reboot one or
-        both of hello controllers. If hello device is serving I/Os, these will not
-        be disrupted. Are you sure you want toocontinue?
+        This operation starts the hotfix installation and could reboot one or
+        both of the controllers. If the device is serving I/Os, these will not
+        be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
         ````
-4. Tipo **Y** quando tooconfirm solicitada Olá a instalação do hotfix.
-5. Monitorar atualização hello usando Olá `Get-HcsUpdateStatus` cmdlet. atualização de saudação primeiro será concluída em controlador passivo hello. Depois que o controlador passivo Olá é atualizado, haverá um failover e atualização hello, em seguida, será aplicada em Olá outro controlador. atualização de saudação é concluída quando ambos os controladores de saudação são atualizados.
+4. Digite **Y** quando solicitado a confirmar a instalação do hotfix.
+5. Monitore a atualização usando o cmdlet `Get-HcsUpdateStatus` . Primeiro, a atualização será concluída no controlador passivo. Depois que o controlador passivo for atualizado, haverá um failover e a atualização será, então, aplicada no outro controlador. A atualização é concluída quando ambos os controladores são atualizados.
    
-    Olá seguinte saída de exemplo mostra Olá atualização em andamento. Olá `RunInprogress` será `True` quando a atualização de saudação está em andamento.
+    A saída de exemplo a seguir mostra a atualização em andamento. O `RunInprogress` será `True` quando a atualização estiver em andamento.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -64,7 +64,7 @@ Executar Olá tooinstall as etapas a seguir e verifique se a hotfixes do modo no
     Controller1Events   :
     ```
    
-     Olá saída de exemplo a seguir indica que a atualização Olá foi concluída. Olá `RunInProgress` será `False` quando a atualização de saudação foi concluída.
+     A saída de exemplo a seguir indica que a atualização foi concluída. O `RunInProgress` será `False` quando a atualização estiver concluída.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -76,41 +76,41 @@ Executar Olá tooinstall as etapas a seguir e verifique se a hotfixes do modo no
     ```
 
     > [!NOTE] 
-    > Ocasionalmente, Olá cmdlet relatórios `False` quando a atualização de saudação está em andamento. tooensure que Olá hotfix for concluída, aguarde alguns minutos, execute o comando novamente e verificar que Olá `RunInProgress` é `False`. Se for, Olá hotfix foi concluída.
+    > Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
 
-1. Após a conclusão da atualização de software Olá, verificar se as versões de software de sistema hello. Tipo:
+1. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite:
    
     `Get-HcsSystem`
    
-    Você deve ver Olá versões a seguir:
+    Você deverá ver as seguintes versões:
    
    * `HcsSoftwareVersion: 6.3.9600.17759`
    * `CisAgentVersion:  1.0.9343.0`
    * `MdsAgentVersion: 30.0.4698.16`
      
-     Se números de versão de saudação não serão alterados após a aplicação de atualização de hello, indica que esse hotfix Olá falhou tooapply. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
+     Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
      
      > [!IMPORTANT]
-     > Você deve reiniciar o controlador ativo do hello via Olá `Restart-HcsController` cmdlet antes de aplicar Olá restantes atualizações. 
+     > Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes. 
      > 
      > 
-2. Repita as etapas 3 a 5 driver de saudação LSI tooinstall e firmware hotfix **KB3186859**. Após a instalação do hotfix hello, use Olá `Get-HcsSystem` cmdlet. Olá LSI versão deve ser:
+2. Repita as etapas 3 a 5 para instalar o hotfix de firmware e o driver LSI **KB3186859**. Após a instalação do hotfix, use o cmdlet `Get-HcsSystem` . A versão de LSI deve ser:
    
    * `Lsisas2Version: 2.0.78.00`
-3. Repita as etapas 3 a 5 tooinstall Olá Storport e atualização Spaceport **KB3121261**.
-4. Se você estiver atualizando de atualização 2 ou versão anterior, você também precisará toodownload:
+3. Repita as etapas 3 a 5 para instalar a atualização de Storport e Spaceport **KB3121261**.
+4. Se estiver atualizando da Atualização 2 ou de uma versão anterior, você precisará também baixar:
    
    * Correção de iSCSI usando o KB3146621
    * Correção de WMI usando o KB3103616
 
-#### <a name="tooinstall-and-verify-maintenance-mode-hotfixes"></a>tooinstall e verifique se os hotfixes do modo de manutenção
-Use atualizações de firmware de disco KB3121899 tooinstall. Essas atualizações precisam de interrupção e levar cerca de 30 minutos toocomplete. Você pode escolher tooinstall em uma janela de manutenção planejada, console serial do dispositivo de toohello conexão.
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Para instalar e verificar hotfixes do modo de manutenção
+Use o KB3121899 para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo.
 
-Observe que se o firmware de disco já está atualizado, você não precisará tooinstall essas atualizações. Executar Olá `Get-HcsUpdateAvailability` de toocheck de console serial do dispositivo Olá se atualizações estiverem disponíveis e se Olá atualiza são interrompida (modo de manutenção) ou interrupções (modo normal) atualizações.
+Observe que, se o firmware de disco já estiver atualizado, você não precisará instalar essas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` no console serial do dispositivo para verificar se as atualizações estão disponíveis e se elas são interruptivas (modo de manutenção) ou não interruptivas (modo normal).
 
-atualizações de firmware de disco de saudação tooinstall, siga as instruções de saudação abaixo.
+Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
-1. Coloque o dispositivo de saudação no modo de manutenção de saudação. Observe que você não deve usar o Windows PowerShell remoto ao conectar-se o dispositivo tooa no modo de manutenção. Em vez disso, execute este cmdlet no controlador de dispositivo hello quando conectados por meio do console serial do dispositivo hello. Tipo:
+1. Coloque o dispositivo no Modo de manutenção. Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no Modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo. Digite:
    
     `Enter-HcsMaintenanceMode`
    
@@ -119,14 +119,14 @@ atualizações de firmware de disco de saudação tooinstall, siga as instruçõ
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
    
-        In maintenance mode, your device will not service IOs and will be disconnected from hello Microsoft Azure StorSimple Manager service. Entering maintenance mode will end hello current session and reboot both controllers, which takes a few minutes toocomplete. Are you sure you want tooenter maintenance mode?
+        In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
         [Y] Yes [N] No (Default is "Y"): Y
    
         -----------------------MAINTENANCE MODE------------------------
         Microsoft Azure StorSimple Appliance Model 8100
         Name: Update2-8100-SHG0997879L76673
         Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-        You are connected tooController0 - Passive
+        You are connected to Controller0 - Passive
         ---------------------------------------------------------------
    
         Serial Console Menu
@@ -136,26 +136,26 @@ atualizações de firmware de disco de saudação tooinstall, siga as instruçõ
         [4] Change language
         Please enter your choice>
    
-    Ambos os controladores Olá reinicie em modo de manutenção.
-2. atualização de firmware de disco de saudação do tooinstall, tipo:
+    Em seguida, ambos os controladores são reiniciados no modo de manutenção.
+2. Para instalar a atualização de firmware de disco, digite:
    
-    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
     Um exemplo de saída é mostrado abaixo.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
         Enter Password:
-        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After hello hotfix is installed on this controller, install it on hello peer controller.
+        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
         Confirm
-        This operation starts a hotfix installation and could reboot one or both of hello controllers. By installing new updates you agree to, and accept any additional terms associated with, hello new functionality listed in hello release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want toocontinue?
+        This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
-        WARNING: Installation is currently in progress. This operation can take several minutes toocomplete.
-3. Usando o monitor Olá instalar progresso `Get-HcsUpdateStatus` comando. Olá atualização é concluída quando hello `RunInProgress` muda muito`False`.
-4. Após a conclusão da instalação hello, reinicia controlador Olá no qual Olá hotfix do modo de manutenção foi instalado. Faça logon como opção 1 com acesso completo e verifique se a versão de firmware de disco hello. Tipo:
+        WARNING: Installation is currently in progress. This operation can take several minutes to complete.
+3. Monitore o progresso da instalação usando o comando `Get-HcsUpdateStatus` . A atualização é concluída quando o `RunInProgress` muda para `False`.
+4. Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1 com acesso completo e verifique a versão de firmware de disco. Digite:
    
    `Get-HcsFirmwareVersion`
    
-   Olá esperado versões de firmware de disco são:
+   As versões de firmware de disco esperados são:
    
    `XMGG, XGEG, KZ50, F6C2, VR08`
    
@@ -166,7 +166,7 @@ atualizações de firmware de disco de saudação tooinstall, siga as instruçõ
        Name: Update2-8100-SHG0997879L76YD
        Software Version: 6.3.9600.17705
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-       You are connected tooController1
+       You are connected to Controller1
        ---------------------------------------------------------------
    
        Controller1>Get-HcsFirmwareVersion
@@ -213,8 +213,8 @@ atualizações de firmware de disco de saudação tooinstall, siga as instruçõ
          SEAGATE:ST4000NM0023:XMGG
          SEAGATE:ST4000NM0023:XMGG
    
-    Executar Olá `Get-HcsFirmwareVersion` comando Olá segundo controlador tooverify que Olá a versão do software foi atualizado. Em seguida, você pode sair do modo de manutenção de saudação. toodo, digite Olá comando para cada controlador de dispositivo a seguir:
+    Execute o comando `Get-HcsFirmwareVersion` no segundo controlador para verificar se a versão do software foi atualizada. Em seguida, você pode sair do modo de manutenção. Para isso, digite o comando a seguir para cada controlador de dispositivo:
    
    `Exit-HcsMaintenanceMode`
-5. controladores de saudação reiniciar quando você sair do modo de manutenção. Depois de firmware de disco Olá atualizações são aplicadas com êxito e dispositivo Olá saiu do modo de manutenção, toohello retorno portal clássico do Azure. Observe que esse portal Olá não pode mostrar que você instalou as atualizações do modo de manutenção Olá por 24 horas.
+5. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
 

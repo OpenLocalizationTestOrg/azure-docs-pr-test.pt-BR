@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure um Host do Docker com VirtualBox | Microsoft Docs
-description: "Instruções passo a passo tooconfigure padrão Docker instância usando o Docker máquina e VirtualBox"
+title: Configurar um host do Docker com o VirtualBox | Microsoft Docs
+description: "Instruções passo a passo para configurar uma instância de Docker padrão usando a máquina Docker e o VirtualBox"
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 1df2da4482444a803d05e413e019edcc57269062
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Configurar um host do Docker com o VirtualBox
 ## <a name="overview"></a>Visão geral
-Este artigo orienta você pela configuração de uma instância de Docker padrão usando a máquina Docker e o VirtualBox. Se você estiver usando Olá [beta do Docker para Windows](http://beta.docker.com/), essa configuração não é necessária.
+Este artigo orienta você pela configuração de uma instância de Docker padrão usando a máquina Docker e o VirtualBox. Se você estiver usando o [Docker para Windows beta](http://beta.docker.com/), essa configuração não é necessária.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Olá seguintes ferramentas necessário toobe instalado.
+As ferramentas a seguir precisam ser instaladas.
 
 * [Caixa de Ferramentas do Docker](https://www.docker.com/products/overview#/docker_toolbox)
 
-## <a name="configuring-hello-docker-client-with-windows-powershell"></a>Configurando o cliente do Docker Olá com o Windows PowerShell
-tooconfigure um cliente do Docker, simplesmente abra o Windows PowerShell e realize Olá etapas a seguir:
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>Configurando o cliente Docker com o Windows PowerShell
+Para configurar um cliente Docker, apenas abra o Windows PowerShell e execute as seguintes etapas:
 
 1. Crie uma instância de host do docker padrão.
    
     ```PowerShell
     docker-machine create --driver virtualbox default
     ```
-2. Verifique se a instância padrão de saudação está configurado e em execução. (Você deve ver uma instância chamada “padrão” em execução.
+2. Verifique se a instância padrão está configurada e em execução. (Você deve ver uma instância chamada “padrão” em execução.
    
     ```PowerShell
     docker-machine ls 
     ```
    
     ![saída do docker-machine Is][0]
-3. Defina o padrão como host atual hello e configure o shell.
+3. Defina o padrão como o host atual e configure seu shell.
    
     ```PowerShell
     docker-machine env default | Invoke-Expression
     ```
-4. Exiba contêineres do Docker active hello. Olá lista deve estar vazia.
+4. Exiba os contêineres do Docker ativo. A lista deve estar vazia.
    
     ```PowerShell
     docker ps
@@ -58,8 +58,8 @@ tooconfigure um cliente do Docker, simplesmente abra o Windows PowerShell e real
     ![saída do docker ps][1]
 
 > [!NOTE]
-> Cada vez que você reinicializa o computador de desenvolvimento, você precisará toorestart seu host do docker local.
-> toodo, Olá problema comando no prompt de comando a seguir: `docker-machine start default`.
+> Sempre que você reinicializar o computador de desenvolvimento, precisará reiniciar o host do Docker local.
+> Para fazer isso, envie o seguinte comando em um prompt de comando: `docker-machine start default`.
 > 
 > 
 

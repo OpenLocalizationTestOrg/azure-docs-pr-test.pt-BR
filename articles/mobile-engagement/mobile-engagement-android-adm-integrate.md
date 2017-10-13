@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure integração do Mobile Engagement Android SDK"
+title: "Integração do SDK do Android do Azure Mobile Engagement"
 description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,69 +14,69 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c57132ff49cf8c335627a72b37f9b78529e84f48
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toointegrate-adm-with-engagement"></a>Como tooIntegrate ADM com contrato
+# <a name="how-to-integrate-adm-with-engagement"></a>Como integrar ADM ao Engagement
 > [!IMPORTANT]
-> Você deve seguir o procedimento de integração de saudação descrito em hello como tooIntegrate contrato no Android documento antes de seguir este guia.
+> Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
 > 
-> Este documento é útil apenas se você já Olá alcance módulo e o plano toopush Amazon dispositivos integrado. campanhas de alcance toointegrate em seu aplicativo, leia primeiro como tooIntegrate contrato chegar no Android.
+> Este documento será útil apenas se você já tiver integrado o módulo de Alcance e planeja enviar por push os dispositivos Amazon. Para integrar campanhas de Alcance em seu aplicativo, leia primeiro Como Integrar o Engagement Reach no Android.
 > 
 > 
 
 ## <a name="introduction"></a>Introdução
-Integração ADM permite que seu toobe aplicativo enviada por push ao direcionar dispositivos com Android da Amazon.
+A integração do ADM permite que o seu aplicativo seja enviado por push ao direcionar dispositivos do Amazon Android.
 
-Cargas ADM enviadas toohello SDK sempre contêm Olá `azme` chave no objeto de dados de saudação. Portanto, se você usar o ADM para outra finalidade em seu aplicativo, é possível filtrar os pushes com base nessa chave.
+As cargas de ADM enviadas para o SDK sempre contêm a chave `azme` no objeto de dados. Portanto, se você usar o ADM para outra finalidade em seu aplicativo, é possível filtrar os pushes com base nessa chave.
 
 > [!IMPORTANT]
 > Somente dispositivos Amazon Kindle executando Android 4.0.3 ou acima têm suporte pelo Amazon Device Messaging; no entanto, você pode integrar esse código com segurança em outros dispositivos.
 > 
 > 
 
-## <a name="sign-up-tooadm"></a>Inscreva-se tooADM
+## <a name="sign-up-to-adm"></a>Inscrever-se para ADM
 Se ainda não tiver feito, você deve habilitar o ADM em sua conta da Amazon.
 
-procedimento de saudação é detalhado no: [ <https://developer.amazon.com/sdk/adm/credentials.html>].
+O procedimento é detalhado em: [<https://developer.amazon.com/sdk/adm/credentials.html>].
 
-Após concluir o procedimento hello, você obtém:
+Depois de concluir o procedimento, você obtém:
 
-* OAuth credenciais (uma ID de cliente e um segredo do cliente) para o contrato toobe capaz de toopush seus dispositivos.
+* Credenciais OAuth (uma ID de cliente e um segredo do cliente) para o Engagement para poder enviar por push seus dispositivos.
 * Uma chave de API que deve ser integrada ao seu aplicativo.
 
 ## <a name="sdk-integration"></a>Integração do SDK
 ### <a name="managing-device-registrations"></a>Gerenciando registros de dispositivo
-Cada dispositivo deve enviar um toohello do comando de registro de servidores ADM, caso contrário, não pode ser alcançados.
+Cada dispositivo deve enviar um comando de registro aos servidores do ADM, caso contrário eles não poderão ser alcançados.
 
-Se você já usa Olá [biblioteca de cliente ADM]e já tiver [integrado ADM] poderá ir diretamente tooandroid-sdk-adm-receber.
+Se você já usa a [biblioteca de cliente do ADM], e já tiver o [ADM integrado] você pode ir diretamente para o android-sdk-adm-receive.
 
-Se você não tiver integrado ADM ainda, contrato tem um tooenable de forma mais simples-lo em seu aplicativo:
+Se você ainda não tiver o ADM integrado, o Engagement tem uma maneira mais simples para habilitá-lo em seu aplicativo:
 
-Edite seu arquivo `AndroidManifest.xml`:
+Edite seu arquivo `AndroidManifest.xml` :
 
-* Adicione Olá Amazon namespace, Olá arquivo deve começar como este:
+* Adicione o namespace Amazon, o arquivo deve começar como este:
   
       <?xml version="1.0" encoding="utf-8"?>
       <manifest xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:amazon="http://schemas.amazon.com/apk/res/android"
-* Olá interna `<application/>` marca, adicionar nesta seção:
+* Dentro da marca `<application/>` , adicione essa seção:
   
       <amazon:enable-feature
          android:name="com.amazon.device.messaging"
          android:required="false"/>
   
       <meta-data android:name="engagement:adm:register" android:value="true" />
-* Depois de adicionar a marca do amazon hello, você pode ter um erro de compilação se o destino de compilação de projeto está abaixo Android 2.1. Você tem toouse um **Android 2.1 +** destino de compilação (não se preocupe, você ainda pode ter um `minSdkVersion` definido too4).
-* Integrar Olá ADM chave de API como um ativo seguindo [esse procedimento].
+* Depois de adicionar a marca da amazon, você poderá ter um erro de compilação se o Destino de Compilação do Projeto estiver abaixo da versão 2.1 do Android. É necessário usar um destino de compilação **Android 2.1+** (não se preocupe, você ainda pode ter um `minSdkVersion` definido como 4).
+* Integre a chave de API do ADM como um ativo seguindo [este procedimento].
 
-Siga as instruções de saudação de próximas seções de saudação.
+Siga as instruções das próximas seções.
 
-### <a name="communicate-registration-id-toohello-engagement-push-service-and-receive-notifications"></a>Comunicar-se o serviço de envio do contrato de toohello do registro id e receber notificações
-Na id de registro de saudação ordem toocommunicate de saudação dispositivo toohello envio do contrato de serviço e receber notificações, adicionar Olá após tooyour `AndroidManifest.xml` arquivo, dentro de saudação `<application/>` marca (mesmo se você usar ADM sem compromisso):
+### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Comunicar a id de registro para o serviço de envio por push do Engagement e receber notificações
+Para comunicar a ID de registro do dispositivo para o serviço de Envio por Push do Engagement e receber notificações, adicione o seguinte ao seu arquivo `AndroidManifest.xml`  dentro da marca `<application/>` (mesmo que você use ADM sem Engagement):
 
         <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
           android:exported="false">
@@ -94,7 +94,7 @@ Na id de registro de saudação ordem toocommunicate de saudação dispositivo t
           </intent-filter>
         </receiver>   
 
-Certifique-se de ter Olá as seguintes permissões no seu `AndroidManifest.xml` (antes da saudação `</application>` marca).
+Certifique-se de ter as seguintes permissões em seu `AndroidManifest.xml` (antes da marca `</application>`).
 
         <uses-permission android:name="android.permission.WAKE_LOCK"/>
         <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE"/>
@@ -105,6 +105,6 @@ Certifique-se de ter Olá as seguintes permissões no seu `AndroidManifest.xml` 
 Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) no Portal do Engagement.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
-[biblioteca de cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
-[integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
-[esse procedimento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+[biblioteca de cliente do ADM]:https://developer.amazon.com/sdk/adm/setup.html
+[ADM integrado]:https://developer.amazon.com/sdk/adm/integrating-app.html
+[este procedimento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

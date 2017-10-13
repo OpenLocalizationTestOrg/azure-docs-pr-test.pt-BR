@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e TINFOIL SECURITY."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o TINFOIL SECURITY."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a3fa9880d9e026c2d6d6548188df2269ff69139
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 614e4de3335574f4b56c7d641af4fcfafdb17d12
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY
 
-Neste tutorial, você aprenderá como toointegrate TINFOIL SECURITY com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá como integrar o TINFOIL SECURITY ao Azure AD (Azure Active Directory).
 
-Integração do TINFOIL SECURITY com o Azure AD oferece Olá benefícios a seguir:
+A integração do TINFOIL SECURITY com o Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooTINFOIL segurança
-- Você pode habilitar seu usuários tooautomatically get conectado tooTINFOIL segurança (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao TINFOIL SECURITY
+- É possível permitir que seus usuários façam logon automaticamente no TINFOIL SECURITY (logon único) com as contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com TINFOIL SECURITY, é necessário Olá itens a seguir:
+Para configurar a integração do Azure AD com o TINFOIL SECURITY, serão necessários os seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do TINFOIL SECURITY habilitada para logon único
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar TINFOIL SECURITY da Galeria de saudação
+1. Adicionar TINFOIL SECURITY da galeria
 2. Configurar e testar logon único do Azure AD
 
-## <a name="add-tinfoil-security-from-hello-gallery"></a>Adicionar TINFOIL SECURITY da Galeria de saudação
-integração de saudação tooconfigure do TINFOIL SECURITY no AD do Azure, você precisa tooadd TINFOIL SECURITY na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="add-tinfoil-security-from-the-gallery"></a>Adicionar TINFOIL SECURITY da galeria
+Para configurar a integração do TINFOIL SECURITY com o Azure AD, é necessário adicionar o TINFOIL SECURITY da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd TINFOIL SECURITY da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o TINFOIL SECURITY da galeria, siga as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **TINFOIL SECURITY**, selecione **TINFOIL SECURITY** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
+4. Na caixa de pesquisa, digite **TINFOIL SECURITY**, selecione **TINFOIL SECURITY** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![TINFOIL SECURITY da galeria](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o TINFOIL SECURITY com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no TINFOIL SECURITY é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no TINFOIL SECURITY precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do TINFOIL SECURITY é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no TINFOIL SECURITY.
 
-TINFOIL SECURITY, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No TINFOIL SECURITY, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com TINFOIL SECURITY, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o TINFOIL SECURITY, é necessário concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  -toohave um equivalente do Britta Simon no TINFOIL SECURITY que é vinculado toohello AD do Azure representação do usuário.
-4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do TINFOIL SECURITY](#create-a-tinfoil-security-test-user)** – para ter um equivalente de Brenda Fernandes no TINFOIL SECURITY que esteja vinculado à representação de usuário no Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo do TINFOIL SECURITY.
+Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo TINFOIL SECURITY.
 
-**tooconfigure AD do Azure-logon único com TINFOIL SECURITY, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o TINFOIL SECURITY, siga as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **TINFOIL SECURITY** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **TINFOIL SECURITY**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Logon baseado em SAML](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_samlbase.png)
 
-3. Em Olá **TINFOIL SECURITY domínio e URLs** seção, hello usuário não tem tooperform todas as etapas de como o aplicativo hello previamente já está integrado com o Azure.
+3. Na seção **URLs e Domínio do TINFOIL SECURITY**, o usuário não precisa seguir nenhuma etapa, uma vez que o aplicativo já está integrado ao Azure.
 
     ![Configurar Logon Único](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
-4. Em Olá **o certificado de autenticação SAML** seção, Olá cópia **impressão digital** valor.
+4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL**.
 
     ![Seção Certificado de Autenticação SAML](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_certificate.png) 
 
-5. mapeamentos de atributo do tooadd Olá necessária, execute Olá etapas a seguir:
+5. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
     
     ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "Atributos")
     
@@ -126,9 +126,9 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     
     ![ADICIONAR atributo](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "Atributos")
     
-    b. Em Olá **nome do atributo** caixa de texto, tipo **accountid**.
+    b. Na caixa de texto **Nome do Atributo**, digite **accountid**.
     
-    c. Em Olá **o valor do atributo** caixa de texto, colar Olá conta valor da ID que você obterá mais tarde no tutorial de saudação.
+    c. Na caixa de texto **Valor do atributo**, cole o valor da ID da conta que você obterá posteriormente no tutorial.
     
     d. Clique em **OK**.    
 
@@ -136,13 +136,13 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
 
     ![Botão Salvar](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_400.png)
 
-7. Em Olá **TINFOIL SECURITY Configuration** seção, clique em **configurar TINFOIL SECURITY** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+7. Na seção **Configuração do TINFOIL SECURITY**, clique em **Configurar o TINFOIL SECURITY** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do TINFOIL SECURITY](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
 
 8. Em uma janela diferente do navegador da Web, faça logon no site da empresa TINFOIL SECURITY como administrador.
 
-9. Na barra de ferramentas de saudação na parte superior do hello, clique em **minha conta**.
+9. Na barra de ferramentas na parte superior, clique em **Minha Conta**.
    
     ![Painel](./media/active-directory-saas-tinfoil-security-tutorial/ic798971.png "Painel")
 
@@ -150,7 +150,7 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
    
     ![Segurança](./media/active-directory-saas-tinfoil-security-tutorial/ic798972.png "Segurança")
 
-11. Em Olá **Single Sign-On** configuração de página, execute Olá etapas a seguir:
+11. Na página de configuração **Logon Único** , realize as seguintes etapas:
    
     ![Logon Único](./media/active-directory-saas-tinfoil-security-tutorial/ic798973.png "Logon Único")
    
@@ -158,81 +158,81 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
    
     b. Clique em **Configuração Manual**.
    
-    c. Em **URL de postagem de SAML** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure
+    c. Na caixa de texto **URL da Postagem SAML**, cole o valor da **URL do Serviço de Logon Único SAML** copiada do Portal do Azure
    
-    d. Em **impressão digital do certificado SAML** caixa de texto valor Olá colar **impressão digital** que você copiou de **o certificado de autenticação SAML** seção.
+    d. Na caixa de texto **Impressão Digital do Certificado SAML**, cole o valor de **Impressão Digital** copiado da seção **Certificado de Autenticação SAML**.
   
-    e. Cópia **seu ID de conta** valor e cole o valor de saudação em **o valor do atributo** textbox em **Adicionar atributo** seção no portal do Azure.
+    e. Copie o valor da **ID da Sua Conta** e cole-o na caixa de texto **Valor do Atributo** na seção **Adicionar Atributo** no Portal do Azure.
    
     f. Clique em **Salvar**.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Usuários e grupos -> Todos os usuários ](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Usuário](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-tinfoil-security-test-user"></a>Criar um usuário de teste do TINFOIL SECURITY
 
-Em ordem tooenable AD do Azure usuários toolog no TINFOIL SECURITY, eles devem ser provisionados no TINFOIL SECURITY. No caso de saudação do TINFOIL SECURITY, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no TINFOIL SECURITY, eles devem ser provisionados no TINFOIL SECURITY. No caso do TINFOIL SECURITY, o provisionamento é uma tarefa manual.
 
-**tooget um usuário provisionado, execute Olá etapas a seguir:**
+**Para provisionar um usuário, siga as seguintes etapas:**
 
-1. Se o usuário Olá faz parte de uma conta da empresa, será necessário muito[entre em contato com a equipe de suporte do TINFOIL SECURITY Olá](https://www.tinfoilsecurity.com/contact) tooget Olá conta de usuário.
+1. Se o usuário fizer parte de uma conta Enterprise, será necessário [contatar a equipe de suporte do TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact) para que a conta de usuário seja criada.
 
-2. Se Olá é um usuário regular do TINFOIL SECURITY SaaS, usuário Olá pode adicionar tooany um colaborador de sites saudação do usuário. Email desse aciona um toosend de processo especificado um convite toohello toocreate uma nova conta de usuário do TINFOIL SECURITY.
+2. Se o usuário for um usuário de SaaS do TINFOIL SECURITY regular, ele poderá adicionar um colaborador a qualquer um dos sites do usuário. Isso dispara um processo para enviar um convite ao email especificado para criar uma nova conta de usuário do TINFOIL SECURITY.
 
 > [!NOTE]
-> Você pode usar qualquer ferramenta de criação outros TINFOIL SECURITY usuário conta ou APIs fornecidas pelo TINFOIL SECURITY tooprovision contas de usuário do AD do Azure.
+> É possível usar qualquer outra ferramenta de criação de conta de usuário do TINFOIL SECURITY ou APIs fornecidas pelo TINFOIL SECURITY para provisionar as contas de usuário do Azure AD.
 > 
 > 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooTINFOIL segurança.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo acesso ao TINFOIL SECURITY.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooTINFOIL segurança, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao TINFOIL SECURITY, siga as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **TINFOIL SECURITY**.
+2. Na lista de aplicativos, selecione **TINFOIL SECURITY**.
 
     ![selecione TINFOIL SECURITY](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -240,7 +240,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -248,13 +248,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco TINFOIL SECURITY Olá Olá painel de acesso, você deve obter tooyour automaticamente conectado no aplicativo de TINFOIL SECURITY. Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
+Quando você clicar no bloco TINFOIL SECURITY no Painel de Acesso, você deverá entrar automaticamente no seu aplicativo TINFOIL SECURITY. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

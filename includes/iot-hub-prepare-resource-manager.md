@@ -1,23 +1,23 @@
-## <a name="prepare-tooauthenticate-azure-resource-manager-requests"></a>Preparar tooauthenticate solicitações do Gerenciador de recursos do Azure
-Você deve autenticar todas as operações de saudação que podem ser executadas em recursos usando Olá [do Azure Resource Manager] [ lnk-authenticate-arm] com o Azure AD (Active Directory). Olá tooconfigure de maneira mais fácil é toouse PowerShell ou CLI do Azure.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Preparar para autenticar solicitações do Azure Resource Manager
+Autentique todas as operações que podem ser executadas nos recursos usando o [Azure Resource Manager][lnk-authenticate-arm] com o Azure Active Directory (AD). A maneira mais fácil de configurar isso é usar o PowerShell ou Azure CLI.
 
-Instalar Olá [cmdlets do PowerShell do Azure] [ lnk-powershell-install] antes de continuar.
+Instale os [cmdlets do Azure PowerShell][lnk-powershell-install] antes de continuar.
 
-Olá mostram as etapas a seguir como tooset a autenticação de senha para um aplicativo do AD usando o PowerShell. Você pode executar esses comandos em uma sessão do PowerShell padrão.
+As etapas a seguir mostram como configurar a autenticação de senha para um aplicativo do AD usando o PowerShell. Você pode executar esses comandos em uma sessão do PowerShell padrão.
 
-1. Faça logon no tooyour assinatura do Azure usando Olá comando a seguir:
+1. Faça logon em sua assinatura do Azure usando o seguinte comando:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Se você tiver várias assinaturas do Azure, entrar tooAzure concede acesso tooall hello Azure assinaturas associadas com suas credenciais. Use Olá toolist Olá assinaturas do Azure para você toouse de comando a seguir:
+1. Caso tenha várias assinaturas do Azure, entrar no Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Use o comando a seguir para listar as assinaturas do Azure disponíveis para você:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Use Olá assinatura tooselect de comando que você deseja toouse toorun Olá comandos toomanage seu hub IoT a seguir. Você pode usar a ID ou nome de assinatura de saudação da saída de saudação do comando anterior hello:
+    Use o comando a seguir para selecionar a assinatura que você deseja usar para executar os comandos e criar seu Hub IoT. Você pode usar a ID ou nome da assinatura da saída do comando anterior:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -25,29 +25,29 @@ Olá mostram as etapas a seguir como tooset a autenticação de senha para um ap
     ```
 
 2. Anote seu **TenantId** e **SubscriptionId**. Você precisará dessa informação mais tarde.
-3. Crie um novo aplicativo do Active Directory do Azure usando Olá comando a seguir, substituindo espaços reservados de saudação:
+3. Crie um novo aplicativo do Active Directory do Azure usando o seguinte comando, substituindo os espaços reservados:
    
    * **{Display name}:** um nome de exibição para seu aplicativo, como **MySampleApp**
-   * **{URL da Home page}:** Olá URL da página inicial de saudação do seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa de aplicativo real do toopoint tooa.
-   * **{Application identifier}:** um identificador exclusivo, como **http://mysampleapp**. Essa URL não precisa de aplicativo real do toopoint tooa.
-   * **{Password}:** uma senha que você use tooauthenticate com seu aplicativo.
+   * **{Home page URL}:** a URL da página inicial de seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
+   * **{Application identifier}:** um identificador exclusivo, como **http://mysampleapp**. Essa URL não precisa levar para um aplicativo real.
+   * **{Password}:** Uma senha que você usa para autenticar com o seu aplicativo.
      
      ```powershell
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. Anote Olá **ApplicationId** do aplicativo hello criado por você. Você precisa dessa informação mais tarde.
-5. Criar uma nova entidade de serviço usando Olá comando a seguir, substituindo **{MyApplicationId}** com hello **ApplicationId** da etapa anterior hello:
+4. Anote o **ApplicationId** do aplicativo que você criou. Você precisa dessa informação mais tarde.
+5. Criar uma nova entidade de serviço usando o comando a seguir, substituindo **{MyApplicationId}** pelo **ApplicationId** da etapa anterior:
    
     ```powershell
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Configurar uma atribuição de função usando Olá comando a seguir, substituindo **{MyApplicationId}** com seus **ApplicationId**.
+6. Configure uma atribuição de função usando o comando a seguir, substituindo **{MyApplicationId}** por **ApplicationId**.
    
     ```powershell
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-Agora terminar de criar o aplicativo do AD do Azure hello que permite que você tooauthenticate do seu aplicativo c# personalizado. Você precisa Olá seguinte valores posteriormente neste tutorial:
+Você terminou de criar o aplicativo do Azure AD que permitirá autenticar a partir do seu aplicativo C# personalizado. Você precisa dos seguintes valores mais à frente neste tutorial:
 
 * TenantId
 * SubscriptionId

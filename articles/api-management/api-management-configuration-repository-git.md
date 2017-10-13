@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure seu serviço de gerenciamento de API usando o Git - Azure | Microsoft Docs"
-description: "Saiba como toosave e configurar a configuração do serviço de gerenciamento de API usando o Git."
+title: "Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs"
+description: "Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git"
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,179 +14,179 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: ef7d4c18f2ea3f5c9b86403349a83aef240f979b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toosave-and-configure-your-api-management-service-configuration-using-git"></a>Como toosave e configurar a configuração do serviço de gerenciamento de API usando o Git
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 > 
 > 
 
-Cada instância de serviço de gerenciamento de API mantém um banco de dados de configuração que contém informações sobre a configuração de saudação e metadados para a instância do serviço hello. Alterações a instância do serviço toohello alterar uma configuração no portal do publicador hello, usando um cmdlet do PowerShell ou fazer uma chamada à API REST. Além de métodos de toothese, você também pode gerenciar a configuração de instância do serviço usando o Git, permitindo cenários de gerenciamento de serviço, como:
+Cada instância do serviço de Gerenciamento de API mantém um banco de dados de configuração que contém informações sobre a configuração e sobre os metadados da instância do serviço. É possível fazer alterações na instância do serviço alterando uma configuração no portal do editor, usando um cmdlet do PowerShell ou fazendo uma chamada à API REST. Além desses métodos, você também pode gerenciar a configuração da instância do serviço usando o Git, permitindo cenários de gerenciamento de serviço, como:
 
 * Controle de versão da configuração - baixe e armazene versões diferentes da configuração do seu serviço
-* Em massa as alterações de configuração - faça alterações toomultiple partes da sua configuração de serviço no seu repositório local e integrar o servidor de back toohello de alterações de saudação com uma única operação
-* Cadeia de ferramentas do Git e fluxo de trabalho - familiar usar ferramentas de Git hello e fluxos de trabalho que você já estiver familiarizado com
+* Alterações de configuração em massa - faça alterações em várias partes da configuração de seu serviço no repositório local e integre essas alterações no servidor com uma única operação
+* Cadeia de ferramentas e fluxo de trabalho conhecido do Git - use as ferramentas e fluxo de trabalho do Git com os quais você já está familiarizado
 
-Olá diagrama a seguir mostra uma visão geral de tooconfigure de maneiras diferentes de saudação sua instância de serviço de gerenciamento de API.
+O diagrama a seguir mostra uma visão geral das diferentes maneiras de configurar sua instância de serviço do Gerenciamento de API.
 
 ![Configuração do Git][api-management-git-configure]
 
-Quando você fizer alterações tooyour serviço usando o portal do publicador hello, cmdlets do PowerShell ou Olá API REST, você está gerenciando o banco de dados de configuração de serviço usando Olá `https://{name}.management.azure-api.net` ponto de extremidade, conforme mostrado no lado direito de saudação do diagrama de saudação. lado esquerdo de saudação do diagrama Olá ilustra como você pode gerenciar a configuração de serviço usando o Git e repositório Git para seu serviço localizado em `https://{name}.scm.azure-api.net`.
+Quando você faz alterações em seu serviço usando o portal do editor, cmdlets do PowerShell ou a API REST, você está gerenciando o banco de dados de configuração de seu serviço usando o ponto de extremidade `https://{name}.management.azure-api.net` , como exibido no lado direito do diagrama. O lado esquerdo do diagrama ilustra como você pode gerenciar a configuração de seu serviço usando o Git e o repositório Git de seu serviço localizado em `https://{name}.scm.azure-api.net`.
 
-Olá, as etapas a seguir fornece uma visão geral do gerenciamento de sua instância de serviço de gerenciamento de API usando o Git.
+As etapas a seguir fornecem uma visão geral do gerenciamento de sua instância de serviço de Gerenciamento de API usando o Git.
 
 1. Acessar a configuração GIT em seu serviço
-2. Salvar o repositório do Git de tooyour do banco de dados de configuração de serviço
-3. Clonar a máquina local de tooyour Olá de repositório Git
-4. Pull hello mais recente máquina local tooyour e o repositório de backup tooyour alterações confirmação e enviar por push
-5. Implantar alterações de saudação do seu repositório em seu banco de dados de configuração de serviço
+2. Salvar o banco de dados de configuração de seu serviço em seu repositório Git
+3. Clonar o repositório Git em seu computador local
+4. Obter o repositório mais recente em seu computador local, confirmar e enviar as alterações de volta ao seu repositório
+5. Implantar as alterações de seu repositório para o banco de dados de configuração de seu serviço
 
-Este artigo descreve como tooenable usar Git toomanage sua configuração de serviço e fornece uma referência para os arquivos de saudação e pastas no repositório do Git hello.
+Este artigo descreve como habilitar e usar o Git para gerenciar a configuração de seu serviço e fornece uma referência para os arquivos e pastas no repositório Git.
 
 ## <a name="access-git-configuration-in-your-service"></a>Acessar a configuração GIT em seu serviço
-Você pode exibir rapidamente status de saudação da configuração do Git exibindo o ícone de Git Olá no canto superior direito de saudação do portal do publicador hello. Neste exemplo, a mensagem de saudação do status indica que há um repositório de toohello alterações não salvas. Isso ocorre porque o banco de dados do gerenciamento de API serviço configuração Olá ainda não foi salvo toohello repositório.
+Você pode exibir rapidamente o status da configuração do Git exibindo o ícone do Git no canto superior direito do portal do editor. Neste exemplo, a mensagem de status indica que há alterações não salvas no repositório. Isso ocorre porque o banco de dados de configuração do serviço de Gerenciamento de API ainda não foi salvo no repositório.
 
 ![Status do Git][api-management-git-icon-enable]
 
-tooview e configurar as definições de configuração de Git, você pode clique ícone de Git hello, ou Olá **segurança** menu e navegue toohello **repositório de configuração** guia.
+Para exibir e definir as configurações do Git, clique no ícone do Git ou clique no menu **Segurança** e navegue até a guia **Repositório de configuração**.
 
 ![Habilitar o GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Nenhum segredo que não está definido como propriedades serão armazenadas no repositório de saudação e permanecerão no histórico de até que você desabilita e reabilitar o acesso de Git. Propriedades fornecem um local seguro toomanage valores de constante de cadeia de caracteres, inclusive segredos, em todas as políticas e configurações de API para não ter toostore-los diretamente em suas instruções de política. Para obter mais informações, consulte [como toouse propriedades nas políticas de gerenciamento do Azure API](api-management-howto-properties.md).
+> Quaisquer segredos que não sejam definidos como propriedades serão armazenados no repositório e permanecerão em seu histórico até que você desabilite e habilite novamente o acesso ao Git. As propriedades fornecem um local seguro para o gerenciamento de valores constantes de cadeia de caracteres, incluindo segredos, em todas as configurações e políticas de API. Portanto, não é necessário armazená-los diretamente nas instruções de sua política. Para saber mais, confira [Como usar as propriedades nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
 > 
 > 
 
-Para obter informações sobre como habilitar ou desabilitar o acesso de Git usando Olá API REST, consulte [habilitar ou desabilitar o acesso de Git usando a API REST de saudação](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Para saber mais sobre como habilitar ou desabilitar o acesso ao Git usando a API REST, confira [Habilitar ou desabilitar o acesso ao Git usando a API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
-## <a name="toosave-hello-service-configuration-toohello-git-repository"></a>repositório do Git toosave Olá serviço configuração toohello
-a primeira etapa Olá antes da clonagem do repositório de saudação é estado atual do toosave saudação do repositório de toohello de configuração de serviço hello. Clique em **Salvar configuração toorepository**.
+## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Para salvar a configuração do serviço no repositório Git
+A primeira etapa antes de clonar o repositório é salvar o estado atual da configuração do serviço no repositório. Clique em **Salvar configuração no repositório**.
 
 ![Salvar configuração][api-management-save-configuration]
 
-Faça as alterações desejadas na tela de confirmação de saudação e clique em **Okey** toosave.
+Faça as alterações desejadas na tela de confirmação e clique em **Ok** para salvar.
 
 ![Salvar configuração][api-management-save-configuration-confirm]
 
-Após alguns instantes configuração Olá é salvo e status de configuração de saudação do repositório de saudação é exibida, incluindo date de hello e a hora da última alteração de configuração hello e a última sincronização Olá entre a configuração do serviço hello e hello repositório.
+Após alguns instantes, a configuração será salva e o status da configuração do repositório será exibido, incluindo a data e a hora da última alteração de configuração e a última sincronização entre a configuração do serviço e o repositório.
 
 ![Status da configuração][api-management-configuration-status]
 
-Depois de salvo toohello repositório configuração hello, ele pode ser clonado.
+Quando a configuração for salva no repositório, ele poderá ser clonado.
 
-Para obter informações sobre como executar essa operação usando Olá API REST, consulte [configuração de confirmação de instantâneo usando a API REST de saudação](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Para saber mais sobre como executar essa operação usando a API REST, confira [Confirmar a configuração do instantâneo usando a API REST](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
-## <a name="tooclone-hello-repository-tooyour-local-machine"></a>máquina local do tooyour tooclone Olá repositório
-tooclone um repositório, que é necessário que o repositório de tooyour URL hello, um nome de usuário e uma senha. Olá nome de usuário e URL são exibidos superior de saudação do hello **repositório de configuração** guia.
+## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar o repositório em seu computador local
+Para clonar um repositório, você precisa da URL de seu repositório, um nome de usuário e uma senha. O nome de usuário e a URL são exibidos próximos à parte superior da guia **Repositório de configuração** .
 
 ![Clone do Git][api-management-configuration-git-clone]
 
-senha Olá é gerada na parte inferior de saudação do hello **repositório de configuração** guia.
+A senha é gerada na parte inferior da guia **Repositório de configuração** .
 
 ![Gerar senha][api-management-generate-password]
 
-toogenerate uma senha, primeiro certifique-se que Olá **expiração** está definida toohello desejado de data e hora e, em seguida, clique em **gerar Token**.
+Para gerar uma senha, primeiro verifique se **Vencimento** está definido como a data e a hora de vencimento desejadas e clique em **Gerar Token**.
 
 ![Senha][api-management-password]
 
 > [!IMPORTANT]
-> Anote essa senha. Depois que você deixar essa senha de saudação de página não será exibida novamente.
+> Anote essa senha. Depois que você sair desta página a senha não será exibida novamente.
 > 
 > 
 
-Olá seguindo exemplos de uso Olá Git Bash ferramenta de [Git para Windows](http://www.git-scm.com/downloads) , mas você pode usar qualquer ferramenta de Git que você esteja familiarizado com.
+Os exemplos a seguir usam a ferramenta Git Bash do [Git para Windows](http://www.git-scm.com/downloads) , mas você pode usar qualquer ferramenta Git com a qual esteja familiarizado.
 
-Abra sua ferramenta de Git na pasta desejada hello e execute Olá comando tooclone Olá git repositório tooyour máquina local a seguir, usando o comando Olá fornecido pelo portal do publicador hello.
+Abra sua ferramenta Git na pasta desejada e execute o comando a seguir para clonar o repositório git em seu computador local usando o comando fornecido pelo portal do editor.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
 ```
 
-Fornece nome de usuário de saudação e a senha quando solicitado.
+Quando solicitado, forneça o nome de usuário e a senha.
 
-Se você receber erros, tente modificar sua `git clone` comando tooinclude Olá nome e uma senha, conforme mostrado no exemplo a seguir de saudação.
+Se ocorrer algum erro, tente modificar seu comando `git clone` para incluir o nome de usuário e a senha, conforme exibido no exemplo a seguir.
 
 ```
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Se isso fornece um erro, tente parte de senha de saudação do comando de saudação de codificação de URL. Um toodo de maneira rápida isso é tooopen Visual Studio, e o comando a seguir de saudação problema em Olá **janela imediata**. Olá tooopen **janela imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie um novo aplicativo de console vazio) e escolha **Windows**, **imediato** de Olá **depurar** menu.
+Se isso resultar em erro, tente codificar na URL a parte da senha do comando. Uma maneira rápida de fazer isso é abrir o Visual Studio e emitir o seguinte comando na **Janela Imediata**. Para abrir a **Janela Imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie um novo aplicativo de console vazio) e escolha **Janelas**, **Imediata** no menu **Depuração**.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from publisher portal")
 ```
 
-Use senha Olá codificado junto com seu nome e o repositório local tooconstruct Olá git comando de usuário.
+Use a senha codificada juntamente com seu nome de usuário e o local do repositório para construir o comando do git.
 
 ```
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Depois que o repositório de saudação é clonado, você pode exibir e trabalhar com ele no sistema de arquivos local. Para obter mais informações, veja [Referência da estrutura de pastas e arquivos do repositório Git local](#file-and-folder-structure-reference-of-local-git-repository).
+Assim que o repositório for clonado, você poderá exibi-lo e trabalhar com ele no sistema de arquivos local. Para obter mais informações, veja [Referência da estrutura de pastas e arquivos do repositório Git local](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="tooupdate-your-local-repository-with-hello-most-current-service-instance-configuration"></a>tooupdate seu repositório local com a configuração mais atual da instância de serviço Olá
-Se você fizer a instância de serviço de gerenciamento de API de tooyour alterações no portal do publicador hello ou Olá API REST, você deve salvar o repositório de toohello essas alterações antes de atualizar o seu repositório local com as alterações mais recentes de saudação. toodo, clique **Salvar configuração toorepository** em Olá **repositório de configuração** guia no portal do publicador hello e, em seguida, emitir Olá comando no seu repositório local a seguir.
+## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar seu repositório local com a configuração mais recente da instância do serviço
+Se você fizer alterações na instância de seu serviço de Gerenciamento de API no portal do editor, ou usando a API REST, será necessário salvar essas alterações no repositório antes de poder atualizar seu repositório local com as alterações mais recentes. Para fazer isso, clique em **Salvar configuração no repositório** na guia **Repositório de configuração** no portal do editor e emita o seguinte comando em seu repositório local.
 
 ```
 git pull
 ```
 
-Antes de executar `git pull` Certifique-se de que você está na pasta Olá para seu repositório local. Se você concluiu a saudação `git clone` de comando, em seguida, você deve alterar o repositório de tooyour directory Olá executando um comando como Olá a seguir.
+Antes de executar o `git pull` , certifique-se de que você esteja na pasta de seu repositório local. Se você acabou de concluir o comando `git clone` , será necessário alterar o diretório de seu repositório executando um comando parecido com o seguinte.
 
 ```
 cd bugbashdev4.scm.azure-api.net/
 ```
 
-## <a name="toopush-changes-from-your-local-repo-toohello-server-repo"></a>alterações de toopush do seu repositório de servidor toohello repositório local
-toopush alterações do seu repositório de servidor toohello repositório local, você deve confirmar suas alterações e, em seguida, enviá-las toohello repositório de servidor. toocommit suas alterações, abra a ferramenta de comando Git, comutador toohello diretório de repositório local e Olá problema comandos a seguir.
+## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para enviar por push as alterações de seu repositório local para o repositório do servidor
+Para enviar por push as alterações de seu repositório local para o repositório do servidor, você deve confirmar as alterações e, em seguida, enviá-las ao repositório do servidor. Para confirmar as alterações, abra sua ferramenta de comando do Git, alterne para o diretório de seu repositório local e execute os comandos a seguir.
 
 ```
 git add --all
 git commit -m "Description of your changes"
 ```
 
-toopush todos Olá confirma que o servidor toohello, execute Olá seguinte comando.
+Para enviar por push todas as confirmações para o servidor, execute o comando a seguir.
 
 ```
 git push
 ```
 
-## <a name="toodeploy-any-service-configuration-changes-toohello-api-management-service-instance"></a>toodeploy qualquer instância de serviço do serviço configuração alterações toohello gerenciamento de API
-Depois que as alterações locais são confirmadas e enviadas por push toohello repositório de servidor, você pode implantá-las tooyour instância de serviço de gerenciamento de API.
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implantar quaisquer alterações da configuração do serviço na instância do serviço de Gerenciamento de API
+Após a confirmação de suas alterações locais e o envio para o repositório do servidor, você pode implantá-las na instância de seu serviço de Gerenciamento de API.
 
 ![Implantar][api-management-configuration-deploy]
 
-Para obter informações sobre como executar essa operação usando Olá API REST, consulte [Git implantar alterações tooconfiguration banco de dados usando a API REST de saudação](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Para saber mais sobre como executar essa operação usando a API REST, confira [Implantar as alterações do Git no banco de dados de configuração usando a API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência da estrutura de pastas e arquivos do repositório Git local
-Olá arquivos e pastas no repositório do git local Olá contêm Olá informações de configuração sobre a instância de serviço hello.
+Os arquivos e pastas no repositório git local contêm as informações de configuração sobre a instância do serviço.
 
 | Item | Descrição |
 | --- | --- |
-| pasta api-management raiz |Contém a configuração de nível superior para a instância do serviço Olá |
-| pasta apis |Contém a configuração de Olá Olá APIs na instância de serviço Olá |
-| pasta groups |Contém a configuração de saudação de grupos de saudação na instância do serviço de saudação |
-| pasta policies |Contém políticas de saudação na instância de serviço Olá |
-| pasta portalStyles |Contém a configuração de saudação de personalizações portal do desenvolvedor Olá na instância de serviço Olá |
-| pasta products |Contém a configuração de saudação de produtos Olá na instância de serviço Olá |
-| pasta templates |Contém a configuração de saudação para modelos de email de saudação na instância de serviço Olá |
+| pasta api-management raiz |Contém a configuração de nível superior da instância do serviço |
+| pasta apis |Contém a configuração das APIs na instância do serviço |
+| pasta groups |Contém a configuração dos grupos na instância do serviço |
+| pasta policies |Contém as políticas na instância do serviço |
+| pasta portalStyles |Contém a configuração das personalizações do portal do desenvolvedor na instância do serviço |
+| pasta products |Contém a configuração dos produtos na instância do serviço |
+| pasta templates |Contém a configuração dos modelos de email na instância do serviço |
 
-Cada pasta pode conter um ou mais arquivos e, em alguns casos, uma ou mais pastas, por exemplo, uma pasta para cada API, produto ou grupo. arquivos Hello dentro de cada pasta são específicos para o tipo de entidade Olá descrito pelo nome da pasta hello.
+Cada pasta pode conter um ou mais arquivos e, em alguns casos, uma ou mais pastas, por exemplo, uma pasta para cada API, produto ou grupo. Os arquivos em cada pasta são específicos ao tipo de entidade descrito pelo nome da pasta.
 
 | Tipo de arquivo | Finalidade |
 | --- | --- |
-| json |Informações de configuração sobre a entidade respectivos Olá |
-| html |Descrições sobre entidade hello, geralmente é exibido no portal do desenvolvedor Olá |
+| json |Informações de configuração sobre a respectiva entidade |
+| html |Descrições sobre a entidade, geralmente exibidas no portal do desenvolvedor |
 | xml |Declarações de políticas |
 | css |Folhas de estilo para personalização do portal do desenvolvedor |
 
-Esses arquivos podem ser criados, excluídos, editados e gerenciados no sistema de arquivos local, e alterações de saudação implantadas toohello back sua instância de serviço de gerenciamento de API.
+Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sistema de arquivos local, e as alterações podem ser implantadas de volta na instância de seu serviço de Gerenciamento de API.
 
 > [!NOTE]
-> Olá entidades a seguir não estão contidas no repositório do Git hello e não podem ser configuradas usando o Git.
+> As entidades a seguir não estão no repositório Git e não podem ser configuradas usando o Git.
 > 
 > * Usuários
 > * Assinaturas
@@ -196,7 +196,7 @@ Esses arquivos podem ser criados, excluídos, editados e gerenciados no sistema 
 > 
 
 ### <a name="root-api-management-folder"></a>Pasta api-management raiz
-raiz de saudação `api-management` pasta contém um `configuration.json` arquivo que contém informações de nível superior sobre a instância de serviço de saudação no hello formato a seguir.
+A pasta `api-management` raiz contém um arquivo `configuration.json` com informações de alto nível sobre a instância do serviço no seguinte formato.
 
 ```json
 {
@@ -214,20 +214,20 @@ raiz de saudação `api-management` pasta contém um `configuration.json` arquiv
 }
 ```
 
-Olá primeiro quatro configurações (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, e `UserRegistrationTermsConsentRequired`) mapear toohello configurações a seguir no hello **identidades** guia Olá **segurança** seção.
+As primeiras quatro configurações (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` e `UserRegistrationTermsConsentRequired`) são mapeadas para as seguintes configurações na guia **Identidades** da seção **Segurança**.
 
-| Configuração de identidade | Mapeia muito|
+| Configuração de identidade | É mapeada para |
 | --- | --- |
-| RegistrationEnabled |**Redirecionar usuários anônimos toosign na página** caixa de seleção |
+| RegistrationEnabled |**Redirecionar usuários anônimos para a página de entrada**  |
 | UserRegistrationTerms |**Termos de uso na inscrição do usuário**  |
 | UserRegistrationTermsEnabled |**Mostrar os termos de uso na página de entrada**  |
 | UserRegistrationTermsConsentRequired |**Exigir consentimento**  |
 
 ![Configurações de identidade][api-management-identity-settings]
 
-Olá quatro configurações (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, e `DelegationValidationKey`) mapear toohello configurações a seguir no hello **delegação** guia Olá **segurança** seção.
+As quatro configurações seguintes (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) são mapeadas para as seguintes configurações na guia **Delegação** da seção **Segurança**.
 
-| Configuração de delegação | Mapeia muito|
+| Configuração de delegação | É mapeada para |
 | --- | --- |
 | DelegationEnabled |Caixa de seleção **Delegar entrada e inscrição** |
 | DelegationUrl |**URL do ponto de extremidade da delegação**  |
@@ -236,56 +236,56 @@ Olá quatro configurações (`DelegationEnabled`, `DelegationUrl`, `DelegatedSub
 
 ![Configurações de delegação][api-management-delegation-settings]
 
-Olá configuração final, `$ref-policy`, mapeia toohello política global instruções arquivo hello instância de serviço.
+A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções de política global da instância do serviço.
 
 ### <a name="apis-folder"></a>pasta apis
-Olá `apis` pasta contém uma pasta para cada API na instância de serviço Olá que contém Olá itens a seguir.
+A pasta `apis` contém uma pasta para cada API na instância do serviço que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json`-Esta é a configuração Olá Olá API e contém informações sobre a URL de serviço de back-end hello e operações de saudação. Isso é hello mesmas informações que seriam retornadas se você toocall [obter uma API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) com `export=true` na `application/json` formato.
-* `apis\<api name>\api.description.html`-Esta é a descrição de saudação do hello API e corresponde toohello `description` propriedade Olá [entidade API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`-Esta pasta contém `<operation name>.description.html` arquivos que operações de mapa toohello no hello API. Cada arquivo contém a descrição de saudação de uma única operação no hello API que mapeia toohello `description` propriedade Olá [entidade de operação](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) em Olá API REST.
+* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) com `export=true` no formato `application/json`.
+* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
+* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta groups
-Olá `groups` pasta contém uma pasta para cada grupo definido na instância de serviço hello.
+A pasta `groups` contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json`-Esta é a configuração Olá para o grupo de saudação. Isso é hello mesmas informações que seriam retornadas se você Olá toocall [obter um grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operação.
-* `groups\<group name>\description.html`-Esta é a descrição de saudação do grupo de saudação e corresponde toohello `description` propriedade Olá [grupo entidade](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` - é a configuração do grupo. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) .
+* `groups\<group name>\description.html` - é a descrição do grupo e corresponde à propriedade `description` da [entidade de grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>pasta policies
-Olá `policies` pasta contém declarações de política de saudação para sua instância de serviço.
+A pasta `policies` contém as instruções da política para a instância de seu serviço.
 
 * `policies\global.xml` - contém políticas definidas no escopo global da instância de seu serviço.
 * `policies\apis\<api name>\` - se houver alguma política definida no escopo da API, ela estará nessa pasta.
-* `policies\apis\<api name>\<operation name>\`pasta - se você tiver qualquer políticas definidas no escopo da operação, elas são contidas nessa pasta na `<operation name>.xml` arquivos mapeados toohello declarações de política para cada operação.
-* `policies\products\`-Se você tiver qualquer políticas definidas no escopo do produto, elas são contidas nessa pasta, que contém `<product name>.xml` arquivos mapeados toohello declarações de política para cada produto.
+* Pasta `policies\apis\<api name>\<operation name>\` - se houver alguma política definida no escopo da operação, ela estará nessa pasta, nos arquivos `<operation name>.xml`, que são mapeados para as instruções da política de cada operação.
+* `policies\products\` - se houver alguma política definida no escopo do produto, ela estará nessa pasta, que contém os arquivos `<product name>.xml`, que são mapeados para as instruções da política de cada produto.
 
 ### <a name="portalstyles-folder"></a>pasta portalStyles
-Olá `portalStyles` pasta contém a configuração e folhas de estilo para personalizações portal do desenvolvedor Olá instância de serviço.
+A pasta `portalStyles` contém folhas de estilo e configuração para personalizações do portal do desenvolvedor da instância do serviço.
 
-* `portalStyles\configuration.json`-contém os nomes de Olá Olá de folhas de estilo usadas pelo portal do desenvolvedor Olá
-* `portalStyles\<style name>.css`-cada `<style name>.css` arquivo contém estilos para o portal do desenvolvedor hello (`Preview.css` e `Production.css` por padrão).
+* `portalStyles\configuration.json` - contém os nomes das folhas de estilo usadas pelo portal do desenvolvedor
+* `portalStyles\<style name>.css` - cada arquivo `<style name>.css` contém estilos para o portal do desenvolvedor (`Preview.css` e `Production.css` por padrão).
 
 ### <a name="products-folder"></a>pasta products
-Olá `products` pasta contém uma pasta para cada produto definido na instância de serviço hello.
+A pasta `products` contém uma pasta para cada produto definida na instância do serviço.
 
-* `products\<product name>\configuration.json`-Esta é a configuração Olá para o produto de saudação. Isso é hello mesmas informações que seriam retornadas se você Olá toocall [obter um produto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operação.
-* `products\<product name>\product.description.html`-Esta é a descrição de saudação do produto de saudação e corresponde toohello `description` propriedade Olá [entidade product](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) em Olá API REST.
+* `products\<product name>\configuration.json` - é a configuração do produto. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um produto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) .
+* `products\<product name>\product.description.html` - é a descrição do produto e corresponde à propriedade `description` da [entidade do produto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) na API REST.
 
 ### <a name="templates"></a>modelos
-Olá `templates` pasta contém a configuração de saudação [modelos de email](api-management-howto-configure-notifications.md) da instância de serviço hello.
+A pasta `templates` contém a configuração dos [modelos de email](api-management-howto-configure-notifications.md) na instância do serviço.
 
-* `<template name>\configuration.json`-Esta é a configuração Olá para o modelo de email hello.
-* `<template name>\body.html`-Este é o corpo de saudação do modelo de email de saudação.
+* `<template name>\configuration.json` - é a configuração do modelo de email.
+* `<template name>\body.html` - é o corpo do modelo de email.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre outra maneiras toomanage sua instância de serviço, consulte:
+Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, confira:
 
-* Gerenciar a instância de serviço usando Olá seguintes cmdlets do PowerShell
+* Gerenciar a instância de seu serviço usando os seguintes cmdlets do PowerShell
   * [Referência de cmdlets do PowerShell para implantação de serviços](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Gerenciar a instância de serviço no portal do publicador Olá
+* Gerenciar a instância de seu serviço no portal do editor.
   * [Gerenciar sua primeira API](api-management-get-started.md)
-* Gerenciar a instância de serviço usando a API REST de saudação
+* Gerenciar a instância de seu serviço usando a API REST
   * [Referência de API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
 ## <a name="watch-a-video-overview"></a>Assista a uma visão geral em vídeo

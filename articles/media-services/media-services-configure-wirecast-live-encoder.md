@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure Olá toosend de codificador Telestream Wirecast uma transmissão ao vivo de taxa de bits única | Microsoft Docs"
-description: "Este tópico mostra como Olá tooconfigure Wirecast canais ao vivo codificador toosend uma taxa de bits única fluxo tooAMS que são habilitados para codificação ao vivo. "
+title: "Configurar o codificador Telestream Wirecast para enviar uma transmissão ao vivo de taxa de bits única | Microsoft Docs"
+description: "Este tópico mostra como configurar o codificador ativo Wirecast para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa. "
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e373f6c08232c652e65db584ded409c405d8cffe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-hello-wirecast-encoder-toosend-a-single-bitrate-live-stream"></a>Use Olá Wirecast codificador toosend uma transmissão ao vivo de taxa de bits única
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -29,48 +29,48 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Este tópico mostra como Olá tooconfigure [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) canais ao vivo codificador toosend uma taxa de bits única fluxo tooAMS que são habilitados para codificação ao vivo.  Para obter mais informações, consulte [trabalhando com canais que é habilitado tooPerform Live codificação com o Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Este tópico mostra como configurar o codificador ativo [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa.  Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Este tutorial mostra como toomanage Azure Media Services (AMS) com a ferramenta Gerenciador de serviços na mídia do Azure (AMSE). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando o Mac ou Linux, use Olá toocreate portal do Azure [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
+Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
-* Instale a versão mais recente Olá de saudação [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) ferramenta.
-* Inicie a ferramenta hello e conecte-se a conta tooyour AMS.
+* Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
+* Inicie a ferramenta e conecte-se à sua conta do AMS.
 
 ## <a name="tips"></a>Dicas
 * Sempre que possível, use uma conexão de Internet com fio.
-* Uma boa regra prática ao determinar os requisitos de largura de banda é toodouble Olá streaming taxas de bits. Embora não seja um requisito obrigatório, ela ajuda a reduzir o impacto de saudação do congestionamento da rede.
+* Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE hello, navegar toohello **Live** guia e clique com o botão direito na área de canal hello. Selecione **Criar canal...** no menu de saudação.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. Especifique um nome de canal, Olá campo de descrição é opcional. Em configurações de canal, selecione **padrão** para Olá opção codificação ao vivo, com hello entrada do protocolo definido muito**RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
 
-    Verifique se Olá **início Olá novo canal agora** está selecionado.
+    Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
 3. Clique em **Criar Canal**.
 
    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
-> canal Olá pode levar até 20 minutos toostart.
+> O canal pode levar até 20 minutos para ser iniciado.
 >
 >
 
-Enquanto o canal Olá é iniciado, você pode [configurar codificador Olá](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
 > Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>Configurar Olá codificador Telestream Wirecast
-Neste tutorial Olá seguintes configurações de saída são usadas. Olá restante desta seção descreve etapas de configuração em mais detalhes.
+## <a id=configure_wirecast_rtmp></a>Configurar o codificador do Telestream Wirecast
+Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
 
@@ -87,19 +87,19 @@ Neste tutorial Olá seguintes configurações de saída são usadas. Olá restan
 * Taxa de amostragem: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Etapas da configuração
-1. Abra aplicativo Telestream Wirecast Olá Olá máquina que está sendo usado e configurado para streaming de RTMP.
-2. Configurar saída de hello navegando toohello **saída** guia e selecionando **configurações de saída...** .
+1. Abra o aplicativo do Telestream Wirecast no computador que está sendo usado e configure a transmissão RTMP.
+2. Configure a saída navegando até a guia **Saída** e selecionando **Configurações de Saída...**.
 
-    Verifique se Olá **destino de saída** está definido muito**servidor RTMP**.
+    Certifique-se de que o **Destino de Saída** está definido como **Servidor RTMP**.
 3. Clique em **OK**.
-4. Na página de configurações do hello, defina Olá **destino** campo toobe **Azure Media Services**.
+4. Na página de configurações, defina o campo **Destino** como **Serviços de Mídia do Azure**.
 
-    Olá perfil de codificação é pré-selecionada muito**Azure h. 264 720 p 16:9 (1280x720)**. toocustomize essas configurações, selecione Olá toohello de ícone de engrenagem direito da saudação lista suspensa e, em seguida, escolha **nova predefinição**.
+    O perfil de Codificação é pré-selecionado para **Azure H.264 720p 16:9 (1280x720)**. Para personalizar essas configurações, selecione o ícone de engrenagem à direita da lista suspensa e escolha **Nova Predefinição**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure as predefinições do codificador.
 
-    Olá nome predefinido e verificar as configurações recomendada a seguir hello:
+    Nomeie a predefinição e verifique as seguintes configurações recomendadas:
 
     **Vídeo**
 
@@ -117,59 +117,59 @@ Neste tutorial Olá seguintes configurações de saída são usadas. Olá restan
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Pressione **Salvar**.
 
-    campo de codificação Olá agora tem disponíveis para seleção do perfil de saudação recém-criado.
+    O campo Codificação agora tem o perfil recém-criado disponível para seleção.
 
-    Certifique-se de novo perfil de saudação está selecionado.
-7. Obter URL de entrada do canal de saudação em ordem tooassign-toohello Wirecast **ponto de extremidade de RTMP**.
+    Certifique-se de selecionar o novo perfil.
+7. Obtenha a URL de entrada do canal para atribuí-la ao **Ponto de extremidade RTMP**do Wirecast.
 
-    Navegue ferramenta AMSE toohello back e verificar o status de conclusão de canal hello. Depois que o estado Olá mudou de **iniciando** muito**executando**, você pode obter a URL de entrada hello.
+    Navegue de volta para a ferramenta AMSE e verifique o status de conclusão do canal. Depois do Estado ser alterado de **Iniciando** para **Executando**, você poderá obter a URL de entrada.
 
-    Quando estiver executando o canal Olá, clique direito no nome do canal hello, navegue para baixo toohover **copiar a URL de entrada tooclipboard** e, em seguida, selecione **URL de entrada primária**.  
+    Quando o canal estiver em execução, clique com o botão direito no nome dele, navegue até parar sobre **Copiar URL de entrada para área de transferência**, em seguida, selecione **URL da Entrada Principal**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
-8. Em Olá Wirecast **configurações de saída** janela, colar essas informações no hello **endereço** campo da seção de saída de hello e atribua um nome de fluxo.
+8. Na janela **Configurações de Saída** do Wirecast, cole essas informações no campo **Endereço** da seção de saída e atribua um nome de transmissão.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Selecione **OK**.
-2. Em Olá principal **Wirecast** , confirme as fontes de entrada de áudio e vídeo estiverem prontos e, em seguida, pressionar **fluxo** no canto superior esquerdo de saudação.
+2. Na tela principal do **Wirecast**, confirme se as fontes de entrada de áudio e vídeo estão prontas e pressione **Transmissão** no canto superior esquerdo.
 
    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
-> Antes de clicar em **fluxo**, você **deve** Certifique-se de que o canal de saudação está pronto.
-> Além disso, certifique-se de não tooleave Olá canal em um estado pronto sem uma entrada contribuição feed por mais de > 15 minutos.
+> Antes de clicar em **Transmissão**, você **deve** assegurar que o Canal está pronto.
+> Além disso, lembre-se de não deixar o Canal em um estado pronto sem um feed de contribuição de entrada por mais de 15 minutos.
 >
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
 
-Navegue ferramenta AMSE toohello e clique com botão direito Olá canal toobe testado. No menu de hello, passe o mouse sobre **Olá reprodução visualização** e selecione **com o Azure Media Player**.  
+Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
-Se o fluxo de saudação aparece no player hello, codificador Olá foi tooAMS tooconnect configurado corretamente.
+Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-Se um erro é recebido, canal Olá precisará toobe redefinição e codificador configurações ajustadas. Consulte Olá [de solução de problemas](media-services-troubleshooting-live-streaming.md) tópico para obter orientação.  
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois que a reprodução do canal for confirmada, crie um programa. Em Olá **Live** guia na ferramenta AMSE hello, clique com o botão direito na área de programa hello e selecione **criar um novo programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito na área do programa e selecione **Criar Novo Programa**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
-2. Nomeie o programa hello e, se necessário, ajuste Olá **duração da janela de arquivo** (os horários de too4 padrões). Você também pode especificar um local de armazenamento ou deixe como saudação padrão.  
-3. Verificar Olá **início Olá programa agora** caixa.
+2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.  
+3. Marque a caixa **Iniciar o Programa agora** .
 4. Clique em **Criar Programa**.  
 
    >[!NOTE]
    >A criação do programa leva menos tempo do que a criação do canal.
        
-5. Depois que o programa de hello está sendo executado, confirme a reprodução clique direito programa hello e navegando muito**reprodução Olá programas** e, em seguida, selecionando **com o Azure Media Player**.  
-6. Depois de confirmar, clique com botão direito programa hello novamente e selecionar **copiar Olá URL de saída tooClipboard** (ou recuperar essas informações do hello **informações e configurações de programa** opção no menu de saudação).
+5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Azure Media Player**.  
+6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
-Olá está agora pronto toobe inserido em um player ou público tooan distribuída ao vivo de exibição.  
+A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  
 
-## <a name="troubleshooting"></a>Solucionar problemas
-Consulte Olá [de solução de problemas](media-services-troubleshooting-live-streaming.md) tópico para obter orientação.
+## <a name="troubleshooting"></a>solução de problemas
+Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

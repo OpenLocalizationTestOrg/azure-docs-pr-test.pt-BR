@@ -1,6 +1,6 @@
 ---
-title: "aaaQuery informações de desempenho para o banco de dados do SQL Azure | Microsoft Docs"
-description: "Monitoramento do desempenho de consulta identifica Olá consumo da CPU a maioria das consultas para um banco de dados do SQL Azure."
+title: "Análise de desempenho de consultas para o Banco de dados SQL do Azure | Microsoft Docs"
+description: O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -15,70 +15,70 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 01cca26f85193c679365585cd676449c9db00e1e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Visão do desempenho de consulta de Banco de Dados SQL do Azure
-Gerenciamento e ajuste de desempenho de saudação de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e o investimento de tempo. Análise de desempenho de consulta permite que você toospend menos tempo Solucionando problemas de desempenho de banco de dados, fornecendo a seguir hello:
+Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
 
 * Mais informações sobre o consumo de recursos de bancos de dados (DTU). 
-* principais consultas por contagem de duração/CPU/execução, que potencialmente podem ser ajustadas para melhorar o desempenho Hello.
-* Olá toodrill de capacidade para baixo em detalhes de saudação de uma consulta, exibir seu texto e o histórico de utilização de recursos. 
+* As principais consultas por contagem de CPU/Duração/Execução, que potencialmente podem ser ajustadas para melhorar o desempenho.
+* A capacidade de analisar os detalhes de uma consulta, exibir o texto e o histórico de utilização de recursos. 
 * Anotações de ajuste de desempenho que mostram as ações executadas [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md)  
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o repositório de consultas não está em execução, o portal Olá solicita tooturn-la no.
+* A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
-a seguir Olá [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) permissões são necessária toouse análise de desempenho de consulta: 
+As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) são necessárias para usar a Visão do Desempenho de Consulta: 
 
-* **Leitor**, **proprietário**, **Colaborador**, **Colaborador de banco de dados SQL**, ou **Colaborador do SQL Server** permissões são necessário tooview Olá maior consumo de recursos gráficos e consultas. 
-* **Proprietário**, **Colaborador**, **Colaborador de banco de dados SQL**, ou **Colaborador do SQL Server** permissões são necessárias tooview texto da consulta.
+* As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
+* As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
 
 ## <a name="using-query-performance-insight"></a>Usando a Visão de Desempenho de Consulta
-Análise de desempenho de consulta é fácil toouse:
+A Visão do Desempenho de Consulta é fácil de usar:
 
-* Abra [portal do Azure](https://portal.azure.com/) e banco de dados de localização que você deseja tooexamine. 
+* Abra o [portal do Azure](https://portal.azure.com/) e localize o banco de dados de localização que você deseja examinar. 
   * No menu do lado esquerdo, em suporte e solução de problemas, selecione "Análise de Desempenho de Consultas".
-* Na guia da primeira hello, examine a lista de saudação das principais consultas de consumo de recursos.
-* Selecione uma consulta individual tooview seus detalhes.
+* Na primeira guia, examine a lista das consultas que consomem mais recursos.
+* Escolha uma consulta individual para exibir seus detalhes.
 * Abra o [Advisor do Banco de Dados do SQL Azure](sql-database-advisor.md) e verifique se há alguma recomendação disponível.
-* Use os controles deslizantes ou ícones toochange observado o intervalo de zoom.
+* Use os controles deslizantes ou os ícones de zoom para alterar o intervalo observado.
   
     ![painel de desempenho](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Algumas horas de dados precisa toobe capturado pelo repositório de consultas de análise de desempenho de consulta do banco de dados SQL tooprovide. Se o banco de dados de saudação não tem atividades ou repositório de consultas não estava ativo durante um determinado período de tempo, gráficos de saudação estará vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.   
+> São necessárias duas horas de dados a serem capturados pelo Repositório de Consulta para fornecer as análises de desempenho de consultas no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.   
 > 
 > 
 
 ## <a name="review-top-cpu-consuming-queries"></a>Examinar as consultas que mais consomem CPU
-Em Olá [portal](http://portal.azure.com) Olá a seguir:
+No [portal](http://portal.azure.com) , faça o descrito a seguir:
 
-1. Procurar tooa banco de dados SQL e clique em **todas as configurações** > **suporte + solução de problemas** > **análise de desempenho de consulta**. 
+1. Navegue até um banco de dados SQL e clique em **Todas as configurações** > **Suporte + Solução de problemas** > **Análise de desempenho de consultas**. 
    
     ![Análise de desempenho de consultas][1]
    
-    Abre o modo de exibição do Hello principais consultas e principais consultas de consumo da CPU Olá são listadas.
-2. Clique em torno do gráfico de saudação para obter detalhes.<br>Hello linha superior mostra % DTU geral do banco de dados Olá, enquanto as barras Olá mostram % de CPU consumida por consultas de saudação selecionada durante o intervalo selecionado hello (por exemplo, se **semana passada** está selecionado cada barra representa um dia).
+    A exibição das principais consultas é aberta e as consultas que consomem mais CPU são listadas.
+2. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a % de DTU geral do banco de dados, enquanto as barras mostram a % de CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
    
     ![principais consultas][2]
    
-    grade inferior de saudação representa informações agregadas para consultas de saudação visível.
+    A grade inferior representa informações agregadas das consultas visíveis.
    
    * ID da consulta: identificador exclusivo da consulta no banco de dados.
    * CPU por consulta durante o intervalo observável (depende da função de agregação).
    * Duração por consulta (depende da função de agregação).
    * Número total de execuções para uma consulta específica.
      
-     Selecione ou desmarque tooinclude consultas individuais ou excluí-los do gráfico de saudação usando as caixas de seleção.
-3. Se seus dados se torna obsoletos, clique em Olá **atualização** botão.
-4. Você pode usar os controles deslizantes e intervalo de observação de toochange de botões de zoom e investigar picos: ![configurações](./media/sql-database-query-performance/zoom.png)
+     Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico usando as caixas de seleção.
+3. Se os dados se tornarem obsoletos, clique no botão **Atualizar** .
+4. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos: ![configurações](./media/sql-database-query-performance/zoom.png)
 5. Opcionalmente, se você quiser uma exibição diferente, você pode selecionar a guia **Personalizar** e definir:
    
    * Métrica (CPU, duração, contagem de execução)
@@ -89,98 +89,98 @@ Em Olá [portal](http://portal.azure.com) Olá a seguir:
      ![Configurações](./media/sql-database-query-performance/custom-tab.png)
 
 ## <a name="viewing-individual-query-details"></a>Exibindo detalhes de uma consulta individual
-detalhes da consulta tooview:
+Para exibir detalhes da consulta:
 
-1. Clique em qualquer consulta na lista de saudação das principais consultas.
+1. Clique em qualquer consulta na lista de consultas principais.
    
     ![detalhes](./media/sql-database-query-performance/details.png)
-2. modo de exibição de detalhes de saudação é aberto e contagem de duração/consumo/execução Olá consultas de CPU é dividida ao longo do tempo.
-3. Clique em torno do gráfico de saudação para obter detalhes.
+2. A exibição de detalhes é aberta e o consumo de CPU/Duração/Contagem de execução de consultas é dividido ao longo do tempo.
+3. Clique em torno do gráfico para obter detalhes.
    
-   * Gráfico superior mostra a linha com o banco de dados DTU % geral e barras de saudação são % de CPU consumida pela consulta selecionada hello.
-   * Segundo gráfico mostra a duração total pela consulta selecionada hello.
-   * Gráfico de inferior mostra o número total de execuções pela consulta selecionada hello.
+   * O gráfico superior mostra a linha com a % de DTU do banco de dados geral e as barras são a % de CPU consumida pela consulta selecionada.
+   * O segundo gráfico mostra a duração total pela consulta selecionada.
+   * O gráfico na parte inferior mostra o número total de execuções pela consulta selecionada.
      
      ![detalhes da consulta][3]
-4. Opcionalmente, use os controles deslizantes, botões de zoom ou clique em **configurações** toocustomize como dados de consulta são exibidos ou toopick um período de tempo diferentes.
+4. Opcionalmente, use os controles deslizantes, os botões de zoom ou clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou escolher um período de tempo diferente.
 
 ## <a name="review-top-queries-per-duration"></a>Analise as principais consultas por duração
-Na atualização recente de saudação de análise de desempenho de consulta, apresentamos duas novas métricas que podem ajudá-lo a identificar gargalos potenciais: contagem de duração e a execução.<br>
+Na atualização recente da Análise de Desempenho de Consultas, apresentamos duas novas métricas que podem ajudar a identificar possíveis afunilamentos: duração e contagem de execução.<br>
 
-Consultas de longa execução têm potencial de maior Olá para bloquear recursos mais longo, bloqueando outros usuários e limitar a escalabilidade. Eles também são melhores candidatos Olá para otimização.<br>
+Consultas de longa execução tem o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Elas também são as melhores candidatas para otimização.<br>
 
-tooidentify consultas de longa execução:
+Para identificar consultas de longa execução:
 
 1. Abra a guia **Personalizar** na Análise de Desempenho de Consultas do banco de dados selecionado
-2. Alterar as métricas toobe **duração**
+2. Altere as métricas para **duração**
 3. Selecione o número de consultas e o intervalo de observação
 4. Selecione a função de agregação
    
    * **Soma** adiciona todo o tempo de execução de consulta durante todo o intervalo de observação.
    * **Máximo** localiza consultas para as quais tempo de execução foi máximo no intervalo inteiro de observação.
-   * **AVG** localiza o tempo médio de execução de todas as execuções de consulta e exibir hello superior fora essas médias. 
+   * **Média** encontra a média de tempo de execução de todas as execuções de consulta e mostra a você as primeiras entre essas médias. 
      
      ![duração da consulta][4]
 
 ## <a name="review-top-queries-per-execution-count"></a>Analise as principais consultas por contagem de execução
 Um alto número de execuções pode não estar afetando o banco de dados propriamente dito e o uso de recursos pode ser baixo, mas o aplicativo pode ficar lento no geral.
 
-Em alguns casos, a contagem de execução muito alto pode levar tooincrease da rede viagens de ida e volta. Viagens de ida e afetam o desempenho de forma significativa. Eles são latência de toonetwork de assunto e latência de servidor toodownstream. 
+Em alguns casos, a contagem de execução muito alta pode levar a um aumento das viagens de ida e volta na rede. Viagens de ida e afetam o desempenho de forma significativa. Elas estão sujeitas à latência de rede e à latência do servidor downstream. 
 
-Por exemplo, muitos sites controlados por dados muito acessar banco de dados de saudação para cada solicitação de usuário. Durante a conexão pooling ajuda, hello aumentada tráfego de rede e a carga de processamento no servidor de banco de dados de saudação podem afetar desempenho.  Recomendação geral é tookeep round viagens tooan nível mínimo absoluto.
+Por exemplo, muitos sites orientados a dados acessam bastante o banco de dados para cada solicitação do usuário. Apesar do pool de conexões ajudar, o maior tráfego de rede e a maior carga de processamento no servidor de banco de dados podem prejudicar o desempenho.  A orientação geral é manter a menor quantidade possível de viagens de ida e volta.
 
-tooidentify executados com frequência as consultas de consultas ("tagarelas"):
+Para identificar consultas executadas com frequência, consultas ("tagarelas"):
 
 1. Abra a guia **Personalizar** na Análise de Desempenho de Consultas do banco de dados selecionado
-2. Alterar as métricas toobe **contagem de execução**
+2. Altere as métricas para **contagem de execução**
 3. Selecione o número de consultas e o intervalo de observação
    
     ![contagem de execução da consulta][5]
 
 ## <a name="understanding-performance-tuning-annotations"></a>Noções básicas sobre anotações de ajuste de desempenho
-Ao explorar a carga de trabalho de análise de desempenho de consulta, você poderá notar ícones com uma linha vertical na parte superior do gráfico de saudação.<br>
+Ao explorar a carga de trabalho na Análise de Desempenho de Consultas, você pode notar ícones com uma linha vertical na parte superior do gráfico.<br>
 
-Esses ícones são anotações; eles representam as ações que afetam o desempenho executadas pelo [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md). Ao focalização anotação, você obtém informações básicas sobre a ação de saudação:
+Esses ícones são anotações; eles representam as ações que afetam o desempenho executadas pelo [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md). Passando com o mouse sobre a anotação, você obtém informações básicas sobre a ação:
 
 ![anotação da consulta][6]
 
-Se você quiser tooknow mais ou aplica a recomendação do orientador, clique o ícone de saudação. O ícone abrirá os detalhes da ação. Se for uma recomendação ativa, você pode aplicar imediatamente usando o comando.
+Se você quiser saber mais ou aplicar a recomendação do Advisor, clique no ícone. O ícone abrirá os detalhes da ação. Se for uma recomendação ativa, você pode aplicar imediatamente usando o comando.
 
 ![detalhes de anotação de consulta][7]
 
 ### <a name="multiple-annotations"></a>Várias anotações.
-É possível que devido ao nível de zoom, anotações são tooeach fechar outros irá obter recolhidas em uma. Isso será representado por um ícone especial, clicar nele irá abrirá uma nova folha onde a lista de anotações agrupadas será mostrada.
-Correlacionando consultas e ações de ajuste de desempenho pode ajudar a toobetter a entender sua carga de trabalho. 
+É possível, que por causa do nível de zoom, anotações que estão próximas umas às outras serão recolhidas em somente uma anotação. Isso será representado por um ícone especial, clicar nele irá abrirá uma nova folha onde a lista de anotações agrupadas será mostrada.
+Correlacionar consultas e ações de ajuste de desempenho pode ajudar a compreender melhor a sua carga de trabalho. 
 
-## <a name="optimizing-hello-query-store-configuration-for-query-performance-insight"></a>Otimizando a configuração do repositório de consultas Olá para análise de desempenho de consulta
-Durante o uso de análise de desempenho de consulta, você pode encontrar hello mensagens do repositório de consultas a seguir:
+## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Otimizando a configuração do Repositório de Consultas para Análise de Desempenho de Consultas
+Durante o uso da Análise de Desempenho de Consultas, você poderá encontrar as seguintes mensagens do Repositório de Consultas:
 
-* "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui toolearn mais."
-* "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui toochange configurações". 
+* "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui para saber mais."
+* "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui para alterar as configurações." 
 
-Normalmente, essas mensagens aparecem ao repositório de consultas não é capaz de toocollect novos dados. 
+Normalmente, essas mensagens aparecem quando o Repositório de Consultas não está apto a coletar novos dados. 
 
 O primeiro caso ocorre quando o Repositório de Consultas está em estado somente leitura e os parâmetros são definidos de forma ideal. Você pode corrigir isso, aumentando o tamanho do Repositório de Consultas ou desmarcando o Repositório de Consultas.
 
 ![botão qds][8]
 
-O segundo caso acontece quando o Repositório de Consultas está Desligado ou parâmetros não estão definidos de forma ideal. <br>Você pode alterar Olá retenção e a captura de política e habilitar repositório de consultas, executando os comandos abaixo ou diretamente do portal:
+O segundo caso acontece quando o Repositório de Consultas está Desligado ou parâmetros não estão definidos de forma ideal. <br>Você pode alterar a política de Retenção e Captura e habilitar o Repositório de Consultas, executando os comandos a seguir ou diretamente do portal:
 
 ![botão qds][9]
 
 ### <a name="recommended-retention-and-capture-policy"></a>Política recomendada de retenção e captura
 Há dois tipos de política de retenção:
 
-* Tamanho base - se conjunto tooAUTO ele limpará os dados automaticamente quando quase o tamanho máximo for atingido.
-* Tempo com base - por padrão, definirá too30 dias, que significa que, se o repositório de consultas será executado sem espaço, ele excluirá consultar informações mais de 30 dias
+* Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de ser atingido.
+* Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias
 
 A política de captura pode ser definida para:
 
 * **Todas**: captura todas as consultas.
-* **Automática**: consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente. Essa é a opção de padrão de saudação.
+* **Automática**: consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente. Essa é a opção padrão.
 * **Nenhuma** – o Repositório de Consultas interrompe a captura de novas consultas, porém, as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
 
-É recomendável definir todas as políticas tooAUTO e limpar política too30 dias:
+É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
@@ -191,15 +191,15 @@ A política de captura pode ser definida para:
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Aumente o tamanho do Repositório de Consultas. Isso pode ser executada pelo banco de dados tooa conexão e emitindo a seguinte consulta:
+Aumente o tamanho do Repositório de Consultas. Essa ação pode ser realizada conectando-se a um banco de dados e emitindo a seguinte consulta:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Aplicar essas configurações, eventualmente, fará o repositório de consultas coleta consultas novas, no entanto, se você não quiser toowait você pode limpar o repositório de consultas. 
+Aplicar essas configurações eventualmente fará o Repositório de Consultas coletar novas consultas, no entanto, se você não quiser esperar, você pode limpar o Repositório de Consultas. 
 
 > [!NOTE]
-> Executando consulta a seguir excluirá todas as informações atuais de saudação repositório de consultas. 
+> A execução da consulta a seguir excluirá todas as informações atuais no Repositório de Consultas. 
 > 
 > 
 
@@ -207,10 +207,10 @@ Aplicar essas configurações, eventualmente, fará o repositório de consultas 
 
 
 ## <a name="summary"></a>Resumo
-Análise de desempenho de consulta ajuda a entender o impacto de saudação de sua carga de trabalho de consulta e como ele se relaciona toodatabase o consumo de recursos. Com esse recurso, você saiba mais sobre Olá consultas mais desgastantes e identificar facilmente Olá aqueles toofix antes de se tornarem um problema.
+A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter recomendações adicionais sobre como melhorar o desempenho de saudação do banco de dados SQL, clique em [recomendações](sql-database-advisor.md) em Olá **Query Performance Insight** folha.
+Para obter recomendações adicionais sobre como aprimorar o desempenho do seu banco de dados SQL, clique em [Recomendações](sql-database-advisor.md) na folha **Análise de Desempenho de Consultas** .
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 

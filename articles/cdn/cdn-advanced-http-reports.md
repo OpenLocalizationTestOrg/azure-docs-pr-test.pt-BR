@@ -1,6 +1,6 @@
 ---
-title: "estatísticas de uso de aaaAnalyze com o Azure CDN avançadas relatórios HTTP | Microsoft Docs"
-description: "Saiba como toocreate avançado HTTP relatórios no Microsoft Azure CDN. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
+title: "Analisar estatísticas de uso com os Relatórios HTTP Avançados da CDN do Azure | Microsoft Docs"
+description: "Saiba como criar relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3184ec00d089613e25c62762f93043cb4ba68394
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -27,180 +27,180 @@ Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure.
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="accessing-advanced-http-reports"></a>Acessando relatórios HTTP avançados
-1. Na folha de perfil CDN hello, clique em Olá **gerenciar** botão.
+1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
    
     ![botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
-    portal de gerenciamento de CDN Olá é aberto.
-2. Passe o mouse sobre Olá **análise** guia, em seguida, passe o mouse sobre Olá **avançado HTTP relatórios** submenu.  Clique em **Plataforma Grande HTTP**.
+    O portal de gerenciamento da CDN é aberto.
+2. Passe o mouse sobre a guia **Análise**, em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados**.  Clique em **Plataforma Grande HTTP**.
    
     ![Portal de gerenciamento da CDN - menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
     As opções de relatório são exibidas.
 
 ## <a name="geography-reports-map-based"></a>Relatórios de Geografia (baseados em mapa)
-Há cinco relatórios que aproveitam tooindicate um mapa de regiões de saudação do qual o conteúdo está sendo solicitado. Esses relatórios são Mapa mundial, Mapa dos Estados Unidos, Mapa do Canadá, Mapa da Europa e Mapa do Pacífico Asiático.
+Há cinco relatórios que tiram proveito de um mapa para indicar as regiões de onde o conteúdo está sendo solicitado. Esses relatórios são Mapa mundial, Mapa dos Estados Unidos, Mapa do Canadá, Mapa da Europa e Mapa do Pacífico Asiático.
 
-Cada relatório baseada em mapa classifica entidades geográficas (ou seja, países, Estados e províncias) de acordo com o toohello porcentagem de acertos originadas dessa região. Além disso, um mapa é fornecido toohelp você visualizar locais de saudação do qual o conteúdo está sendo solicitado. É possível toodo codificando cada região de acordo com o valor de toohello de demanda apresentou nessa região. As regiões com cores mais claras indicam menor demanda por seu conteúdo, enquanto regiões mais escuras indicam altos níveis de demanda por seu conteúdo.
+Cada relatório baseado em mapa classifica as entidades geográficas (ou seja, países, estados e províncias) de acordo com a porcentagem de ocorrências originadas da região. Além disso, um mapa é fornecido para ajudá-lo a visualizar os locais de onde o conteúdo está sendo solicitado. É possível fazer isso codificando por cores cada região de acordo com a quantidade da demanda percebida nelas. As regiões com cores mais claras indicam menor demanda por seu conteúdo, enquanto regiões mais escuras indicam altos níveis de demanda por seu conteúdo.
 
-Informações detalhadas de tráfego e largura de banda para cada região são fornecidas diretamente abaixo mapa hello. Isso permite tooview Olá total de acertos, porcentagem de saudação de acertos, total de saudação de dados transferidos (em gigabytes) e porcentagem Olá dos dados transferidos para cada região. Exiba uma descrição para cada uma das métricas. Finalmente, quando você focaliza uma região (ou seja, país, estado ou província), nome hello e o percentual de saudação de ocorrências que ocorreu na região de saudação serão exibidos como uma dica de ferramenta.
+As informações detalhadas de tráfego e de largura de banda para cada região são fornecidas diretamente abaixo do mapa. Isso permite que você exiba o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para cada região. Exiba uma descrição para cada uma das métricas. Finalmente, quando você focaliza uma região (por exemplo, país, estado ou província), o nome e a porcentagem de ocorrências na região serão exibidos como uma dica de ferramenta.
 
 Uma breve descrição abaixo é apresentada abaixo para cada tipo de relatório geográfico baseado em mapa.
 
 | Nome do relatório | Descrição |
 | --- | --- |
-| Mapa mundial |Este relatório permite à demanda mundial de saudação tooview para o seu conteúdo CDN. Cada país são codificadas por cores em porcentagem de Olá de tooindicate Olá mundo mapa de ocorrências que originou dessa região. |
-| Mapa dos Estados Unidos |Este relatório permite tooview demanda de saudação para seu conteúdo CDN no hello dos Estados Unidos. Cada estado é codificado por cores nessa porcentagem de saudação tooindicate mapa de ocorrências que originou dessa região. |
-| Mapa do Canadá |Este relatório permite tooview demanda de saudação para o seu conteúdo CDN no Canadá. Cada município é codificado por cores nessa porcentagem de saudação tooindicate mapa de ocorrências que originou dessa região. |
-| Mapa da Europa |Este relatório permite tooview demanda de saudação para o seu conteúdo CDN na Europa. Cada país é codificado por cores nessa porcentagem de saudação tooindicate mapa de ocorrências que originou dessa região. |
-| Mapa do Pacífico Asiático |Este relatório permite tooview demanda de saudação para o seu conteúdo CDN na Ásia. Cada país é codificado por cores nessa porcentagem de saudação tooindicate mapa de ocorrências que originou dessa região. |
+| Mapa mundial |Esse relatório permite que você exiba a demanda mundial por seu conteúdo CDN. Cada país é codificado por cor no mapa mundial para indicar a porcentagem de ocorrências originadas da região. |
+| Mapa dos Estados Unidos |Esse relatório permite que você exiba a demanda por seu conteúdo CDN nos Estados Unidos. Cada estado é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região. |
+| Mapa do Canadá |Esse relatório permite que você exiba a demanda por seu conteúdo CDN no Canadá. Cada município é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região. |
+| Mapa da Europa |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Europa. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região. |
+| Mapa do Pacífico Asiático |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região. |
 
 ## <a name="geography-reports-bar-charts"></a>Relatórios de geografia (gráficos de barras)
-Há dois relatórios adicionais que fornecem informações estatísticas de acordo com o toogeography, que são parte superior cidades e países da parte superior. Esses relatórios classificam cidades e países, respectivamente, de acordo com o número toohello de ocorrências foi originado essas regiões. Após gerar esse tipo de relatório, um gráfico de barras indicará top 10 cidades hello ou países que solicitou o conteúdo em uma plataforma específica. Este gráfico de barras permite tooquickly avaliar regiões Olá que geram um número mais alto de saudação de solicitações para o seu conteúdo.
+Há dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são Principais cidades e Principais países. Esses relatórios classificam cidades e países, respectivamente, de acordo com o número de ocorrências originadas dessas regiões. Ao gerar esse tipo de relatório, um gráfico de barras indicará as dez principais cidades ou países que solicitaram o conteúdo em uma plataforma específica. Esse gráfico de barras permite avaliar rapidamente as regiões que geram o maior número de solicitações de seu conteúdo.
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica o número de ocorrências ocorreu na região especificada hello. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará um rótulo para cada uma das regiões de 10 principais hello.
+O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na região especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo para cada uma das dez regiões principais.
 
-### <a name="using-hello-bar-charts"></a>Usando gráficos de barras Olá
-* Se você passar o mouse sobre uma barra, nome hello e número total de saudação de ocorrências que ocorreram na região hello serão exibidos como uma dica de ferramenta.
-* Dica de ferramenta Olá Olá relatório superior cidades identifica uma cidade por seu nome, o estado e a abreviação de país.
-* Se não foi possível determinar a cidade de saudação ou região (ou seja, estado/província) de uma solicitação de origem, em seguida, ela indicará que são desconhecidas. Se o país Olá for desconhecido, dois pontos de interrogação (isto é,?), será exibida.
-* Um relatório pode incluir as métricas para "Europa" ou hello "Região da Ásia-Pacífico /". Esses itens não devem tooprovide informações de estatísticas em todos os endereços IP nessas áreas. Em vez disso, elas se aplicam apenas toorequests que se originam endereços IP que são difundidos em Europa ou na Ásia/Pacífico, em vez de cidade específica tooa ou país.
+### <a name="using-the-bar-charts"></a>Usando gráficos de barras
+* Se você passar o mouse sobre uma barra, o nome e o número total de ocorrências na região serão exibidos como uma dica de ferramenta.
+* A dica de ferramenta para o relatório Principais cidades identifica uma cidade pelo nome, pelo estado/província e pela abreviação do país.
+* Se a cidade ou região (ou seja, estado/província) de onde se originou uma solicitação não puder ser determinada, ela será indicada como desconhecida. Se o país for desconhecido, dois pontos de interrogação (isto é, ??) serão exibidos.
+* Um relatório pode incluir as métricas para “Europa” ou para a “Região do Pacífico Asiático”. Esses itens não foram criados para fornecer informações estatísticas sobre todos os endereços IP nessas áreas. Na verdade, eles se aplicam somente às solicitações originadas de endereços IP distribuídos pela Europa ou pela Ásia/Pacífico, em vez de uma cidade ou país específico.
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará o número total de saudação de ocorrências, porcentagem de saudação de ocorrências, a quantidade de saudação de dados transferidos (em gigabytes), e o percentual de saudação de dados transferidos para Olá 250 regiões superiores. Exiba uma descrição para cada uma das métricas.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para as 250 regiões principais. Exiba uma descrição para cada uma das métricas.
 
 Uma breve descrição é apresentada para ambos os tipos de relatórios abaixo.
 
 | Nome do relatório | Descrição |
 | --- | --- |
-| Principais cidades |Este relatório classifica cidades de acordo com o toohello número de ocorrências se originou nessa região. |
-| Principais países |Este relatório classifica de acordo com o toohello número de ocorrências que originou dessa região de países. |
+| Principais cidades |Este relatório classifica cidades de acordo com o número de ocorrências originadas dessa região. |
+| Principais países |Este relatório classifica países de acordo com o número de ocorrências originadas dessa região. |
 
 ## <a name="daily-summary"></a>Resumo diário
-Olá relatório de resumo diário permite tooview Olá total de acertos e dados transferidos por uma plataforma específica em uma base diária. Essas informações podem ser usadas tooquickly distinguir os padrões de atividade CDN. Por exemplo, esse relatório pode ajudá-lo a detectar quais dias tiveram tráfego maior ou menor que o esperado.
+O relatório Resumo diário permite exibir o número total de ocorrências e de dados transferidos por uma plataforma específica diariamente. Essas informações podem ser usadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, esse relatório pode ajudá-lo a detectar quais dias tiveram tráfego maior ou menor que o esperado.
 
-Após gerar esse tipo de relatório, um gráfico de barras fornecem uma indicação visual como toohello quantidade específica de plataforma a demanda experientes diariamente Olá período de tempo coberto pelo relatório de saudação. Ele fará isso ao exibir uma barra para cada dia no relatório de saudação. Por exemplo, selecionando Olá período chamado "Última semana" irá gerar um gráfico de barras com sete barras. Cada barra indicará o número total de saudação de acertos apresentou naquele dia.
+Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida diariamente ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada dia no relatório. Por exemplo, a seleção do período de tempo "Semana Passada" irá gerar um gráfico de barras com sete barras. Cada barra indica o número total de ocorrências percebidas naquele dia.
 
-Olá lado esquerdo do gráfico de saudação (eixo y) indica o número de ocorrências ocorreu em Olá especificado Data. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará um rótulo que indica a data de saudação (formato: AAAA-MM-DD) para cada dia incluído no relatório de saudação.
+O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) para cada dia incluído no relatório.
 
 > [!TIP]
-> Se você passar o mouse sobre uma barra, Olá o número total de acertos que ocorreram nessa data será exibido como uma dica de ferramenta.
+> Se você passar o mouse sobre uma barra, o número total de ocorrências naquela data será exibido como uma dica de ferramenta.
 > 
 > 
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará número total de saudação de ocorrências e a quantidade de saudação de dados transferidos (em gigabytes) para cada dia coberto pelo relatório de saudação.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
 ## <a name="by-hour"></a>Por hora
-Olá relatórios por hora permite tooview Olá total de acertos e dados transferidos por uma plataforma específica em uma base por hora. Essas informações podem ser usadas tooquickly distinguir os padrões de atividade CDN. Por exemplo, este relatório pode ajudá-lo a detectar Olá períodos de tempo durante o dia de saudação experiência superior ou inferior a tráfego esperado.
+O relatório Por hora permite exibir o número total de ocorrências e de dados transferidos por uma plataforma específica por hora. Essas informações podem ser usadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, esse relatório pode ajudá-lo a detectar os períodos de tempo durante o dia que tiveram tráfego maior ou menor que o esperado.
 
-Após gerar esse tipo de relatório, um gráfico de barras fornecem uma indicação visual como valor toohello apresentou por hora sobre Olá período de tempo coberto pelo relatório Olá a demanda específico da plataforma. Ele fará isso ao exibir uma barra para cada hora coberta pelo relatório de saudação. Por exemplo, a seleção de um período de 24 horas irá gerar um gráfico de barras com vinte e quatro barras. Cada barra indicará o número total de saudação de acertos durante essa hora.
+Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida por hora ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada hora coberta pelo relatório. Por exemplo, a seleção de um período de 24 horas irá gerar um gráfico de barras com vinte e quatro barras. Cada barra indica o número total de ocorrências percebidas naquela hora.
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica o número de ocorrências ocorreu na hora especificada hello. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará um rótulo que indica a data/hora da saudação (formato: AAAA-MM-DD HH: mm) para cada hora incluída no relatório de saudação. Tempo é relatado usando o formato de 24 horas e é especificado usando o fuso horário UTC/GMT hello.
+O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data/hora (formato: DD-MM-AAAA hh:mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
 
 > [!TIP]
-> Se você passar o mouse sobre uma barra, Olá o número total de acertos de que ocorreu durante essa hora será exibido como uma dica de ferramenta.
+> Se você passar o mouse sobre uma barra, o número total de ocorrências durante aquela hora será exibido como uma dica de ferramenta.
 > 
 > 
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará número total de saudação de ocorrências e a quantidade de saudação de dados transferidos (em gigabytes) para cada hora coberta pelo relatório de saudação.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada hora coberta pelo relatório.
 
 ## <a name="by-file"></a>Por arquivo
-Olá pelo arquivo de relatório permite que você tooview Olá quantidade de tráfego de demanda e hello criada em uma plataforma específica para hello mais solicitado ativos. Após gerar esse tipo de relatório, um gráfico de barras será gerado em ativos de mais solicitados 10 principais Olá sobre Olá período de tempo especificado.
+O relatório Por arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para os ativos mais solicitados. Ao gerar este tipo de relatório, um gráfico de barras será gerado sobre os dez ativos mais solicitados durante o período de tempo especificado.
 
 > [!NOTE]
-> Para fins de saudação deste relatório, borda CNAME URLs são convertidos tootheir equivalente CDN URLs. Isso permite que uma contagem precisa para o número total de saudação de acertos associados a um ativo independentemente Olá CDN ou borda CNAME URL usada toorequest-lo.
+> Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa do número total de ocorrências associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 > 
 > 
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica o número de saudação de solicitações para cada ativo sobre Olá período de tempo especificado. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará um rótulo que indica o nome do arquivo hello para cada um dos principais ativos solicitados 10 hello.
+O lado esquerdo do gráfico (eixo y) indica o número de solicitações para cada ativo durante o período de tempo especificado. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica o nome do arquivo de cada um dos dez ativos mais solicitados.
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará Olá seguintes informações para cada um dos principais ativos solicitados 250 Olá: caminho relativo, número total de saudação de ocorrências, porcentagem de saudação de acertos, quantidade Olá dos dados transferidos (em gigabytes) e a porcentagem de saudação de dados transferidos.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos 250 ativos mais solicitados: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
 ## <a name="by-file-detail"></a>Por detalhes do arquivo
-Olá relatório por detalhes do arquivo permite que você tooview quantidade de saudação do tráfego de demanda e hello incorrida em uma plataforma específica para um ativo específico. Olá início deste relatório é Olá arquivo detalhes como opção. Essa opção fornece uma lista dos ativos mais solicitados na plataforma selecionada hello. Ordem toogenerate um relatório por detalhes do arquivo, você precisará tooselect Olá desejado do ativo Olá detalhes de arquivo para a opção. Depois disso, um gráfico de barras serão indicam a quantidade de saudação de demanda diária que ela gerada pela Olá período de tempo especificado.
+O relatório Por detalhes do arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para um ativo específico. A opção Por detalhes do arquivo está na parte superior deste relatório. Essa opção fornece uma lista de seus ativos mais solicitados na plataforma selecionada. Para gerar um relatório Por detalhes do arquivo, você precisa selecionar o ativo desejado na opção Detalhes do Arquivo Para. Depois disso, um gráfico de barras indicará a quantidade de demanda diária que ele gerou durante o período de tempo especificado.
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica Olá total de solicitações que passou por um ativo em um dia específico. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará um rótulo que indica a data de saudação (formato: AAAA-MM-DD) para que demanda CDN para Olá ativo foi relatado.
+O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA)  na qual a demanda da CDN foi relatada para o ativo.
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará número total de saudação de ocorrências e a quantidade de saudação de dados transferidos (em gigabytes) para cada dia coberto pelo relatório de saudação.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
 ## <a name="by-file-type"></a>Por tipo de arquivo
-Olá relatórios por tipo de arquivo permite que você tooview Olá quantidade de tráfego por demanda e hello incorrida pelo tipo de arquivo. Após gerar esse tipo de relatório, um gráfico de rosca indicará porcentagem Olá de acertos gerados por tipos de arquivo 10 principais hello.
+O relatório Por tipo de arquivo permite que você exiba a quantidade de demanda e o tráfego gerados por tipo de arquivo. Ao gerar este tipo de relatório, um gráfico de rosca indica a porcentagem de ocorrências geradas pelos dez principais tipos de arquivo.
 
 > [!TIP]
-> Se você passar o mouse sobre uma fatia no gráfico de rosca hello, Olá Internet tipo de mídia de que tipo de arquivo será exibido como uma dica de ferramenta.
+> Se você passar o mouse sobre uma fatia no gráfico de rosca, o tipo de mídia de Internet daquele tipo de arquivo será exibido como uma dica de ferramenta.
 > 
 > 
 
-dados de saudação que era o gráfico de rosca Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará o tipo de mídia extensão/Internet do nome de arquivo hello, número total de saudação de ocorrências, porcentagem de saudação de acertos de, quantidade de saudação de dados transferidos (em gigabytes) e porcentagem dos dados transferidos para cada Olá Olá principais 250 tipos de arquivo.
+Os dados usados para gerar o gráfico de rosca podem ser exibidos abaixo dele. Lá, você encontrará o tipo de mídia de Internet/extensão de nome de arquivo, o número total de acessos, a porcentagem de ocorrências, a quantidade de dados transferidos (em gigabytes) e a porcentagem de dados transferidos para cada um dos 250 principais tipos de arquivo.
 
 ## <a name="by-directory"></a>Por diretório
-relatório de diretório por Olá permite tooview quantidade de saudação do tráfego de demanda e hello incorrida em uma plataforma específica para o conteúdo de um diretório específico. Após gerar esse tipo de relatório, um gráfico de barras indicará o número total de saudação de acertos gerados pelo conteúdo top 10 diretórios hello.
+O relatório Por diretório permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica relativo a conteúdo de um diretório específico. Ao gerar este tipo de relatório, um gráfico de barras indica o número total de ocorrências geradas pelo conteúdo nos dez diretórios principais.
 
-### <a name="using-hello-bar-chart"></a>Usando o gráfico de barras Olá
-* Passe o mouse sobre uma barra de diretório correspondente do toohello tooview Olá caminho relativo.
-* O conteúdo armazenado em uma subpasta de um diretório não será contado no cálculo da demanda por diretório. Esse cálculo baseia-se exclusivamente no número de saudação de solicitações geradas para conteúdo armazenado no diretório de saudação real.
-* Para fins de saudação deste relatório, borda CNAME URLs são convertidos tootheir equivalente CDN URLs. Isso permite que uma contagem precisa para todas as estatísticas associados a um ativo independentemente Olá CDN ou borda CNAME URL usada toorequest-lo.
+### <a name="using-the-bar-chart"></a>Usando o gráfico de barras
+* Passe o mouse sobre uma barra para exibir o caminho relativo para o diretório correspondente.
+* O conteúdo armazenado em uma subpasta de um diretório não será contado no cálculo da demanda por diretório. Esse cálculo depende exclusivamente do número de solicitações gerado para o conteúdo armazenado no diretório real.
+* Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 
-Hello, lado esquerdo do gráfico de saudação (eixo y) indica Olá o número total de solicitações de saudação conteúdo armazenado em seus diretórios de 10 principais. Cada barra no gráfico de saudação representa um diretório. Olá Use esquema toomatch uma barra de codificação de cores tooa directory listados na seção de superior 250 completo diretórios de saudação.
+O lado esquerdo do gráfico (eixo y) indica o número total de solicitações para o conteúdo armazenado em seus dez diretórios principais. Cada barra no gráfico representa um diretório. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um diretório listado na seção 250 principais diretórios completos.
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará Olá seguintes informações para cada um dos diretórios de superior a 250 Olá: caminho relativo, número total de saudação de ocorrências, porcentagem de saudação de acertos, quantidade Olá dos dados transferidos (em gigabytes) e a porcentagem de saudação de dados transferidos.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos principais 250 diretórios: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
 ## <a name="by-browser"></a>Por navegador
-Olá relatório pelo navegador permite que você tooview quais navegadores foram usado toorequest conteúdo. Após gerar esse tipo de relatório, um gráfico de pizza indicará porcentagem Olá de solicitação manipulado por navegadores de 10 principais hello.
+O relatório Por navegador permite que você veja quais navegadores foram usados para solicitar o conteúdo. Ao gerar este tipo de relatório, um gráfico de pizza indica a porcentagem de solicitações tratadas pelos dez principais navegadores.
 
-### <a name="using-hello-pie-chart"></a>Usar o gráfico de pizza Olá
-* Passe o mouse sobre uma fatia Olá gráfico de pizza tooview versão e o nome do navegador.
-* Para fins de saudação deste relatório, cada combinação exclusiva de navegador/versão é considerada um navegador diferente.
-* Olá fatia chamada "Outra" indica a porcentagem de saudação de solicitação manipulado por todos os navegadores e versões.
+### <a name="using-the-pie-chart"></a>Usando o gráfico de pizza
+* Passe o mouse sobre uma fatia no gráfico de pizza para exibir o nome e a versão do navegador.
+* Para fins de relatório, cada combinação exclusiva navegador/versão é considerada um navegador diferente.
+* A fatia chamada "Outros" indica a porcentagem de solicitações tratadas por todos os outros navegadores e versões.
 
-dados de saudação que era o gráfico de pizza Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará Olá navegador tipo/número de versão, Olá total de acertos e porcentagem de saudação de ocorrências para cada um dos navegadores de 250 superior Olá.
+Os dados usados para gerar o gráfico de pizza podem ser exibidos abaixo dele. Lá, você encontrará o tipo/número de versão do navegador, o número total de ocorrências e a porcentagem de ocorrências para cada um dos 250 principais navegadores.
 
 ## <a name="by-referrer"></a>Por referenciador
-Olá relatório referenciador por permite tooview Olá principais referenciadores toocontent na plataforma selecionada hello. Uma referência indica hostname de saudação do que uma solicitação foi gerada. Após gerar esse tipo de relatório, um gráfico de barras indicará a quantidade de saudação de demanda (ou seja, acertos) gerado pelo 10 Referenciadores principais de saudação.
+O relatório Por referenciador permite exibir os principais referenciadores de conteúdo na plataforma selecionada. Um referenciador indica o nome do host do qual uma solicitação foi gerada. Ao gerar este tipo de relatório, um gráfico de barras indica a quantidade de demanda (isto é, ocorrências) gerada pelos dez principais referenciadores.
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica Olá total de solicitações que passou por um ativo para cada referência. Cada barra no gráfico de saudação representa uma referência. Olá Use esquema toomatch uma barra de codificação de cores tooa referenciador listadas na seção de superior 250 referenciador de saudação.
+O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo para cada referenciador. Cada barra no gráfico representa um referenciador. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um referenciador listado na seção 250 principais referenciadores.
 
-dados de saudação que era o gráfico de barras Olá toogenerate usados podem ser exibidos abaixo dela. Lá você encontrará Olá URL, o número total de saudação de ocorrências e a porcentagem de saudação do acertos gerados a partir de cada um dos principais referenciadores de 250 hello.
+Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá você encontrará a URL, o número total e a porcentagem de ocorrências geradas por cada um dos 250 principais referenciadores.
 
 ## <a name="by-download"></a>Por download
-Olá por baixar relatório permite que você tooanalyze padrões de download para o seu conteúdo mais solicitado. parte superior de saudação do relatório Olá contém um gráfico de barras que compara a tentativa de downloads com downloads concluídos para hello top 10 ativos solicitados. Cada barra é codificado por cores toowhether é de acordo com um download concluído (verde) ou um tentativa de download (azul).
+O relatório Por download permite analisar padrões de download para o conteúdo mais solicitado. A parte superior do relatório contém um gráfico de barras que compara tentativas de downloads com downloads concluídos para os dez ativos mais solicitados. Cada barra é codificada por cores separando as tentativas de download (azul) dos downloads concluídos (verde).
 
 > [!NOTE]
-> Para fins de saudação deste relatório, borda CNAME URLs são convertidos tootheir equivalente CDN URLs. Isso permite que uma contagem precisa para todas as estatísticas associados a um ativo independentemente Olá CDN ou borda CNAME URL usada toorequest-lo.
+> Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 > 
 > 
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica o nome do arquivo de saudação para cada um dos principais ativos solicitados 10 hello. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará rótulos que indicam o número total de saudação de downloads tentativa/concluída.
+O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados. Diretamente abaixo do gráfico (eixo x), você encontrará rótulos que indicam o número total de downloads tentados/concluídos.
 
-Diretamente abaixo do gráfico de barras hello, Olá informações a seguir será listado para principais ativos solicitados 250 Olá: caminho relativo (incluindo o nome de arquivo), número de saudação de vezes que foi baixado toocompletion, número de saudação de vezes que foi solicitada e Olá Porcentagem de solicitações que resultou em um download completo.
+Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de vezes que seu download foi concluído, número de vezes que foi solicitado e a porcentagem de solicitações que resultaram em um download completo.
 
 > [!TIP]
-> Nossa CDN não é informada por um cliente HTTP (ou seja, o navegador) quando um ativo é baixado por completo. Como resultado, temos toocalculate se um ativo foi completamente baixado códigos de toostatus acordo e solicitações de intervalo de bytes. Olá primeiro, procuramos quando fazer esse cálculo é se a solicitação de saudação resulta em um código de status Okey 200. Nesse caso, em seguida, vamos examinar tooensure de solicitações de intervalo de bytes que abrangem ativo todo hello. Por fim, podemos comparar quantidade Olá transferidos toohello do tamanho dos dados de ativo solicitada hello. Se Olá dados transferidos é igual tooor maior que o tamanho do arquivo hello e solicitações de intervalo de bytes de saudação são apropriadas para esse ativo, Olá ocorrência será contabilizada como um download completo.
+> Nossa CDN não é informada por um cliente HTTP (ou seja, o navegador) quando um ativo é baixado por completo. Como resultado, temos que calcular se um ativo foi baixado por completo de acordo com os códigos de status e solicitações de intervalo de bytes. A primeira coisa que procuramos ao fazer esse cálculo é saber se a solicitação resulta em um código de status 200 OK. Nesse caso, vamos examinar as solicitações de intervalo de bytes para garantir que abrangem todo o ativo. Por fim, podemos comparar a quantidade de dados transferidos ao tamanho do ativo solicitado. Se os dados transferidos forem iguais ou maiores que o tamanho do arquivo e as solicitações de intervalo de bytes forem apropriadas para esse ativo, a ocorrência será contada como um download completo.
 > 
-> Devido a natureza de autorização interpretativa toohello deste relatório, você deve manter em Olá mente pontos que podem alterar consistência hello e precisão deste relatório a seguir.
+> Devido à natureza interpretativa desse relatório, você deve ter em mente os pontos a seguir que podem alterar a consistência e a precisão dele.
 > 
 > * Padrões de tráfego não podem ser previstos com precisão quando os agentes-usuários se comportam de maneira diferente. Isso pode produzir resultados de download concluído acima de 100%.
-> * Ativos que tiram proveito do download progressivo de HTTP podem não ser representados com precisão no relatório. Isso é devido toousers busca toodifferent posições em um vídeo.
+> * Ativos que tiram proveito do download progressivo de HTTP podem não ser representados com precisão no relatório. Isso ocorre porque os usuários buscam posições diferentes em um vídeo.
 > 
 > 
 
 ## <a name="by-404-errors"></a>Por erros 404
-Olá relatório por erros de 404 permite tooidentify tipo de saudação do conteúdo que gera hello mais número 404 não encontrado dos códigos de status. parte superior de saudação do relatório Olá contém um gráfico de barras para ativos de 10 principais Olá para o qual foi retornado um código de status 404 não encontrado. Este gráfico de barras compara o número total de saudação de solicitações com solicitações que resultaram no código de status 404 não encontrado para esses ativos. Cada barra é codificada por cor. Uma barra amarela é usada tooindicate que Olá solicitação resultou em um código de status 404 não encontrado. Uma barra vermelha é usada tooindicate Olá total de solicitações para o ativo de saudação.
+O relatório de erros 404 permite que você identifique o tipo de conteúdo que gera o maior número de códigos de status 404 Não encontrado. A parte superior do relatório contém um gráfico de barras para os dez principais ativos para os quais foi retornado um código de status 404 Não encontrado. Esse gráfico de barras compara o número total de solicitações com solicitações que resultaram em código de status 404 Não encontrado para esses ativos. Cada barra é codificada por cor. Uma barra amarela é usada para indicar que a solicitação resultou em um código de status 404 Não encontrado. Uma barra vermelha é usada para indicar o número total de solicitações do ativo.
 
 > [!NOTE]
-> Para fins de saudação deste relatório, observe o seguinte de saudação:
+> Para os fins desse relatório, observe o seguinte:
 > 
 > * Uma ocorrência representa qualquer solicitação para um ativo, independentemente do código de status.
-> * URLs de CNAME de borda são convertidos tootheir equivalente CDN URLs. Isso permite que uma contagem precisa para todas as estatísticas associados a um ativo independentemente Olá CDN ou borda CNAME URL usada toorequest-lo.
+> * As URLs de borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 > 
 > 
 
-lado esquerdo de saudação do gráfico de saudação (eixo y) indica o nome do arquivo de saudação para cada Olá top 10 ativos solicitados que resultaram em um código de status 404 não encontrado. Diretamente abaixo de gráfico de saudação (eixo x), você encontrará rótulos que indicam o número total de saudação de solicitações e o número de saudação de solicitações que resultou em um código de status 404 não encontrado.
+O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados que resultaram em código de status 404 Não encontrado. Diretamente abaixo do gráfico (eixo x), você encontrará rótulos que indicam o número total de solicitações e o número de solicitações que resultaram em um código de status 404 Não encontrado.
 
-Diretamente abaixo do gráfico de barras hello, Olá informações a seguir será listado para principais ativos solicitados 250 Olá: caminho relativo (incluindo o nome de arquivo), número de saudação de solicitações que resultou em um 404 não encontrado código de status, número total de saudação de vezes que Olá ativo: solicitada e Olá porcentagem de solicitações que resultou em um código de status 404 não encontrado.
+Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de solicitações que resultaram em código de status 404 Não encontrado, número de vezes que o ativo foi solicitado e a porcentagem de solicitações que resultaram em código de status 404 Não encontrado.
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
-* [Substituindo o comportamento HTTP padrão usando o mecanismo de regras de saudação](cdn-rules-engine.md)
+* [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 

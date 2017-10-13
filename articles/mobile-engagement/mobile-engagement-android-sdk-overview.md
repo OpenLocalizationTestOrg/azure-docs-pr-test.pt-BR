@@ -1,6 +1,6 @@
 ---
-title: "aaaAndroid integração SDK para o Azure Mobile Engagement"
-description: Descreve como toointegrate SDK do Azure Mobile Engagement em aplicativos Android
+title: "Integração do SDK do Android para Azure Mobile Engagement"
+description: Descreve como integrar o SDK do Azure Mobile Engagement em aplicativos Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,13 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0c63bfaf673abbda7ea498390f8282c43e2fb8df
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do SDK do Android para Azure Mobile Engagement
+# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do Android SDK para Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Este documento descreve todas as Olá integração e configuração de opções disponíveis para o Android SDK do Azure Mobile Engagement.
+Este documento descreve todas as opções de integração e configuração disponíveis para o SDK do Azure Mobile Engagement para Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
@@ -43,27 +43,27 @@ Você pode adicionar esses recursos:
 3. [Opções de configuração avançada](mobile-engagement-android-advanced-configuration.md)
 
 ### <a name="notifications"></a>Notificações:
-[Como toointegrate alcance (notificações) em seu aplicativo Android](mobile-engagement-android-integrate-engagement-reach.md)
+[Como integrar o Reach (notificações) em seu aplicativo Android](mobile-engagement-android-integrate-engagement-reach.md)
 
-1. Google Cloud Messaging (GCM): [como tooIntegrate GCM com o Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-2. Mensagens de dispositivo da Amazon (ADM): [como tooIntegrate ADM com o Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+1. GCM (Google Cloud Messaging): [como integrar o GCM com o Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+2. ADM (Amazon Device Messaging): [como integrar o ADM com o Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
 ### <a name="tag-plan-implementation"></a>Implementação do plano de marca:
-[Como toouse Olá avançado Mobile Engagement marcação API em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
+[Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="431-07172017"></a>4.3.1 (07/17/2017)
-* Corrigir uma falha que raramente pode acontecer ao chamar `EngagementAgentUtils.isInDedicatedEngagementProcess`, que também é usado por Olá `EngagementApplication` classe.
+* Corrigir uma falha que raramente poderia acontecer ao chamar `EngagementAgentUtils.isInDedicatedEngagementProcess`, que também é usado pela classe `EngagementApplication`.
 
 ### <a name="430-06272017"></a>4.3.0 (06/27/2017)
-* Suporte de 8 Android (versões anteriores do hello SDK não funcionarão no Android 8).
+* Suporte para Android 8 (versões anteriores do SDK não funcionarão em Android 8).
 * Não há mais dependência da biblioteca de suporte.
 * Remover classe `EngagementFragmentActivity`.
-* Vencimento muito[limites de execução do plano de fundo](https://developer.android.com/preview/features/background.html) no Android 8, logs no plano de fundo podem ser atrasados até que o usuário Olá interage com o dispositivo de saudação, isso terá um impacto na campanha de Push **entregues** e **Notificação do sistema exibida** estatísticas atrasadas se dispositivo Olá foi suspenso (Olá notificação ainda será exibida, será de anel e Vibrar em tempo real sem problemas).
-* Vencimento muito[limites de local do plano de fundo](https://developer.android.com/preview/features/background-location-limits.html), local Olá em tempo real no plano de fundo não será atualizada com frequência no Android 8.
+* Devido a [Limites de Execução em Segundo de Fundo](https://developer.android.com/preview/features/background.html) no Android 8, logs no segundo plano podem ser atrasados até que o usuário interaja com o dispositivo. Isso terá um impacto sobre Campanha de Push **Entregue** e estatísticas de **Notificação do sistema exibida** sendo atrasadas no caso de dispositivo estar em suspensão (a notificação ainda será exibida, tocará e vibrará em tempo real sem problemas).
+* Devido a [Limites de Local do Segundo Plano](https://developer.android.com/preview/features/background-location-limits.html), o local em tempo real em segundo plano não será atualizado com frequência no Android 8.
 
-Para todas as versões, consulte Olá [concluir notas de versão](mobile-engagement-android-release-notes.md).
+Para todas as versões, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte os [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md).

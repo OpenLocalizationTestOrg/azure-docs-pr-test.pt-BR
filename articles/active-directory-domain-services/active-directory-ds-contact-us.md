@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: entre em contato conosco | Microsoft Docs'
-description: "Contate a equipe de produto de serviços de domínio do AD do Azure Olá"
+description: "Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.openlocfilehash: 7a23d50a392549f6c7e1182bcd9a328a28e74bff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: entre em contato conosco
-## <a name="contact-hello-product-team"></a>Equipe de produto do contato Olá
-Se você tiver problemas com seu domínio gerenciado, verifique toosee se Olá etapas descritas Olá [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolvê-Olá. Se você ainda tiver problemas, sinta-se livre toocontact us.
+## <a name="contact-the-product-team"></a>Entre em contato com a equipe do produto
+Se você tiver problemas com seu domínio gerenciado, verifique se as etapas descritas no [Guia de solução de problemas](active-directory-ds-troubleshooting.md) resolvem o problema. Se você ainda tiver problemas, fique à vontade para falar conosco.
 
 Você também pode nos enviar um email para: [Comentários sobre os Serviços de Domínio do Azure AD](mailto:aaddsfb@microsoft.com).
 
-Certifique-se de incluir o seguinte Olá, portanto é possível investigar o problema de saudação.
+Certifique-se de incluir o seguinte, para que possamos investigar o problema.
 
-* Olá **ID de diretório/ID do locatário** do seu diretório do AD do Azure. ID de locatário Olá é hello GUID que você vê no campo de ID de diretório Olá em hello [página de propriedades de seu diretório](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
-* Olá **nome de domínio DNS** você configurou para seu domínio gerenciado do serviços de domínio do AAD.
+* A **ID do locatário/ID do diretório** para seu diretório do Azure AD. A ID do locatário é a GUID que você vê no campo de ID do diretório, na [Página de propriedades de seu diretório](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
+* O **nome do domínio DNS** que você configurou para seu domínio gerenciado dos Serviços de Domínio do AAD.
 
 ## <a name="provide-feedback"></a>Forneça comentários
-Apreciamos seus comentários sobre os serviços de domínio do AD do Azure por meio de saudação  **[canal do Azure Active Directory User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
+Apreciamos seus comentários sobre os Serviços de Domínio do Azure AD por meio do **[canal do Azure Active Directory User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
-Certifique-se de que você pre-pendentes sua pergunta ou comentário com palavras Olá **'AADDS'**, para que ele tooreach nós.
+Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'**para que chegue até nós.

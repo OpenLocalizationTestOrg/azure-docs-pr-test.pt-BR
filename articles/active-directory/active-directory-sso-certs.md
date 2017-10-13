@@ -1,6 +1,6 @@
 ---
-title: "aaaManage certificados de federação no AD do Azure | Microsoft Docs"
-description: "Saiba como data de validade de saudação toocustomize para seus certificados de Federação e como toorenew certificados que expirará em breve."
+title: "Gerenciar certificados de federação no Azure AD | Microsoft Docs"
+description: "Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e17622d25c9babfa295cc0bb68c24e21b8c574d9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
-Este artigo aborda a perguntas comuns e informações relacionadas a certificados toohello Azure Active Directory (AD do Azure) cria tooestablish federado single sign-on (SSO) tooyour aplicativos SaaS. Adicione aplicativos da Galeria de aplicativos do AD do Azure hello, ou usando um modelo de aplicativo não Galeria. Configure o aplicativo hello usando a opção de SSO Olá federado.
+Este artigo aborda dúvidas comuns e informações relacionadas aos certificados que o Azure Active Directory (Azure AD) cria para estabelecer SSO (logon único) federado para seus aplicativos SaaS. Adicione aplicativos pela galeria de aplicativos do Azure AD ou usando um modelo de aplicativo inexistente na galeria. Configure o aplicativo usando a opção de SSO federada.
 
-Este artigo é tooapps somente relevantes que são configurado toouse SSO do AD do Azure por meio de Federação do SAML, conforme mostrado no exemplo a seguir de saudação:
+Esse artigo só é relevante para aplicativos configurados para usar o SSO do Azure AD por meio da federação SAML, conforme mostrado no exemplo abaixo:
 
 ![Logon Único do AD do Azure](./media/active-directory-sso-certs/saml_sso.PNG)
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificado gerado automaticamente para aplicativos da galeria e inexistentes na galeria
-Quando você adiciona um novo aplicativo da Galeria hello e configurar um baseado no SAML logon, o AD do Azure gera um certificado para o aplicativo hello que seja válido por três anos. Você pode baixar esse certificado do hello **o certificado de autenticação SAML** seção. Para aplicativos de galeria, esta seção pode mostrar um certificado de saudação toodownload opção ou metadados, dependendo do requisito de saudação do aplicativo hello.
+Quando você adiciona um novo aplicativo da galeria e configura um logon baseado em SAML, o Azure AD gera um certificado válido por 3 anos para o aplicativo. É possível baixar esse certificado da seção **Certificado de Autenticação SAML**. Para aplicativos da galeria, essa seção pode mostrar uma opção de baixar o certificado ou os metadados, dependendo do requisito do aplicativo.
 
 ![Logon único do Azure AD](./media/active-directory-sso-certs/saml_certificate_download.png)
 
-## <a name="customize-hello-expiration-date-for-your-federation-certificate-and-roll-it-over-tooa-new-certificate"></a>Personalizar a data de validade Olá para o seu certificado de Federação e distribuí-lo sobre tooa novo certificado
-Por padrão, os certificados são definidos tooexpire após três anos. Você pode escolher uma data de validade diferentes para o seu certificado Concluindo Olá etapas a seguir.
-capturas de tela de saudação usam Salesforce para bem Olá de exemplo, mas essas etapas podem aplicar o aplicativo de SaaS tooany federado.
+## <a name="customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate"></a>Personalizar a data de vencimento do seu certificado de federação e transferir para um novo certificado
+Por padrão, os certificados são definidos para expirar depois de dois anos. É possível escolher uma data de vencimento diferente para o certificado completando as etapas abaixo.
+As capturas de tela usam Salesforce para fins de exemplo, mas podem aplicar essas etapas para qualquer aplicativo de SaaS federado.
 
-1. Em Olá [portal do Azure](https://aad.portal.azure.com), clique em **aplicativo empresarial** em Olá painel esquerdo e, em seguida, clique em **novo aplicativo** em Olá **visão geral** página:
+1. No [portal do Azure](https://aad.portal.azure.com), clique em **Aplicativo empresarial** no painel esquerdo e clique em **Novo aplicativo** na página **Visão geral**:
 
-   ![Assistente de configuração de SSO Olá aberto](./media/active-directory-sso-certs/enterprise_application_new_application.png)
+   ![Abra o assistente de configuração de SSO](./media/active-directory-sso-certs/enterprise_application_new_application.png)
 
-2. Procure o aplicativo da Galeria hello e, em seguida, selecione aplicativo hello que você deseja tooadd. Se você não encontrar o aplicativo hello necessários, adicionar o aplicativo hello usando Olá **aplicativo Galeria não** opção. Este recurso está disponível apenas no hello SKU do Azure AD Premium (P1 e P2).
+2. Pesquise o aplicativo da galeria e selecione o aplicativo que deseja adicionar. Se você não encontrar o aplicativo necessário, adicione o aplicativo usando a opção **Aplicativo inexistente na galeria**. Esse recurso só está disponível no SKU Azure AD Premium (P1 e P2).
 
     ![Logon único do Azure AD](./media/active-directory-sso-certs/add_gallery_application.png)
 
-3. Clique em hello **o logon único** link no hello esquerda do painel e altere **modo de logon único** muito**baseado no SAML logon**. Isso gera um certificado válido por três anos para seu aplicativo.
+3. Clique no link **Logon único** no painel esquerdo e altere o **Modo de Logon Único** para **Logon baseado em SAML**. Isso gera um certificado válido por três anos para seu aplicativo.
 
-4. toocreate um novo certificado, clique em Olá **criar novo certificado** link no hello **o certificado de autenticação SAML** seção.
+4. Para criar um novo certificado, clique no link **Criar novo certificado** na seção **Certificado de Autenticação SAML**.
 
     ![Gerar um novo certificado](./media/active-directory-sso-certs/create_new_certficate.png)
 
-5. Olá **criar um novo certificado** link abre o controle de calendário hello. Você pode definir qualquer data e hora do backup toothree anos de saudação data atual. Olá selecionado data e hora é Olá nova data de expiração do seu novo certificado. Clique em **Salvar**.
+5. O link **Criar um novo certificado** abre o controle de calendário. Você pode definir qualquer data e hora até três anos a partir da data atual. A data e a hora selecionadas devem ser a nova data e hora de validade do seu novo certificado. Clique em **Salvar**.
 
-    ![Baixar e carregar certificado Olá](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
+    ![Baixe e depois carregue o certificado](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 
-6. Agora o novo certificado de saudação é toodownload disponível. Clique em Olá **certificado** toodownload link-lo. Neste momento, seu certificado não está ativo. Quando você desejar tooroll pela toothis certificado, selecione Olá **ativar o novo certificado** caixa de seleção e clique em **salvar**. Desse ponto, o AD do Azure inicia usando Olá novo certificado de assinatura de resposta de saudação.
+6. Agora o novo certificado está disponível para download. Clique no link **Certificado** para baixá-lo. Neste momento, seu certificado não está ativo. Quando você quiser transferir para esse certificado, clique na caixa de seleção **Ativar novo certificado** e clique em **Salvar**. A partir daí, o Azure AD começa a usar o novo certificado para assinar a resposta.
 
-7.  toolearn como Olá tooupload certificado tooyour determinado aplicativo de SaaS, clique em Olá **tutorial de configuração do aplicativo de exibição** link.
+7.  Para saber como carregar o certificado para um aplicativo SaaS específico, clique no link **Exibir o tutorial de configuração do aplicativo**.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renovar um certificado que vencerá em breve
-Olá seguinte renovação deve resultar em nenhum tempo de inatividade significativo para seus usuários. Olá as capturas de tela deste recurso, seção Salesforce como um exemplo, mas essas etapas podem aplicar o aplicativo de SaaS tooany federado.
+As etapas de renovação abaixo não devem resultar em nenhum tempo de inatividade significativo para seus usuários. As capturas de tela desta seção apresentam o Salesforce como exemplo, mas essas etapas podem ser aplicadas a qualquer aplicativo SaaS federado.
 
-1. Em Olá **Active Directory do Azure** aplicativo **o logon único** página, gerar Olá novo certificado para o seu aplicativo. Você pode fazer isso clicando Olá **criar novo certificado** link no hello **o certificado de autenticação SAML** seção.
+1. Na página **Logon Único** do aplicativo **Azure Active Directory**, gere o novo certificado para o seu aplicativo. É possível fazer isso clicando no link **Criar novo certificado** na seção **Certificado de Autenticação SAML**.
 
     ![Gerar um novo certificado](./media/active-directory-sso-certs/create_new_certficate.png)
 
-2. Selecione Olá desejado data de expiração para o novo certificado e clique em **salvar**.
+2. Selecione a data e a hora de validade desejadas do seu novo certificado e clique em **Salvar**.
 
-3. Baixar certificado Olá Olá **certificado de autenticação de SAML** opção. Tela de configuração de logon único carregamento Olá certificado toohello SaaS do novo aplicativo. toolearn como toodo isso para que seu aplicativo SaaS específico, clique em Olá **tutorial de configuração do aplicativo de exibição** link.
+3. Baixe o certificado na opção **Certificado de Autenticação SAML**. Carregue o novo certificado para a tela de configuração de logon único do aplicativo SaaS. Para saber como fazer isso para seu aplicativo SaaS específico, clique no link **Exibir o tutorial de configuração do aplicativo**.
    
-4. tooactivate Olá novo certificado no AD do Azure, selecione Olá **ativar o novo certificado** caixa de seleção e clique em Olá **salvar** botão na parte superior de saudação da página de saudação. Isso faz sobre o novo certificado de saudação em saudação do lado do AD do Azure. status de saudação do certificado Olá muda de **novo** muito**Active**. Desse ponto, o AD do Azure inicia usando Olá novo certificado de assinatura de resposta de saudação. 
+4. Para ativar o novo certificado no Azure AD, marque a caixa de seleção **Criar novo certificado ativo** e clique no botão **Salvar** na parte superior da página. Isso transfere o novo certificado no lado do Azure AD. O status do certificado muda de **Novo** para **Ativo**. A partir daí, o Azure AD começa a usar o novo certificado para assinar a resposta. 
    
     ![Gerar um novo certificado](./media/active-directory-sso-certs/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Lista de tutoriais sobre como aplicativos de SaaS toointegrate com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [Índice de artigos para gerenciamento de aplicativos no Azure Active Directory](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)

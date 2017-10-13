@@ -1,6 +1,6 @@
 ---
-title: aaaView e gerenciar trabalhos de matriz Virtual StorSimple | Microsoft Docs
-description: "Descreve a página de trabalhos de serviço de Gerenciador de dispositivos de StorSimple hello e como toouse-tootrack recente e atual dos trabalhos de saudação matriz Virtual StorSimple."
+title: Exibir e gerenciar trabalhos do StorSimple Virtual Array | Microsoft Docs
+description: "Descreve a página de Trabalhos do serviço do Gerenciador de Dispositivos StorSimple e como usá-la para controlar trabalhos recentes e atuais para a Matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.openlocfilehash: cf3f3e7bcdfff0ff2328b7354db2482286800e93
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-device-manager-service-tooview-jobs-for-hello-storsimple-virtual-array"></a>Use trabalhos de tooview do serviço de Gerenciador de dispositivos de StorSimple Olá para Olá matriz Virtual StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para exibir os trabalhos para a Matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral
-Olá **trabalhos** folha fornece um único portal central para exibir e gerenciar trabalhos iniciados em matrizes virtuais que estão conectado tooyour serviço do Gerenciador de dispositivos do StorSimple. Você pode exibir os trabalhos em execução, concluídos e com falha para vários dispositivos virtuais. Os resultados são apresentados em um formato tabular.
+A folha **Trabalhos** fornece um único portal central para exibir e gerenciar trabalhos iniciados em matrizes virtuais que estão conectadas ao serviço do Gerenciador de Dispositivos StorSimple. Você pode exibir os trabalhos em execução, concluídos e com falha para vários dispositivos virtuais. Os resultados são apresentados em um formato tabular.
 
 ![Folha de trabalhos](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
-Você pode localizar rapidamente os trabalhos de saudação que está interessado ao filtrar campos, como:
+Você pode localizar rapidamente os trabalhos nos quais está interessado filtrando os campos, como:
 
-* **Intervalo de tempo** – trabalhos podem ser o intervalo de filtrado Olá com base na data e hora.
-* **Dispositivos** – os trabalhos são iniciados em um serviço de tooyour específica do dispositivo conectado. Olá trabalhos filtrados são então tabulados com base em Olá seguintes atributos:
+* **Intervalo de tempo** – Os trabalhos podem ser filtrados com base no intervalo de data e hora.
+* **Dispositivos** – os trabalhos são iniciados em um dispositivo específico conectado ao seu serviço. Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
   
-  * **Nome** – nome do trabalho Olá pode ser **todos os**, **Backup**, **Clone**, **failover**, **baixar atualizações** , ou **instalar atualizações**.
+  * **Nome** – O nome do trabalho pode ser **Todos**, **Backup**, **Clone**, **Failover**, **Baixar atualizações** ou **Instalar atualizações**.
   * **Status** – Os trabalhos podem ser **Todos**, **Em andamento**, **Concluídos com sucesso**, **Com falha**, ou **Cancelado**.
-  * **Entidade** – trabalhos Olá podem ser associados um volume, compartilhamento ou dispositivo.
-  * **Dispositivo** – hello nome de dispositivo de saudação na qual Olá o trabalho foi iniciado.
-  * **Iniciado em** – tempo de saudação quando o trabalho de saudação foi iniciado.
-  * **Duração** – hello duração na qual trabalho Olá foi executada.
+  * **Entidade** – os trabalhos podem ser associados a um volume, compartilhamento ou dispositivo.
+  * **Dispositivo** – o nome do dispositivo no qual o trabalho foi iniciado.
+  * **Iniciado em** – a hora em que o trabalho foi iniciado.
+  * **Duração** – a duração de execução do trabalho.
 * **Status** – você pode pesquisar todos os trabalhos em execução, concluídos ou com falha.
-* **Tipo de trabalho** – tipo de trabalho Olá pode ser all, backup, e restauração, failover, baixar atualizações ou instalar atualizações.
+* **Tipo de trabalho** – o tipo de trabalho pode ser todos, backup, restauração, failover, baixar atualizações ou instalar atualizações.
 
-lista de saudação de trabalhos é atualizada a cada 30 segundos.
+A lista de trabalhos é atualizada a cada 30 segundos.
 
 ## <a name="view-job-details"></a>Exibir detalhes do trabalho
-Execute Olá etapas tooview Olá detalhes de qualquer trabalho a seguir.
+Execute as etapas a seguir para exibir os detalhes de qualquer trabalho.
 
-#### <a name="tooview-job-details"></a>detalhes do trabalho tooview
-1. Em Olá **trabalhos** folha, exibição hello (s) que está interessado executando uma consulta com os filtros apropriados. Você pode pesquisar trabalhos concluídos ou em execução.
-2. Selecione um trabalho na lista tabular de saudação de trabalhos.
+#### <a name="to-view-job-details"></a>Para exibir detalhes do trabalho
+1. Na folha **Trabalhos** , exiba o(s) trabalho(s) no(s) qual(is) está interessado executando uma consulta com os filtros apropriados. Você pode pesquisar trabalhos concluídos ou em execução.
+2. Selecione um trabalho na lista tabular dos trabalhos.
    
     ![Folha de trabalho](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. Final Olá Olá página, clique em **detalhes**.
-4. Em Olá **detalhes** caixa de diálogo, você pode exibir o status, os detalhes e estatísticas de tempo. Olá, ilustração a seguir mostra um exemplo de hello **detalhes do trabalho de Backup** caixa de diálogo.
+3. Na parte inferior da página, clique em **Detalhes**.
+4. Na caixa de diálogo **Detalhes** , você pode exibir o status, os detalhes e as estatísticas de tempo. A ilustração a seguir mostra um exemplo da caixa de diálogo **Detalhes do trabalho de Backup** .
    
     ![Detalhes do trabalho](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
-#### <a name="job-failures-when-hello-virtual-machine-is-paused-in-hello-hypervisor"></a>Falhas de trabalho quando a máquina virtual de saudação está em pausa no hipervisor Olá
-Quando um trabalho está em andamento na sua matriz Virtual do StorSimple e dispositivo hello (máquina virtual provisionada no hipervisor) está em pausa para mais de 15 minutos, Olá trabalho falhar. Isso é devido ao tempo de matriz Virtual StorSimple tooyour sendo fora de sincronia com o tempo do Microsoft Azure hello. 
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Falhas de trabalho quando a máquina virtual está em pausa no hipervisor
+Quando um trabalho estiver em andamento na sua Matriz Virtual StorSimple e o dispositivo (a máquina virtual provisionada no hipervisor) estiver em pausa há mais de 15 minutos, o trabalho falhará. Isso ocorre devido ao tempo StorSimple Virtual Array estar fora de sincronia com a hora do Microsoft Azure. 
 
-Você verá Olá erro a seguir: "o horário do seu dispositivo está fora de sincronia com o tempo do Microsoft Azure Olá por mais de 15 minutos. Certifique-se de que o hipervisor hello e tempos de dispositivo Olá sejam sincronizados com um servidor NTP. Certifique-se de que não haja nenhum problema de conectividade. tootroubleshoot problemas de conectividade, execute testes de diagnóstico da web local de saudação da interface do usuário do seu dispositivo virtual."
+Você verá o seguinte erro: "A hora do dispositivo está fora de sincronia com a hora do Microsoft Azure por mais de 15 minutos. Certifique-se de que os horários do hipervisor e do dispositivo são sincronizados com um servidor NTP. Certifique-se de que não haja nenhum problema de conectividade. Para solucionar problemas de conectividade, execute testes de diagnóstico da interface do usuário da Web local do seu dispositivo virtual."
 
-Essas falhas aplicam trabalhos toobackup, atualização, failover e restauração. Se sua máquina virtual é provisionada no Hyper-V, máquina Olá eventualmente sincroniza o tempo com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
+Essas falhas aplicam-se aos trabalhos de backup, restauração, atualização e failover. Se sua máquina virtual for provisionada no Hyper-V, ela eventualmente sincroniza a hora com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba como toouse Olá tooadminister de interface do usuário da web local sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+[Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd ou remover nós tooa autônomo serviço cluster do Fabric | Microsoft Docs"
-description: "Saiba como tooadd ou remover nós tooan Azure Service Fabric do cluster em um computador físico ou virtual executando o Windows Server, que pode ser local ou em qualquer nuvem."
+title: "Adicionar ou remover nós de um cluster autônomo do Service Fabric | Microsoft Docs"
+description: "Saiba como adicionar ou remover nós de um cluster do Azure Service Fabric em um computador físico ou virtual executando o Windows Server, que pode ser local ou em qualquer nuvem."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 1da908ad9840faa052e0b4021bc2d4ce732b02bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="add-or-remove-nodes-tooa-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós tooa autônomo do Service Fabric cluster em execução no Windows Server
-Depois de ter [criado o cluster do Service Fabric independentes em máquinas do Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades de negócios podem ser alterados e, talvez você precise tooadd ou remover nós tooyour cluster. Este artigo fornece etapas detalhadas tooachieve isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
+# <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
+Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades de negócios podem mudar e você talvez precise adicionar ou remover nós do seu cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
 
-## <a name="add-nodes-tooyour-cluster"></a>Adicionar nós tooyour cluster
-1. Preparar Olá VM/máquina que deseja tooadd tooyour cluster seguindo as etapas Olá mencionadas Olá [Olá preparar máquinas pré-requisitos do toomeet Olá para implantação de cluster](service-fabric-cluster-creation-for-windows-server.md) seção
-2. Identificar qual domínio de falha e o domínio de atualização que você está indo tooadd dessa VM/máquina para
-3. Área de trabalho remota (RDP) Olá VM/máquina que você deseja que o cluster de toohello tooadd
-4. Copiar ou [baixar pacote autônomo de saudação de malha do serviço para o Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) toohello VM/máquina e descompacte o pacote de saudação
-5. Execute o Powershell com privilégios elevados e navegue toohello local do pacote de saudação descompactado
-6. Executar Olá *AddNode.ps1* script com os parâmetros de saudação descrevendo Olá novo nó tooadd. Olá exemplo a seguir adiciona um novo nó denominado VM5, com tipo NodeType0 e endereço IP 182.17.34.52, UD1 e fd: / dc1/r0. Olá *ExistingClusterConnectionEndPoint* já está um ponto de extremidade de conexão para um nó no cluster existente do hello, que pode ser um endereço IP de saudação do *qualquer* nó no cluster hello.
+## <a name="add-nodes-to-your-cluster"></a>Adicionar nós ao cluster
+1. Preparar a VM/computador que você deseja adicionar ao cluster, seguindo as etapas mencionadas na seção [Preparar as máquinas para atender aos pré-requisitos para implantação de cluster](service-fabric-cluster-creation-for-windows-server.md)
+2. Identifique a qual domínio de falha e domínio de atualização você vai adicionar essa VM/computador
+3. Área de rrabalho remota (RDP) na VM/computador que você deseja adicionar ao cluster
+4. Copie ou [baixe o pacote autônomo do Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) para esta VM/computador e descompacte o pacote
+5. Execute o Powershell com privilégios elevados e navegue até o local do pacote descompactado
+6. Execute o script *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo abaixo adiciona um novo nó chamado VM5, com o tipo NodeType0 e endereço IP 182.17.34.52 em UD1 e fd:/dc1/r0. O *ExistingClusterConnectionEndPoint* é um ponto de extremidade de conexão para um nó em um cluster existente, que pode ser o endereço IP de *qualquer* nó no cluster.
 
     ```
     .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
     ```
-    Depois que o script hello concluir a execução, você pode verificar se o novo nó de saudação foi adicionado executando Olá [ServiceFabricNode Get](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
+    Depois que o script terminar a execução, você pode verificar se o novo nó foi adicionado executando o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
-7. consistência de tooensure em diferentes nós de cluster hello, você deve iniciar uma atualização de configuração. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) tooget Olá último arquivo de configuração e adicione Olá recém-adicionado nó muito seção "Nós". Também é recomendável tooalways ter Olá última configuração de cluster disponível no caso de Olá que você precisa tooredploy um cluster com hello mesma configuração.
+7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [ServiceFabricClusterConfiguration Get](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nós". Também é recomendável sempre ter a configuração de cluster mais recente disponível no caso de precisar reimplantar um cluster com a mesma configuração.
 
     ```
         {
@@ -47,17 +47,17 @@ Depois de ter [criado o cluster do Service Fabric independentes em máquinas do 
             "upgradeDomain": "UD1"
         }
     ```
-8. Executar [início ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) toobegin atualização de saudação.
+8. Execute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
 
     ```
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path tooConfiguration File>
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Você pode monitorar o progresso de saudação da atualização Olá no Gerenciador do Service Fabric. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-### <a name="add-nodes-tooclusters-configured-with-windows-security-using-gmsa"></a>Adicionar nós tooclusters configurado com a segurança do Windows usando a gMSA
+### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Adicionar nós aos clusters configurados com a Segurança do Windows usando a gMSA
 Para clusters configurados com a Conta de Serviço Gerenciado de Grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx), um novo nó pode ser adicionado usando uma atualização de configuração:
-1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) em qualquer um de nós existentes Olá tooget Olá último arquivo de configuração e adicionar detalhes sobre o novo nó de saudação você deseja tooadd na seção de nós"Olá". Verifique se o nó novo Olá faz parte da saudação mesma conta gerenciada de grupo. Essa conta deve ser um Administrador em todos os computadores.
+1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) em qualquer um dos nós existentes para obter o arquivo de configuração mais recente e adicione os detalhes sobre o novo nó que você deseja adicionar na seção "Nós". Verifique se que o novo nó é parte da mesma conta gerenciada de grupo. Essa conta deve ser um Administrador em todos os computadores.
 
     ```
         {
@@ -68,21 +68,21 @@ Para clusters configurados com a Conta de Serviço Gerenciado de Grupo (gMSA) (h
             "upgradeDomain": "UD1"
         }
     ```
-2. Executar [início ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) toobegin atualização de saudação.
+2. Execute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
 
     ```
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path tooConfiguration File>
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
     ```
-    Você pode monitorar o progresso de saudação da atualização Olá no Gerenciador do Service Fabric. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-### <a name="add-node-types-tooyour-cluster"></a>Adicionar nó tipos tooyour cluster
-Ordenar tooadd um novo tipo de nó, modificar sua configuração tooinclude Olá novo tipo de nó na seção de "NodeTypes" em "Propriedades" e começar a uma configuração de atualização usando [ServiceFabricClusterConfigurationUpgrade início](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Depois de concluir a atualização Olá, você pode adicionar o novo cluster tooyour de nós com esse tipo de nó.
+### <a name="add-node-types-to-your-cluster"></a>Adicionar tipos de nós ao cluster
+Para adicionar um novo tipo de nó, modifique a configuração para incluir o novo tipo de na seção "Tipos de Nós" em "Propriedades" e comece uma atualização de configuração usando [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Quando a atualização for concluída, você pode adicionar novos nós ao cluster com esse tipo de nó.
 
 ## <a name="remove-nodes-from-your-cluster"></a>Remover nós do cluster
-Um nó pode ser removido de um cluster usando uma atualização de configuração, no hello maneira a seguir:
+Um nó pode ser removido de um cluster usando uma atualização de configuração, da seguinte maneira:
 
-1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) arquivo de configuração mais recente do tooget hello e *remover* nó Olá da seção "Nós".
-Adicionar hello "NodesToBeRemoved" parâmetro muito "configurar" seção na seção "FabricSettings". Olá "valor" deve ser uma lista separada por vírgulas de nomes de nó de nós que precisam toobe removido.
+1. Execute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e *remover* o nó da seção "Nós".
+Adicione o parâmetro "NodesToBeRemoved" na seção "Configurar" dentro da seção "Configurações do Fabric". O "valor" deve ser uma lista separada por vírgulas de nomes de nó de nós que devem ser removidos.
 
     ```
          "fabricSettings": [
@@ -105,25 +105,25 @@ Adicionar hello "NodesToBeRemoved" parâmetro muito "configurar" seção na seç
             }
         ]
     ```
-2. Executar [início ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) toobegin atualização de saudação.
+2. Execute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
 
     ```
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path tooConfiguration File>
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Você pode monitorar o progresso de saudação da atualização Olá no Gerenciador do Service Fabric. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 > [!NOTE]
-> A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` marca e podem ser identificados consultando cluster Olá manifesto usando `Get-ServiceFabricClusterManifest`. Remoção de tais nós pode levar mais tempo do que outros, como nós de propagação Olá terá toobe movido nesses cenários. cluster Olá deve manter um mínimo de 3 nós de tipo de nó primário.
+> A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com a marca `IsSeedNode=”true”` e podem ser identificadas consultando o manifesto do cluster usando `Get-ServiceFabricClusterManifest`. A remoção desses nós pode levar mais tempo do que outros, pois os nós de propagação terão de ser movidos nesses cenários. O cluster deve manter um mínimo de 3 nós do tipo de nó primário.
 > 
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Remover tipos de nó do cluster
-Antes de remover um tipo de nó, verifique se há quaisquer nós fazendo referência ao tipo de nó de saudação. Remova esses nós antes de remover o tipo de nó correspondente hello. Depois que todos os nós correspondentes são removidos, você pode remover o Olá NodeType de configuração de cluster de saudação e começar a uma configuração de atualização usando [ServiceFabricClusterConfigurationUpgrade início](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Antes de remover um tipo de nó, verifique novamente se há qualquer nó fazendo referência ao tipo de nó. Remova esses nós antes de remover o tipo de nó correspondente. Depois que todos os nós correspondentes são removidos, você pode remover o Tipo de Nó da configuração do cluster e começar uma configuração de atualização usando [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Substituir nós primários de seu cluster
-substituição de saudação de nós primários deve ser executada de um nó após o outro, em vez de remover e, em seguida, adicionar em lotes.
+A substituição de nós primários deve ser realizada um nó após o outro, em vez de remover e depois adicionar em lotes.
 
 
 ## <a name="next-steps"></a>Próximas etapas

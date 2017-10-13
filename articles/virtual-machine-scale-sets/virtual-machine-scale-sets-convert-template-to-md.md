@@ -1,6 +1,6 @@
 ---
-title: aaaConvert uma escala do Azure Resource Manager definir modelo toouse gerenciado disco | Microsoft Docs
-description: Converta um modelo de conjunto de escala conjunto modelo tooa disco gerenciado escala.
+title: "Conversão de um modelo de conjunto de dimensionamento do Azure Resource Manager para usar disco gerenciado | Microsoft Docs"
+description: "Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado."
 keywords: "conjuntos de escala de máquina virtual"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 66c2217647e57ed2cfa39660c0175710ae2e63be
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="convert-a-scale-set-template-tooa-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de escala conjunto modelo tooa disco gerenciado escala
+# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado
 
-Os clientes com um modelo do Gerenciador de recursos para a criação de uma escala definida usando o disco gerenciado não poderá toomodify-toouse gerenciados em disco. Este artigo mostra como toodo esse, usando como um exemplo de uma solicitação de recepção de saudação [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório dirigida pela comunidade para modelos do Gerenciador de recursos de exemplo. solicitação de recepção completo Olá pode ser vista aqui: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e as partes relevantes de diferença Olá Olá estão abaixo, junto com explicações:
+Clientes com um modelo do Resource Manager para criar um conjunto de dimensionamento não usando disco gerenciado podem modificá-lo para usar um disco gerenciado. Este artigo mostra como fazer isso usando como exemplo uma solicitação pull dos [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório de amostras de modelos do Resource Manager orientado pela comunidade. A solicitação pull completa pode ser vista em: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e as partes relevantes da comparação estão abaixo, junto com explicações:
 
-## <a name="making-hello-os-disks-managed"></a>Tornando os discos do sistema operacional Olá gerenciados
+## <a name="making-the-os-disks-managed"></a>Como fazer os discos gerenciados do sistema operacional
 
-Comparação de saudação abaixo, vemos que removemos várias variáveis relacionadas toostorage disco propriedades de conta e. Tipo de conta de armazenamento não é mais necessário (Standard_LRS é o padrão de saudação), mas ainda pode especificá-lo se o que queremos. Apenas Standard_LRS e Premium_LRS são compatíveis com um disco gerenciado. Novo sufixo de conta de armazenamento, a matriz de cadeia de caracteres exclusiva e a contagem de sa foram usados em Olá antigo modelo toogenerate armazenamento nomes de conta. Essas variáveis não são mais necessárias no novo modelo de saudação porque o disco gerenciado cria automaticamente as contas de armazenamento em nome saudação do cliente. Da mesma forma, nome do contêiner de vhd e o nome de disco do sistema operacional não são mais necessárias porque o disco gerenciado automaticamente nomes de discos e contêineres de blob de armazenamento subjacente hello.
+Na comparação a seguir, podemos ver que removemos diversas variáveis relacionadas às propriedades de disco de armazenamento e conta de armazenamento. O tipo de conta de armazenamento não é mais necessário (Standard_LRS é o padrão), mas, se desejar, você ainda pode especificá-lo. Apenas Standard_LRS e Premium_LRS são compatíveis com um disco gerenciado. Novos sufixos de conta de armazenamento, matrizes de cadeias de caracteres exclusivas e contagem de sa foram usados no modelo antigo para gerar nomes de contas de armazenamento. Essas variáveis não são mais necessárias no modelo novo porque o disco gerenciado cria automaticamente contas de armazenamento em nome do cliente. Da mesma forma, o nome do contêiner de vhd e o nome do disco do sistema operacional não são mais necessários porque o disco gerenciado nomeia automaticamente os discos e os contêineres de blob de armazenamento subjacente.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ Comparação de saudação abaixo, vemos que removemos várias variáveis relaci
 ```
 
 
-Na comparação Olá abaixo, podemos pode consulte que atualizamos Olá computação versão too2016-04-30-visualização da api, que é hello mais antiga versão necessária para suporte de disco gerenciado com conjuntos de escala. Observe que estamos ainda pode usar discos não gerenciados na nova versão da api Olá com sintaxe antiga Olá se desejado. Em outras palavras, se podemos atualizar somente hello versão da api de computação e não altere mais nada, modelo Olá deve continuar toowork como antes.
+Na comparação a seguir, podemos ver que atualizamos a versão de api de computação para 2016-04-30-preview, que é a versão mais antiga necessária para suporte de disco gerenciado com conjuntos de dimensionamento. Observe que, se desejado, ainda podemos usar discos não gerenciados na versão de api nova com a sintaxe antiga. Em outras palavras, se atualizarmos somente a versão de api de computação e não alterarmos mais nada, o modelo deverá continuar a funcionar como antes.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ Na comparação Olá abaixo, podemos pode consulte que atualizamos Olá computa�
    },
 ```
 
-Comparação de saudação abaixo, podemos ver que estamos removendo recursos de conta de armazenamento de saudação da matriz de recursos de saudação completamente. Não precisamos mais dele, uma vez que o disco gerenciado os cria automaticamente em nosso nome.
+Na comparação a seguir, podemos ver que removemos completamente o recurso de conta de armazenamento da matriz de recursos. Não precisamos mais dele, uma vez que o disco gerenciado os cria automaticamente em nosso nome.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ Comparação de saudação abaixo, podemos ver que estamos removendo recursos de
        "location": "[resourceGroup().location]",
 ```
 
-Em comparação Olá abaixo, podemos pode consulte que estamos removendo Olá depende cláusula referindo-se de loop toohello de conjunto de escala de saudação que estava criando contas de armazenamento. No modelo antigo e hello, isso foi garantir que as contas de armazenamento Olá foram criadas antes do conjunto de escala Olá começou a criação, mas essa cláusula não é mais necessária com disco gerenciado. Também remove a propriedade de contêineres de vhd Olá e Olá propriedade de nome de disco do sistema operacional, essas propriedades são tratados automaticamente subjacente Olá por disco gerenciado. Se nós desejavam, poderíamos adicionar `"managedDisk": { "storageAccountType": "Premium_LRS" }` na configuração de "osDisk" hello se quiséssemos discos do sistema operacional de premium. Apenas VMs com uma letra maiuscula ou do minúscula ' hello VM sku pode usar discos premium.
+Na comparação a seguir, removemos os dependes na cláusula referente do conjunto de dimensionamento para o loop que criava contas de armazenamento. No modelo antigo, isso era para garantir que as contas de armazenamento fossem criadas antes do conjunto de dimensionamento iniciar a criação, mas essa cláusula não é mais necessária em um disco gerenciado. Removemos também a propriedade de contêineres do vhd e a propriedade de nome de disco do sistema operacional, uma vez que essas propriedades são tratadas automaticamente pelo disco gerenciado. Se desejar, adicione `"managedDisk": { "storageAccountType": "Premium_LRS" }` na configuração "osDisk" para discos do sistema operacional premium. Somente VMs com uma letra "s" maiúscula ou minúscula no sku da VM pode usar discos premium.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -120,12 +120,12 @@ Em comparação Olá abaixo, podemos pode consulte que estamos removendo Olá de
 
 ```
 
-Não há nenhuma propriedade explícita na configuração de conjunto de escala Olá para se toouse gerenciado ou não gerenciado de disco. conjunto de escala Olá sabe quais toouse com base nas propriedades de saudação que estão presentes no perfil de armazenamento hello. Portanto, é importante ao modificar Olá tooensure de modelo que são propriedades do direito de saudação no perfil de armazenamento de saudação do conjunto de escala de saudação.
+Não há nenhuma propriedade explícita na configuração do conjunto de dimensionamento para se usar disco gerenciado ou não gerenciado. O conjunto de dimensionamento sabe que usar com base nas propriedades que estão presentes no perfil de armazenamento. Portanto, ao modificar o modelo é importante garantir que as propriedades corretas estão no perfil de armazenamento do conjunto de dimensionamento.
 
 
 ## <a name="data-disks"></a>Discos de dados
 
-Com alterações Olá acima, Olá escala conjunto usa gerenciado discos para Olá SO de disco, mas e quanto os discos de dados? tooadd os discos de dados, adicionar propriedade do hello "dataDisks" em "storageProfile" no mesmo nível como "osDisk" de saudação. valor da propriedade Olá Olá é uma lista JSON de objetos, cada um deles tem propriedades "lun" (que deve ser exclusivo por disco de dados em uma máquina virtual), "createOption" ("vazio" está atualmente Olá só há suporte para opção) e "diskSizeGB" (Olá tamanho do disco de saudação em gigabytes; deve ser maior que 0 e menor que 1024) conforme mostrado no exemplo a seguir de saudação: 
+Com as alterações acima, o conjunto de dimensionamento usa managed disks para o disco do sistema operacional, mas como ficam os discos de dados? Para adicionar discos de dados, adicione a propriedade "dataDisks" em "storageProfile" no mesmo nível que "osDisk". O valor da propriedade é uma lista JSON de objetos, cada um tem propriedades "lun" (que deve ser exclusiva por disco de dados em uma VM), "createOption" ("empty" atualmente é a única opção com suporte) e "diskSizeGB" (o tamanho do disco em gigabytes; deve ser maior que 0 e menor que 1024) como no exemplo a seguir: 
 
 ```
 "dataDisks": [
@@ -137,13 +137,13 @@ Com alterações Olá acima, Olá escala conjunto usa gerenciado discos para Ol�
 ]
 ```
 
-Se você especificar `n` discos nesta matriz, cada VM em escala Olá definir obtém `n` discos de dados. No entanto, observe que estes discos de dados são dispositivos brutos. Eles não estão formatados. É toohello cliente tooattach, Partition e discos de saudação do formato antes de usá-los. Opcionalmente, seria possível também especificar `"managedDisk": { "storageAccountType": "Premium_LRS" }` em cada toospecify de objeto de disco de dados que ela deve ser um disco de dados premium. Apenas VMs com uma letra maiuscula ou do minúscula ' hello VM sku pode usar discos premium.
+Se você especificar `n` discos nesta matriz, cada VM no conjunto de dimensionamento obtém `n` discos de dados. No entanto, observe que estes discos de dados são dispositivos brutos. Eles não estão formatados. Cabe ao cliente anexar, particionar e formatar os discos antes de usá-los. Opcionalmente, também podemos especificar `"managedDisk": { "storageAccountType": "Premium_LRS" }` em cada objeto de disco de dados para especificar que deve ser um disco de dados premium. Somente VMs com uma letra "s" maiúscula ou minúscula no sku da VM pode usar discos premium.
 
-toolearn mais sobre como usar discos de dados com conjuntos de escala, consulte [neste artigo](./virtual-machine-scale-sets-attached-disks.md).
+Para saber mais sobre como usar discos de dados com conjuntos de dimensionamento, veja [este artigo](./virtual-machine-scale-sets-attached-disks.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Por exemplo modelos do Gerenciador de recursos usando conjuntos de escala, procure "vmss" no hello [repositório github de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+Para modelos do Resource Manager de exemplo usando conjuntos de escala, procure por "vmss" no [repositório github de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obter informações gerais, confira Olá [página principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

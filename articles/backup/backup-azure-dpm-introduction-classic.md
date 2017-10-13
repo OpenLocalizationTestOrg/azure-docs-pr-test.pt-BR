@@ -1,6 +1,6 @@
 ---
-title: "aaaBack o portal clássico do DPM cargas de trabalho tooAzure | Microsoft Docs"
-description: "Toobacking uma introdução a servidores DPM usando o serviço de Backup do Azure Olá"
+title: "Fazer backup de cargas de trabalho do DPM no Portal Clássico do Azure | Microsoft Docs"
+description: "Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure"
 services: backup
 documentationcenter: 
 author: Nkolli1
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: nkolli;giridham;markgal
-ms.openlocfilehash: f408957db69d45f745d5e89bd97030a341405b72
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a9a516cfdfaf4b95c4f0121a66e90f6e71206e9f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="preparing-tooback-up-workloads-tooazure-with-dpm"></a>Preparando tooback backup tooAzure de cargas de trabalho com o DPM
+# <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 > [!div class="op_single_selector"]
 > * [Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -30,28 +30,28 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Este artigo fornece uma tooprotect de Backup do Microsoft Azure Introdução toousing suas cargas de trabalho e servidores do System Center Data Protection Manager (DPM). Lendo-o, você entenderá:
+Este artigo fornece uma introdução ao uso do Backup do Microsoft Azure para proteger seus servidores e cargas de trabalho do Center Data Protection Manager. Lendo-o, você entenderá:
 
 * Como funciona o backup do servidor DPM do Azure
-* Olá pré-requisitos tooachieve uma experiência positiva de backup
-* Olá erros comuns e como toodeal com eles
+* Os pré-requisitos para obter uma experiência positiva de backup
+* Os erros típicos encontrados e como lidar com eles
 * Cenários com suporte
 
-O System Center DPM faz backup dos dados de arquivos e aplicativos. Dados de backup tooDPM podem ser armazenados em fita, disco ou backup tooAzure com o Microsoft Azure Backup. O DPM interage com o Backup do Azure da seguinte maneira:
+O System Center DPM faz backup dos dados de arquivos e aplicativos. O backup dos dados no DPM pode ser feito em fita, em disco, ou no Azure com o Backup do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte maneira:
 
-* **DPM implantado como uma máquina de virtual do servidor ou local física** — se o DPM é implantado como um servidor físico ou como uma máquina virtual de Hyper-V de local você pode fazer backup de dados tooan Backup do Azure além de cofre toodisk e backup em fita.
-* **DPM implantado como máquina virtual do Azure** — No System Center 2012 R2 com atualização 3, o DPM pode ser implantado como máquina virtual do Azure. Se o DPM é implantado como uma máquina virtual do Azure, que você pode fazer backup de discos de dados de tooAzure anexado máquina de virtual do Azure do DPM toohello ou você pode descarregar o armazenamento de dados Olá fazendo backup tooan Cofre de Backup do Azure.
+* **DPM implantado como servidor físico ou  máquina virtual local** — Se o DPM for implantado como servidor físico ou máquina virtual local Hyper-V, é possível fazer backup dos dados em um cofre de Backup do Azure além do backup em disco e em fita.
+* **DPM implantado como máquina virtual do Azure** — No System Center 2012 R2 com atualização 3, o DPM pode ser implantado como máquina virtual do Azure. Se o DPM for implantado como máquina virtual do Azure, é possível fazer backup de dados em discos do Azure anexados à máquina virtual do Azure do DPM, ou descarregar o armazenamento de dados por meio de backup em um cofre de Backup do Azure.
 
 ## <a name="why-backup-your-dpm-servers"></a>Por que fazer backup de seus servidores DPM?
-benefícios de negócios de saudação do usando o Backup do Azure para fazer backup de servidores DPM incluem:
+Os benefícios comerciais do uso do Backup do Azure para backup de servidores DPM são:
 
-* Para implantação do DPM local, você pode usar o backup do Azure como um tootape de implantação alternativo toolong-termo.
-* Para implantações do DPM no Azure, o Backup do Azure permite armazenamento toooffload de saudação do disco do Azure, que você tooscale backup armazenando dados mais antigos no Backup do Azure e novos dados no disco.
+* Para a implantação do DPM local, é possível usar o backup do Azure como alternativa para a implantação de longo prazo em fita.
+* Para implantações do DPM no Azure, o Backup do Azure possibilita descarregar o armazenamento do disco do Azure, permitindo escalar verticalmente ao armazenar os dados mais antigos no Backup do Azure e os dados novos em disco.
 
 ## <a name="how-does-dpm-server-backup-work"></a>Como funciona o backup do servidor DPM?
-tooback uma máquina virtual, primeiro é necessário um instantâneo point-in-time de dados de saudação. Hello Azure Backup service inicia Olá trabalho de backup em hello agendado e gatilhos Olá extensão backup tootake um instantâneo. Olá coordenadas de extensão de backup com hello VSS no convidado tooachieve consistência de serviço e invoca a API de instantâneo de blob de saudação de saudação serviço de armazenamento do Azure depois de consistência foi atingida. Isso é feito tooget um instantâneo consistente de discos de saudação da máquina virtual de hello, sem ter que tooshut-o.
+Para fazer backup de uma máquina virtual, primeiro é necessário um instantâneo pontual dos dados. O serviço de Backup do Azure inicia o trabalho de backup no horário agendado e dispara a extensão de backup para obter um instantâneo. A extensão de backup é coordenada com o serviço VSS no convidado para obter consistência e chama a API de instantâneo de blob do serviço de Armazenamento do Azure depois que a consistência é atingida. Isso é feito para obter um instantâneo consistente dos discos da máquina virtual, sem a necessidade de desligá-la.
 
-Depois que o instantâneo de saudação tiver sido realizado, dados de saudação são transferidos por hello Azure Backup service toohello Cofre de backup. serviço de saudação cuida da identificação e a transferência apenas os blocos de saudação que foram alterados desde o último backup de saudação tornar a rede e armazenamento de backups Olá eficiente. Quando a transferência de dados de saudação é concluída, Olá é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no hello portal clássico do Azure.
+Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. O serviço se encarrega de identificar e transferir somente os blocos que foram alterados desde o último backup, tornando o armazenamento e a rede de backups eficientes. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no portal clássico do Azure.
 
 > [!NOTE]
 > Para máquinas virtuais do Linux, é possível apenas o backup consistente com arquivos.
@@ -59,19 +59,19 @@ Depois que o instantâneo de saudação tiver sido realizado, dados de saudaçã
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Prepare o Azure Backup tooback backup de dados do DPM da seguinte maneira:
+Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
 
-1. **Criar um Cofre de backup**. Se você ainda não criou um cofre de Backup na sua assinatura, consulte hello Azure portal versão deste artigo - [preparar tooback backup tooAzure de cargas de trabalho com o DPM](backup-azure-dpm-introduction.md).
+1. **Criar um Cofre de backup**. Se você ainda não criou um Cofre de backup em sua assinatura, consulte a versão do portal do Azure deste artigo – [Preparar-se para fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md).
 
   > [!IMPORTANT]
-  > A partir de março de 2017, você não pode usar os cofres de Backup Olá toocreate portal clássico.
-  > Agora você pode atualizar seu cofres dos serviços de tooRecovery de cofres de Backup. Para obter detalhes, consulte o artigo Olá [atualizar um tooa de Cofre de Backup Cofre de serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva tooupgrade cofres de serviços tooRecovery os cofres de Backup.<br/> Após 15 de outubro de 2017, você não pode usar o PowerShell toocreate os cofres de Backup. **Em 1º de novembro de 2017**:
-  >- Todos os cofres de Backup restantes serão automaticamente atualizados tooRecovery cofres de serviços.
-  >- Você não será capaz de tooaccess os dados de backup no portal clássico do hello. Em vez disso, use Olá tooaccess portal do Azure os dados de backup em cofres de serviços de recuperação.
+  > A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
+  > Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+  >- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
+  >- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
   >
 
-2. **Baixe as credenciais do cofre** — no Backup do Azure, carregar certificado de gerenciamento de saudação criado toohello cofre.
-3. **Instalar hello Azure Backup Agent e registrar o servidor de saudação** — do Backup do Azure, instale o agente de saudação em cada servidor DPM e registrar servidor DPM Olá no cofre de backup hello.
+2. **Baixe credenciais do cofre** — No Backup do Azure, carregue o certificado de gerenciamento que você criou para o cofre.
+3. **Instale o agente de Backup do Azure e registre o servidor** — No Backup do Azure, instale o agente em cada servidor DPM e registre o servidor DPM no cofre de backup.
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -79,15 +79,15 @@ Prepare o Azure Backup tooback backup de dados do DPM da seguinte maneira:
 
 ## <a name="requirements-and-limitations"></a>Requisitos (e limitações)
 * O DPM pode ser executado como servidor físico ou máquina virtual Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Também pode ser executado como máquina virtual do Azure em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 3 do DPM 2012 R2 ou máquina virtual do Windows em VMWare em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 5.
-* Se você estiver executando o DPM com o System Center 2012 SP1, instale o Rollup de atualização 2 do System Center Data Protection Manager SP1. Isso é necessário antes de instalar o hello Azure Backup Agent.
-* servidor DPM Olá deve ter o Windows PowerShell e .net Framework 4.5 instalado.
-* O DPM pode fazer a maioria das cargas de trabalho tooAzure Backup. Para obter uma lista completa do que é compatível, consulte hello Azure Backup oferece suporte a itens abaixo.
-* Os dados armazenados no Azure Backup não podem ser recuperados com a opção de "Copiar tootape" hello.
-* Você precisará de uma conta do Azure com recurso de Backup do Azure Olá habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
-* Usando o Backup do Azure requer toobe do hello Azure Backup Agent instalado nos servidores de saudação que desejar tooback. Cada servidor deve ter pelo menos 10% do tamanho de saudação do dados Olá que está sendo feitos, disponível como livre de armazenamento local. Por exemplo, fazendo backup de 100 GB de dados requer um mínimo de 10 GB de espaço livre no local de rascunho hello. Embora Olá mínimo é 10%, 15% do toobe de espaço livre de armazenamento local usado para o local do cache de saudação é recomendável.
-* Os dados serão armazenados no hello armazenamento de cofre do Azure. Há um valor de toohello de limite de dados, que você pode fazer backup de Cofre de Backup do Azure tooan mas o tamanho de saudação de uma fonte de dados (por exemplo uma máquina virtual ou um banco de dados) não deve exceder 54,400 GB.
+* Se você estiver executando o DPM com o System Center 2012 SP1, instale o Rollup de atualização 2 do System Center Data Protection Manager SP1. Isso é necessário antes da instalação do Agente de Backup do Azure.
+* O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
+* O DPM pode fazer backup da maioria das cargas de trabalho no Backup do Azure. Para obter uma lista completa do que tem suporte, consulte os itens de suporte do Backup do Azure abaixo.
+* Os dados armazenados no Backup do Azure não podem ser recuperados com a opção "copiar em fita".
+* Você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+* O uso o Backup do Azure requer que o Agente de Backup do Azure esteja instalado nos servidores onde você deseja fazer backup. Cada servidor deve ter pelo menos 10% do tamanho dos dados de que está sendo feito backup, disponível como armazenamento local livre. Por exemplo, um backup de 100 GB de dados requer um mínimo de 10 GB de espaço livre no local temporário. Embora o mínimo seja 10%, o recomendado é 15% de espaço livre de armazenamento local a ser usado como local de cache.
+* Os dados serão armazenados no armazenamento do cofre do Azure. Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve ultrapassar 54,400 GB.
 
-Esses tipos de arquivo têm suporte para backup tooAzure:
+No Azure, é possível fazer backup dos seguintes tipos de arquivo:
 
 * Criptografados (apenas backups completos)
 * Compactados (suporte para backups incrementais)
@@ -105,6 +105,6 @@ E os seguintes não têm suporte:
 * Fluxo esparso
 
 > [!NOTE]
-> No System Center 2012 DPM com SP1 em diante, você pode fazer backup de cargas de trabalho protegidos pelo DPM tooAzure usando o Microsoft Azure Backup.
+> No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 >
 >

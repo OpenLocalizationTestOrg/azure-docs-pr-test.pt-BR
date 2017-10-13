@@ -1,5 +1,5 @@
 ---
-title: "clientes de nível inferior do Data Warehouse aaaSQL suportam para auditoria de dados | Microsoft Docs"
+title: "Suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados | Microsoft Docs"
 description: "Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,29 +15,29 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 377488680eb297c3e9b1dc754c003c5b19b47996
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a7ea6141285a0098339f1e071af2592dd4535c12
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse----downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse - Suporte de versão anterior a clientes para auditoria e Máscara de Dados Dinâmicos
 [Auditoria](sql-data-warehouse-auditing-overview.md) funciona com clientes SQL que oferecem suporte ao redirecionamento de TDS.
 
-Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. Exceções toothis incluem JDBC 4.0 no qual recurso de redirecionamento Olá não é totalmente compatível e tediosas para Node. js em que o redirecionamento não foi implementado.
+Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
 
-Para clientes de nível inferior"", ou seja, que suporte o protocolo TDS versão 7.3 e abaixo - Olá FQDN do servidor na cadeia de caracteres de conexão Olá deve ser modificado:
+Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
 
-FQDN do servidor original na cadeia de caracteres de conexão Olá: <*nome do servidor*>. t
+FQDN original do servidor na cadeia de conexão: <*nome do servidor*>.database.windows.net
 
-FQDN do servidor modificado na cadeia de caracteres de conexão de saudação: <*nome do servidor*>. Database. **seguro**. windows.net
+FQDN do servidor modificado na cadeia de conexão: <*nome do servidor*>.database.**secure**.windows.net
 
 Uma lista parcial de "Clientes de versão anterior" inclui:
 
 * .NET 4.0 e inferior,
 * ODBC 10.0 e inferior.
-* JDBC (enquanto JDBC suporta TDS 7.4, Olá recurso de redirecionamento do protocolo TDS não tem suporte total)
+* JDBC (embora o JDBC dê suporte ao TDS 7.4, o recurso de redirecionamento de TDS não recebe suporte total)
 * Tedious (para o Node.JS)
 
-**Comentário:** Olá acima modificação FQDN do servidor pode ser útil também para aplicar uma política de auditoria de nível de servidor do SQL sem a necessidade de uma configuração de etapa em cada banco de dados (temporário mitigação).     
+**Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).     
 

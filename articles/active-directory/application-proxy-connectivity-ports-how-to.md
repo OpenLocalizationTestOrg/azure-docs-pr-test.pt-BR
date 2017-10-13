@@ -1,6 +1,6 @@
 ---
-title: "as portas de firewall Olá tooopen aaaHow necessárias para um aplicativo de Proxy de aplicativo | Microsoft Docs"
-description: "Descubra quais tooopen portas para toowork de Proxy de aplicativo de saudação do AD do Azure corretamente"
+title: "Como abrir as portas de firewall necessárias para um aplicativo de Application Proxy | Microsoft Docs"
+description: Descubra quais portas abrir para o Application Proxy do Azure AD funcionar corretamente
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cdc7badb7c15591689a3bfd6bb26da182b00fb3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooopen-hello-firewall-ports-required-for-an-application-proxy-application"></a>Como tooopen Olá portas de firewall necessárias para um aplicativo de Proxy de aplicativo
+# <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Como abrir as portas de firewall necessárias para um aplicativo de Application Proxy
 
-toosee uma lista completa de portas Olá necessários e a função de saudação de cada porta, consulte a seção pré-requisitos Olá Olá [documentação do Proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). observe que o Application Proxy usa apenas as portas de saída.
+Para ver uma lista completa das portas necessárias e a função de cada porta, consulte a seção pré-requisitos da [documentação de Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). observe que o Application Proxy usa apenas as portas de saída.
 
-Você também pode verificar se há todas Olá necessárias portas abertas, abrindo Olá [ferramenta de teste de portas do conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) da sua rede local. Mais marcas de seleção verde significa maior resiliência. 
+Você também pode verificar se você tem todas as portas abertas necessárias, abrindo a [ferramenta de teste de portas do conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) de sua rede local. Mais marcas de seleção verde significa maior resiliência. 
 
 ## <a name="app-proxy-regions"></a>Regiões de Proxy de aplicativo
 
-Estamos trabalhando em um modo toolet você sabe que essas regiões precisa toobe verde para você. Por enquanto, certifique-se de que todas estão verdes. EUA Central também é necessária, independentemente de qual região você está.
+Estamos trabalhando em uma maneira para que você saiba que essas regiões precisam estar verdes para você. Por enquanto, certifique-se de que todas estão verdes. EUA Central também é necessária, independentemente de qual região você está.
 
-toomake se Olá ferramenta oferece Olá resultados à direita, ser-se:
+Para certificar-se de que a ferramenta oferece os resultados certos, certifique-se de:
 
--   Abra a ferramenta de saudação em um navegador do servidor de saudação onde você instalou Olá conector.
+-   Abrir a ferramenta em um navegador do servidor na qual você instalou o conector.
 
--   Certifique-se de que qualquer tooyour aplicável proxies ou firewalls conector também são aplicadas toothis página. Isso pode ser feito no Internet Explorer indo muito**configurações**  - &gt; **opções da Internet**  - &gt; **conexões**  - &gt; **Configurações da Lan**. Nessa página, você deve ver campo hello "Usar um Proxy do servidor para sua LAN". Marque esta caixa e coloque o endereço de proxy de saudação no campo de "Address" hello.
+-   Certifique-se de que quaisquer proxies ou firewalls aplicáveis a seu conector também estejam aplicados a esta página. Isso pode ser feito no Internet Explorer, vá para **Configurações** -&gt;**Opções da Internet** -&gt;**Conexões** -&gt;**Configurações da Lan**. Nessa página, você vê o campo "Use um Servidor Proxy para sua LAN". Marque essa caixa e coloque o endereço do proxy no campo "Endereço".
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)

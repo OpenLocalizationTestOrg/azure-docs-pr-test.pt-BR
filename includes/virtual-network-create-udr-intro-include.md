@@ -1,6 +1,6 @@
-Embora o uso de saudação de rotas do sistema facilita tráfego automaticamente para sua implantação, há casos em que você quer toocontrol Olá roteamento de pacotes por meio de um dispositivo virtual. Você pode então crie rotas definidas pelo usuário que especificar próximo salto Olá para pacotes que fluem de dispositivo virtual do tooa sub-rede específica toogo tooyour em vez disso, e habilitando IP encaminhamento para Olá VM em execução como dispositivo virtual hello.
+Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Você pode fazer isso criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo virtual e habilitar o encaminhamento de IP para a VM em execução como o dispositivo virtual.
 
-Alguns dos casos de saudação em dispositivos virtuais podem ser usados incluem:
+Alguns dos casos nos quais os dispositivos virtuais podem ser usados incluem:
 
 * Monitorando o tráfego com um sistema de detecção de intrusões (IDS)
 * Controlando o tráfego com um firewall

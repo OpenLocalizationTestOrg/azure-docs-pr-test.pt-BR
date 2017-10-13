@@ -1,6 +1,6 @@
 ---
-title: "aaaAvailability e a consistência nos Hubs de eventos do Azure | Microsoft Docs"
-description: "Como tooprovide Olá máximo de disponibilidade e a consistência com Hubs de eventos do Azure usando partições."
+title: "Disponibilidade e consistência em Hubs de eventos do Azure | Microsoft Docs"
+description: "Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: a8ededaae1589830da21cb8910ca694d2d628bd2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
 ## <a name="overview"></a>Visão geral
-Hubs de eventos do Azure usa um [particionamento modelo](event-hubs-features.md#partitions) tooimprove paralelização dentro de um hub de evento único e disponibilidade. Por exemplo, se um hub de eventos tem quatro partições, e um essas partições é movido de um servidor tooanother em uma operação de balanceamento de carga, você ainda pode enviar e receber de três outras partições. Além disso, ter mais partições permite que você toohave leitores simultâneos mais processar seus dados, melhorando a taxa de transferência agregada. Noções básicas sobre as implicações de saudação de particionamento e a ordenação em um sistema distribuído é um aspecto crítico de design da solução.
+Os Hubs de Eventos do Azure usam um [modelo de particionamento](event-hubs-features.md#partitions) para melhorar a disponibilidade e a paralelização dentro de um único hub de eventos. Por exemplo, se um hub de eventos tiver quatro partições e uma delas estiver sendo movida de um servidor para outro em uma operação de balanceamento de carga, você ainda poderá enviar e receber das outras três partições. Além disso, ter mais partições permite que você tenha mais leitores simultâneos processando seus dados, melhorando sua taxa de transferência agregada. Noções básicas sobre as implicações de particionamento e ordenação em um sistema distribuído é um aspecto fundamental do design de soluções.
 
-toohelp explicam a compensação de saudação entre pedidos e disponibilidade, consulte Olá [Teorema de CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como Teorema do Brewer. Este Teorema discute escolha Olá entre consistência, disponibilidade e tolerância a partição.
+Para ajudar a explicar a compensação entre ordenação e disponibilidade, confira o [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância a partição.
 
 O teorema de Brewer define a consistência e a disponibilidade como a seguir:
-* Tolerância de partição: Olá a capacidade de um toocontinue do sistema de processamento de dados processamento de dados mesmo se ocorrer uma falha de partição.
+* Tolerância a partição: a capacidade de um sistema de processamento de dados continuar processando dados mesmo que ocorra uma falha de partição.
 * Disponibilidade: um nó sem falha retorna uma resposta razoável dentro de um período razoável (sem erros nem tempos limites).
-* Consistência: uma leitura é garantida tooreturn hello mais recente na gravação para um determinado cliente.
+* Consistência: há garantia de que uma leitura retorne a gravação mais recente para um determinado cliente.
 
 ## <a name="partition-tolerance"></a>Tolerância a partição
-Os Hubs de Eventos são criados sobre um modelo de dados particionado. Você pode configurar o número de saudação de partições em seu hub de eventos durante a instalação, mas você não pode alterar esse valor posteriormente. Como você deve usar partições com Hubs de eventos, você tem toomake uma decisão sobre a disponibilidade e a consistência de seu aplicativo.
+Os Hubs de Eventos são criados sobre um modelo de dados particionado. Você pode configurar o número de partições no seu hub de eventos durante a instalação, mas você não pode alterar este valor posteriormente. Já que você deve usar partições com Hubs de Eventos, você precisa tomar uma decisão quanto à disponibilidade e à consistência do seu aplicativo.
 
 ## <a name="availability"></a>Disponibilidade
-Olá tooget de maneira mais simples de Introdução com Hubs de eventos é o comportamento do toouse saudação padrão. Se você criar um novo `EventHubClient` de objeto e usar Olá `Send` método, os eventos são distribuídos automaticamente entre partições em seu hub de eventos. Esse comportamento permite Olá maior quantidade de tempo.
+A maneira mais simples de começar com os Hubs de Eventos é usar o comportamento padrão. Se você criar um novo objeto `EventHubClient` e usar o método `Send`, os eventos serão distribuídos automaticamente entre as partições em seu hub de eventos. Esse comportamento permite a maior quantidade possível de tempo de atividade.
 
-Para casos de uso que exigem o máximo de saudação o tempo, esse modelo é preferencial.
+Para casos de uso que exigem o máximo tempo de atividade, esse modelo é preferencial.
 
 ## <a name="consistency"></a>Consistência
-Em alguns cenários, a saudação de ordenação de eventos pode ser importante. Por exemplo, talvez você queira tooprocess seu sistema back-end um comando de atualização antes de um comando de exclusão. Neste exemplo, defina a chave de partição Olá em um evento ou use um `PartitionSender` tooonly objeto enviar eventos tooa certa partição. Isso garante que, quando esses eventos são lidos da partição hello, que são lidas em ordem.
+Em alguns cenários, a ordenação de eventos pode ser importante. Por exemplo, você pode desejar que seu sistema de back-end processe um comando update antes de processar um comando delete. Neste exemplo, você pode definir a chave de partição em um evento ou usar um objeto `PartitionSender` para enviar eventos apenas para uma determinada partição. Isso assegura que, quando esses eventos forem lidos da partição, eles serão lidos em ordem.
 
-Com essa configuração, tenha em mente que, se Olá determinada partição toowhich que estiver enviando não estiver disponível, você receberá uma resposta de erro. Como um ponto de comparação, se você não tiver uma partição única tooa de afinidade, hello serviço de Hubs de eventos envia a evento toohello próxima partição disponível.
+Com essa configuração, tenha em mente que, se a partição específica para a qual você está enviando não estiver disponível, você receberá uma resposta de erro. Como um ponto de comparação, se você não tiver uma afinidade com uma única partição, o serviço de Hubs de Eventos enviará seu evento para a próxima partição disponível.
 
-Um tooensure solução possível ordenação, maximizando o tempo, também seria tooaggregate eventos como parte de seu aplicativo de processamento de eventos. Olá tooaccomplish de maneira mais fácil isso é toostamp seu evento com uma propriedade de número de sequência personalizado. saudação de código a seguir mostra um exemplo:
+Uma solução possível para assegurar a ordenação e também maximizar a atividade seria agregar eventos como parte do seu aplicativo de processamento de eventos. A maneira mais fácil de fazer isso é carimbar seu evento com uma propriedade de número de sequência personalizada. O código a seguir mostra um exemplo:
 
 ```csharp
-// Get hello latest sequence number from your application
+// Get the latest sequence number from your application
 var sequenceNumber = GetNextSequenceNumber();
 // Create a new EventData object by encoding a string as a byte array
 var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
@@ -58,10 +58,10 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-Este exemplo envia sua tooone de evento de partições disponíveis Olá em seu hub de eventos e define o número de sequência correspondente de saudação do seu aplicativo. Essa solução requer toobe estado mantido pelo seu aplicativo de processamento, mas oferece os remetentes um ponto de extremidade que é mais provável toobe disponível.
+O exemplo envia seu evento para uma das partições disponíveis em seu hub de eventos e define o número de sequência correspondente do seu aplicativo. Essa solução requer que o estado seja mantido pelo seu aplicativo de processamento, mas fornece a seus remetentes um ponto de extremidade com maior probabilidade de estar disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode aprender mais sobre os Hubs de eventos visitando Olá links a seguir:
+Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão geral do serviço dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)

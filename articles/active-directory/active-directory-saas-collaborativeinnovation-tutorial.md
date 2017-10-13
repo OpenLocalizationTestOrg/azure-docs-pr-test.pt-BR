@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com Inovação Colaborativa | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e inovação colaborativa."
+description: "Saiba como configurar logon único entre o Azure Active Directory e a Inovação Colaborativa."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,115 +13,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e85fabfe11a380129f319a101aa7c7a9491260f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5706ba9f4e7c92de77a0edc5146aa150de379c9f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com Inovação Colaborativa
 
-Neste tutorial, você aprenderá como toointegrate inovação colaboração com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar Inovação Colaborativa ao Azure AD (Azure Active Directory).
 
-Integração de inovação de colaboração com o Azure AD oferece Olá benefícios a seguir:
+Integrar Inovação Colaborativa ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooCollaborative inovação
-- Você pode habilitar seu usuários tooautomatically get conectado tooCollaborative inovação (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- Você pode controlar no Azure AD quem tem acesso à Inovação Colaborativa
+- Você pode habilitar seus usuários logon automático na Inovação Colaborativa (Logon Único) com suas respectivas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com inovações de colaboração, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD à Inovação Colaborativa, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Um logon único da Inovação Colaborativa em uma assinatura habilitada
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando inovação colaborativa da Galeria de saudação
+1. Adicionando Inovação Colaborativa da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-collaborative-innovation-from-hello-gallery"></a>Adicionando inovação colaborativa da Galeria de saudação
-integração de saudação tooconfigure de inovação de colaboração no AD do Azure, você precisa tooadd inovação colaborativa de lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-collaborative-innovation-from-the-gallery"></a>Adicionando Inovação Colaborativa da galeria
+Para configurar a integração de Inovação Colaborativa ao Azure AD, você precisa adicionar a Inovação Colaborativa da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd inovação colaborativa da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar a Inovação Colaborativa da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **inovação colaborativa**.
+4. Na caixa de pesquisa, digite **Inovação Colaborativa**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_search.png)
 
-5. No painel de resultados de saudação, selecione **inovação colaborativa**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Inovação Colaborativa** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com a Inovação Colaborativa com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá na inovação colaborativa é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação na inovação colaborativa precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário equivalente na Inovação Colaborativa é um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado da Inovação Colaborativa.
 
-Em colaboração inovação, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+Na Inovação Colaborativa, atribua o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com inovações de colaboração, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com a Inovação Colaborativa, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste inovação colaborativa](#creating-a-collaborative-innovation-test-user)**  -toohave um equivalente do Britta Simon na inovação colaborativa que é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criar um usuário de teste da Inovação Colaborativa](#creating-a-collaborative-innovation-test-user)** – ter um equivalente de Brenda Fernandes na Inovação Colaborativa que esteja vinculado à representação do Azure AD do usuário.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo inovação colaborativa.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único em seu aplicativo Inovação Colaborativa.
 
-**tooconfigure AD do Azure-logon único com inovações de colaboração, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com inovação colaborativa, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **inovação colaborativa** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração de aplicativos **Inovação Colaborativa**, clique em **Logon Único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
 
-3. Em Olá **domínio de inovação de colaboração e URLs** , execute Olá etapas a seguir:
+3. Na seção **Domínio da Inovação Colaborativa e URLs**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<instancename>.foundry.<companyname>.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.foundry.<companyname>.com/`
 
-    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<instancename>.foundry.<companyname>.com`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<instancename>.foundry.<companyname>.com`
     
     > [!NOTE] 
-    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente de colaboração inovação](https://www.unilever.com/contact/) tooget esses valores.  
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Cliente de Inovação Colaborativa](https://www.unilever.com/contact/) para obter esses valores.  
 
-4. Aplicativo de inovação de colaboração espera as asserções de SAML de saudação em um formato específico. Configure Olá declarações para esse aplicativo a seguir. Você pode gerenciar os valores hello desses atributos de hello "**atributos de usuário**" na página de integração do aplicativo. Olá captura de tela a seguir mostra um exemplo.
+4. O aplicativo de Inovação Colaborativa espera as asserções SAML em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/attribute.png)
     
-5. Clique em **exibir e editar todos os outros atributos de usuário** caixa de seleção no hello **atributos de usuário** seção tooexpand atributos de saudação. Executar Olá seguindo as etapas em cada um dos atributos de saudação exibida-
+5. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** para expandir os atributos. Realize as seguintes etapas em cada um dos atributos exibidos:
 
     | Nome do atributo | Valor do atributo |
     | ---------------| --------------- |    
@@ -130,82 +130,82 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     | emailaddress | user.userprincipalname |
     | name | user.userprincipalname |
 
-    a. Clique em Olá Olá de tooopen atributo **Editar atributo** janela.
+    a. Clique no atributo para abrir a janela **Editar Atributo**.
 
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/url_update.png)
 
-    b. Excluir o valor da URL de saudação da saudação **Namespace**.
+    b. Exclua o valor da URL do **Namespace**.
     
-    c. Clique em **Okey** toosave configuração de saudação.
+    c. Clique em **OK** para salvar a configuração.
 
-6. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
+6. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
 
 7. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_general_400.png)
 
-8. tooconfigure logon único no **inovação colaborativa** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte inovação colaborativa](https://www.unilever.com/contact/). Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.
+8. Para configurar o logon único o lado de **Inovação Colaborativa**, você precisa enviar o **XML de Metadados** baixado para a [equipe de suporte da Inovação Colaborativa](https://www.unilever.com/contact/). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-collaborativeinnovation-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-collaborative-innovation-test-user"></a>Como criar um usuário de teste da Inovação Colaborativa
 
-tooenable AD do Azure usuários toolog em tooCollaborative inovação, eles devem ser provisionados no inovação colaborativa.  
+Para permitir que os usuários do Azure AD façam logon na Inovação Colaborativa, eles devem ser provisionados na Inovação Colaborativa.  
 
-No caso do aplicativo o provisionamento é automática como aplicativo hello dá suporte apenas durante o provisionamento do usuário. Portanto, há nenhuma necessidade tooperform todas as etapas aqui.
+No caso deste aplicativo, o provisionamento é automático, uma vez que o aplicativo dá suporte a provisionamento do usuário just-in-time. Assim, não é necessário executar nenhuma etapa aqui.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooCollaborative inovação.
+Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo acesso à Inovação Colaborativa.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooCollaborative inovação, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes à Inovação Colaborativa, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **inovação colaborativa**.
+2. Na lista de aplicativos, selecione **Inovação Colaborativa**.
 
     ![Configurar Logon Único](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -213,7 +213,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -221,14 +221,14 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco inovação colaborativa Olá Olá painel de acesso, você deve obter a página de logon do aplicativo de inovação de colaboração.
-Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clicar no bloco de Inovação Colaborativa no Painel de Acesso, deve obter a página de logon do aplicativo Inovação Colaborativa.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

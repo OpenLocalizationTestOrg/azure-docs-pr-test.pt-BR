@@ -1,6 +1,6 @@
 ---
-title: "aaaUsage cenários e considerações de implantação para a junção do Azure AD | Microsoft Docs"
-description: "Explica como os administradores podem configurar a Junção do AD do Azure para seus usuários finais (funcionários, estudantes, outros usuários). Ele também aborda diferentes cenários do mundo real Olá para o uso de junção do Azure AD."
+title: "Cenários de uso e considerações de implantação para a Junção do Azure AD| Microsoft Docs"
+description: "Explica como os administradores podem configurar a Junção do AD do Azure para seus usuários finais (funcionários, estudantes, outros usuários). Ele também discute os diferentes cenários reais para usar a Junção do AD do Azure"
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,36 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 7e57971481aa312ebf8a69999d194f9dcc3d4708
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Cenários de uso e considerações de implantação para a Junção do Azure AD
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Cenários de uso da Junção do Azure AD
-### <a name="scenario-1-businesses-largely-in-hello-cloud"></a>Cenário 1: Empresas em grande parte na nuvem de saudação
-Azure junção do Active Directory (junção do Azure AD) pode aproveitar a se você atualmente operar e gerenciar identidades para a sua empresa na nuvem hello ou estiver movendo nuvem toohello em breve. Você pode usar uma conta que você criou no AD do Azure toosign em tooWindows 10. Por meio de [Olá executado pela primeira vez o processo de experiência (FRX)](active-directory-azureadjoin-user-frx.md), ou ingressando AD Azure do [menu de configurações de saudação](active-directory-azureadjoin-user-upgrade.md), os usuários podem ingressar seu tooAzure máquinas AD.  Os usuários também podem aproveitar logon único (SSO) acesso muito recursos como o Office 365, em seus navegadores ou aplicativos do Office de nuvem.
+### <a name="scenario-1-businesses-largely-in-the-cloud"></a>Cenário 1: empresas baseadas principalmente na nuvem
+A Junção do Azure Active Directory (Junção do Azure AD) pode trazer benefícios se você operar e gerenciar identidades para seus negócios na nuvem ou se for migrar para a nuvem em breve. Você pode usar uma conta que já criou no Azure AD para entrar no Windows 10. Por meio de uma [experiência de FRX (experiência de primeira execução)](active-directory-azureadjoin-user-frx.md) ou unindo o Azure AD por meio do [menu de configurações](active-directory-azureadjoin-user-upgrade.md), seus usuários podem unir suas máquinas ao Azure AD.  Agora seus usuários podem aproveitar as vantagens do SSO (logon único) a recursos de nuvem como o Office 365, no navegador ou em aplicativos do Office.
 
 ### <a name="scenario-2-educational-institutions"></a>Cenário 2: instituições de ensino
-Instituições de ensino normalmente têm dois tipos de usuário: professores e alunos. Os membros são considerados membros de longo prazo da organização hello. É recomendável criar contas locais para eles. Mas os alunos são shorter-term membros da organização hello e podem ser gerenciadas suas contas no AD do Azure. Isso significa que a escala de diretório pode ser enviada nuvem toohello em vez de ser armazenada localmente. Isso também significa que os alunos serão capaz de toosign em tooWindows com suas contas do AD do Azure e obter acesso a 365 recursos tooOffice em aplicativos do Office.
+Instituições de ensino normalmente têm dois tipos de usuário: professores e alunos. Os professores são considerados integrantes de longo prazo da organização. É recomendável criar contas locais para eles. Os alunos, contudo, são membros temporários da organização e suas contas podem ser gerenciadas no Azure AD. Isso significa que a escala do diretório pode ser enviada para a nuvem em vez de ser armazenada localmente. Isso também significa que os alunos poderão se conectar no Windows com sua conta do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.
 
 ### <a name="scenario-3-retail-businesses"></a>Cenário 3: empresas de varejo
-Lojas varejistas geralmente têm funcionários temporários e de longo prazo. Geralmente criamos contas locais e computadores unidos ao domínio para funcionários em tempo integral de longo prazo. Mas sazonais trabalhadores são shorter-term membros da organização hello e é desejável toomanage suas contas onde licenças de usuário podem ser movidas mais facilmente ao redor. Quando você cria suas contas de usuário na nuvem Olá com licenças do Office 365, esses usuários obtém benefícios de saudação da assinatura tooWindows e aplicativos do Office com uma conta do AD do Azure, enquanto você manter mais flexibilidade com suas licenças depois de sair.
+Lojas varejistas geralmente têm funcionários temporários e de longo prazo. Geralmente criamos contas locais e computadores unidos ao domínio para funcionários em tempo integral de longo prazo. Os funcionários temporários, contudo, são membros da organização temporariamente e, portanto, é recomendável gerenciar suas contas de maneira que seja possível mover as licenças de usuário mais facilmente. Ao criar essas contas de usuário na nuvem com licenças do Office 365, elas recebem os benefícios de entrar em aplicativos do Windows e do Office com uma conta do Azure AD, mantendo ainda uma maior flexibilidade das licenças quando eles deixam a empresa.
 
 ### <a name="scenario-4-additional-scenarios"></a>Cenário 4: outros cenários
-Juntamente com os benefícios de saudação discutidos anteriormente, você se beneficiar de seus usuários ingressar seu dispositivos tooAzure AD devido a uma experiência simplificada de junção, gerenciamento de dispositivo eficiente, registro de gerenciamento automático do dispositivo móvel e tooAzure de logon único AD e recursos locais.  
+Além dos benefícios discutidos acima, você pode aproveitar as vantagens de ter usuários com dispositivos unidos ao Azure AD devido à experiência simplificada de junção, o gerenciamento eficiente de dispositivos no Azure AD, o registro automático de gerenciamento de dispositivo móvel e o logon único no Azure AD e em recursos locais.  
 
 ## <a name="deployment-considerations-for-azure-ad-join"></a>Considerações de implantação para a Junção do Azure AD
-### <a name="enable-your-users-toojoin-a-company-owned-device-directly-tooazure-ad"></a>Habilitar o toojoin usuários um dispositivo da empresa diretamente tooAzure AD
-As empresas podem fornecer organizações e empresas de toopartner contas somente em nuvem. Esses parceiros podem acessar facilmente os aplicativos da empresa e os recursos com o logon único. Esse cenário é aplicável toousers que acessam recursos principalmente na nuvem hello, como o Office 365 ou SaaS aplicativos que dependem do AD do Azure para autenticação.
+### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Permitir que seus usuários unam um dispositivo da empresa diretamente ao Azure AD
+As empresas podem fornecer contas somente de nuvem para organizações e empresas parceiras. Esses parceiros podem acessar facilmente os aplicativos da empresa e os recursos com o logon único. Esse cenário se aplica a usuários que acessam recursos primariamente na nuvem, tais como o Office 365 ou aplicativos SaaS que contam com o Azure AD para autenticação.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-**No nível de empresa hello (administrador)**
+**No nível corporativo (administrador)**
 
 * Assinatura do Azure com o Azure Active Directory  
 
-**No nível de usuário Olá**
+**No nível do usuário**
 
 * Windows 10 (Professional e Enterprise Editions)
 
@@ -53,18 +53,18 @@ As empresas podem fornecer organizações e empresas de toopartner contas soment
 
 ### <a name="user-tasks"></a>Tarefas do usuário
 * [Configurar um novo dispositivo Windows 10 com o Azure AD durante a instalação](active-directory-azureadjoin-user-frx.md)
-* [Configurar um dispositivo Windows 10 com o Azure AD no menu de configurações de saudação](active-directory-azureadjoin-user-upgrade.md)
-* [Ingressar em uma organização de tooyour de dispositivo pessoal do Windows 10](active-directory-azureadjoin-personal-device.md)
+* [Configurar um dispositivo Windows 10 com o Azure AD no menu de Configurações](active-directory-azureadjoin-user-upgrade.md)
+* [Unir um dispositivo Windows 10 pessoal à sua organização](active-directory-azureadjoin-personal-device.md)
 
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>Habilitar o BYOD na sua organização para o Windows 10
-Você pode configurar seu funcionários e usuários toouse seus recursos e aplicativos da empresa do Windows dispositivos (BYOD) tooaccess pessoal. Os usuários podem adicionar seu AD do Azure contas (contas corporativas ou de estudante) tooa pessoal Windows dispositivo tooaccess recursos de forma segura e compatível.
+Você pode preparar seus funcionários e usuários para usarem seus dispositivos Windows pessoais (BYOD) para acessar aplicativos e recursos da empresa. Os usuários podem adicionar suas contas do Azure AD (contas corporativas ou de estudante) a um dispositivo Windows pessoal para acessar os recursos de maneira segura e compatível.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-**No nível de empresa hello (administrador)**
+**No nível corporativo (administrador)**
 
 * Assinatura do Azure AD
 
-**No nível de usuário Olá**
+**No nível do usuário**
 
 * Windows 10 (Professional e Enterprise Editions)
 
@@ -72,13 +72,13 @@ Você pode configurar seu funcionários e usuários toouse seus recursos e aplic
 * [Configure o registro de dispositivos](active-directory-azureadjoin-setup.md)
 
 ### <a name="user-tasks"></a>Tarefas do usuário
-* [Ingressar em uma organização de tooyour de dispositivo pessoal do Windows 10](active-directory-azureadjoin-personal-device.md)
+* [Unir um dispositivo Windows 10 pessoal à sua organização](active-directory-azureadjoin-personal-device.md)
 
 ## <a name="additional-information"></a>Informações adicionais
-* [Windows 10 para a empresa Olá: dispositivos de toouse maneiras de trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Estendendo nuvem dispositivos de tooWindows 10 de recursos por meio de junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Conecte-se a dispositivos que ingressaram no domínio tooAzure AD para experiências do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 

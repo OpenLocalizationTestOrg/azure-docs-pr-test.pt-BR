@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao UserEcho | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e UserEcho."
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o UserEcho."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,125 +13,125 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: efe4a94ed6e5d22d153565d4782850eac4dff37b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2d824d8d5eb8a25db128397b908a126bd87213ea
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Active Directory do Azure com o UserEcho
 
-Neste tutorial, você aprenderá como toointegrate UserEcho com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá como integrar o UserEcho ao Azure AD (Azure Active Directory).
 
-Integrando UserEcho com o AD do Azure fornece Olá benefícios a seguir:
+A integração do UserEcho ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooUserEcho
-- Você pode habilitar seu usuários tooautomatically get conectado tooUserEcho (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No AD do Azure, você pode controlar quem tem acesso ao UserEcho
+- Você pode permitir que seus usuários façam logon automaticamente no UserEcho (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com UserEcho, você precisa Olá itens a seguir:
+Para configurar a integração do AD do Azure ao UserEcho, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do UserEcho habilitada para logon único
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando UserEcho da Galeria de saudação
-2. Configurar e testar o logon único do AD do Azure
+1. Adicionando o UserEcho da galeria
+2. configurar e testar o logon único do AD do Azure
 
-## <a name="adding-userecho-from-hello-gallery"></a>Adicionando UserEcho da Galeria de saudação
-integração de saudação tooconfigure de UserEcho no AD do Azure, você precisa tooadd UserEcho da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-userecho-from-the-gallery"></a>Adicionando o UserEcho da galeria
+Para configurar a integração do UserEcho ao AD do Azure, você precisará adicionar o UserEcho da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd UserEcho da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o UserEcho da galeria, execute as etapas a seguir:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **UserEcho**.
+4. Na caixa de pesquisa, digite **UserEcho**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_search.png)
 
-5. No painel de resultados de saudação, selecione **UserEcho**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **UserEcho** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o UserEcho com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em UserEcho é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em UserEcho precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do UserEcho é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no UserEcho.
 
-UserEcho, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No UserEcho, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com UserEcho, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do AD do Azure com o UserEcho, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste UserEcho](#creating-a-userecho-test-user)**  -toohave um equivalente do Britta Simon em UserEcho é toohello vinculado do Azure AD representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do UserEcho](#creating-a-userecho-test-user)** – para ter um equivalente de Brenda Fernandes no UserEcho que esteja vinculado à representação de usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo UserEcho.
+Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo UserEcho.
 
-**tooconfigure AD do Azure-logon único com UserEcho, execute Olá etapas a seguir:**
+**Para configurar o logon único do AD do Azure com o UserEcho, execute as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **UserEcho** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **UserEcho**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_samlbase.png)
 
-3. Em Olá **UserEcho domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do UserEcho**, siga as etapas abaixo:
 
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_url.png)
 
-    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.userecho.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/`
 
-    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname>.userecho.com/saml/metadata/`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/saml/metadata/`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente UserEcho](https://feedback.userecho.com/) tooget esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do UserEcho](https://feedback.userecho.com/) para obter esses valores. 
 
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_general_400.png)
 
-6. Em Olá **UserEcho configuração** seção, clique em **configurar UserEcho** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do UserEcho**, clique em **Configurar UserEcho** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_configure.png) 
 
-7. Em outra janela do navegador, entre no site da empresa UserEcho tooyour como um administrador.
+7. Em outra janela do navegador, entre em seu site de empresa do UserEcho como administrador.
 
-8. Na barra de ferramentas de saudação na parte superior do hello, clique em seu menu de saudação de tooexpand de nome de usuário e, em seguida, clique em **instalação**.
+8. Na barra de ferramentas na parte superior, clique em seu nome de usuário para expandir o menu e clique em **Instalação**.
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) 
 
@@ -143,70 +143,70 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) 
 
-11. Em Olá **(SAML) de logon único** página, execute Olá etapas a seguir:
+11. Na página **Logon Único (SAML)** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png)
     
     a. Para **Habilitado para SAML**, selecione **Sim**.
     
-    b. Colar **Single Sign-On URL do serviço SAML**, que você copiou de saudação portal do Azure em hello **URL SSO SAML** caixa de texto.
+    b. Cole a **URL do Serviço de Logon Único SAML** copiada do Portal do Azure na caixa de texto **URL de SSO de SAML**.
     
-    c. Colar **URL de logout**, que você copiou de saudação portal do Azure em hello **logoout remoto URL** caixa de texto.
+    c. Cole a **URL de Saída** copiada no Portal do Azure para a caixa de texto **URL de Logoff remoto**.
     
-    d. Abra seu certificado baixado no bloco de notas, Olá de cópia de conteúdo e, em seguida, cole-o em Olá **certificado x. 509** caixa de texto.
+    d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado X.509** .
     
     e. Clique em **Salvar**.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-userecho-test-user"></a>Criando um usuário de teste do UserEcho
 
-Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no UserEcho.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no UserEcho.
 
-**toocreate um usuário chamado Britta Simon no UserEcho, execute Olá etapas a seguir:**
+**Para criar um usuário chamado Brenda Fernandes no UserEcho, execute as seguintes etapas:**
 
-1. Site de empresa de UserEcho tooyour logon como administrador.
+1. Faça logon no site da empresa do UserEcho como um administrador.
 
-2. Na barra de ferramentas de saudação na parte superior do hello, clique em seu menu de saudação de tooexpand de nome de usuário e, em seguida, clique em **instalação**.
+2. Na barra de ferramentas na parte superior, clique em seu nome de usuário para expandir o menu e clique em **Instalação**.
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
 
-3. Clique em **usuários**, Olá tooexpand **usuários** seção.
+3. Clique em **Usuários** para expandir a seção **Usuários**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png)
+    ![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png)
 
 4. Clique em **Usuários**.
    
@@ -216,35 +216,35 @@ Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no Use
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png)
 
-6. Em Olá **convidar um novo usuário** caixa de diálogo, executar Olá etapas a seguir:
+6. Na caixa de diálogo **Convidar novo usuário** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png)
 
-    a. Em Olá **nome** caixa de texto, nome de usuário, Olá como Britta Simon tipo.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda Fernandes.
     
-    b.  Em Olá **Email** caixa de texto, como o endereço de email do tipo saudação do usuário Brittasimon@contoso.com.
+    b.  Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
     
     c. Clique em **Convidar**.
 
-Um convite é enviado tooBritta, que permite que seu toostart usando UserEcho. 
+Um convite é enviado para Brenda, que permite que ela começar a usar o UserEcho. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooUserEcho.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao UserEcho.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooUserEcho, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao UserEcho, execute as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **UserEcho**.
+2. Na lista de aplicativos, selecione **UserEcho**.
 
     ![Configurar Logon Único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -252,7 +252,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -260,13 +260,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.  
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.  
 
-Quando você clica em bloco UserEcho Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour UserEcho aplicativo.
+Quando você clicar no bloco UserEcho no Painel de Acesso, deverá ser conectado automaticamente ao seu aplicativo UserEcho.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

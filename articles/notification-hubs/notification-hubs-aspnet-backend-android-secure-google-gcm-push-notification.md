@@ -1,6 +1,6 @@
 ---
-title: "aaaSending proteger notificações por Push com Hubs de notificação do Azure"
-description: "Saiba como toosend segura envio notificações tooan Android aplicativo do Azure. Exemplos de códigos escritos em Java e c#."
+title: "Enviar notificações por Push seguro com Hubs de Notificação do Azure"
+description: "Saiba como enviar notificações por push seguro para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e c#."
 documentationcenter: android
 keywords: "Enviar notificação, notificações por push, mensagens por push, notificações por push do android"
 author: ysxu
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d07943c4691ed07acb987086228ef565e6281d57
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Enviar notificações por Push seguro com Hubs de Notificação do Azure
 > [!div class="op_single_selector"]
@@ -31,26 +31,26 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="overview"></a>Visão geral
 > [!IMPORTANT]
-> toocomplete neste tutorial, você deve ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
-Suporte de notificação por push no Microsoft Azure permite que você tooaccess uma infraestrutura de mensagem por push de fácil de usar, multiplataforma, dimensionável, que simplifica bastante a implementação de saudação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
+O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio de mensagem por push fácil de usar, multiplataforma e expansível que simplifica muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
 
-Devido a restrições de segurança ou tooregulatory, às vezes, um aplicativo pode ser conveniente tooinclude algo na notificação de saudação que não pode ser transmitida por meio da infraestrutura de notificação por push padrão hello. Este tutorial descreve como tooachieve Olá a mesma experiência, enviando informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo Android do cliente hello e back-end de aplicativo hello.
+Devido a restrições regulatórias ou de segurança, às vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitido por meio da infraestrutura de notificação por push padrão. Este tutorial descreve como obter a mesma experiência ao enviar informações confidenciais por meio de uma conexão segura e autenticada entre o dispositivo Android cliente e o back-end do aplicativo.
 
-Em um nível alto, o fluxo de saudação é o seguinte:
+Em um nível superior, o fluxo é o seguinte:
 
-1. Olá aplicativo back-end:
+1. O back-end do aplicativo:
    * Armazena uma carga segura no banco de dados de back-end.
-   * Envia Olá ID deste dispositivo Android da toohello de notificação (nenhuma informação de segurança é enviada).
-2. Olá o aplicativo no dispositivo hello, ao receber a notificação de saudação:
-   * dispositivo Android Olá contata Olá back-end solicitante Olá carga de segurança.
-   * aplicativo Hello pode mostrar carga hello como uma notificação no dispositivo de saudação.
+   * Envia a ID dessa notificação ao dispositivo Android (nenhuma informação segura é enviada).
+2. O dispositivo no aplicativo, ao receber a notificação:
+   * O dispositivo Android entra em contato com o back-end solicitando a carga segura.
+   * O aplicativo pode mostrar a carga como uma notificação no dispositivo.
 
-É importante toonote em Olá anterior fluxo (e, neste tutorial), vamos supor que o dispositivo Olá armazena um token de autenticação no armazenamento local, depois Olá usuário fizer logon. Isso garante uma experiência completamente, como dispositivo Olá pode recuperar a carga de segurança da notificação hello usando este token. Se seu aplicativo não armazenar os tokens de autenticação no dispositivo hello, ou se esses tokens podem ser expirados, aplicativo de dispositivo hello, ao receber a notificação de envio de saudação deve exibir uma notificação genérica solicitando Olá usuário toolaunch Olá aplicativo. aplicativo Hello, em seguida, autentica o usuário hello e mostra a carga de notificação de saudação.
+É importante observar que no fluxo anterior (e neste tutorial), pressupomos que o dispositivo armazena um token de autenticação no armazenamento local depois que o usuário faz logon. Isso garante uma experiência perfeita  já que o dispositivo pode recuperar a carga de segurança da notificação usando este token. Se o seu aplicativo não armazenar tokens de autenticação no dispositivo, ou se esses tokens puderem expirar, o aplicativo do dispositivo, após receber a notificação por push, deve exibir uma notificação genérica solicitando que o usuário inicie o aplicativo. Dessa forma, o aplicativo autentica o usuário e mostra a carga de notificação.
 
-Este tutorial mostra como notificações por push de toosend segura. Ele se baseia no hello [notificar usuários](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) tutorial, portanto você deve concluir as etapas de saudação neste tutorial primeiro se ainda não o fez.
+Este tutorial mostra como enviar notificações por push seguro. Baseia-se no tutorial [Notify Users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) (Notificar usuários), de modo que você deve concluir as etapas nesse tutorial, caso ainda não o tenha feito.
 
 > [!NOTE]
 > Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
@@ -59,17 +59,17 @@ Este tutorial mostra como notificações por push de toosend segura. Ele se base
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-hello-android-project"></a>Modificar o projeto Android Olá
-Agora que você modificou o Olá apenas de toosend de back-end do aplicativo *id* de uma notificação por push, você tem toochange seu toohandle de aplicativo do Android notificação e o retorno de chamada a saudação tooretrieve de back-end seguro toobe mensagem exibida.
-tooachieve essa meta, você tem toomake-se de que seu aplicativo do Android, sabe como tooauthenticate em si com o back-end quando ele recebe notificações por push de saudação.
+## <a name="modify-the-android-project"></a>Modificar o projeto Android
+Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação por push, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
+Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android saiba como se autenticar com o back-end ao receber as notificações por push.
 
-Agora vamos modificar Olá *login* fluxo no valor de cabeçalho de autenticação ordem toosave Olá no hello compartilhado preferências do seu aplicativo. Mecanismos semelhantes podem ser usado toostore qualquer token de autenticação (por exemplo, tokens de OAuth) que Olá aplicativo terá toouse sem a necessidade de credenciais de usuário.
+Agora, modificaremos o fluxo de *logon* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
 
-1. No seu projeto de aplicativo do Android, adicionar Olá seguintes constantes na parte superior de saudação do hello **MainActivity** classe:
+1. No projeto do aplicativo Android, adicione as seguintes constantes na parte superior da classe **MainActivity** :
    
         public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
         public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
-2. Ainda no hello **MainActivity** classe, Olá atualização `getAuthorizationHeader()` saudação do método toocontain código a seguir:
+2. Ainda na classe **MainActivity**, atualize o método `getAuthorizationHeader()` para conter o seguinte código:
    
         private String getAuthorizationHeader() throws UnsupportedEncodingException {
             EditText username = (EditText) findViewById(R.id.usernameText);
@@ -82,20 +82,20 @@ Agora vamos modificar Olá *login* fluxo no valor de cabeçalho de autenticaçã
    
             return basicAuthHeader;
         }
-3. Adicione o seguinte Olá `import` instruções na parte superior de saudação do hello **MainActivity** arquivo:
+3. Adicione as seguintes instruções `import` na parte superior do arquivo **MainActivity** :
    
         import android.content.SharedPreferences;
 
-Agora, alteraremos manipulador de saudação que é chamado quando Olá notificação é recebida.
+Agora, alteraremos o manipulador que é chamado quando a notificação é recebida.
 
-1. Em Olá **MyHandler** classe Alterar Olá `OnReceive()` toocontain método:
+1. Na classe **MyHandler**, altere o método `OnReceive()` para conter:
    
         public void onReceive(Context context, Bundle bundle) {
             ctx = context;
             String secureMessageId = bundle.getString("secureId");
             retrieveNotification(secureMessageId);
         }
-2. Em seguida, adicione Olá `retrieveNotification()` método, substituindo o espaço reservado de saudação `{back-end endpoint}` com ponto de extremidade do back-end Olá obtido ao implantar seu back-end:
+2. Em seguida, adicione o método `retrieveNotification()`, substituindo o espaço reservado `{back-end endpoint}` pelo ponto de extremidade do back-end obtido ao implantar seu back-end:
    
         private void retrieveNotification(final String secureMessageId) {
             SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -116,7 +116,7 @@ Agora, alteraremos manipulador de saudação que é chamado quando Olá notifica
                         JSONObject secureNotification = new JSONObject(secureNotificationJSON);
                         sendNotification(secureNotification.getString("Payload"));
                     } catch (Exception e) {
-                        Log.e("MainActivity", "Failed tooretrieve secure notification - " + e.getMessage());
+                        Log.e("MainActivity", "Failed to retrieve secure notification - " + e.getMessage());
                         return e;
                     }
                     return null;
@@ -124,15 +124,15 @@ Agora, alteraremos manipulador de saudação que é chamado quando Olá notifica
             }.execute(null, null, null);
         }
 
-Este método chama sua notificação de saudação do aplicativo tooretrieve de back-end de conteúdo usando as credenciais de saudação armazenadas em Olá compartilhado preferências e exibe como uma notificação normal. notificação de saudação é usuário do aplicativo toohello exatamente como qualquer outra notificação por push.
+Esse método chama o back-end do seu aplicativo para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências compartilhadas e o exibe como uma notificação normal. Para o usuário do aplicativo, a notificação tem exatamente a mesma aparência que qualquer outra notificação por push.
 
-Observe que é preferível toohandle casos de saudação de propriedade de cabeçalho de autenticação ausente ou rejeição por Olá back-end. tratamento específico de Olá desses casos dependem principalmente em sua experiência de usuário de destino. Uma opção é toodisplay uma notificação com um aviso genérico para Olá tooauthenticate tooretrieve Olá real notificação ao usuário.
+Observe que é preferível manipular os casos de propriedade de cabeçalho de autenticação ausente ou de rejeição por meio do back-end. A manipulação específica desses casos depende em grande parte da sua meta de experiência do usuário. Uma opção é exibir uma notificação com um aviso genérico para que o usuário realize a autenticação para recuperar a notificação real.
 
-## <a name="run-hello-application"></a>Executar Olá aplicativo
-toorun Olá aplicativo, Olá a seguir:
+## <a name="run-the-application"></a>Executar o aplicativo
+Para executar o aplicativo, faça o seguinte:
 
-1. Certifique-se de que o **AppBackend** esteja implantado no Azure. Se usar o Visual Studio, execute Olá **AppBackend** aplicativo de API da Web. Uma página da Web do ASP.NET é exibida.
-2. No Eclipse, execute o aplicativo hello em um emulador de dispositivo ou hello Android físico.
-3. No aplicativo do Android Olá da interface do usuário, digite um nome de usuário e senha. Eles podem ser qualquer cadeia de caracteres, mas eles devem ser Olá o mesmo valor.
-4. No aplicativo do Android Olá da interface do usuário, clique em **login**. Em seguida, clique em **Enviar push**.
+1. Certifique-se de que o **AppBackend** esteja implantado no Azure. Se estiver usando o Visual Studio, execute o aplicativo da API Web **AppBackend** . Uma página da Web do ASP.NET é exibida.
+2. No Eclipse, execute o aplicativo em um dispositivo Android físico ou no emulador.
+3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaCollecting dados de análise de Log com um runbook na automação do Azure | Microsoft Docs"
-description: "Tutorial passo a passo que explica como criar um runbook em dados de toocollect de automação do Azure no repositório do OMS Olá para análise pela análise de Log."
+title: "Coletando dados de Log Analytics com um runbook na Automação do Azure | Microsoft Docs"
+description: "Tutorial passo a passo que orienta a criação de um runbook na Automação do Azure para coletar dados para o repositório do OMS que serão analisados pelo Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: e644dc3ef20fb1e930cae02e0fd44ccca31dc13d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Coletar dados no Log Analytics com um runbook na Automação do Azure
-Você pode coletar uma quantidade significativa de dados no Log Analytics de uma variedade de fontes, inclusive [fontes de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também os [dados coletados do Azure](../log-analytics/log-analytics-azure-storage.md).  Há um cenários que onde você precisa toocollect dados que não está acessível por meio dessas fontes padrão.  Nesses casos, você pode usar o hello [API do coletor de dados de HTTP](../log-analytics/log-analytics-data-collector-api.md) toowrite dados tooLog análise de qualquer cliente de API REST.  Um tooperform método comuns coleta de dados está usando um runbook na automação do Azure.   
+Você pode coletar uma quantidade significativa de dados no Log Analytics de uma variedade de fontes, inclusive [fontes de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também os [dados coletados do Azure](../log-analytics/log-analytics-azure-storage.md).  Porém, há cenários em que você precisa coletar dados que não estão acessíveis por meio dessas fontes padrão.  Nesses casos, você pode usar a [API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md) para gravar dados ao Log Analytics de qualquer cliente de API REST.  Um método comum para realizar essa coleta de dados é usar um runbook na Automação do Azure.   
 
-Este tutorial orienta pelo processo de saudação para criar e agendar um runbook na automação do Azure toowrite dados tooLog análise.
+Este tutorial explica o processo para criar e agendar um runbook na Automação do Azure para gravar os dados no Log Analytics.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Esse cenário requer Olá seguindo os recursos configurados em sua assinatura do Azure.  Ambos podem ser uma conta gratuita.
+Esse cenário exige os seguintes recursos configurados na sua assinatura do Azure.  Ambos podem ser uma conta gratuita.
 
 - [Espaço de trabalho do Log Analytics](../log-analytics/log-analytics-get-started.md).
 - [Conta de automação do Azure](../automation/automation-offering-get-started.md).
 
 ## <a name="overview-of-scenario"></a>Visão geral do cenário
-Para este tutorial, você escreverá um runbook que coleta informações sobre trabalhos de Automação.  Runbooks na automação do Azure são implementados com o PowerShell, portanto, comece por escrever e testar um script no editor de automação do Azure hello.  Depois de confirmar que você está coletando informações de saudação necessárias, você gravar que tooLog dados análise e verifique se o tipo de dados personalizado hello.  Por fim, você criará um runbook de saudação do agendamento toostart em intervalos regulares.
+Para este tutorial, você escreverá um runbook que coleta informações sobre trabalhos de Automação.  Os runbooks na Automação do Azure são implementados com o PowerShell, portanto, comece gravando e testando um script no editor da Automação do Azure.  Depois de confirmar que você está coletando as informações necessárias, você gravará esses dados no Log Analytics e verificará o tipo de dados personalizado.  Por fim, você criará um agendamento para iniciar o runbook em intervalos regulares.
 
 > [!NOTE]
-> Você pode configurar a automação do Azure toosend trabalho informações tooLog análise sem este runbook.  Este cenário é principalmente tutorial de saudação toosupport usado e é recomendável que você envie o espaço de trabalho de teste do hello dados tooa.  
+> Você pode configurar a automação do Azure para enviar informações de trabalho para o Log Analytics sem esse runbook.  Esse cenário é usado principalmente para oferecer suporte ao tutorial e é recomendável que você envie os dados para um espaço de trabalho de teste.  
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Instalar o módulo de API do Coletor de Dados
-Cada [solicitação de saudação API de coletor de dados HTTP](../log-analytics/log-analytics-data-collector-api.md#create-a-request) devem ser formatados adequadamente e incluir um cabeçalho de autorização.  Você pode fazer isso no seu runbook, mas você pode reduzir a quantidade de saudação do código necessário usando um módulo que simplifica esse processo.  É um módulo que você pode usar [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI) no hello Galeria do PowerShell.
+Cada [solicitação da API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md#create-a-request) deve ser formatado corretamente e inclui um cabeçalho de autorização.  Você pode fazer isso em seu runbook, mas pode reduzir a quantidade de código necessária para usar um módulo que simplifica esse processo.  Um módulo que você pode usar é o [módulo OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI) na Galeria do PowerShell.
 
-toouse um [módulo](../automation/automation-integration-modules.md) em um runbook, ele deve ser instalado em sua conta de automação.  Qualquer runbook no Olá a mesma conta pode usar Olá funções no módulo hello.  Você pode instalar um novo módulo selecionando **Ativos** > **Módulos** > **Adicionar um módulo** na sua conta de Automação.  
+Para usar um [módulo](../automation/automation-integration-modules.md) em um runbook, ele deverá ser instalado na sua conta de Automação.  Qualquer runbook na mesma conta pode usar as funções no módulo.  Você pode instalar um novo módulo selecionando **Ativos** > **Módulos** > **Adicionar um módulo** na sua conta de Automação.  
 
-Olá Galeria do PowerShell que lhe toodeploy uma opção rapidamente um módulo diretamente a conta de automação tooyour, portanto você pode usar essa opção para este tutorial.  
+No entanto, a Galeria do PowerShell oferece uma opção rápida para implantar um módulo diretamente em sua conta de automação para que você possa usar essa opção para este tutorial.  
 
 ![Módulo OMSIngestionAPI](media/operations-management-suite-runbook-datacollect/OMSIngestionAPI.png)
 
-1. Vá muito[Galeria do PowerShell](https://www.powershellgallery.com/).
+1. Acesse a [Galeria do PowerShell](https://www.powershellgallery.com/).
 2. Procure **OMSIngestionAPI**.
-3. Clique em Olá **implantar tooAzure automação** botão.
-4. Selecione sua conta de automação e clique em **Okey** tooinstall módulo de saudação.
+3. Clique no botão **Implantar a Automação do Azure**.
+4. Selecione sua conta de automação e clique em **OK** para instalar o módulo.
 
 
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de Automação
-As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornarem runbooks mais flexível, permitindo que você toochange esses valores sem editar Olá runbook real. Todas as solicitações de saudação API do coletor de dados de HTTP requer Olá ID e a chave do espaço de trabalho do OMS hello e ativos de variável são toostore ideal essas informações.  
+As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do espaço de trabalho do OMS e os ativos de variável são ideais para armazenar essas informações.  
 
-![variáveis](media/operations-management-suite-runbook-datacollect/variables.png)
+![Variáveis](media/operations-management-suite-runbook-datacollect/variables.png)
 
-1. No portal do Azure de Olá, navegue tooyour conta de automação.
+1. No portal do Azure, abra sua Conta de Automação.
 2. Selecione **Variáveis** em **Recursos Compartilhados**.
-2. Clique em **adicionar uma variável** e criar hello duas variáveis no Olá a tabela a seguir.
+2. Clique em **Adicionar uma variável** e crie duas variáveis na tabela a seguir.
 
 | Propriedade | Valor da ID do Espaço de Trabalho | Valor da Chave do Espaço de Trabalho |
 |:--|:--|:--|
 | Nome | WorkspaceId | WorkspaceKey |
 | Tipo | Cadeia de caracteres | Cadeia de caracteres |
-| Valor | Cole Olá ID do espaço de trabalho do seu espaço de trabalho de análise de Log. | Colar com hello primário ou secundário chave de seu espaço de trabalho de análise de Log. |
+| Valor | Cole a ID do espaço de trabalho do seu espaço de trabalho do Log Analytics. | Cole com a chave primária ou secundária do seu espaço de trabalho do Log Analytics. |
 | Criptografado | Não | Sim |
 
 
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
 
-Automação do Azure tem um editor no portal de saudação onde você pode editar e testar seu runbook.  Você tem Olá opção toouse Olá script editor toowork com [PowerShell diretamente](../automation/automation-edit-textual-runbook.md) ou [criar um runbook gráfico](../automation/automation-graphical-authoring-intro.md).  Para este tutorial, você trabalhará com um script do PowerShell. 
+A Automação do Azure tem um editor no portal onde você pode editar e testar seu runbook.  Você tem a opção de usar o editor de scripts para trabalhar com o [PowerShell diretamente](../automation/automation-edit-textual-runbook.md) ou [criar um runbook gráfico](../automation/automation-graphical-authoring-intro.md).  Para este tutorial, você trabalhará com um script do PowerShell. 
 
 ![Editar runbook](media/operations-management-suite-runbook-datacollect/edit-runbook.png)
 
-1. Navegue tooyour conta de automação.  
+1. Abra sua conta de Automação.  
 2. Clique em **Runbooks** > **Adicionar um runbook** > **Criar um novo runbook**.
-3. Nome de runbook hello, digite **trabalhos de automação de coletar**.  Para o tipo de runbook hello, selecione **PowerShell**.
-4. Clique em **criar** toocreate Olá runbook e início saudação do editor.
-5. Copie e cole a saudação de código a seguir no runbook hello.  Consulte toohello comentários no script hello explicação do código de saudação.
+3. Para o nome do runbook, digite **Collect-Automation-jobs**.  Para o tipo de runbook, selecione **PowerShell**.
+4. Clique em **Criar** para criar o runbook e iniciar o editor.
+5. Copie e cole o seguinte código no runbook.  Consulte os comentários no script para obter a explicação do código.
     
-        # Get information required for hello automation account from parameter values when hello runbook is started.
+        # Get information required for the automation account from parameter values when the runbook is started.
         Param
         (
             [Parameter(Mandatory = $True)]
@@ -93,8 +93,8 @@ Automação do Azure tem um editor no portal de saudação onde você pode edita
             [string]$automationAccountName
         )
         
-        # Authenticate toohello Automation account using hello Azure connection created when hello Automation account was created.
-        # Code copied from hello runbook AzureAutomationTutorial.
+        # Authenticate to the Automation account using the Azure connection created when the Automation account was created.
+        # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
         Add-AzureRmAccount `
@@ -103,116 +103,116 @@ Automação do Azure tem um editor no portal de saudação onde você pode edita
             -ApplicationId $servicePrincipalConnection.ApplicationId `
             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
         
-        # Set hello $VerbosePreference variable so that we get verbose output in test environment.
+        # Set the $VerbosePreference variable so that we get verbose output in test environment.
         $VerbosePreference = "Continue"
         
         # Get information required for Log Analytics workspace from Automation variables.
         $customerId = Get-AutomationVariable -Name 'WorkspaceID'
         $sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
         
-        # Set hello name of hello record type.
+        # Set the name of the record type.
         $logType = "AutomationJob"
         
-        # Get hello jobs from hello past hour.
+        # Get the jobs from the past hour.
         $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
         
         if ($jobs -ne $null) {
-            # Convert hello job data toojson
+            # Convert the job data to json
             $body = $jobs | ConvertTo-Json
         
-            # Write hello body tooverbose output so we can inspect it if verbose logging is on for hello runbook.
+            # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
             Write-Verbose $body
         
-            # Send hello data tooLog Analytics.
+            # Send the data to Log Analytics.
             Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
         }
 
 
 ## <a name="4-test-runbook"></a>4. Runbook de teste
-Automação do Azure inclui um ambiente muito[testar seu runbook](../automation/automation-testing-runbook.md) antes de publicá-lo.  Você pode inspecionar dados Olá coletados pelo runbook hello e verificar que ele grava tooLog análise conforme o esperado antes de publicá-la tooproduction. 
+A Automação do Azure inclui um ambiente de [testar seu runbook](../automation/automation-testing-runbook.md) antes de publicá-lo.  Você pode inspecionar os dados coletados pelo runbook e verificar se ele grava no Log Analytics conforme o esperado antes de publicá-lo em produção. 
  
 ![Runbook de teste](media/operations-management-suite-runbook-datacollect/test-runbook.png)
 
-6. Clique em **salvar** toosave Olá runbook.
-1. Clique em **painel teste** tooopen Olá runbook no ambiente de teste de saudação.
-3. Desde que o runbook tiver parâmetros, você está tooenter solicitadas valores para eles.  Digite nome Olá Olá do grupo de recursos e automação Olá que seu andamento toocollect trabalho informações de conta.
-4. Clique em **iniciar** toohello iniciar runbook hello.
-3. Olá runbook iniciará com um status de **em fila** antes que ele fique muito**executando**.  
-3. Olá runbook deve exibir a saída detalhada com trabalhos Olá coletados no formato json.  Se nenhum trabalho estiver listado, em seguida, não pode ter havido nenhuma trabalhos criados na conta de automação de saudação em Olá última hora.  Tente iniciar qualquer runbook na conta de automação hello e execute novamente o teste de saudação.
-4. Certifique-se de que o saída Olá não mostra que erros Olá lançar tooLog comando análise.  Você deve ter uma mensagem semelhante toohello a seguir.
+6. Clique em **Salvar** para salvar o runbook.
+1. Clique em **Painel de teste** para abrir o runbook no ambiente de teste.
+3. Como o runbook tem parâmetros, você será solicitado a inserir valores para eles.  Insira o nome do grupo de recursos e a conta de automação da qual você coletará informações do trabalho.
+4. Clique em **Iniciar** para iniciar o runbook.
+3. O runbook iniciará com um status de **Em fila** antes da transferência para **Executando**.  
+3. O runbook deve exibir a saída detalhada com os trabalhos coletados no formato json.  Se nenhum trabalho estiver listado, isso significará que talvez nenhum trabalho tenha sido criado na conta de automação na última hora.  Tente iniciar qualquer runbook na conta de automação e execute o teste novamente.
+4. Verifique se a saída não mostra todos os erros no comando post para o Log Analytics.  Você deve ver uma página semelhante a esta.
 
     ![Saída de postagem](media/operations-management-suite-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Verificar registros no Log Analytics
-Depois de runbook Olá foi concluída no teste e verificar a saída de hello foi recebida com êxito, você pode verificar se os registros de saudação foram criados usando um [pesquisa de log de análise de Log](../log-analytics/log-analytics-log-searches.md).
+Após o runbook ter sido concluído no teste e você ter verificado que a saída foi recebida com êxito, você poderá verificar se os registros foram criados usando uma [pesquisa de log no Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 ![Saída de log](media/operations-management-suite-runbook-datacollect/log-output.png)
 
-1. No portal do Azure de Olá, selecione seu espaço de trabalho de análise de Log.
+1. No Portal do Azure, selecione o espaço de trabalho do Log Analytics.
 2. Clique em **Pesquisa de Logs**.
-3. Saudação de tipo comando a seguir `Type=AutomationJob_CL` e clique em botão de pesquisa de saudação. Observe que o tipo de registro de saudação inclui _CL que não está especificado no script hello.  Esse sufixo é acrescentada automaticamente toohello log tipo tooindicate que é um tipo de log personalizado.
-4. Você deve ver um ou mais registros retornados indicando que esse runbook hello está funcionando conforme o esperado.
+3. Digite o seguinte comando `Type=AutomationJob_CL` e clique no botão de pesquisa. Observe que o tipo de registro inclui _CL, que não foi especificado no script.  Esse sufixo é acrescentado automaticamente para o tipo de registro para indicar que ele é um tipo de registro personalizado.
+4. Você deve ver um ou mais registros retornados indicando que o runbook está funcionando conforme o esperado.
 
 
-## <a name="6-publish-hello-runbook"></a>6. Publicar o runbook Olá
-Depois de ter verificado que Olá runbook está funcionando corretamente, é necessário toopublish isso, você pode executá-lo em produção.  Você pode continuar tooedit e testar o runbook Olá sem modificar a versão publicada hello.  
+## <a name="6-publish-the-runbook"></a>6. Publicar o runbook
+Depois de verificar se o runbook está funcionando corretamente, você precisará publicá-lo para poder executá-lo em produção.  Você pode continuar a editar e testar o runbook sem modificar a versão publicada.  
 
 ![Publicar runbook](media/operations-management-suite-runbook-datacollect/publish-runbook.png)
 
-1. Retorne tooyour conta de automação.
+1. Retorne para sua conta de automação.
 2. Clique em **Runbooks** e selecione **Collect-Automation-jobs**.
 3. Clique em **Editar** e **Publicar**.
-4. Clique em **Sim** quando tooverify frequentes que você deseja toooverwrite Olá anteriormente publicada versão.
+4. Clique em **Sim** quando for solicitado para verificar se deseja substituir a versão anteriormente publicada.
 
 ## <a name="7-set-logging-options"></a>7. Definir opções de log 
-Para teste, você fosse capaz de tooview [saída detalhada](../automation/automation-runbook-output-and-messages.md#message-streams) porque você definir a variável de saudação $VerbosePreference no script hello.  Para a produção, você precisa propriedades de log de saudação do tooset do runbook Olá se desejar que a saída detalhada tooview.  Para o runbook Olá usado neste tutorial, será exibido envio tooLog análise de dados json hello.
+Para teste, você conseguiu exibir [saída detalhada](../automation/automation-runbook-output-and-messages.md#message-streams) porque definiu a variável $VerbosePreference no script.  Para produção, você precisa definir as propriedades de log para o runbook se deseja exibir a saída detalhada.  Para o runbook usado neste tutorial, isso exibirá os dados json enviados para o Log Analytics.
 
 ![Log e rastreamento](media/operations-management-suite-runbook-datacollect/logging.png)
 
-1. Nas propriedades de saudação do seu runbook selecione **registro em log e rastreamento** em **as configurações de Runbook**.
-2. Alterar configuração Olá **registros detalhados de Log** muito**em**.
+1. Nas propriedades para o seu runbook, selecione **Log e rastreamento** em **Configurações do Runbook**.
+2. Altere a configuração para **Registros detalhados de Log** para **Ativado**.
 3. Clique em **Salvar**.
 
 ## <a name="8-schedule-runbook"></a>8. Agendar runbook
-Olá, toostart de maneira mais comum um runbook que coleta dados de monitoramento é tooschedule-toorun automaticamente.  Você pode fazer isso criando um [agenda na automação do Azure](../automation/automation-schedules.md) e anexá-lo tooyour runbook.
+A maneira mais comum para iniciar um runbook que coleta dados de monitoramento é agendá-lo para ser executado automaticamente.  Você pode fazer isso criando uma [agenda na Automação do Azure](../automation/automation-schedules.md) e anexá-la ao seu runbook.
 
 ![Agendar runbook](media/operations-management-suite-runbook-datacollect/schedule-runbook.png)
 
-1. Nas propriedades de saudação do seu runbook, selecione **agendas** em **recursos**.
-2. Clique em **adicionar uma agenda** > **vincula um runbook do agendamento tooyour** > **criar uma nova agenda**.
-5. Tipo de saudação seguintes valores para o agendamento de saudação e clique em **criar**.
+1. Nas propriedades do seu runbook, selecione **Agendas** em **Recursos**.
+2. Clique em **Adicionar uma agenda** > **Vincular uma agenda ao runbook** > **Criar uma nova agenda**.
+5. Digite os seguintes valores para o agendamento e clique em **Criar**.
 
 | Propriedade | Valor |
 |:--|:--|
 | Nome | AutomationJobs-Hourly |
-| Inicia | Selecione a qualquer momento pelo menos 5 minutos anterior Olá hora atual. |
+| Inicia | Selecione qualquer horário pelo menos 5 minutos após a hora atual. |
 | Recorrência | Recorrente |
 | Repetir a cada | 1 hora |
 | Definir a validade | Não |
 
-Após Olá cronograma é criado, você precisará tooset valores de parâmetro de saudação que serão usados toda vez que essa agenda inicia o runbook de saudação.
+Depois de criar a agenda, você precisará definir os valores de parâmetro que serão usados sempre que essa agenda iniciar o runbook.
 
 6. Clique em **Configurar parâmetros e configurações de execução**.
 7. Preencha os valores para **ResourceGroupName** e **AutomationAccountName**.
 8. Clique em **OK**. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Verificar se o runbook é iniciado no agendamento
-Toda vez que um runbook é iniciado, [um trabalho é criado](../automation/automation-runbook-execution.md) e qualquer saída é registrada.  Na verdade, esses são Olá mesmo trabalhos Olá runbook está coletando.  Você pode verificar que esse runbook Olá iniciado como esperado por verificações trabalhos Olá Olá runbook após a hora de início de saudação de agenda Olá passou.
+Toda vez que um runbook é iniciado, [um trabalho é criado](../automation/automation-runbook-execution.md) e qualquer saída é registrada.  Na verdade, esses são os mesmos trabalhos que o runbook está coletando.  Você pode verificar se o runbook é iniciado conforme o esperado, verificando os trabalhos para o runbook após a hora de início da agenda.
 
 ![Trabalhos](media/operations-management-suite-runbook-datacollect/jobs.png)
 
-1. Nas propriedades de saudação do seu runbook, selecione **trabalhos** em **recursos**.
-2. Você deve ver que uma lista de trabalhos para cada runbook de saudação do tempo foi iniciada.
-3. Clique em uma saudação trabalhos tooview seus detalhes.
-4. Clique em **todos os logs** tooview Olá logs e saída de runbook hello.
-5. Role toohello inferior toofind uma entrada semelhante toohello imagem a seguir.<br>![Detalhado](media/operations-management-suite-runbook-datacollect/verbose.png)
-6. Clique nesta entrada hello tooview json dados detalhados que foi enviados tooLog análise.
+1. Nas propriedades do seu runbook, selecione **Trabalhos** em **Recursos**.
+2. Você deverá ver uma lista dos trabalhos para cada vez que o runbook foi iniciado.
+3. Clique em um dos trabalhos para exibir seus detalhes.
+4. Clique em **Todos os logs** para exibir os logs e a saída do runbook.
+5. Role para baixo para localizar uma entrada semelhante à imagem a seguir.<br>![Detalhado](media/operations-management-suite-runbook-datacollect/verbose.png)
+6. Clique nessa entrada para exibir os dados json detalhados que foram enviados para o Log Analytics.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Use [View Designer](../log-analytics/log-analytics-view-designer.md) toocreate exibir um modo de exibição Olá dados que você coletou toohello repositório de análise de Log.
-- Empacotar seu runbook em um [solução de gerenciamento de](operations-management-suite-solutions-creating.md) toodistribute toocustomers.
+- Use [Criador de Modos de Exibição](../log-analytics/log-analytics-view-designer.md) para criar uma exibição exibindo os dados coletados no repositório do Log Analytics.
+- Empacotar seu runbook em um [solução de gerenciamento](operations-management-suite-solutions-creating.md) para distribuir para os clientes.
 - Saiba mais sobre o [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Saiba mais sobre a [Automação do Azure](https://docs.microsoft.com/azure/automation/).
-- Saiba mais sobre Olá [API do coletor de dados de HTTP](../log-analytics/log-analytics-data-collector-api.md).
+- Saiba mais sobre a [API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md).

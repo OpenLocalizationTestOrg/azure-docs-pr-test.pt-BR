@@ -1,5 +1,5 @@
 ---
-title: "Padrões e limites de aaaScheduler"
+title: "Limites e padrões do Agendador"
 description: "Limites e padrões do Agendador"
 services: scheduler
 documentationcenter: .NET
@@ -14,27 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 6fe0600d3ce3249d5aab1b877369b175316b5437
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-limits-and-defaults"></a>Limites e padrões do Agendador
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Aceleradores, limites, padrões e cotas do Agendador
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="hello-x-ms-request-id-header"></a>Olá x-ms-request-id cabeçalho
-Cada solicitação feita no hello serviço Agendador retorna um cabeçalho de resposta chamado**x-ms-request-id**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação de saudação.
+## <a name="the-x-ms-request-id-header"></a>O cabeçalho x-ms-request-id
+Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado**x-ms-request-id**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
 
-Se uma solicitação é consistente com falha e você tiver verificado que solicitação Olá formulada corretamente, você pode usar este tooMicrosoft de erro do valor tooreport hello. Em seu relatório, inclua o valor de saudação de tempo aproximado de saudação do x-ms-request-id, essa solicitação Olá foi feita, Olá identificador de assinatura hello, coleção de trabalhos e/ou trabalho e Olá o tipo de operação que Olá tentativa de solicitação.
+Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor de x-ms-request-id, a hora aproximada na qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 

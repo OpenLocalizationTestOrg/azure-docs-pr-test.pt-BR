@@ -1,6 +1,6 @@
 ---
-title: o arquivo de dados aaaLoad de CSV em banco de dados do SQL do Azure (bcp) | Microsoft Docs
-description: Para um tamanho de dados pequeno, usa bcp tooimport dados no banco de dados do SQL Azure.
+title: Carregar dados do arquivo CSV para o Banco de Dados SQL do Azure (bcp) | Microsoft Docs
+description: Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL.
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9350e459aa844223820fbbd849a830cf0354d4e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados do CSV para o Banco de Dados SQL do Azure (arquivos simples)
-Você pode usar dados de tooimport saudação bcp utilitário de linha de comando de um arquivo CSV para o banco de dados do SQL Azure.
+Você pode usar o utilitário de linha de comando bcp para importar dados de um arquivo CSV para o Banco de Dados SQL.
 
 ## <a name="before-you-begin"></a>Antes de começar
 ### <a name="prerequisites"></a>Pré-requisitos
-Olá toocomplete as etapas neste artigo, você precisa:
+Para completar as etapas neste artigo, você precisa:
 
 * Um servidor lógico e um banco de dados do Banco de Dados SQL do Azure
-* Utilitário de linha de comando do bcp Olá instalado
-* Utilitário de linha de comando do sqlcmd Olá instalado
+* O utilitário de linha de comando bcp instalado
+* O utilitário de linha de comando sqlcmd instalado
 
-Você pode baixar os utilitários de bcp e o sqlcmd Olá do hello [Microsoft Download Center][Microsoft Download Center].
+Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dados em formato ASCII ou UTF-16
-Se você estiver tentando neste tutorial com seus próprios dados, os dados precisarem toouse Olá ASCII ou codificação UTF-16 como bcp não oferece suporte a UTF-8. 
+Se você estiver experimentando este tutorial com seus próprios dados, eles precisarão usar a codificação ASCII ou UTF-16, já que bcp não oferece suporte a UTF-8. 
 
 ## <a name="1-create-a-destination-table"></a>1. Criar uma tabela de destino
-Defina uma tabela no banco de dados SQL como tabela de destino de saudação. colunas de saudação na tabela Olá devem corresponder dados toohello em cada linha do arquivo de dados.
+Defina uma tabela no Banco de Dados SQL como a tabela de destino. As colunas na tabela devem corresponder aos dados em cada linha do arquivo de dados.
 
-toocreate uma tabela, abra um prompt de comando e use o sqlcmd.exe toorun Olá comando a seguir:
+Para criar uma tabela, abra um prompt de comando e use sqlcmd.exe para executar o comando a seguir:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Criar um arquivo de dados de origem
-Abra o bloco de notas e copie Olá linhas de dados a seguir em um novo arquivo de texto e, em seguida, salvar esse arquivo tooyour local diretório temp, C:\Temp\DimDate2.txt. Esses dados estão no formato ASCII.
+Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\Temp\DimDate2.txt. Esses dados estão no formato ASCII.
 
 ```
 20150301,1,3
@@ -73,26 +73,26 @@ Abra o bloco de notas e copie Olá linhas de dados a seguir em um novo arquivo d
 20150101,1,3
 ```
 
-(Opcional) tooexport seus próprios dados de um banco de dados do SQL Server, abra um prompt de comando e execute Olá comando a seguir. Substitua TableName, ServerName, DatabaseName, Username e Password por suas próprias informações.
+(Opcional) Para exportar seus próprios dados de um banco de dados do SQL Server, abra um prompt de comando e execute o comando a seguir. Substitua TableName, ServerName, DatabaseName, Username e Password por suas próprias informações.
 
 ```bcp
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-hello-data"></a>3. Carregar dados de saudação
-dados de saudação tooload, abra um prompt de comando e execute Olá comando a seguir, substituindo valores de saudação para o nome do servidor, nome do banco de dados, nome de usuário e senha com suas próprias informações.
+## <a name="3-load-the-data"></a>3. Carregar os dados
+Para carregar os dados, abra um prompt de comando e execute o comando a seguir, substituindo os valores de Nome do Servidor, Nome do Banco de Dados, Nome de Usuário e Senha por suas próprias informações.
 
 ```bcp
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
-Use que estes comando tooverify Olá os dados foram carregados corretamente
+Use este comando para verificar se os dados foram carregados corretamente
 
 ```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-resultados de saudação devem ter esta aparência:
+O resultado deve parecer com o seguinte:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ resultados de saudação devem ter esta aparência:
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>Próximas etapas
-toomigrate um banco de dados do SQL Server, consulte [migração de banco de dados do SQL Server](sql-database-cloud-migrate.md).
+Para migrar um banco de dados do SQL Server, confira [Migração de banco de dados do SQL Server](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

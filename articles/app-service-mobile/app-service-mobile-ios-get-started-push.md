@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd tooiOS de notificações por Push o aplicativo com aplicativos móveis do Azure"
-description: "Saiba como aplicativo de iOS tooyour notificações por push de toosend do toouse os aplicativos móveis do Azure."
+title: "Adicionar notificações por push ao aplicativo iOS com aplicativos móveis do Azure"
+description: "Saiba como usar aplicativos móveis do Azure para enviar notificações por push para seu aplicativo iOS."
 services: app-service\mobile
 documentationcenter: ios
 manager: syntaxc4
@@ -14,21 +14,21 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: glenga
-ms.openlocfilehash: 11588c56bc8987a71257dbad4fcdebf1b3209b1b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08a8c35b89386bd0dbe7bba406a6985a5a0d7eb8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-push-notifications-tooyour-ios-app"></a>Adicionar aplicativo do iOS de tooyour notificações por Push
+# <a name="add-push-notifications-to-your-ios-app"></a>Adicionar as notificações por push ao seu aplicativo iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Visão geral
-Neste tutorial, você adiciona toohello de notificações por push [início rápido do iOS] projeto para que uma notificação por push seja enviada toohello dispositivo toda vez que um registro é inserido.
+Neste tutorial, você adicionará notificações por push ao projeto de [Início rápido do iOS] de forma que sempre que um registro for inserido, uma notificação por push seja enviada.
 
-Se você não usar Olá baixar o projeto de servidor de início rápido, será necessário Olá o pacote de extensão de notificação por push. Consulte [funcionam com o servidor de back-end .NET Olá SDK para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
+Se você não usar o projeto baixado do início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Confira [Trabalhar com o servidor back-end SDK do .NET para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
 
-Olá [simulador iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo iOS físico e uma [Associação de programa para desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
+O [simulador do iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo iOS físico e uma [Associação de programa para desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
 ## <a name="configure-hub"></a>Configurar Hub de Notificações
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -36,24 +36,24 @@ Olá [simulador iOS não dá suporte a notificações por push](https://develope
 ## <a id="register"></a>Registre o aplicativo para obter notificações por push
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-azure-toosend-push-notifications"></a>Configurar notificações por push de toosend do Azure
+## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações por push
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a id="update-server"></a>Atualizar as notificações por push de toosend de back-end
+## <a id="update-server"></a>Atualizar back-end para enviar notificações por push
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Adicionar tooapp de notificações por push
+## <a id="add-push"></a>Adicionar notificações por push ao aplicativo
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
 ## <a id="test"></a>Testar notificações por push
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
 ## <a id="more"></a>Mais
-* Modelos oferecem envios de plataforma cruzada toosend flexibilidade e envios localizados. [Como tooUse iOS biblioteca de cliente para aplicativos móveis do Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra como tooregister modelos.
+* Os modelos fornecem a flexibilidade para enviar pushes de plataforma cruzada e pushes localizados. [Como usar a biblioteca de cliente do iOS para aplicativos móveis do Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra como registrar os modelos.
 
 <!-- Anchors.  -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[início rápido do iOS]: app-service-mobile-ios-get-started.md
+[Início rápido do iOS]: app-service-mobile-ios-get-started.md

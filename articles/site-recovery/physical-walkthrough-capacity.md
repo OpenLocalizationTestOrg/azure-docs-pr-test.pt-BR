@@ -1,6 +1,6 @@
 ---
-title: "aaaPlan capacidade e dimensionamento para tooAzure de replicação de servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: "Usar essa capacidade de tooplan de artigo e o dimensionamento ao replicar tooAzure de servidores físicos do Windows/Linux com o Azure Site Recovery"
+title: "Planejar a capacidade e o dimensionamento para a replicação de servidor físico para o Azure com o Azure Site Recovery | Microsoft Docs"
+description: "Use este artigo para planejar a capacidade e a escala ao replicar servidores físicos Windows/Linux para o Azure com o Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.openlocfilehash: 209980963c07d13e15802a5da44769ac559217d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-3-plan-capacity-and-scaling-for-physical-server-tooazure-replication"></a>Etapa 3: Planejar a capacidade e dimensionamento de replicação do servidor físico tooAzure
+# <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>Etapa 3: Planejar a capacidade e o dimensionamento para a replicação de servidor físico para o Azure
 
-Use toofigure este artigo out capacidade e dimensionamento, quando você estiver replicando local tooAzure de servidores físicos do Windows/Linux com [do Azure Site Recovery](site-recovery-overview.md).
+Use este artigo para descobrir a capacidade e o dimensionamento ao replicar servidores físicos Windows/Linux locais para o Azure com o [Azure Site Recovery](site-recovery-overview.md).
 
-Postar perguntas e comentários na parte inferior da saudação deste artigo, ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Poste perguntas e comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="plan-deployment-capacity"></a>Planejar a capacidade de implantação
 
-1. Leia este [artigo](site-recovery-plan-capacity-vmware.md) toolearn sobre como estimar os requisitos de replicação e a orientação de dimensionamento de componentes do Site Recovery.
-2. Leia Considerações Olá abaixo toolearn sobre dimensionamento de servidores de componentes e o controle de largura de banda do computador replicado.
+1. Leia este [artigo](site-recovery-plan-capacity-vmware.md) para saber mais sobre como estimar os requisitos de replicação, além de diretrizes de dimensionamento de componentes do Site Recovery.
+2. Leia as considerações abaixo para saber mais sobre como dimensionar servidores de componentes e controlar a largura de banda dos computadores replicados.
 
 ## <a name="replication-considerations"></a>Considerações sobre a replicação
 
-Use esses toofigure considerações sobre requisitos de servidor duplicado.
+Use essas considerações para descobrir os requisitos do servidor replicado.
 
 **Componente** | **Detalhes** 
 --- | --- 
-**Replicação** | **Taxa de alteração diária máxima:** um computador protegido só pode usar um servidor de processo e um servidor de processo único pode lidar com uma taxa de alteração diária até too2 TB. Portanto, 2 TB é máxima de dados diário Olá alterar taxa em que há suporte para um computador protegido.<br/><br/> **Taxa de transferência máxima:** um computador replicado pode pertencer tooone conta de armazenamento do Azure. Uma conta de armazenamento padrão pode lidar com um máximo de 20.000 solicitações por segundo, e é recomendável que você mantenha o número de saudação de operações de entrada/saída por segundo (IOPS) em um too20 da máquina de origem, 000. Por exemplo, se você tiver uma máquina de origem com 5 discos, e cada disco gera 120 IOPS (tamanho de 8K) no computador de origem hello, em seguida, ele será em hello Azure por limite de IOPS de disco de 500. (o número de saudação de contas de armazenamento necessária é máquina de origem total toohello igual IOPS, dividida por 20.000.)
+**Replicação** | **Taxa máxima de alteração diária**: um computador protegido só pode usar um servidor de processo, e um único servidor de processo pode lidar com uma taxa de alteração diária de até 2 TB. Portanto, 2 TB é a taxa de alteração diária máxima com suporte para um computador protegido.<br/><br/> **Taxa de transferência máxima**: um computador replicado pode pertencer a uma conta de armazenamento no Azure. Uma conta de armazenamento padrão pode lidar com um máximo de 20 mil solicitações por segundo e o recomendável é manter o número de operações IOPS (entrada/saída por segundo) em um computador de origem como 20 mil. Por exemplo, se você tiver um computador de origem com 5 discos e cada disco gerar 120 IOPS (8 K de tamanho) no computador de origem, ele estará dentro do limite IOPS de 500 por disco do Azure. (O número de contas de armazenamento necessário é igual ao total de IOPS do computador de origem, dividido por 20 mil).
 
 ## <a name="configuration-server-capacity"></a>Capacidade do servidor de configuração
 
-servidor de configuração de saudação deve ser capacidade taxa de alteração diária toohandle capaz de saudação em todas as cargas de trabalho em execução em computadores protegidos e precisa toocontinuously de largura de banda suficiente replicar dados tooAzure armazenamento.
+O servidor de configuração deve ser capaz de lidar com a capacidade da taxa de alteração diária em todas as cargas de trabalho em execução em computadores protegidos e precisa ter largura de banda suficiente para replicar continuamente os dados no Armazenamento do Azure.
 
-Como uma prática recomendada, localize o servidor de configuração de saudação no hello mesma rede e o segmento de LAN Olá máquinas que você deseja tooprotect. Ela pode estar localizada em uma rede diferente, mas as máquinas que você deseja tooprotect devem ter tooit de visibilidade de rede 3 de camada.
+Como prática recomendada, aloque o servidor de configuração na mesma rede e no mesmo segmento de LAN que os computadores que deseja proteger. Ele pode ser colocado em uma rede diferente, mas os computadores que você quer proteger devem ter visibilidade de rede de camada 3 para ele.
 
 ## <a name="sizing-recommendations"></a>Recomendações de dimensionamento
 
-tabela de saudação resume as recomendações de dimensionamento com base na CPU.
+A tabela resume as recomendações de dimensionamento com base na CPU.
 
 **CPU** | **Memória** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Computadores protegidos**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | Replique menos de 100 computadores.
-12 vCPUs (2 soquetes * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB too1 TB | Replique entre 100 e 150 computadores.
-16 vCPUs (2 soquetes * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB too2 TB | Replique entre 150 e 200 computadores.
-Implantar outro servidor de processo | | | > 2 TB | Implante servidores de processo adicional se você estiver replicando mais de 200 máquinas, ou se alterar dados diários Olá taxa excede 2 TB.
+12 vCPUs (2 soquetes * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replique entre 100 e 150 computadores.
+16 vCPUs (2 soquetes * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replique entre 150 e 200 computadores.
+Implantar outro servidor de processo | | | > 2 TB | Implante servidores de processo adicionais se estiver replicando mais de 200 computadores ou se a taxa de alteração diária de dados ultrapassar 2 TB.
 
 Em que:
 
@@ -65,67 +65,67 @@ Em que:
 ## <a name="process-server-capacity"></a>Capacidade do servidor em processo
 
 
-servidor de processo Olá recebe dados de replicação de computadores protegidos e otimiza o com o cache, a compactação e criptografia. Em seguida, ele envia Olá dados tooAzure.
+O servidor de processo recebe os dados de replicação de computadores protegidos e os otimiza com caching, compactação e criptografia. Em seguida, ele envia os dados ao Azure.
 
-- máquina de servidor de processo Olá deve ter tooperform de recursos suficientes essas tarefas.
-- primeiro servidor de processo Olá é instalado por padrão no servidor de configuração de saudação. Você pode implantar tooscale de servidores de processo adicional em seu ambiente.
-- servidor de processo Olá usa um cache com base em disco. Use um disco de cache separado de 600 GB ou mais alterações de dados de toohandle armazenadas no evento de saudação de um afunilamento de rede ou uma interrupção.
-- Se você precisa de mais de 200 máquinas tooprotect ou taxa de alteração diária Olá é maior que 2 TB, você pode adicionar carga do processo servidores toohandle Olá replicação. tooscale-out, você pode:
-    - Aumente o número de saudação de servidores de configuração. Por exemplo, você pode proteger as máquinas too400 com dois servidores de configuração.
-    - Adicionar mais servidores de processo e usar esse servidor de configuração Olá toohandle tráfego em vez de (ou além).
+- O computador do servidor de processo deve ter recursos suficientes para executar essas tarefas.
+- O primeiro servidor de processo é instalado por padrão no servidor de configuração. Você pode implantar servidores de processo adicionais par dimensionar seu ambiente.
+- O servidor de processo usa o cache baseado em disco. Use um disco de cache separado de 600 GB ou mais para lidar com alterações de dados armazenados em caso de afunilamento ou interrupção da rede.
+- Se precisar proteger mais de 200 computadores, ou se a taxa de alteração diária for maior que 2 TB, você poderá adicionar servidores de processo para manipular a carga de replicação. Para escalar horizontalmente, você pode:
+    - Aumente o número de servidores de configuração. Por exemplo, você pode proteger até 400 computadores com dois servidores de configuração.
+    - Adicione mais servidores de processo e use-os para manipular o tráfego em vez do (ou além do) servidor de configuração.
 
 
 ### <a name="example-process-server-scaling"></a>Dimensionamento de exemplo do servidor em processo
 
-Olá, a tabela a seguir descreve um cenário em que:
+A tabela a seguir descreve um cenário em que:
 
-* Você não estiver planejando o servidor de configuração de saudação toouse como um servidor de processo.
+* Você não planeja usar o servidor de configuração como um servidor de processo.
 * Você configurou um servidor de processo adicional.
-* Você configurou o servidor em processo adicionais de máquinas virtuais protegidas toouse hello.
+* Você configurou máquinas virtuais protegidas para usar o servidor em processo adicional.
 * Cada computador de origem protegido é configurado com três discos de 100 GB cada.
 
 **Servidor de configuração** | **Servidor de processo adicional** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Computadores protegidos**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz), 16 GB de memória | 4 vCPUs (2 soquetes * 2 núcleos a 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Replicar 85 computadores ou menos.
-8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz), 16 GB de memória | 8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz), 12 GB de memória | 600 GB | 250 GB too1 TB | Replique entre 85 e 150 computadores.
-12 vCPUs (2 soquetes * 6 núcleos a 2,5 GHz), 18 GB de memória | 12 vCPUs (2 soquetes * 6 núcleos a 2,5 GHz), 24 GB de memória | 1 TB | 1 TB too2 TB | Replique entre 150 e 225 computadores.
+8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz), 16 GB de memória | 8 vCPUs (2 soquetes * 4 núcleos a 2,5 GHz), 12 GB de memória | 600 GB | 250 GB a 1 TB | Replique entre 85 e 150 computadores.
+12 vCPUs (2 soquetes * 6 núcleos a 2,5 GHz), 18 GB de memória | 12 vCPUs (2 soquetes * 6 núcleos a 2,5 GHz), 24 GB de memória | 1 TB | 1 TB a 2 TB | Replique entre 150 e 225 computadores.
 
-forma Olá no qual você dimensionar seus servidores depende de sua preferência para um modelo de escala vertical ou expansão.  Você pode escalar verticalmente implantando alguns servidores de processo e de configuração de alto nível ou escalar horizontalmente implantando mais servidores com poucos recursos. Por exemplo, se você precisar 220 máquinas tooprotect, você pode fazer Olá seguinte:
+A maneira como você escala seus servidores depende de sua preferência por um modelo que escale vertical ou horizontalmente.  Você pode escalar verticalmente implantando alguns servidores de processo e de configuração de alto nível ou escalar horizontalmente implantando mais servidores com poucos recursos. Por exemplo, se você precisa proteger 220 computadores, faça o seguinte:
 
-* Configure o servidor de configuração de saudação com 12 vCPU, 18 GB de memória e um servidor de processo adicional com 12 vCPU, 24 GB de memória. Configure servidor de processo adicional do máquinas protegidas toouse Olá somente.
-* Configure dois servidores de configuração (2 x 8 de vCPU, 16 GB de RAM) e dois servidores de processo adicional (1x8 vCPU e máquinas [220] do 4 vCPU x 1 toohandle 135 + 85). Configure computadores protegidos toouse Olá processo adicional somente os servidores.
+* Instale o servidor de configuração com 12 vCPUs, 18 GB de memória e um servidor de processo adicional com 12 vCPUs, 24 GB de memória. Configure computadores protegidos para usar apenas o servidor de processo adicional.
+* Instale dois servidores de configuração (2 x 8 vCPUs, 16 GB de RAM) e dois servidores de processo adicionais (1 x 8 vCPUs e 4 vCPUs x 1 para tratar de 135 + 85 [220] computadores). Configure computadores protegidos para usar apenas os servidores de processo adicionais.
 
 ## <a name="deploy-additional-process-servers"></a>Implantar servidores de processo adicionais
 
-1. Execute [estas instruções](site-recovery-vmware-setup-azure-ps-resource-manager.md) tooset um servidor de processo adicional.
-2. Se você não tem senha hello, execute **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe – n** em Olá configuração server tooget-lo.
-3. Depois de configurar o servidor de processo hello, migrar fonte máquinas toouse-lo.
+1. Siga [estas instruções](site-recovery-vmware-setup-azure-ps-resource-manager.md) para configurar outro servidor em processo.
+2. Caso não tenha a frase secreta, execute **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** no servidor de configuração para obtê-la.
+3. Depois de configurar o servidor em processo, você migrará os computadores de origem para usá-lo.
 
-    1. Em **configurações** > **servidores de recuperação de Site**, clique em servidor de configuração de hello > **processar servidores**.
-    2. Servidor de processo Olá com o botão direito em uso no momento > **comutador**.
-    3. Em **selecione servidor de processo**, selecione o servidor de processo Olá desejado toouse e selecione Olá VMs nesse servidor de saudação tratará.
-    4. Clique o ícone de informações de saudação. toohelp você fazer as decisões de carga, Olá médio espaço que é necessário tooreplicate cada VM toohello novo servidor de processo selecionado é exibido.
-    5. Clique em Olá marca de seleção toostart replicação toohello novo servidor de processo.
+    1. Em **Configurações** > **Servidores do Site Recovery**, clique no servidor de configuração > **Servidores em processo**.
+    2. Clique com o botão direito do mouse no servidor em processo atualmente em uso > **Alternar**.
+    3. Em **Selecionar servidor em processo de destino**, selecione o servidor em processo que você deseja usar e as VMs que serão manipuladas pelo servidor.
+    4. Clique no ícone de informações. Para ajudá-lo a tomar decisões de carregamento, o espaço médio necessário para replicar cada VM selecionada no novo servidor em processo é exibido.
+    5. Clique na marca de verificação para iniciar a replicação no novo servidor em processo.
 
 ## <a name="control-network-bandwidth"></a>Controlar largura de banda da rede
 
-Depois de executar [ferramenta de implantação Planejador Olá](site-recovery-deployment-planner.md) largura de banda de saudação toocalculate é necessário para replicação (a replicação inicial hello e, em seguida, delta), você pode controlar a quantidade de saudação de largura de banda usada para replicação usando duas opções:
+Depois de executar [a ferramenta Planejador de Implantação](site-recovery-deployment-planner.md) para calcular a largura de banda necessária para a replicação (a replicação inicial e, depois, a delta), você pode controlar a quantidade de largura de banda utilizada para a replicação usando algumas opções:
 
-* **Limitação da largura de banda**: tráfego VMware que replica tooAzure passa por um servidor de processo específico. Você pode reduzir a largura de banda em computadores de saudação em execução como servidores de processo.
-* **Influenciam a largura de banda**: você pode influenciar a largura de banda de saudação usada para replicação usando duas chaves do registro:
-  * Olá **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** valor de registro Especifica o número de saudação de threads que são usados para a transferência de dados (replicação inicial ou delta) de um disco. Um valor mais alto aumenta a largura de banda de rede Olá usada para replicação.
-  * Olá **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** Especifica o número de saudação de threads usados para transferência de dados durante o failback.
+* **Restringir a largura de banda**: o tráfego VMware que replica para o Azure passa por um servidor de processo específico. Você pode limitar a largura de banda nos computadores em execução como servidores de processo.
+* **Influenciar a largura de banda**: você pode influenciar a largura de banda usada para replicação usando algumas chaves do Registro:
+  * O valor de registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** especifica o número de threads usados para a transferência de dados (replicação inicial ou delta) de um disco. Um valor mais alto aumenta a largura de banda de rede usada para replicação.
+  * O **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** especifica o número de threads usados para transferência de dados durante o failback.
 
 ### <a name="throttle-bandwidth"></a>Restringir a largura de banda
 
-1. Abra Olá snap-in de MMC de Backup do Azure em atuar de máquina hello como servidor de processo hello. Por padrão, um atalho para o Backup está disponível na área de trabalho hello, ou em Olá pasta a seguir: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. Olá snap-in, clique em **alterar propriedades**.
-3. Em Olá **limitação** guia, selecione **habilitar limitação para operações de backup do uso de largura de banda de internet**.
-4. Definir limites de Olá de trabalho e de folga horas. Intervalos válidos são de 512 Mbps de too102 Kbps por segundo.
+1. Abra o snap-in do MMC do Backup do Azure no computador atuando como o servidor de processo. Por padrão, um atalho para o Backup está disponível na área de trabalho ou na seguinte pasta: C:\Arquivos de Programas\Serviços de Recuperação do Microsoft Azure\bin\wabadmin.
+2. No snap-in, clique em **Alterar Propriedades**.
+3. Na guia **Limitação**, selecione **Habilitar limitação de uso da largura de banda de Internet para operações de backup**.
+4. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 102 Mbps por segundo.
 
     ![Restrição](./media/physical-walkthrough-capacity/throttle2.png)
 
-Você também pode usar o hello [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet tooset limitação. Veja um exemplo:
+Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) para definir a limitação. Veja um exemplo:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -135,14 +135,14 @@ Você também pode usar o hello [Set-OBMachineSetting](https://technet.microsoft
 
 ### <a name="influence-network-bandwidth-for-a-vm"></a>Influenciar largura de banda da rede para uma VM
 
-1. No registro de saudação VM, vá muito**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * tráfego de largura de banda de saudação tooinfluence em um disco de replicação, modifique o valor de saudação do **UploadThreadsPerVM**, ou criar a chave de saudação se ele não existir.
-   * largura de banda tooinfluence Olá para o tráfego de failback do Azure, modifique o valor de saudação do **DownloadThreadsPerVM**.
-2. valor padrão de saudação é 4. Em uma rede sobreprovisionada, essas chaves do Registro devem ser modificadas. Olá máximo é 32. Monitorar o tráfego toooptimize Olá valor.
+1. No Registro da VM, acesse **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
+   * Para influenciar o tráfego de largura de banda em um disco de replicação, modifique o valor de **UploadThreadsPerVM** ou crie a chave caso ela não exista.
+   * Para influenciar a largura de banda para o tráfego de failback do Azure, modifique o valor de **DownloadThreadsPerVM**.
+2. O valor padrão é 4. Em uma rede sobreprovisionada, essas chaves do Registro devem ser modificadas. O máximo é 32. Monitore o tráfego para otimizar o valor.
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá muito[etapa 4: planejar a rede](physical-walkthrough-network.md).
+Ir para a [Etapa 4: Planejar a rede](physical-walkthrough-network.md).

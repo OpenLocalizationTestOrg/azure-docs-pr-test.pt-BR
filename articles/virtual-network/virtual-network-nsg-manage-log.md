@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitor operações, eventos e contadores de NSGs | Microsoft Docs"
-description: Saiba como tooenable contadores, eventos e log operacional para os NSGs
+title: "Monitorar operações, eventos e contadores para NSGs | Microsoft Docs"
+description: Saiba como habilitar logs operacionais , de eventos e de contadores para NSGs
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,59 +15,59 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: f16f1a0ad693028ee7aba21574b5c8ddfcd27096
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Análise de logs para NSGs (grupos de segurança de rede)
 
-Você pode habilitar Olá categorias de log de diagnóstico a seguir para NSGs:
+Você pode habilitar as seguintes categorias de log de diagnóstico para NSGs:
 
-* **Evento:** contém entradas para o NSG as regras são aplicadas tooVMs e funções de instância com base no endereço MAC. status Olá para essas regras são coletados a cada 60 segundos.
-* **Contador da regra:** contém entradas para quantas vezes cada NSG regra é aplicada toodeny ou permitir o tráfego.
+* **Evento:** contém entradas para as regras NSG que são aplicadas às VMs e funções de instância com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
+* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego.
 
 > [!NOTE]
-> Logs de diagnóstico só estão disponíveis para os NSGs implantados por meio do modelo de implantação do Azure Resource Manager hello. Não é possível habilitar o log de diagnóstico para os NSGs implantadas por meio do modelo de implantação clássico hello. Para melhor compreensão de modelos de saudação dois, referência Olá [modelos de implantação do Azure Noções básicas sobre](../resource-manager-deployment-model.md) artigo.
+> Os logs de diagnóstico estão disponíveis apenas para NSGs implantados por meio do modelo de implantação do Azure Resource Manager. Você não pode habilitar o log de diagnóstico para NSGs implantados por meio do modelo de implantação clássico. Para entender melhor esses dois modelos, leia o artigo [Understanding Azure deployment models](../resource-manager-deployment-model.md) (Noções básicas sobre os modelos de implantação do Azure).
 
-O log de atividades (anteriormente conhecido como logs de auditoria ou operacionais) está habilitado por padrão para NSGs criados por meio de qualquer modelo de implantação do Azure. toodetermine quais operações foram concluídas no NSGs no log de atividades de hello, procure entradas que contenham Olá tipos de recursos a seguir: 
+O log de atividades (anteriormente conhecido como logs de auditoria ou operacionais) está habilitado por padrão para NSGs criados por meio de qualquer modelo de implantação do Azure. Para determinar quais operações foram concluídas em NSGs no log de atividades, procure entradas contendo os seguintes tipos de recursos: 
 
 - Microsoft.ClassicNetwork/networkSecurityGroups 
 - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
 - Microsoft.Network/networkSecurityGroups
 - Microsoft.Network/networkSecurityGroups/securityRules 
 
-Saudação de leitura [visão geral da saudação Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) artigo toolearn mais informações sobre logs de atividade. 
+Leia o artigo [Visão geral do Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) para saber mais sobre os logs de atividade. 
 
 ## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 
-Log de diagnóstico deve ser habilitado para *cada* NSG que você deseja toocollect dados. Olá [visão geral do Azure Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigo explica onde os logs de diagnóstico podem ser enviados. Se você não tiver um NSG existente, Olá concluir etapas no hello [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md) toocreate artigo um. Você pode habilitar o diagnóstico de log usando qualquer um dos métodos a seguir de saudação do NSG:
+O log de diagnóstico deve ser habilitado para *cada* NSG do qual você quer coletar dados. O artigo [Visão geral dos Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) explica para onde os logs de diagnóstico podem ser enviados. Caso não tenha um NSG, conclua as etapas no artigo sobre como [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md) para criar um. Você pode habilitar o log de diagnóstico do NSG usando qualquer um dos seguintes métodos:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-toouse Olá tooenable portal registro em log, logon toohello [portal](https://portal.azure.com). Clique em **Mais serviços** e digite *grupos de segurança de rede*. Selecione Olá NSG que você deseja tooenable o log de. Siga as instruções de saudação para recursos de computação não Olá [habilitar logs de diagnóstico no portal de saudação](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artigo. Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** ou ambas as categorias de log.
+Para usar o portal a fim de habilitar o log, entre no [portal](https://portal.azure.com). Clique em **Mais serviços** e digite *grupos de segurança de rede*. Escolha o NSG para o qual quer habilitar o log. Siga as instruções para recursos de não computação no artigo [Habilite os logs de diagnóstico no portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** ou ambas as categorias de log.
 
 ### <a name="powershell"></a>PowerShell
 
-toouse PowerShell tooenable log, siga as instruções de Olá Olá [habilitar logs de diagnóstico por meio do PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artigo. Avalie Olá informações antes de inserir um comando do artigo Olá a seguir:
+Para usar o PowerShell a fim de habilitar o log, siga as instruções no artigo [Habilitar os Logs de Diagnóstico pelo PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Avalie as seguintes informações antes de inserir um comando do artigo:
 
-- Você pode determinar Olá valor toouse para Olá `-ResourceId` parâmetro substituindo Olá seguir [texto], conforme apropriado, digitando o comando Olá `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Olá ID saída do comando Olá se assemelha muito*/subscriptions/ [nome da assinatura Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
-- Se você desejar apenas toocollect dados da categoria do log adicione `-Categories [category]` toohello final do comando Olá artigo hello, onde categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você não usar Olá `-Categories` parâmetro, coleta de dados está habilitado para categorias de log.
+- Você pode determinar o valor a ser usado para o parâmetro `-ResourceId` substituindo o seguinte [texto], conforme apropriado, e digitando o comando `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. A saída de ID do comando é semelhante a */subscriptions/[ID da Assinatura]/resourceGroups/[grupo de recursos]/providers/Microsoft.Network/networkSecurityGroups/[nome do NSG]*.
+- Se quiser coletar apenas dados da categoria de log, adicione `-Categories [category]` ao fim do comando no artigo, onde a categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se não quiser usar o parâmetro `-Categories`, a coleta de dados será habilitada para ambas as categorias de log.
 
 ### <a name="azure-command-line-interface-cli"></a>CLI (interface de linha de comando) do Azure
 
-toouse Olá log de tooenable CLI, siga as instruções de Olá Olá [habilitar logs de diagnóstico por meio de CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artigo. Avalie Olá informações antes de inserir um comando do artigo Olá a seguir:
+Para usar a CLI a fim de habilitar o log, siga as instruções no artigo [Habilitar os Logs de Diagnóstico pela CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Avalie as seguintes informações antes de inserir um comando do artigo:
 
-- Você pode determinar Olá valor toouse para Olá `-ResourceId` parâmetro substituindo Olá seguir [texto], conforme apropriado, digitando o comando Olá `azure network nsg show [resource-group-name] [nsg-name]`. Olá ID saída do comando Olá se assemelha muito*/subscriptions/ [nome da assinatura Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
-- Se você desejar apenas toocollect dados da categoria do log adicione `-Categories [category]` toohello final do comando Olá artigo hello, onde categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você não usar Olá `-Categories` parâmetro, coleta de dados está habilitado para categorias de log.
+- Você pode determinar o valor a ser usado para o parâmetro `-ResourceId` substituindo o seguinte [texto], conforme apropriado, e digitando o comando `azure network nsg show [resource-group-name] [nsg-name]`. A saída de ID do comando é semelhante a */subscriptions/[ID da Assinatura]/resourceGroups/[grupo de recursos]/providers/Microsoft.Network/networkSecurityGroups/[nome do NSG]*.
+- Se quiser coletar apenas dados da categoria de log, adicione `-Categories [category]` ao fim do comando no artigo, onde a categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se não quiser usar o parâmetro `-Categories`, a coleta de dados será habilitada para ambas as categorias de log.
 
 ## <a name="logged-data"></a>Dados registrados
 
-Os dados formatados pelo JSON são gravados em ambos os logs. dados específicos de saudação gravados para cada tipo de log está listado no hello seções a seguir:
+Os dados formatados pelo JSON são gravados em ambos os logs. Os dados específicos gravados para cada tipo de log são listados nas seguintes seções:
 
 ### <a name="event-log"></a>Log de eventos
-Este log contém informações sobre quais NSG regras são aplicadas tooVMs e instâncias de função de serviço, com base no endereço MAC de nuvem. Olá, dados de exemplo a seguir é registrada para cada evento:
+Esse log contém informações sobre quais regras NSG são aplicadas às VMs e instâncias de função de serviço de nuvem, com base no endereço MAC. Os seguintes dados de exemplo são registrados para cada evento:
 
 ```json
 {
@@ -98,7 +98,7 @@ Este log contém informações sobre quais NSG regras são aplicadas tooVMs e in
 
 ### <a name="rule-counter-log"></a>Log de contador de regra
 
-Este log contém informações sobre cada regra aplicada tooresources. Olá dados de exemplo a seguir são registrados sempre que uma regra será aplicada:
+Esse log contém informações sobre cada regra aplicada aos recursos. Os seguintes dados de exemplo são registrados toda vez que uma regra é aplicada:
 
 ```json
 {
@@ -122,4 +122,4 @@ Este log contém informações sobre cada regra aplicada tooresources. Olá dado
 
 ## <a name="view-and-analyze-logs"></a>Exibir e analisar os logs
 
-toolearn como dados de log de atividade tooview ler Olá [visão geral da saudação Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigo. toolearn como dados de log de diagnóstico tooview ler Olá [visão geral do Azure Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigo. Se você enviar dados de diagnóstico tooLog análise, você pode usar o hello [análise do grupo de segurança de rede do Azure](../log-analytics/log-analytics-azure-networking-analytics.md) solução de gerenciamento (visualização) para insights aprimorado. 
+Para saber como exibir os dados do log de atividade, leia o artigo [Visão Geral dos Logs de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Para saber como exibir os dados do log de diagnóstico, leia o artigo [Visão Geral dos Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Se você enviar dados de diagnóstico ao Log Analytics, será possível usar a solução de gerenciamento de [análise de Grupo de Segurança de Rede do Azure](../log-analytics/log-analytics-azure-networking-analytics.md) (visualização) para obter informações avançadas. 

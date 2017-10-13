@@ -1,6 +1,6 @@
 ---
-title: "aaaUser ação iniciada pelo Azure automação de Runbook na análise de Log | Microsoft Docs"
-description: "Este artigo descreve como toorun um runbook de automação de uma análise de Log Pesquisar resultados sob demanda."
+title: "Ação de Runbook de Automação do Azure no Log Analytics iniciada pelo usuário | Microsoft Docs"
+description: "Este artigo descreve como executar um runbook de automação de um resultado de pesquisa do Log Analytics sob demanda."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 53c25431572babd5fd54bf964e4683077e2a4c2d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar uma ação com um Runbook de Automação de um resultado de pesquisa do Log Analytics
 
-Em um resultado de pesquisa de log na análise de Log do Azure, agora você pode selecionar **agir** toorun um runbook de automação.  Olá runbook pode ser usado tooremediate Olá problema ou executar alguma outra ação, como coletar informações de solução de problemas, envie um email ou criar uma solicitação de serviço. 
+De um resultado de pesquisa do Azure Log Analytics, você pode agora selecionar **Agir** para executar um runbook de Automação.  O runbook pode ser usado para corrigir o problema ou executar alguma outra ação, como coletar informações de solução de problemas, enviar um email ou criar uma solicitação de serviço. 
 
 ## <a name="components-and-features-used"></a>Componentes e recursos usados
 * [Conta de Automação do Azure](../automation/automation-offering-get-started.md)
 * [Espaço de trabalho do Log Analytics](../log-analytics/log-analytics-overview.md)
 
-## <a name="tooinitiate-runbook-from-log-search"></a>runbook tooinitiate de pesquisa de log
+## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar o runbook da pesquisa de logs
 
-ação tootake em um evento e iniciar um runbook a partir de resultados de pesquisa de log, comece criando uma pesquisa de log e de resultados hello, você pode chamar uma runbook sob demanda.  Isso pode ser obtido do recurso de pesquisa de log de saudação do hello Azure ou [portal do OMS](../log-analytics/log-analytics-log-searches.md).  Neste exemplo, podemos executar uma pesquisa de log de saudação portal do Azure com uma demonstração básica desse recurso.
+Para executar a ação em um evento e iniciar um runbook de seus resultados da pesquisa de logs, você começa criando uma pesquisa de logs e, dos resultados, você pode invocar um runbook sob demanda.  Isso pode ser obtido por meio do recurso de pesquisa de logs no Azure ou [portal do OMS](../log-analytics/log-analytics-log-searches.md).  Neste exemplo, podemos realizar uma pesquisa de logs no Portal do Azure com uma demonstração básica desse recurso.
 
-1. Olá portal do Azure, no menu de Hub Olá em **mais serviços** e selecione **análise de Log**.  
-2. Na folha de análise de Log hello, selecione seu espaço de trabalho de análise de Log e na folha de espaço de trabalho Olá selecione **pesquisa de Log**.  
-3. Na folha de pesquisa de Log hello, execute uma pesquisa de log.  
-4. Olá log dos resultados da pesquisa, clique em esquerda de toohello Olá elipse de um dos campos de saudação e de saudação pop-up, selecione **agir em**.<br><br> ![Selecione a opção Agir do resultado da pesquisa](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
-5. Na folha de ação de Take hello, selecione **executar um runbook**e em Olá **executar um runbook** folha, você pode selecionar um toorun de runbook.  Você pode selecionar qualquer runbook no hello conta de automação é o espaço de trabalho de análise de Log toohello vinculado.  Observe o seguinte hello:
+1. No Portal do Azure, no menu Hub, clique em **Mais serviços** e selecione **Log Analytics**.  
+2. Na folha Log Analytics, selecione seu espaço de trabalho do Log Analytics e, na folha do espaço de trabalho, selecione **Pesquisa de Logs**.  
+3. Na folha Pesquisa de Logs, execute uma pesquisa de logs.  
+4. Dos resultados da pesquisa de logs, clique na elipse à esquerda de um dos campos e, do popup, selecione **Agir a respeito**.<br><br> ![Selecione a opção Agir do resultado da pesquisa](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
+5. Da folha Agir, selecione **Executar um runbook** e, na folha **Executar um Runbook**, você pode selecionar um runbook para executar.  Você pode selecionar qualquer runbook na conta de Automação que está vinculada ao espaço de trabalho do Log Analytics.  Observe o seguinte:
 
     * Os runbooks são organizados por marcas
-    * Valores de parâmetro de entrada do runbook podem ser selecionados diretamente em campos de saudação do resultado da pesquisa hello.  Uma lista suspensa aparecerá exibindo todos os campos disponíveis do hello de tooselect de resultado de saudação do.  
-    * Você pode escolher toorun Olá runbook em um [hybrid runbook worker de](../automation/automation-hybrid-runbook-worker.md) que você instalou no computador de saudação que tem o problema de saudação se você tiver um grupo do Hybrid Runbook Worker correspondente que contenha apenas como um membro.  Se nome de saudação do grupo do Hybrid Worker Olá corresponder a nome de saudação do computador Olá no resultado de pesquisa de log de saudação, grupo de saudação é selecionado automaticamente.    
+    * Valores de parâmetro de entrada de runbook podem ser selecionados diretamente dos campos do resultado de pesquisa.  Aparecerá uma lista suspensa exibindo todos os campos disponíveis do resultado dentre os quais se poderá selecionar.  
+    * Você poderá optar por executar o runbook em um [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) que você instalou no computador que tem o problema, desde que você tenha um grupo de Hybrid Runbook Worker correspondente contendo somente esse computador como um membro.  Se o nome do grupo Hybrid Worker corresponde ao nome do computador que está no resultado da pesquisa de logs, o grupo é selecionado automaticamente.    
 
-6. Depois de clicar em **executar**, folha de trabalho de runbook Olá abrirá tooallow você tooreview Olá status do trabalho de saudação.   
+6. Depois de clicar em **Executar**, a folha do trabalho de runbook será aberta para que você possa examinar o status do trabalho.   
 
-Se você selecionar um runbook que foi configurado toobe [chamado a partir de um alerta de análise de Log](../automation/automation-invoke-runbook-from-omsla-alert.md), ele tem um parâmetro de entrada chamado **WebhookData** que é **objeto** tipo.  Se o parâmetro de entrada hello é obrigatório, você precisa toopass Olá pesquisa resultados toohello runbook para que ele pode converter cadeia de caracteres formatada em JSON de saudação em um tipo de objeto, permitindo que você toofilter em itens específicos que você irá referenciar nas atividades de runbook.  Você faz isso selecionando **(Object) do resultado da pesquisa** da lista suspensa de saudação.<br><br> ![Selecione o objeto de dados de Webhook para o parâmetro do runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
+Se você selecionar um runbook que foi configurado para ser [chamado de um alerta do Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), ele terá um parâmetro de entrada chamado **WebhookData**, que é do tipo **Objeto**.  Se o parâmetro de entrada é obrigatório, você precisa passar os resultados da pesquisa para o runbook para que ele possa converter a cadeia de caracteres formatada em JSON em um tipo de objeto, permitindo que você filtre itens específicos que você referenciará em atividades de runbook.  Você pode fazer isso selecionando **Resultado da pesquisa (Objeto)** da lista suspensa.<br><br> ![Selecione o objeto de dados de Webhook para o parâmetro do runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saudação de revisão [referência de pesquisa de log de análise de Log](log-analytics-search-reference.md) tooview todos Olá Pesquisar campos e facetas disponíveis na análise de Log.
-* toolearn como tooinvoke um runbook de automação automaticamente, examine [chamar um runbook de automação do Azure de um alerta de análise de logs do OMS](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
+* Para saber como invocar um runbook de automação automaticamente, examine [chamar um runbook de Automação do Azure de um alerta do OMS Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

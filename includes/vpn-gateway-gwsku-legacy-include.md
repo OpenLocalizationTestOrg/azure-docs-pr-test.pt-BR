@@ -1,14 +1,14 @@
-herdado gateway VPN (antigo) Olá SKUs são:
+As SKUs herdadas (antigas) do gateway de VPN são:
 
 * Basic
 * Standard
 * HighPerformance
 
-Gateway de VPN não usar o gateway de UltraPerformance de saudação SKU. Para obter informações sobre Olá UltraPerformance SKU, consulte Olá [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentação.
+O gateway de VPN não usa a SKU do gateway UltraPerformance. Para saber mais sobre a SKU do UltraPerformance, veja a documentação do [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
-Ao trabalhar com hello SKUs herdados, considere o seguinte hello:
+Ao trabalhar com os SKUs herdados, considere o seguinte:
 
-* Se você quiser toouse um tipo PolicyBased VPN, você deve usar o hello SKUS Basic. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
-* Não há suporte para BGP Olá SKUS Basic.
-* Gateway VPN de rota expressa coexistir configurações não são suportadas em Olá SKUS Basic.
-* Conexões de Gateway de VPN S2S ativo-ativo podem ser configurados em Olá HighPerformance SKU apenas.
+* Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
+* BGP não tem suporte na SKU Básica.
+* Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
+* As conexões de Gateway de VPN S2S ativa-ativa só podem ser configuradas na SKU HighPerformance.

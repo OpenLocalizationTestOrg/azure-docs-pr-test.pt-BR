@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure AD metadados de Federação | Microsoft Docs"
-description: "Este artigo descreve o documento de metadados de Federação Olá que publica do Active Directory do Azure para serviços que aceitam tokens do Active Directory do Azure."
+title: "Metadados de Federação do Azure AD | Microsoft Docs"
+description: "Este artigo descreve o documento de metadados de federação que o Azure Active Directory publica para serviços que aceitam tokens do Azure Active Directory."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,41 +15,41 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 23535bcd5eeb3e9b2e17d89a9b0420fc98bd3895
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ecafb02a6ac13d1c3cd1fe77ef710cd8525e32b0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="federation-metadata"></a>Metadados de federação
-Azure Active Directory (AD do Azure) publica um documento de metadados de federação para serviços que é configurado tooaccept tokens de segurança de saudação que emitem o AD do Azure. Olá formato de documento de metadados de Federação é descrito em Olá [Web Services Federation Language (WS-Federation) versão 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [metadados para OASIS SAML Security Assertion Markup Language () do hello v 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+O Azure Active Directory (Azure AD) publica um documento de metadados federados para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados federados é descrito no [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que se estende para [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Pontos de extremidade de metadados específicos de locatário e independentes de locatário
 O AD do Azure publica pontos de extremidade específicos de locatário e independentes de locatário.
 
-Pontos de extremidade específicos de locatário destinam-se a um locatário específico. metadados de Federação específicos de locatário de saudação incluem informações sobre o locatário hello, incluindo informações de ponto de extremidade e emissor específico de locatário. Aplicativos que restringem o locatário do acesso tooa único usam pontos de extremidade específicos de locatário.
+Pontos de extremidade específicos de locatário destinam-se a um locatário específico. Os metadados de federação específicos de locatário incluem informações sobre o locatário, incluindo informações de emissor e o ponto de extremidade específico de locatário. Os aplicativos que restringem o acesso a um único locatário usam pontos de extremidade específicos de locatário.
 
-Pontos de extremidade independentes de locatário fornecem informações que é comum tooall locatários do AD Azure. Essas informações se aplicam a tootenants hospedado em *login.microsoftonline.com* e são compartilhadas por locatários. Os pontos de extremidade independentes de locatário são recomendados para aplicativos com vários locatários, pois eles não estão associados a qualquer locatário específico.
+Os pontos de extremidade independentes de locatário fornecem informações que são comuns para todos os locatários do AD do Azure. Essas informações se aplicam aos locatários hospedados em *login.microsoftonline.com* e são compartilhadas entre locatários. Os pontos de extremidade independentes de locatário são recomendados para aplicativos com vários locatários, pois eles não estão associados a qualquer locatário específico.
 
 ## <a name="federation-metadata-endpoints"></a>Pontos de extremidade de metadados de federação
 O Azure AD publica metadados de federação em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
-Para **pontos de extremidade específicos de locatário**, Olá `TenantDomainName` pode ser um dos seguintes tipos de saudação:
+Para **pontos de extremidade específicos de locatário**, o `TenantDomainName` pode ser um dos seguintes tipos:
 
 * Um nome de domínio registrado de um locatário do Azure AD, como: `contoso.onmicrosoft.com`.
-* Olá imutável locatário ID de domínio hello, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* A ID de locatário imutável do domínio, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-Para **pontos de extremidade independentes de locatário**, Olá `TenantDomainName` é `common`. Este documento lista apenas elementos de metadados de Federação Olá que são comuns tooall de locatários do AD do Azure que são hospedados em login.microsoftonline.com.
+Para **pontos de extremidade independentes de locatário**, o `TenantDomainName` é `common`. Este documento lista apenas os elementos de Metadados de Federação que são comuns a todos os locatários do Azure AD hospedados em login.microsoftonline.com.
 
-Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. o ponto de extremidade do Hello independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de Federação Olá digitando essa URL em um navegador.
+Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de federação digitando essa URL em um navegador.
 
 ## <a name="contents-of-federation-metadata"></a>Conteúdo de metadados de federação
-Olá, seção a seguir fornece as informações necessárias para serviços que consomem Olá tokens emitidos pelo AD do Azure.
+A seção a seguir fornece as informações necessárias para serviços que consomem os tokens emitidos pelo AD do Azure.
 
 ### <a name="entity-id"></a>ID da Entidade
-Olá `EntityDescriptor` elemento contém um `EntityID` atributo. Olá valor Olá `EntityID` atributo representa o emissor hello, ou seja, segurança Olá serviço de token (STS) esse token emitido hello. É importante toovalidate emissor de hello quando você receber um token.
+O elemento `EntityDescriptor` contém um atributo `EntityID`. O valor do atributo `EntityID` representa o emissor, ou seja, o STS (serviço de token de segurança) que emitiu o token. É importante validar o emissor ao receber um token.
 
-Olá metadados a seguir mostram um exemplo específico de locatário `EntityDescriptor` elemento com um `EntityID` elemento.
+Os metadados a seguir mostram um exemplo de elemento `EntityDescriptor` específico de locatário com um elemento `EntityID`.
 
 ```
 <EntityDescriptor
@@ -57,9 +57,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-Você pode substituir Olá ID de locatário no ponto de extremidade do hello independente de locatário com seu toocreate de ID de locatário um locatário específico `EntityID` valor. valor resultante Hello serão Olá mesmo Olá emissor do token. Olá estratégia permite um emissor de saudação do aplicativo multilocatário toovalidate determinado locatário.
+Você pode substituir a ID de locatário no ponto de extremidade independente de locatário por sua ID de locatário para criar um valor `EntityID` específico de locatário. O valor resultante será igual ao emissor do token. Essa estratégia permite que um aplicativo multilocatário valide o emissor para determinado locatário.
 
-Olá metadados a seguir mostram um exemplo independente de locatário `EntityID` elemento. Observe que Olá `{tenant}` é um literal, não um espaço reservado.
+Os metadados a seguir mostram um exemplo de elemento independente de locatário `EntityID` . Nesse elemento, observe que `{tenant}` é um literal, não um espaço reservado.
 
 ```
 <EntityDescriptor
@@ -69,11 +69,11 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificados de autenticação de tokens
-Quando um serviço recebe um token emitido por um locatário do AD do Azure, hello assinatura de token Olá deve ser validada com uma chave de assinatura que é publicada no documento de metadados de Federação hello. metadados de Federação Olá incluem parte pública de saudação dos certificados de saudação que locatários Olá usam para autenticação de tokens. bytes brutos do certificado Olá aparecem no hello `KeyDescriptor` elemento. certificado de assinatura de token de saudação é válido para assinatura somente quando Olá valor Olá `use` atributo é `signing`.
+Quando um serviço recebe um token emitido por um locatário do AD do Azure, a assinatura do token deve ser validada com uma chave de assinatura publicada no documento de metadados de federação. Os metadados de federação incluem a parte pública dos certificados que os locatários usam para autenticação de tokens. Os bytes brutos do certificado aparecem no elemento `KeyDescriptor` . O certificado de assinatura de token é válido para a assinatura somente quando o valor do atributo `use` é `signing`.
 
-Um documento de metadados de Federação publicado pelo AD do Azure pode ter várias chaves de assinatura, como quando o AD do Azure está preparando Olá tooupdate certificado de assinatura. Quando um documento de metadados de Federação inclui mais de um certificado, um serviço que valida os tokens de saudação deve dar suporte todos os certificados no documento de saudação.
+Um documento de metadados de federação publicado pelo Azure AD pode ter várias chaves de assinatura, como quando o Azure AD está se preparando para atualizar o certificado de autenticação. Quando um documento de metadados de federação inclui mais de um certificado, um serviço que valida os tokens deve dar suporte a todos os certificados no documento.
 
-Olá, metadados a seguir mostram um exemplo `KeyDescriptor` elemento com uma chave de assinatura.
+Os metadados a seguir mostram um elemento de exemplo `KeyDescriptor` com uma chave de assinatura.
 
 ```
 <KeyDescriptor use="signing">
@@ -87,29 +87,29 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-Olá `KeyDescriptor` elemento aparece em dois locais no documento de metadados de Federação Olá; na seção Olá específico do WS-Federation e Olá SAML específica. certificados de saudação publicados em ambas as seções serão Olá mesmo.
+O elemento `KeyDescriptor` aparece em dois lugares no documento de metadados federados na seção específica do WS-Federation e na seção específica de SAML. Os certificados publicados em ambas as seções serão os mesmos.
 
-Na seção de saudação específico do WS-Federation, um leitor de metadados do WS-Federation lê os certificados de saudação de um `RoleDescriptor` elemento com hello `SecurityTokenServiceType` tipo.
+Na seção específica do WS-Federation, um leitor de metadados de WS-Federation leria os certificados de um elemento `RoleDescriptor` com o tipo `SecurityTokenServiceType`.
 
-Olá, metadados a seguir mostram um exemplo `RoleDescriptor` elemento.
+Os metadados a seguir mostram um elemento `RoleDescriptor` de exemplo.
 
 ```
 <RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Na seção de saudação SAML específica, um leitor de metadados do WS-Federation lê os certificados de saudação de um `IDPSSODescriptor` elemento.
+Na seção específica de SAML, um leitor de metadados de WS-Federation leria os certificados de um `IDPSSODescriptor` elemento.
 
-Olá, metadados a seguir mostram um exemplo `IDPSSODescriptor` elemento.
+Os metadados a seguir mostram um elemento `IDPSSODescriptor` de exemplo.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-Não há nenhuma diferença no formato de saudação de certificados específicos do locatário e independentes de locatário.
+Não há diferenças no formato de certificados específicos de locatário e independentes de locatário.
 
 ### <a name="ws-federation-endpoint-url"></a>URL de ponto de extremidade de WS-Federation
-metadados de Federação Olá incluem Olá URL é o Azure AD usa para logon único e saída no protocolo WS-Federation. Esse ponto de extremidade aparece no hello `PassiveRequestorEndpoint` elemento.
+Os metadados de federação incluem a URL que usa o AD do Azure para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade é mostrado no `PassiveRequestorEndpoint` elemento.
 
-Olá, metadados a seguir mostram um exemplo `PassiveRequestorEndpoint` elemento para um ponto de extremidade específico de locatário.
+Os metadados a seguir mostram um elemento `PassiveRequestorEndpoint` de exemplo para um ponto de extremidade específico de locatário.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -120,7 +120,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-Ponto de extremidade Olá independente de locatário, Olá URL do WS-Federation aparece no ponto de extremidade Olá WS-Federation, como mostrado na saudação de exemplo a seguir.
+Para o ponto de extremidade independente de locatário, a URL de WS-Federation aparece no ponto de extremidade WS-Federation, conforme mostrado no exemplo a seguir.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -133,11 +133,11 @@ https://login.microsoftonline.com/common/wsfed
 ```
 
 ### <a name="saml-protocol-endpoint-url"></a>URL de ponto de extremidade do protocolo SAML
-metadados de Federação Olá incluem Olá URL que usa o AD do Azure para logon único e saída no protocolo SAML 2.0. Esses pontos de extremidade aparecem no hello `IDPSSODescriptor` elemento.
+Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2.0. Esses pontos de extremidade aparecem no `IDPSSODescriptor` elemento.
 
-Olá entrada e saída URLs aparecem na Olá `SingleSignOnService` e `SingleLogoutService` elementos.
+As URLs de entrada e saída aparecem nos elementos `SingleSignOnService` e `SingleLogoutService`.
 
-Olá, metadados a seguir mostram um exemplo `PassiveResistorEndpoint` para um ponto de extremidade específico de locatário.
+Os metadados a seguir mostram um `PassiveResistorEndpoint` de exemplo para um ponto de extremidade específico de locatário.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -147,7 +147,7 @@ Olá, metadados a seguir mostram um exemplo `PassiveResistorEndpoint` para um po
   </IDPSSODescriptor>
 ```
 
-Da mesma forma pontos de extremidade Olá para pontos de extremidade de protocolo SAML 2.0 comum Olá são publicados nos metadados de Federação independentes do locatário hello, conforme mostrado no hello exemplo a seguir.
+Da mesma forma, os pontos de extremidade para os pontos de extremidade de protocolo SAML 2.0 comuns são publicados nos metadados de federação independentes de locatário, conforme mostrado no exemplo a seguir.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

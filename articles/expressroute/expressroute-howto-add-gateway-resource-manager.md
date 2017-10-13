@@ -1,6 +1,6 @@
 ---
-title: 'Adicionar um gateway de rede virtual tooa VNet para o ExpressRoute: PowerShell: Azure | Microsoft Docs'
-description: "Este artigo o orienta por meio de adicionar um tooan de gateway de rede virtual já criado VNet Gerenciador de recursos para o ExpressRoute."
+title: 'Adicionar um gateway de rede virtual a uma VNet para a ExpressRoute: PowerShell: Azure| Microsoft Docs'
+description: "Este artigo explica como adicionar um gateway de VNet a uma VNet já criada do Resource Manager para a ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
-ms.openlocfilehash: 8983430b426ad7c4af766294fa16427c5e9df5c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3aeddd03e0be548933775164ae790ba208fc13ae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -30,14 +30,14 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Este artigo orienta Olá etapas tooadd, redimensionar e remover um gateway de rede virtual (VNet) para uma rede virtual já existente. etapas de saudação para essa configuração são específicas para VNets que foram criados usando o modelo de implantação do Gerenciador de recursos de saudação que será usado em uma configuração de rota expressa. Para obter mais informações sobre gateways de rede virtual e definições de configuração do ExpressRoute, consulte [Sobre gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+Este artigo explica as etapas para adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma VNet existente. As etapas para essa configuração destinam-se especificamente a VNets criadas usando o modelo de implantação do Resource Manager que será usado em uma configuração do ExpressRoute. Para obter mais informações sobre gateways de rede virtual e definições de configuração do ExpressRoute, consulte [Sobre gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Antes de começar
-Verifique se você instalou Olá cmdlets de PowerShell do Azure mais recentes. Se você ainda não instalou os cmdlets mais recentes Olá, será necessário toodo caso antes de começar as etapas de configuração de saudação. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Verifique se você instalou os cmdlets mais recente do Azure PowerShell. Se ainda não os instalou, será necessário fazer isso antes de iniciar as etapas de configuração. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que você criou o gateway de rede virtual Olá, você pode vincular sua rede virtual tooan circuito de rota expressa. Consulte [vincular um circuito de rota expressa do tooan de rede Virtual](expressroute-howto-linkvnet-arm.md).
+Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito do ExpressRoute. Consulte [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "função de tooa de usuário de colaboração aaaAdd um B2B do Azure Active Directory | Microsoft Docs"
-description: "Adicionar uma função de tooa de usuário convidado no Active Directory do Azure"
+title: "Adicionar um usuário de colaboração B2B do Azure Active Directory a uma função | Microsoft Docs"
+description: "Adicionar um usuário convidado a uma função no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccc58a0c8ecc73f8e79a8d827efdc0ff93846a96
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="grant-permissions-toousers-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões toousers de organizações parceiras no seu locatário do Active Directory do Azure
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
-Usuários de colaboração B2B do Active Directory (AD do Azure) do Azure são adicionados como diretório de toohello convidado usuários e permissões de convidado no diretório de saudação são restritos por padrão. Sua empresa pode ser necessário algumas funções de privilégio mais alto do convidado usuários toofill em sua organização. toosupport definir funções de privilégio mais alto, os usuários convidados podem ser funções tooany adicionado desejada, com base nas necessidades da sua organização.
+Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adicionados como usuários convidados ao diretório e as permissões de convidado no diretório são restritas por padrão. Sua empresa pode precisar de alguns usuários convidados para preencher as funções de privilégio mais elevado na organização. Para dar suporte à definição de funções de privilégio mais elevado, os usuários convidados podem ser adicionados às funções desejadas, de acordo com as necessidades de sua organização.
 
 ## <a name="default-role"></a>Função padrão
 

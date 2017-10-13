@@ -1,6 +1,6 @@
 ---
-title: "aaaSet pontos de extremidade em uma VM do Linux clássica | Microsoft Docs"
-description: "Saiba mais sobre o tooset pontos de extremidade para uma VM do Linux no hello comunicação tooallow de portal clássico do Azure com uma máquina virtual do Linux no Azure"
+title: "Configurar pontos de extremidade em uma VM do Linux clássica | Microsoft Docs"
+description: "Saiba como configurar pontos de extremidade para uma VM do Linux no Portal Clássico do Azure para permitir a comunicação com uma máquina virtual do Linux no Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c959d10dd1e20228fa4a20e1cc0205c1d12f185
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4fd8b847b0f60648d1661ce5a8667c641e616ed4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooset-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Como tooset pontos de extremidade em uma máquina virtual clássica do Linux no Azure
-Todas as máquinas virtuais Linux criadas no Azure usando o modelo de implantação clássico Olá podem se comunicar automaticamente por um canal de rede privada com outras máquinas virtuais no hello que mesmo serviço ou de rede virtual na nuvem. No entanto, os computadores Olá Internet ou outras redes virtuais requerem pontos de extremidade toodirect Olá rede de entrada tráfego tooa máquina virtual. Este artigo também está disponível para [máquinas virtuais do Windows](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+# <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Como configurar pontos de extremidade em uma máquina virtual clássica do Linux no Azure
+Todas as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais do Windows](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
-Em Olá **Gerenciador de recursos de** modelo de implantação, pontos de extremidade são configurados usando **grupos de segurança de rede (NSGs)**. Para saber mais, consulte [Abrir portas e pontos de extremidade](../nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+No modelo de implantação **Resource Manager**, os pontos de extremidade são configurados usando **NSGs (Grupos de Segurança de Rede)**. Para saber mais, consulte [Abrir portas e pontos de extremidade](../nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Quando você cria uma máquina virtual Linux em Olá portal do Azure, um ponto de extremidade para o Secure Shell (SSH) é normalmente criado para você automaticamente. Você pode configurar pontos de extremidade adicionais durante a criação de máquina virtual de hello, ou posteriormente, conforme necessário.
+Ao criar uma máquina virtual Linux no portal do Azure, no geral, um ponto de extremidade para o SSH (Secure Shell) é criado para você automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Você também pode criar um ponto de extremidade VM usando Olá [Interface de linha de comando do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Executar Olá **criar ponto de extremidade de vm do azure** comando.
-* Se você criou uma máquina virtual no modelo de implantação do Gerenciador de recursos de saudação, você pode usar Olá CLI do Azure no Gerenciador de recursos de modo muito[criar grupos de segurança de rede](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) toocontrol tráfego toohello VM.
+* Também é possível criar um ponto de extremidade de VM usando a [Interface de Linha de Comando do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Execute o comando **azure vm endpoint create** .
+* Se você criou uma máquina virtual no modelo de implantação do Gerenciador de Recursos, é possível usar a CLI do Azure no modo do Gerenciador de Recursos para [criar grupos de segurança de rede](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) a fim de controlar o tráfego para a VM.

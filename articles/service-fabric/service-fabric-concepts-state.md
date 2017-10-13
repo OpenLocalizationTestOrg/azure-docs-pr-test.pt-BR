@@ -1,6 +1,6 @@
 ---
-title: aaaDefinine e gerenciar o estado no Azure microservices | Microsoft Docs
-description: "Como toodefine e gerenciar o estado do serviço no Service Fabric"
+title: "Definir e gerenciar o estado nos microsserviços do Azure | Microsoft Docs"
+description: "Como definir e gerenciar o estado do serviço na malha de serviço"
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4a24696da71753d0f343a86df3556b5b7c964834
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f7835fab175bdb7ef7ce3894cab9e09a39457f3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-state"></a>Estado do serviço
-**Estado do serviço** refere-se toohello na memória ou nos dados de disco, um serviço requer toofunction. Ele inclui, por exemplo, estruturas de dados hello e variáveis de membro desse serviço Olá lê e grava toodo trabalho. Dependendo de como o serviço Olá é desenvolvido, também pode incluir arquivos ou outros recursos que são armazenados no disco. Por exemplo, Olá arquivos de um banco de dados usaria toostore dados e logs de transação.
+**Estado do serviço** refere-se aos dados em disco ou na memória que um serviço requer para funcionar. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço lê e grava para realizar trabalhos. Dependendo de como o serviço é estruturado, também pode incluir arquivos ou outros recursos armazenados em disco. Por exemplo, os arquivos que um banco de dados usaria para armazenar dados e logs de transação.
 
 Como um exemplo de serviço, vamos considerar uma calculadora. Um serviço de calculadora básica pega dois números e retorna sua soma. Executar este cálculo não envolve nenhuma variável de membro ou outras informações.
 
-Agora considere Olá Calculadora mesmo, mas com um método adicional para armazenar e retornando soma última Olá ele calculado. Agora, trata-se de um serviço com estado. Monitoração de estado significa que contém algum estado que ele grava toowhen, ele calcula uma soma de novo e lê a partir quando você pedir sum calculado do tooreturn Olá último.
+Agora, considere a mesma calculadora, mas com um método adicional para armazenar e retornar a última soma computada. Agora, trata-se de um serviço com estado. Com estado significa que ele contém algum estado no qual grava quando calcula uma nova soma e do qual lê quando você solicita que ele retorne a última soma calculada.
 
-No Azure Service Fabric, o primeiro serviço de saudação é chamado de serviço sem monitoração de estado. segundo serviço de saudação é chamado de serviço com monitoração de estado.
+No Service Fabric do Azure, o primeiro serviço é chamado de serviço sem estado. O segundo serviço é chamado de serviço com estado.
 
 ## <a name="storing-service-state"></a>Armazenando o estado do serviço
-Estado pode ser externalizado ou colocalizado com o código de saudação que é manipular o estado de saudação. Externalização de estado geralmente é feita usando um banco de dados externo ou outros dados de repositório que é executado em máquinas diferentes pela rede hello ou fora do processo em Olá mesma máquina. Em nosso exemplo de cálculo, Olá repositório de dados pode ser uma instância de armazenamento de tabela do Azure ou o banco de dados SQL. Soma de saudação de toocompute cada solicitação executa uma atualização de dados e solicitações toohello serviço tooreturn Olá valor resultam no valor atual de saudação sendo buscada no repositório de saudação. 
+O estado pode ser externalizado ou localizado em conjunto com o código que está manipulando o estado. Normalmente, a externalização do estado é feita usando um banco de dados externo ou outro armazenamento de dados que é executado em máquinas diferentes na rede ou fora do processo no mesmo computador. Em nosso exemplo da calculadora, o armazenamento de dados poderia ser uma um banco de dados SQL ou uma instância do Armazenamento de Tabela do Azure. Cada solicitação para calcular a soma executa uma atualização desses dados e solicitações para o serviço retornar o valor fazem com que o valor atual seja buscado no repositório. 
 
-Estado também pode ser colocalizado com o código de saudação que manipula o estado de saudação. Serviços com estado no Service Fabric normalmente são criados usando esse modelo. Malha do serviço fornece Olá tooensure de infraestrutura que esse estado é altamente disponível, consistente e duráveis e serviços Olá criado dessa maneira pode dimensionar com facilidade.
+O estado também pode ser localizado com o código que manipula o estado. Serviços com estado no Service Fabric normalmente são criados usando esse modelo. O Service Fabric fornece a infraestrutura para garantir que esse estado seja altamente disponível, consistente e durável e que serviços criados dessa maneira possam ser dimensionados com facilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre os conceitos de malha do serviço, consulte Olá artigos a seguir:
+Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:
 
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
 * [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)

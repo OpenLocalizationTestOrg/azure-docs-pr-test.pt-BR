@@ -1,6 +1,6 @@
 ---
-title: "Proteção de identidade do Active Directory de aaaAzure | Microsoft Docs"
-description: "Saiba como Azure AD Identity Protection permite que você toolimit capacidade Olá tooexploit um invasor uma identidade comprometida ou dispositivo e toosecure uma identidade ou um dispositivo que era anteriormente conhecido ou suspeita toobe comprometido."
+title: Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 documentationcenter: 
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ecca4f3cdb65585687cf44a80024f26c7cab22ca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-Proteção contra identidade Active Directory do Azure é um recurso de edição de saudação do Azure AD Premium P2 que permite que você:
+O Azure Active Directory Identity Protection é um recurso da edição Premium P2 do Azure AD que permite a você:
 
 - Detectar possíveis vulnerabilidades que afetam as identidades da organização
 
-- Configurar respostas automatizadas toodetected suspeitas ações de identidades da organização tooyour relacionados  
+- Configurar respostas automatizadas para ações suspeitas detectadas que se relacionem com as identidades da sua organização  
 
-- Investigar incidentes suspeitos e tomar a ação apropriada tooresolve-los   
+- Investigar incidentes suspeitos e tomar as devidas providências para resolvê-los   
 
 
 ## <a name="getting-started"></a>Introdução
 
-A Microsoft protege identidades baseadas em nuvem há mais de uma década. Com o Azure Active Directory Identity Protection em seu ambiente, você pode usar Olá mesmos sistemas de proteção Microsoft usa toosecure identidades.
+A Microsoft protege identidades baseadas em nuvem há mais de uma década. Com o Azure Active Directory Identity Protection, você pode usar os mesmos sistemas de proteção em seu ambiente que a Microsoft usa para proteger as identidades.
 
-maioria de saudação de levar violações de segurança colocar quando os invasores obterem o ambiente de tooan acesso pelo roubo de identidade do usuário. Ao longo de anos de hello, os invasores tornaram cada vez mais eficazes, aproveitando as violações de terceiros e uso de ataques de phishing sofisticados. Assim que um invasor obtiver acesso a contas de usuário com privilégios baixos tooeven, é relativamente fácil tooimportant toogain acessar recursos da empresa por meio de movimentação lateral.
+A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Nos últimos anos, os invasores têm se tornado cada vez mais eficazes em aproveitar as violações de terceiros e usar ataques de phishing sofisticados. Assim que um invasor obtém acesso até mesmo a uma conta de usuário com privilégios baixos, é relativamente fácil para ele conseguir acessar recursos importantes da empresa por meio de movimentação lateral.
 
 Como consequência, você precisa:
 
@@ -44,16 +44,16 @@ Como consequência, você precisa:
 
 - Agir proativamente para evitar o uso de identidades comprometidas
 
-Descobrir identidades comprometidas não é uma tarefa fácil. Active Directory do Azure usa algoritmos de aprendizado de máquina adaptável e anomalias de toodetect heurística e incidentes suspeitos que indicam potencialmente comprometidos identidades. Usando esses dados, proteção de identidade gera relatórios e alertas que permitem que você tooevaluate Olá detectou problemas e tomar ações de correção ou atenuação apropriada.
+Descobrir identidades comprometidas não é uma tarefa fácil. O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar anomalias e incidentes suspeitos que indicam identidades potencialmente comprometidas. Usando esses dados, o Identity Protection gera relatórios e alertas que permitem avaliar os problemas detectados e tomar as devidas ações de mitigação ou correção.
 
-O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. tooprotect identidades da sua organização, você pode configurar políticas baseadas em risco que respondem automaticamente toodetected problemas quando um nível de risco especificado for atingido. Essas políticas, além de tooother condicional acessar controles fornecidos pelo Active Directory do Azure e o EMS, pode bloquear automaticamente ou iniciar ações de correção adaptável, inclusive redefinições de senha e a imposição de autenticação multifator.
+O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Para proteger as identidades da sua organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado foi alcançado. Essas políticas, entre outros controles de acesso condicional fornecidos pelo Azure Active Directory e pelo EMS, podem bloquear ou iniciar automaticamente ações de correção adaptáveis que incluem redefinições de senha e a imposição de autenticação multifator.
 
 
 #### <a name="identity-protection-capabilities"></a>Recursos do Identity Protection
 
 **Detecção de vulnerabilidades e contas de risco:**  
 
-* Fornecendo recomendações personalizadas tooimprove postura de segurança geral, realçando vulnerabilidades
+* Fornecer recomendações personalizadas para melhorar a postura de segurança geral ao realçar as vulnerabilidades
 * Calcular os níveis de risco de entrada
 * Calcular os níveis de risco do usuário
 
@@ -62,26 +62,26 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 
 * Enviar notificações para eventos de risco
 * Investigar os eventos de risco usando informações relevantes e contextuais
-* Fornecendo tootrack investigações de fluxos de trabalho básicos
-* Fornecer acesso fácil tooremediation ações, como a redefinição de senha
+* Fornecer fluxos de trabalho básicos para acompanhar as investigações
+* Fornecer acesso fácil às ações de correção, tais como redefinição de senha
 
 **Políticas de acesso condicional baseadas em risco:**
 
-* Diretiva toomitigate arriscadas entradas bloqueando entradas ou a necessidade de desafios de autenticação multifator.
-* Diretiva tooblock ou contas de usuário de arriscados segura
-* Diretiva toorequire usuários tooregister para autenticação multifator
+* Política para reduzir entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator.
+* Política para bloquear ou proteger contas de usuário arriscadas
+* Política para exigir o registro para autenticação multifator
 
 
 
 ## <a name="identity-protection-roles"></a>Funções da proteção de identidade
 
-atividades de gerenciamento tooload saldo Olá em torno de sua implementação de proteção de identidade, você pode atribuir várias funções. O Azure AD Identity Protection dá suporte a três funções do diretório:
+Para equilibrar as atividades de gerenciamento em torno de sua implementação da proteção de identidade, você pode atribuir várias funções. O Azure AD Identity Protection dá suporte a três funções do diretório:
 
 | Função                         | O que ele pode fazer                          | O que não pode fazer
 | :--                          | ---                                |  ---   |
-| Administrador global         | Acesso completo tooIdentity proteção integrada de proteção de identidade| |
-| Administrador de segurança       | Acesso completo tooIdentity proteção | Proteção de Identidade integrada, redefinir senhas para um usuário |
-| Leitor de segurança              | Acesso somente leitura tooIdentity proteção | Integrar Proteção de Identidade, corrigir usuários, configurar políticas, redefinir senhas |
+| Administrador global         | Acesso completo à Proteção de Identidade, Proteção de Identidade integrada| |
+| Administrador de segurança       | Acesso total à proteção de identidade | Proteção de Identidade integrada, redefinir senhas para um usuário |
+| Leitor de segurança              | Acesso somente de leitura para a Proteção de Identidade | Integrar Proteção de Identidade, corrigir usuários, configurar políticas, redefinir senhas |
 
 
 
@@ -98,113 +98,113 @@ O Azure Active Directory Identity Protection analisa sua configuração e detect
 
 ### <a name="risk-events"></a>Eventos de risco
 
-Active Directory do Azure usa algoritmos e heurística toodetect suspeitas ações de identidades do usuário relacionadas tooyour de aprendizado de máquina adaptável. sistema de saudação cria um registro para cada ação suspeita detectada. Esses registros também são conhecidos como eventos de risco.  
+O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas a identidades do usuário. O sistema cria um registro para cada ação suspeita detectada. Esses registros também são conhecidos como eventos de risco.  
 Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md).
 
 
 ## <a name="investigation"></a>Investigação
-Sua jornada com proteção de identidade normalmente inicia com o painel de proteção de identidade hello.
+Sua jornada pelo Identity Protection normalmente inicia no Painel do Identity Protection.
 
 ![Correção](./media/active-directory-identityprotection/1000.png "Correção")
 
-painel Olá fornece acesso para:
+O painel concede acesso a:
 
 * Relatórios, como **Usuários sinalizados por riscos**, **Eventos de risco** e **Vulnerabilidades**
-* As configurações como a configuração de saudação do seu **políticas de segurança**, **notificações** e **registro de autenticação multifator**
+* Configurações como a definição das suas **Políticas de Segurança**, **Notificações** e **registro de autenticação multifator**
 
-Normalmente é o ponto de partida para investigação, que é o processo de saudação de revisão Olá atividades, logs e outras informações relevantes tooa relacionado toodecide de evento de risco se são necessárias etapas de correção ou de redução, e como a identidade de saudação foi comprometido e entender como Olá comprometidos identidade foi usada.
+Este é normalmente seu ponto de partida para investigação, que é o processo de revisão de atividades, logs e outras informações relevantes relacionadas a um evento de risco para decidir se as etapas de correção e mitigação são necessárias, como a identidade foi comprometida e entender como ela foi usada.
 
-É possível vincular sua toohello de atividades de investigação [notificações](active-directory-identityprotection-notifications.md) proteção do Azure Active Directory envia por email.
+Você pode vincular suas atividades de investigação para as [notificações](active-directory-identityprotection-notifications.md) que o Azure Active Directory Protection envia por email.
 
-Olá seções a seguir fornecem mais detalhes e etapas Olá investigação tooan relacionados.  
+As seções a seguir fornecerão mais detalhes e as etapas que estão relacionadas a uma investigação.  
 
 
 ## <a name="risky-sign-ins"></a>Entradas de risco
 
-O Azure Active Directory detecta [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que foi detectado para uma entrada de um usuário contribui tooa conceito lógico chamado entrar arriscado. Uma entrada arriscado é um indicador para uma tentativa de logon que não pode ter sido realizada pelo proprietário da saudação legítimo de uma conta de usuário.
+O Azure Active Directory detecta [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que tiver sido detectado para a entrada de um usuário contribui para um conceito lógico chamado entrada de risco. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário.
 
 
 ### <a name="sign-in-risk-level"></a>Nível de risco de entrada
 
-Um nível de risco de entrada é uma indicação (alto, médio ou baixo) de probabilidade Olá que uma tentativa de logon não foi executada pelo proprietário da saudação legítimo de uma conta de usuário.
+Um nível de risco de entrada é uma indicação (alta, média ou baixa) da probabilidade de uma tentativa de logon não ter sido executada pelo proprietário legítimo de uma conta de usuário.
 
 ### <a name="mitigating-sign-in-risk-events"></a>Mitigação de eventos de risco de entrada
 
-Uma redução é uma ação toolimit Olá capacidade um invasor tooexploit uma identidade comprometida ou dispositivo sem estado de restauração Olá identidade ou dispositivo tooa seguro. Uma redução não resolver anterior eventos de entrada risco associados à identidade hello ou dispositivo.
+Uma mitigação é uma ação que visa limitar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometidos sem restaurá-los para um estado seguro. Uma mitigação não resolve eventos de risco de entrada anteriores associados à identidade ou ao dispositivo.
 
-toomitigate arriscados entradas automaticamente, você pode configurar o risco de entrada policicies de segurança. Usando essas diretivas, considere o nível de risco de saudação do usuário hello ou Olá entrar tooblock entradas arriscadas ou exigir autenticação multifator do hello usuário tooperform. Essas ações podem impedir que um invasor explorar um dano de toocause roubo de identidade e podem fornecer uma identidade de Olá de toosecure algum tempo.
+Para atenuar as entradas de risco automaticamente, você pode configurar políticas de segurança de entradas de risco. Ao usar essas políticas, considere o nível de risco do usuário ou da entrada para bloquear entradas arriscadas ou exigir que o usuário realize a autenticação multifator. Essas ações podem impedir que um invasor explore uma identidade roubada para causar danos, fazendo você ganhar algum tempo para proteger a identidade.
 
 ### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
-Uma política de risco de entrada é uma política de acesso condicional que é avaliada Olá risco tooa sign-in específico e aplica atenuações com base em regras e condições predefinidas.
+Uma política de segurança de risco de entrada é uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas.
 
 ![Política de risco de entrada](./media/active-directory-identityprotection/1014.png "Política de risco de entrada")
 
-Azure AD Identity Protection ajuda você a gerenciar a mitigação de saudação de entradas arriscadas, permitindo que você:
+O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arriscadas, permitindo:
 
-* Definir Olá usuários e grupos Olá política aplica-se a:
+* Defina os usuários e os grupos aos quais a política se aplica:
 
     ![Política de risco de entrada](./media/active-directory-identityprotection/1015.png "Política de risco de entrada")
-* Defina Olá entrar risco nível limite (baixa, média ou alta) que dispara a política de saudação:
+* Defina o limite de nível de risco da entrada (baixo, médio ou alto) que dispara o bloqueio de um usuário:
 
     ![Política de risco de entrada](./media/active-directory-identityprotection/1016.png "Política de risco de entrada")
-* Conjunto Olá controles toobe imposta quando a política de saudação dispara:  
+* Defina os controles a serem impostos quando a política for disparada:  
 
     ![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
-* Alternar estado Olá da política:
+* Alterne o estado de sua política:
 
     ![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-* Revisar e avaliar o impacto de saudação de uma alteração antes de ativá-lo:
+* Examine e avalie o impacto de uma alteração antes de ativá-la:
 
     ![Política de risco de entrada](./media/active-directory-identityprotection/1018.png "Política de risco de entrada")
 
-#### <a name="what-you-need-tooknow"></a>O que você precisa tooknow
-Você pode configurar uma autenticação multifator do risco de entrada segurança política toorequire:
+#### <a name="what-you-need-to-know"></a>O que você precisa saber
+Você pode configurar uma política de segurança de risco de entrada para exigir autenticação multifator:
 
 ![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
 
-No entanto, por motivos de segurança, essa configuração só funciona para usuários que já foram registrados na autenticação multifator. Se a autenticação de vários fatores de toorequire Olá condição é atendida para um usuário que ainda não foi registrado para autenticação multifator, usuário Olá será bloqueado.
+No entanto, por motivos de segurança, essa configuração só funciona para usuários que já foram registrados na autenticação multifator. Se a condição de exigir autenticação multifator for atendida por um usuário que ainda não está registrado na autenticação multifator, ele será bloqueado.
 
-Como prática recomendada, se você quiser toorequire multi-factor authentication arriscadas entradas, você deve:
+Como prática recomendada, se você quiser exigir a autenticação multifator para entradas de risco:
 
-1. Habilitar Olá [política de registro de autenticação multifator](#multi-factor-authentication-registration-policy) para Olá usuários afetados.
-2. Exigir Olá afetados toologin de usuários em uma sessão não pode ser arriscado tooperform um registro MFA
+1. Habilite a [política de registro de autenticação multifator](#multi-factor-authentication-registration-policy) para os usuários afetados.
+2. Exija que os usuários afetados façam logon em uma sessão sem risco para realizar um registro MFA
 
 A conclusão dessas etapas faz com que a autenticação multifator seja exigida em caso de entrada de risco.
 
 #### <a name="best-practices"></a>Práticas recomendadas
-Escolhendo um **alta** limite reduz o número de saudação de vezes que uma política é disparada e minimiza Olá impacto toousers.  
+Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.  
 
-No entanto, ele exclui **baixo** e **médio** sinalizado como entradas para o risco da política de saudação, que não pode impedir que um invasor explorar uma identidade comprometida.
+No entanto, isso exclui entradas sinalizadas com **Baixo** e **Médio** risco da política, o que pode não impedir que um invasor explore uma identidade comprometida.
 
-Quando a configuração Olá política,
+Ao definir a política,
 
 * exclua os usuários que não tem / não podem ter a autenticação multifator
-* Exclua os usuários em locais onde habilitando Olá política não é prático (por exemplo, nenhum toohelpdesk de acesso)
-* Exclua os usuários que são provavelmente toogenerate muitos falsos positivos (desenvolvedores, analistas de segurança)
+* exclua os usuários em localidades em que não é viável habilitar a política (por exemplo, sem acesso à assistência técnica)
+* exclua os usuários que tendem a gerar muitos falsos positivos (desenvolvedores e analistas de segurança)
 * use um limite **Alto** durante a distribuição inicial de política ou se você precisar minimizar os desafios encontrados pelos usuários finais.
 * Use um limite **Baixo** se sua organização exigir uma segurança maior. Selecionar um limite **Baixo** apresenta desafios de entrada do usuário adicionais, porém representa uma segurança maior.
 
-Olá recomendado padrão para a maioria das organizações é tooconfigure uma regra para um **médio** limite toostrike um equilíbrio entre segurança e facilidade de uso.
+O padrão recomendado na maioria das organizações é configurar uma regra para um limite **Médio** para atingir um equilíbrio entre segurança e usabilidade.
 
-política de risco de entrada Hello é:
+A política de risco de entrada:
 
-* Tráfego de navegador tooall aplicados e logons que usam autenticação moderna.
-* Tooapplications não aplicada usando protocolos de segurança mais antigos, desabilitando o ponto de extremidade do WS-Trust de saudação IDP Olá federado, como o AD FS.
+* é aplicada a todo o tráfego do navegador e entradas que usam autenticação moderna.
+* Não é aplicada a aplicativos que usam protocolos de segurança mais antigos desabilitando o ponto de extremidade WS-Trust no IDP federado, como o ADFS.
 
-Olá **eventos de risco** página no console de proteção de identidade Olá lista todos os eventos:
+A página **Eventos de Risco** no console do Identity Protection lista todos os eventos:
 
 * aos quais essa política se aplica
-* Você pode examinar a atividade de saudação e determinar se a ação de saudação era apropriada ou não
+* para os quais você pode examinar a atividade e determinar se a ação foi apropriada ou não
 
-Para obter uma visão geral de saudação relacionadas a experiência do usuário, consulte:
+Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 * [Recuperação de entrada arriscada](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 * [Entrada arriscada bloqueada](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
 * [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
 
-**caixa de diálogo de configuração relacionados de saudação tooopen**:
+**Para abrir o diálogo de configurações relacionadas**:
 
-- Em Olá **Azure AD Identity Protection** folha em Olá **configurar** seção, clique em **risco política**.
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de entrada de risco**.
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1014.png "Política do usuário ridk")
 
@@ -212,187 +212,187 @@ Para obter uma visão geral de saudação relacionadas a experiência do usuári
 
 ## <a name="users-flagged-for-risk"></a>Usuários sinalizados por risco
 
-Todos os ativos [eventos de risco](active-directory-identity-protection-risk-events.md) que foram detectados pelo Azure Active Directory para um usuário contribuir tooa conceito lógico chamado risco do usuário. Um usuários sinalizado como de risco é um indicador de que uma conta de usuário pode ter sido comprometida.
+Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) ativos que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado risco de usuário. Um usuários sinalizado como de risco é um indicador de que uma conta de usuário pode ter sido comprometida.
 
 ![Usuários sinalizados por risco](./media/active-directory-identityprotection/1200.png)
 
 
 ### <a name="user-risk-level"></a>Nível de risco do usuário
 
-Um nível de risco do usuário é uma indicação (alto, médio ou baixo) de probabilidade Olá Olá a identidade de usuário foi comprometida. Ele é calculado com base em eventos de risco do usuário Olá que estão associados com a identidade do usuário.
+Um nível de risco do usuário é uma indicação (Alta, Média ou Baixa) da probabilidade de que a identidade do usuário foi comprometida. Ele é calculado com base nos eventos de risco do usuário associados a uma identidade do usuário.
 
-Olá status de um evento de risco é **Active** ou **fechado**. Somente eventos de risco **Active** contribuem cálculo do nível de risco do usuário toohello.
+O status de um evento de risco é **Ativo** ou **Fechado**. Somente eventos de risco **Ativos** contribuem para o cálculo de nível de risco do usuário.
 
-nível de risco do usuário Olá é calculada usando Olá entradas a seguir:
+O nível de risco do usuário é calculado usando as seguintes entradas:
 
-* Eventos de risco ativo afetar o usuário Olá
+* Eventos de risco ativos que afetam o usuário
 * Nível de risco desses eventos
 * Se foram tomadas ações de correção
 
 ![Riscos de usuário](./media/active-directory-identityprotection/1031.png "Riscos de usuário")
 
-Você pode usar o hello usuário risco níveis toocreate políticas de acesso condicional que impedir que usuários arriscados entrar, ou forçá-los toosecurely alterar sua senha.
+Você pode usar os níveis de risco do usuário para criar políticas de acesso condicional que bloqueiam a entrada de usuários arriscados ou os obrigue a alterar sua senha com segurança.
 
 ### <a name="closing-risk-events-manually"></a>Fechar eventos de risco manualmente
 
-Na maioria dos casos, você coloca as ações de correção, como eventos de risco fechar tooautomatically de redefinição de uma senha segura. No entanto, isso nem sempre é possível.  
-Isso acontece, por exemplo, Olá, quando:
+Na maioria dos casos, você tomará ações de correção, como uma redefinição de senha de segurança, para fechar automaticamente os eventos de risco. No entanto, isso nem sempre é possível.  
+É o caso, por exemplo, quando:
 
 * um usuário com eventos de risco ativo foi excluído
-* Uma investigação revela que um evento de risco relatado tem sido executar por usuário legítimo Olá
+* uma investigação revela que um evento de risco relatado foi executado pelo usuário legítimo
 
-Como eventos de risco que são **Active** contribuem toohello cálculo de risco de usuário, você pode ter toomanually diminuir um nível de risco fechando os eventos de risco manualmente.  
-Durante o curso de saudação da investigação, você pode escolher tootake, qualquer um dos status de saudação de toochange ações de um evento de risco:
+Já que eventos de risco **Ativos** contribuem para o cálculo de risco do usuário, talvez seja necessário reduzir manualmente um nível de risco fechando eventos de risco manualmente.  
+Durante a investigação, você pode optar por executar uma das seguintes ações para alterar o status de um evento de risco:
 
 ![Ações](./media/active-directory-identityprotection/34.png "Ações")
 
-* **Resolver** - se após investigar um evento de risco, você fez uma ação de correção apropriada sem proteção de identidade, e você achar que eventos de risco Olá devem ser considerado fechado, o evento de saudação marcar como resolvido. Eventos resolvidos definirá tooClosed de status do evento de risco hello e eventos de risco Olá não contribuirá toouser risco.
-* **Marcar como falso positivo** - Em alguns casos, você pode investigar um evento de risco e descobrir que ele foi sinalizado incorretamente como uma situação arriscada. Você pode ajudar a reduzir o número de saudação de tais ocorrências marcando o evento de risco hello como falsos positivos. Isso ajudará a classificação de saudação tooimprove algoritmos de eventos semelhantes no futuro de saudação do aprendizado de máquina hello. status de saudação de eventos de falso positivo é muito**fechado** e eles não são mais contribuirá toouser risco.
-* **Ignorar** - se você não executou a qualquer ação de correção, mas desejar Olá toobe de evento de risco removido da lista de ativos hello, você pode marcar um evento de risco ignorar e status de evento Olá será fechada. Eventos ignorados não contribuem toouser risco. Essa opção deve ser usada somente em circunstâncias incomuns.
-* **Reativar** -corre o risco de eventos que foram fechados manualmente (escolhendo **resolver**, **falso positivo**, ou **ignorar**) pode ser reativado, definindo Olá status de evento novamente muito**Active**. Eventos de risco reativado contribuem cálculo do nível de risco do usuário toohello. Eventos de risco fechados por meio de correção (como redefinir uma senha de segurança) não podem ser reativados.
+* **Resolver** - Se, após investigar um evento de risco, você tomou uma ação de correção apropriada fora do Identity Protection e acredita que o evento de risco deve ser considerado fechado, marque o evento como Resolvido. Eventos resolvidos definirão o status do evento de risco como Fechado e ele não contribuirá com o risco do usuário.
+* **Marcar como falso positivo** - Em alguns casos, você pode investigar um evento de risco e descobrir que ele foi sinalizado incorretamente como uma situação arriscada. Você pode ajudar a reduzir o número de tais ocorrências marcando o evento de risco como falso positivo. Isso ajudará os algoritmos de aprendizado de máquina a melhorarem a classificação de eventos semelhantes no futuro. O status de eventos falso positivos é **Fechado** e não contribui mais com o risco do usuário.
+* **Ignorar** - Se você não executou nenhuma ação de correção, mas deseja remover o evento de risco da lista ativa, marque um evento de risco como Ignorar e o status do evento será Fechado. Eventos ignorados não contribuem com o risco do usuário. Essa opção deve ser usada somente em circunstâncias incomuns.
+* **Reativa**r - Eventos de risco fechados manualmente (escolhendo **Resolver**, **Falso positivo** ou **Ignorar**) podem ser reativados, definindo o status do evento novamente como **Ativo**. Eventos de risco reativados contribuem no cálculo de nível de risco do usuário. Eventos de risco fechados por meio de correção (como redefinir uma senha de segurança) não podem ser reativados.
 
-**caixa de diálogo de configuração relacionados de saudação tooopen**:
+**Para abrir o diálogo de configurações relacionadas**:
 
-1. Em Olá **Azure AD Identity Protection** folha, em **investigar**, clique em **eventos de risco**.
+1. Na folha **Azure AD Identity Protection**, em **Investigar**, clique em **Eventos de risco**.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1002.png "Redefinição de senha manual")
-2. Em Olá **eventos de risco** lista, clique em um risco.
+2. Na lista **Eventos de risco** , clique em um risco.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1003.png "Redefinição de senha manual")
-3. Na folha de risco hello, clique em um usuário.
+3. Na folha de risco, clique com o botão direito do mouse em um usuário.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1004.png "Redefinição de senha manual")
 
 ### <a name="closing-all-risk-events-for-a-user-manually"></a>Fechar manualmente todos os eventos de risco para um usuário
-Em vez de fechar manualmente os eventos de risco de um usuário individualmente, proteção de identidade do Azure Active Directory também fornece um método tooclose todos os eventos para um usuário com um clique.
+Em vez de fechar manualmente os eventos de risco de um usuário de forma individual, o Azure Active Directory Identity Protection também fornece um método para fechar todos os eventos para um usuário com um clique.
 
 ![Ações](./media/active-directory-identityprotection/2222.png "Ações")
 
-Quando você clica em **descartar todos os eventos**, todos os eventos estão fechados e usuário Olá afetado não está mais em risco.
+Quando você clica em **Descartar todos os eventos**, todos os eventos são fechados e o usuário afetado não está mais em risco.
 
 ### <a name="remediating-user-risk-events"></a>Corrigir eventos de risco do usuário
 
-Uma solução é toosecure uma ação que uma identidade ou um dispositivo que foi anteriormente suspeita ou toobe comprometido. Uma ação de correção restaura Olá identidade ou dispositivo tooa seguro estado e resolve anterior eventos de risco associados à identidade hello ou dispositivo.
+Uma correção é uma ação que visa proteger uma identidade ou um dispositivo que já sofreu comprometimento conhecido ou suspeito anteriormente. Uma correção restaura a identidade ou dispositivo para um estado seguro e resolve eventos de risco anteriores associados à identidade ou ao dispositivo.
 
-eventos de risco do usuário tooremediate, você pode:
+Para corrigir os eventos de risco do usuário, você pode:
 
-* Executar eventos de risco de usuário uma senha segura redefinição tooremediate manualmente
-* Configurar um toomitigate de política de segurança do usuário risco ou corrigir eventos de risco do usuário automaticamente
-* Recriar a imagem de dispositivo de saudação infectado  
+* executar uma redefinição de senha de segurança para corrigir eventos de risco do usuário manualmente
+* configurar uma política de segurança de risco do usuário para mitigar ou corrigir eventos de risco do usuário automaticamente
+* recriar imagem no dispositivo infectado  
 
 #### <a name="manual-secure-password-reset"></a>Redefinição de senha de segurança manual
-Uma redefinição de senha segura é uma solução eficaz para muitos eventos de risco e quando executada, automaticamente fecha esses eventos de risco e recalcula o nível de risco do usuário hello. Você pode usar o hello Identity Protection painel tooinitiate uma redefinição de senha para um usuário arriscado.
+Uma redefinição de senha de segurança é uma correção eficiente para muitos eventos de risco e quando executada, automaticamente fecha esses eventos de risco e recalcula o nível de risco do usuário. Você pode usar o painel do Identity Protection para iniciar uma redefinição de senha para um usuário arriscado.
 
-diálogo relacionadas Olá fornece tooreset de dois métodos diferentes de uma senha:
+A caixa de diálogo correspondente fornece dois métodos diferentes para redefinir uma senha:
 
-**Redefinir senha** - selecione **exigem Olá usuário tooreset sua senha** tooallow Olá recuperação do usuário tooself se Olá usuário tiver registrado para autenticação multifator. Durante a saudação do próximo logon do usuário, o usuário de saudação será toosolve necessária uma autenticação multifator com êxito o desafio e a senha de Olá toochange em seguida, forçado. Essa opção não estará disponível se a conta de usuário de saudação não estiver registrado a autenticação multifator.
+**Redefinir senha** - selecione **Exigir que o usuário redefina a senha** para permitir que o usuário se recupere automaticamente se ele estiver registrado para autenticação multifator. Durante da próxima entrada do usuário, ele precisará resolver um desafio de autenticação multifator com êxito e em seguida, será forçado a alterar a senha. Essa opção não estará disponível se a conta de usuário não estiver registrada para autenticação multifator.
 
-**Senha temporária** - selecione **gerar uma senha temporária** tooimmediately invalidar senha existente hello e criar uma nova senha temporária para o usuário hello. Envie Olá nova senha temporária tooan endereço de email alternativo para o usuário hello ou o gerente do usuário toohello. Como senha Olá é temporária, usuário Olá será senha de saudação toochange solicitada ao entrar.
+**Senha temporária** - selecione **Gerar uma senha temporária** para invalidar imediatamente a senha existente e criar uma nova senha temporária para o usuário. Envie a nova senha temporária para um endereço de email alternativo para o usuário ou para o gerente dele. Como a senha é temporária, o usuário precisará alterá-la após entrar.
 
 ![Política](./media/active-directory-identityprotection/1005.png "Política")
 
-**caixa de diálogo de configuração relacionados de saudação tooopen**:
+**Para abrir o diálogo de configurações relacionadas**:
 
-1. Em Olá **Azure AD Identity Protection** folha, clique em **usuários sinalizados riscos**.
+1. Na folha **Azure AD Identity Protection**, clique em **Usuários com riscos sinalizados**.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1006.png "Redefinição de senha manual")
-2. Na lista de saudação de usuários, selecione um usuário com eventos de pelo menos um risco.
+2. Na lista de usuários, selecione um usuário com eventos de pelo menos um risco.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1007.png "Redefinição de senha manual")
-3. Na folha de usuário hello, clique em **Redefinir senha**.
+3. Na folha de usuário, clique em **Redefinir senha**.
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1008.png "Redefinição de senha manual")
 
 ### <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
-Uma política de segurança do usuário risco é uma política de acesso condicional que avalia um usuário específico do nível tooa Olá risco e aplica as ações de correção e atenuação com base em regras e condições predefinidas.
+Uma política de segurança de risco do usuário é uma política de acesso condicional que avalia o nível de risco de um usuário específico e aplica ações de correção e mitigação com base em regras e condições predefinidas.
 
 ![Política do usuário ridk](./media/active-directory-identityprotection/1009.png "Política do usuário ridk")
 
-O Azure AD Identity Protection ajuda você a gerenciar a atenuação hello e correção de usuários sinalizados riscos, permitindo que você:
+O Azure AD Identity Protection ajuda a gerenciar a mitigação e correção de usuários sinalizados para riscos, permitindo:
 
-* Definir Olá usuários e grupos Olá política aplica-se a:
+* Defina os usuários e os grupos aos quais a política se aplica:
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1010.png "Política do usuário ridk")
-* Defina Olá usuário risco nível limite (baixa, média ou alta) que dispara a política de saudação:
+* Defina o limite de nível de risco do usuário (baixo, médio ou alto) que dispara a política:
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1011.png "Política do usuário ridk")
-* Conjunto Olá controles toobe imposta quando a política de saudação dispara:
+* Defina os controles a serem impostos quando a política for disparada:
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1012.png "Política do usuário ridk")
-* Alternar estado Olá da política:
+* Alterne o estado de sua política:
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/403.png "Registro de MFA")
-* Revisar e avaliar o impacto de saudação de uma alteração antes de ativá-lo:
+* Examine e avalie o impacto de uma alteração antes de ativá-la:
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1013.png "Política do usuário ridk")
 
-Escolhendo um **alta** limite reduz o número de saudação de vezes que uma política é disparada e minimiza Olá impacto toousers.
-No entanto, ele exclui **baixo** e **médio** usuários sinalizados riscos da política de saudação, que pode não proteger identidades ou dispositivos que foram anteriormente suspeita ou toobe comprometida.
+Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.
+No entanto, isso exclui usuários sinalizados com **Baixo** e **Médio** risco da política, o que pode não proteger as identidades ou os dispositivos que sofreram comprometimento conhecido ou suspeito.
 
-Quando a configuração Olá política,
+Ao definir a política,
 
-* Exclua os usuários que são provavelmente toogenerate muitos falsos positivos (desenvolvedores, analistas de segurança)
-* Exclua os usuários em locais onde habilitando Olá política não é prático (por exemplo, nenhum toohelpdesk de acesso)
+* exclua os usuários que tendem a gerar muitos falsos positivos (desenvolvedores e analistas de segurança)
+* exclua os usuários em localidades em que não é viável habilitar a política (por exemplo, sem acesso à assistência técnica)
 * use um limite **Alto** durante a distribuição inicial de política ou se você precisar minimizar os desafios encontrados pelos usuários finais.
 * use um limite **Baixo** se sua organização exigir uma segurança maior. Selecionar um limite **Baixo** apresenta desafios de entrada do usuário adicionais, porém representa uma segurança maior.
 
-Olá recomendado padrão para a maioria das organizações é tooconfigure uma regra para um **médio** limite toostrike um equilíbrio entre segurança e facilidade de uso.
+O padrão recomendado na maioria das organizações é configurar uma regra para um limite **Médio** para atingir um equilíbrio entre segurança e usabilidade.
 
-Para obter uma visão geral de saudação relacionadas a experiência do usuário, consulte:
+Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 * [Fluxo de recuperação de conta comprometida](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 * [Fluxo de conta comprometida bloqueada](active-directory-identityprotection-flows.md#compromised-account-blocked).  
 
-**caixa de diálogo de configuração relacionados de saudação tooopen**:
+**Para abrir o diálogo de configurações relacionadas**:
 
-- Em Olá **Azure AD Identity Protection** folha em Olá **configurar** seção, clique em **política de risco do usuário**.
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de usuário**.
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1009.png "Política do usuário ridk")
 
 ### <a name="mitigating-user-risk-events"></a>Mitigar eventos de risco do usuário
-Os administradores podem definir um usuário risco política tooblock os usuários de segurança após entrar dependendo do nível de risco de saudação.
+Os administradores podem definir uma política de segurança de risco do usuário para bloquear os usuários ao entrar dependendo do nível de risco.
 
 Bloquear a entrada:
 
-* Evita a geração de saudação de novos eventos de risco de usuário para usuário Olá afetado
-* Permite que os administradores toomanually corrigir eventos de risco Olá que afetam a identidade do usuário hello e restaure-o estado seguro tooa
+* impede a geração de novos eventos de risco do usuário para o usuário afetado
+* Permite aos administradores corrigir os eventos de risco que afetam a identidade do usuário manualmente, bem como restaurá-la para um estado seguro
 
 
 
 ## <a name="multi-factor-authentication-registration-policy"></a>Política de registro de autenticação multifator
-Autenticação multifator do Azure é um método de verificação que você está que requer uso de saudação de mais do que apenas um nome de usuário e senha. Ele fornece uma segunda camada de segurança toouser entradas e transações.  
+A autenticação multifator do Azure é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ele fornece uma segunda camada de segurança para logons de usuário e transações.  
 Recomendamos exigir a autenticação multifator do Azure para entradas de usuário porque:
 
 * fornece autenticação forte com uma variedade de opções de verificação fácil
-* Desempenha um papel fundamental na preparação de sua organização tooprotect e recuperar o comprometimento de conta
+* desempenha um papel fundamental na preparação de sua organização para proteger e recuperar comprometimentos de conta
 
 ![Política do usuário ridk](./media/active-directory-identityprotection/1019.png "Política do usuário ridk")
 
-Para obter mais detalhes, veja [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-O Azure AD Identity Protection ajuda você a gerenciar Olá roll-out de um registro de autenticação multifator, configurando uma política que permite que você:
+O Azure AD Identity Protection ajuda a gerenciar a implementação do registro de autenticação multifator configurando uma política que permite:
 
-* Definir Olá usuários e grupos Olá política aplica-se a:
+* Defina os usuários e os grupos aos quais a política se aplica:
 
     ![Política de MFA](./media/active-directory-identityprotection/1020.png "Política de MFA")
-* Conjunto Olá controles toobe imposta quando a política de saudação dispara::  
+* Defina os controles a serem impostos quando a política for disparada:  
 
     ![Política de MFA](./media/active-directory-identityprotection/1021.png "Política de MFA")
-* Alternar estado Olá da política:
+* Alterne o estado de sua política:
 
     ![Política de MFA](./media/active-directory-identityprotection/403.png "Política de MFA")
-* Exibir o status de registro atual hello:
+* Exiba o status atual do registro:
 
     ![Política de MFA](./media/active-directory-identityprotection/1022.png "Política de MFA")
 
-Para obter uma visão geral de saudação relacionadas a experiência do usuário, consulte:
+Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 * [Fluxo do registro de autenticação multifator](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
 * [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md).  
 
-**caixa de diálogo de configuração relacionados de saudação tooopen**:
+**Para abrir o diálogo de configurações relacionadas**:
 
-- Em Olá **Azure AD Identity Protection** folha em Olá **configurar** seção, clique em **registro de autenticação multifator**.
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Registro de autenticação multifator**.
 
     ![Política de MFA](./media/active-directory-identityprotection/1019.png "Política de MFA")
 
@@ -413,6 +413,6 @@ Para obter uma visão geral de saudação relacionadas a experiência do usuári
 
 * [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)
 
-* [Proteção do Azure Active Directory identidade - como toounblock usuários](active-directory-identityprotection-unblock-howto.md)
+* [Azure Active Directory Identity Protection - como desbloquear usuários](active-directory-identityprotection-unblock-howto.md)
 
 * [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)

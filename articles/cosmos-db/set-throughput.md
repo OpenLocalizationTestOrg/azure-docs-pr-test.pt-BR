@@ -1,6 +1,6 @@
 ---
-title: "taxa de transferência aaaProvision para o banco de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba como tooset provisionados taxa de transferência para seu banco de dados do Azure Cosmos containsers coleções, gráficos e tabelas."
+title: Provisionar a produtividade do Azure Cosmos DB | Microsoft Docs
+description: "Saiba como definir a produtividade provisionada para contêineres, coleções, gráficos e tabelas do Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: c143f4aace466b7109168a50e2eb80ddeca6400e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Definir a produtividade de contêineres do Azure Cosmos DB
 
-Você pode definir a taxa de transferência para os contêineres de banco de dados do Azure Cosmos Olá portal do Azure ou usando Olá SDKs de cliente. 
+Você pode definir a produtividade dos contêineres do Azure Cosmos DB no portal do Azure ou usando os SDKs do cliente. 
 
-Olá a tabela a seguir lista a taxa de transferência Olá disponível para os contêineres:
+A tabela a seguir lista a produtividade disponível para cada contêiner:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -46,43 +46,43 @@ Olá a tabela a seguir lista a taxa de transferência Olá disponível para os c
     </tbody>
 </table>
 
-## <a name="tooset-hello-throughput-by-using-hello-azure-portal"></a>taxa de transferência tooset hello usando Olá portal do Azure
+## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Para definir a taxa de transferência usando o portal do Azure
 
-1. Em uma nova janela, abra Olá [portal do Azure](https://portal.azure.com).
-2. Na barra de saudação à esquerda, clique em **o banco de dados do Azure Cosmos**, ou clique em **mais serviços** na parte inferior do hello, role muito**bancos de dados**e, em seguida, clique em **banco de dados do Azure Cosmos**.
+1. Em uma nova janela, abra o [portal do Azure](https://portal.azure.com).
+2. Na barra esquerda, clique em **Azure Cosmos DB** ou em **Mais Serviços** na parte inferior, role até **Bancos de dados** e, depois, clique em **Azure Cosmos DB**.
 3. Selecione sua conta do Cosmos DB.
-4. Na nova janela de hello, clique em **Gerenciador de dados (visualização)** no menu de navegação hello.
-5. Na nova janela de hello, expanda o banco de dados e o contêiner e, em seguida, clique em **configurações de escala &**.
-6. Na nova janela de hello, digite o novo valor de taxa de transferência hello, em Olá **taxa de transferência** caixa e, em seguida, clique em **salvar**.
+4. Na nova janela, clique em **Data Explorer (Versão prévia)** no menu de navegação.
+5. Na nova janela, expanda o banco de dados e o contêiner e, em seguida, clique em **Dimensionamento e Configurações**.
+6. Na nova janela, digite o novo valor de produtividade na caixa **Produtividade** e, em seguida, clique em **Salvar**.
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="tooset-hello-throughput-by-using-hello-documentdb-api-for-net"></a>taxa de transferência tooset hello usando Olá API DocumentDB para .NET
+## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>Para definir a produtividade usando a API do DocumentDB do .NET
 
 ```C#
-//Fetch hello resource toobe updated
+//Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set hello throughput toohello new value, for example 12,000 request units per second
+// Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes toohello database by replacing hello original resource
+//Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
 
 ## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
 
-**Posso configurar meu tooless de taxa de transferência de 400 RU/s?**
+**Posso definir minha taxa de transferência com valor menor que 400 RU/s?**
 
-400 RU/s é Olá taxa de transferência mínima disponível em coleções de partição única de banco de dados do Cosmos (2500 RU/s é Olá mínimo para as coleções particionadas). Solicitação de unidades são definidas em intervalos de 100 RU/s, mas a taxa de transferência não é possível definir too100 RU/s ou qualquer valor menor do que 400 RU/s. Se você estiver procurando por um método econômico toodevelop e Cosmos banco de dados de teste, você pode usar o hello livre [emulador de banco de dados do Azure Cosmos](local-emulator.md), que pode ser implantado localmente, sem nenhum custo. 
+400 RU/s é a produtividade mínima disponível em coleções de partição única do Cosmos DB (2500 RU/s é o mínimo para coleções particionadas). Unidades de solicitação são definidas em intervalos de 100 RU/s, mas a taxa de transferência não pode ser definida como 100 RU/s ou qualquer valor menor que 400 RU/s. Se você estiver procurando um método econômico para desenvolver e testar o Cosmos DB, poderá usar o [Emulador do Azure Cosmos DB](local-emulator.md) gratuito, que pode ser implantado localmente sem custo adicional. 
 
-**Como definir o througput usando Olá MongoDB API?**
+**Como defino a produtividade usando a API do MongoDB?**
 
-Não há nenhuma taxa de transferência do MongoDB API extensão tooset. Olá recomendação é toouse hello API DocumentDB, conforme mostrado no [tooset taxa de transferência de saudação usando Olá API DocumentDB para .NET](#set-throughput-sdk).
+Não há nenhuma extensão de API do MongoDB para definir a produtividade. A recomendação é usar a API do DocumentDB, conforme mostrado em [Para definir a produtividade usando a API do DocumentDB para .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-toolearn mais sobre o provisionamento e escala planeta contínuo com Cosmos DB, consulte [particionamento e o dimensionamento com o banco de dados do Cosmos](partition-data.md).
+Para saber mais sobre o provisionamento e atingir uma escala mundial com o Cosmos DB, consulte [Particionamento e escala com o Cosmos DB](partition-data.md).

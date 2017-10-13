@@ -4,13 +4,13 @@
 
 # Introdução
 ## [Identificar bancos de dados e tabelas](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
-## [Execute o Assistente de saudação](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
+## [Executar o assistente](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Como
 ## Habilitar
 ### [Habilitar um banco de dados](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Habilitar uma tabela](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
-### [Selecione linhas toomigrate](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
+### [Selecionar linhas para migrar](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Gerenciar
 ### [Monitorar migração de dados](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Pausar e retomar migração](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)

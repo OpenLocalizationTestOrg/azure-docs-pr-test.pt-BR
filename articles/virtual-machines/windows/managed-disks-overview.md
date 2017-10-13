@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Premium e Standard gerenciados discos visão geral de máquinas virtuais do Windows | Microsoft Docs"
-description: "Visão geral do Azure gerenciados discos, o que lida com contas de armazenamento de saudação para você ao usar máquinas virtuais do Windows Azure"
+title: "Visão geral do Azure Managed Disks Standard e Premium para VMs do Windows| Microsoft Docs"
+description: "Visão geral do Azure Managed Disks, que lida com as contas de armazenamento para você ao usar VMs do Windows no Azure"
 services: virtual-machines-windows
 documentationcenter: na
 author: iainfoulds
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 02621c5debfda49d398624c9a0a84a573078d3d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: be046ce45bff4ee547fbc737382d32f14fc8298a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]

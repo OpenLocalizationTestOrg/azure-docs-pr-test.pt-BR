@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toouse AMQP 1.0 com hello API do barramento de serviço Java | Microsoft Docs"
-description: "Como toouse Olá JMS Java Message Service () com o Advanced Message Queuing Protodol (AMQP) 1.0 e o barramento de serviço do Azure."
+title: "Como usar o AMQP 1.0 com o API do Barramento de Serviço em Java | Microsoft Docs"
+description: "Como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0."
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3e1d0329f2675a2273e12bb7389d3ce38b156a5e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-hello-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como toouse Olá serviço JMS (Java Message) API com AMQP 1.0 e o barramento de serviço
-Olá Advanced Message Queuing Protocol (AMQP) 1.0 é um protocolo de mensagens eficiente, confiável e de nível de transmissão que você pode usar aplicativos de mensagens robusto e de plataforma cruzada toobuild.
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
+O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
 
-Suporte para AMQP 1.0 no barramento de serviço significa que você pode usar Olá enfileiramento e publica/assina recursos de mensagens orientados de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
+O suporte para o AMQP 1.0 no Service Bus significa que você pode usar o enfileiramento e publicar/assinar os recursos de mensagens agenciadas a partir de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
-Este artigo explica como toouse Service Bus recursos de mensagens (filas e a publicação/assinatura tópicos) de aplicativos Java usando Olá populares serviço JMS (Java Message) API padrão. Há um [artigo complementar](service-bus-amqp-dotnet.md) que explica como toodo Olá mesmo usando Olá API .NET do barramento de serviço. Você pode usar esses toolearn juntos de duas guias sobre mensagens de plataforma cruzada usando AMQP 1.0.
+Este artigo explica como usar os recursos de sistema de mensagens do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do JMS (Java Message Service). Existe um [artigo complementar](service-bus-amqp-dotnet.md) que explica como fazer o mesmo usando a API do Barramento de Serviço do .NET. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Se você não fizer isso, você pode [criar namespace hello e fila](service-bus-create-namespace-portal.md) usando Olá [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como toocreate namespaces de barramento de serviço e as filas, consulte [começar com filas do barramento de serviço](service-bus-dotnet-get-started-with-queues.md).
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Filas e tópicos particionados também dão suporte ao AMQP. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md) e [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 > 
 > 
 
-## <a name="downloading-hello-amqp-10-jms-client-library"></a>Baixando a biblioteca de cliente do AMQP 1.0 JMS Olá
-Para obter informações sobre onde toodownload Olá a versão mais recente da biblioteca de cliente Olá Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+## <a name="downloading-the-amqp-10-jms-client-library"></a>Baixando a biblioteca do cliente do JMS do AMQP 1.0
+Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
-Você deve adicionar Olá quatro arquivos JAR a seguir de saudação Apache Qpid JMS AMQP 1.0 distribuição arquivamento toohello CLASSPATH Java ao compilar e executar aplicativos do JMS com o barramento de serviço:
+Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-amqp-1-0-client-[version].jar
@@ -47,51 +47,51 @@ Você deve adicionar Olá quatro arquivos JAR a seguir de saudação Apache Qpid
 
 ## <a name="coding-java-applications"></a>Codificando os aplicativos Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)
-O JMS utiliza Olá Java Naming and Directory Interface (JNDI) toocreate uma separação entre nomes lógicos e físicos. Dois tipos de objetos JMS são resolvidos usando a JNDI: ConnectionFactory e Destino. O JNDI utiliza um modelo de provedor para o qual você pode conectar tarefas de resolução de nome do diretório diferentes serviços toohandle. Olá Apache Qpid JMS AMQP 1.0 biblioteca vem com um simples propriedades provedor JNDI baseado em arquivo que é configurado usando um arquivo de propriedades do seguinte Olá formato:
+O JMS usa a Java Naming and Directory Interface (JNDI) para criar uma separação entre nomes lógicos e físicos. Dois tipos de objetos JMS são resolvidos usando a JNDI: ConnectionFactory e Destino. A JNDI usa um modelo de provedor no qual você pode conectar diferentes serviços de diretório para lidar com tarefas de resolução de nome. A biblioteca Apache Qpid JMS do AMQP 1.0 vem com um Provedor JNDI simples baseado em arquivo de propriedades que é configurado usando um arquivo de propriedades no seguinte formato:
 
 ```
 # servicebus.properties - sample JNDI configuration
 
-# Register a ConnectionFactory in JNDI using hello form:
+# Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
 connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 
-# Register some queues in JNDI using hello form
+# Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
 # topic.[jndi_name] = [physical_name]
 queue.QUEUE = queue1
 ```
 
-#### <a name="configure-hello-connectionfactory"></a>Configurar Olá ConnectionFactory
-Olá toodefine de entrada usado um **ConnectionFactory** Olá Qpid provedor JNDI de propriedades de arquivo é do hello formato a seguir:
+#### <a name="configure-the-connectionfactory"></a>Configurar o ConnectionFactory
+A entrada usada para definir um **ConnectionFactory** no provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Onde **[jndi_name]** e **[ConnectionURL]** ter Olá significados a seguir:
+Em que **[jndi_name]** e **[ConnectionURL]** têm os seguintes significados:
 
-* **[jndi_name]** : nome lógico Olá Olá ConnectionFactory. Este é o nome de saudação que será resolvido no aplicativo de Java hello usando o método de JNDI Intialcontext hello.
-* **[ConnectionURL]** : Uma URL que fornece biblioteca JMS Olá Olá informações necessárias toohello agente AMQP.
+* **[jndi_name]**: o nome lógico do ConnectionFactory. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
+* **[ConnectionURL]**: uma URL que fornece à biblioteca JMS as informações necessárias para o agente do AMQP.
 
-formato de saudação do hello **ConnectionURL** é o seguinte:
+O formato de **ConnectionURL** é o seguinte:
 
 ```
 amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Onde **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** ter Olá significados a seguir:
+Em que **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** têm os seguintes significados:
 
-* **[namespace]** : Olá namespace de barramento de serviço.
-* **[SASPolicyName]** : nome de diretiva de assinatura de acesso compartilhado da fila de saudação.
-* **[SASPolicyKey]** : chave de política de assinatura de acesso compartilhado da fila de saudação.
+* **[namespace]**: o namespace do Barramento de Serviço.
+* **[SASPolicyName]**: nome da política da Assinatura de Acesso Compartilhado da Fila.
+* **[SASPolicyKey]**: chave da política da Assinatura de Acesso Compartilhado da Fila.
 
 > [!NOTE]
-> Você deve codificar URL senha de saudação manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
 #### <a name="configure-destinations"></a>Configurar destinos
-Olá toodefine de entrada usada que é um destino no provedor JNDI de arquivos de propriedades do hello Qpid do hello formato a seguir:
+A entrada usada para definir um destino no provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
 ```
 queue.[jndi_name] = [physical_name]
@@ -103,21 +103,21 @@ ou o
 topic.[jndi_name] = [physical_name]
 ```
 
-Onde **[jndi\_nome]** e **[físico\_nome]** ter Olá significados a seguir:
+Em que **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 
-* **[jndi_name]** : nome lógico de saudação do destino de saudação. Este é o nome de saudação que será resolvido no aplicativo de Java hello usando o método de JNDI Intialcontext hello.
-* **[physical_name]** : nome de saudação do hello aplicativo hello do barramento de serviço entidade toowhich envia ou recebe mensagens.
+* **[jndi_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
+* **[physical_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
 
 > [!NOTE]
-> Durante o recebimento de uma assinatura de tópico do barramento de serviço, nome físico do hello especificado no JNDI deve ser o nome de saudação do tópico de saudação. nome da assinatura Olá é fornecida quando a assinatura durável Olá é criada no código do aplicativo JMS de saudação. Olá [guia do desenvolvedor do Service Bus AMQP 1.0](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com tópicos do barramento de serviço do JMS.
+> Ao receber de uma assinatura de tópico do Barramento de Serviço, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia de desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com tópicos do Barramento de Serviço por meio do JMS.
 > 
 > 
 
-### <a name="write-hello-jms-application"></a>Gravar saudação JMS aplicativo
-Não existem APIs ou opções especiais obrigatórias ao usar o JMS com o Service Bus. No entanto, existem algumas restrições que serão abordadas posteriormente. Assim como com qualquer aplicativo JMS, Olá a primeira coisa exigida é configuração do ambiente de JNDI hello, tooresolve capaz de toobe um **ConnectionFactory** e destinos.
+### <a name="write-the-jms-application"></a>Escrever o aplicativo JMS
+Não existem APIs ou opções especiais obrigatórias ao usar o JMS com o Service Bus. No entanto, existem algumas restrições que serão abordadas posteriormente. Da mesma forma que ocorre com qualquer aplicativo JMS, a primeiro item necessário é a configuração do ambiente JNDI, para ser capaz de resolver um **ConnectionFactory** e destinos.
 
-#### <a name="configure-hello-jndi-initialcontext"></a>Configurar Olá JNDI InitialContext
-ambiente de JNDI Hello está configurado, passando uma tabela de hash das informações de configuração no construtor de saudação da classe de javax.naming.InitialContext hello. dois elementos necessários Olá na tabela de hash de saudação são nome da classe Olá da saudação inicial fábrica de contexto e hello URL do provedor. Olá código a seguir mostra como tooconfigure Olá JNDI ambiente toouse Olá Qpid propriedades baseado em arquivo provedor JNDI com um arquivo de propriedades denominado **ServiceBus**.
+#### <a name="configure-the-jndi-initialcontext"></a>Configurar o InitialContext de JNDI
+O ambiente JNDI é configurado por meio da transmissão de uma tabela de hash com informações de configuração para o construtor da classe javax.naming.InitialContext. Os dois elementos necessários da tabela de hash são o nome da classe de Initial Context Factory e a URL do Provedor. O código a seguir mostra como configurar o ambiente JNDI para usar o Provedor JNDI com base em arquivo de propriedades do Qpid com um arquivo de propriedades chamado **servicebus.properties**.
 
 ```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -127,7 +127,7 @@ InitialContext context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Um aplicativo JMS simples que usa uma fila do Barramento de Serviço
-Hello programa de exemplo a seguir envia a fila de barramento de serviço do JMS TextMessages tooa com nome lógico do hello JNDI da fila e recebe mensagens de saudação novamente.
+O programa de exemplo a seguir envia TextMessages do JMS para uma fila do Service Bus com o nome lógico de JNDI da FILA e recebe as mensagens de volta.
 
 ```java
 // SimpleSenderReceiver.java
@@ -185,7 +185,7 @@ public class SimpleSenderReceiver implements MessageListener {
             }
 
             SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-            System.out.println("Press [enter] toosend a message. Type 'exit' + [enter] tooquit.");
+            System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
             BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
 
             while (true) {
@@ -226,12 +226,12 @@ public class SimpleSenderReceiver implements MessageListener {
 }    
 ```
 
-### <a name="run-hello-application"></a>Executar o aplicativo hello
-Executar o aplicativo hello produz saída de formulário de saudação:
+### <a name="run-the-application"></a>Executar o aplicativo
+A execução do aplicativo produz a saída do formulário:
 
 ```
 > java SimpleSenderReceiver
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 
 Sent message with JMSMessageID = ID:2867600614942270318
 Received message with JMSMessageID = ID:2867600614942270318
@@ -245,22 +245,22 @@ exit
 ```
 
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Mensagens em plataformas cruzadas entre JMS e .NET
-Este guia mostrado como toosend e receber mensagens tooand do barramento de serviço usando JMS. No entanto, um dos principais benefícios de saudação do AMQP 1.0 é que ele permite que aplicativos toobe criada a partir de componentes escritos em idiomas diferentes, com mensagens trocadas confiável e com fidelidade total.
+Este guia mostrou como enviar e receber mensagens de e para o Service Bus usando o JMS. No entanto, um dos principais benefícios do AMQP 1.0 é que ele permite que os aplicativos sejam criados a partir de componentes escritos em diferentes linguagens, com mensagens trocadas de forma confiável e com total fidelidade.
 
-Usando o aplicativo de JMS do exemplo hello descrito acima e um aplicativo .NET semelhante obtido um artigo complementar, [usando o barramento de serviço do .NET com AMQP 1.0](service-bus-amqp-dotnet.md), você pode trocar mensagens entre .NET e Java. Leia este artigo para obter mais informações sobre detalhes de saudação da plataforma cruzada usando AMQP 1.0 e o barramento de serviço do sistema de mensagens.
+Usando a amostra do aplicativo JMS descrito acima e um aplicativo .NET similar retirado de um guia complementar, [Como usar o Barramento de Serviço do .NET com o AMQP 1.0](service-bus-amqp-dotnet.md), é possível trocar mensagens entre o .NET e o Java. Leia este artigo para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Barramento de Serviço e o AMQP 1.0.
 
-### <a name="jms-toonet"></a>Too.NET JMS
-toodemonstrate JMS too.NET mensagens:
+### <a name="jms-to-net"></a>Do JMS para o .NET
+Para demonstrar as mensagens do JMS para o .NET:
 
-* Inicie o aplicativo de exemplo .NET hello sem argumentos de linha de comando.
-* Inicie o aplicativo de exemplo hello Java com argumento de linha de comando do hello "sendonly". Nesse modo, hello aplicativo não receberá mensagens da fila de hello, ele enviará apenas.
-* Pressione **Enter** algumas vezes no console de aplicativos do Java hello, que fará com que toobe de mensagens enviada.
-* Essas mensagens são recebidas pelo Olá aplicativo .NET.
+* Inicie a amostra do aplicativo do .NET sem nenhum argumento de linha de comando.
+* Inicie a amostra do aplicativo Java com o argumento de linha de comando "sendonly". Nesse modo, o aplicativo não receberá mensagens da fila; ele somente as enviará.
+* Pressione **Enter** algumas vezes no console do aplicativo Java; isso fará com que as mensagens sejam enviadas.
+* Essas mensagens são recebidas pelo aplicativo .NET.
 
 #### <a name="output-from-jms-application"></a>Saída do aplicativo JMS
 ```
 > java SimpleSenderReceiver sendonly
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Sent message with JMSMessageID = ID:4364096528752411591
 Sent message with JMSMessageID = ID:459252991689389983
 Sent message with JMSMessageID = ID:1565011046230456854
@@ -270,25 +270,25 @@ exit
 #### <a name="output-from-net-application"></a>Saída do aplicativo .NET
 ```
 > SimpleSenderReceiver.exe    
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
 Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name="net-toojms"></a>TooJMS .NET
-toodemonstrate tooJMS de .NET do sistema de mensagens:
+### <a name="net-to-jms"></a>Do .NET para o JMS
+Para demonstrar as mensagens do .NET para o JMS:
 
-* Inicie o aplicativo de exemplo .NET hello com argumento de linha de comando do hello "sendonly". Nesse modo, hello aplicativo não receberá mensagens da fila de hello, ele enviará apenas.
-* Inicie o aplicativo de exemplo hello Java sem argumentos de linha de comando.
-* Pressione **Enter** algumas vezes no console de aplicativo do .NET hello, que fará com que toobe de mensagens enviada.
-* Essas mensagens são recebidas pelo Olá aplicativo Java.
+* Inicie a amostra do aplicativo do .NET com o argumento de linha de comando "sendonly". Nesse modo, o aplicativo não receberá mensagens da fila; ele somente as enviará.
+* Inicie a amostra do aplicativo do Java sem nenhum argumento de linha de comando.
+* Pressione **Enter** algumas vezes no console do aplicativo .NET, isso fará com que as mensagens sejam enviadas.
+* Essas mensagens são recebidas pelo aplicativo Java.
 
 #### <a name="output-from-net-application"></a>Saída do aplicativo .NET
 ```
 > SimpleSenderReceiver.exe sendonly
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
@@ -298,7 +298,7 @@ exit
 #### <a name="output-from-jms-application"></a>Saída do aplicativo JMS
 ```
 > java SimpleSenderReceiver    
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
 Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
@@ -306,22 +306,22 @@ exit
 ```
 
 ## <a name="unsupported-features-and-restrictions"></a>Restrições e recursos não suportados
-Olá restrições a seguir existe ao usar JMS no AMQP 1.0 com o barramento de serviço, ou seja:
+As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Service Bus, ou seja:
 
-* Apenas um **MessageProducer** ou **MessageConsumer** é permitido por **Sessão**. Se você precisar toocreate vários **MessageProducers** ou **MessageConsumers** em um aplicativo, crie um dedicado **sessão** para cada um deles.
+* Apenas um **MessageProducer** ou **MessageConsumer** é permitido por **Sessão**. Se precisar criar vários **MessageProducers** ou **MessageConsumers** em um aplicativo, crie uma **Session** dedicada para cada um deles.
 * Assinaturas de tópico voláteis não são atualmente suportadas.
 * **MessageSelectors** não são atualmente suportados.
-* Destinos temporários; Por exemplo, **TemporaryQueue**, **TemporaryTopic** atualmente não têm suporte, juntamente com hello **QueueRequestor** e **TopicRequestor**APIs que usá-los.
+* Os destinos temporários como, por exemplo, **TemporaryQueue**, **TemporaryTopic** não têm suporte no momento, juntamente com as APIs de **QueueRequestor** e **TopicRequestor** que os utilizam.
 * Não há suporte para as sessões transacionadas e transações distribuídas.
 
 ## <a name="summary"></a>Resumo
-Este tooguide como mostrou como toouse orientadas do barramento de serviço recursos de mensagens (filas e a publicação/assinatura tópicos) do Java usando Olá API de JMS populares e AMQP 1.0.
+Este guia de instruções explicou como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do Java usando a API popular JMS e o AMQP 1.0.
 
-Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Componentes desenvolvidos utilizando esses idiomas diferentes poderão trocar mensagens com segurança e fidelidade completa usando o suporte de saudação AMQP 1.0 no barramento de serviço.
+Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas diferentes linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1.0 no Service Bus.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
-* [Como toouse AMQP 1.0 com hello API .NET do barramento de serviço](service-bus-dotnet-advanced-message-queuing.md)
+* [Como usar o AMQP 1.0 com a API .NET do Barramento de Serviço](service-bus-dotnet-advanced-message-queuing.md)
 * [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/)

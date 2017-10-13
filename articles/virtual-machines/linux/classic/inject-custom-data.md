@@ -1,6 +1,6 @@
 ---
-title: aaaInject dados em VMs do Linux no Azure | Microsoft Docs
-description: "Este tópico descreve como tooinject dados personalizados do Azure virtual máquina quando Olá instância é criada e como toolocate Olá dados personalizados no Windows ou Linux."
+title: Injetar dados em VMs do Linux no Azure | Microsoft Docs
+description: "Este tópico descreve como injetar dados personalizados em uma máquina virtual do Azure quando a instância é criada e como localizar os dados personalizados no Windows ou Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: a3197e06a8d367eab6336577e5cfb6d2d6858441
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8dd04c26f10950b13fe0689a96b3e12250715019
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>Injetando dados personalizados em uma máquina virtual do Azure
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Para obter informações sobre como usar o hello extensão de Script personalizado com o modelo do Gerenciador de recursos de saudação, consulte [aqui](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar a Extensão de Script personalizado com o modelo do Resource Manager, veja [aqui](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 

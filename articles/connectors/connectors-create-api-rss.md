@@ -1,6 +1,6 @@
 ---
-title: "conector de aaaRSS em aplicativos do Azure lógica | Microsoft Docs"
-description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conector RSS permite Olá usuários toopublish e recuperar itens do feed. Ele também permite que usuários Olá tootrigger operações quando um novo item é publicado toohello feed."
+title: "Conector RSS no Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O conector do RSS permite que os usuários publiquem e recuperem itens de feed. Também permite que os usuários inicializem operações quando um novo item é publicado no feed."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 973ce930f5fa7226a918feebe0f9addef14f34e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 308d78550e9e60303b70d591eb4e6bfff3e49ce7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-rss-connector"></a>Introdução ao conector RSS Olá
-O RSS é que um toopublish de formato usado de distribuição de sites populares conteúdo – como entradas do blog e manchetes atualizado com frequência.  Muitos editores de conteúdo fornecem que um RSS feed tooallow usuários toosubscribe tooit.  Use Olá tooretrieve de conector RSS feed fluxos de informações e gatilho quando novos itens são publicados em um RSS feed.
+# <a name="get-started-with-the-rss-connector"></a>Introdução ao conector do RSS
+O RSS é um formato popular de distribuição da Web usado para publicar conteúdo atualizado com frequência, como entradas de blog e manchetes de notícias.  Muitos editores de conteúdo fornecem um feed RSS para permitir que usuários o assinem.  Use o conector RSS para recuperar informações de feeds e fluxos de gatilho quando novos itens forem publicados em um feed RSS.
 
 É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-toorss"></a>Criar uma conexão tooRSS
-> [!INCLUDE [Steps toocreate a connection tooan RSS feed](../../includes/connectors-create-api-rss.md)]
+## <a name="create-a-connection-to-rss"></a>Criar uma conexão com o RSS
+> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/rss/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/rss/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Voltar toohello [lista APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).

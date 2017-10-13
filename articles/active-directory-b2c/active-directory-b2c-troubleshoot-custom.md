@@ -1,6 +1,6 @@
 ---
-title: "Application Insights tootroubleshoot políticas personalizadas - Azure AD B2C | Microsoft Docs"
-description: "como toosetup Application Insights tootrace Olá a execução de políticas personalizadas"
+title: "Application Insights para solucionar problemas de Políticas Personalizadas – Azure AD B2C | Microsoft Docs"
+description: "como configurar o Application Insights para rastrear a execução de políticas personalizadas"
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
@@ -14,54 +14,54 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: c02d7178512c7f9e022385371c3effd4f8cb7726
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Coleta de logs
 
 Este artigo fornece etapas para coletar logs do Azure AD B2C para que você possa diagnosticar problemas com suas políticas personalizadas.
 
 >[!NOTE]
->Atualmente, hello logs de atividade detalhados descritos aqui são projetados **somente** tooaid no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Logs de coletam todas as declarações enviadas tooand Olá dos provedores de identidade durante o desenvolvimento.  Se usado em produção, o desenvolvedor Olá assume a responsabilidade de PII (informações de identificação em particular) coletada no log de aplicativo Insights Olá que possuem.  Esses logs detalhados são coletados apenas quando a política de saudação é colocada em **modo de desenvolvimento**.
+>Atualmente, os logs de atividade detalhados descritos aqui são projetados **APENAS** para ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento.  Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui.  Esses logs detalhados são coletados apenas quando a política é colocada em **MODO DE DESENVOLVIMENTO**.
 
 
 ## <a name="use-application-insights"></a>Usar o Application insights
 
-B2C do Azure AD oferece suporte a um recurso para enviar dados tooApplication Insights.  Fornece uma maneira toodiagnose exceções do Application Insights e visualizar os problemas de desempenho do aplicativo.
+O Azure AD B2C oferece suporte a um recurso para envio de dados ao Application Insights.  O Application Insights fornece uma maneira de diagnosticar exceções e visualizar os problemas de desempenho do aplicativo.
 
 ### <a name="setup-application-insights"></a>Configurar o Application Insights
 
-1. Vá toohello [portal do Azure](https://portal.azure.com). Certifique-se de que você está no locatário Olá com sua assinatura do Azure (e não em seu locatário do Azure AD B2C).
-1. Clique em **+ novo** no menu de navegação à esquerda de saudação.
+1. Vá para o [Portal do Azure](https://portal.azure.com). Certifique-se de que você esteja no locatário com sua assinatura do Azure (não no locatário do Azure AD B2C).
+1. Clique em **+ Novo** no menu de navegação esquerdo.
 1. Pesquise e selecione **Application Insights** e clique em **Criar**.
-1. Preencha o formulário de saudação e clique em **criar**. Selecione **geral** para Olá **tipo de aplicativo**.
-1. Depois de Olá recurso foi criado, abra o recurso do Application Insights Olá.
-1. Localizar **propriedades** em Olá menu à esquerda e clique nele.
-1. Saudação de cópia **chave de instrumentação** e salvá-lo para a próxima seção de saudação.
+1. Preencha o formulário e clique em **Criar**. Selecione **Geral** para o **Tipo de Aplicativo**.
+1. Após a criação do recurso, abra o recurso Application Insights.
+1. Localize **Propriedades** no menu à esquerda e clique nele.
+1. Copie a **Chave de Instrumentação** e salve-a na próxima seção.
 
-### <a name="set-up-hello-custom-policy"></a>Configurar a política personalizada de saudação
+### <a name="set-up-the-custom-policy"></a>Configurar a política personalizada
 
-1. Abrir o arquivo RP hello (por exemplo, SignUpOrSignin.xml).
-1. Adicionar Olá toohello atributos a seguir `<TrustFrameworkPolicy>` elemento:
+1. Abra o arquivo RP (por exemplo, SignUpOrSignin.xml).
+1. Adicione os atributos a seguir ao elemento `<TrustFrameworkPolicy>`:
 
   ```XML
   DeploymentMode="Development"
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Se ele não existir, adicione um nó filho `<UserJourneyBehaviors>` toohello `<RelyingParty>` nó. Ela deve estar localizada imediatamente após Olá`<DefaultUserJourney ReferenceId="YourPolicyName" />`
-2. Adicionar Olá após o nó como um filho do hello `<UserJourneyBehaviors>` elemento. Certifique-se de que tooreplace `{Your Application Insights Key}` com hello **chave de instrumentação** que você obteve do Application Insights na seção anterior hello.
+1. Se ele ainda não existir, adicione um nó filho `<UserJourneyBehaviors>` ao nó `<RelyingParty>`. Ele deve estar localizado imediatamente após o `<DefaultUserJourney ReferenceId="YourPolicyName" />`
+2. Adicione o seguinte nó como um filho do elemento `<UserJourneyBehaviors>`. Substitua `{Your Application Insights Key}` pela **Chave de Instrumentação** que você obteve do Application Insights na seção anterior.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`informa a telemetria ApplicationInsights tooexpedite Olá por meio do pipeline de processamento de Olá, BOM para o desenvolvimento, mas restrito em grandes volumes.
-  * `ClientEnabled="true"`envia o script do lado do cliente de ApplicationInsights Olá para rastrear erros de cliente e de exibição de página (não necessários).
-  * `ServerEnabled="true"`envia Olá existente UserJourneyRecorder JSON como tooApplication um evento personalizado Insights.
+  * `DeveloperMode="true"` informa ao ApplicationInsights para agilizar a telemetria por meio do pipeline de processamento, bom para o desenvolvimento, mas com restrição em grandes volumes.
+  * `ClientEnabled="true"` envia o script do lado do cliente do ApplicationInsights para rastrear erros de exibição de página e do lado do cliente (não é necessário).
+  * `ServerEnabled="true"` envia o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights.
 Exemplo:
 
   ```XML
@@ -82,32 +82,32 @@ Exemplo:
   </TrustFrameworkPolicy>
   ```
 
-3. Carregar política hello.
+3. Carregue a política.
 
-### <a name="see-hello-logs-in-application-insights"></a>Consulte Olá registra em log no Application Insights
+### <a name="see-the-logs-in-application-insights"></a>Veja os logs de no Application Insights
 
 >[!NOTE]
 > Há um breve atraso (menos de cinco minutos) antes que você possa ver novos logs no Application Insights.
 
-1. Abrir o recurso do Application Insights Olá que você criou no hello [portal do Azure](https://portal.azure.com).
-1. Em Olá **visão geral** menu, clique na **análise**.
+1. Abra o recurso do Application Insights que você criou no [Portal do Azure](https://portal.azure.com).
+1. No menu **Visão geral**, clique em **Análise**.
 1. Abra uma nova guia no Application Insights.
-1. Aqui está uma lista de consultas, que você pode usar os logs de saudação do toosee
+1. Aqui está uma lista de consultas que você pode usar para ver os logs
 
 | Consultar | Descrição |
 |---------------------|--------------------|
-traces | Ver todos os logs de saudação gerados pelo Azure AD B2C |
-traces \| em que timestamp > ago(1d) | Ver todos os logs de saudação gerados pelo Azure AD B2C para Olá último dia
+traces | Veja todos os logs gerados pelo Azure AD B2C |
+traces \| em que timestamp > ago(1d) | Veja todos os logs gerados pelo Azure AD B2C para o último dia
 
-entradas de saudação podem ser longos.  Exporte tooCSV para uma análise mais detalhada.
+As entradas podem ser longas.  Exporte para CSV para uma análise mais detalhada.
 
-Você pode aprender mais sobre a ferramenta de análise de saudação [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
-
->[!NOTE]
->comunidade de saudação desenvolveu um desenvolvedores de identidade do usuário jornada visualizador toohelp.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê da sua instância do Application Insights e fornece uma exibição de estrutura bem Olá jornada de eventos do usuário.  Obter o código-fonte hello e implantá-lo em sua própria solução.
+Saiba mais sobre essa ferramentas de análise [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->Atualmente, hello logs de atividade detalhados descritos aqui são projetados **somente** tooaid no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Logs de coletam todas as declarações enviadas tooand Olá dos provedores de identidade durante o desenvolvimento.  Se usado em produção, o desenvolvedor Olá assume a responsabilidade de PII (informações de identificação em particular) coletada no log de aplicativo Insights Olá que possuem.  Esses logs detalhados são coletados apenas quando a política de saudação é colocada em **modo de desenvolvimento**.
+>A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade.  Não tem suporte da Microsoft e é disponibilizado estritamente como está.  Ele lê na sua instância do Application Insights e fornece uma exibição bem estruturada dos eventos userjourney.  Obtenha o código-fonte e o implante em sua própria solução.
+
+>[!NOTE]
+>Atualmente, os logs de atividade detalhados descritos aqui são projetados **APENAS** para ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento.  Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui.  Esses logs detalhados são coletados apenas quando a política é colocada em **MODO DE DESENVOLVIMENTO**.
 
 [Repositório Github para obter exemplos de política personalizada sem suporte e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
@@ -115,4 +115,4 @@ Você pode aprender mais sobre a ferramenta de análise de saudação [aqui](htt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explorar dados Olá no Application Insights toohelp você entender como Olá identidade experiência Framework B2C subjacente funciona toodeliver passa por sua própria identidade.
+Explore os dados no Application Insights para ajudar a entender como o Identity Experience Framework por trás do B2C trabalha para fornecer suas próprias experiências de identidade.

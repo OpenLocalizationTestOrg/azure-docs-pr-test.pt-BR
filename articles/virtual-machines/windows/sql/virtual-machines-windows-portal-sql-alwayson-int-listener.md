@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate um ouvinte de grupo de disponibilidade do SQL Server em máquinas virtuais do Azure | Microsoft Docs"
+title: "Criar um ouvinte do grupo de disponibilidade do SQL Server nas máquinas virtuais do Azure | Microsoft Docs"
 description: "Instruções passo a passo de como criar um ouvinte para um grupo de disponibilidade Always On para SQL Server em máquinas virtuais do Azure"
 services: virtual-machines
 documentationcenter: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/01/2017
 ms.author: mikeray
-ms.openlocfilehash: c6a44dc5c7c18b572c2bf5772b4651b7210aacbd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
-Este artigo explica como toocreate um balanceador de carga para um grupo de disponibilidade do SQL Server Always On no Azure virtual máquinas que estão em execução no Gerenciador de recursos do Azure. Um grupo de disponibilidade exige um balanceador de carga quando instâncias do SQL Server de saudação em máquinas virtuais do Azure. Balanceador de carga Olá armazena o endereço IP Olá para o ouvinte do grupo de disponibilidade de saudação. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
+Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure em execução com o Azure Resource Manager. Um grupo de disponibilidade exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
 
-toocomplete nesta tarefa, você precisa toohave implantado de um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure que está executando o com o Gerenciador de recursos. Máquinas virtuais do SQL Server deve pertencer toohello mesmo conjunto de disponibilidade. Você pode usar o hello [modelo Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) tooautomatically criar grupo de disponibilidade de saudação no Gerenciador de recursos. Este modelo cria automaticamente um balanceador de carga interno para você. 
+Para concluir essa tarefa, você precisa ter um grupo de disponibilidade do SQL Server implantado em máquinas virtuais do Azure em execução com o Resource Manager . As máquinas virtuais do SQL Server devem pertencer ao mesmo conjunto de disponibilidade. Você pode usar o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Resource Manager. Este modelo cria automaticamente um balanceador de carga interno para você. 
 
 Se preferir, você poderá [configurar manualmente um grupo de disponibilidade](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -34,83 +34,83 @@ Os tópicos relacionados incluem:
 * [Configurar os grupos de disponibilidade Always On na VM do Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-Examinando neste artigo, você cria e configurar um balanceador de carga no hello portal do Azure. Após a conclusão do processo de saudação, você configura Olá toouse Olá endereço IP do balanceador de carga Olá para o ouvinte do grupo de disponibilidade de saudação.
+Ao seguir este artigo, você cria e configura um balanceador de carga no Portal do Azure. Após a conclusão desse processo, você configura o cluster para usar o endereço IP do balanceador de carga no ouvinte do grupo de disponibilidade.
 
-## <a name="create-and-configure-hello-load-balancer-in-hello-azure-portal"></a>Criar e configurar o balanceador de carga Olá Olá portal do Azure
-Nesta parte da tarefa hello, Olá a seguir:
+## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Criar e configurar o balanceador de carga no Portal do Azure
+Nesta parte da tarefa, faça o seguinte:
 
-1. No hello portal do Azure, crie balanceador de carga hello e configurar o endereço IP de saudação.
-2. Configure o pool de back-end de saudação.
-3. Crie a investigação de saudação. 
-4. Definir regras de balanceamento de carga de saudação.
+1. No Portal do Azure, crie o balanceador de carga e configure o endereço IP.
+2. Configure o pool de back-end.
+3. Crie a investigação. 
+4. Definir as regras de balanceamento de carga.
 
 > [!NOTE]
-> Se houver instâncias do SQL Server de saudação em vários grupos de recursos e as regiões, execute cada etapa duas vezes, uma vez em cada grupo de recursos.
+> Se as instâncias do SQL Server estiverem em vários grupos de recursos e regiões, execute cada etapa duas vezes, uma vez em cada grupo de recursos.
 > 
 > 
 
-### <a name="step-1-create-hello-load-balancer-and-configure-hello-ip-address"></a>Etapa 1: Criar balanceador de carga hello e configurar o endereço IP de saudação
-Primeiro, crie o balanceador de carga de saudação. 
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Etapa 1: Criar o balanceador de carga e configurar o endereço IP
+Primeiro, crie o balanceador de carga. 
 
-1. No portal do Azure de Olá, abra o grupo de recursos de saudação que contém máquinas virtuais a saudação do SQL Server. 
+1. No Portal do Azure, abra o grupo de recursos que contém as máquinas virtuais do SQL Server. 
 
-2. No grupo de recursos de saudação, clique em **adicionar**.
+2. No grupo de recursos, clique em **Adicionar**.
 
-3. Procurar **balanceador de carga** e, em seguida, nos resultados da pesquisa hello, selecione **balanceador de carga**, que é publicado pelo **Microsoft**.
+3. Pesquise por **balanceador de carga** e, em seguida, nos resultados da pesquisa, selecione **Balanceador de Carga**, que é publicado pela **Microsoft**.
 
-4. Em Olá **balanceador de carga** folha, clique em **criar**.
+4. Na folha **Balanceador de Carga**, clique em **Criar**.
 
-5. Em Olá **criar balanceador de carga** caixa de diálogo caixa, configure o balanceador de carga de saudação da seguinte maneira:
+5. Na caixa de diálogo **Criar balanceador de carga**, configure o balanceador de carga da seguinte maneira:
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa o balanceador de carga de saudação. Por exemplo, **sqlLB**. |
-   | **Tipo** |**Interno**: a maioria das implementações usar um balanceador de carga interno, que permite que aplicativos em Olá mesmo grupo de disponibilidade do toohello tooconnect de rede virtual.  </br> **Externa**: permite que aplicativos tooconnect toohello o grupo de disponibilidade por meio de uma conexão de Internet pública. |
-   | **Rede virtual** |Selecione a rede virtual Olá Olá instâncias do SQL Server estão em. |
-   | **Sub-rede** |Selecione a sub-rede Olá Olá instâncias do SQL Server estiverem em. |
+   | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB**. |
+   | **Tipo** |**Interno**: a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos dentro da mesma rede virtual ao grupo de disponibilidade.  </br> **Externo**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão de Internet pública. |
+   | **Rede virtual** |Selecione a rede virtual na qual estão as instâncias do SQL Server. |
+   | **Sub-rede** |Selecione a sub-rede na qual estão as instâncias do SQL Server. |
    | **Atribuição de endereço IP** |**Estático** |
-   | **Endereço IP privado** |Especifique um endereço IP disponível na sub-rede hello. Quando você cria um ouvinte no cluster hello, use esse endereço IP. Em um script do PowerShell, neste artigo, use esse endereço de saudação `$ILBIP` variável. |
-   | **Assinatura** |Se você tiver várias assinaturas, este campo poderá aparecer. Selecione Olá assinatura que você deseja tooassociate com esse recurso. Ele é normalmente Olá mesma assinatura como todos os recursos de Olá Olá grupo de disponibilidade. |
-   | **Grupo de recursos** |Selecione o grupo de recursos de saudação que são instâncias do SQL Server Olá no. |
-   | **Localidade** |Selecione Olá local do Azure que são instâncias do SQL Server Olá no. |
+   | **Endereço IP privado** |Especifique um endereço IP disponível na sub-rede. Você usa esse endereço IP ao criar um ouvinte no cluster. Em um script do PowerShell posterior neste artigo, use esse endereço para a variável `$ILBIP`. |
+   | **Assinatura** |Se você tiver várias assinaturas, este campo poderá aparecer. Selecione a assinatura que você deseja associar a esse recurso. Normalmente, trata-se da mesma assinatura de todos os recursos do grupo de disponibilidade. |
+   | **Grupo de recursos** |Selecione o grupo de recursos no qual estão as instâncias do SQL Server. |
+   | **Localidade** |Selecione o local do Azure no qual estão as instâncias do SQL Server. |
 
 6. Clique em **Criar**. 
 
-O Azure cria o balanceador de carga hello. o balanceador de carga Olá pertence tooa rede específica, sub-rede, grupo de recursos e local. Após o Azure concluir tarefas hello, verifique se configurações de Balanceador de carga Olá no Azure. 
+O Azure cria o balanceador de carga. O balanceador de carga pertence a uma rede, sub-rede, grupo de recursos e local específicos. Após o Azure concluir a tarefa, verifique as configurações do balanceador de carga no Azure. 
 
-### <a name="step-2-configure-hello-back-end-pool"></a>Etapa 2: Configurar o pool de back-end Olá
-Chamadas do Azure Olá pool de endereços de back-end *pool de back-end*. Nesse caso, o pool de back-end de saudação é endereços Olá Olá duas instâncias do SQL Server em seu grupo de disponibilidade. 
+### <a name="step-2-configure-the-back-end-pool"></a>Etapa 2: Configurar o pool de back-ends
+O Azure chama o *pool de back-ends* do pool de endereços back-end. Nesse caso, o pool de back-ends é composto por endereços das duas instâncias do SQL Server em seu grupo de disponibilidade. 
 
-1. No seu grupo de recursos, clique em balanceador de carga de saudação que você criou. 
+1. No grupo de recursos, clique no balanceador de carga que você criou. 
 
 2. Em **Configurações**, clique em **Pools de back-end**.
 
-3. Em **pools de back-end**, clique em **adicionar** toocreate um pool de endereços de back-end. 
+3. Em **Pools de back-end**, clique em **Adicionar** para criar um pool de endereços de back-end. 
 
-4. Em **Adicionar pool de back-end**, em **nome**, digite um nome para o pool de back-end de saudação.
+4. Em **Adicionar pool de back-ends**, sob **Nome**, digite um nome para o pool de back-ends.
 
 5. Em **Máquinas virtuais**, clique em **Adicionar uma máquina virtual**. 
 
-6. Em **escolha máquinas virtuais**, clique em **escolher um conjunto de disponibilidade**e em seguida, especifique o conjunto de disponibilidade de saudação que Olá máquinas de virtuais de SQL Server pertence ao.
+6. Em **Escolher máquinas virtuais**, clique em **Escolher um conjunto de disponibilidade** e especifique o conjunto de disponibilidade ao qual as máquinas virtuais do SQL Server pertencem.
 
-7. Depois de ter escolhido o conjunto de disponibilidade de saudação, clique em **escolha máquinas virtuais de saudação**, selecione Olá duas máquinas virtuais que hospedam instâncias do SQL Server Olá no grupo de disponibilidade hello e, em seguida, clique em **selecione**. 
+7. Depois de escolher o conjunto de disponibilidade, clique em **Escolher as máquinas virtuais**, selecione as duas máquinas virtuais que hospedam as instâncias do SQL Server no grupo de disponibilidade e clique em **Selecionar**. 
 
-8. Clique em **Okey** tooclose folhas de saudação para **escolha máquinas virtuais**, e **Adicionar pool de back-end**. 
+8. Clique em **OK** para fechar as folhas para **Escolher as máquinas virtuais** e, então, em **Adicionar pool de back-end**. 
 
-Azure atualiza as configurações de saudação para o pool de endereços de back-end de saudação. Agora seu conjunto de disponibilidade tem um pool de duas instâncias do SQL Server.
+O Azure atualiza as configurações para o pool de endereços de back-end. Agora seu conjunto de disponibilidade tem um pool de duas instâncias do SQL Server.
 
 ### <a name="step-3-create-a-probe"></a>Etapa 3: Criar uma investigação
-investigação de saudação define como o Azure verifica que Olá instâncias do SQL Server no momento possui o ouvinte do grupo de disponibilidade de saudação. Azure sondas de serviço de saudação com base no endereço IP de saudação em uma porta que definem quando você cria a investigação de saudação.
+A investigação define como o Azure verifica qual das instâncias do SQL Server é proprietária atual do ouvinte do grupo de disponibilidade. O Azure investiga o serviço com base no endereço IP em uma porta que você define quando cria o teste.
 
-1. Balanceador de carga Olá **configurações** folha, clique em **sondas de integridade**. 
+1. Na folha **Configurações** do balanceador de carga, clique em **Investigações de integridade**. 
 
-2. Em Olá **sondas de integridade** folha, clique em **adicionar**.
+2. Na folha **Investigações de integridade**, clique em **Adicionar**.
 
-3. Configurar a investigação de saudação em Olá **adicionar teste** folha. Olá Use valores tooconfigure Olá investigação a seguir:
+3. Configure a investigação na folha **Adicionar investigação** . Use os valores a seguir para configurar a investigação:
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa a investigação de saudação. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
+   | **Nome** |Um nome de texto que representa a investigação. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
    | **Porta** |Você pode usar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
@@ -119,156 +119,156 @@ investigação de saudação define como o Azure verifica que Olá instâncias d
 4.  Clique em **OK**. 
 
 > [!NOTE]
-> Certifique-se de que a porta de saudação especificado é aberta no firewall Olá ambas as instâncias do SQL Server. Ambas as instâncias exigem uma regra de entrada para Olá a porta TCP que você usa. Para saber mais, confira [Adicionar ou Editar Regra de Firewall](http://technet.microsoft.com/library/cc753558.aspx). 
+> Verifique se a porta especificada está aberta no firewall das duas instâncias do SQL Server. As duas instâncias exigem uma regra de entrada para a porta TCP que você usa. Para saber mais, confira [Adicionar ou editar regra de firewall](http://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
-Azure cria investigação hello e, em seguida, usa-tootest qual instância do SQL Server tem ouvinte Olá Olá grupo de disponibilidade.
+O Azure cria a investigação e a usa para testar qual instância do SQL Server tem o ouvinte do grupo de disponibilidade.
 
-### <a name="step-4-set-hello-load-balancing-rules"></a>Etapa 4: Definir as regras de balanceamento de carga de saudação
-regras de balanceamento de carga Olá configurar como o balanceador de carga de saudação roteia instâncias do tráfego toohello do SQL Server. Para este balanceador de carga, você deve habilitar um retorno de servidor direto porque somente um Olá duas instâncias do SQL Server possui o recurso de ouvinte de grupo de disponibilidade Olá por vez.
+### <a name="step-4-set-the-load-balancing-rules"></a>Etapa 4: Definir as regras de balanceamento de carga
+As regras de balanceamento de carga configuram como o balanceador de carga encaminha o tráfego para as instâncias do SQL Server. Para este balanceador de carga, habilite o retorno de servidor direto, pois somente uma das duas instâncias do SQL Servers é proprietária do recurso de ouvinte do grupo de disponibilidade por vez.
 
-1. Balanceador de carga Olá **configurações** folha, clique em **regras de balanceamento de carga**. 
+1. Na folha **Configurações** do balanceador de carga, clique em **Regras de balanceamento de carga**. 
 
-2. Em Olá **regras de balanceamento de carga** folha, clique em **adicionar**.
+2. Na folha **Regras de balanceamento de carga**, clique em **Adicionar**.
 
-3. Em Olá **regras de balanceamento de carga de adicionar** folha, configurar a regra de balanceamento de carga de saudação. Saudação de usar as configurações a seguir: 
+3. Na folha **Adicionar regras de balanceamento de carga**, configure a regra de balanceamento de carga. Use as configurações a seguir: 
 
    | Configuração | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa as regras de balanceamento de carga de saudação. Por exemplo, **SQLAlwaysOnEndPointListener**. |
+   | **Nome** |Um nome de texto que representa as regras de balanceamento de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Porta** |*1433* |
    | **Porta de back-end** |*1433*. Esse valor é ignorado porque essa regra usa **IP flutuante (retorno de servidor direto)**. |
-   | **Investigação** |Use o nome de saudação do teste de saudação que você criou para este balanceador de carga. |
+   | **Investigação** |Use o nome da investigação que você criou para este balanceador de carga. |
    | **Persistência de sessão** |**Nenhum** |
    | **Tempo limite de ociosidade (minutos)** |*4* |
    | **IP flutuante (retorno de servidor direto)** |**Habilitado** |
 
    > [!NOTE]
-   > Você pode ter tooscroll para baixo Olá folha tooview todas as configurações de saudação.
+   > Talvez você precise rolar a folha para baixo para ver todas as configurações.
    > 
 
 4. Clique em **OK**. 
-5. Regra de balanceamento de carga de saudação o Azure configura. Agora o balanceador de carga de saudação está configurado tooroute tráfego toohello SQL instância de servidor que hospeda o ouvinte Olá Olá grupo de disponibilidade. 
+5. O Azure configura a regra de balanceamento de carga. Agora, o balanceador de carga está configurado para rotear o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 
 
-Neste ponto, o grupo de recursos de saudação tem um balanceador de carga que se conecta tooboth máquinas do SQL Server. Balanceador de carga Olá também contém um endereço IP para Olá SQL Server Always On disponibilidade ouvinte de grupo, para que a máquina pode responder toorequests Olá para grupos de disponibilidade.
+Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em ambas as máquinas do SQL Server. O balanceador de carga também contém um endereço IP para o ouvinte do grupo de disponibilidade AlwaysOn do SQL Server para que o computador possa responder às solicitações para os grupos de disponibilidade.
 
 > [!NOTE]
-> Se suas instâncias do SQL Server estão em duas regiões separadas, repita as etapas de saudação em Olá outra região. Cada região exige um balanceador de carga. 
+> Se suas instâncias do SQL Server estiverem em duas regiões separadas, repita as etapas na outra região. Cada região exige um balanceador de carga. 
 > 
 > 
 
-## <a name="configure-hello-cluster-toouse-hello-load-balancer-ip-address"></a>Configurar Olá cluster toouse Olá IP balanceador de carga
-Olá próxima etapa tooconfigure Olá ouvinte no cluster Olá e coloque o ouvinte Olá online. Olá a seguir: 
+## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Configure o cluster para usar o endereço IP do balanceador de carga
+A próxima etapa é configurar o ouvinte no cluster e colocar o ouvinte online. Faça o seguinte: 
 
-1. Crie o ouvinte do grupo de disponibilidade Olá no cluster de failover de saudação. 
+1. Crie o ouvinte do grupo de disponibilidade no cluster de failover. 
 
-2. Coloque o ouvinte Olá online.
+2. Coloque o ouvinte online.
 
-### <a name="step-5-create-hello-availability-group-listener-on-hello-failover-cluster"></a>Etapa 5: Criar o ouvinte do grupo de disponibilidade de saudação no cluster de failover de saudação
-Nesta etapa, você criar manualmente o ouvinte do grupo de disponibilidade Olá no Gerenciador de Cluster de Failover e o SQL Server Management Studio.
+### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Etapa 5: Criar o ouvinte do grupo de disponibilidade no cluster de failover
+Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Gerenciador de Cluster de Failover e no Server Management Studio.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-### <a name="verify-hello-configuration-of-hello-listener"></a>Verificar a configuração de saudação do ouvinte Olá
+### <a name="verify-the-configuration-of-the-listener"></a>Verifique a configuração do ouvinte
 
-Se as dependências e os recursos de cluster Olá são configuradas corretamente, você deve estar tooview capaz de ouvinte de saudação no SQL Server Management Studio. tooset Olá porta do ouvinte, Olá a seguir:
+Se os recursos e as dependências do cluster forem configurados corretamente, você poderá ver o ouvinte no SQL Server Management Studio. Para definir a porta do ouvinte, faça o seguinte:
 
-1. Inicie o SQL Server Management Studio e conecte a réplica primária toohello.
+1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-2. Vá muito**alta disponibilidade AlwaysOn** > **grupos de disponibilidade** > **ouvintes do grupo de disponibilidade**.  
-    Agora você deve ver o nome do ouvinte Olá que você criou no Gerenciador de Cluster de Failover. 
+2. Vá até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** > **Ouvintes do Grupo de Disponibilidade**.  
+    Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. 
 
-3. Clique no nome do ouvinte Olá e clique **propriedades**.
+3. Clique com o botão direito do mouse no nome do ouvinte e, em seguida, clique em **Propriedades**.
 
-4. Em Olá **porta** , especifique o número da porta saudação do ouvinte do grupo de disponibilidade Olá usando Olá $EndpointPort utilizado antes (1433 foi padrão Olá) e, em seguida, clique em **Okey**.
+4. Na caixa **Porta**, especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e clique em **OK**.
 
 Agora você tem um grupo de disponibilidade nas máquinas virtuais do Azure em execução no modo Resource Manager. 
 
-## <a name="test-hello-connection-toohello-listener"></a>Ouvinte de toohello de conexão de saudação do teste
-Testar conexão Olá Olá seguinte:
+## <a name="test-the-connection-to-the-listener"></a>Testar a conexão com o ouvinte
+Teste a conexão fazendo o seguinte:
 
-1. Instância do SQL Server do RDP tooa que está em Olá mesmo virtual de rede, mas não não réplica Olá próprio. Esse servidor pode ser outra instância do SQL Server no cluster Olá Olá.
+1. RDP para uma instância do SQL Server que está na mesma rede virtual, mas não é proprietário da réplica. Esse servidor pode ser a outra instância do SQL Server no cluster.
 
-2. Use **sqlcmd** conexão de saudação do utilitário tootest. Por exemplo, a saudação script a seguir estabelece uma **sqlcmd** réplica primária de toohello de conexão por meio do ouvinte Olá com autenticação do Windows:
+2. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão de **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
    
         sqlcmd -S <listenerName> -E
 
-Olá conexão SQLCMD conecta-se automaticamente toohello instância de SQL Server que hospeda a réplica primária hello. 
+A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server que hospede a réplica primária. 
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>Criar um endereço IP para um grupo de disponibilidade adicional
 
-Cada grupo de disponibilidade usa um ouvinte separado. Cada ouvinte tem seu próprio endereço IP. Use Olá mesmo toohold Olá IP do balanceador de carga para ouvintes adicionais. Depois de criar um grupo de disponibilidade, adicionar balanceador de carga toohello do endereço IP hello e, em seguida, configurar o ouvinte de saudação.
+Cada grupo de disponibilidade usa um ouvinte separado. Cada ouvinte tem seu próprio endereço IP. Use o mesmo balanceador de carga para manter o endereço IP para ouvintes adicionais. Depois de criar um grupo de disponibilidade, adicione o endereço IP ao balanceador de carga e, em seguida, configure o ouvinte.
 
-tooadd um balanceador de carga tooa de endereço IP com hello portal do Azure, Olá a seguir:
+Para adicionar um endereço IP a um balanceador de carga com o Portal do Azure, faça o seguinte:
 
-1. No portal do Azure de Olá, abra Olá grupo de recursos que contém o balanceador de carga hello e clique em balanceador de carga de saudação. 
+1. No Portal do Azure, abra o grupo de recursos que contém o balanceador de carga e clique o balanceador de carga. 
 
 2. Em **CONFIGURAÇÕES**, clique em **Pool IP de front-ends** e clique em **Adicionar**. 
 
-3. Em **adicionar endereço IP de front-end**, atribua um nome para o front-end hello. 
+3. Em **Adicionar endereço IP de front-end**, atribua um nome para o front-end. 
 
-4. Verifique se esse Olá **rede Virtual** e hello **sub-rede** são Olá mesmo Olá instâncias do SQL Server.
+4. Verifique se a **Rede virtual** e a **Sub-rede** são as mesmas das instâncias do SQL Server.
 
-5. Definir o endereço IP de saudação para ouvinte hello. 
+5. Defina o endereço IP para o ouvinte. 
    
    >[!TIP]
-   >Você pode definir Olá toostatic de endereço IP e digite um endereço que não está sendo usado na sub-rede hello. Como alternativa, você pode definir Olá toodynamic de endereço IP e salvar o novo pool IP front-end hello. Quando você fizer isso, Olá portal do Azure atribui automaticamente um pool de toohello de endereços IP disponível. Você pode, em seguida, reabra o pool de IP de front-end de saudação e alterar Olá atribuição toostatic. 
+   >Você pode definir o endereço IP como estático e digitar um endereço que atualmente não está sendo usado na sub-rede. Como alternativa, é possível definir o endereço IP como dinâmico e salvar o novo pool IP de front-ends. Quando você faz isso, o Portal do Azure atribui automaticamente um endereço IP disponível ao pool. Em seguida, é possível reabrir o pool IP de front-end e alterar a atribuição para estática. 
 
-6. Salve endereço IP hello ouvinte hello. 
+6. Salve o endereço IP para o ouvinte. 
 
-7. Adicione um teste de integridade usando Olá configurações a seguir:
+7. Adicione uma investigação de integridade usando as seguintes configurações:
 
    |Configuração |Valor
    |:-----|:----
-   |**Nome** |Investigação de saudação do tooidentify um nome.
+   |**Nome** |Um nome para identificar a investigação.
    |**Protocolo** |TCP
-   |**Porta** |Uma porta TCP não usada, que deve estar disponível em todas as máquinas virtuais. Não pode ser usada para qualquer outra finalidade. Não há dois ouvintes podem usar o hello mesma porta de investigação. 
-   |**Intervalo** |tentativas de quantidade de saudação de tempo entre a investigação. Use o padrão de saudação (5).
-   |**Limite não íntegro** |número de saudação de limites consecutivos que deve falhar antes que uma máquina virtual é considerada não íntegra.
+   |**Porta** |Uma porta TCP não usada, que deve estar disponível em todas as máquinas virtuais. Não pode ser usada para qualquer outra finalidade. Dois ouvintes não podem usar a mesma porta de investigação. 
+   |**Intervalo** |O tempo entre as tentativas de investigação. Use o (5) padrão.
+   |**Limite não íntegro** |O número de limites consecutivos que devem falhar antes que uma máquina virtual seja considerada não íntegra.
 
-8. Clique em **Okey** toosave investigação de saudação. 
+8. Clique em **OK** para salvar a investigação. 
 
 9. Criar uma regra de balanceamento de carga. Clique em **Regras de balanceamento de carga** e clique em **Adicionar**.
 
-10. Configure Olá novo balanceamento de carga regra usando Olá configurações a seguir:
+10. Defina a nova regra de balanceamento de carga usando as seguintes configurações:
 
    |Configuração |Valor
    |:-----|:----
-   |**Nome** |Regra de balanceamento de carga de saudação de tooidentify um nome. 
-   |**Endereço IP de front-end** |Selecione o endereço IP de saudação criado por você. 
+   |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
+   |**Endereço IP de front-end** |Selecione o endereço IP que você criou. 
    |**Protocolo** |TCP
-   |**Porta** |Use a porta Olá que instâncias do SQL Server hello estão usando. Uma instância padrão usa a porta 1433, a menos que você tenha alterado. 
-   |**Porta de back-end** |Olá Use mesmo valor **porta**.
-   |**Pool de back-end** |pool de saudação que contém máquinas virtuais de saudação com instâncias do SQL Server hello. 
-   |**Investigação de integridade** |Escolha investigação Olá criado por você.
+   |**Porta** |Use a porta que as instâncias do SQL Server estão usando. Uma instância padrão usa a porta 1433, a menos que você tenha alterado. 
+   |**Porta de back-end** |Use o mesmo valor de **porta**.
+   |**Pool de back-end** |O pool que contém as máquinas virtuais com instâncias do SQL Server. 
+   |**Investigação de integridade** |Escolha a investigação que você criou.
    |**Persistência de sessão** |Nenhum
    |**Tempo limite de ociosidade (minutos)** |(4) padrão
    |**IP flutuante (retorno de servidor direto)** | habilitado
 
-### <a name="configure-hello-availability-group-toouse-hello-new-ip-address"></a>Configurar Olá disponibilidade toouse Olá novo endereço IP do grupo
+### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurar o grupo de disponibilidade para usar o novo endereço IP
 
-toofinish Configurando cluster hello, etapas de repetição Olá que você seguiu quando você fez o primeiro grupo de disponibilidade hello. Ou seja, configurar Olá [toouse Olá novo endereço IP de cluster](#configure-the-cluster-to-use-the-load-balancer-ip-address). 
+Para concluir a configuração do cluster, repita as etapas que seguiu quando criou o primeiro grupo de disponibilidade. Ou seja, configure o [cluster para usar o novo endereço IP](#configure-the-cluster-to-use-the-load-balancer-ip-address). 
 
-Depois que você adicionou um endereço IP de ouvinte hello, configure o grupo de disponibilidade adicional de Olá Olá seguinte: 
+Depois de adicionar um endereço IP para o ouvinte, você poderá configurar o grupo de disponibilidade adicional fazendo o seguinte: 
 
-1. Verifique se a porta de investigação Olá para o novo endereço IP hello está aberta em máquinas virtuais do SQL Server. 
+1. Verifique se a porta de investigação para o novo endereço IP está aberta em ambas as máquinas virtuais do SQL Server. 
 
-2. [No Gerenciador de Cluster, adicione o ponto de acesso de cliente de Olá](#addcap).
+2. [No Gerenciador de Clusters, adicione o ponto de acesso do cliente](#addcap).
 
-3. [Configurar o recurso IP Olá para o grupo de disponibilidade Olá](#congroup).
+3. [Configurar o recurso de IP do grupo de disponibilidade](#congroup).
 
    >[!IMPORTANT]
-   >Quando você cria um endereço IP Olá, use o endereço IP de saudação que você adicionou toohello balanceador de carga.  
+   >Quando você cria o endereço IP, use o endereço IP que adicionou ao balanceador de carga.  
 
-4. [Tornar o recurso de grupo de disponibilidade do SQL Server Olá dependente no ponto de acesso de cliente Olá](#dependencyGroup).
+4. [Torne o recurso de grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente](#dependencyGroup).
 
-5. [Verifique o acesso para cliente Olá ponto recursos dependentes no endereço IP hello](#listname).
+5. [Torne o recurso de ponto de acesso de cliente dependente do endereço IP](#listname).
  
-6. [Definir parâmetros de cluster de saudação do PowerShell](#setparam).
+6. [Definir os parâmetros do cluster no PowerShell](#setparam).
 
-Depois de configurar Olá disponibilidade grupo toouse Olá novo endereço IP, configure o ouvinte de toohello de conexão de saudação. 
+Depois de configurar o grupo de disponibilidade para usar o novo endereço IP, configure a conexão para o ouvinte. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

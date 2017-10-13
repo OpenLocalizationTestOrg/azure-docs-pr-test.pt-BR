@@ -1,6 +1,6 @@
 ---
-title: "grupos de ação de aaaCreate com modelos do Gerenciador de recursos | Microsoft Docs"
-description: "Saiba como toocreate uma ação de grupo usando um modelo do Gerenciador de recursos do Azure."
+title: "Criar grupos de ações com modelos do Resource Manager | Microsoft Docs"
+description: "Saiba como criar um grupo de ações usando um modelo do Azure Resource Manager."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 9902b33cad99bd99b3deda0cf6f4ff12278c89c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
-Este artigo mostra como toouse uma [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) tooconfigure grupos de ação. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ação Certifique-se de que todos os Olá correto partes são notificadas quando um alerta é disparado.
+Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ações. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ações garantem que todas as partes corretas serão notificadas quando um alerta for disparado.
 
-etapas básicas de saudação são:
+As etapas básicas são:
 
-1. Crie um modelo como um arquivo JSON que descreve como toocreate Olá grupo de ações.
+1. Crie um modelo como um arquivo JSON que descreve como criar o grupo de ação.
 
-2. Implantar o modelo de saudação usando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implantar o modelo usando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Primeiro, descreveremos como um modelo do Gerenciador de recursos para uma ação de toocreate grupo onde as definições de ação de saudação são embutidos em código no modelo de saudação. Em seguida, descreveremos como toocreate um modelo que usa as informações de configuração de webhook hello como parâmetros de entrada quando Olá modelo é implantado.
+Primeiro, descreveremos como criar um modelo do Resource Manager para um grupo em que as definições de ação são codificadas no modelo. Em seguida, descreveremos como criar um modelo que usa as informações de configuração de webhook como parâmetros de entrada quando o modelo é implantado.
 
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelos do Resource Manager para um grupo de ações
 
-toocreate um grupo de ação usando um modelo do Gerenciador de recursos, você cria um recurso do tipo hello `Microsoft.Insights/actionGroups`. Em seguida, você preencherá todas as propriedades relacionadas. Aqui estão dois modelos de exemplo que criam um grupo de ações.
+Para criar um grupo de ações usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/actionGroups`. Em seguida, você preencherá todas as propriedades relacionadas. Aqui estão dois modelos de exemplo que criam um grupo de ações.
 
 ```json
 {
@@ -43,13 +43,13 @@ toocreate um grupo de ação usando um modelo do Gerenciador de recursos, você 
     "actionGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Unique name (within hello Resource Group) for hello Action group."
+        "description": "Unique name (within the Resource Group) for the Action group."
       }
     },
     "actionGroupShortName": {
       "type": "string",
       "metadata": {
-        "description": "Short name (maximum 12 characters) for hello Action group."
+        "description": "Short name (maximum 12 characters) for the Action group."
       }
     }
   },
@@ -114,13 +114,13 @@ toocreate um grupo de ação usando um modelo do Gerenciador de recursos, você 
     "actionGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Unique name (within hello Resource Group) for hello Action group."
+        "description": "Unique name (within the Resource Group) for the Action group."
       }
     },
     "actionGroupShortName": {
       "type": "string",
       "metadata": {
-        "description": "Short name (maximum 12 characters) for hello Action group."
+        "description": "Short name (maximum 12 characters) for the Action group."
       }
     },
     "webhookReceiverName": {
@@ -171,4 +171,4 @@ toocreate um grupo de ação usando um modelo do Gerenciador de recursos, você 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [grupos de ação](monitoring-action-groups.md).
 * Saiba mais sobre [alertas](monitoring-overview-alerts.md).
-* Saiba como tooadd [alertas usando um modelo do Gerenciador de recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Saiba como adicionar [Alertas usando um modelo do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).

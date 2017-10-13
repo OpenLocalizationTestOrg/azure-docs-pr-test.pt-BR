@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Mobile Engagement iOS SDK do procedimento de atualização | Microsoft Docs"
+title: "Procedimento de atualização do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
 description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,23 +14,23 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5a81bcaaec72aec665b3334e6400d520454d56a7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
-Se você já tiver integrado uma versão mais antiga do contrato em seu aplicativo, você tem Olá tooconsider pontos a seguir ao atualizar Olá SDK.
+Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
 
-Para cada nova versão do SDK do hello primeiro você deve substituir (remover e importar novamente no xcode) Olá pastas EngagementSDK e EngagementReach.
+Para cada nova versão do SDK, você deve primeiro substituir (remover e importar novamente no xcode) as pastas EngagementSDK e EngagementReach.
 
-## <a name="from-300-too400"></a>De 3.0.0 too4.0.0
+## <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
 ### <a name="xcode-8"></a>XCode 8
-8 XCode é obrigatório a partir da versão 4.0.0 de saudação SDK.
+O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
 
 > [!NOTE]
-> Se você realmente depende XCode 7, você pode usar o hello [iOS SDK Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance Olá desta versão anterior durante a execução em dispositivos iOS 10: notificações do sistema não são acionadas. toofix isso você terá tooimplement Olá preterido API `application:didReceiveRemoteNotification:` em seu aplicativo delegar da seguinte maneira:
+> Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:
 > 
 > 
 
@@ -41,22 +41,22 @@ Para cada nova versão do SDK do hello primeiro você deve substituir (remover e
     }
 
 > [!IMPORTANT]
-> **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve alternar tooXCode 8 assim que possível.
+> **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve mudar para o XCode 8 assim que possível.
 > 
 > 
 
 ### <a name="usernotifications-framework"></a>Estrutura UserNotifications
-Você precisa Olá tooadd `UserNotifications` framework em fases de compilação.
+Você precisa adicionar a estrutura `UserNotifications` em suas fases de build.
 
-no Explorador de projeto hello, abra o painel de projeto e selecione o destino correto hello. Em seguida, abra Olá **"Fases de compilação"** guia e em Olá **"Binário com bibliotecas de vínculo"** menu, adicionar framework `UserNotifications.framework` -definir Olá link como`Optional`
+no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e, no menu **"Link binário com bibliotecas"**, adicione a estrutura `UserNotifications.framework` – defina o link como `Optional`
 
 ### <a name="application-push-capability"></a>Capacidade de envio por push do aplicativo
-8 XCode pode redefinir seu aplicativo push capacidade,. Verifique novamente em Olá `capability` guia de destino selecionado.
+O XCode 8 pode redefinir a capacidade de envio por push do aplicativo. Verifique isso novamente na guia `capability` do destino selecionado.
 
-### <a name="add-hello-new-ios-10-notification-registration-code"></a>Adicione código de registro do hello novo iOS notificação 10
-Olá antigos código trecho tooregister Olá aplicativo toonotifications ainda funciona, mas está usando preterido APIs durante a execução no iOS 10.
+### <a name="add-the-new-ios-10-notification-registration-code"></a>Adicionar o novo código de registro de notificação do iOS 10
+O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10.
 
-Saudação de importação `User Notification` framework:
+Importe a estrutura `User Notification` :
 
         #import <UserNotifications/UserNotifications.h> 
 
@@ -93,11 +93,11 @@ por:
 
 *Se o aplicativo nem uma das bibliotecas de terceiros implementar um `UNUserNotificationCenterDelegate`, ignore esta parte.*
 
-Um `UNUserNotificationCenter` delegado é usado pelo ciclo de vida de Olá Olá SDK toomonitor de notificações de compromisso em dispositivos que executam o iOS 10 ou superior. Olá SDK tem sua própria implementação de saudação `UNUserNotificationCenterDelegate` de protocolo, mas pode haver apenas um `UNUserNotificationCenter` delegar por aplicativo. Qualquer outro representante adicionado toohello `UNUserNotificationCenter` objeto está em conflito com hello contrato um. Se Olá SDK detectar delegado do seu ou qualquer outra parte, em seguida, ele não usará sua própria implementação toogive você tooresolve uma chance Olá conflitos. Você terá tooadd Olá contrato lógica tooyour possui delegado em ordem tooresolve conflitos de saudação.
+Um delegado `UNUserNotificationCenter` é usado pelo SDK para monitorar o ciclo de vida das notificações do Engagement em dispositivos que executam o iOS 10 ou superior. O SDK tem sua própria implementação do protocolo `UNUserNotificationCenterDelegate`, mas pode haver apenas um delegado `UNUserNotificationCenter` por aplicativo. Qualquer outro delegado adicionado ao objeto `UNUserNotificationCenter` entrará em conflito com o do Engagement. Se o SDK detectar seu delegado ou qualquer delegado de terceiros, ele não usará sua própria implementação, para lhe dar uma chance para resolver os conflitos. Você precisará adicionar a lógica do Engagement ao seu próprio delegado para resolver os conflitos.
 
-Há dois tooachieve de maneiras isso.
+Há duas maneiras de fazer isso.
 
-Proposta 1, encaminhando o delegado chama toohello SDK:
+Proposta 1: apenas encaminhando as chamadas do delegado para o SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -124,7 +124,7 @@ Proposta 1, encaminhando o delegado chama toohello SDK:
     }
     @end
 
-Ou proposta 2, herdando de saudação `AEUserNotificationHandler` classe
+Ou proposta 2: herdando da classe `AEUserNotificationHandler`
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -151,10 +151,10 @@ Ou proposta 2, herdando de saudação `AEUserNotificationHandler` classe
     @end
 
 > [!NOTE]
-> Você pode determinar se uma notificação de contrato ou não passando seus `userInfo` toohello dicionário agente `isEngagementPushPayload:` método de classe.
+> Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
 
-Certifique-se de que Olá `UNUserNotificationCenter` representante do objeto é definido tooyour delegado em qualquer Olá `application:willFinishLaunchingWithOptions:` ou hello `application:didFinishLaunchingWithOptions:` método do seu representante de aplicativo.
-Por exemplo, se você tiver implementado Olá acima proposta 1:
+Verifique se o delegado do objeto `UNUserNotificationCenter` é definido como seu delegado no método `application:willFinishLaunchingWithOptions:` ou `application:didFinishLaunchingWithOptions:` do delegado do aplicativo.
+Por exemplo, se você implementou a proposta 1 acima:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
@@ -163,30 +163,30 @@ Por exemplo, se você tiver implementado Olá acima proposta 1:
         return YES;
       }
 
-## <a name="from-200-too300"></a>De 2.0.0 too3.0.0
-Suporte removido para iOS 4.X. A partir do destino de implantação de saudação essa versão do seu aplicativo deve ter pelo menos 6 do iOS.
+## <a name="from-200-to-300"></a>De 2.0.0 a 3.0.0
+Suporte removido para iOS 4.X. A partir de esta versão, o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
 
-Se você estiver usando o alcance do seu aplicativo, você deve adicionar `remote-notification` toohello valor `UIBackgroundModes` matriz em seu arquivo Info. plist em notificações remoto de tooreceive de ordem.
+Se você estiver usando o Reach em seu aplicativo, deverá adicionar o valor `remote-notification` à matriz `UIBackgroundModes` no arquivo Info.plist para receber notificações remotas.
 
-Olá método `application:didReceiveRemoteNotification:` precisa toobe substituído por `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante do aplicativo.
+O método `application:didReceiveRemoteNotification:` precisa ser substituído pelo `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
 
-"AEPushDelegate.h" foi preterido e interface precisa tooremove todas as referências. Isso inclui a remoção `[[EngagementAgent shared] setPushDelegate:self]` e hello delegar métodos do seu representante do aplicativo:
+"AEPushDelegate.h" é uma interface preterida e você precisa remover todas as referências. Isso inclui remover o `[[EngagementAgent shared] setPushDelegate:self]` e os métodos representantes do seu representante de aplicativo:
 
     -(void)willRetrieveLaunchMessage;
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1160-too200"></a>De 1.16.0 too2.0.0
-Olá a seguir descrevem como toomigrate uma integração SDK da saudação Capptain serviço oferecido pelo Capptain SAS em um aplicativo da plataforma do Azure Mobile Engagement.
-Se você estiver migrando de uma versão anterior,. Consulte Olá Capptain site da web toomigrate too1.16 primeiro, em seguida, aplicar Olá procedimento a seguir.
+## <a name="from-1160-to-200"></a>De 1.16.0 a 2.0.0
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement.
+Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 1.16 e depois aplicar o procedimento a seguir
 
 > [!IMPORTANT]
-> Capptain e o compromisso de mobilidade não são Olá mesmos serviços e procedimento Olá indicado abaixo só destaca como toomigrate Olá aplicativo cliente. Migrando Olá SDK no aplicativo hello não vai migrar seus dados do hello Capptain toohello Mobile Engagement de servidores
+> O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement
 > 
 > 
 
 ### <a name="agent"></a>Agente
-Olá método `registerApp:` foi substituído pelo novo método de saudação `init:`. Seu representante de aplicativo deve ser atualizado de acordo e usar a cadeia de conexão:
+O método `registerApp:` foi substituído pelo novo método `init:`. Seu representante de aplicativo deve ser atualizado de acordo e usar a cadeia de conexão:
 
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -195,23 +195,23 @@ Olá método `registerApp:` foi substituído pelo novo método de saudação `in
               [...]
             }
 
-Controle de SmartAd foi removido do SDK apenas tiver tooremove todas as instâncias de `AETrackModule` classe
+O rastreamento de SmartAd foi removido do SDK, você só precisa remover todas as instâncias da classe `AETrackModule`
 
 ### <a name="class-name-changes"></a>Alterações de nome de classe
-Como parte da saudação rebranding, há alguns nomes de classe/arquivos que precisam de toobe alterado.
+Como parte da renovação de marca, há alguns nomes de classe/arquivos que precisam ser alterados.
 
 Todas as classes prefixadas com “CP” foram renomeadas com o prefixo “AE”.
 
 Exemplo:
 
-* `CPModule.h`é renomeado muito`AEModule.h`.
+* `CPModule.h` foi renomeado para `AEModule.h`.
 
 Todas as classes prefixadas com “Capptain” foram renomeadas com o prefixo “Engagement”.
 
 Exemplos:
 
-* Olá classe `CapptainAgent` é renomeado muito`EngagementAgent`.
-* Olá classe `CapptainTableViewController` é renomeado muito`EngagementTableViewController`.
-* Olá classe `CapptainUtils` é renomeado muito`EngagementUtils`.
-* Olá classe `CapptainViewController` é renomeado muito`EngagementViewController`.
+* A classe `CapptainAgent` foi renomeada para `EngagementAgent`.
+* A classe `CapptainTableViewController` foi renomeada para `EngagementTableViewController`.
+* A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
+* A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
 

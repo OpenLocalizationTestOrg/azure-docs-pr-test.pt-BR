@@ -1,5 +1,5 @@
 ---
-title: "aaaStream análise Data Lake repositório saída | Microsoft Docs"
+title: "Saída do Data Lake Store no Stream Analytics | Microsoft Docs"
 description: "Configuração de autenticação e autorização de um Repositório Azure Data Lake em um trabalho do Stream Analytics"
 keywords: 
 services: stream-analytics
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 183cf51edb2e49ac3e42257e67a8077b95777258
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Saída do Repositório Data Lake do Stream Analytics
-Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. Repositório data Lake permite toostore dados de qualquer velocidade de tamanho, tipo e inclusão para análise operacional e exploratória.
+Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorizar uma conta do Repositório Data Lake
-1. Quando o repositório Data Lake é selecionado como uma saída de hello portal do Azure, você será solicitado tooauthorize uso do repositório existente do Data Lake ou toorequest acessar o repositório toohello Data Lake via Olá Portal clássico.
+1. Quando o Data Lake Store é selecionado como uma saída no portal do Azure, você deve autorizar o uso de seu Data Lake Store existente ou solicitar o acesso ao Data Lake Store por meio do Portal Clássico.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Se você já tiver acessar o repositório de Lake tooData, clique em 'Autorizar agora' e por um curto período uma página será exibida indicando "Redirecionando tooauthorization". página Olá automaticamente será fechado e você verá página Olá que lhe permitiria tooconfigure Olá repositório Data Lake saída.
+2. Se você já tiver acesso ao Data Lake Store, clique em "Autorizar agora" e, por um curto período, uma página será exibida indicando "Redirecionando para autorização". A página será fechada automaticamente e você verá a página que permite configurar a saída do Repositório Data Lake.
 
-Se você não estiver inscrito para repositório Data Lake, siga hello "Inscrever-se agora" link tooinitiate Olá solicitação ou siga Olá [obter instruções iniciadas](../data-lake-store/data-lake-store-get-started-portal.md).
+Se não tiver feito a inscrição no Data Lake Store, você poderá seguir o link “Inscrever-se agora” para iniciar a solicitação ou seguir as [instruções de introdução](../data-lake-store/data-lake-store-get-started-portal.md).
 
-## <a name="configure-hello-data-lake-store-output-properties"></a>Configurar propriedades de saída do repositório Data Lake Olá
-Uma vez que a conta do repositório Data Lake Olá autenticado, você pode configurar propriedades de saudação para a saída do repositório Data Lake. tabela de saudação abaixo é a lista de saudação de nomes de propriedade e seu tooconfigure descrição que seu repositório Data Lake de saída.
+## <a name="configure-the-data-lake-store-output-properties"></a>Configurar as propriedades de saída do Repositório Data Lake
+Uma vez que a conta do Repositório Data Lake foi autenticada, você pode configurar as propriedades de saída do Repositório Data Lake. A tabela a seguir é a lista de nomes de propriedade e sua descrição para configurar a saída do Repositório Data Lake.
 
 <table>
 <tbody>
@@ -44,23 +44,23 @@ Uma vez que a conta do repositório Data Lake Olá autenticado, você pode confi
 </tr>
 <tr>
 <td>Alias de saída</td>
-<td>Este é um nome amigável usado em consultas toodirect Olá consulta saída toothis repositório Data Lake.</td>
+<td>Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Repositório Data Lake.</td>
 </tr>
 <tr>
 <td>Conta do Repositório Data Lake</td>
-<td>nome de Olá Olá da conta de armazenamento em que você está enviando a saída. Você verá uma lista de contas do repositório Data Lake Olá registrada no usuário tem acesso ao.</td>
+<td>O nome da conta de armazenamento para o qual você está enviando a saída Você verá uma lista de contas do Data Lake Store que do usuário conectado tem acesso ao.</td>
 </tr>
 <tr>
 <td>Padrão de prefixo do caminho [<I>opcional</I>]</td>
-<td>Olá arquivo caminho usado toowrite seus arquivos no hello especificado conta do repositório Data Lake. <BR>{data}, {hora}<BR>Exemplo 1: pasta1/logs/{data}/{hora}<BR>Exemplo 2: pasta1/logs/{data}</td>
+<td>O caminho do arquivo usado para gravar seus arquivos na Conta do Repositório Data Lake especificada. <BR>{data}, {hora}<BR>Exemplo 1: pasta1/logs/{data}/{hora}<BR>Exemplo 2: pasta1/logs/{data}</td>
 </tr>
 <tr>
 <td>Formato de data [<I>opcional</I>]</td>
-<td>Se o token de data de saudação é usado no caminho de prefixo hello, você pode selecionar o formato de data de saudação na qual os arquivos são organizados. Exemplo: AAAA/MM/DD</td>
+<td>Se o token de data for usado no caminho do prefixo, você pode selecionar o formato de data na qual os arquivos são organizados. Exemplo: AAAA/MM/DD</td>
 </tr>
 <tr>
 <td>Formato de hora [<I>opcional</I>]</td>
-<td>Se o token de tempo de saudação é usado no caminho de prefixo Olá, especifique o formato de tempo de saudação na qual os arquivos são organizados. Atualmente, o valor de saudação só tem suportada é HH.</td>
+<td>Se o token de hora for usado no caminho do prefixo, você pode selecionar o formato de hora na qual os arquivos são organizados. Atualmente, o único valor aceito é HH.</td>
 </tr>
 <tr>
 <td>Formato de serialização do evento</td>
@@ -68,7 +68,7 @@ Uma vez que a conta do repositório Data Lake Olá autenticado, você pode confi
 </tr>
 <tr>
 <td>Codificação</td>
-<td>Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é Olá somente suporte para formato de codificação no momento.</td>
+<td>Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento.</td>
 </tr>
 <tr>
 <td>Delimitador</td>
@@ -76,15 +76,15 @@ Uma vez que a conta do repositório Data Lake Olá autenticado, você pode confi
 </tr>
 <tr>
 <td>Formatar</td>
-<td>Aplicável somente para serialização JSON. Linha separada Especifica que a saída de hello será formatada tendo cada objeto JSON separado por uma nova linha. Matriz Especifica que Olá saída será formatada como uma matriz de objetos JSON.</td>
+<td>Aplicável somente para serialização JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON.</td>
 </tr>
 </tbody>
 </table>
 
 ## <a name="renew-data-lake-store-authorization"></a>Renovar autorização do Repositório Data Lake
-Atualmente, há uma limitação de onde o token de autenticação Olá precisa toobe atualizada manualmente a cada 90 dias para todos os trabalhos com a saída do repositório Data Lake. Você também precisará toore-autenticar sua conta do repositório Data Lake se você alterou sua senha desde que o trabalho foi criado ou última autenticado. Um sintoma desse problema é nenhuma saída de trabalho e um erro nos Logs de operação Olá indicando a necessidade de autorização novamente.
+Atualmente, há uma limitação em que o token de autenticação deve ser atualizado manualmente a cada 90 dias para todos os trabalhos com saída do Repositório Data Lake. Você também precisará autenticar novamente sua conta do Repositório Data Lake caso sua senha tenha sido alterada depois de seu trabalho ter sido criado ou autenticado pela última vez. Um sintoma desse problema é nenhuma saída de trabalho e um erro nos Logs de Operação indicando a necessidade de uma nova autorização.
 
-tooresolve esse problema, interromper seu trabalho em execução e vá repositório tooyour Data Lake de saída. Clique o link de "Renovar autorização" Olá e por um curto período uma página será exibida indicando "Redirecionando tooauthorization...". página de saudação será fechada automaticamente e se for bem-sucedido, a indicação "Autorização foi renovada com êxito". Você precisa tooclick "Salvar" final Olá Olá página e pode continuar, reiniciar o trabalho de saudação perda de dados tooavoid hora da última interrupção.
+Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Repositório Data Lake. Clique no link "Renovar autorização" e por um curto período uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e, se for bem-sucedida, indicará "A autorização foi renovada com êxito". Em seguida, você precisa clicar em "Salvar" na parte inferior da página e poderá continuar reiniciando seu trabalho da última vez em que foi interrompido para evitar perda de dados.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 

@@ -1,5 +1,5 @@
 ---
-title: aaaUse Power BI com o SQL Data Warehouse | Microsoft Docs
+title: Usar o Power BI com o SQL Data Warehouse | Microsoft Docs
 description: "Dicas para usar o Power BI com o SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,45 +15,45 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: a3a347493d07af6824a561567f05894cfe3c0471
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Usar o Power BI com o SQL Data Warehouse
-Como com o banco de dados SQL Azure, a conexão direta do SQL Data Warehouse permite que usuário tooleverage poderoso lógico aplicação juntamente com recursos analíticos de saudação do Power BI.  Com conexão direta, consultas são enviadas tooyour back Azure SQL Data Warehouse em tempo real conforme você explora dados hello.  Isso, combinado com escala de saudação do SQL Data Warehouse, permite que os usuários de relatórios dinâmicos toocreate em minutos em terabytes de dados.  Além disso, a introdução de saudação do hello aberto no botão Power BI permite que os usuários toodirectly conectar o Power BI tootheir SQL Data Warehouse sem coletar informações de outras partes do Azure.
+Assim como o Banco de Dados SQL do Azure, a Conexão Direta do SQL Data Warehouse permite ao usuário aproveitar a aplicação lógica ao longo dos recursos analíticos do Power BI.  Com a Conexão Direta, as consultas são enviadas de volta ao SQL Data Warehouse do Azure em tempo real enquanto você explora os dados.  Esse recurso, combinado com a escala do SQL Data Warehouse, permite aos usuários criar relatórios dinâmicos dos terabytes de dados em questão de minutos.  Além disso, a introdução do botão Abrir no Power BI permite que os usuários conectem o Power BI diretamente ao respectivo SQL Data Warehouse sem coletar informações de outras partes do Azure.
 
 Ao usar a Conexão Direta:
 
-* Especifique o nome totalmente qualificado do servidor de saudação durante a conexão (consulte abaixo para obter mais detalhes)
-* Certifique-se de que as regras de firewall para o banco de dados de saudação são configuradas muito "permitem acesso tooAzure serviços".
-* Toda ação, como selecionar uma coluna ou adicionar um filtro, consultará diretamente data warehouse de saudação
-* Blocos são atualizados aproximadamente a cada 15 minutos (a atualização não é necessário toobe agendado)
+* Especifique o nome de servidor totalmente qualificado ao conectar (veja mais detalhes abaixo)
+* Certifique-se de que as regras de firewall estejam configuradas como “Permitir acesso aos serviços do Azure”.
+* Cada ação, como selecionar uma coluna ou adicionar um filtro, consultará diretamente o data warehouse
+* Os blocos são atualizados aproximadamente a cada 15 minutos (a atualização não precisa ser agendada)
 * Perguntas e respostas não estão disponíveis para conjuntos de dados de Conexão Direta
 * As alterações no esquema não são selecionadas automaticamente
 * Todas as consultas de Conexão Direta atingirão o tempo limite após 2 minutos
 
-Essas restrições e observações podem mudar conforme continuamos tooimprove Olá experiências ao mesmo tempo. Olá etapas tooconnect são detalhadas abaixo.  
+Essas restrições e observações podem mudar à medida que aprimoramos as experiências. As etapas para conexão estão detalhadas abaixo.  
 
-## <a name="using-hello-open-in-power-bi-button"></a>Usando o botão 'Abrir no Power BI' hello
-Olá toomove de maneira mais fácil entre o SQL Data Warehouse e o Power BI é com hello aberto no botão Power BI. Esse botão permite tooseamlessly começar a criar novos painéis no Power BI.  
+## <a name="using-the-open-in-power-bi-button"></a>Usando o botão ‘Abrir no Power BI’
+A maneira mais fácil de mover entre o SQL Data Warehouse e o Power BI é usando o botão Abrir no Power BI. Esse botão permite que você comece a criar novos painéis diretamente no Power BI.  
 
-1. tooget iniciado navegue tooyour instância de SQL Data Warehouse em Olá Portal clássico do Azure.
-2. Clique o botão 'Abrir no Power BI' hello.
-3. Se não for capaz de toosign no diretamente, ou se você não tiver uma conta do Power BI, você precisará toosign-in.  
-4. Você será direcionado pré-preenchidos toohello página de conexão do SQL Data Warehouse, com informações de saudação do Data Warehouse do SQL.
-5. Depois de inserir suas credenciais, você será totalmente conectada tooyour SQL Data Warehouse.
+1. Para começar, navegue até sua instância do SQL Data Warehouse no Portal clássico do Azure.
+2. Clique no botão “Abrir no Power BI”.
+3. Se não pudermos conectar você diretamente ou se você não tiver uma conta do Power BI, será preciso se conectar.  
+4. Você será direcionado para a página de conexão do SQL Data Warehouse, com as informações do seu SQL Data Warehouse previamente populadas.
+5. Depois de inserir suas credenciais, você será totalmente conectado ao SQL Data Warehouse.
 
-## <a name="connecting-through-hello-power-bi-portal"></a>Conectando por meio do portal do Power BI Olá
-Saudação de toousing de adição aberto no botão Power BI, os usuários também podem conectar tootheir SQL Data Warehouse por meio de saudação Portal do Power BI.
+## <a name="connecting-through-the-power-bi-portal"></a>Conectando-se pelo portal do Power BI
+Além de usar o botão Abrir no Power BI, os usuários também podem se conectar ao respectivo SQL Data Warehouse pelo Portal do Power BI.
 
-1. Clique em 'Obter dados' na parte inferior de Olá Olá do painel de navegação.
+1. Clique em 'Obter dados' na parte inferior do painel de navegação.
 2. Selecione 'Bancos de dados'.
-3. Uma vez na página de bancos de dados hello, selecione 'Azure SQL Data Warehouse' e, em seguida, clique em 'Conectar'.
-4. Insira as informações de conexão necessárias hello.  Seu nome de servidor e o nome do banco de dados podem ser encontrados no hello Portal do Azure.
-5. Você será direcionado volta toohello o página principal do Power BI e depois que a conexão é feita uma nova entrada em 'Conjuntos de dados' aparecerá com o nome de saudação da sua instância.  
-6. Você pode clicar em Olá novo conjunto de dados tooexplore todas as tabelas de saudação e exibições no banco de dados. Selecionando uma coluna enviará uma fonte de back toohello consulta, criando dinamicamente seu visual. Esses elementos visuais podem ser salvas em um novo relatório e fixados de volta tooyour painel.
+3. Uma vez na página Bancos de dados, selecione 'SQL Data Warehouse do Azure' e, em seguida, clique em 'Conectar'.
+4. Insira as informações de conexão necessárias.  O nome do servidor e o nome do banco de dados podem ser encontrados no Portal do Azure.
+5. Você será direcionado para a página principal do Power BI e, depois que a conexão é feita, uma nova entrada em 'Conjuntos de dados' aparecerá com o nome da sua instância.  
+6. Você pode clicar no novo conjunto de dados para explorar todas as tabelas e exibições no seu banco de dados. Selecionar uma coluna enviará uma consulta de volta à origem, criando dinamicamente seu visual. Esses visuais podem ser salvos em um novo relatório e fixados de volta no seu painel.
 
 <!--Image references-->
 

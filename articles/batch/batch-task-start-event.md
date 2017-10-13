@@ -1,5 +1,5 @@
 ---
-title: "AAA \"evento de início da tarefa de lote do Azure | Microsoft Docs\""
+title: "Eventos de início de tarefa em lote do Azure | Microsoft Docs"
 description: "Referência de evento de início de tarefa de lote."
 services: batch
 author: tamram
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: 2cb066be1578741125e9081a84a2b7c74dc8356a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
- Esse evento é emitido quando uma tarefa tiver sido agendada toostart em um nó de computação pelo Agendador hello. Observe que se a tarefa Olá é repetida ou retirada da fila esse evento será emitido novamente para hello mesma tarefa, mas Olá contagem de repetição e a versão da tarefa de sistema será atualizado adequadamente.
+ Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador. Observe que, se a tarefa for repetida ou colocada novamente na fila, esse evento será emitido novamente para a mesma tarefa, mas a contagem de repetição e versão de tarefa do sistema serão atualizadas adequadamente.
 
 
- Olá, exemplo a seguir mostra o corpo de saudação de um evento de início da tarefa.
+ O exemplo a seguir mostra o corpo de um evento de início da tarefa.
 
 ```
 {
@@ -49,36 +49,36 @@ ms.lasthandoff: 10/06/2017
 
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
-|jobId|Cadeia de caracteres|id de saudação do trabalho de saudação que contém a tarefa de saudação.|
-|ID|Cadeia de caracteres|id de saudação da tarefa de saudação.|
-|taskType|Cadeia de caracteres|tipo de saudação da tarefa de saudação. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
-|systemTaskVersion|Int32|Este é o contador de repetições interno de saudação em uma tarefa. Internamente, serviço de lote de saudação pode repetir tooaccount uma tarefa para problemas transitórios. Esses problemas podem incluir interno toorecover agendamento erros ou tentativas de nós de computação em um estado inválido.|
-|[nodeInfo](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação Olá no qual Olá tarefa foi executada.|
-|[multiInstanceSettings](#multiInstanceSettings)|Tipo complexo|Especifica que Olá é tarefa várias instâncias que exigem vários nós de computação.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
-|[restrições](#constraints)|Tipo complexo|restrições de execução de saudação que se aplicam a tarefa toothis.|
-|[executionInfo](#executionInfo)|Tipo complexo|Contém informações sobre a execução de saudação da tarefa de saudação.|
+|jobId|Cadeia de caracteres|A ID do trabalho que contém a tarefa.|
+|ID|Cadeia de caracteres|A ID da tarefa.|
+|taskType|Cadeia de caracteres|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
+|systemTaskVersion|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
+|[nodeInfo](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
+|[multiInstanceSettings](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
+|[restrições](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
+|[executionInfo](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
-|poolId|Cadeia de caracteres|id de saudação do pool de saudação em qual Olá tarefa foi executada de.|
-|nodeId|Cadeia de caracteres|Olá o id do nó de saudação em qual Olá tarefa foi executada.|
+|poolId|Cadeia de caracteres|A ID do pool em que a tarefa foi executada.|
+|nodeId|Cadeia de caracteres|A ID do nó em que a tarefa foi executada.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
-|numberOfInstances|int|número de saudação de nós de computação necessários pela tarefa de saudação.|
+|numberOfInstances|int|O número de nós de computação que a tarefa precisa.|
 
 ###  <a name="constraints"></a> restrições
 
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
-|maxTaskRetryCount|Int32|Olá número máximo de vezes Olá tarefa pode ser repetida. Olá serviço de lote repete uma tarefa se seu código de saída é diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas de saudação. serviço de lote Olá tentará a tarefa Olá uma vez e pode, em seguida, repita o limite de toothis. Por exemplo, se a contagem de repetição máxima Olá é 3, o lote tenta uma tarefa de backup too4 vezes (uma tentativa inicial e 3 tentativas).<br /><br /> Se a contagem de repetição máxima Olá for 0, Olá serviço de lote não tenta novamente a tarefas.<br /><br /> Se a contagem de repetição máxima Olá é -1, o serviço de lote Olá repete tarefas sem limite.<br /><br /> valor padrão de saudação é 0 (sem repetições).|
+|maxTaskRetryCount|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
 |Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
-|retryCount|Int32|Olá o número de vezes Olá tarefa foi repetida pelo serviço de lote de saudação. tarefa de saudação será repetida se ele for encerrada com um código de saída diferente de zero, o toohello especificado MaxTaskRetryCount|
+|retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada|

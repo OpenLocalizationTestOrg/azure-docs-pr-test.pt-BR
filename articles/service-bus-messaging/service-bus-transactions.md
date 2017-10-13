@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview de processamento de transações em um barramento de serviço do Azure | Microsoft Docs"
+title: "Visão geral do processamento de transações no Barramento de Serviço do Azure | Microsoft Docs"
 description: "Visão geral das transações atômicas do Barramento de Serviço do Azure e do recurso Enviar por"
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2017
 ms.author: clemensv;sethm
-ms.openlocfilehash: 5ed4d1fd3a089b8ebcd69a568f4ac863e753aecd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações do Barramento de Serviço
-Este artigo aborda os recursos de transação de saudação do barramento de serviço do Azure. Grande parte da discussão Olá é ilustrada Olá [transações atômicas com exemplo de barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Este artigo é visão geral de tooan limitada de processamento de transações e hello *Enviar via* recurso no barramento de serviço, enquanto o exemplo de transações atômicas hello é mais amplo e mais complexas no escopo.
+Este artigo aborda as funcionalidades de transação do Barramento de Serviço do Azure. Grande parte da discussão é ilustrada na [amostra de Transações atômicas com o Barramento de Serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Este artigo é limitado a uma visão geral do processamento de transações e ao recurso *Enviar por* do Barramento de Serviço, enquanto a amostra Transações atômicas tem um escopo mais amplo e complexo.
 
 ## <a name="transactions-in-service-bus"></a>Transações no Barramento de Serviço
-Uma [transação](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) agrupa duas ou mais operações em um *escopo de execução*. Por natureza, uma transação deve garantir que todas as operações que pertencem a tooa fornecido o grupo de operações bem-sucedidas ou falham em conjunto. Nesse sentido, as transações agem como uma unidade, que é geralmente chamado tooas *atomicidade*. 
+Uma [transação](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) agrupa duas ou mais operações em um *escopo de execução*. Por natureza, essa transação deve garantir que todas as operações que pertencem a determinado grupo de operações sejam concluídas com êxito ou com falha em conjunto. Nesse sentido, as transações agem como uma unidade, que, geralmente, é conhecida como *atomicidade*. 
 
-O Barramento de Serviço é um agente de mensagens transacionais e assegura a integridade transacional de todas as operações internas em seus repositórios de mensagens. Todas as transferências de mensagens dentro de barramento de serviço, como mover tooa de mensagens [fila de mensagens mortas](service-bus-dead-letter-queues.md) ou [encaminhamento automático](service-bus-auto-forwarding.md) de mensagens entre entidades, são transacionais. Assim, caso o Barramento de Serviço aceite uma mensagem, isso significa ela já foi armazenada e rotulada com um número de sequência. Daí em seguida diante, qualquer transferência de mensagem no barramento de serviço é operações coordenadas entre entidades, e nenhum levará tooloss (origem terá êxito e falha de destino) ou tooduplication (Falha de origem e destino for bem-sucedida) da mensagem de saudação.
+O Barramento de Serviço é um agente de mensagens transacionais e assegura a integridade transacional de todas as operações internas em seus repositórios de mensagens. Todas as transferências de mensagens no Barramento de Serviço, como a movimentação de mensagens para uma [fila de mensagens mortas](service-bus-dead-letter-queues.md) ou [encaminhamento automático](service-bus-auto-forwarding.md) de mensagens entre entidades, são transacionais. Assim, caso o Barramento de Serviço aceite uma mensagem, isso significa ela já foi armazenada e rotulada com um número de sequência. Daí em diante, todas as transferências de mensagens no Barramento de Serviço são operações coordenadas entre entidades e não resultarão em perda (origem com êxito e destino com falha) nem em duplicação (origem com falha e destino com êxito) da mensagem.
 
-Barramento de serviço oferece suporte a operações de agrupamento em uma única entidade de mensagens (fila, tópico, assinatura) dentro do escopo de saudação de uma transação. Por exemplo, você pode enviar várias filas de tooone mensagens de dentro de um escopo de transação e mensagens de saudação só será log toohello confirmada da fila quando a transação de saudação seja concluída com êxito.
+O Barramento de Serviço dá suporte a operações de agrupamento em uma única entidade de mensagens (fila, tópico e assinatura) no escopo de uma transação. Por exemplo, você pode enviar várias mensagens para uma fila em um escopo de transação, e as mensagens só serão confirmadas no log da fila quando a transação for concluída com êxito.
 
 ## <a name="operations-within-a-transaction-scope"></a>Operações em um escopo de transação
-operações de saudação que podem ser executadas em um escopo de transação são da seguinte maneira:
+As operações que podem ser executadas em um escopo de transação são as seguintes:
 
 * **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
 * **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-Receber operações não são incluídas, porque supõe-se que o aplicativo hello adquire mensagens usando Olá [Receivemode](/dotnet/api/microsoft.servicebus.messaging.receivemode) loop de recebimento de modo dentro de alguns ou com um [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) retorno de chamada, e só depois abre uma transação de escopo para processar a mensagem de saudação.
+As operações de recebimento não são incluídas, pois presume-se que o aplicativo obtenha as mensagens usando o modo [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) em algum loop de recebimento ou com um retorno de chamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) e só então abre um escopo de transação para o processamento da mensagem.
 
-Olá disposição de mensagem de saudação (completa, abandono, mensagens mortas, adiar), em seguida, ocorre dentro de escopo hello e dependente, hello resultado geral da transação de saudação.
+Em seguida, a disposição da mensagem (conclusão, abandono, mensagens mortas, adiamento) ocorre no escopo do resultado geral da transação e depende dele.
 
 ## <a name="transfers-and-send-via"></a>Transferências e “enviar por”
-tooenable transferência transacional dos dados de um processador de fila de tooa e tooanother fila, Service Bus suporta *transferências*. Em uma operação de transferência, um remetente primeiro envia uma mensagem tooa "fila de transferência" e fila de transferência Olá move imediatamente toohello de mensagem de saudação se destina a fila de destino usando Olá mesmo robusto transferir implementação que depende do encaminhamento automático de saudação no. mensagem de saudação nunca é log da fila de transferência toohello confirmados de forma que ele fique visível para os consumidores da fila de transferência hello.
+Para habilitar a transferência transacional dos dados de uma fila para um processador e, em seguida, para outra fila, o Barramento de Serviço dá suporte a *transferências*. Em uma operação de transferência, um remetente primeiro envia uma mensagem para uma “fila de transferência” e a fila de transferência move imediatamente a mensagem para a fila de destino pretendida usando a mesma implementação de transferência robusta da qual a funcionalidade de encaminhamento automático depende. A mensagem nunca é confirmada no log da fila de transferência de modo que fique visível para os consumidores da fila de transferência.
 
-energia Olá dessa funcionalidade transacional se torna aparente quando a própria fila de transferência Olá é a origem de saudação de mensagens de entrada do remetente hello. Em outras palavras, barramento de serviço pode transferir fila de destino de toohello de mensagem de saudação "via" fila de transferência hello, ao executar uma completa (ou adiar, ou inatividade) operação na mensagem de entrada hello, tudo em uma operação atômica. 
+A potência dessa funcionalidade transacional se torna aparente quando a própria fila de transferência é a origem das mensagens de entrada do remetente. Em outras palavras, o Barramento de Serviço pode transferir a mensagem para a fila de destino por meio da fila de transferência, ao mesmo tempo que executa uma operação de conclusão (ou adiamento ou mensagens mortas) nas mensagens de entrada, tudo em uma única operação atômica. 
 
 ### <a name="see-it-in-code"></a>Ver em código
-tooset backup essas transferências, você cria um remetente da mensagem que tem como alvo a fila de destino Olá por meio de fila de transferência de saudação. Você também terá um destinatário que efetua pull das mensagens dessa mesma fila. Por exemplo:
+Para configurar essas transferências, você cria um remetente da mensagem que tem como alvo a fila de destino por meio da fila de transferência. Você também terá um destinatário que efetua pull das mensagens dessa mesma fila. Por exemplo:
 
 ```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
-Uma transação simple, em seguida, usa esses elementos, como no exemplo a seguir de saudação:
+Uma transação simples usa então esses elementos, como mostrado no exemplo a seguir:
 
 ```csharp
 var msg = receiver.Receive();
@@ -62,22 +62,22 @@ using (scope = new TransactionScope())
 {
     // Do whatever work is required 
 
-    var newmsg = ... // package hello result 
+    var newmsg = ... // package the result 
 
-    msg.Complete(); // mark hello message as done
-    sender.Send(newmsg); // forward hello result
+    msg.Complete(); // mark the message as done
+    sender.Send(newmsg); // forward the result
 
-    scope.Complete(); // declare hello transaction done
+    scope.Complete(); // declare the transaction done
 } 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte Olá artigos para obter mais informações sobre as filas do barramento de serviço a seguir:
+Confira os artigos a seguir para obter mais informações sobre as filas do Barramento de Serviço:
 
 * [Encadeando entidades do Barramento de Serviço com o encaminhamento automático](service-bus-auto-forwarding.md)
 * [Amostra de encaminhamento automático](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Amostra de Transações atômicas com o Barramento de Serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-* [Como as filas do barramento de serviço toouse](service-bus-dotnet-get-started-with-queues.md)
+* [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 

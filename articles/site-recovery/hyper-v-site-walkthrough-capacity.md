@@ -1,6 +1,6 @@
 ---
-title: "aaaPlan capacidade e dimensionamento para tooAzure de replicação (sem VMM) de VM do Hyper-V com o Azure Site Recovery | Microsoft Docs"
-description: Usar essa capacidade de tooplan de artigo e o dimensionamento ao replicar tooAzure de VMs Hyper-V com o Azure Site Recovery
+title: "Planejar a capacidade e o dimensionamento da replicação de VM do Hyper-V (sem o VMM) para o Azure com o Azure Site Recovery | Microsoft Docs"
+description: Use este artigo para planejar a capacidade e a escala ao replicar VMs do Hyper-V para o Azure com o Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.openlocfilehash: f5b029f273e51c01c7d918d176832f6d1735b5f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c7891c188c2cecbbf056fa79672a13bb16fa7fcf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-3-plan-capacity-and-scaling-for-hyper-v-tooazure-replication"></a>Etapa 3: Planejar a capacidade e dimensionamento de replicação do Hyper-V tooAzure
+# <a name="step-3-plan-capacity-and-scaling-for-hyper-v-to-azure-replication"></a>Etapa 3: Planejar a capacidade e o dimensionamento para replicação do Hyper-V para o Azure
 
-Use toofigure este artigo planejamento de capacidade e dimensionamento, durante a replicação local tooAzure de VMs Hyper-V (sem o System Center VMM) com [do Azure Site Recovery](site-recovery-overview.md).
+Use este artigo para saber como planejar a capacidade e o dimensionamento ao replicar VMs locais do Hyper-V (sem o System Center VMM) para o Azure com o [Azure Site Recovery](site-recovery-overview.md).
 
-Depois de ler este artigo, postar os comentários na parte inferior da saudação ou questões técnicas Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Depois de ler este artigo, poste comentários no final ou faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="how-do-i-start-capacity-planning"></a>Como iniciar o planejamento de capacidade?
 
 
-Coletar informações sobre seu ambiente de replicação e em seguida, planeje a capacidade usando essas informações, junto com as considerações de saudação realçados neste artigo.
+Você coleta informações sobre o ambiente de replicação e, em seguida, planeja a capacidade usando essas informações, junto com as considerações destacadas neste artigo.
 
 
 ## <a name="gather-information"></a>Coletar informações
 
 1. Reunir informações sobre seu ambiente de replicação, inclusive VMs, discos por VMs e armazenamento por disco.
-2. Identifique sua taxa de alteração (variação) diária de dados replicados. Baixar Olá [ferramenta de planejamento de capacidade de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) tooget taxa de alteração de saudação. Recomendamos que você execute essa ferramenta em uma semana toocapture médias.
+2. Identifique sua taxa de alteração (variação) diária de dados replicados. Baixe a [ferramenta de planejamento de capacidade do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de alteração. Recomendamos que você execute essa ferramenta durante uma semana para capturar as médias.
  
 
 ## <a name="figure-out-capacity"></a>Descobrir a capacidade
 
-Com base nas informações de saudação que você colete, executar Olá [ferramenta de Planejador de capacidade de recuperação de Site](http://aka.ms/asr-capacity-planner-excel) tooanalyze seu ambiente de origem e cargas de trabalho, estimar as necessidades de largura de banda e recursos do servidor para o local de origem hello e Olá recursos (máquinas virtuais e armazenamento etc), que é necessário no local de destino hello. Você pode executar a ferramenta de saudação em dois modos:
+Com base nas informações coletadas, você executa o [Planejador de Capacidade do Site Recovery](http://aka.ms/asr-capacity-planner-excel) para analisar o ambiente de origem e as cargas de trabalho, estimar as necessidades de largura de banda e os recursos do servidor para o local de origem, bem como os recursos (máquinas virtuais e armazenamento, etc.) necessários no local de destino. Você pode executar a ferramenta em vários modos:
 
-- Planejando rápida: executar ferramenta Olá nesse modo tooget projeções de rede e servidor com base em um número médio de VMs, discos, armazenamento e a taxa de alteração.
-- Planejamento detalhado: execute a ferramenta de saudação nesse modo e fornecer detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade da VM e obtenha as projeções de rede e de servidor.
+- Planejamento rápido: execute a ferramenta nesse modo para obter as projeções de rede e de servidor baseadas no número médio de VMs, de discos, de armazenamento e da taxa de alteração.
+- Planejamento detalhado: execute a ferramenta nesse modo e forneça detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade da VM e obtenha as projeções de rede e de servidor.
 
-Agora execute a ferramenta de saudação:
+Agora execute a ferramenta:
 
-1. Baixar Olá [ferramenta](http://aka.ms/asr-capacity-planner-excel)
-2. Planejador rápida do toorun hello, siga [estas instruções](site-recovery-capacity-planner.md#run-the-quick-planner)e selecione Olá cenário **tooAzure Hyper-V**.
-3. toorun Olá Planejador detalhada, execute [estas instruções](site-recovery-capacity-planner.md#run-the-detailed-planner)e selecione Olá cenário **tooAzure Hyper-V**.
+1. Baixar a [ferramenta](http://aka.ms/asr-capacity-planner-excel)
+2. Para executar o planejador rápido, siga [estas instruções](site-recovery-capacity-planner.md#run-the-quick-planner) e selecione o cenário **Hyper-V para o Azure**.
+3. Para executar o planejador detalhado, siga [estas instruções](site-recovery-capacity-planner.md#run-the-detailed-planner) e selecione o cenário **Hyper-V para o Azure**.
 
 ## <a name="control-network-bandwidth"></a>Controlar largura de banda da rede
 
-Depois que você tenha largura de banda Olá calculado que é necessário, você tem duas opções para controlar quantidade de saudação de largura de banda usada para replicação:
+Depois de calcular a largura de banda necessária, você tem algumas opções para controlar a quantidade de largura de banda usada para replicação:
 
-* **Limitação da largura de banda**: tráfego Hyper-V que replica tooAzure passa por um host Hyper-V específico. Você pode reduzir a largura de banda no servidor de host de saudação.
-* **Influenciam a largura de banda**: você pode influenciar a largura de banda de saudação usada para replicação usando duas chaves do registro.
+* **Restringir a largura de banda**: o tráfego do Hyper-V replicado para o Azure passa por um host específico do Hyper-V. Você pode limitar a largura de banda no servidor host.
+* **Influenciar a largura de banda**: você pode influenciar a largura de banda usada para replicação usando algumas chaves do Registro.
 
 ### <a name="throttle-bandwidth"></a>Restringir a largura de banda
-1. Abra o snap-in MMC do Backup do Microsoft Azure de saudação no servidor de host do Hyper-V hello. Por padrão um atalho para o Backup do Microsoft Azure está disponível na área de trabalho hello, ou em C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. No snap-in Olá clique **alterar propriedades**.
-3. Em Olá **limitação** guia **habilitar limitação para operações de backup do uso de largura de banda de internet**e definir limites de saudação do trabalho e folga horas. Intervalos válidos são de 512 Mbps de too102 Kbps por segundo.
+1. Abra o snap-in MMC do Backup do Microsoft Azure no servidor host do Hyper-V. Por padrão, um atalho para o Backup do Microsoft Azure está disponível na área de trabalho ou C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. No snap-in, clique em **Alterar Propriedades**.
+3. Na guia **Limitação**, selecione **Habilitar limitação de uso de largura de banda da Internet para operações de backup** e defina os limites do horário comercial e não comercial. Os intervalos válidos são de 512 Kbps a 102 Mbps por segundo.
 
     ![Restringir a largura de banda](./media/hyper-v-site-walkthrough-capacity/throttle2.png)
 
-Você também pode usar o hello [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet tooset limitação. Veja um exemplo:
+Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) para definir a limitação. Veja um exemplo:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -75,11 +75,11 @@ Você também pode usar o hello [Set-OBMachineSetting](https://technet.microsoft
 **Set-OBMachineSetting -NoThrottle** indica que nenhuma limitação é necessária.
 
 ### <a name="influence-network-bandwidth"></a>Influência da largura de banda de rede
-1. No registro de saudação navegue muito**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * tráfego de largura de banda de saudação tooinfluence em um disco de replicação, modificar Olá Olá do valor **UploadThreadsPerVM**, ou criar a chave de saudação se ele não existir.
-   * largura de banda tooinfluence Olá para o tráfego de failback do Azure, modifique o valor de saudação **DownloadThreadsPerVM**.
-2. valor padrão de saudação é 4. Em uma rede de "sobreprovisionada", essas chaves do registro devem ser diferente dos valores padrão de saudação. Olá máximo é 32. Monitorar o tráfego toooptimize Olá valor.
+1. No Registro, navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
+   * Para influenciar o tráfego de largura de banda em um disco de replicação, modifique o valor de **UploadThreadsPerVM**ou crie a chave caso ela não exista.
+   * Para influenciar a largura de banda para o tráfego de failback do Azure, modifique o valor **DownloadThreadsPerVM**.
+2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá muito[etapa 4: planejar a rede](hyper-v-site-walkthrough-network.md).
+Ir para a [Etapa 4: Planejar a rede](hyper-v-site-walkthrough-network.md).

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao FreshDesk | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e FreshDesk."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o FreshDesk."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,107 +14,107 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 577a5eb6d9b1bc03030a2b47f63d375869c903bb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f4b47e345a40b64f69ad8a4618564662b4a6c879
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: integração do Azure Active Directory ao FreshDesk
 
-Neste tutorial, você aprenderá como toointegrate FreshDesk com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o FreshDesk ao Azure AD (Azure Active Directory).
 
-Integrando o FreshDesk com o AD do Azure fornece Olá benefícios a seguir:
+A integração do FreshDesk ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooFreshDesk
-- Você pode habilitar seu usuários tooautomatically get conectado tooFreshDesk (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – portal de gerenciamento do Azure Olá
+- No Azure AD, é possível controlar quem tem acesso ao FreshDesk
+- Você pode habilitar seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no FreshDesk (logon único)
+- Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com o FreshDesk, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao FreshDesk, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do FreshDesk com logon único habilitado
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando FreshDesk da Galeria de saudação
+1. Adicionar o FreshDesk da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-freshdesk-from-hello-gallery"></a>Adicionando FreshDesk da Galeria de saudação
-integração de saudação tooconfigure do FreshDesk no AD do Azure, você precisa tooadd FreshDesk da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-freshdesk-from-the-gallery"></a>Adicionar o FreshDesk da galeria
+Para configurar a integração do FreshDesk ao Azure AD, você precisa adicionar o FreshDesk da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**tooadd FreshDesk da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o FreshDesk por meio da galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[Portal de gerenciamento](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique em **adicionar** botão na parte superior de saudação da caixa de diálogo de saudação.
+3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **FreshDesk**.
+4. Na caixa de pesquisa, digite **FreshDesk**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_search.png)
 
-5. No painel de resultados de saudação, selecione **FreshDesk**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **FreshDesk** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o FreshDesk, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no FreshDesk é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no FreshDesk precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do FreshDesk é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do FreshDesk.
 
-Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no FreshDesk.
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no FreshDesk.
 
-tooconfigure e teste de logon único do AD do Azure com o FreshDesk, é necessário Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o FreshDesk, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do FreshDesk](#creating-a-freshdesk-test-user)**  -toohave um equivalente do Britta Simon no FreshDesk é a representação toohello vinculado do Azure AD dela.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do FreshDesk](#creating-a-freshdesk-test-user)** – para ter um equivalente de Brenda Fernandes no FreshDesk que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no portal de gerenciamento do Azure hello e configurar o logon único no aplicativo do Freshservice.
+Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciamento do Azure e configura o logon único em seu aplicativo FreshDesk.
 
-**tooconfigure AD do Azure-logon único com o FreshDesk, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o FreshDesk, realize as seguintes etapas:**
 
-1. No portal de gerenciamento do Azure do hello, no hello **FreshDesk** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **FreshDesk**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, como **modo** selecione **baseado no SAML logon** tooenable de logon único.
+2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. Em Olá **FreshDesk domínio e URLs** seção, digite Olá **URL de logon** como: `https://<tenant-name>.freshdesk.com` ou qualquer outro valor Freshdesk sugeriu.
+3. Na seção **Domínio e URLs do FreshDesk**, insira a **URL de logon** como: `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
 
     ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_url.png)
 
     > [!NOTE] 
     > Observe que esse não é o valor real. Você precisa atualizar o valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg).  
 
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado** e, em seguida, salve o certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o certificado em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_certificate.png) 
 
@@ -122,21 +122,21 @@ Nesta seção, habilitar o AD do Azure-logon único no portal de gerenciamento d
 
     ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_general_400.png)
 
-6. Em Olá **FreshDesk configuração** seção, clique em **FreshDesk configurar** tooopen configurar o logon na janela. Copiar hello SAML Single Sign-On URL do serviço e a URL de logout de saudação **referência rápida** seção.
+6. Na seção **Configuração do FreshDesk**, clique em **Configurar o FreshDesk** para abrir a janela Configurar logon. Copie a URL do serviço de logon único do SAML e a URL de logoff da seção de **Referência Rápida**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_configure.png)
+    ![Configurar o logon único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
 7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Freshdesk como administrador.
 
-8. No menu de saudação na parte superior de saudação, clique em **Admin**.
+8. No menu na parte superior, clique em **Administrador**.
    
    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
-9. Em Olá **configurações gerais** , clique em **segurança**.
+9. Na guia **Configurações Gerais**, clique em **Segurança**.
    
    ![Segurança](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Segurança")
 
-10. Em Olá **segurança** , execute Olá etapas a seguir:
+10. Na seção **Segurança** , realize as seguintes etapas:
    
     ![Logon Único](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Logon Único")
    
@@ -144,62 +144,62 @@ Nesta seção, habilitar o AD do Azure-logon único no portal de gerenciamento d
 
     b. Selecione **SSO do SAML**.
 
-    c. Saudação de tipo **Single Sign-On URL do serviço SAML** você copiou do portal do Azure para Olá **URL de logon** caixa de texto.
+    c. Digite a **URL do serviço de logon único do SAML** que você copiou do Portal do Azure para a caixa de texto **URL de Logon do SAML**.
 
-    d. Saudação de tipo **URL de logout** você copiou do portal do Azure para Olá **URL de Logout** caixa de texto.
+    d. Digite a **URL de Saída** que você copiou do Portal do Azure para a caixa de texto **URL de Logoff**.
 
-    e. Saudação de cópia **impressão digital** valor de certificado Olá baixado do portal do Azure e cole-a saudação **impressão digital do certificado de segurança** caixa de texto.  
+    e. Copie o valor de **Impressão Digital** do certificado baixado do Portal do Azure e cole-o na caixa de texto **Impressão Digital do Certificado de Segurança**.  
  
     >[!TIP]
-    >Para obter mais detalhes, consulte [como tooretrieve o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI). 
+    >Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI). 
     
     f. Clique em **Salvar**.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá o objetivo desta seção é toocreate um usuário de teste no portal de gerenciamento do Azure Olá chamado Britta Simon.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal de gerenciamento do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/create_aaduser_01.png) 
 
-2. Vá muito**usuários e grupos** e clique em **todos os usuários** toodisplay lista de saudação de usuários.
+2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior de saudação da caixa de diálogo Olá clique **adicionar** tooopen Olá **usuário** caixa de diálogo.
+3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-freshdesk-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-freshdesk-test-user"></a>Criar um usuário de teste FreshDesk
 
-Ordem tooenable AD do Azure usuários toolog no FreshDesk, eles devem ser provisionados no FreshDesk.  
-No caso de saudação do FreshDesk, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no FreshDesk, eles devem ser provisionados no FreshDesk.  
+No caso do FreshDesk, o provisionamento é uma tarefa manual.
 
-**tooprovision contas de usuário, executar Olá seguintes etapas:**
+**Para provisionar contas de usuário, execute as seguintes etapas:**
 
-1. Faça logon no tooyour **Freshdesk** locatário.
-2. No menu de saudação na parte superior de saudação, clique em **Admin**.
+1. Faça logon em seu locatário do **Freshdesk** .
+2. No menu na parte superior, clique em **Administrador**.
    
    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
-3. Em Olá **configurações gerais** , clique em **agentes**.
+3. Na guia **Configurações Gerais**, clique em **Agentes**.
    
    ![Agentes](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agentes")
 
@@ -207,44 +207,44 @@ No caso de saudação do FreshDesk, o provisionamento é uma tarefa manual.
    
     ![Novo Agente](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "Novo Agente")
 
-5. Na caixa de diálogo de informações de agentes hello, execute Olá etapas a seguir:
+5. Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
    
    ![Informações de Agente](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Informações de Agente")
    
-   a. Em Olá **nome completo** caixa de texto, nome de saudação do tipo da conta de saudação do AD do Azure que você deseja tooprovision.
+   a. Na caixa de texto **Nome Completo** , digite o nome da conta do Azure AD que você deseja provisionar.
 
-   b. Em Olá **Email** caixa de texto, Olá tipo AD do Azure endereço de email da conta de saudação do AD do Azure que você deseja tooprovision.
+   b. Na caixa de texto **Email** , digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
 
-   c. Em Olá **título** caixa de texto, digite o título da saudação da conta de saudação do AD do Azure que você deseja tooprovision.
+   c. Na caixa de texto **Título** , digite a conta do Azure AD que você deseja provisionar.
 
    d. Selecione **Função de agentes** e clique em **Atribuir**.
        
    e. Clique em **Salvar**.     
    
     >[!NOTE]
-    >proprietário de conta do AD do Azure Olá receberá um email que inclui uma conta de saudação do link tooconfirm antes que ele seja ativado. 
+    >O titular da conta do Azure AD receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa. 
     > 
     
     >[!NOTE]
-    >Você pode usar qualquer ferramenta de criação outros Freshdesk usuário conta ou APIs fornecidas pelo Freshdesk tooprovision contas de usuário do AAD. tooFreshDesk.
+    >É possível usar qualquer outra ferramenta de criação da conta de usuário do Freshdesk ou APIs fornecidas pelo Freshdesk para provisionar as contas de usuário do AAD. para o FreshDesk.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo tooBox seu acesso.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Box.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooFreshDesk, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao FreshDesk, realize as seguintes etapas:**
 
-1. No portal de gerenciamento do Azure hello, abrir modo de exibição de aplicativos Olá e, em seguida, navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **FreshDesk**.
+2. Na lista de aplicativos, escolha **FreshDesk**.
 
     ![Configurar Logon Único](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -252,7 +252,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -260,13 +260,13 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco FreshDesk Olá Olá painel de acesso, você deve obter logon página tooget conectado tooyour FreshDesk aplicativo.
+Quando clicar no bloco FreshDesk no Painel de Acesso, você deverá ser conduzido à página de logon para ser conectado automaticamente ao seu aplicativo FreshDesk.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -2,7 +2,7 @@
 
 
 
-Quando você enviar notificações de modelo, que você só precisa de um conjunto de propriedades de tooprovide, em nosso caso enviaremos conjunto Olá das propriedades que contém a versão localizada de saudação do hello notícias, por exemplo:
+Ao enviar notificações de modelos, você só precisa fornecer um conjunto de propriedades. No nosso caso, enviaremos o conjunto de propriedades contendo a versão localizada das notícias atuais, por exemplo:
 
     {
         "News_English": "World News in English!",
@@ -11,22 +11,22 @@ Quando você enviar notificações de modelo, que você só precisa de um conjun
     }
 
 
-Esta seção mostra como toosend notificações usando um aplicativo de console
+Esta seção mostra como enviar notificações usando um aplicativo do console
 
-Olá incluído código difusões tooboth Windows Store e dispositivos iOS, pois Olá back-end pode transmitir tooany de dispositivos de saudação com suporte.
+O código incluído transmite a dispositivos Windows Store e iOS, como o back-end pode transmitir para qualquer um dos dispositivos com suporte.
 
-### <a name="toosend-notifications-using-a-c-console-app"></a>notificações de toosend usando um aplicativo de console c#
-Modificar Olá `SendTemplateNotificationAsync` método no aplicativo de console Olá criado anteriormente com hello código a seguir. Observe como neste caso, há toosend sem necessidade de várias notificações para localidades diferentes e plataformas.
+### <a name="to-send-notifications-using-a-c-console-app"></a>Para enviar notificações usando um aplicativo de console C#
+Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que você criou anteriormente, com o código a seguir. Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
 
         private static async void SendTemplateNotificationAsync()
         {
-            // Define hello notification hub.
+            // Define the notification hub.
             NotificationHubClient hub = 
                 NotificationHubClient.CreateClientFromConnectionString(
                     "<connection string with full access>", "<hub name>");
 
-            // Sending hello notification as a template notification. All template registrations that contain 
-            // "messageParam" or "News_<local selected>" and hello proper tags will receive hello notifications. 
+            // Sending the notification as a template notification. All template registrations that contain 
+            // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
             // This includes APNS, GCM, WNS, and MPNS template registrations.
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -52,10 +52,10 @@ Modificar Olá `SendTemplateNotificationAsync` método no aplicativo de console 
         }
 
 
-Observe que essa chamada simple fornecer informação localizada Olá notícias muito**todos os** seus dispositivos, independentemente da plataforma hello, como o Hub de notificação desenvolve e fornece Olá correto de dispositivos de saudação tooall carga nativo assinado tooa de marca específica.
+Observe que esta simples chamada entregará a notícia correta localizada a **todos** os dispositivos, independentemente da plataforma, enquanto o Hub de Notificação cria e entrega a carga de trabalho nativa correta a todos os dispositivos inscritos em uma marca específica.
 
-### <a name="sending-hello-notification-with-mobile-services"></a>Enviar notificação de saudação com serviços móveis
-No Agendador seu serviço móvel, você pode usar o hello script a seguir:
+### <a name="sending-the-notification-with-mobile-services"></a>Enviando a notificação com Serviços Móveis
+No Agendador de serviço móvel, você pode usar o script a seguir:
 
     var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');

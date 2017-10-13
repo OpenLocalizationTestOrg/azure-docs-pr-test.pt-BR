@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitor codificação andamento do trabalho com hello portal do Azure"
-description: "Este tutorial orienta você pelas etapas de saudação de monitorar o andamento do trabalho usando Olá portal do Azure."
+title: "Monitorar o andamento do trabalho codificação com o portal do Azure"
+description: "Este tutorial orienta você pelas etapas de monitorar o andamento do trabalho usando o portal do Azure."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 4282553d5dbed65ea6427bcd6de778795f1ff9ed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="monitor-encoding-job-progress-with-hello-azure-portal"></a>Monitorar o progresso de trabalho de codificação com hello portal do Azure
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o andamento do trabalho codificação com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -30,17 +30,17 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="overview"></a>Visão geral
 > [!NOTE]
-> toocomplete neste tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Quando você executa trabalhos, você geralmente requerem uma maneira tootrack trabalho de andamento. 
+Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. 
 
-progresso de saudação toomonitor de saudação codificação de trabalho, clique em **configurações** (na parte superior de saudação da página de saudação) e, em seguida, selecione **trabalhos**.
+Para monitorar o andamento do trabalho de codificação, clique em **Configurações** (na parte superior da página), em seguida, selecione **Trabalhos**.
 
 ![Trabalhos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-Você pode clicar Olá trabalho toosee obter mais detalhes.
+Você pode clicar no trabalho para ver mais detalhes.
 
 ![Trabalhos](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 

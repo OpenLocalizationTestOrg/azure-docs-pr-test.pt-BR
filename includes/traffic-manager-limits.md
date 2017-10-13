@@ -3,5 +3,5 @@
 | Perfis por assinatura |100 <sup>1</sup> |
 | Pontos de extremidade por perfil |200 |
 
-<sup>1</sup>entre em contato com o suporte caso você precise tooincrease esses limites.
+<sup>1</sup>Contate o suporte caso precise aumentar esses limites.
 

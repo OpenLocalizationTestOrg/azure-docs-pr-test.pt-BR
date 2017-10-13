@@ -1,6 +1,6 @@
 ---
-title: aaaOpen portas tooa VM usando o PowerShell do Azure | Microsoft Docs
-description: "Saiba como tooopen uma porta / criar um ponto de extremidade tooyour VM do Windows usando o modo de implantação do Gerenciador de recursos do Azure hello e do PowerShell do Azure"
+title: Abrir portas para uma VM usando o Azure PowerShell | Microsoft Docs
+description: "Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.openlocfilehash: c1817a0c447ae4ce7a1ce2a1fc6927bedf2dacb5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e818e3b3c707e1471d6f580f8379a277d3575b89
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooopen-ports-and-endpoints-tooa-vm-in-azure-using-powershell"></a>Como tooopen tooa portas e os pontos de extremidade de VM no Azure usando o PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Grupo de segurança de rede toocreate e precisar de regras de ACL [versão mais recente de saudação do Azure PowerShell instalado](/powershell/azureps-cmdlets-docs). Você também pode [executar essas etapas usando o portal do Azure de saudação](nsg-quickstart-portal.md).
+Para criar um Grupo de Segurança de Rede e as regras de ACL, você precisa [ter a versão mais recente do Azure PowerShell instalada](/powershell/azureps-cmdlets-docs). Você também pode [executar essas etapas usando o Portal do Azure](nsg-quickstart-portal.md).
 
-Faça logon no tooyour conta do Azure:
+Faça logon na sua Conta do Azure:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Em Olá exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
-Crie uma regra com [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Olá, exemplo a seguir cria uma regra denominada *myNetworkSecurityGroupRule* tooallow *tcp* o tráfego na porta *80*:
+Crie uma regra com [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80*:
 
 ```powershell
 $httprule = New-AzureRmNetworkSecurityRuleConfig `
@@ -50,7 +50,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Em seguida, crie o grupo de segurança de rede com [AzureRmNetworkSecurityGroup novo](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) e atribuir Olá HTTP regra recém-criada da seguinte maneira. Olá, exemplo a seguir cria um grupo de segurança de rede denominado *myNetworkSecurityGroup*:
+Em seguida, crie seu Grupo de Segurança de Rede com [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) e atribua a regra de HTTP que você acabou de criar conforme descrito a seguir. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -60,7 +60,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-Agora vamos atribuir a sub-rede de tooa do grupo de segurança de rede. Olá, exemplo a seguir atribui uma rede virtual existente chamada *myVnet* toohello variável *$vnet* com [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Agora, vamos atribuir seu Grupo de Segurança de Rede a uma sub-rede. O exemplo a seguir atribui uma rede virtual existente chamada *myVnet* à variável *$vnet* com [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -68,7 +68,7 @@ $vnet = Get-AzureRmVirtualNetwork `
     -Name "myVnet"
 ```
 
-Associe seu Grupo de Segurança de Rede à sub-rede com [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Olá, exemplo a seguir associa sub-rede Olá denominada *mySubnet* com seu grupo de segurança de rede:
+Associe seu Grupo de Segurança de Rede à sub-rede com [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). O exemplo a seguir associa a sub-rede chamada *mySubnet* ao seu Grupo de Segurança de Rede:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -80,7 +80,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-Por fim, atualize sua rede virtual com [AzureRmVirtualNetwork conjunto](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para que o efeito de tootake alterações:
+Por fim, atualize sua rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para que suas alterações entrem em vigor:
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -88,12 +88,12 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 ## <a name="more-information-on-network-security-groups"></a>Mais informações sobre os Grupos de Segurança de Rede
-Olá aqui rápido comandos permitem que você tooget para cima e em execução com tooyour de fluxo de tráfego VM. Grupos de segurança de rede fornecem vários recursos excelentes e granularidade para controlar recursos tooyour de acesso. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](tutorial-virtual-network.md#manage-internal-traffic).
+Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](tutorial-virtual-network.md#manage-internal-traffic).
 
-Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um balanceador de carga do Azure. Balanceador de carga Olá distribui tráfego tooVMs, com um grupo de segurança de rede que fornece filtragem. Para obter mais informações, consulte [como balancear tooload Linux virtual máquinas no Azure toocreate um aplicativo altamente disponível](tutorial-load-balancer.md).
+Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um balanceador de carga do Azure. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para saber mais, veja [Como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo, você criou um tráfego HTTP de tooallow regra simples. Você pode encontrar informações sobre como criar ambientes mais detalhadas no hello artigos a seguir:
+Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [O que é um NSG (grupo de segurança de rede)?](../../virtual-network/virtual-networks-nsg.md)

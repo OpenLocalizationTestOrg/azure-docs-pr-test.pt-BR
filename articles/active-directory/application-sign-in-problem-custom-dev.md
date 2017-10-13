@@ -1,6 +1,6 @@
 ---
-title: aaaProblems entrar no aplicativo personalizado do tooan | Microsoft Docs
-description: "Rros comuns que podem estar causando você toonot ser capaz de toosign em um aplicativo desenvolvido com o Azure AD"
+title: Problemas para entrar em um aplicativo de desenvolvimento personalizado | Microsoft Docs
+description: "Erros comuns que podem impossibilitá-lo de entrar em um aplicativo desenvolvido por você com o Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cc302e68ae6c129b74387c6fc5ba4fb45ccb8fb3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b0df23e040a73d18968f547eef7347f14cc577c6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problems-signing-in-tooan-custom-developed-application"></a>Problemas para entrar no aplicativo personalizado do tooan
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemas para entrar em um aplicativo de desenvolvimento personalizado
 
-Há vários erros que podem estar causando você toonot ser capaz de toosign em um aplicativo. motivo de maiores Olá pessoas encontrarem esse problema é aplicativos mal configurados.
+Há vários erros que podem estar causando a impossibilidade de entrar em um aplicativo. O principal motivo das pessoas se depararem com esse problema está relacionado com aplicativos configurados incorretamente.
 
-## <a name="errors-related-too-misconfigured-apps"></a>Erros relacionados a aplicativos muito configuradas incorretamente
+## <a name="errors-related-to--misconfigured-apps"></a>Erros relacionados com aplicativos configurados incorretamente
 
-* Verifique se que ambas as configurações de saudação no portal de saudação correspondem o que você tem em seu aplicativo. Especificamente, compare o ID do Aplicativo/Cliente, URLs de Resposta, Chaves/Segredos do Cliente e URI da ID do Aplicativo.
+* Verifique se as configurações do portal correspondem às que você tem no seu aplicativo. Especificamente, compare o ID do Aplicativo/Cliente, URLs de Resposta, Chaves/Segredos do Cliente e URI da ID do Aplicativo.
 
-* Comparar recursos hello está solicitando acesso tooin código com permissões de saudação configurada no hello **recursos necessários** guia toomake-se de que você só solicitar recursos que você configurou.
+* Compare o recurso que você está solicitando acesso no código com as permissões configuradas na guia **Recursos Necessários** para certificar-se de que está solicitando somente os recursos que você configurou.
 
 * Consulte [StackOverflow do Azure AD ](http://stackoverflow.com/questions/tagged/azure-active-directory) para quaisquer erros ou problemas semelhantes.
 
@@ -35,7 +35,7 @@ Há vários erros que podem estar causando você toonot ser capaz de toosign em 
 
 [Guia do Desenvolvedor do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Integração de aplicativos e consentimento tooAzure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Consentir e Integrar Aplicativos ao Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
 
 [Consentimento e Permissão para Aplicativos Convergidos do Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 

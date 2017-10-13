@@ -1,6 +1,6 @@
 ---
-title: "relatório de atividade aaaAzure sign-in do Active Directory referência de API | Microsoft Docs"
-description: "Referência para o relatório de atividade de saudação do Active Directory do Azure entrar API"
+title: "Referência da API de relatório da atividade de entrada do Azure Active Directory | Microsoft Docs"
+description: "Referência para a API de relatório de atividade de entrada do Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8123f308a291503f2c61ac5de26696806c6402ba
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
-Este tópico faz parte de uma coleção de tópicos sobre Olá Active Directory do Azure API de relatório.  
-Relatórios de AD do Azure fornece uma API que permite que você tooaccess dados de relatório de atividade de entrada usando o código ou ferramentas relacionadas.
-escopo de saudação deste tópico é tooprovide você com informações de referência sobre Olá **API de relatório de atividade de entrada**.
+Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
+Os relatórios do Azure AD fornecem uma API que permite a você acessar dados de relatórios de atividade de entrada usando código ou ferramentas relacionadas.
+O escopo deste tópico é fornecer informações de referência sobre a **API de relatório de atividade de entrada**.
 
 Consulte:
 
 * [Atividades de entrada](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações conceituais
-* [Introdução à saudação do Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) para obter mais informações sobre Olá API de relatório.
+* [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
 
-## <a name="who-can-access-hello-api-data"></a>Quem pode acessar dados de API Olá?
-* Os usuários e entidades de serviço na função de administrador de segurança ou segurança leitor Olá
+## <a name="who-can-access-the-api-data"></a>Quem pode acessar os dados da API?
+* Usuários e Entidades de Serviço na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
-* Qualquer aplicativo que tenha autorização tooaccess Olá API (o autorização de aplicativo pode ser configurado somente com base na permissão do Administrador Global)
+* Qualquer aplicativo que tenha autorização para acessar a API (a autorização do aplicativo pode ser definida somente com base na permissão de Administrador Global)
 
-acesso de tooconfigure para um aplicativo tooaccess segurança APIs como eventos de entrada, Olá use aplicativos de saudação do PowerShell tooadd entidade de serviço a seguir à função de leitor de segurança Olá
+Para configurar o acesso a um aplicativo para acessar as APIs de segurança, como eventos de entrada, use o PowerShell a seguir para adicionar a entidade de serviço de aplicativos à função do Leitor de Segurança
 
 ```PowerShell
 Connect-MsolService
@@ -47,54 +47,54 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ```
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Esse relatório por meio de tooaccess Olá API de relatório, você deve ter:
+Para acessar esse relatório por meio da API de relatórios, você deve ter:
 
 * Um [Azure Active Directory Premium edição P1 ou P2](active-directory-editions.md)
-* Olá concluído [pré-requisitos tooaccess Olá AD do Azure reporting API](active-directory-reporting-api-prerequisites.md). 
+* Concluído os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md). 
 
-## <a name="accessing-hello-api"></a>Acessando a API de saudação
-É possível acessar essa API por meio de saudação [Gerenciador de gráficos](https://graphexplorer2.cloudapp.net) ou programaticamente, usando, por exemplo, do PowerShell. Para toocorrectly PowerShell interpretar a sintaxe de filtro OData Olá usada nas chamadas AAD Graph REST, você deve usar Olá acento (também conhecido como: acento grave) caractere muito "caractere de escape" hello $. caractere de acento grave Olá serve como [caractere de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell toodo uma interpretação de literal de caractere de $ hello e evitar confundi-lo como um nome de variável do PowerShell (ou seja: $filter).
+## <a name="accessing-the-api"></a>Como acessar a API
+Você pode acessar essa API por meio de [Graph Explorer](https://graphexplorer2.cloudapp.net) ou usando programaticamente, por exemplo, o PowerShell. Para o PowerShell interpretar corretamente a sintaxe de filtro OData usada nas chamadas REST Graph do AAD, você deve usar o caractere de acento grave para "escapar" o caractere $. O caractere de acento grave serve como [caractere de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell faça uma interpretação literal do caractere $ e evite confundi-lo como um nome de variável do PowerShell (ou seja: $filter).
 
-Olá foco deste tópico é Olá Gerenciador de gráficos. Para obter um exemplo do PowerShell, consulte [scripts do PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
+O foco deste tópico é no Graph Explorer. Para obter um exemplo do PowerShell, consulte [scripts do PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Ponto de extremidade de API
-Você pode acessar essa API usando Olá URI de base a seguir:  
+Você pode acessar essa API usando o seguinte URI de base:  
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
 
 
 
-Devido a toohello o volume de dados, essa API tem um limite de um milhão de registros retornados. 
+Devido ao volume de dados, essa API tem um limite de um milhão de registros retornados. 
 
-Essa chamada retorna dados saudação em lotes. Cada lote tem no máximo 1000 registros.  
-tooget Olá próximo lote de registros, use Olá próximo link. Obter Olá [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) informações do primeiro conjunto de registros retornados de saudação. símbolo de salto Olá será final Olá Olá do conjunto de resultados.  
+Essa chamada retorna os dados em lotes. Cada lote tem no máximo 1000 registros.  
+Para obter o próximo lote de registros, use o link Próximo. Obtenha as informações de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) do primeiro conjunto de registros retornados. O token skip estará no final do conjunto de resultados.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Filtros com suporte
-Você pode reduzir o número de saudação de registros que são retornados por uma API chamada na forma de um filtro.  
-Para entrar API dados relacionados, Olá filtros a seguir têm suporte:
+Você pode reduzir o número de registros retornados por uma chamada de API na forma de um filtro.  
+Para entrar dados de entrada relacionados à API, os filtros a seguir recebem suporte:
 
-* **$top =\<retornado do número de registros toobe\>**  -número de saudação toolimit de registros retornados. Esta é uma operação cara. Você não deve usar esse filtro se quiser tooreturn milhares de objetos.  
-* **$filter =\<sua instrução de filtro\>**  -toospecify, cada saudação de campos de filtro com suporte, tipo de saudação de registros que importam
+* **$top=\<número de registros a serem retornados\>** – para limitar o número de registros retornados. Esta é uma operação cara. Não use esse filtro se você quiser retornar milhares de objetos.  
+* **$filter=\<sua instrução de filtro\>** – para especificar, com base nos campos de filtro com suporte, o tipo de registro com o qual você se preocupa
 
 ## <a name="supported-filter-fields-and-operators"></a>Campos de filtro e operadores com suporte
-tipo de saudação toospecify de registros importantes para você, você pode criar uma instrução de filtro que pode conter um ou uma combinação de saudação campos de filtro a seguir:
+Para especificar o tipo de registro com o qual você se preocupa, compile uma instrução de filtro que possa conter um ou uma combinação dos campos de filtro a seguir:
 
 * [signinDateTime](#signindatetime) – Define uma data ou intervalo de datas
-* [userId](#userid) -define a ID. do usuário de saudação um usuário específico com base
-* [userPrincipalName](#userprincipalname) -define o nome principal do usuário de saudação um usuário específico com base em usuário (UPN)
-* [appId](#appid) -define a ID do aplicativo hello um aplicativo específico com base em
-* [appDisplayName](#appdisplayname) -define o nome para exibição do aplicativo hello um aplicativo específico com base em
-* [status de logon](#loginStatus) -define o status de saudação de logons de saudação (êxito / falha)
+* [userId](#userid) – Define um usuário específico com base na ID do usuário.
+* [userPrincipalName](#userprincipalname) – Define um usuário específico com base no UPN (nome principal do usuário) do usuário
+* [appId](#appid) – Define um aplicativo específico com base na ID do aplicativo
+* [appDisplayName](#appdisplayname) – Define um aplicativo específico com base no nome para exibição do aplicativo
+* [loginStatus](#loginStatus) – Define o status dos logons (sucesso/falha)
 
 > [!NOTE]
-> Ao usar o Gerenciador de gráficos, você Olá necessário toouse Olá correto para cada letra é seus campos de filtro.
+> Ao usar o Graph Explorer, você precisa usar a capitalização correta para cada letra em seus campos de filtro.
 > 
 > 
 
-toonarrow escopo de saudação da saudação retornada dados, você pode criar combinações de filtros de saudação com suporte e os campos de filtro. Por exemplo, hello instrução a seguir retorna Olá top 10 registros entre 1º de julho de 2016 e 6 de julho de 2016:
+Para restringir o escopo dos dados retornados, você pode compilar combinações dos campos de filtro e filtros com suporte. Por exemplo, a instrução a seguir retorna os 10 primeiros registros entre 1º de julho de 2016 e 6 de julho de 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
@@ -118,7 +118,7 @@ Como usar um intervalo de datas
 
 **Observações**:
 
-Olá datetime deveria estar no formato UTC de saudação 
+O parâmetro datetime deve estar no formato UTC 
 
 - - -
 ### <a name="userid"></a>userId
@@ -130,7 +130,7 @@ Olá datetime deveria estar no formato UTC de saudação
 
 **Observações**:
 
-valor de saudação do userId é um valor de cadeia de caracteres
+O valor de userID é um valor de cadeia de caracteres
 
 - - -
 ### <a name="userprincipalname"></a>userPrincipalName
@@ -143,7 +143,7 @@ valor de saudação do userId é um valor de cadeia de caracteres
 
 **Observações**:
 
-valor de saudação do userPrincipalName é um valor de cadeia de caracteres
+O valor de userPrincipalName é um valor de cadeia de caracteres
 
 - - -
 ### <a name="appid"></a>appId
@@ -157,7 +157,7 @@ valor de saudação do userPrincipalName é um valor de cadeia de caracteres
 
 **Observações**:
 
-valor de saudação do appId é um valor de cadeia de caracteres
+O valor de appId é um valor de cadeia de caracteres
 
 - - -
 ### <a name="appdisplayname"></a>appDisplayName
@@ -170,7 +170,7 @@ valor de saudação do appId é um valor de cadeia de caracteres
 
 **Observações**:
 
-valor de saudação do appDisplayName é um valor de cadeia de caracteres
+O valor de appDisplayName é um valor de cadeia de caracteres
 
 - - -
 ### <a name="loginstatus"></a>loginStatus
@@ -183,10 +183,10 @@ valor de saudação do appDisplayName é um valor de cadeia de caracteres
 
 **Observações**:
 
-Há duas opções para o status de logon Olá: 0 - êxito, 1 - Falha
+Há duas opções para o loginStatus: 0 – êxito, 1 – Falha
 
 - - -
 ## <a name="next-steps"></a>Próximas etapas
-* Você deseja toosee exemplos para atividades filtradas entrar? Check-out Olá [exemplos de API de relatório de atividade de entrada do Active Directory do Azure](active-directory-reporting-api-sign-in-activity-samples.md).
-* Você deseja tooknow mais sobre a API de relatório de saudação do AD do Azure? Consulte [Introdução à saudação do Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
+* Quer ver exemplos para atividades de entrada filtradas? Confira [Exemplos de API de relatório de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
+* Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

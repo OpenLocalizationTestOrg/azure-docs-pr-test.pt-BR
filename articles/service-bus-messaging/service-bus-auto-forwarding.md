@@ -1,6 +1,6 @@
 ---
-title: "entidades de mensagens de barramento de serviço do Azure de encaminhamento aaaAuto | Microsoft Docs"
-description: "Como toochain um barramento de serviço fila ou assinatura tooanother fila ou um tópico."
+title: "Encaminhamento automático de entidades de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
+description: "Como encadear uma fila ou assinatura do Barramento de Serviço em outra fila ou outro tópico."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm
-ms.openlocfilehash: af18273e4e2f81c5363eb830c7decf313afd8307
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2656b3a276c542ca836b3949e4e493d7c7f48f16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
-Olá barramento de serviço *encaminhamento automático* recurso permite que você toochain uma fila ou assinatura tooanother fila ou um tópico que faz parte da saudação mesmo namespace. Quando o encaminhamento automático está habilitado, barramento de serviço automaticamente remove as mensagens que são colocadas na primeira fila de saudação ou assinatura (origem) e as coloca na fila segundo hello ou tópico (destino). Observe que é possível toosend uma entidade de destino toohello mensagem diretamente. Além disso, não é possível toochain uma subfila, tal como uma fila de mensagens mortas, tooanother fila ou tópico.
+O recurso *encaminhamento automático* do Barramento de Serviço permite encadear uma fila ou assinatura a outra fila ou outro tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino). Observe que ainda é possível enviar uma mensagem diretamente para a entidade de destino. Além disso, não é possível encadear uma subfila, por exemplo, uma fila de mensagens mortas, em outra fila ou outro tópico.
 
 ## <a name="using-auto-forwarding"></a>Usando o encaminhamento automático
-Você pode habilitar o encaminhamento automático definindo Olá [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] propriedades em Olá [QueueDescription] [ QueueDescription] ou [SubscriptionDescription] [ SubscriptionDescription] objetos origem hello, como Olá exemplo a seguir.
+Você pode habilitar o encaminhamento automático configurando as propriedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nos objetos [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] para a origem, como no exemplo a seguir.
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -33,37 +33,37 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-entidade de destino Olá deve existir no tempo de saudação Olá fonte entidade é criada. Se a entidade de destino Olá não existir, o barramento de serviço retorna uma exceção quando toocreate frequentes Olá entidade de origem.
+A entidade de destino deverá existir no momento da criação da entidade de origem. Se a entidade de destino não existir, o Barramento de Serviço retornará uma exceção quando receber uma solicitação para criar a entidade de origem.
 
-Você pode usar o encaminhamento automático tooscale-out de um tópico individual. Saudação de limites de barramento de serviço [número de assinaturas em um determinado tópico](service-bus-quotas.md) too2, 000. Você pode acomodar outras assinaturas criando tópicos de segundo nível. Observe que mesmo se você não estiver vinculado Olá limitação no número de saudação de assinaturas, adicionar tópicos de segundo nível pode melhorar o barramento de serviço Olá produtividade geral do seu tópico.
+Você pode usar o encaminhamento automático para escalar horizontalmente um tópico individual. O Barramento de Serviço limita a [quantidade de assinaturas em determinado tópico](service-bus-quotas.md) em 2.000. Você pode acomodar outras assinaturas criando tópicos de segundo nível. Observe que, mesmo se o número de assinaturas que você tem não estiver limitado pelo Barramento de Serviço, a adição de um segundo nível de tópicos poderá melhorar a taxa de transferência geral do tópico.
 
 ![Cenário de encaminhamento automático][0]
 
-Você também pode usar o encaminhamento automático toodecouple remetentes dos destinatários. Por exemplo, considere um sistema ERP composto por três módulos: processamento de pedidos, gerenciamento de estoque e gerenciamento de relacionamentos com o cliente. Cada um desses módulos gera mensagens que são enfileiradas em um tópico correspondente. Alice e Bob é representantes de vendas interessados em todas as mensagens relacionadas tootheir clientes. tooreceive as mensagens, Alice e Bob cria uma fila pessoal e uma assinatura em cada um dos tópicos ERP Olá que encaminham automaticamente todas as filas de tootheir de mensagens.
+Você também pode usar o encaminhamento automático para separar os remetentes dos destinatários. Por exemplo, considere um sistema ERP composto por três módulos: processamento de pedidos, gerenciamento de estoque e gerenciamento de relacionamentos com o cliente. Cada um desses módulos gera mensagens que são enfileiradas em um tópico correspondente. Brenda e Pedro são representantes de vendas interessados em todas as mensagens relacionadas aos seus clientes. Para receber essas mensagens, Brenda e Pedro criaram, cada um, uma fila e assinatura pessoais em cada um dos tópicos ERP que encaminham automaticamente todas as mensagens para suas filas.
 
 ![Cenário de encaminhamento automático][1]
 
-Se a Eliane tirar férias, sua fila pessoal, em vez de tópico ERP hello, preenchido. Nesse cenário, porque um representante de vendas não recebeu as mensagens, nenhum dos tópicos ERP Olá atingiu a cota.
+Se Brenda entrar de férias, sua fila pessoal, em vez do tópico ERP, ficará cheia. Nesse cenário, como um representante de vendas não recebeu nenhuma mensagem, nenhum dos tópicos ERP atingirá a cota.
 
 ## <a name="auto-forwarding-considerations"></a>Considerações sobre o encaminhamento automático
 
-Se entidade de destino Olá acumula muitas mensagens e excede a cota de hello, ou entidade de destino hello está desabilitada, entidade de origem Olá adiciona mensagens de saudação tooits [fila de mensagens mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino Olá (ou entidade de saudação é reativada). Essas mensagens continuará toolive na fila de mensagens mortas hello, para que você deve receber e processá-los da fila de mensagens mortas Olá explicitamente.
+Se a entidade de destino tiver acumulado mensagens demais e exceder a cota, ou se a entidade de destino estiver desabilitada, a entidade de origem adicionará as mensagens à sua [fila de mensagens mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja habilitada novamente). Essas mensagens continuarão ativas na fila de mensagens mortas, portanto, você deve receber e processá-las explicitamente a partir da fila de mensagens mortas.
 
-Ao encadear tópicos individuais tooobtain um tópico composto com diversas assinaturas, é recomendável que você tenha um número moderado de assinaturas no tópico de primeiro nível hello e diversas assinaturas nos tópicos de segundo nível hello. Por exemplo, um tópico de primeiro nível com 20 assinaturas, cada uma delas encadeada tooa tópico de segundo nível com 200 assinaturas, permite mais rendimento do que um tópico de primeiro nível com 200 assinaturas, cada uma encadeada tooa tópico de segundo nível com 20 assinaturas .
+Ao encadear tópicos individuais a fim de obter um tópico composto com diversas assinaturas, recomendamos que você tenha uma quantidade moderada de assinaturas no tópico de primeiro nível e diversas assinaturas nos tópicos de segundo nível. Por exemplo, um tópico de primeiro nível com 20 assinaturas, cada uma delas encadeada com um tópico de segundo nível com 200 assinaturas, permite uma taxa de transferência superior do que um tópico de primeiro nível com 200 assinaturas, cada uma delas encadeada com um tópico de segundo nível com 20 assinaturas.
 
-O Barramento de Serviço cobra uma operação por cada mensagem encaminhada. Por exemplo, enviando um tópico de mensagem de tooa com 20 assinaturas, cada um deles configurado tooauto encaminhar mensagens tooanother fila ou tópico, é cobrada como 21 operações se todas as assinaturas de primeiro nível recebem uma cópia da mensagem de saudação.
+O Barramento de Serviço cobra uma operação por cada mensagem encaminhada. Por exemplo, o envio de uma mensagem a um tópico com 20 assinaturas, cada uma delas configurada para encaminhar automaticamente mensagens para outra fila ou outro tópico, receberá uma cobrança por 21 operações, caso todas as assinaturas de primeiro nível recebam uma cópia da mensagem.
 
-toocreate uma assinatura encadeada tooanother fila ou tópico, o criador de saudação de assinatura Olá deve ter **gerenciar** permissões na origem hello e entidade de destino hello. Enviar somente requer um tópico de origem toohello mensagens **enviar** permissões no tópico de origem hello.
+Para criar uma assinatura encadeada a outra fila ou outro tópico, o criador da assinatura deverá ter permissões para **Gerenciar** tanto na entidade de origem quanto na entidade de destino. O envio de mensagens para o tópico de origem exige apenas permissões para **Enviar** no tópico de origem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações detalhadas sobre o encaminhamento automático, consulte Olá tópicos de referência a seguir:
+Para obter informações detalhadas sobre o encaminhamento automático, consulte os seguintes tópicos de referência:
 
 * [ForwardTo][QueueDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-toolearn mais informações sobre aprimoramentos de desempenho do barramento de serviço, consulte 
+Para saber mais sobre as melhorias de desempenho do Barramento de Serviço, consulte 
 
 * [Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço](service-bus-performance-improvements.md)
 * [Entidades de mensagens particionadas][Partitioned messaging entities].

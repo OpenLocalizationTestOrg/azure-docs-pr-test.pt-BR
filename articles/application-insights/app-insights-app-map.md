@@ -1,6 +1,6 @@
 ---
-title: aaaApplication mapa no Azure Application Insights | Microsoft Docs
-description: "Uma apresentação visual de dependências de saudação entre componentes de aplicativo, rotulado com KPIs e alertas."
+title: Mapa de aplicativos no Azure Application Insights | Microsoft Docs
+description: "Uma apresentação visual das dependências entre componentes do aplicativo, rotuladas com alertas e KPIs."
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 96ab753a100ea53ec7d367e3559b6622ab6fd182
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-map-in-application-insights"></a>Mapa de Aplicativos no Application Insights
-Em [Azure Application Insights](app-insights-overview.md), mapa de aplicativo é um layout visual de relações de dependência de saudação de componentes do seu aplicativo. Cada componente mostra KPIs como toohelp de carga, desempenho, falhas e alertas, você descobrir qualquer componente causando um problema de desempenho ou falha. Você pode clicar por meio de qualquer componente toomore detalhadas de diagnóstico, como eventos do Application Insights. Se seu aplicativo usa os serviços do Azure, você também pode clicar tooAzure diagnóstico, como as recomendações do Orientador de banco de dados SQL.
+No [Azure Application Insights](app-insights-overview.md), o Mapa de Aplicativos é um layout visual das relações de dependência dos componentes de seu aplicativo. Cada componente mostra KPIs, como carga, desempenho, falhas e alertas, para ajudá-lo a descobrir possíveis componentes que estejam causando uma falha ou um problema de desempenho. Você pode clicar em qualquer componente para obter diagnóstico mais detalhado, como eventos do Application Insights. Se seu aplicativo usar os serviços do Azure, você também poderá clicar no diagnóstico do Azure, como nas recomendações do Assistente do Banco de Dados SQL.
 
-Como outros gráficos, você pode fixar um toohello de mapa de aplicativo do painel do Azure, onde ela será totalmente funcional. 
+Assim como outros gráficos, você pode fixar um mapa de aplicativos no painel do Azure, onde ele fica totalmente funcional. 
 
-## <a name="open-hello-application-map"></a>Mapa de aplicativo hello aberto
-Olá abrir o mapa da folha de visão geral de saudação para seu aplicativo:
+## <a name="open-the-application-map"></a>Abrir o mapa de aplicativos
+Abra o mapa na folha de visão geral do seu aplicativo:
 
 ![abrir mapa de aplicativos](./media/app-insights-app-map/01.png)
 
 ![mapa de aplicativos](./media/app-insights-app-map/02.png)
 
-mapa de saudação mostra:
+O mapa mostra:
 
 * Testes de disponibilidade
-* Componente do lado do cliente (monitorado com hello SDK de JavaScript)
+* Componente do lado do cliente (monitorado com o SDK do JavaScript)
 * Componente do lado do servidor
-* Dependências de componentes de cliente e servidor de saudação
+* Dependências dos componentes do cliente e do servidor
 
 Você pode expandir e recolher grupos de link de dependência:
 
@@ -47,9 +47,9 @@ Se você tiver muitas dependências de um tipo (SQL, HTTP, etc.), elas poderão 
 ![dependências agrupadas](./media/app-insights-app-map/03-2.png)
 
 ## <a name="spot-problems"></a>Identificar problemas
-Cada nó tem indicadores de desempenho relevantes, como taxas de falha de carga e desempenho Olá para esse componente. 
+Cada nó possui indicadores de desempenho relevantes, como as taxas de carga, de desempenho e de falha do componente. 
 
-Ícones de aviso destacam possíveis problemas. Um aviso laranja significa que existem falhas em solicitações, exibições de página ou chamadas de dependência. Vermelho significa uma taxa de falha acima de 5%. Se você quiser tooadjust esses limites, abra Opções.
+Ícones de aviso destacam possíveis problemas. Um aviso laranja significa que existem falhas em solicitações, exibições de página ou chamadas de dependência. Vermelho significa uma taxa de falha acima de 5%. Se você quiser ajustar esses limites, abra Opções.
 
 ![ícones de falha](./media/app-insights-app-map/04.png)
 
@@ -61,66 +61,66 @@ Se você usa o SQL Azure, há um ícone que mostra quando há recomendações so
 
 ![Recomendações do Azure](./media/app-insights-app-map/06.png)
 
-Clique em qualquer ícone tooget mais detalhes:
+Clique em um ícone para obter mais detalhes:
 
 ![Recomendações do Azure](./media/app-insights-app-map/07.png)
 
 ## <a name="diagnostic-click-through"></a>Clique para Diagnóstico
-Cada um de nós de saudação no mapa de saudação oferece destino de cliques para diagnóstico. Opções de saudação variam dependendo do tipo de saudação do nó de saudação.
+Cada um dos nós no mapa oferece cliques direcionados para diagnóstico. As opções variam dependendo do tipo de nó.
 
 ![opções de servidor](./media/app-insights-app-map/09.png)
 
-Para componentes que são hospedadas no Azure, as opções de saudação incluem toothem links diretos.
+Para componentes que são hospedados no Azure, as opções incluem links diretos para eles.
 
 ## <a name="filters-and-time-range"></a>Filtros e o intervalo de tempo
-Por padrão, o mapa de Olá resume todos os dados de saudação disponíveis para Olá escolhido o intervalo de tempo. Mas você pode filtrar nomes de operação específica somente tooinclude ou dependências.
+Por padrão, o mapa resume todos os dados disponíveis para o intervalo de tempo escolhido. Mas você pode filtrá-lo para incluir apenas nomes de operação ou dependências específicas.
 
-* Nome da operação: isso inclui tipos de solicitação do lado servidor e exibições de página. Com essa opção, a saudação mapa mostra Olá KPI no nó de servidor/cliente Olá Olá selecionada apenas para operações. Ele mostra dependências Olá chamadas no contexto de saudação dessas operações específicas.
-* Nome de base de dependência: Isso inclui Olá AJAX navegador dependências e do lado do servidor. Se o relatório de telemetria de dependência personalizada com hello TrackDependency API, elas também aparecerão aqui. Você pode selecionar Olá dependências tooshow no mapa de saudação. Atualmente esta seleção não filtrar solicitações do lado do servidor de saudação ou exibições saudação do cliente.
+* Nome da operação: isso inclui tipos de solicitação do lado servidor e exibições de página. Com essa opção, o mapa mostra o KPI no nó do lado do servidor/cliente somente para operações selecionadas. Ele mostra as dependências chamadas no contexto dessas operações específicas.
+* Nome base de dependência: isso inclui as dependências de navegador do AJAX e dependências do lado do servidor. Se você relatar telemetria de dependência personalizada com a API TrackDependency, ela também será exibida aqui. Você pode selecionar quais dependências mostrar no mapa. Atualmente, essa seleção não filtra as solicitações do lado do servidor nem as exibições de página do lado do cliente.
 
 ![Definir filtros](./media/app-insights-app-map/11.png)
 
 ## <a name="save-filters"></a>Salvar filtros
-filtros de saudação toosave você aplicou, Olá pin filtrados exibição para um [painel](app-insights-dashboards.md).
+Para salvar os filtros que você aplicou, fixe na exibição filtrada em um [painel](app-insights-dashboards.md).
 
-![PIN toodashboard](./media/app-insights-app-map/12.png)
+![Fixar no painel](./media/app-insights-app-map/12.png)
 
 ## <a name="error-pane"></a>Painel de erros
-Quando você clica em um nó no mapa Olá, um painel de erro é exibido no lado direito de saudação resumindo falhas para esse nó. As falhas são agrupadas primeiro segundo a ID da operação e, em seguida, segundo a ID do problema.
+Quando você clica em um nó no mapa, é exibido no lado direito um painel de erros resumindo as falhas do nó. As falhas são agrupadas primeiro segundo a ID da operação e, em seguida, segundo a ID do problema.
 
 ![Painel de erros](./media/app-insights-app-map/error-pane.png)
 
-Clicando em uma falha de usa a instância mais recente toohello essa falha.
+Clicar em uma falha leva você até a instância mais recente dessa falha.
 
 ## <a name="resource-health"></a>Integridade de recursos
-Para alguns tipos de recurso, integridade de recursos é exibida na parte superior de saudação do painel de erro hello. Por exemplo, clicando em um nó do SQL mostrará integridade de banco de dados de saudação e todos os alertas que tenham disparado.
+Para alguns tipos de recursos, sua integridade é exibida na parte superior do painel de erros. Por exemplo, clicar em um nó do SQL mostrará a integridade do banco de dados e todos os alertas que tiverem sido disparados.
 
 ![Integridade de recursos](./media/app-insights-app-map/resource-health.png)
 
-Você pode clicar em métricas de visão geral padrão de tooview Olá recursos nome para esse recurso.
+Você pode clicar no nome do recurso para exibir as métricas de visão geral padrão para esse recurso.
 
 ## <a name="end-to-end-system-app-maps"></a>Mapas de aplicativos do sistema de ponta a ponta
 
 *Requer o SDK versão 2.3 ou superior*
 
-Se seu aplicativo tiver vários componentes - por exemplo, um serviço back-end além de aplicativo da web de toohello - em seguida, você pode mostrá-los todos no mapa de um aplicativo integrado.
+Se seu aplicativo tiver vários componentes (por exemplo, um serviço de back-end além do aplicativo Web), você poderá mostrá-los em um mapa de aplicativos integrado.
 
 ![Definir filtros](./media/app-insights-app-map/multi-component-app-map.png)
 
-mapa de aplicativo Hello localiza nós de servidor seguindo qualquer chamada de dependência HTTP feita entre os servidores com hello que Application Insights SDK instalado. Cada recurso do Application Insights será considerado toocontain um servidor.
+O mapa do aplicativo localiza os nós do servidor seguindo qualquer chamada de dependência HTTP feita entre os servidores com o SDK do Application Insights instalado. Presume-se que cada recurso do Application Insights contenha um servidor.
 
 ### <a name="multi-role-app-map-preview"></a>Mapa do aplicativo com várias funções (versão prévia)
 
-recurso de mapa de aplicativo de várias funções de visualização Olá permite toouse Olá aplicativo mapa com vários servidores de envio de dados toohello mesmo recurso Application Insights / chave de instrumentação. Servidores no mapa de saudação são segmentadas por propriedade de cloud_RoleName Olá em itens de telemetria. Definir *mapa de aplicativos de várias funções* muito*na* de Olá visualizações folha tooenable essa configuração.
+O recurso de mapa do aplicativo com várias funções, em fase de versão prévia, permite usar o mapa do aplicativo com vários servidores enviando dados à mesma chave de instrumentação/recurso do Application Insights. Os servidores no mapa são segmentados segundo a propriedade cloud_RoleName nos itens de telemetria. Defina *Mapa do Aplicativo com Várias Funções* como *Ativado* na folha Versões prévias para habilitar essa configuração.
 
-Essa abordagem pode ser desejável em um aplicativo de microsserviços ou em outros cenários onde você deseja toocorrelate eventos em vários servidores em um único recurso do Application Insights.
+Essa abordagem pode ser desejável em um aplicativo de microsserviço ou em outros cenários em que você deseja correlacionar eventos entre vários servidores dentro de um único recurso do Application Insights.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>Comentários
-Forneça comentários por meio da opção de comentários do portal de saudação.
+Por favor, faça comentários por meio da opção Comentários no portal.
 
 ![Imagem de MapLink-1](./media/app-insights-app-map/13.png)
 

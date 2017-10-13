@@ -1,6 +1,6 @@
 ---
-title: "aplicativos lógicos do aaaAdd Olá pesquisa do Bing conector | Microsoft Docs"
-description: "Visão geral do conector de pesquisa do Bing Olá com parâmetros de API REST"
+title: "Adicionar os aplicativos lógicos do conector de Pesquisa do Bing | Microsoft Docs"
+description: "Visão geral do conector de Pesquisa do Bing com os parâmetros de API REST"
 services: 
 suite: 
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 839b7d85367d1fdc63b91dcfe3166e177f10eaf1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-bing-search-connector"></a>Introdução ao conector de pesquisa do Bing Olá
-Conecte-se tooBing notícias de toosearch de pesquisa, pesquisa vídeos e muito mais. Com a Pesquisa do Bing, você pode: 
+# <a name="get-started-with-the-bing-search-connector"></a>Introdução ao conector de Pesquisa do Bing
+Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais. Com a Pesquisa do Bing, você pode: 
 
-* Crie o fluxo de negócios com base em dados Olá que obter de sua pesquisa. 
-* Use imagens de toosearch ações, pesquisa Olá notícias e muito mais. Essas ações obtém uma resposta e saída de hello tornar disponível para outras ações. Por exemplo, você pode pesquisar para obter um vídeo e, em seguida, usar Twitter toopost esse vídeo tooa que feed do Twitter.
+* Criar seu fluxo de negócios com base nos dados que você obtém da pesquisa. 
+* Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/bingsearch/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/bingsearch/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Voltar toohello [lista APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 

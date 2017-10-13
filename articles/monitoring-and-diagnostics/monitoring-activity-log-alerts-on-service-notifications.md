@@ -1,5 +1,5 @@
 ---
-title: "alertas de log de atividade aaaReceive em notificações de serviço | Microsoft Docs"
+title: "Receber alertas do log de atividades em notificações de serviço | Microsoft Docs"
 description: "Seja notificado por SMS, email ou webhook quando um serviço do Azure for executado."
 author: johnkemnetz
 manager: orenr
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: dd35e8f39d2a522efdae4dfed20779c992c1dd27
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bf6a98fd7e7e11764bef174f9efd0635fa7efe9a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
-Este artigo mostra como tooset o log de atividades de alertas para notificações de integridade do serviço usando Olá portal do Azure.  
+Este artigo mostra como configurar alertas do log de atividades para notificações de integridade do serviço usando o portal do Azure.  
 
-Você pode receber um alerta quando o Azure envia tooyour de notificações de integridade do serviço assinatura do Azure. Você pode configurar um alerta de saudação com base em:
+Você pode receber um alerta quando o Azure envia notificações de integridade do serviço para sua assinatura do Azure. Você pode configurar o alerta de acordo com:
 
-- classe de saudação do serviço de notificação de integridade (incidente, manutenção, informações, etc.).
-- Olá serviço (s) afetado.
-- regiões de saudação afetados.
-- status de saudação de notificação de saudação (ativa versus resolvido).
-- nível de saudação de notificações de saudação (informação, aviso, erro).
+- A classe de notificação de integridade do serviço (incidente, manutenção, informações etc.).
+- Os serviços afetados.
+- As regiões afetadas.
+- O status da notificação (ativo versus resolvido).
+- O nível das notificações (informativo, aviso ou erro).
 
-Você também pode configurar que Olá alerta deve ser enviado para:
+Também é possível configurar para quem o alerta deve ser enviado:
 
 - Selecione um grupo de ações existente.
 - Crie um novo grupo de ações (que pode ser usado posteriormente para futuros alertas).
 
-toolearn mais sobre grupos de ação, consulte [criar e gerenciar grupos de ação](monitoring-action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](monitoring-action-groups.md).
 
-Para obter informações sobre como alertas de notificação do serviço de integridade tooconfigure usando modelos do Azure Resource Manager, consulte [modelos do Gerenciador de recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Para saber mais sobre como configurar alertas de notificação de integridade do serviço usando modelos do Azure Resource Manager, consulte [modelos do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-hello-azure-portal"></a>Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando Olá portal do Azure
-1. Em Olá [portal](https://portal.azure.com), selecione **Monitor**.
+## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure
+1. No [portal](https://portal.azure.com), selecione **Monitor**.
 
-    ![saudação de serviço do "Monitor"](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
+    ![O serviço “Monitor”](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 
-2. Em Olá **log de atividades** seção, selecione **alertas**.
+2. Na seção **Log de atividades**, selecione **Alertas**.
 
-    ![Guia de "Alertas" Hello](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
+    ![A guia “Alertas”](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
 
-3. Selecione **adicionar alerta do log de atividade**e preencha os campos de saudação.
+3. Selecione **Adicionar alerta do log de atividades** e preencha os campos.
 
-    ![Olá comando "Adicionar alerta do log de atividade"](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
+    ![O comando "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 
-4. Insira um nome no hello **nome do log de atividade alerta** caixa e forneça um **descrição**.
+4. Insira um nome na caixa **Nome do log de atividades alerta** e forneça uma **Descrição**.
 
-    ![caixa de diálogo "Adicionar alerta do log de atividade" Hello](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
+    ![A caixa de diálogo "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
 
-5. Olá **assinatura** caixa autofills com sua assinatura atual. Esta assinatura é alerta de log de atividade de saudação toosave usado. recursos de alerta Olá está toothis implantado assinatura e monitora eventos no log de atividades de saudação para ele.
+5. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é usada para salvar o alerta do log de atividades. O recurso de alerta é implantado para essa assinatura e monitora os eventos no log de atividades para ele.
 
-6. Selecione Olá **grupo de recursos** no qual Olá recursos de alerta é criado. Isso não é um grupo de recursos de saudação que é monitorado pelo alerta hello. Em vez disso, é grupo de recursos de saudação onde o recurso de alerta de saudação está localizado.
+6. Selecione o **Grupo de recursos** no qual o recurso de alerta é criado. Este não é o grupo de recursos monitorado pelo alerta. Em vez disso, é o grupo de recursos onde se encontra o recurso de alerta.
 
-7. Em Olá **categoria de evento** selecione **a integridade do serviço**. Opcionalmente, selecione Olá **Service**, **região**, **tipo**, **Status**, e **nível** de serviço notificações de integridade que você deseja tooreceive.
+7. Na caixa **Categoria de evento**, selecione **Integridade do Serviço**. Opcionalmente, selecione as notificações **Serviço**, **Região**, **Tipo**, **Status** e **Nível** de integridade do serviço que você deseja receber.
 
-8. Em **alerta via**, selecione Olá **novo** botão do grupo de ação. Insira um nome no hello **nome do grupo de ação** caixa e, em seguida, digite um nome em hello **nome curto** caixa. nome curto de saudação é referenciado em notificações de saudação que são enviadas quando esse alerta será acionado.
+8. Em **Alerta via**, selecione o botão **Novo** grupo de ações. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
 
-9. Defina uma lista de destinatários, fornecendo o receptor de saudação:
+9. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
 
-    a. **Nome**: insira o nome do destinatário hello, alias ou identificador.
+    a. **Nome**: nome, alias ou identificador do destinatário.
 
     b. **Tipo de Ação**: selecione SMS, email ou webhook.
 
-    c. **Detalhes**: com base no tipo de ação de saudação escolhido, digite um número de telefone, endereço de email ou webhook URI.
+    c. **Detalhes**: de acordo com o tipo de ação escolhido, insira um número de telefone, endereço de email ou URI de webhook.
 
-10. Selecione **Okey** toocreate alerta de saudação.
+10. Selecione **OK** para criar o alerta.
 
-Em poucos minutos, o alerta de hello está ativa e começa tootrigger com base nas condições de saudação especificado durante a criação.
+Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 
-Para obter informações sobre o esquema de webhook Olá para alertas de log de atividade, consulte [Webhooks para atividades do Azure log alertas](monitoring-activity-log-alerts-webhook.md).
+Para saber mais sobre o esquema do webhook para alertas de log de atividades, veja [Webhooks para alertas do log de atividades do Azure](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->o grupo de ação Olá definido nessas etapas é reutilizável de um grupo existente de ação para todas as definições de alerta futuras.
+>O grupo de ações definido nessas etapas é reutilizável, como um grupo de ação existente, para todas as definições de alerta futuras.
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-hello-azure-portal"></a>Criar um alerta em uma notificação de integridade do serviço para um grupo existente, usando Olá portal do Azure
+## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Criar um alerta em uma notificação de integridade do serviço para um grupo de ação existente usando o portal do Azure
 
-1. Siga as etapas 1 a 7 em Olá anterior seção toocreate a notificação de integridade do serviço. 
+1. Siga as etapas 1 a 7 na seção anterior para criar a notificação de integridade do serviço. 
 
-2. Em **alerta via**, selecione Olá **existente** botão do grupo de ação. Selecione o grupo de ação apropriado Olá.
+2. Em **Alerta via**, selecione o botão Grupo de ações **existente**. Selecione o grupo de ação apropriado.
 
-3. Selecione **Okey** toocreate alerta de saudação.
+3. Selecione **OK** para criar o alerta.
 
-Em poucos minutos, o alerta de hello está ativa e começa tootrigger com base nas condições de saudação especificado durante a criação.
+Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 
 ## <a name="manage-your-alerts"></a>Gerenciar seus alertas
 
-Depois de criar um alerta, ela é visível no hello **alertas** seção Olá **Monitor** folha. Selecione o alerta de saudação desejado toomanage para:
+Depois de criar um alerta, ele ficará visível na seção **Alertas** da folha **Monitor**. Selecione o alerta que você deseja gerenciar:
 
 * Edite-o.
 * Exclua-o.
-* Desabilitar ou habilitá-lo, se você desejar tootemporarily parar ou continuar a receber notificações de alerta de saudação.
+* Desabilite-o ou habilite-o, se desejar interromper temporariamente ou continuar recebendo notificações do alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [notificações de integridade do serviço](monitoring-service-notifications.md).
 - Saiba mais sobre [limitação de taxa de notificação](monitoring-alerts-rate-limiting.md).
-- Saudação de revisão [webhook alerta esquema do log de atividade](monitoring-activity-log-alerts-webhook.md).
-- Obter um [visão geral de alertas de log de atividade](monitoring-overview-alerts.md)e saiba como tooreceive alertas. 
+- Examine o [esquema do webhook de alertas de log de atividades](monitoring-activity-log-alerts-webhook.md).
+- Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas. 
 - Saiba mais sobre [grupos de ação](monitoring-action-groups.md).

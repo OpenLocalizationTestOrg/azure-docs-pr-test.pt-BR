@@ -1,28 +1,28 @@
-tooenable entrar em seu aplicativo, você precisará de política de toocreate uma entrada. Essa política descreve experiências Olá consumidores revisará durante o logon e conteúdo de saudação de tokens que Olá aplicativo receberá em logons com êxito.
+Para habilitar a entrada no aplicativo, você precisará criar uma política de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a entrada e o conteúdo de tokens que o aplicativo receberá de entradas bem-sucedidas.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Na seção de políticas de saudação de configurações, selecione **políticas inscrever-se ou entrar** e clique em **+ adicionar**.
+Na seção de políticas das configurações, selecione **Políticas de inscrição ou entrada** e clique em **+ Adicionar**.
 
 ![Selecione as políticas de inscrição ou entrada e clique no botão Adicionar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
 
-Insira uma política **nome** para tooreference seu aplicativo. Por exemplo, insira: `SiUpIn`.
+Insira um **Nome** de política para referência de seu aplicativo. Por exemplo, insira: `SiUpIn`.
 
 Selecione **Provedores de identidade** e marque **Inscrição por email**. Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 
-![Selecione a assinatura de Email como um provedor de identidade e clique em botão Olá Okey](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+![Selecione Inscrição por email como provedor de identidade e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
-Selecione **Atributos de inscrição**. Escolha os atributos desejados toocollect de consumidor Olá durante a inscrição. Por exemplo, marque **País/Região**, **Nome de Exibição** e **CEP**. Clique em **OK**.
+Selecione **Atributos de inscrição**. Escolha os atributos que você deseja coletar do consumidor durante a inscrição. Por exemplo, marque **País/Região**, **Nome de Exibição** e **CEP**. Clique em **OK**.
 
-![Selecione alguns atributos e clique botão de saudação Okey](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+![Selecione alguns atributos e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 
-Selecione **Declarações do aplicativo**. Escolha declarações que ser retornado em tokens de autorização de saudação enviadas tooyour back aplicativo após uma experiência de inscrição ou entrada bem-sucedida. Por exemplo, selecione **Nome de Exibição**, **Provedor de Identidade**, **CEP**, **Novo Usuário** e **ID de Objeto do Usuário**.
+Selecione **Declarações do aplicativo**. Escolha as declarações que você deseja retornar nos tokens de autorização enviados ao aplicativo após uma experiência de inscrição ou entrada bem-sucedida. Por exemplo, selecione **Nome de Exibição**, **Provedor de Identidade**, **CEP**, **Novo Usuário** e **ID de Objeto do Usuário**.
 
 ![Selecione algumas declarações de aplicativo e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
 
-Clique em **criar** tooadd política de saudação. Olá diretiva é listada como **B2C_1_SiUpIn**. Olá **B2C_1_** prefixo é o nome de toohello anexado.
+Clique em **Criar** para adicionar a política. A política está listada como **B2C_1_SiUpIn**. O prefixo **B2C_1_** está anexado ao nome.
 
-Abrir a diretiva de saudação selecionando **B2C_1_SiUpIn**. Verifique as configurações de saudação especificadas na tabela hello, em seguida, clique em **executar agora**.
+Abra a política selecionando **B2C_1_SiUpIn**. Verifique as configurações especificadas na tabela e, depois, clique em **Executar agora**.
 
 ![Selecione a política e execute-a](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
 
@@ -31,8 +31,8 @@ Abrir a diretiva de saudação selecionando **B2C_1_SiUpIn**. Verifique as confi
 | **Aplicativos** | Aplicativo B2C da Contoso |
 | **Selecionar URL de resposta** | `https://localhost:44316/` |
 
-Abre uma nova guia do navegador e você pode verificar a experiência do consumidor de inscrever-se ou entrar hello como configurado.
+Uma nova guia do navegador é aberta e você poderá verificar a experiência de inscrição ou entrada do consumidor, conforme configurado.
 
 > [!NOTE]
-> Ele ocupa tooa minuto para criação de políticas e atualiza tootake efeito.
+> Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
 >

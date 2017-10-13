@@ -1,6 +1,6 @@
 ---
-title: "texto aaaDigitize com OCR de análise de mídia do Azure | Microsoft Docs"
-description: "OCR de análise de mídia do Azure (reconhecimento óptico de caracteres) permite que você tooconvert o conteúdo de texto em arquivos de vídeo em texto digital editável e pesquisável.  Isso permite a extração de saudação tooautomate de metadados significativo de sinal de vídeo de saudação da sua mídia."
+title: Digitalizar o texto com o OCR do Azure Media Analytics | Microsoft Docs
+description: "O OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável.  Isso permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: 0476c3ba3942b2c5182a34a429909adbf5c75ac9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-media-analytics-tooconvert-text-content-in-video-files-into-digital-text"></a>Usar o conteúdo de texto de tooconvert de análise de mídia do Azure em arquivos de vídeo em texto digital
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital
 ## <a name="overview"></a>Visão geral
-Se você precisa texto tooextract conteúdo de seus arquivos de vídeo e gerar um texto editável, pesquisável digital, você deve usar OCR de análise de mídia do Azure (reconhecimento óptico de caracteres). Esse Processador de Mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. OCR permite que você tooautomate Olá extração de metadados significativo de sinal de vídeo de saudação da sua mídia.
+Se for necessário extrair o conteúdo de texto de seus arquivos de vídeo e gerar um texto digital editável e pesquisável, você deverá usar o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure. Esse Processador de Mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. O OCR permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
 
-Quando usado em conjunto com um mecanismo de pesquisa, pode facilmente sua mídia de índice de texto e aumentar a capacidade de descoberta de saudação do seu conteúdo. Isso é extremamente útil em vídeo altamente textual, como uma gravação de vídeo ou captura de tela de uma apresentação de slides. Olá processador de mídia do Azure OCR é otimizado para texto digital.
+Quando usado em conjunto com um mecanismo de pesquisa, você pode facilmente indexar sua mídia por texto e melhorar a capacidade de descoberta do seu conteúdo. Isso é extremamente útil em vídeo altamente textual, como uma gravação de vídeo ou captura de tela de uma apresentação de slides. O Processador de Mídia OCR do Azure é otimizado para texto digital.
 
-Olá **OCR de mídia do Azure** processador de mídia está atualmente em visualização.
+O processador de mídia de **OCR de Mídia do Azure** atualmente está em Preview.
 
-Este tópico fornece detalhes sobre **OCR de mídia do Azure** e mostra como toouse com o SDK do Media Services para .NET. Para obter informações e exemplos adicionais, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Este tópico fornece detalhes sobre o **OCR de Mídia do Azure** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET. Para obter informações e exemplos adicionais, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Arquivos de entrada de OCR
-Arquivos de vídeo. Atualmente, a saudação formatos a seguir têm suporte: MOV, MP4 e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
 ## <a name="task-configuration"></a>Configuração de tarefa
 Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de Mídia do Azure**, é necessário especificar uma predefinição de configuração usando JSON ou XML. 
 
 >[!NOTE]
->o mecanismo de OCR Olá tem apenas uma região da imagem com pixels de toomaximum 32000 40 pixels mínima como uma entrada válida em ambos os altura/largura.
+>O mecanismo de OCR demora apenas uma região de imagem com 40 pixels mínimos ao máximo 32.000 pixels como uma entrada válida na altura e na largura.
 >
 
 ### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-|AdvancedOutput| Se você definir AdvancedOutput tootrue, a saída JSON de saudação conterá dados posicionais para cada palavra única (em adição toophrases e regiões). Se você não quiser toosee esses detalhes, defina Olá sinalizador toofalse. valor padrão de saudação é false. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| idioma |(opcional) descreve a linguagem de saudação do texto para o qual toolook. Um dos seguintes Olá: detecção automática (padrão), árabe, ChineseSimplified, chinês tradicional, dinamarquês tcheco, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, português, romeno, russo, SerbianCyrillic, SerbianLatin, eslovaco, espanhol, sueco, turco. |
-| TextOrientation |(opcional) descreve a orientação de saudação do texto para o qual toolook.  "Esquerda" significa que Olá superior de todas as letras é apontada para a esquerda hello.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes Olá: detecção automática (padrão), para cima, à direita, à esquerda. |
-| TimeInterval |(opcional) descreve a taxa de amostragem de saudação.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss.SSS (padrão 00:00:00.500)<br/>Formato XML: duração primitiva do W3C XSD (padrão PT0.5) |
-| DetectRegions |(opcional) Uma matriz de objetos DetectRegion especificando regiões dentro de quadros do vídeo Olá na qual o texto toodetect.<br/>Um objeto DetectRegion é composto de saudação quatro valores de inteiro a seguir:<br/>Esquerda – pixels da margem esquerda Olá<br/>Principais – pixels da margem superior Olá<br/>Largura – largura da região de saudação em pixels<br/>Altura – altura da região de saudação em pixels |
+|AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é falso. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| idioma |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+| TextOrientation |(opcional) descreve a orientação do texto a ser procurado.  "Left" significa que a parte superior de todas as letras apontam para a esquerda.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
+| TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss.SSS (padrão 00:00:00.500)<br/>Formato XML: duração primitiva do W3C XSD (padrão PT0.5) |
+| DetectRegions |(opcional) Uma matriz de objetos DetectRegion especificando regiões dentro do quadro de vídeo para detectar o texto.<br/>Um objeto DetectRegion é composto pelos quatro seguintes valores inteiros:<br/>Left: pixels a partir da margem esquerda<br/>Top: pixels a partir da margem superior<br/>Width: altura da região em pixels<br/>Height: altura da região em pixels |
 
 #### <a name="json-preset-example"></a>Exemplo de predefinição JSON
 
@@ -91,33 +91,33 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
     </VideoOcrPreset>
 
 ## <a name="ocr-output-files"></a>Arquivos de saída de OCR
-saída de saudação do processador de mídia Olá OCR é um arquivo JSON.
+A saída do processador de mídia de OCR é um arquivo JSON.
 
-### <a name="elements-of-hello-output-json-file"></a>Elementos Olá JSON do arquivo de saída
-saída de vídeo OCR Hello fornece dados segmentados de tempo em caracteres hello encontrados no vídeo.  Você pode usar atributos como o idioma ou orientação toohone no exatamente palavras Olá que você está interessado na análise. 
+### <a name="elements-of-the-output-json-file"></a>Elementos do arquivo JSON de saída
+A saída de OCR de vídeo fornece dados segmentados por tempo sobre os caracteres encontrados no vídeo.  Você pode usar atributos como idioma ou orientação para se concentrar exatamente nas palavras em que está interessado em analisar. 
 
-saída de Hello contém Olá seguintes atributos:
+A saída contém os seguintes atributos:
 
 | Elemento | Descrição |
 | --- | --- |
-| Escala de tempo |"tiques" por segundo de vídeo Olá |
+| Escala de tempo |"Tiques" por segundo do vídeo |
 | Deslocamento |diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. |
-| Taxa de quadros |Quadros por segundo do hello vídeo |
-| width |largura da saudação vídeo em pixels |
-| height |altura do vídeo em pixels da saudação |
-| Fragmentos |matriz de blocos com base em tempo de vídeo no qual Olá metadados está em bloco |
+| Taxa de quadros |Quadros por segundo do vídeo |
+| width |largura do vídeo em pixels |
+| height |altura do vídeo em pixels |
+| Fragmentos |matriz de partes com base em tempo do vídeo nas quais os metadados estão em bloco |
 | iniciar |hora de início de um fragmento em "tiques" |
 | duration |duração de um fragmento em "tiques" |
-| intervalo |intervalo de cada evento no hello determinado por fragmento |
+| intervalo |intervalo de cada evento dentro do fragmento determinado |
 | events |matriz que contém regiões |
 | region |objeto representando palavras ou frases detectadas |
-| Linguagem |idioma do texto de saudação detectado dentro de uma região |
-| orientation |orientação do texto de saudação detectado dentro de uma região |
+| Linguagem |idioma do texto detectado dentro de uma região |
+| orientation |orientação do texto detectado dentro de uma região |
 | lines |matriz de linhas de texto detectadas em uma região |
-| texto |texto real da saudação |
+| texto |o texto real |
 
 ### <a name="json-output-example"></a>Exemplo de saída JSON
-Olá saída exemplo a seguir contém informações gerais de vídeo hello e vários fragmentos de vídeo. Em cada fragmento do vídeo, ele contém todas as regiões que é detectada pelo OCR MP com idioma hello e sua orientação de texto. região Olá também contém todas as linhas word nesta região com o texto da linha hello, posição da linha hello e todas as informações de palavra (conteúdo do word, posição e confiança) nesta linha. Olá seguinte é um exemplo e coloquei embutido alguns comentários.
+O exemplo de saída a seguir contém as informações gerais de vídeo e vários fragmentos de vídeo. Em cada fragmento de vídeo, ele contém todas as regiões que são detectadas pelo MP de OCR com o idioma e sua orientação de texto. A região também contém todas as linhas de palavras nessa região com texto da linha, posição da linha e todas as informações de palavra (conteúdo, posição e confiança da palavra) nesta linha. A seguir está um exemplo e coloquei alguns comentários embutidos.
 
     {
         "version": 1, 
@@ -130,14 +130,14 @@ Olá saída exemplo a seguir contém informações gerais de vídeo hello e vár
             {
                 "start": 0, 
                 "duration": 180000, 
-                "interval": 90000,  // hello time information about this fragment
+                "interval": 90000,  // the time information about this fragment
                 "events": [
                     [
                        { 
-                            "region": { // hello detected region array in this fragment 
+                            "region": { // the detected region array in this fragment 
                                 "language": "English",  // region language
                                 "orientation": "Up",  // text orientation
-                                "lines": [  // line information array in this region, including hello text and hello position
+                                "lines": [  // line information array in this region, including the text and the position
                                     {
                                         "text": "One Two", 
                                         "left": 10, 
@@ -174,15 +174,15 @@ Olá saída exemplo a seguir contém informações gerais de vídeo hello e vár
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
-a seguir Olá programa mostra como:
+O programa a seguir mostra como:
 
-1. Criar um ativo e carregar um arquivo de mídia no ativo de saudação.
+1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 2. Crie um trabalho com um arquivo de configuração/predefinição de OCR.
-3. Baixe os arquivos de saída do JSON hello. 
+3. Baixe os arquivos JSON de saída. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de saudação com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -198,7 +198,7 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -214,17 +214,17 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run hello OCR job.
+                // Run the OCR job.
                 var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
                                             @"C:\supportFiles\OCR\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\OCR\Output");
             }
 
             static IAsset RunOCRJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My OCR Input Asset",
                     AssetCreationOptions.None);
@@ -232,38 +232,38 @@ Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de 
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My OCR Job");
 
-                // Get a reference tooAzure Media OCR.
+                // Get a reference to Azure Media OCR.
                 string MediaProcessorName = "Azure Media OCR";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My OCR Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset.
+                // Specify the input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My OCR Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

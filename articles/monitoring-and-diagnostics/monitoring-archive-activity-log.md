@@ -1,6 +1,6 @@
 ---
-title: "Olá aaaArchive Log de atividades do Azure | Microsoft Docs"
-description: "Saiba como tooarchive sua atividade do Azure Log para retenção de longo prazo em uma conta de armazenamento."
+title: Arquivar o Log de Atividades do Azure | Microsoft Docs
+description: "Saiba como arquivar o Log de Atividades do Azure para retenção de longo prazo em uma conta de armazenamento."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 58c6d3a3a31398287f66f76999d48f2942ab5109
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="archive-hello-azure-activity-log"></a>Olá arquivar o Log de atividades do Azure
-Neste artigo, mostramos como você pode usar o hello portal do Azure, Cmdlets do PowerShell ou CLI de plataforma cruzada tooarchive seu [ **o Log de atividades do Azure** ](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção é útil se você quiser tooretain mais de 90 dias (com controle total sobre a política de retenção Olá) para o Log de atividades de auditoria, análise estática, ou de backup. Se você precisar somente tooretain seus eventos por 90 dias ou menos que você não é necessário tooset tooa arquivamento conta de armazenamento, desde que os eventos de Log de atividades são mantidos no hello plataforma Windows Azure por 90 dias sem habilitar arquivamento.
+# <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
+Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, é preciso muito[criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) toowhich poderá arquivar o Log de atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros monitoramento não dados armazenados nela, para que você pode controlar melhor acesso toomonitoring dados. No entanto, se você também estiver arquivando Logs de diagnóstico e a conta de armazenamento tooa métricas, talvez faça sentido toouse essa conta de armazenamento para a atividade de Log também tookeep todos os dados de monitoramento em um local central. conta de armazenamento Olá usada deve ser uma conta de armazenamento de propósito geral, não uma conta de armazenamento de blob. conta de armazenamento Olá não tem toobe Olá mesma assinatura que Olá emitindo logs como usuário Olá que configura a configuração de saudação tem assinaturas de tooboth de acesso RBAC apropriadas.
+Antes de começar, você precisará [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Log de Atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs. A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="log-profile"></a>Perfil de Log
-Olá tooarchive Log de atividades, usando qualquer um dos métodos de saudação abaixo, você definir Olá **Log perfil** para uma assinatura. Olá Log perfil define o tipo de saudação de eventos que são armazenadas ou transmitidas e Olá saídas — hub de conta e/ou evento de armazenamento. Ele também define a política de retenção de saudação (número de dias tooretain) para eventos armazenados em uma conta de armazenamento. Se toozero é definir a política de retenção de hello, eventos são armazenados indefinidamente. Caso contrário, isso pode ser definido tooany valor entre 1 e 2147483647. Políticas de retenção são aplicadas por dia, para em Olá final de um dia (UTC), logs do dia Olá que agora está além da política de retenção hello serão excluídas. Por exemplo, se você tiver uma política de retenção de um dia, no início de saudação do dia Olá hoje hello logs de anteontem Olá seriam excluídas. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você deverá definir o **Log de Perfil** para uma assinatura. O Perfil de Log define o tipo de eventos armazenados ou transmitidos e as saídas — conta de armazenamento e/ou hub de eventos. Ele também define a política de retenção (número de dias para manter) para eventos armazenados em uma conta de armazenamento. Se a política de retenção for definida como zero, os eventos serão armazenados indefinidamente. Caso contrário, isso pode ser definido como qualquer valor entre 1 e 2147483647. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
-## <a name="archive-hello-activity-log-using-hello-portal"></a>Arquivo hello usando o portal de saudação do Log de atividades
-1. No portal de saudação, clique em Olá **Log de atividades** link de navegação do lado esquerdo de saudação. Se você não vir um link para Olá Log de atividades, clique em Olá **mais serviços** link primeiro.
+## <a name="archive-the-activity-log-using-the-portal"></a>Arquivar o Log de Atividades usando o portal
+1. No portal, clique no link **Log de atividades** na barra de navegação do lado esquerdo. Se você não vir um link para o Log de Atividades, clique no link **Mais Serviços** primeiro.
    
-    ![Navegue tooActivity folha de Log](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Na parte superior de saudação da folha de saudação, clique em **exportar**.
+    ![Navegue até a folha Log de Atividades](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. Na parte superior da folha, clique **Exportar**.
    
-    ![Botão de exportação Olá](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. Na folha de saudação que aparece, marque a caixa de saudação do **exportar a conta de armazenamento tooa** e selecione uma conta de armazenamento.
+    ![Clique no botão Exportar](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. Na folha que aparece, marque a caixa de **Exportar para uma conta de armazenamento** e selecione uma conta de armazenamento.
    
     ![De uma conta de armazenamento](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Usando o controle deslizante de saudação ou caixa de texto, defina um número de dias que os eventos de Log de atividades devem ser mantidos na conta de armazenamento. Se você preferir toohave seus dados persistentes na conta de armazenamento Olá indefinidamente, defina este número toozero.
+4. Usando o controle deslizante ou a caixa de texto, defina um número de dias para os quais eventos do Log de Atividades devem ser mantidos em sua conta de armazenamento. Se você preferir que os dados persistam na conta de armazenamento indefinidamente, defina esse número como zero.
 5. Clique em **Salvar**.
 
-## <a name="archive-hello-activity-log-via-powershell"></a>Olá arquivar o Log de atividades por meio do PowerShell
+## <a name="archive-the-activity-log-via-powershell"></a>Arquivar o Log de Atividades por meio do PowerShell
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| StorageAccountId |Não |ID do recurso de toowhich de conta de armazenamento Olá Logs de atividade deve ser salvo. |
-| Locais |Sim |Lista separada por vírgulas de regiões para o qual você gostaria que os eventos de Log de atividades de toocollect. Você pode exibir uma lista de todas as regiões [visitando esta página](https://azure.microsoft.com/en-us/regions) ou usando [Olá API de REST de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena logs Olá indefinidamente (sempre). |
+| StorageAccountId |Não |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+| Locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/en-us/regions) ou usando [a API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
 | Categorias |Sim |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
-## <a name="archive-hello-activity-log-via-cli"></a>Olá arquivar o Log de atividade via CLI
+## <a name="archive-the-activity-log-via-cli"></a>Arquivar o Log de Atividades por meio da CLI
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
@@ -62,13 +62,13 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
 | name |Sim |Nome de seu perfil de log. |
-| storageId |Não |ID do recurso de toowhich de conta de armazenamento Olá Logs de atividade deve ser salvo. |
-| locais |Sim |Lista separada por vírgulas de regiões para o qual você gostaria que os eventos de Log de atividades de toocollect. Você pode exibir uma lista de todas as regiões [visitando esta página](https://azure.microsoft.com/en-us/regions) ou usando [Olá API de REST de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará logs Olá indefinidamente (sempre). |
+| storageId |Não |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+| Locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/en-us/regions) ou usando [a API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará os logs indefinidamente (para sempre). |
 | Categorias |Sim |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
-## <a name="storage-schema-of-hello-activity-log"></a>Esquema de armazenamento de Log de atividades de hello
-Depois que você configurar arquivamento, um contêiner de armazenamento será criado na conta de armazenamento hello, assim como ocorre um evento de Log de atividades. blobs Hello dentro do contêiner de saudação siga Olá mesmo formato em hello atividade de Log e Logs de diagnóstico. estrutura Olá esses blobs é:
+## <a name="storage-schema-of-the-activity-log"></a>Esquema de armazenamento do Log de Atividades
+Depois de você configurar arquivamento, um contêiner de armazenamento será criado na conta de armazenamento assim que ocorrer um evento de Log de Atividades. Os blobs no contêiner seguem o mesmo formato em todos os Logs de Diagnóstico e no Log de Atividades. A estrutura desses blobs é:
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{ID da assinatura}/y={ano de quatro dígitos}/m={mês numérico de dois dígitos}/d={dia numérico de dois dígitos}/h={hora de relógio de 24 horas de dois dígitos}/m=00/PT1H.json
 > 
@@ -80,9 +80,9 @@ Por exemplo, um nome de blob poderia ser:
 > 
 > 
 
-Cada blob PT1H.json contém um blob JSON de eventos que ocorreram na hora de saudação especificada na URL de blob de saudação (por exemplo, h = 12). Durante a saudação hora presente, os eventos são acrescentadas toohello PT1H.json arquivo conforme elas ocorrem. Olá valor de minuto (m = 00) é sempre 00, desde que os eventos de Log de atividades são divididos em blobs individuais por hora.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro de uma hora especificada na URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m=00) é sempre 00, como eventos de Log de Atividades são divididos em blobs individuais por hora.
 
-No arquivo de PT1H.json hello, cada evento é armazenado na matriz de registros"hello", neste formato a seguir:
+No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguindo este formato:
 
 ```
 {
@@ -143,28 +143,28 @@ No arquivo de PT1H.json hello, cada evento é armazenado na matriz de registros"
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| tempo real |Evento Olá correspondente de solicitação de carimbo de hora do evento Olá foi gerado pelo Olá Olá de processamento de serviço do Azure. |
-| resourceId |ID do recurso da saudação afetados recursos. |
-| operationName |Nome da operação de saudação. |
-| categoria |Categoria de ação hello, por exemplo. Gravação, Leitura e Ação. |
-| resultType |Olá tipo de resultado hello, por exemplo. Êxito, Falha e Início |
-| resultSignature |Depende do tipo de recurso de saudação. |
-| durationMs |Duração da operação de saudação em milissegundos |
-| callerIpAddress |Endereço IP do usuário de saudação que executou a operação de hello, declaração UPN ou declaração SPN com base na disponibilidade. |
-| correlationId |Normalmente um GUID no formato de cadeia de caracteres de saudação. Os eventos que compartilham um correlationId pertencem toohello mesma ação uber. |
-| identidade |Blob JSON que descreve a declarações e autorização hello. |
-| autorização |Blob de propriedades RBAC do evento hello. Geralmente inclui propriedades de "ação", "função" e "escopo" hello. |
-| level |Nível de evento hello. Uma saudação valores a seguir: "Crítico", "Error", "Aviso", "Informativo" e "Detalhado" |
-| location |Região na qual local Olá ocorreu (ou global). |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, o dicionário) que descreve os detalhes de saudação do evento hello. |
+| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| ResourceId |ID de recurso do recurso afetado. |
+| operationName |Nome da operação. |
+| categoria |Categoria da ação, por exemplo, Gravação, Leitura e Ação. |
+| resultType |O tipo do resultado, por exemplo, Êxito, Falha e Início |
+| resultSignature |Depende do tipo de recurso. |
+| durationMs |Duração da operação em milissegundos |
+| callerIpAddress |Endereço IP do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
+| correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
+| identidade |Blob JSON que descreve a autorização e as declarações. |
+| authorization |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
+| level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado” |
+| location |Região na qual ocorreu o local (ou global). |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
-> Propriedades de saudação e o uso dessas propriedades podem variar dependendo de recurso hello.
+> As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Baixar blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Fluxo de tooEvent do Log de atividades de saudação Hubs](monitoring-stream-activity-logs-event-hubs.md)
-* [Leia mais sobre Olá Log de atividades](monitoring-overview-activity-logs.md)
+* [Transmitir o Log de Atividades para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
+* [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
 

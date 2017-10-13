@@ -1,53 +1,53 @@
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Escalar nós de agente em um cluster do Serviço de Contêiner
-Depois de [Implantando um cluster do serviço de contêiner do Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), talvez seja necessário um número de saudação do toochange de nós de agente. Por exemplo, mais agentes podem ser necessários para que você possa executar mais aplicativos ou instâncias de contêiner. 
+Depois de [implantar um cluster do Serviço de Contêiner do Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), talvez você precise alterar o número de nós do agente. Por exemplo, mais agentes podem ser necessários para que você possa executar mais aplicativos ou instâncias de contêiner. 
 
-Você pode alterar o número de saudação de nós de agente em um cluster de DC/OS, o Docker Swarm ou Kubernetes usando Olá portal do Azure ou Olá 2.0 do CLI do Azure. 
+É possível alterar o número de nós de agente em um cluster DC/OS, Docker Swarm ou Kubernetes usando o Portal do Azure ou a CLI 2.0 do Azure. 
 
-## <a name="scale-with-hello-azure-portal"></a>Dimensionar com hello portal do Azure
+## <a name="scale-with-the-azure-portal"></a>Dimensionar com o Portal do Azure
 
-1. Em Olá [portal do Azure](https://portal.azure.com), procurar **serviços de contêiner**e, em seguida, clique em serviço de contêiner de saudação que você deseja toomodify.
-2. Em Olá **serviço de contêiner** folha, clique em **agentes**.
-3. Em **contagem de VM**, insira o número desejado de saudação de nós de agentes.
+1. No [Portal do Azure](https://portal.azure.com), procure **Serviços de contêiner** e clique no serviço de contêiner que você quer modificar.
+2. Na folha **Serviço de contêiner**, clique em **Agentes**.
+3. Em **Contagem de VM**, insira o número desejado de nós de agentes.
 
-    ![Dimensionar um pool no portal de saudação](./media/container-service-scale/container-service-scale-portal.png)
+    ![Dimensionar um pool no portal](./media/container-service-scale/container-service-scale-portal.png)
 
-4. configuração de saudação toosave, clique em **salvar**.
+4. Para salvar a configuração, clique em **Salvar**.
 
-## <a name="scale-with-hello-azure-cli-20"></a>Dimensionar com hello 2.0 do CLI do Azure
+## <a name="scale-with-the-azure-cli-20"></a>Dimensionar com a CLI 2.0 do Azure
 
-Verifique se você [instalado](/cli/azure/install-az-cli2) Olá 2.0 mais recentes de CLI do Azure e registrado no tooan conta do azure (`az login`).
+Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 do Azure mais recente e conectou-se a uma conta do Azure (`az login`).
 
-### <a name="see-hello-current-agent-count"></a>Consulte a contagem atual de agente Olá
-número de saudação do toosee de agentes no momento em cluster Olá, executar Olá `az acs show` comando. Isso mostra a configuração de cluster de saudação. Por exemplo, Olá mostra Olá a configuração do serviço de contêiner Olá chamado de comando a seguir `containerservice-myACSName` no grupo de recursos de saudação `myResourceGroup`:
+### <a name="see-the-current-agent-count"></a>Conferir a conta do agente atual
+Para ver o número de agentes atualmente no cluster, execute o comando `az acs show`. Isso mostra a configuração do cluster. Por exemplo, o seguinte comando mostra a configuração do serviço de contêiner chamado `containerservice-myACSName` no grupo de recursos `myResourceGroup`:
 
 ```azurecli
 az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-comando Olá retorna o número de saudação de agentes em Olá `Count` valor em `AgentPoolProfiles`.
+O comando retorna o número de agentes no valor `Count` em `AgentPoolProfiles`.
 
-### <a name="use-hello-az-acs-scale-command"></a>Use Olá az comando de escala do acs
-número de saudação toochange de nós de agente, executar Olá `az acs scale` Olá comando e forneça **grupo de recursos**, **nome do serviço de contêiner**e hello desejado **nova contagem de agente**. Ao usar um número menor ou maior, você pode reduzir e escalar verticalmente, respectivamente.
+### <a name="use-the-az-acs-scale-command"></a>Usar o comando az acs scale
+Para alterar o número de nós de agente, execute o comando `az acs scale` e forneça o **grupo de recursos**, o **nome do serviço de contêiner** e a **nova contagem de agente** desejada. Ao usar um número menor ou maior, você pode reduzir e escalar verticalmente, respectivamente.
 
-Por exemplo, número de saudação toochange de agentes na saudação anterior too10 de cluster, digite Olá comando a seguir:
+Por exemplo, para alterar o número de agentes no cluster anterior para 10, digite o seguinte comando:
 
 ```azurecli
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Olá 2.0 do CLI do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração de saudação do serviço de contêiner hello, incluindo a nova contagem de agente hello.
+A CLI 2.0 do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração do serviço de contêiner, incluindo a nova contagem de agentes.
 
 Para obter mais opções de comando, execute `az acs scale --help`.
 
 ## <a name="scaling-considerations"></a>Considerações de dimensionamento
 
-* número de saudação de nós de agente deve estar entre 1 e 100, inclusive. 
+* O número de nós de agente deve estar entre 1 e 100, inclusive. 
 
-* Sua cota de núcleos pode limitar o número de saudação de nós de agente em um cluster.
+* A cota de núcleos pode limitar o número de nós de agente em um cluster.
 
-* Operações de dimensionamento de nó do agente são aplicadas tooan conjunto de escala de máquina virtual do Azure que contém o pool de agente hello. Em um cluster de DC/OS, somente nós de agente no pool privada Olá são dimensionados pelas operações de saudação mostradas neste artigo.
+* As operações de dimensionamento do nó de agente são aplicadas a um conjunto de dimensionamento de máquinas virtuais do Azure que contém o pool de agentes. Em um cluster DC/OS, somente nós de agente no pool privado são dimensionados pelas operações mostradas neste artigo.
 
-* Dependendo orchestrator Olá que implantar em seu cluster, você pode dimensionar separadamente número Olá de instâncias de um contêiner em execução no cluster de saudação. Por exemplo, em um cluster de DC/sistema operacional, use Olá [maratona UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) toochange número de saudação de instâncias de um aplicativo de contêiner.
+* Dependendo do orquestrador que você implanta no cluster, é possível dimensionar separadamente o número de instâncias de um contêiner em execução no cluster. Por exemplo, em um cluster DC/OS, use o [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) para alterar o número de instâncias de um aplicativo contêiner.
 
 * Atualmente, não há suporte para o dimensionamento automático dos nós de agente em um cluster do serviço de contêiner.
 

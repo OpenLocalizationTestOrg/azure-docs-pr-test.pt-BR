@@ -1,6 +1,6 @@
 ---
-title: "aaaMigrate tooan uma VM clássico VM do ARM gerenciados disco | Microsoft Docs"
-description: "Migrar uma VM do Azure de implantação clássico Olá tooManaged discos no modelo de implantação do Gerenciador de recursos de saudação do modelo."
+title: "Migrar uma VM clássica para uma VM de disco gerenciado do ARM | Microsoft Docs"
+description: "Migre uma única VM do Azure do modelo de implantação clássico para Managed Disksno modelo de implantação do Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d8c4b9431f5dd8a071fcbc2ee36581a33f76ba62
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="manually-migrate-a-classic-vm-tooa-new-arm-managed-disk-vm-from-hello-vhd"></a>Migrar manualmente um VM clássico tooa nova ARM gerenciados disco VM da saudação VHD 
+# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrar manualmente uma VM clássica para uma nova VM de disco gerenciado do ARM no VHD 
 
 
-Esta seção ajuda você toomigrate suas VMs do Azure existente do modelo de implantação clássico Olá muito[discos gerenciados](managed-disks-overview.md) no modelo de implantação do Gerenciador de recursos de saudação.
+Esta seção ajuda você a migrar suas VMs do Azure existentes do modelo de implantação clássico para [Managed Disks](managed-disks-overview.md) no modelo de implantação do Resource Manager.
 
 
-## <a name="plan-for-hello-migration-toomanaged-disks"></a>Planejar a migração de saudação do tooManaged discos
+## <a name="plan-for-the-migration-to-managed-disks"></a>Como planejar a migração para os Managed Disks
 
-Esta seção Ajuda toomake Olá melhor decisão sobre tipos de VM e disco.
+Esta seção ajuda você a tomar a melhor decisão sobre a VM e os tipos de disco.
 
 
-### <a name="location"></a>Local
+### <a name="location"></a>Local padrão
 
-Escolha um local onde o Azure Managed Disks estão disponíveis. Se você estiver migrando tooPremium gerenciados discos, também Verifique se o armazenamento Premium está disponível na região Olá onde você está planejando toomigrate para. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis.
+Escolha um local onde os Azure Managed Disks estão disponíveis. Se você estiver migrando para Managed Disks Premium, verifique também se o armazenamento premium está disponível na região que você pretende migrar. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis.
 
 ### <a name="vm-sizes"></a>Tamanhos de VM
 
-Se você estiver migrando tooPremium gerenciados discos, você tem tooupdate tamanho de saudação do hello VM tooPremium tamanho com capacidade de armazenamento disponível na região Olá onde a VM está localizada. Examine os tamanhos de VM Olá que são compatíveis com um armazenamento Premium. especificações de tamanho de VM do Azure Olá são listadas na [tamanhos das máquinas virtuais](sizes.md).
-Examine as características de desempenho de saudação de máquinas virtuais que funcionam com o armazenamento Premium e escolha o tamanho VM mais apropriado hello mais adequada para sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível no seu tráfego de disco VM toodrive hello.
+Se você estiver migrando para Managed Disks Premium, será necessário atualizar o tamanho da VM para um tamanho compatível com o armazenamento premium disponível na região onde a VM está localizada. Examine os tamanhos de VM que são compatíveis com o armazenamento premium. As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](sizes.md).
+Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
 
 ### <a name="disk-sizes"></a>Tamanhos do disco
 
 **Managed Disks Premium**
 
-Há sete tipos de discos Gerenciados premium que podem ser usados com sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Considere esses limites ao escolher Olá tipo de disco Premium para sua VM com base nas necessidades de saudação do seu aplicativo em termos de capacidade, escalabilidade e desempenho e cargas de pico.
+Há sete tipos de discos Gerenciados premium que podem ser usados com sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Leve em consideração esses limites ao escolher o tipo de disco premium para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
 
 | Tipo de discos premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -55,7 +55,7 @@ Há sete tipos de discos Gerenciados premium que podem ser usados com sua VM e c
 
 **Managed Disks Standard**
 
-Há sete tipos de discos Gerenciados Padrão que podem ser usados com sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de saudação de discos gerenciados padrão com base nas necessidades de capacidade de saudação do seu aplicativo.
+Há sete tipos de discos Gerenciados Padrão que podem ser usados com sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de discos gerenciados Standard com base nas necessidades de capacidade do seu aplicativo.
 
 | Tipo de disco Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -68,32 +68,32 @@ Há sete tipos de discos Gerenciados Padrão que podem ser usados com sua VM. Ca
 
 **Managed Disks Premium**
 
-Por padrão, a política de cache de disco é *somente leitura* para todos os discos de dados Premium, de hello e *leitura-gravação* para o disco do sistema operacional Premium Olá anexado toohello VM. Esta configuração é recomendável tooachieve Olá o desempenho ideal para IOs seu aplicativo. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
+Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
 
 ### <a name="pricing"></a>Preços
 
-Saudação de revisão [preços para discos gerenciados](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Preços de discos gerenciados do Premium são igual a saudação discos de Premium não gerenciado. No entanto, os preços do Standard Managed Disks são diferentes dos preços do Standard Unmanaged Disks.
+Confira os [preços dos Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Os preços dos Managed Disks Premium são iguais aos dos discos não gerenciados premium. No entanto, os preços dos Managed Disks Standard são diferentes dos discos não gerenciados Standard.
 
 
 ## <a name="checklist"></a>Lista de verificação
 
-1.  Se você estiver migrando tooPremium gerenciados discos, verifique se que ele está disponível na região Olá que você estiver migrando para o.
+1.  Se você estiver migrando para Managed Disks Premium, verifique se estão disponíveis na região para onde pretende migrar.
 
-2.  Decida Olá nova VM série que usará. Se você estiver migrando tooPremium gerenciados discos, ele deve ser uma capacidade de armazenamento Premium.
+2.  Decida qual nova série de VM você usará. Se você estiver migrando para Managed Disks Premium, use uma capacidade de armazenamento premium.
 
-3.  Decida Olá VM tamanho exato você usará que estão disponíveis na região Olá que você estiver migrando para o. Tamanho da VM precisa toobe toosupport grande o suficiente Olá quantos discos de dados que você tem. Por exemplo, se você tiver quatro discos de dados, Olá VM deve ter dois ou mais núcleos. Considere também as necessidades de capacidade de processamento, memória e largura de banda de rede.
+3.  Decida o tamanho exato da VM que será usada, a região para qual você migrará deve ter esse mesmo tamanho disponível. O tamanho da VM precisa ser grande o suficiente para dar suporte ao número de discos de dados que você tem. Por exemplo, se você tem quatro discos de dados, a VM deve ter dois ou mais núcleos. Considere também as necessidades de capacidade de processamento, memória e largura de banda de rede.
 
-4.  Ter Olá detalhes atuais de VM úteis, inclusive Olá lista de discos e blobs VHD correspondentes.
+4.  Tenha os detalhes da VM atual à mão, incluindo a lista de discos e blobs VHD correspondentes.
 
-Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, você tem toostop todo o processamento Olá Olá atual sistema. Somente então você poderá obtê-lo estado tooconsistent que você pode migrar toohello nova plataforma. Duração de tempo de inatividade depende da quantidade de saudação de dados em Olá discos toomigrate.
-
-
-## <a name="migrate-hello-vm"></a>Migrar Olá VM
-
-Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, você tem toostop todo o processamento Olá Olá atual sistema. Somente então você poderá obtê-lo estado tooconsistent que você pode migrar toohello nova plataforma. Duração do tempo de inatividade depende da quantidade de saudação de dados em Olá discos toomigrate.
+Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração limpa, você precisa interromper todo o processamento no sistema atual. Só então você pode colocá-lo em estado consistente, podendo então migrar para a nova plataforma. A duração do tempo de inatividade depende da quantidade de dados nos discos para migração.
 
 
-1.  Primeiro, defina os parâmetros comuns de saudação:
+## <a name="migrate-the-vm"></a>Migração da VM
+
+Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração limpa, você precisa interromper todo o processamento no sistema atual. Só então você pode colocá-lo em estado consistente, podendo então migrar para a nova plataforma. A duração do tempo de inatividade depende da quantidade de dados nos discos para migração.
+
+
+1.  Primeiro, defina os parâmetros comuns:
 
     ```powershell
     $resourceGroupName = 'yourResourceGroupName'
@@ -119,9 +119,9 @@ Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, 
     $dataDiskName = 'dataDisk1'
     ```
 
-2.  Criar um disco do sistema operacional gerenciado usando Olá VHD do hello VM clássico.
+2.  Crie um disco de sistema operacional gerenciado usando o VHD da VM de modelo clássico.
 
-    Certifique-se de que você tenha fornecido Olá completar URI de saudação parâmetro toohello $osVhdUri de VHD do sistema operacional. Além disso, insira **-AccountType** como **PremiumLRS** ou **StandardLRS** com base no tipo dos discos (Premium ou Standard) que você está migrando.
+    Confira se você forneceu o URI completo do VHD do sistema operacional para o parâmetro $osVhdUri. Além disso, insira **-AccountType** como **PremiumLRS** ou **StandardLRS** com base no tipo dos discos (Premium ou Standard) que você está migrando.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
@@ -129,7 +129,7 @@ Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, 
     -ResourceGroupName $resourceGroupName
     ```
 
-3.  Anexar Olá OS disco toohello nova VM.
+3.  Anexe o disco do sistema operacional para a nova VM.
 
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
@@ -137,7 +137,7 @@ Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, 
     -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
-4.  Criar um disco de dados gerenciado Olá VHD do arquivo de dados e adicioná-lo toohello nova VM.
+4.  Crie um disco de dados gerenciados do arquivo VHD de dados e o adicione à nova VM.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
@@ -148,7 +148,7 @@ Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, 
     -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
     ```
 
-5.  Criar hello nova VM, definindo o IP público, rede Virtual e NIC.
+5.  Crie a nova VM definindo o IP público, a rede virtual e o NIC.
 
     ```powershell
     $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
@@ -166,11 +166,11 @@ Prepare seu aplicativo para o tempo de inatividade. toodo uma migração limpa, 
     ```
 
 > [!NOTE]
->Pode haver toosupport necessárias etapas adicionais seu aplicativo não será coberto por este guia.
+>Pode haver etapas adicionais necessárias para dar suporte aos aplicativos que não são abrangidas por este guia.
 >
 >
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conecte-se a máquina virtual de toohello. Para obter instruções, consulte [como tooconnect e logon tooan virtuais do Azure do computador que executa o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Conectar-se à máquina virtual. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

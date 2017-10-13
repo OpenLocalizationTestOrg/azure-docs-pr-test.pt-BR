@@ -1,6 +1,6 @@
 ---
-title: aaaScheduled eventos para VMs do Windows no Azure | Microsoft Docs
-description: "Eventos agendados usando o serviço de metadados do Azure Olá para em suas máquinas virtuais do Windows."
+title: Eventos agendados para VMs do Windows no Azure | Microsoft Docs
+description: "Agendado eventos usando o serviço de metadados do Azure para em suas máquinas virtuais do Windows."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
 author: zivraf
@@ -15,62 +15,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: c9f5f332a5d77e8d54d1ae8bdaadafc1a14f3b77
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados (versão prévia) para VMs do Windows
 
 > [!NOTE] 
-> Visualizações são feitas tooyou disponível em condição de saudação concordar toohello termos de uso. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Eventos agendados é uma saudação subserviços em hello Azure metadados de serviço. Ele responsável por identificar informações sobre eventos futuros (por exemplo, reiniciar) para que seu aplicativo possa se preparar para eles e limitar a interrupção. Estão disponíveis para todos os tipos de Máquina Virtual do Azure, incluindo PaaS e IaaS. Eventos agendados dá toominimize Olá efeito um evento de suas tarefas tooperform preventivas de tempo de máquina Virtual. 
+Eventos Agendados é um dos subserviços no Serviço de Metadados do Azure. Ele responsável por identificar informações sobre eventos futuros (por exemplo, reiniciar) para que seu aplicativo possa se preparar para eles e limitar a interrupção. Estão disponíveis para todos os tipos de Máquina Virtual do Azure, incluindo PaaS e IaaS. Os Eventos Agendados fornecem seu tempo de Máquina Virtual para executar tarefas preventivas, de modo a minimizar o efeito de um evento. 
 
 Os eventos agendados estão disponíveis para Linux e VMs do Windows. Para saber mais sobre os Eventos Agendados no Linux, confira [Eventos agendados para VMs do Linux](../windows/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Por que Eventos Agendados?
 
-Com os eventos agendados, você pode adotar medidas impacto de saudação do toolimit de plataforma intiated manutenção ou ações iniciadas pelo usuário em seu serviço. 
+Com os Eventos Agendados é possível tomar medidas para limitar o impacto da manutenção iniciada na plataforma ou ações iniciadas pelo usuário em seu serviço. 
 
-Cargas de trabalho de várias instâncias, que usam o estado da replicação técnicas toomaintain, podem ser vulnerável toooutages acontecendo em várias instâncias. Tais interrupções podem resultar em tarefas caras (por exemplo, recompilação de índices) ou até mesmo na perda de uma réplica. 
+Cargas de trabalho de várias instâncias, que usam técnicas de replicação para manter o estado, podem estar vulneráveis a interrupções que ocorrem em diversas instâncias. Tais interrupções podem resultar em tarefas caras (por exemplo, recompilação de índices) ou até mesmo na perda de uma réplica. 
 
-Em muitos casos, hello geral disponibilidade do serviço pode ser melhorada pela execução de uma sequência de desligamento normal como concluídas (ou cancelamento) transações em andamento, reatribuindo tarefas tooother VMs no cluster hello (failover manual) ou removendo Olá Máquina virtual de um pool de Balanceador de carga de rede. 
+Em muitos outros casos, a disponibilidade geral do serviço pode ser melhorada ao executar uma sequência de desligamento normal, como concluir (ou cancelar) transações em andamento, reatribuir tarefas a outras VMs no cluster (failover manual) ou remover a Máquina Virtual de um pool de balanceador de carga de rede. 
 
-Há casos onde notificando um administrador sobre um evento futuro ou registro em log um evento ajudar a melhorar a facilidade de manutenção de saudação de aplicativos hospedados na nuvem hello.
+Há casos em que a notificação de um administrador sobre um evento futuro ou o registro desse evento ajudam a melhorar a capacidade de manutenção de aplicativos hospedados na nuvem.
 
-Casos de uso do Azure Metadata Service superfícies agendado eventos no seguinte hello:
+O Serviço de Metadados do Azure revela Eventos Agendados nos seguintes casos de uso:
 -   Manutenção iniciada na plataforma (por exemplo, distribuição do sistema operacional do Host)
 -   Chamadas iniciadas pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
 
 
-## <a name="hello-basics"></a>Noções básicas de saudação  
+## <a name="the-basics"></a>Noções básicas  
 
-Serviço de metadados do Azure expõe informações sobre a execução de máquinas virtuais usando um ponto de extremidade de REST podem ser acessados no hello VM. informações de saudação estão disponíveis por meio de um IP não roteável para que ele não é exposto fora Olá VM.
+O Serviço de Metadados do Azure expõe informações sobre a execução de Máquinas Virtuais usando um Ponto de Extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que ele não seja exposto fora da VM.
 
 ### <a name="scope"></a>Escopo
-Eventos agendados são tooall da superfície máquinas virtuais em um serviço de nuvem ou tooall máquinas virtuais em um conjunto de disponibilidade. Como resultado, você deve verificar Olá `Resources` campo Olá evento tooidentify que máquinas virtuais serão toobe afetado. 
+Eventos agendados são exibidos para todas as máquinas virtuais em um serviço de nuvem ou para todas as máquinas virtuais em um conjunto de disponibilidade. Como resultado, você deve verificar o campo `Resources` no evento para identificar quais VMs serão afetadas. 
 
-### <a name="discovering-hello-endpoint"></a>Descobrir ponto de extremidade Olá
-No caso de Olá onde uma máquina Virtual é criada em uma rede Virtual (VNet), o serviço de metadados de hello está disponível de um IP não roteável estático, `169.254.169.254`.
-Se Olá Máquina Virtual não é criado em uma rede Virtual, casos de padrão de saudação para serviços de nuvem e VMs clássicas, lógica adicional é necessário toodiscover toouse de ponto de extremidade de saudação. Consulte toothis exemplo toolearn como muito[descobrir o ponto de extremidade do hello host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+### <a name="discovering-the-endpoint"></a>Descoberta do ponto de extremidade
+No caso em que uma máquina virtual é criada em uma VNet (Rede Virtual), o serviço de metadados está disponível a partir de um IP não roteável estático, `169.254.169.254`.
+Se a Máquina Virtual não for criada em uma Rede Virtual, casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o ponto de extremidade a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Controle de versão 
-Olá serviço de metadados de instância é com controle de versão. As versões são obrigatórias e Olá a versão atual é `2017-03-01`.
+O Serviço de Metadados de Instância tem controle de versão. As versões são obrigatórias e a versão atual é `2017-03-01`.
 
 > [!NOTE] 
-> Versões anteriores de visualização de eventos agendados suportados {mais recente} como Olá api-version. Esse formato não é mais suportado e será substituído em Olá futuras.
+> Versões de visualização anteriores de eventos agendados compatíveis {mais recentes} como a api-version. Esse formato não é mais suportado e será substituído no futuro.
 
 ### <a name="using-headers"></a>Uso de cabeçalhos
-Quando você consulta Olá Metadata Service, você deve fornecer o cabeçalho Olá `Metadata: true` solicitação de saudação tooensure não foi redirecionada acidentalmente.
+Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metadata: true` para garantir que a solicitação não foi redirecionada de forma involuntária.
 
 ### <a name="enabling-scheduled-events"></a>Habilitar Eventos Agendados
-Olá primeira vez que você faz uma solicitação para eventos agendados, Azure implicitamente habilita Olá recurso em sua máquina Virtual. Como resultado, você deve esperar uma resposta atrasada em sua primeira chamada do backup tootwo minutos.
+Na primeira vez em que fizer uma solicitação de eventos programados, o Azure habilitará implicitamente o recurso em sua Máquina Virtual. Como resultado, você deve esperar um atraso na resposta em sua primeira chamada de até dois minutos.
 
 ### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo usuário
-Manutenção de máquinas virtuais por meio de saudação portal do Azure, API, CLI, iniciada pelo usuário ou o PowerShell resulta em um evento agendado. Isso permite que você tootest lógica de preparação de manutenção de saudação em seu aplicativo e permite tooprepare seu aplicativo para manutenção iniciada pelo usuário.
+A manutenção de máquinas virtuais iniciada pelo usuário pelo portal do Azure, API, CLI ou PowerShell resulta em um evento agendado. Isso permite que você teste a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo se prepare para manutenção iniciada pelo usuário.
 
 Reiniciar uma máquina virtual agendará um evento com tipo `Reboot`. Reimplantar uma máquina virtual agendará um evento com tipo `Redeploy`.
 
@@ -80,17 +80,17 @@ Reiniciar uma máquina virtual agendará um evento com tipo `Reboot`. Reimplanta
 > [!NOTE] 
 > A manutenção iniciada pelo usuário que resulta em Eventos Agendados no momento não é configurável. A capacidade de configuração está prevista para uma versão futura.
 
-## <a name="using-hello-api"></a>Usando a API de saudação
+## <a name="using-the-api"></a>Usando a API
 
 ### <a name="query-for-events"></a>Consulta de eventos
-Você pode consultar eventos agendados simplesmente fazendo Olá seguinte chamada:
+Você pode consultar Eventos agendados realizando a chamada a seguir:
 
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 ```
 
 Uma resposta contém uma matriz de eventos agendados. Uma matriz vazia significa que não há eventos agendados no momento.
-No caso de Olá onde há eventos agendados, resposta Olá contém uma matriz de eventos: 
+No caso de haver eventos agendados, a resposta contém uma matriz de eventos: 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -111,14 +111,14 @@ No caso de Olá onde há eventos agendados, resposta Olá contém uma matriz de 
 |Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: Olá Máquina Virtual é agendado toopause por alguns segundos. Olá CPU está suspenso, mas não há nenhum impacto na memória, arquivos abertos ou conexões de rede. <li>`Reboot`: Olá Máquina Virtual está agendada para reinicialização (a memória não persistente é perdida). <li>`Redeploy`: Olá Máquina Virtual é agendado toomove tooanother nó (efêmeros discos são perdidos). |
+| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: a máquina virtual está agendada para pausar por alguns segundos. A CPU é suspensa, mas não há nenhum impacto na memória, em arquivos abertos ou em conexões de rede. <li>`Reboot`: a Máquina Virtual está agendada para reiniciar (a memória é apagada). <li>`Redeploy`: a Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). |
 | ResourceType | Tipo de recurso que esse evento impacta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| Lista de recursos que esse evento impacta. Isso é garantido toocontain máquinas de no máximo uma [domínio de atualização](manage-availability.md), mas não pode conter todas as máquinas no hello UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Status do evento | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento é agendado toostart depois de tempo de saudação especificado no hello `NotBefore` propriedade.<li>`Started`: esse evento foi iniciado.</ul> Não `Completed` ou status semelhante já é fornecido; evento Olá não será retornado quando o evento de saudação é concluído.
+| Recursos| Lista de recursos que esse evento impacta. Isso é garantido para conter máquinas de no máximo um [Domínio de Atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Status do evento | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: esse evento está agendado para iniciar após o tempo especificado na propriedade `NotBefore`.<li>`Started`: esse evento foi iniciado.</ul> Não `Completed` status semelhante já foi fornecido; o evento não será mais retornado quando o evento for concluído.
 | NotBefore| Tempo após o qual esse evento poderá começar. <br><br> Exemplo: <br><ul><li> 2016-09-19T18:29:47Z  |
 
 ### <a name="event-scheduling"></a>Agendamento do evento
-Cada evento é agendado uma quantidade mínima de tempo em Olá futuro com base no tipo de evento. Esse tempo é refletido na propriedades `NotBefore` de um evento. 
+Cada evento é agendado uma quantidade mínima de tempo no futuro com base no tipo de evento. Esse tempo é refletido na propriedades `NotBefore` de um evento. 
 
 |EventType  | Aviso mínimo |
 | - | - |
@@ -128,22 +128,22 @@ Cada evento é agendado uma quantidade mínima de tempo em Olá futuro com base 
 
 ### <a name="starting-an-event"></a>Como iniciar um evento 
 
-Depois que você tem conhecimento de um evento futuro e concluiu sua lógica de desligamento normal, você pode aprovar eventos pendentes Olá fazendo uma `POST` chamar o serviço de metadados toohello com hello `EventId`. Isso indica tooAzure que ele pode diminuir notificação mínimo Olá tempo (quando for possível). 
+Após a descoberta de um evento futuro e concluído sua lógica de desligamento normal, você poderá aprovar o evento pendente fazendo uma chamada `POST` para o serviço de metadados com `EventId`. Isso indica para o Azure que ele pode encurtar o tempo mínimo de notificação (quando possível). 
 
 ```
 curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 ```
 
 > [!NOTE] 
-> Confirmar um evento permite Olá evento tooproceed para todos os `Resources` no evento hello, não apenas Olá máquina virtual que reconhece o evento hello. Portanto, você pode escolher tooelect uma confirmação de saudação do líder toocoordinate, que pode ser tão simple quanto a primeira máquina Olá em Olá `Resources` campo.
+> Reconhecer um evento permite que o evento prossiga para todos `Resources` no evento, e não apenas a máquina virtual que reconhece o evento. Portanto, é possível eleger um líder para coordenar o reconhecimento, que pode ser tão simples como a primeira máquina no campo `Resources`.
 
 
 ## <a name="powershell-sample"></a>Exemplo do PowerShell 
 
-Olá exemplos de consultas a seguir Olá metadados de serviço para eventos agendados e aprova a cada evento pendente.
+O exemplo a seguir consulta o serviço de metadados para eventos agendados e aprova cada evento pendente.
 
 ```PowerShell
-# How tooget scheduled events 
+# How to get scheduled events 
 function GetScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
@@ -152,19 +152,19 @@ function GetScheduledEvents($uri)
     return $scheduledEvents
 }
 
-# How tooapprove a scheduled event
+# How to approve a scheduled event
 function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create hello Scheduled Events Approval Document
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
     
-    # Convert tooJSON string
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
-    Write-Host "Approving with hello following: `n" $approvalString
+    Write-Host "Approving with the following: `n" $approvalString
 
-    # Post approval string tooscheduled events endpoint
+    # Post approval string to scheduled events endpoint
     Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
 }
 
@@ -175,7 +175,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 ######### Sample Scheduled Events Interaction #########
 
-# Set up hello scheduled events URI for a VNET-enabled VM
+# Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
@@ -200,7 +200,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## <a name="c-sample"></a>Exemplo de C\# 
 
-Olá exemplo a seguir é de um cliente simple que se comunica com o serviço de metadados de saudação.
+O exemplo a seguir é de um cliente simples que se comunica com o serviço de metadados.
 
 ```csharp
 public class ScheduledEventsClient
@@ -208,7 +208,7 @@ public class ScheduledEventsClient
     private readonly string scheduledEventsEndpoint;
     private readonly string defaultIpAddress = "169.254.169.254"; 
 
-    // Set up hello scheduled events URI for a VNET-enabled VM
+    // Set up the scheduled events URI for a VNET-enabled VM
     public ScheduledEventsClient()
     {
         scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
@@ -237,7 +237,7 @@ public class ScheduledEventsClient
 }
 ```
 
-Eventos agendados podem ser representados usando Olá estruturas de dados a seguir:
+Os Eventos Agendados podem ser representados utilizando as seguintes estruturas de dados:
 
 ```csharp
 public class ScheduledEventsDocument
@@ -274,7 +274,7 @@ public class StartRequest
 }
 ```
 
-Olá exemplos de consultas a seguir Olá metadados de serviço para eventos agendados e aprova a cada evento pendente.
+O exemplo a seguir consulta o serviço de metadados para eventos agendados e aprova cada evento pendente.
 
 ```csharp
 public class Program
@@ -293,7 +293,7 @@ public class Program
             HandleEvents(scheduledEventsDocument.Events);
 
             // Wait for user response
-            Console.WriteLine("Press Enter tooapprove executing events\n");
+            Console.WriteLine("Press Enter to approve executing events\n");
             Console.ReadLine();
 
             // Approve events
@@ -317,7 +317,7 @@ public class Program
                 client.ApproveScheduledEvents(approveEventsJsonDocument);
             }
 
-            Console.WriteLine("Complete. Press enter toorepeat\n\n");
+            Console.WriteLine("Complete. Press enter to repeat\n\n");
             Console.ReadLine();
             Console.Clear();
         }
@@ -332,7 +332,7 @@ public class Program
 
 ## <a name="python-sample"></a>Exemplo de Python 
 
-Olá exemplos de consultas a seguir Olá metadados de serviço para eventos agendados e aprova a cada evento pendente.
+O exemplo a seguir consulta o serviço de metadados para eventos agendados e aprova cada evento pendente.
 
 ```python
 #!/usr/bin/python
@@ -376,6 +376,6 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-- Leia mais sobre Olá APIs disponíveis no hello [o serviço de metadados de instância](instance-metadata-service.md).
+- Leia mais sobre as API disponíveis no [serviço Metadados da Instância](instance-metadata-service.md).
 - Saiba mais sobre a [manutenção planejada para máquinas virtuais do Windows no Azure](planned-maintenance.md).
 

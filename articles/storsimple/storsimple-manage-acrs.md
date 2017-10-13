@@ -1,6 +1,6 @@
 ---
-title: registros de controle de acesso aaaManage em StorSimple | Microsoft Docs
-description: Descreve como os registros de controle de acesso de toouse toodetermine (ACRs) quais hosts podem se conectar a tooa volume no dispositivo do StorSimple hello.
+title: Gerenciar registros de controle de acesso no StorSimple | Microsoft Docs
+description: Descreve como usar os ACRs (registros de controle de acesso) para determinar quais hosts podem se conectar a um volume no dispositivo StorSimple.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-ms.openlocfilehash: a1e718c2679301b34221a233557a1eaae869a94f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomanage-access-control-records"></a>Use os registros de controle de acesso do hello StorSimple Manager serviço toomanage
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
 ## <a name="overview"></a>Visão geral
-Registros de controle de acesso (ACRs) permitem que você toospecify quais hosts podem se conectar a tooa volume no dispositivo do StorSimple hello. ACRs são definidos volume específico tooa e conter Olá iSCSI nomes qualificados (IQNs) de hosts de saudação. Quando um host tenta tooconnect tooa volume, o dispositivo Olá verifica Olá que ACR associado a esse volume do nome IQN do hello e se houver uma correspondência, hello conexão é estabelecida. registros de controle de acesso de saudação seção Olá **configurar** página exibe todos os registros de controle de acesso de saudação com hello correspondentes IQNs dos hosts de saudação.
+Os ACRs (registros de controle de acesso) permitem especificar quais hosts podem se conectar a um volume no dispositivo StorSimple. Os ACRs são definidos para um volume específico e contêm os IQNs (Nomes Qualificados iSCSI) dos hosts. Quando um host tenta se conectar a um volume, o dispositivo verifica o nome do IQN no ACR associado a esse volume e, se houver correspondência, a conexão será estabelecida. A seção de registros do controle de acesso na página **Configurar** exibe todos os registros de controle de acesso com o IQN correspondente dos hosts.
 
-Este tutorial explica Olá tarefas comuns relacionadas a ACR a seguir:
+Este tutorial explica as seguintes tarefas comuns relacionadas ao ACR:
 
 * Adicionar um registro de controle de acesso 
 * Editar um registro de controle de acesso 
 * Excluir um registro de controle de acesso 
 
 > [!IMPORTANT]
-> * Ao atribuir um volume de tooa ACR, lembre-se que Olá volume não é acessado simultaneamente por mais de um host não clusterizado porque isso pode corromper o volume de saudação. 
-> * Ao excluir um ACR do volume, certifique-se de que host Olá correspondente não está acessando o volume Olá porque Olá exclusão pode levar a uma interrupção de leitura / gravação.
+> * Ao atribuir um ACR a um volume, lembre-se que o volume não é acessado simultaneamente por mais de um host não clusterizado porque isso poderia corromper o volume. 
+> * Ao excluir um ACR de um volume, certifique-se de que o host correspondente não esteja acessando o volume porque a exclusão poderia resultar em uma interrupção de leitura/gravação.
 > 
 > 
 
 ## <a name="add-an-access-control-record"></a>Adicionar um registro de controle de acesso
-Usar o serviço StorSimple Manager Olá **configurar** página ACRs tooadd. Normalmente, você associará um ACR a um volume.
+Use a página **Configurar** do serviço StorSimple Manager para adicionar ACRs. Normalmente, você associará um ACR a um volume.
 
-Execute Olá etapas tooadd um ACR a seguir.
+Execute as etapas a seguir para adicionar um ACR.
 
-#### <a name="tooadd-an-access-control-record"></a>tooadd um registro de controle de acesso
-1. Na página de aterrissagem do serviço hello, selecione o seu serviço, clique duas vezes no nome do serviço hello e clique em Olá **configurar** guia.
-2. Em Olá tabela listando em **registros de controle de acesso**, forneça um **nome** para seu ACR.
-3. Forneça o nome IQN de saudação do seu host do Windows em **nome do iniciador iSCSI**. Olá tooget IQN do host do Windows Server, Olá a seguir:
+#### <a name="to-add-an-access-control-record"></a>Para adicionar um registro de controle de acesso
+1. Na página de aterrissagem do serviço, selecione o seu serviço, clique duas vezes no nome do serviço e clique na guia **Configurar** .
+2. Na listagem tabular em **Registros de controle de acesso**, forneça um **Nome** para seu ACR.
+3. Forneça o nome IQN do host do Windows em **Nome do Iniciador iSCSI**. Para obter o IQN do host do Windows Server, siga este procedimento:
    
-   * Inicie o iniciador iSCSI da Microsoft hello no seu host do Windows.
-   * Em Olá **propriedades do iniciador iSCSI** janela Olá **configuração** , selecione e copie a cadeia de caracteres de saudação do hello **nome do iniciador** campo.
-   * Cole essa cadeia de caracteres hello **nome do iniciador iSCSI** campo tabela ACRs Olá Olá portal clássico do Azure.
-4. Clique em **salvar** toosave Olá recém-criado ACR. Olá tabela listando será atualizado tooreflect de ser essa adição.
+   * Inicie o iniciador Microsoft iSCSI no host do Windows.
+   * Na janela **Propriedades do Iniciador iSCSI**, na guia **Configuração** selecione e copie a cadeia de caracteres do campo **Nome do Iniciador**.
+   * Cole essa cadeia de caracteres no campo **Nome do Iniciador iSCSI** na tabela de ACRs no Portal clássico do Azure.
+4. Clique em **Salvar** para salvar o ACR recentemente criado. A listagem de tabela será atualizada para refletir essa adição.
 
 ## <a name="edit-an-access-control-record"></a>Editar um registro de controle de acesso
-Use Olá **configurar** página Olá ACRs tooedit de portal clássico do Azure. 
+Use a página **Configurar** no Portal clássico do Azure para editar ACRs. 
 
 > [!NOTE]
-> Você pode modificar somente os ACRs que não estejam em uso no momento. tooedit que um ACR associado a um volume que está em uso no momento, você deve primeiro colocar Olá volume offline.
+> Você pode modificar somente os ACRs que não estejam em uso no momento. Para editar um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 > 
 > 
 
-Execute Olá etapas tooedit um ACR a seguir.
+Execute as etapas a seguir para editar um ACR.
 
-#### <a name="tooedit-an-access-control-record"></a>tooedit um registro de controle de acesso
-1. Na página de aterrissagem do serviço hello, selecione o seu serviço, clique duas vezes no nome do serviço hello e clique em Olá **configurar** guia.
-2. Na listagem tabular de saudação de registros de controle de acesso de saudação, passe o mouse sobre Olá ACR que quiser toomodify.
-3. Fornece um novo nome e/ou o IQN de saudação ACR.
-4. Clique em **salvar** toosave Olá modificar ACR. Olá tabela listando será atualizado tooreflect de ser essa alteração.
+#### <a name="to-edit-an-access-control-record"></a>Para editar um registro de controle de acesso
+1. Na página de aterrissagem do serviço, selecione o seu serviço, clique duas vezes no nome do serviço e clique na guia **Configurar** .
+2. Na listagem de tabela dos registros de controle de acesso, passe o mouse sobre o ACR que deseja modificar.
+3. Forneça um novo nome e/ou IQN para o ACR.
+4. Clique em **Salvar** para salvar o ACR modificado. A listagem de tabela será atualizada para refletir essa alteração.
 
 ## <a name="delete-an-access-control-record"></a>Excluir um registro de controle de acesso
-Use Olá **configurar** página Olá ACRs toodelete de portal clássico do Azure. 
+Use a página **Configurar** no Portal clássico do Azure para excluir ACRs. 
 
 > [!NOTE]
-> Você pode excluir somente os ACRs que não estejam em uso no momento. toodelete que um ACR associado a um volume que está em uso no momento, você deve primeiro colocar Olá volume offline.
+> Você pode excluir somente os ACRs que não estejam em uso no momento. Para excluir um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 > 
 > 
 
-Execute Olá seguindo as etapas toodelete um registro de controle de acesso.
+Execute as etapas a seguir para excluir um registro de controle de acesso.
 
-#### <a name="toodelete-an-access-control-record"></a>toodelete um registro de controle de acesso
-1. Na página de aterrissagem do serviço hello, selecione o seu serviço, clique duas vezes no nome do serviço hello e clique em Olá **configurar** guia.
-2. Na listagem tabular de saudação de registros de controle de acesso (ACRs) hello, passe o mouse sobre Olá ACR que quiser toodelete.
-3. Um ícone de exclusão (**x**) aparecerá na coluna de direito extremo Olá para Olá ACR selecionado. Clique em Olá **x** Olá toodelete de ícone ACR.
-4. Quando solicitado a confirmar, clique em **Sim** toocontinue com exclusão hello. listagem tabular Olá será atualizado tooreflect Olá exclusão.
+#### <a name="to-delete-an-access-control-record"></a>Para excluir um registro de controle de acesso
+1. Na página de aterrissagem do serviço, selecione o seu serviço, clique duas vezes no nome do serviço e clique na guia **Configurar** .
+2. Na listagem de tabela dos ACRs (registros de controle de acesso), passe o mouse sobre o ACR que deseja excluir.
+3. Um ícone de exclusão (**x**) será exibido na coluna mais à direita do ACR selecionado. Clique no ícone **x** para excluir o ACR.
+4. Quando a confirmação é solicitada, clique em **Sim** para continuar com a exclusão. A listagem de tabela será atualizada para refletir a exclusão.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
-* Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador do StorSimple em seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

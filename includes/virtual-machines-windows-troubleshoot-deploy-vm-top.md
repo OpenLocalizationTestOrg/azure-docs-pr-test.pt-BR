@@ -1,4 +1,4 @@
-Olá problemas principais a seguir podem ajudar a resolver o problema. toostart solucionar o problema, examine essas etapas:
+Os principais problemas a seguir podem ajudar a resolver a sua questão. Para iniciar a solução de problemas, revise estas etapas:
 
-- [não oferece suporte a cluster Olá Olá solicitado tamanho da VM](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [Olá cluster não tem recursos gratuitos](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [O cluster não dá suporte ao tamanho de VM solicitado](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [O cluster não tem recursos livres](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

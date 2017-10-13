@@ -1,6 +1,6 @@
 ---
-title: "relatório de inteligência de ameaça de Central de segurança do aaaAzure | Microsoft Docs"
-description: "Este documento ajuda a toouse Azure segurança Center ameaça Intelligent relatórios durante uma investigação toofind obter mais informações sobre um alerta de segurança."
+title: "Relatório de inteligência de ameaças da Central de Segurança do Azure | Microsoft Docs"
+description: "Este documento ajuda a usar os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: c888cfac1dd8b057616a6b8e6c6f6b67b552f2e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Inteligência de Ameaças da Central de Segurança do Azure
 Este documento explica como os Relatórios Inteligentes de Ameças da Central de Segurança do Azure podem ajudá-lo a saber mais sobre uma ameaça que gerou um alerta de segurança.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>O que é um relatório de inteligência de ameaças?
-Detecção de ameaças de segurança central funciona pelo monitoramento de informações de segurança de seus recursos do Azure, rede hello e soluções de parceiros conectado. Ele analisa essas informações, geralmente correlacionando informações de várias fontes, tooidentify ameaças. Esse processo é parte da saudação Central de segurança [recursos de detecção de](security-center-detection-capabilities.md).
+A detecção de ameaças da Central de Segurança funciona monitorando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Esse processo faz parte dos [recursos de detecção](security-center-detection-capabilities.md) da Central de Segurança.
 
-Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de segurança](security-center-managing-and-responding-alerts.md), que contém informações sobre um evento específico, incluindo sugestões de correção detalhadas. as equipes de resposta a incidentes tooassist investigam e corrigir ameaças, Central de segurança inclui um relatório de inteligência de ameaça que contém informações sobre a ameaça de saudação que foi detectada, incluindo informações como o:
+Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de segurança](security-center-managing-and-responding-alerts.md), que contém informações sobre um evento específico, incluindo sugestões de correção detalhadas. Para ajudar as equipes de resposta a incidentes a investigar e a corrigir ameaças, a Central de Segurança inclui um relatório de inteligência de ameaças que contém informações sobre a ameaça detectada, incluindo informações como :
 
 * Identidade ou associações do invasor (se essas informações estiverem disponíveis)
 * Objetivos dos invasores
 * Campanhas de ataque atuais e históricas (se essas informações estiverem disponíveis)
 * Táticas, ferramentas e procedimentos dos invasores
 * Indicadores associados de comprometimento (IoC), como URLs e hashes de arquivo
-* Victimology, setor hello e tooassist predominância geográfica é determinar se os recursos do Azure estão em risco
+* Vitimologia, que é a prevalência do setor e geográfica para auxiliar você na determinação se seus recursos do Azure estão em risco
 * Informações de atenuação e correção
 
 > [!NOTE]
-> Olá quantidade de informações em qualquer relatório determinado irá variar; nível de saudação de detalhe baseia-se na atividade e a predominância saudação do malware.
+> A quantidade de informações em qualquer relatório específico varia; o nível de detalhes baseia-se na atividade e na prevalência do malware.
 >
 >
 
-Central de segurança tem três tipos de relatórios de ameaça, que podem variar de acordo ataque de toohello. Olá relatórios disponíveis são:
+A Central de Segurança tem três tipos de relatórios de ameaça, que podem variar de acordo com o ataque. Os relatórios disponíveis são:
 
 * **Relatório de Grupo de Atividades**: fornece análises avançadas sobre os invasores, seus objetivos e táticas.
 * **Relatório de Campanha**: concentra-se nos detalhes de campanhas de ataque específicas.
-* **Relatório de resumo de ameaças**: abrange todos os itens de saudação em dois relatórios de saudação anterior.
+* **Relatório de Resumo de Ameaças**: abrange todos os itens dos dois relatórios anteriores.
 
-Esse tipo de informação é muito útil durante a saudação [resposta a incidentes](security-center-incident-response.md) processados, onde há uma fonte de saudação toounderstand investigação em andamento de ataque hello, motivações do invasor hello e o que toodo toomitigate isso problema no futuro.
+Esse tipo de informação é muito útil durante o processo de [resposta a incidentes](security-center-incident-response.md), onde há uma investigação em andamento para compreender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema no futuro.
 
-## <a name="how-tooaccess-hello-threat-intelligence-report"></a>Como tooaccess Olá relatório de inteligência de ameaça?
-Você pode examinar os alertas atuais examinando Olá **alertas de segurança** lado a lado. Abra Olá Portal do Azure e siga as etapas de saudação abaixo toosee mais detalhes sobre cada alerta:
+## <a name="how-to-access-the-threat-intelligence-report"></a>Como acessar o relatório de inteligência de ameaças?
+Você pode examinar os alertas atuais observando o bloco **Alertas de segurança** . Abra o Portal do Azure e siga as etapas abaixo para ver mais detalhes sobre cada alerta:
 
-1. No painel de Central de segurança hello, você verá Olá **alertas de segurança** lado a lado.
-2. Clique em Olá bloco tooopen Olá **alertas de segurança** folha que contém mais detalhes sobre alertas de saudação e clique no alerta de segurança Olá que você deseja tooobtain obter mais informações sobre.
+1. No painel Central de Segurança, você verá o bloco **Alertas de segurança** .
+2. Clique no bloco para abrir a folha **Alertas de segurança** que contém mais detalhes sobre os alertas e clique no alerta de segurança sobre o qual você deseja obter mais informações.
 
     ![Alertas de segurança](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. Nesse caso Olá **suspeito processo executado** folha mostra detalhes Olá Olá alerta conforme mostrado na figura abaixo a saudação:
+3. Nesse caso, a folha **Processo suspeito executado** mostra os detalhes sobre o alerta, conforme mostrado na figura a seguir:
 
     ![Detalhes do alerta de segurança](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. quantidade de saudação das informações disponíveis para cada alerta de segurança variam de acordo tipo toohello de alerta. Em Olá **relatórios** campo tem um relatório de inteligência de ameaça de toohello do link. Clique nele e outra janela do navegador será exibida com o arquivo PDF.
+4. A quantidade de informações disponíveis para cada alerta de segurança varia de acordo com o tipo de alerta. No campo **RELATÓRIOS**, você tem um link para o relatório de inteligência de ameaça. Clique nele e outra janela do navegador será exibida com o arquivo PDF.
 
    ![Seleção de armazenamento](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
-Aqui você pode baixar Olá PDF para esse relatório e ler que mais sobre a segurança de saudação problema que foi detectado e executar ações com base nas informações de saudação fornecidas.
+Aqui você pode baixar o PDF para esse relatório e ler mais sobre o problema de segurança detectado e executar ações com base nas informações fornecidas.
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, você aprendeu como os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure podem ajudar durante uma investigação sobre alertas de segurança. toolearn mais sobre o Centro de segurança do Azure, consulte o seguinte hello:
+Neste documento, você aprendeu como os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure podem ajudar durante uma investigação sobre alertas de segurança. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Localize as perguntas frequentes sobre como usar o serviço de saudação.
+* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 * [Aproveitando a Central de Segurança do Azure para a resposta a incidentes](security-center-incident-response.md)
 * [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md)
-* [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md). Saiba como tooplan e entender a Central de segurança do hello design considerações tooadopt do Azure.
-* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md). Saiba como alertas de toosecurity toomanage e responder.
+* [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md). Saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
+* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md). Saiba como gerenciar e responder aos alertas de segurança.
 * [Manipulação de incidente de segurança na Central de Segurança do Azure](security-center-incident.md)
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.

@@ -1,6 +1,6 @@
 ---
-title: aplicativo de Windows UWP (plataforma Universal) aaaAdd authentication tooyour | Microsoft Docs
-description: "Saiba como usuários de tooauthenticate toouse aplicativos de celular do serviço de aplicativo do Azure do aplicativo Windows UWP (plataforma Universal) usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
+title: "Adicionar autenticação ao seu aplicativo da UWP (Plataforma Universal do Windows) | Microsoft Docs"
+description: "Aprenda a usar os aplicativos móveis do Serviço de Aplicativos do Azure para autenticar usuários de seu aplicativo da UWP (Plataforma Universal do Windows) usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: windows
 author: ggailey777
@@ -14,50 +14,50 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: ad4477e9509f1c40c33e71818e268f6857fe1e80
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-authentication-tooyour-windows-app"></a>Adicionar aplicativo do Windows tooyour autenticação
+# <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação ao seu aplicativo do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Este tópico mostra como aplicativo móvel do tooyour tooadd autenticação baseada em nuvem. Neste tutorial, você pode adicionar projeto de início rápido do autenticação toohello Windows UWP (plataforma Universal) para aplicativos móveis usando um provedor de identidade que é suportado pelo serviço de aplicativo do Azure. Após com êxito que está sendo autenticado e autorizado pelo seu back-end do aplicativo móvel, o valor de ID de usuário de saudação é exibida.
+Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você aprenderá a adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
 
-Este tutorial baseia-se no início rápido de aplicativos móveis hello. Você deve completar tutorial Olá [começar com aplicativos móveis](app-service-mobile-windows-store-dotnet-get-started.md).
+Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar saudação do serviço de aplicativo
+## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar URLs de redirecionamento externo permitidos de toohello seu aplicativo
+## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
 
-A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite Olá autenticação sistema tooredirect tooyour back aplicativo após a conclusão do processo de autenticação de saudação. Neste tutorial, usamos o esquema de URL Olá _appname_ em todo. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo tooyour aplicativo para dispositivos móveis. redirecionamento de saudação tooenable no lado do servidor de saudação:
+A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No hello [portal do Azure], selecione o serviço de aplicativo.
+1. No [Portal do Azure], selecione seu Serviço de Aplicativo.
 
-2. Clique em Olá **autenticação / autorização** opção de menu.
+2. Clique na opção de menu **Autenticação/Autorização**.
 
-3. Em Olá **permitidas URLs de redirecionamento externo**, digite `url_scheme_of_your_app://easyauth.callback`.  Olá **url_scheme_of_your_app** na cadeia de caracteres é hello esquema de URL para seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Assegure uma anotação de cadeia de caracteres de saudação que você escolha como você precisará tooadjust seu código de aplicativo móvel com hello esquema de URL em vários locais.
+3. Em **URLs de Redirecionamento Externo Permitidas**, insira `url_scheme_of_your_app://easyauth.callback`.  O **esquema_de_URL_do_seu_aplicativo** nessa cadeia de caracteres é o esquema de URL do seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Você deve anotar a cadeia de caracteres escolhida, já que precisará ajustar o código do aplicativo móvel com o esquema de URL em vários lugares.
 
 4. Clique em **OK**.
 
 5. Clique em **Salvar**.
 
-## <a name="permissions"></a>Restringir permissões tooauthenticated usuários
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Agora, você pode verificar que essa back-end do acesso anônimo tooyour foi desabilitada. Com o projeto de aplicativo UWP Olá definir como projeto de inicialização hello, implantar e executar o aplicativo hello; Verifique se que uma exceção sem tratamento com um código de status de 401 (não autorizado) é gerada após o início do aplicativo hello. Isso ocorre porque o aplicativo hello tentativas tooaccess seu código de aplicativo móvel como um usuário não autenticado, mas Olá *TodoItem* tabela agora requer autenticação.
+Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com o projeto de aplicativo da UWP configurado como projeto de inicialização, implante e execute o aplicativo; verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
-Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello antes de solicitar recursos do seu serviço de aplicativo.
+Em seguida, você atualizará o aplicativo para autenticar usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
-## <a name="add-authentication"></a>Adicionar autenticação toohello aplicativo
-1. No projeto de aplicativo UWP Olá arquivo MainPage.xaml.cs e adicione Olá trecho de código a seguir:
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+1. No arquivo de projeto de aplicativo da UWP MainPage.xaml.cs, adicione o seguinte trecho de código:
    
-        // Define a member variable for storing hello signed-in user. 
+        // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
    
-        // Define a method that performs hello authentication process
+        // Define a method that performs the authentication process
         // using a Facebook sign-in. 
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -65,7 +65,7 @@ Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello a
             bool success = false;
             try
             {
-                // Change 'MobileService' toohello name of your MobileServiceClient instance.
+                // Change 'MobileService' to the name of your MobileServiceClient instance.
                 // Sign-in using Facebook authentication.
                 user = await App.MobileService
                     .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
@@ -85,8 +85,8 @@ Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello a
             return success;
         }
    
-    Esse código autentica o usuário Olá com um logon do Facebook. Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de saudação do **MobileServiceAuthenticationProvider** acima toohello por seu provedor.
-2. Substituir saudação **OnNavigatedTo** método em MainPage.xaml.cs. Em seguida, você adicionará um **entrar** botão toohello aplicativo que dispara a autenticação.
+    Esse código autentica o usuário com um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
+2. Substitua o método **OnNavigatedTo** em MainPage.xaml.cs. Em seguida, você adicionará um botão **Entrar** ao aplicativo que dispara a autenticação.
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -96,21 +96,21 @@ Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello a
             }
         }
 
-3. Adicione Olá toohello de trecho de código MainPage.xaml.cs a seguir:
+3. Adicione o seguinte trecho de código à classe MainPage.xaml.cs:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            // Login hello user and then load data from hello mobile app.
+            // Login the user and then load data from the mobile app.
             if (await AuthenticateAsync())
             {
-                // Switch hello buttons and load items from hello mobile app.
+                // Switch the buttons and load items from the mobile app.
                 ButtonLogin.Visibility = Visibility.Collapsed;
                 ButtonSave.Visibility = Visibility.Visible;
                 //await InitLocalStoreAsync(); //offline sync support.
                 await RefreshTodoItems();
             }
         }
-4. Abrir o arquivo de projeto do hello MainPage. XAML, localize o elemento de saudação que define Olá **salvar** botão e substituí-lo com hello código a seguir:
+4. Abra o arquivo de projeto MainPage.xaml, localize o elemento que define o botão **Salvar** e substitua-o pelo código a seguir:
    
         <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
                 Click="ButtonSave_Click">
@@ -126,7 +126,7 @@ Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello a
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Adicione Olá toohello de trecho de código App.xaml.cs a seguir:
+5. Adicione o seguinte trecho de código ao App.xaml.cs:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -142,26 +142,26 @@ Em seguida, você atualizará os usuários tooauthenticate de aplicativo hello a
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. Abra o arquivo Package. appxmanifest, navegue muito**declarações**, na **Available Declarations** lista suspensa, selecione **protocolo** e clique em **adicionar** botão. Configurar Olá **propriedades** de saudação **protocolo** declaração. Em **nome de exibição**, adicionar nome hello desejar toousers toodisplay do seu aplicativo. Em **Nome**, adicione o {esquema_de_URL_do_seu_aplicativo}.
-7. Pressione Olá F5 toorun chave Olá aplicativo, clique em Olá **entrar** botão e o logon no aplicativo hello com seu provedor de identidade escolhido. Depois que a entrada for bem-sucedida, Olá aplicativo é executado sem erros e você é capaz de tooquery seu back-end e fazer atualizações toodata.
+6. Abra o arquivo Package.appxmanifest, navegue até **Declarações**, na lista suspensa **Declarações Disponíveis**, selecione **Protocolo** e clique no botão **Adicionar**. Agora, configure as **Propriedades** da declaração do **Protocolo**. Em **Nome de exibição**, adicione o nome que você deseja exibir aos usuários do aplicativo. Em **Nome**, adicione o {esquema_de_URL_do_seu_aplicativo}.
+7. Pressione a tecla F5 para executar o aplicativo, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. Depois que o seu logon for bem-sucedido, o aplicativo será executado sem erros, e você poderá consultar o seu back-end e fazer atualizações nos dados.
 
-## <a name="tokens"></a>Token de autenticação do repositório Olá no cliente Olá
-exemplo anterior Hello mostrou uma padrão entrar, que exige Olá cliente toocontact ambos provedor de identidade hello e Olá do serviço de aplicativo sempre que o aplicativo hello for iniciado. Não é apenas esse método ineficiente, você pode executar em uso-se relaciona problemas muitos clientes tente toostart seu aplicativo no hello simultaneamente. Uma abordagem melhor é o token de autorização de saudação toocache retornado por seu serviço de aplicativo e tente toouse isso antes de usar um provedor com base em entrar.
+## <a name="tokens"></a>Armazenar o token de autenticação no cliente
+O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o Serviço de Aplicativo sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo Serviço de Aplicativo e tentar usá-lo antes de usar um logon baseado em provedor.
 
 > [!NOTE]
-> Você pode armazenar em cache token Olá emitido por serviços de aplicativos, independentemente de se você estiver usando autenticação de cliente gerenciado ou o serviço gerenciado. Este tutorial usa a autenticação gerenciada pelo serviço.
+> Você pode armazenar em cache o token emitido pelos Serviços de Aplicativos usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
 > 
 > 
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você concluiu este tutorial de autenticação básica, considere a possibilidade de continuar tooone de saudação tutoriais a seguir:
+Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
-* [Adicionar aplicativo de tooyour de notificações por push](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Saiba como notificações por push de tooadd dão suporte ao aplicativo tooyour e configurar seu aplicativo móvel back-end toouse Hubs de notificação do Azure toosend as notificações por push.
+* [Adicionar notificações por push ao aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+  Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Saiba como off-line tooadd dão suporte ao seu aplicativo usar um back-end do aplicativo móvel. Sincronização offline permite que os usuários finais toointeract com um aplicativo móvel&mdash;exibindo, adicionando ou modificando dados&mdash;mesmo quando não há nenhuma conexão de rede.
+  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

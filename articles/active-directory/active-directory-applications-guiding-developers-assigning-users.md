@@ -1,6 +1,6 @@
 ---
-title: "O AD do Azure e aplicativos: atribuindo usuários tooan aplicativo | Microsoft Docs"
-description: "Como tooimplement atribuição de usuário para aplicativos do Azure."
+title: "Azure AD e Aplicativos: Atribuindo Usuários a um Aplicativo | Microsoft Docs"
+description: "Como implementar a atribuição de usuários para aplicativos do Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: e9374cbd106d1bcb302645828a061fe184f9956b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="azure-ad-and-applications-assigning-users-tooan-application"></a>O AD do Azure e aplicativos: atribuindo usuários tooan aplicativo
-Antes de atribuir usuários e aplicativos de tooan de grupos, você deve requerer atribuição de usuário.  toolearn como atribuição do usuário toorequire consulte Olá [necessidade de atribuição do usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md) artigo.
+# <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Aplicativos do Azure AD: atribuindo usuários a um aplicativo
+Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atribuição de usuários.  Para saber como exigir a atribuição de usuários, consulte o artigo [Exigindo atribuição de usuários](active-directory-applications-guiding-developers-requiring-user-assignment.md) .
 
-## <a name="assigning-users-tooan-application"></a>Atribuir usuários tooan aplicativo
-1. Faça logon em toohello portal do Azure com uma conta de administrador.
-2. Clique em Olá **todos os itens** item no menu principal da saudação.
-3. Escolha o diretório de saudação que você está usando para o aplicativo hello.
-4. Clique em Olá **aplicativos** guia.
-5. Selecione o aplicativo hello na lista de saudação de aplicativos associados a esse diretório.
-6. Clique em Olá **usuários e grupos** guia.
-7. Selecione usuários Olá tooassign toohello aplicativo desejado.
+## <a name="assigning-users-to-an-application"></a>Atribuindo usuários a um aplicativo
+1. Faça logon no Portal do Azure com uma conta de administrador.
+2. Clique no item **Todos os Itens** no menu principal.
+3. Escolha o diretório que você está usando para o aplicativo.
+4. Clique na guia **APLICATIVOS** .
+5. Selecione o aplicativo na lista de aplicativos associada ao diretório.
+6. Clique na guia **USUÁRIOS E GRUPOS** .
+7. Selecione os usuários que deseja atribuir ao aplicativo.
 8. Clique em **ATRIBUIR**.
 9. Clique em **sim** quando solicitado.
 

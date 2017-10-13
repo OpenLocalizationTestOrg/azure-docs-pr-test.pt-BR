@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure esquema de configuração do diagnóstico 1.0 | Microsoft Docs"
+title: "Esquema de configuração do Diagnóstico do Azure 1.0 | Microsoft Docs"
 description: "Relevante APENAS se você estiver usando o SDK do Azure 2.4 e abaixo com Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric ou Serviços de Nuvem."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,28 +14,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: bdd2b26217d6ea28f19e651ab429e7e7401ff57b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
 > [!NOTE]
-> Diagnóstico do Azure é Olá componente usado toocollect os contadores de desempenho e outras estatísticas de máquinas virtuais do Azure, conjuntos de escala de máquina Virtual, serviço de malha e serviços de nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
+> Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Escala de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
 >
 
 O Diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
 
-arquivo de configuração de diagnóstico do Azure Olá define os valores que são usados tooinitialize Olá Monitor de diagnóstico. Esse arquivo é definições de configuração de diagnóstico de tooinitialize usada quando inicia do monitor de diagnósticos de saudação.  
+O arquivo de configuração do Diagnóstico do Azure define os valores que são usados para inicializar o Monitor de Diagnóstico. Esse arquivo é usado para inicializar as definições de configuração de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
- Por padrão, o arquivo de esquema de configuração de diagnóstico do Azure Olá é instalado toohello `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` directory. Substituir `<version>` com versão de hello instalado do hello [SDK do Azure](http://www.windowsazure.com/develop/downloads/).  
+ Por padrão, o arquivo de esquema de configuração do Diagnóstico do Azure é instalado no diretório `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Substitua `<version>` pela versão instalada do [SDK do Azure](http://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
->  o arquivo de configuração de diagnóstico Olá normalmente é usado com tarefas de inicialização que exigem toobe de dados de diagnóstico coletada anteriormente no processo de inicialização de saudação. Para obter mais informações sobre como usar o Diagnóstico do Azure, consulte [Coletar dados do log usando o Diagnóstico do Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
+>  O arquivo de configuração de diagnóstico é normalmente usado com tarefas de inicialização que exigem a coleta prévia de dados de diagnóstico no processo de inicialização. Para obter mais informações sobre como usar o Diagnóstico do Azure, consulte [Coletar dados do log usando o Diagnóstico do Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
 
-## <a name="example-of-hello-diagnostics-configuration-file"></a>Exemplo de arquivo de configuração de diagnóstico Olá  
- saudação de exemplo a seguir mostra um arquivo de configuração de diagnóstico típico:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Exemplo do arquivo de configuração de diagnóstico  
+ O exemplo a seguir mostra um arquivo de configuração de diagnóstico típico:  
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,28 +52,28 @@ arquivo de configuração de diagnóstico do Azure Olá define os valores que s�
    <Directories bufferQuotaInMB="1024"   
       scheduledTransferPeriod="PT1M">  
 
-      <!-- These three elements specify hello special directories   
-           that are set up for hello log types -->  
+      <!-- These three elements specify the special directories   
+           that are set up for the log types -->  
       <CrashDumps container="wad-crash-dumps" directoryQuotaInMB="256" />  
       <FailedRequestLogs container="wad-frq" directoryQuotaInMB="256" />  
       <IISLogs container="wad-iis" directoryQuotaInMB="256" />  
 
-      <!-- For regular directories hello DataSources element is used -->  
+      <!-- For regular directories the DataSources element is used -->  
       <DataSources>  
          <DirectoryConfiguration container="wad-panther" directoryQuotaInMB="128">  
             <!-- Absolute specifies an absolute path with optional environment expansion -->  
             <Absolute expandEnvironment="true" path="%SystemRoot%\system32\sysprep\Panther" />  
          </DirectoryConfiguration>  
          <DirectoryConfiguration container="wad-custom" directoryQuotaInMB="128">  
-            <!-- LocalResource specifies a path relative tooa local   
-                 resource defined in hello service definition -->  
+            <!-- LocalResource specifies a path relative to a local   
+                 resource defined in the service definition -->  
             <LocalResource name="MyLoggingLocalResource" relativePath="logs" />  
          </DirectoryConfiguration>  
       </DataSources>  
    </Directories>  
 
    <PerformanceCounters bufferQuotaInMB="512" scheduledTransferPeriod="PT1M">  
-      <!-- hello counter specifier is in hello same format as hello imperative   
+      <!-- The counter specifier is in the same format as the imperative   
            diagnostics configuration API -->  
       <PerformanceCounterConfiguration   
          counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT5S" />  
@@ -82,7 +82,7 @@ arquivo de configuração de diagnóstico do Azure Olá define os valores que s�
    <WindowsEventLog bufferQuotaInMB="512"  
       scheduledTransferLogLevelFilter="Verbose"  
       scheduledTransferPeriod="PT1M">  
-      <!-- hello event log name is in hello same format as hello imperative   
+      <!-- The event log name is in the same format as the imperative   
            diagnostics configuration API -->  
       <DataSource name="System!*" />  
    </WindowsEventLog>  
@@ -90,28 +90,28 @@ arquivo de configuração de diagnóstico do Azure Olá define os valores que s�
 ```  
 
 ## <a name="diagnosticsconfiguration-namespace"></a>Namespace DiagnosticsConfiguration  
- Olá namespace XML para o arquivo de configuração de diagnóstico Olá é:  
+ O namespace XML para o arquivo de configuração de diagnóstico é:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
 ## <a name="schema-elements"></a>Elementos de esquema  
- arquivo de configuração de diagnóstico de saudação inclui Olá elementos a seguir.
+ O arquivo de configuração de diagnóstico inclui os elementos a seguir.
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration  
-elemento de nível superior de saudação do arquivo de configuração de diagnóstico de saudação.  
+O elemento de nível superior do arquivo de configuração de diagnóstico.  
 
 Atributos:
 
 |Atributo  |Tipo   |Obrigatório| Padrão | Descrição|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo de saudação em pesquisas de monitor de diagnóstico que Olá para alterações de configuração de diagnóstico.|  
-|**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |Olá total de armazenamento do sistema de arquivos alocado para todos os buffers de log.|  
+|**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo no qual o monitor de diagnóstico sonda em busca de alterações de configuração de diagnóstico.|  
+|**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |A quantidade total de armazenamento de sistema de arquivos alocado para todos os buffers de registro em log.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>Elemento DiagnosticInfrastructureLogs  
-Define a configuração de buffer de saudação para logs de saudação que são gerados pela infraestrutura de diagnóstico subjacente hello.
+Define a configuração de buffer para os logs gerados pela infraestrutura de diagnóstico subjacente.
 
 Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
 
@@ -119,12 +119,12 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------|----|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
-|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo Olá para entradas de log que são transferidos. valor padrão de saudação é **indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
+|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="logs-element"></a>Elemento Logs  
- Define a configuração de buffer de saudação para logs básicos do Azure.
+ Define a configuração de buffer para logs básicos do Azure.
 
  Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
 
@@ -132,12 +132,12 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
-|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo Olá para entradas de log que são transferidos. valor padrão de saudação é **indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
+|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="directories-element"></a>Elemento Directories  
-Define a configuração de buffer de saudação para logs baseados em arquivo que você pode definir.
+Define a configuração de buffer para logs baseados em arquivo que você pode definir.
 
 Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).  
 
@@ -146,11 +146,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
+|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
- Define o diretório de despejos de falhas de saudação.
+ Define o diretório de despejos de falha.
 
  Elemento pai: [elemento Directories](#Directories).  
 
@@ -158,11 +158,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**contêiner**|string|nome de saudação do contêiner de saudação onde o conteúdo de saudação do diretório de saudação é toobe transferidos.|  
-|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo de saudação do diretório de saudação em megabytes.<br /><br /> saudação padrão é 0.|  
+|**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
+|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
- Define o diretório de log de solicitação com falha de saudação.
+ Define o diretório de log de solicitação com falha.
 
  Elemento pai [elemento Directories](#Directories).  
 
@@ -170,11 +170,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**contêiner**|string|nome de saudação do contêiner de saudação onde o conteúdo de saudação do diretório de saudação é toobe transferidos.|  
-|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo de saudação do diretório de saudação em megabytes.<br /><br /> saudação padrão é 0.|  
+|**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
+|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
- Define o diretório de log do IIS de saudação.
+ Define o diretório de log do IIS.
 
  Elemento pai [elemento Directories](#Directories).  
 
@@ -182,8 +182,8 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**contêiner**|string|nome de saudação do contêiner de saudação onde o conteúdo de saudação do diretório de saudação é toobe transferidos.|  
-|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo de saudação do diretório de saudação em megabytes.<br /><br /> saudação padrão é 0.|  
+|**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
+|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
 
 ## <a name="datasources-element"></a>Elemento DataSources  
  Define zero ou mais diretórios de log adicionais.
@@ -191,7 +191,7 @@ Atributos:
  Elemento pai: [elemento Directories](#Directories).
 
 ## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
- Define o diretório de saudação do toomonitor de arquivos de log.
+ Define o diretório de arquivos de log a ser monitorado.
 
  Elemento pai: [elemento DataSources](#DataSources).
 
@@ -199,11 +199,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**contêiner**|string|nome de saudação do contêiner de saudação onde o conteúdo de saudação do diretório de saudação é toobe transferidos.|  
-|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo de saudação do diretório de saudação em megabytes.<br /><br /> saudação padrão é 0.|  
+|**contêiner**|string|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
+|**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
 
 ## <a name="absolute-element"></a>Elemento Absolute  
- Define um caminho absoluto do hello diretório toomonitor com expansão de ambiente opcional.
+ Define um caminho absoluto do diretório a ser monitorado com opção de expansão de ambiente.
 
  Elemento pai: [elemento DirectoryConfiguration](#DirectoryConfiguration).  
 
@@ -211,11 +211,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**path**|string|Obrigatório. Olá caminho absoluto toohello diretório toomonitor.|  
-|**expandEnvironment**|Booliano|Obrigatório. Se definir muito**true**, variáveis de ambiente no caminho de saudação são expandidas.|  
+|**path**|string|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
+|**expandEnvironment**|Booliano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
- Define um recurso de local relativo tooa caminho definido na definição de serviço hello.
+ Define um caminho relativo para um recurso local indicado na definição do serviço.
 
  Elemento pai: [elemento DirectoryConfiguration](#DirectoryConfiguration).  
 
@@ -223,11 +223,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|string|Obrigatório. nome de saudação do recurso de local de Olá que contém a saudação diretório toomonitor.|  
-|**relativePath**|string|Obrigatório. Olá toomonitor do caminho relativo toohello recurso local.|  
+|**name**|string|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
+|**relativePath**|string|Obrigatório. O caminho relativo a um recurso local a ser monitorado.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
- Define toocollect de contador de desempenho do hello caminho toohello.
+ Define o caminho para coleta do contador de desempenho.
 
  Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
 
@@ -236,11 +236,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
+|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
- Define Olá toocollect de contador de desempenho.
+ Define o contador de desempenho a ser coletado.
 
  Elemento pai: [elemento PerformanceCounters](#PerformanceCounters).  
 
@@ -248,11 +248,11 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|Obrigatório. Olá toocollect de contador de desempenho do caminho toohello.|  
-|**sampleRate**|duration|Obrigatório. taxa de saudação no qual Olá contador de desempenho deve ser coletado.|  
+|**counterSpecifier**|string|Obrigatório. O caminho para coleta do contador de desempenho.|  
+|**sampleRate**|duration|Obrigatório. A taxa de coleta do contador de desempenho.|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
- Define Olá toomonitor de logs de eventos.
+ Define os logs de eventos a serem monitorados.
 
  Elemento pai: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConfiguration).
 
@@ -260,12 +260,12 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
-|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo Olá para entradas de log que são transferidos. valor padrão de saudação é **indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
+|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento DataSource  
- Define Olá toomonitor de log de eventos.
+ Define o log de eventos a ser monitorado.
 
  Elemento pai: [elemento WindowsEventLog](#windowsEventLog).  
 
@@ -273,4 +273,4 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|string|Obrigatório. Uma expressão XPath especificando Olá toocollect de log.|  
+|**name**|string|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  

@@ -1,5 +1,5 @@
 ---
-title: limites de capacidade do Data Warehouse aaaSQL | Microsoft Docs
+title: Limites de capacidade do SQL Data Warehouse | Microsoft Docs
 description: "Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,41 +15,41 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 8619cb997f0955d649d447cb8ca15cd742cc70b7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
-Olá tabelas a seguir contêm valores máximos de saudação permitidos para vários componentes do Azure SQL Data Warehouse.
+As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gerenciamento de carga de trabalho
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DWU máxima para um único Data Warehouse do SQL |6000 |
-| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DWU máxima para um único servidor SQL |6000 por padrão<br/><br/> Por padrão, cada SQL server (por exemplo, myserver.database.windows.net) tem uma cota de DTU de 45.000 que permite que o DWU too6000. Essa cota é simplesmente um limite de segurança. Você pode aumentar a cota por [criar um tíquete de suporte] [ creating a support ticket] e selecionando *cota* como tipo de solicitação de saudação.  toocalculate precisa, multiplique o DTU Olá 7.5 pelo total de saudação DWU necessário. Você pode exibir seu consumo de DTU atual da folha de saudação SQL server no portal de saudação. Bancos de dados em pausa e retomados contam para a cota de DTU de saudação. |
-| Conexão de banco de dados |Sessões abertas simultâneas |1024<br/><br/>Há suporte para um máximo de conexões ativas de 1024, cada um deles pode enviar solicitações tooa SQL Data Warehouse banco de dados Olá simultaneamente. Observe que há limites no número de saudação de consultas que pode executar simultaneamente. Quando Olá simultaneidade limite for excedido, solicitação de Olá passa em uma fila interna em que ele espera toobe processado. |
+| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DWU máxima para um único servidor SQL |6000 por padrão<br/><br/> cada servidor SQL (por exemplo, meuservidor.bancodedados.windows.net) tem uma Cota de DTU de 45.000, que permite até 6000 DWU. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte][creating a support ticket] e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7.5 pelo total de DWU necessário. Você pode exibir o consumo atual de DTU na folha do SQL Server no portal. Os bancos de dados em pausa e retomados contam como a cota de DTU. |
+| Conexão de banco de dados |Sessões abertas simultâneas |1.024<br/><br/>Damos suporte a um máximo de 1.024 conexões ativas e cada uma pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
-| [Gerenciamento de carga de trabalho][Workload management] |Máximo de consultas simultâneas |32<br/><br/> Por padrão, o SQL Data Warehouse pode executar um máximo de 32 consultas simultâneas e coloca as consultas restantes na fila.<br/><br/>pode diminuir o nível de simultaneidade Hello quando os usuários são atribuídos a classe de recurso superior tooa ou quando o SQL Data Warehouse é configurado com DWU baixa. Algumas consultas, como consultas DMV, são sempre permitidas toorun. |
-| [Tempdb][Tempdb] |Tamanho máximo de Tempdb |399 GB por DW100. Portanto em Tempdb DWU1000 é TB de tamanho too3.99 |
+| [Gerenciamento de carga de trabalho][Workload management] |Máximo de consultas simultâneas |32<br/><br/> Por padrão, o SQL Data Warehouse pode executar um máximo de 32 consultas simultâneas e coloca as consultas restantes na fila.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior ou quando o SQL Data Warehouse é configurado com uma DWU baixa. Algumas consultas, como as consultas DMV, sempre têm permissão para executar. |
+| [Tempdb][Tempdb] |Tamanho máximo de Tempdb |399 GB por DW100. Portanto, no DWU1000, Tempdb é dimensionado para 3,99 TB |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Banco de dados |Tamanho máx. |240 TB compactados em disco<br/><br/>Esse espaço é independente de espaço em tempdb ou de log e, portanto, esse espaço é dedicado toopermanent tabelas.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite Olá banco de dados toogrow tooapproximately 1 PB quando todas as tabelas são columnstore clusterizado (tipo de tabela padrão Olá). |
+| Banco de dados |Tamanho máx. |240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). |
 | Tabela |Tamanho máx. |60 TB compactados em disco |
 | Tabela |Tabelas por banco de dados |2 bilhões |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependente do [tipo de dados][data type] da coluna.  O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
-| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>Olá o número de bytes por linha é calculado no hello exatamente como ele é para o SQL Server com a compactação de página. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite **colunas de comprimento variável** toobe empurrados para fora da linha. Quando linhas de comprimento variável são colocadas fora de linha, somente raiz de 24 bytes é armazenada no registro principal hello. Para obter mais informações, consulte Olá [estouro de linha dados exceder 8 KB] [ Row-Overflow Data Exceeding 8 KB] artigo do MSDN. |
-| Tabela |Partições por tabela |15.000<br/><br/>De alto desempenho, é recomendável minimizando Olá número de partições necessária enquanto ainda dar suporte a seus requisitos de negócios. Como Olá aumenta o número de partições, sobrecarga de saudação Data Definition Language (DDL) e as operações de linguagem de manipulação de dados (DML) aumenta e faz com que o desempenho mais lento. |
+| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite que as **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para saber mais, confira o artigo [Dados de estouro de linha excedendo 8 KB][Row-Overflow Data Exceeding 8 KB] do MSDN. |
+| Tabela |Partições por tabela |15.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
-| Índice |Índices não clusterizados por tabela. |999<br/><br/>Aplica-se somente a tabelas toorowstore. |
-| Índice |Índices clusterizados por tabela. |1<br><br/>Aplica-se tabelas rowstore e columnstore de tooboth. |
-| Índice |Tamanho da chave de índice. |900 bytes.<br/><br/>Aplica-se apenas índices toorowstore.<br/><br/>Índices em colunas varchar com um tamanho máximo de mais de 900 bytes podem ser criados se os dados existentes nas colunas Olá Olá não exceder 900 bytes quando Olá índice é criado. No entanto, depois de inserir ou ações de atualização em colunas de saudação que fazer com que o tamanho total de saudação tooexceed 900 bytes falharão. |
-| Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se apenas índices toorowstore. Os índices columnstore clusterizados incluem todas as colunas. |
-| Estatísticas |Tamanho de saudação combinados valores de coluna. |900 bytes. |
+| Índice |Índices não clusterizados por tabela. |999<br/><br/>Aplica-se somente a tabelas rowstore. |
+| Índice |Índices clusterizados por tabela. |1<br><br/>Aplica-se a tabelas rowstore e columnstore. |
+| Índice |Tamanho da chave de índice. |900 bytes.<br/><br/>Aplica-se somente a índices rowstore.<br/><br/>Poderão ser criados índices em colunas varchar com um tamanho máximo de mais de 900 bytes se os dados existentes nas colunas não excederem 900 bytes durante a criação do índice. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão. |
+| Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se somente a índices rowstore. Os índices columnstore clusterizados incluem todas as colunas. |
+| Estatísticas |O tamanho dos valores de coluna combinados. |900 bytes. |
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30.000 |
 | Procedimentos Armazenados |Os níveis máximos de aninhamento. |8 |
@@ -58,7 +58,7 @@ Olá tabelas a seguir contêm valores máximos de saudação permitidos para vá
 ## <a name="loads"></a>Cargas
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Cargas de Polybase |MB por segundo |1<br/><br/>Polybase cargas são limitados tooloading linhas menor que 1MB e não é possível carregar tooVARCHR(MAX), nvarchar (max) ou varbinary (max).<br/><br/> |
+| Cargas de Polybase |MB por segundo |1<br/><br/>As cargas Polybase estão limitadas a carregar as duas linhas com menos de 1 MB e não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) nem VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
 | Categoria | Descrição | Máximo |
@@ -68,25 +68,25 @@ Olá tabelas a seguir contêm valores máximos de saudação permitidos para vá
 | Consultar |Consultas em fila em exibições do sistema |1000 |
 | Consultar |Máximo de parâmetros |2098 |
 | Batch |Tamanho máximo |65.536*4096 |
-| Resultados de SELECT |Colunas por linha |4096<br/><br/>Você nunca pode ter mais de 4096 colunas por linha hello selecione resultado. Não há garantia de que você sempre terá 4096. Se o plano de consulta Olá requer uma tabela temporária, colunas de 1024 Olá por máximo de tabela podem ser aplicadas. |
-| SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, uma junção pode apresentar uma subconsulta no plano de consulta de saudação. número de saudação de subconsultas também pode ser limitado pela memória disponível. |
-| SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Você nunca pode ter mais de 1024 colunas em Olá junção. Não há garantia de que você sempre terá 1024. Se o plano de junção Olá requer uma tabela temporária com mais colunas do que o resultado de junção hello, Olá 1024 limite se aplica a tabela temporária toohello. |
-| SELECIONAR |Bytes por colunas GROUP BY. |8.060<br/><br/>colunas de saudação na cláusula GROUP BY da saudação podem ter um máximo de 8060 bytes. |
-| SELECIONAR |Bytes por colunas ORDER BY |8.060 bytes.<br/><br/>colunas de saudação na cláusula ORDER BY da saudação podem ter um máximo de 8060 bytes. |
-| Identificadores e constantes por instrução |O número de identificadores referenciados e constantes. |65.535<br/><br/>SQL Data Warehouse limita o número de saudação de identificadores e constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
+| Resultados de SELECT |Colunas por linha |4.096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela. |
+| SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
+| SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
+| SELECIONAR |Bytes por colunas GROUP BY. |8.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
+| SELECIONAR |Bytes por colunas ORDER BY |8.060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8.060 bytes. |
+| Identificadores e constantes por instrução |O número de identificadores referenciados e constantes. |65.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metadados
 | Exibição do sistema | Máximo de linhas |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10.000 |
 | sys.dm_pdw_dms_cores |100 |
-| sys.dm_pdw_dms_workers |Número total de trabalhadores DMS para hello mais recente 1000 solicitações de SQL. |
+| sys.dm_pdw_dms_workers |O número total de trabalhos DMS para as 1000 solicitações de SQL mais recentes. |
 | sys.dm_pdw_errors |10.000 |
 | sys.dm_pdw_exec_requests |10.000 |
 | sys.dm_pdw_exec_sessions |10.000 |
-| sys.dm_pdw_request_steps |Número total de etapas para solicitações de SQL Olá 1000 mais recentes são armazenadas em sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_request_steps |O número total de etapas para as 1000 solicitações de SQL mais recentes armazenadas em sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10.000 |
-| sys.dm_pdw_sql_requests |Olá mais recente 1000 solicitações SQL que são armazenadas em sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_sql_requests |As 1000 solicitações de SQL mais recentes armazenadas em sys.dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].

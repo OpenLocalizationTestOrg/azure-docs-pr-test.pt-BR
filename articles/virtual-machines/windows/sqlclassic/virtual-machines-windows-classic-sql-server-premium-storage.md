@@ -1,6 +1,6 @@
 ---
-title: aaaUse armazenamento Premium do Azure com o SQL Server | Microsoft Docs
-description: "Este artigo usa recursos criados com o modelo de implantação clássico hello e fornece orientação sobre como usar o armazenamento Premium do Azure com o SQL Server em execução em máquinas virtuais do Azure."
+title: Usar o Armazenamento Premium do Azure com o SQL Server | Microsoft Docs
+description: "Este artigo usa recursos criados com o modelo clássico de implantação e fornece orientação sobre como usar o Armazenamento Premium do Azure com o SQL Server em execução em máquinas virtuais do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 393ea2020b39ea686302ae632e1049935c24af00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
 ## <a name="overview"></a>Visão geral
-[Armazenamento Premium do Azure](../../../storage/common/storage-premium-storage.md) Olá a próxima geração de armazenamento que proporciona baixa latência e alta taxa de transferência e/s. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)do SQL Server no IaaS.
+[Armazenamento Premium do Azure](../../../storage/common/storage-premium-storage.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)do SQL Server no IaaS.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
-Este artigo fornece planejamento e instruções sobre como migrar uma máquina Virtual que executa o SQL Server toouse armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. exemplo Hello Olá [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) mostra uma migração completa abrangente final tooend como toomove maior VMs tootake aproveitar melhor local armazenamento SSD com o PowerShell.
+Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa para mover VMs maiores e aproveitar o armazenamento SSD local aprimorado com o PowerShell.
 
-É importante toounderstand Olá ponta a ponta processo utilizando armazenamento do Premium do Azure com o SQL Server em VMs de IAAS. Isso inclui:
+É importante compreender o processo de ponta a ponta utilizando o Armazenamento Premium do Azure com o SQL Server em VMs IAAS. Isso inclui:
 
-* Identificação da saudação pré-requisitos toouse armazenamento Premium.
-* Exemplos de implantação do SQL Server no IaaS tooPremium armazenamento para novas implantações.
+* Identificação dos pré-requisitos para usar o Armazenamento Premium.
+* Exemplos de implantação do SQL Server no IaaS no Armazenamento Premium para novas implantações.
 * Exemplos de migração de implantações existentes, de servidores autônomos e implantações usando grupos de disponibilidade SQL AlwaysOn.
 * Abordagens de migração possíveis.
-* Exemplo completo de ponta a ponta, mostrando as etapas do Azure, Windows e SQL Server para a migração de saudação de uma implementação existente do AlwaysOn.
+* Exemplo de ponta a ponta completo mostrando as etapas do Azure, do Windows e do SQL Server para a migração de uma implementação AlwaysOn existente.
 
 Para obter informações gerais sobre o SQL Server nas Máquinas Virtuais do Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
@@ -46,24 +46,24 @@ Para obter informações gerais sobre o SQL Server nas Máquinas Virtuais do Azu
 Existem vários pré-requisitos para o uso do Armazenamento Premium.
 
 ### <a name="machine-size"></a>Tamanho do computador
-Para usar o armazenamento Premium, você precisará toouse DS série máquinas virtuais (VM). Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua Olá existente VM, mantenha os discos Olá anexado e, em seguida, criar um novo serviço de nuvem antes de recriar Olá VM como tamanho de função DS *. Para saber mais sobre os tamanhos das Máquinas Virtuais, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para usar o Armazenamento Premium, você precisará usar máquinas virtuais (VM) da série DS. Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua a VM existente, mantenha os discos anexados e, em seguida, crie um novo serviço de nuvem antes de recriar a VM conforme o tamanho da função DS *. Para saber mais sobre os tamanhos das Máquinas Virtuais, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Serviços de Nuvem
-Você só poderá usar VMs DS* com Armazenamento Premium quando elas forem criadas em um novo serviço de nuvem. Se você estiver usando o SQL Server Always On no Azure, Olá sempre ouvinte fará referência toohello endereço interno do Azure ou de IP externo de Balanceador de carga que está associado um serviço de nuvem. Este artigo se concentra em como toomigrate mantendo a disponibilidade nesse cenário.
+Você só poderá usar VMs DS* com Armazenamento Premium quando elas forem criadas em um novo serviço de nuvem. Se você estiver usando o SQL Server AlwaysOn no Azure, o Ouvinte AlwaysOn fará referência ao endereço IP do Balanceador de Externo ou Interno de Carga do Azure que estiver associado a um serviço de nuvem. O foco deste artigo é explicar como migrar ao mesmo tempo em que a disponibilidade é mantida nesse cenário.
 
 > [!NOTE]
-> Uma série DS * deve ser Olá primeira VM é implantada toohello novo serviço de nuvem.
+> Uma série DS* deve ser a primeira VM implantada no novo serviço de nuvem.
 >
 >
 
 ### <a name="regional-vnets"></a>VNETS regionais
-Para VMs DS *, você deve configurar Olá rede Virtual (VNET) hospeda seu toobe VMs regional. Este hello "amplia" VNET é tooallow Olá maior VMs toobe provisionado em outros clusters e permitir a comunicação entre eles. Olá captura de tela a seguir, hello local realçado mostra VNETs regionais, enquanto o primeiro resultado de saudação mostra uma rede virtual "restrito".
+Para VMs DS*, você deve configurar a VNET (Rede Virtual) que hospeda suas VMs como regional. Essa "ampliação" da VNET tem a finalidade de permitir que VMs maiores sejam provisionadas em outros clusters e permitir a comunicação entre elas. Na captura de tela a seguir, o local realçado mostra VNETs regionais, enquanto o primeiro resultado mostra uma VNET "estreita".
 
 ![RegionalVNET][1]
 
-Você pode gerar um tooa de toomigrate do tíquete de suporte Microsoft VNET regional, Microsoft fará uma alteração, então toocomplete Olá migração tooregional VNETs, altere a propriedade de Olá AffinityGroup na configuração de rede de saudação. Exportar primeiro Olá configuração de rede no PowerShell e substitua Olá **AffinityGroup** propriedade Olá **VirtualNetworkSite** elemento com um **local** propriedade. Especifique `Location = XXXX` onde `XXXX` é uma região do Azure. Importe configuração nova hello.
+Você pode gerar um tíquete de suporte da Microsoft para migrar para uma VNET regional, a Microsoft fará uma alteração e, em seguida, para concluir a migração para VNETs regionais, altere a propriedade AffinityGroup na configuração de rede. Primeiro, exporte a Configuração da Rede no PowerShell, em seguida, substitua a propriedade **AffinityGroup** no elemento **VirtualNetworkSite** por uma propriedade **Location**. Especifique `Location = XXXX` onde `XXXX` é uma região do Azure. Em seguida, importe a nova configuração.
 
-Por exemplo, considerando Olá configuração da rede virtual a seguir:
+Por exemplo, considerando a seguinte configuração de VNET:
 
     <VirtualNetworkSite name="danAzureSQLnet" AffinityGroup="AzureSQLNetwork">
     <AddressSpace>
@@ -74,7 +74,7 @@ Por exemplo, considerando Olá configuração da rede virtual a seguir:
     ...
     </VirtualNetworkSite>
 
-toomove este tooa VNET regional na Europa Ocidental, alterar Olá toohello de configuração a seguir:
+Para movê-la para uma VNET regional na Europa Ocidental, altere a configuração para o seguinte:
 
     <VirtualNetworkSite name="danAzureSQLnet" Location="West Europe">
     <AddressSpace>
@@ -86,71 +86,71 @@ toomove este tooa VNET regional na Europa Ocidental, alterar Olá toohello de co
     </VirtualNetworkSite>
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
-Você precisará toocreate uma nova conta de armazenamento que está configurada para o armazenamento Premium. Observe que o uso de saudação do armazenamento Premium é definido na conta de armazenamento hello, não em VHDs individuais, no entanto, ao usar uma VM série DS * você pode anexar do VHD de contas de armazenamento padrão e Premium. Você pode considerar isso se você não quiser tooplace Olá VHD do sistema operacional em toohello conta de armazenamento Premium.
+Você precisará criar uma nova conta de armazenamento que seja configurada para Armazenamento Premium. Observe que o uso do Armazenamento Premium é definido na conta de armazenamento, não em VHDs individuais, no entanto, ao usar uma VM série DS*, você pode anexar VHDs de contas de Armazenamento Padrão e Premium. Você poderá considerar isso se não quiser colocar o VHD do sistema operacional na conta de Armazenamento Premium.
 
-a seguir Olá **New-AzureStorageAccountPowerShell** com hello "Premium_LRS" **tipo** cria uma conta de armazenamento Premium:
+O seguinte comando **New-AzureStorageAccountPowerShell** com o Tipo **"Premium_LRS"** cria uma Conta de Armazenamento Premium:
 
     $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### <a name="vhds-cache-settings"></a>Configurações de Cache de VHDs
-Olá principal diferença entre a criação de discos que fazem parte de uma conta de armazenamento Premium é configuração de cache de disco de saudação. Para discos do volume SQL Server Data, recomendamos que você use ‘**Caching de Leitura**’. Para volumes de log de transações, configuração de cache de disco de saudação deve ser definida muito '**nenhum**'. Isso é diferente das recomendações Olá para contas de armazenamento padrão.
+A principal diferença entre a criação de discos que fazem parte de uma conta de Armazenamento Premium é a configuração de cache de disco. Para discos do volume SQL Server Data, recomendamos que você use ‘**Caching de Leitura**’. Para volumes de log de transações, a configuração de cache de disco deve ser definida como ‘**Nenhum**’. Isso é diferente das recomendações para contas de Armazenamento Padrão.
 
-Depois que os VHDs Olá foram anexados, configuração de cache de saudação não pode ser alterada. Você precisa toodetach e reconecte Olá VHD com uma configuração de cache atualizado.
+Depois que os VHDs forem anexados, a configuração de cache não poderá ser alterada. Você precisaria desanexar e anexar novamente o VHD com uma configuração de cache atualizada.
 
 ### <a name="windows-storage-spaces"></a>Espaços de armazenamento do Windows
-Você pode usar [espaços de armazenamento do Windows](https://technet.microsoft.com/library/hh831739.aspx) como você fez com o armazenamento padrão anterior, isso permitirá que você toomigrate uma máquina virtual que já está usando espaços de armazenamento. exemplo Hello [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (etapa 9 e posteriores) demonstra Olá tooextract de código do Powershell e importar uma VM com vários VHDs anexados.
+Você pode usar os [Espaços de Armazenamento do Windows](https://technet.microsoft.com/library/hh831739.aspx) como fez com o Armazenamento Padrão anterior; isso permitirá que você migre uma VM que já utiliza os Espaços de Armazenamento. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (etapa 9 em diante) demonstra o código do Powershell para extrair e importar uma VM com vários VHDs anexados.
 
-Pools de armazenamento foram usados com taxa de transferência tooenhance conta de armazenamento de Azure padrão e reduzem a latência. Talvez você ache interessante testar Pools de Armazenamento com o Armazenamento Premium para novas implantações, mas isso agrega uma complexidade adicional com a configuração do armazenamento.
+Pools de Armazenamento foram usados com a conta de armazenamento do Azure Padrão para melhorar a taxa de transferência e reduzir a latência. Talvez você ache interessante testar Pools de Armazenamento com o Armazenamento Premium para novas implantações, mas isso agrega uma complexidade adicional com a configuração do armazenamento.
 
-#### <a name="how-toofind-which-azure-virtual-disks-map-toostorage-pools"></a>Como toofind toostorage pools de mapear os discos virtuais do Azure
-Como há recomendações de configuração de cache diferentes para VHDs anexados, você pode decidir toocopy Olá VHDs tooa conta de armazenamento Premium. No entanto, quando você reconectá-las toohello nova série DS VM, talvez seja necessário tooalter as configurações de cache de saudação. É mais simples Olá tooapply que armazenamento Premium recomendada as configurações de cache quando houver VHDs separados para Olá de dados do SQL arquivos e log arquivos (em vez de um único VHD que contém ambos).
+#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Como descobrir quais discos virtuais do Azure são mapeados para os pools de armazenamento
+Como há recomendações de configuração de cache diferentes para VHDs anexados, você pode optar por copiar os VHDs em uma conta de Armazenamento Premium. No entanto, quando você anexá-los outra vez à nova VM da série DS, talvez seja necessário alterar as configurações de cache. É mais simples aplicar as configurações de cache recomendadas do Armazenamento Premium quando há VHDs separados para arquivos do SQL Data e arquivos de log (em vez de um único VHD que contém ambos).
 
 > [!NOTE]
-> Se você tiver arquivos de log e de dados do SQL Server no mesmo volume, Olá cache opção que você escolher depende de padrões de acesso de e/s de saudação para suas cargas de trabalho do banco de dados de saudação. Apenas o teste pode demonstrar qual opção de cache é ideal para esse cenário.
+> Se você tiver arquivos de log e de dados do SQL Server no mesmo volume, a opção de cache que escolher dependerá dos padrões de acesso de E/S para as cargas de trabalho de banco de dados. Apenas o teste pode demonstrar qual opção de cache é ideal para esse cenário.
 >
 >
 
-No entanto, se você estiver usando espaços de armazenamento do Windows que são compostos de vários VHDs, você precisará toolook no seu tooidentify scripts originais que VHDs anexos são em qual pool específico, então você pode definir as configurações de cache Olá adequadamente para cada disco.
+No entanto, se estiver usando Espaços de Armazenamento do Windows compostos de vários VHDs, você precisará examinar seus scripts originais para identificar quais VHDs anexados estão em qual pool específico, assim poderá definir as configurações de cache de acordo com cada disco.
 
-Se você não tiver original tooshow disponíveis do script qual mapeiam VHDs toohello pool de armazenamento, você pode usar o hello mapeamento de pool de armazenamento em disco/etapas toodetermine Olá a seguir.
+Se você não tiver o script original disponível para mostrar quais VHDs são mapeados para o pool de armazenamento, sia as próximas etapas para determinar o mapeamento de pool de disco/armazenamento.
 
-Para cada disco, use Olá etapas a seguir:
+Para cada disco, siga estas etapas:
 
-1. Obter uma lista de discos anexados tooVM com hello **Get-AzureVM** comando:
+1. Obtenha a lista de discos anexados à VM com o comando **Get-AzureVM** :
 
     Get-AzureVM -ServiceName <servicename> -Nome <vmname> | Get-AzureDataDisk
-2. Observe hello Diskname e LUN.
+2. Anote o Diskname e o LUN.
 
     ![DisknameAndLUN][2]
-3. Área de trabalho remota Olá VM. Em seguida, acesse muito**gerenciamento do computador** | **Gerenciador de dispositivos** | **unidades de disco**. Examinar as propriedades de saudação de cada Olá 'Microsoft discos virtuais'
+3. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
     ![VirtualDiskProperties][3]
-4. número LUN Olá aqui é um número LUN de toohello referência que você especificar ao anexar o VHD de saudação toohello VM.
-5. Para Olá 'Microsoft Virtual Disk' go toohello **detalhes** guia e, em seguida, na Olá **propriedade** lista, vá muito**chave Driver**. Em Olá **valor**, Olá Observação **deslocamento**, que é 0002 em Olá captura de tela a seguir. Olá 0002 denota hello PhysicalDisk2 Olá referências de pool de armazenamento.
+4. O número de LUNs aqui é uma referência para o número de LUNs que você especificar ao anexar o VHD à VM.
+5. Para o 'Disco Virtual Microsoft', vá para a guia **Detalhes**, em seguida, na lista **Propriedade**, vá para **Chave do Driver**. Em **Valor**, observe o **Deslocamento**, que é 0002 na captura de tela a seguir. O 0002 indica o PhysicalDisk2 que o pool de armazenamento referencia.
 
     ![VirtualDiskPropertyDetails][4]
-6. Para cada pool de armazenamento, o despejo de saudação associado discos:
+6. Para cada pool de armazenamento, despeje os discos associados:
 
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
     ![GetStoragePool][5]
 
-Agora você pode usar este tooassociate informações anexado VHDs tooPhysical discos em Pools de armazenamento.
+Agora você pode usar essas informações para associar VHDs anexados a discos físicos em pools de armazenamento.
 
-Depois que você mapeou VHDs tooPhysical discos em Pools de armazenamento, em seguida, você pode desanexar e copiá-los em tooa conta de armazenamento Premium, em seguida, anexá-los com configuração de cache correto hello. Consulte o exemplo hello em hello [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), as etapas de 8 a 12. Estas etapas mostram como tooextract um VHD anexado VMs disco tooa CSV arquivo de configuração copiar VHDs hello, alterar configurações de cache de configuração de disco hello e finalmente reimplantar Olá VM como conectado de uma VM da série DS com hello todos os discos.
+Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, você poderá desanexá-los e copiá-los em uma conta de Armazenamento Premium e depois anexá-los com a configuração de cache correta. Veja o exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), etapas 8 a 12. Essas etapas mostram como extrair uma configuração de disco VHD anexado à VM para um arquivo CSV, copiar os VHDs, alterar as configurações de cache de configuração do disco e finalmente reimplantar a VM como uma VM da série DS com todos os discos anexados.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Largura de banda de armazenamento de VM e taxa de transferência de armazenamento de VHD
-saudação de desempenho de armazenamento depende Olá tamanho de DS * VM especificado e Olá tamanhos VHD. Olá VMs tem permissões diferentes para o número de saudação de VHDs que podem ser anexados e Olá largura de banda máxima (MB/s) será oferecido suporte. Para números de largura de banda específica hello, consulte [Máquina Virtual e tamanhos de serviço de nuvem para Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números específicos da largura de banda, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte tabela Olá para tipos de disco de IOPS e](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e Tipos de Disco](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
 
-Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Sob alta carga, você pode saturar Olá disco máxima largura de banda disponível para esse tamanho de função VM. Por exemplo um Standard_DS14 dará suporte a too512MB/s. Portanto, com três discos P30 você poderia saturar a largura de banda de disco de saudação do hello VM. Mas, neste exemplo, o limite de taxa de transferência Olá poderá ser excedido dependendo da combinação de saudação de leitura e gravação de IOs.
+Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
 ## <a name="new-deployments"></a>Novas implantações
-duas seções seguintes Olá demonstram como você pode implantar VMs do SQL Server tooPremium armazenamento. Como mencionado anteriormente, não é necessariamente necessário disco do sistema operacional Olá tooplace em armazenamento Premium. Você pode escolher toodo isso se você estiver pretendendo tooplace qualquer cargas de trabalho intensivas de e/s em Olá VHD do sistema operacional.
+As próximas duas seções demonstram como você pode implantar VMs do SQL Server no Armazenamento Premium. Como mencionado antes, você não precisa necessariamente colocar o disco do sistema operacional no Armazenamento Premium. Você pode optar por fazer isso caso tenha a intenção de colocar cargas de trabalho intensivas de E/S no VHD do sistema operacional.
 
-Olá primeiro exemplo demonstra o uso de imagens da galeria existente do Azure. Olá segundo exemplo mostra como toouse uma VM personalizada da imagem que você tem em uma conta de armazenamento padrão existente.
+O primeiro exemplo demonstra o uso de imagens da Galeria do Azure existente. O segundo exemplo mostra como usar uma imagem de VM personalizada em uma conta de armazenamento Padrão existente.
 
 > [!NOTE]
 > Esses exemplos pressupõem que você já tenha criou um VNET regional.
@@ -158,7 +158,7 @@ Olá primeiro exemplo demonstra o uso de imagens da galeria existente do Azure. 
 >
 
 ### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Criar uma nova VM com Armazenamento Premium com Imagem da Galeria
-exemplo Hello abaixo mostra como tooplace Olá VHD do sistema operacional para o armazenamento premium e anexar VHDs de armazenamento Premium. No entanto, você pode também colocar o disco do sistema operacional Olá em uma conta de armazenamento padrão e, em seguida, anexar VHDs que residem em uma conta de armazenamento Premium. Ambos os cenários são demonstrados.
+O exemplo a seguir mostra como colocar o VHD do sistema operacional no armazenamento premium e anexar VHDs de Armazenamento Premium. No entanto, você também pode colocar o disco do sistema operacional em uma conta de Armazenamento Padrão e, em seguida, anexar VHDs que residem em uma conta de Armazenamento Premium. Ambos os cenários são demonstrados.
 
     $mysubscription = "DansSubscription"
     $location = "West Europe"
@@ -197,18 +197,18 @@ exemplo Hello abaixo mostra como tooplace Olá VHD do sistema operacional para o
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Etapa 5: colocar o VHD do sistema operacional no armazenamento Padrão ou Premium
-    #NOTE: Set up subscription and default storage account which will be used tooplace hello OS VHD in
+    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
 
-    #If you want tooplace hello OS VHD Premium Storage Account
+    #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
 
-    #If you wanted tooplace hello OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
+    #If you wanted to place the OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
     $standardstorageaccountname = "danstdams"
 
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 
 #### <a name="step-6-create-vm"></a>Etapa 6: criar uma VM
-    #Get list of available SQL Server Images from hello Azure Image Gallery.
+    #Get list of available SQL Server Images from the Azure Image Gallery.
     $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"}
     $image = $galleryImage.ImageName
 
@@ -218,7 +218,7 @@ exemplo Hello abaixo mostra como tooplace Olá VHD do sistema operacional para o
     $subnet = "SQL"
     $ipaddr = "192.168.0.8"
 
-    #Remember toochange tooDS series VM
+    #Remember to change to DS series VM
     $newInstanceSize = "Standard_DS1"
 
     #create new Avaiability Set
@@ -231,9 +231,9 @@ exemplo Hello abaixo mostra como tooplace Olá VHD do sistema operacional para o
     #Create VM Config
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
-    #Add Data and Log Disks tooVM Config
-    #Note hello size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
-    #Utilising hello Premium Storage enabled Storage account
+    #Add Data and Log Disks to VM Config
+    #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
+    #Utilising the Premium Storage enabled Storage account
 
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "logDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-log1.vhd"
@@ -250,8 +250,8 @@ exemplo Hello abaixo mostra como tooplace Olá VHD do sistema operacional para o
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 
-### <a name="create-a-new-vm-toouse-premium-storage-with-a-custom-image"></a>Criar um novo toouse VM armazenamento Premium com uma imagem personalizada
-Este cenário demonstra onde você tem imagens personalizadas existentes que residem em uma conta de Armazenamento Padrão. Conforme mencionado se você quiser tooplace Olá VHD do sistema operacional no armazenamento Premium que você precisará toocopy Olá imagem que existe na conta de armazenamento padrão de saudação e transferi-las tooa armazenamento Premium antes de ser usada. Se você tiver uma imagem no local, você pode também usar esse método toocopy diretamente toohello conta de armazenamento Premium.
+### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Criar uma nova VM para usar o Armazenamento Premium com uma imagem personalizada
+Este cenário demonstra onde você tem imagens personalizadas existentes que residem em uma conta de Armazenamento Padrão. Como mencionado, se quiser colocar o VHD do sistema operacional no Armazenamento Premium, você precisará copiar a imagem que existe na conta de Armazenamento Padrão e transferi-la para um Armazenamento Premium antes que possa ser usada. Se você tiver uma imagem local, também poderá usar esse método para copiá-la diretamente para a conta de Armazenamento Premium.
 
 #### <a name="step-1-create-storage-account"></a>Etapa 1: criar conta de armazenamento
     $mysubscription = "DansSubscription"
@@ -270,7 +270,7 @@ Este cenário demonstra onde você tem imagens personalizadas existentes que res
 
 
 #### <a name="step-3-use-existing-image"></a>Etapa 3: Usar a imagem existente
-Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Máquina de saudação Observação que você a imagem não tem toobe DS * máquina. Uma vez que a imagem de hello, Olá mostram as etapas a seguir como toocopy-toohello conta de armazenamento Premium Olá **AzureStorageBlobCopy início** commandlet PowerShell.
+Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que o computador cuja imagem é criada não precisa ser um computador DS\*. Assim que tiver a imagem, as próximas etapas mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -278,7 +278,7 @@ Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem
     #Premium Storage account
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
-    #Set up contexts for hello storage accounts:
+    #Set up contexts for the storage accounts:
     $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 
@@ -295,19 +295,19 @@ Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem
 #### <a name="step-5-regularly-check-copy-status"></a>Etapa 5: verificar regularmente o status da cópia:
     $blob | Get-AzureStorageBlobCopyState
 
-#### <a name="step-6-add-image-disk-tooazure-disk-repository-in-subscription"></a>Etapa 6: Adicionar tooAzure de disco imagem repositório na assinatura
+#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Etapa 6: adicionar o disco de imagem ao repositório de disco do Azure na assinatura
     $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
     $newimageName = "prem"+"dansoldonorsql2k14"
 
     Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 
 > [!NOTE]
-> Você pode achar que, embora os relatórios de status de saudação como êxito, você pode obter um erro de concessão de disco. Nesse caso, espere cerca de 10 minutos.
+> Pode ser que mesmo com os relatórios de status mostrando sucesso, você ainda receba um erro de concessão de disco. Nesse caso, espere cerca de 10 minutos.
 >
 >
 
-#### <a name="step-7--build-hello-vm"></a>Etapa 7: Criar hello VM
-Aqui, você está criando Olá VM de sua imagem e anexar dois VHDs de armazenamento Premium:
+#### <a name="step-7--build-the-vm"></a>Etapa 7: criar a VM
+Aqui, você está criando a VM com base na sua imagem e anexando dois VHDs de Armazenamento Premium:
 
     $newimageName = "prem"+"dansoldonorsql2k14"
     #Set up Machine Specific Information
@@ -316,10 +316,10 @@ Aqui, você está criando Olá VM de sua imagem e anexar dois VHDs de armazename
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
 
-    #This will need toobe a new cloud service
+    #This will need to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
 
-    #Use tooDS Series VM
+    #Use to DS Series VM
     $newInstanceSize = "Standard_DS1"
 
     #create new Avaiability Set
@@ -342,62 +342,62 @@ Aqui, você está criando Olá VM de sua imagem e anexar dois VHDs de armazename
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Implantações existentes que não usam grupos de disponibilidade AlwaysOn
 > [!NOTE]
-> Para as implantações existentes, consulte primeiro Olá [pré-requisitos](#prerequisites-for-premium-storage) seção deste tópico.
+> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste tópico.
 >
 >
 
-Há considerações diferentes para implantações do SQL Server que não usam grupos de disponibilidade AlwaysOn e aquelas que usam. Se você não estiver usando o AlwaysOn e tiver um autônomo existente do SQL Server, você pode atualizar tooPremium armazenamento usando uma nova conta de armazenamento e serviços de nuvem. Considere Olá as opções a seguir:
+Há considerações diferentes para implantações do SQL Server que não usam grupos de disponibilidade AlwaysOn e aquelas que usam. Se não estiver usando AlwaysOn e tiver um SQL Server autônomo existente, você poderá atualizar para o Armazenamento Premium usando um novo serviço de nuvem e conta de armazenamento. Considere as seguintes opções:
 
-* **Criar uma nova VM do SQL Server**. Você pode criar uma nova VM do SQL Server que usa uma conta de Armazenamento Premium, conforme documentado em Novas implantações. Em seguida, faça uma operação de backup e restauração de seus bancos de dados de configuração e usuário do SQL Server. Olá aplicativo precisará toobe atualizado tooreference Olá novo SQL Server se ele estiver sendo acessado interna ou externamente. Você precisaria toocopy todos os objetos 'fora do banco de dados' como se fosse uma migração do lado a lado (SxS) SQL Server. Isso inclui objetos como logons, certificados e servidores vinculados.
-* **Migrar uma VM existente do SQL Server**. Isso exigirá colocar offline o hello VM do SQL Server e, em seguida, transferi-lo tooa novo serviço de nuvem, que inclui a cópia de todos os seu toohello de VHDs anexado conta de armazenamento Premium. Quando Olá VM fica online, aplicativo hello fará referência a nome de host de servidor hello como antes. Lembre-se de que o tamanho Olá de disco existente Olá afetará características de desempenho de saudação. Por exemplo, um disco de 400 GB obtém arredondado tooa P20. Se você souber que você não precisa que o desempenho do disco, você pode recriar Olá VM como uma VM da série DS e anexar VHDs de armazenamento Premium da especificação de tamanho e desempenho Olá que precisar. Em seguida, você pode desanexar e anexar novamente os arquivos de banco de dados SQL Olá.
+* **Criar uma nova VM do SQL Server**. Você pode criar uma nova VM do SQL Server que usa uma conta de Armazenamento Premium, conforme documentado em Novas implantações. Em seguida, faça uma operação de backup e restauração de seus bancos de dados de configuração e usuário do SQL Server. Será necessário atualizar o aplicativo para referenciar o novo SQL Server se ele estiver sendo acessada interna ou externamente. Você precisa copiar todos os objetos 'fora do banco de dados' como se estivesse fazendo uma migração SxS (Lado a Lado) do SQL Server. Isso inclui objetos como logons, certificados e servidores vinculados.
+* **Migrar uma VM existente do SQL Server**. Isso exigirá colocar a VM do SQL Server offline, depois transferi-la para um novo serviço de nuvem, o que inclui copiar todos os seus VHDs anexados para a conta de Armazenamento Premium. Quando a VM for colocada online, o aplicativo fará referência ao nome de host do servidor como antes. Lembre-se de que o tamanho do disco existente afetará as características de desempenho. Por exemplo, um disco de 400 GB é arredondado para um P20. Se você souber que não vai precisar do desempenho desse disco, poderá recriar a VM coo uma VM da série DS, e anexar VHDs de Armazenamento Premium com a especificação de tamanho/desempenho que quiser. Em seguida, você poderá desanexar e anexar novamente os arquivos de banco de dados SQL.
 
 > [!NOTE]
-> Ao copiar os discos VHD de saudação, você deve estar ciente do tamanho hello, dependendo do tamanho da saudação significa que o tipo de disco de armazenamento Premium eles se encaixam, isso determina a especificação de desempenho de disco. Tamanho do Azure será arredondado backup toohello mais próximo do disco, para que se você tiver um disco de 400 GB, isso será arredondado tooa P20. Dependendo dos requisitos de e/s existentes de saudação VHD do sistema operacional, talvez não seja necessário toomigrate este tooa conta de armazenamento Premium.
+> Ao copiar os discos VHD, não se esqueça de considerar o tamanho, pois o tipo de Disco de Armazenamento Premium em que eles vão se enquadrar dependerá do tamanho e isso determina a especificação de desempenho de disco. O Azure arredondará para o tamanho de disco mais próximo, portanto, se você tiver um disco de 400 GB, ele será arredondado para um P20. Dependendo dos requisitos de E/S existentes do VHD do sistema operacional, talvez não seja necessário migrá-lo para uma conta de Armazenamento Premium.
 >
 >
 
-Se o SQL Server for acessado externamente, Olá VIP de serviço de nuvem será alterado. Você também terá DNS, as ACLs e pontos de extremidade tooupdate configurações.
+Se o SQL Server for acessado externamente, o VIP de serviço de nuvem será alterado. Você também terá que atualizar pontos de extremidade, ACLs e configurações de DNS.
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Implantações existentes que usam grupos de disponibilidade AlwaysOn
 > [!NOTE]
-> Para as implantações existentes, consulte primeiro Olá [pré-requisitos](#prerequisites-for-premium-storage) seção deste tópico.
+> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste tópico.
 >
 >
 
-No início desta seção, vamos examinar como o AlwaysOn interage com a Rede do Azure. Em seguida, dividiremos migrações em cenários de tootwo: migrações onde algum tempo de inatividade pode ser tolerado e migrações onde você deve obter o tempo de inatividade mínimo.
+No início desta seção, vamos examinar como o AlwaysOn interage com a Rede do Azure. Em seguida, vamos dividir as migrações em dois cenários: migrações em que algum tempo de inatividade pode ser tolerado e migrações em que você deve obter o mínimo de tempo de inatividade.
 
-Os grupos de disponibilidade AlwaysOn locais do SQL Server usam um Ouvinte local que registra um nome DNS virtual junto com um endereço IP que é compartilhado entre um ou mais SQL Servers. Quando os clientes se conectam sejam roteadas por meio de saudação ouvinte IP toohello principal do SQL Server. Este é o servidor de saudação que possui Olá recurso sempre IP nesse momento.
+Os grupos de disponibilidade AlwaysOn locais do SQL Server usam um Ouvinte local que registra um nome DNS virtual junto com um endereço IP que é compartilhado entre um ou mais SQL Servers. Quando se conectam, os clientes são roteadas por meio do IP do ouvinte para o SQL Server Primário. Esse é o servidor que tem o recurso IP AlwaysOn no momento.
 
 ![DeploymentsUseAlways On][6]
 
-No Microsoft Azure, você pode ter tooa de endereço atribuído apenas um IP NIC em Olá VM, na ordem tooachieve Olá mesma camada de abstração, como local, Azure utiliza o endereço IP de saudação que é atribuído a balanceadores de carga interno ou externo toohello ILB/ELB (). o recurso IP Hello que é compartilhado entre servidores hello está definido toohello mesmo IP como Olá ILB/ELB. Isso é publicado no hello DNS, e o tráfego do cliente é passado por meio de réplica do hello ILB/ELB toohello SQL Server primário. Olá ILB/ELB sabe a qual o SQL Server é primário desde que ele usa testes tooprobe Olá sempre IP recursos. No exemplo anterior de saudação, sondas de cada nó que possui um ponto de extremidade referenciado por Olá ELB/ILB, aquele que responde é Olá principal do SQL Server.
+No Microsoft Azure, você pode ter apenas um endereço IP atribuído a uma NIC na máquina virtual, portanto, para atingir a mesma camada de abstração do local, o Azure utiliza o endereço IP que é atribuído aos balanceadores de carga internos ou externos (ILB/ELB). O recurso IP que é compartilhado entre os servidores é definido como o mesmo IP de ILB/ELB. Ele é publicado no DNS e o tráfego do cliente é transmitido por meio de ILB/ELB para a réplica do SQL Server Primário. O ILB/ELB sabe qual SQL Server é o primário, pois ele usa testes para investigar o recurso IP AlwaysOn. No exemplo anterior, ele investiga cada nó com um ponto de extremidade referenciado pelo ELB/ILB, aquele que responder será o SQL Server Primário.
 
 > [!NOTE]
-> Olá ILB e ELB forem atribuídos tooa serviço de nuvem do Azure específica, portanto qualquer migração para a nuvem no Azure provavelmente significa que Olá que IP do balanceador de carga será alterado.
+> O ILB e o ELB são atribuídos a um serviço de nuvem do Azure específico, portanto, se ocorrer alguma migração de nuvem no Azure provavelmente isso significa que o IP do balanceador de carga será alterado.
 >
 >
 
 ### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migrando implantações AlwaysOn que podem permitir algum tempo de inatividade
-Há duas estratégias toomigrate sempre em implantações que permitem a algum tempo de inatividade:
+Existem duas estratégias para migrar as implantações AlwaysOn que permitem algum tempo de inatividade:
 
-1. **Adicionar mais tooan réplicas secundárias existentes sempre em Cluster**
-2. **Migrar tooa sempre no Cluster novo**
+1. **Adicionar mais réplicas secundárias a um cluster AlwaysOn existente**
+2. **Migrar para um novo cluster AlwaysOn**
 
-#### <a name="1-add-more-secondary-replicas-tooan-existing-always-on-cluster"></a>1. Adicionar mais tooan de réplicas secundárias existentes sempre Cluster
-Uma estratégia é tooadd mais secundários toohello grupo de disponibilidade AlwaysOn. Você precisa tooadd em um novo serviço de nuvem e atualize o ouvinte Olá com hello novo IP do balanceador de carga.
+#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Adicionar mais réplicas secundárias a um cluster AlwaysOn existente
+Uma estratégia é adicionar mais réplicas secundárias ao grupo de disponibilidade AlwaysOn. Você precisa adicioná-las em um novo serviço de nuvem e atualizar o ouvinte com o novo IP do balanceador de carga.
 
 ##### <a name="points-of-downtime"></a>Pontos de tempo de inatividade:
 * Validação de cluster.
 * Testando failovers AlwaysOn para secundárias novas.
 
-Se você estiver usando Pools de armazenamento do Windows em Olá VM para maior taxa de transferência de e/s, em seguida, eles serão colocados offline durante uma validação completa de Cluster. é necessário um teste de validação de Hello quando você adicionar nós toohello cluster. Olá tempo toorun teste de saudação pode variar, você deve testar isso em seu tooget do ambiente de teste representativo uma hora aproximada de quanto tempo isso leva.
+Se você estiver usando Pools de Armazenamento do Windows na VM para obter uma taxa de transferência de E/S mais alta, eles serão colocados offline durante uma Validação de Cluster Completa. O teste de validação é necessário quando você adiciona nós ao cluster. O tempo necessário para executar o teste pode variar, de modo que você deve testar isso em seu ambiente de teste representativo para obter um tempo aproximado para essa operação.
 
-Você deve provisionar o tempo em que você pode executar o failover manual e caos testes em Olá recentemente adicionado nós tooensure sempre em funções de alta disponibilidade, conforme o esperado.
+Você deve provisionar o tempo em que é possível executar o failover manual e testes de caos nos nós adicionados recentemente para assegurar funções de Alta Disponibilidade AlwaysOn conforme o esperado.
 
 ![DeploymentUseAlways On2][7]
 
 > [!NOTE]
-> Você deve interromper todas as instâncias do SQL Server onde Olá Pools de armazenamento são usados antes hello validação é executada.
+> Você deve interromper todas as instâncias do SQL Server em que os Pools de Armazenamento forem usados antes de executar a Validação.
 >
 > ##### <a name="high-level-steps"></a>Etapas de alto nível
 >
@@ -408,50 +408,50 @@ Você deve provisionar o tempo em que você pode executar o failover manual e ca
 4. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
 
    > [!NOTE]
-   > Verificar que todos os nós têm a configuração de ponto de extremidade correto Olá antes de continuar
+   > Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
    >
    >
-5. Pare toohello de acesso de usuário e de aplicativo do SQL Server (se estiver usando Pools de armazenamento).
+5. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
 6. Interrompa serviços de mecanismo do SQL Server em todos os nós (se você estiver usando pools de armazenamento).
-7. Adicionar novo toocluster de nós e execute a validação completa.
+7. Adicione novos nós ao cluster e execute a validação completa.
 8. Depois que a validação for bem-sucedida, inicie todos os Serviços do SQL Server.
 9. Faça backup dos logs de transações e restaure os bancos de dados do usuário.
-10. Adicione novos nós Olá grupo de disponibilidade AlwaysOn e colocar a replicação em **síncrona**.
-11. Adicionar IP hello recurso de endereço de saudação serviço de nuvem novo ILB/ELB por meio do PowerShell do AlwaysOn com base no exemplo de multissite Olá Olá [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). No cluster do Windows, defina Olá **possíveis proprietários** de saudação **endereço IP** recurso toohello novos nós antigos. Consulte a seção 'Adicionar recurso de endereço IP na mesma sub-rede' hello de saudação [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-12. Tooone de failover de nós de novo hello.
-13. Faça Olá novos nós parceiros de Failover automático e failovers de teste.
+10. Adicione novos nós ao Grupo de Disponibilidade AlwaysOn e coloque a replicação em **Síncrono**.
+11. Adicione o recurso de endereço IP do novo ILB/ELB do serviço de nuvem por meio do PowerShell para AlwaysOn com base no exemplo de vários sites apresentado no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). No cluster do Windows, defina os **Possíveis proprietários** do recurso **Endereço IP** para os novos nós. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+12. Execute o failover para um dos novos nós.
+13. Transforme os novos nós em Parceiros de Failover Automático e teste os failovers.
 14. Remova os nós originais do grupo de disponibilidade.
 
 ##### <a name="advantages"></a>Vantagens
-* Novos servidores SQL pode ser testado (SQL Server e aplicativo) antes de serem adicionados tooAlways em.
-* Você pode alterar o tamanho da VM hello e personalizar os requisitos exatos do hello armazenamento tooyour. No entanto, seria útil tookeep todos os caminhos de arquivo SQL Olá Olá mesmo.
-* Você pode controlar quando a transferência de saudação do toohello de backups de banco de dados de saudação réplicas secundárias são iniciados. Isso é diferente de usar o Azure **AzureStorageBlobCopy início** toocopy commandlet VHDs, pois é uma cópia assíncrona.
+* Novos SQL Servers podem ser testados (SQL Server e aplicativo) antes de serem adicionados ao AlwaysOn.
+* Você pode alterar o tamanho da VM e personalizar o armazenamento de acordo com seus requisitos exatos. No entanto, seria vantajoso manter todos os caminhos de arquivo SQL iguais.
+* Você pode controlar quando a transferência dos backups de banco de dados para as réplicas secundárias será iniciado. Isso é diferente de usar o commandlet do Azure **Start-AzureStorageBlobCopy** para copiar VHDs, pois essa é uma cópia assíncrona.
 
 ##### <a name="disadvantages"></a>Desvantagens
-* Ao usar Pools de armazenamento do Windows, há um tempo de inatividade do Cluster durante a saudação validação completa de Cluster para nós adicionais do novo hello.
-* Dependendo Olá versão do SQL Server e do número de existente Olá das réplicas secundárias, você pode não ser capaz de tooadd mais réplicas secundárias sem remover secundários existentes.
-* Pode haver muito tempo de transferência de dados SQL durante a configuração secundários hello.
+* Durante o uso de Pools de Armazenamento do Windows, há um tempo de inatividade de cluster na Validação de Cluster Completa para os novos nós adicionais.
+* Dependendo da versão do SQL Server e do número existente de réplicas secundárias, você não poderá adicionar mais réplicas secundárias sem remover as existentes.
+* O tempo de transferência de dados SQL pode ser muito longo durante a configuração de réplicas secundárias.
 * Há custos adicionais durante a migração quando há novas máquinas em execução em paralelo.
 
-#### <a name="2-migrate-tooa-new-always-on-cluster"></a>2. Migrar tooa sempre no Cluster novo
-Outra estratégia é toocreate uma nova sempre em Cluster conosco de novos no novo serviço de nuvem e, em seguida, redirecione Olá clientes toouse-lo.
+#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Migrar para um novo cluster AlwaysOn
+Outra estratégia é criar um novo cluster AlwaysOn com nós totalmente novos no novo serviço de nuvem e redirecionar os clientes para usá-lo.
 
 ##### <a name="points-of-downtime"></a>Pontos de tempo de inatividade
-Não há tempo de inatividade durante a transferência de aplicativos e usuários toohello novo sempre no ouvinte. tempo de inatividade Olá depende:
+Há um tempo de inatividade quando você transfere aplicativos e usuários para o novo ouvinte AlwaysOn. O tempo de inatividade depende do seguinte:
 
-* Olá tempo toorestore toodatabases de backups de log de transações final em novos servidores.
-* Olá tempo tooupdate cliente aplicativos toouse novo sempre no ouvinte.
+* Tempo necessário para restaurar backups de log de transações final para bancos de dados em novos servidores.
+* Tempo necessário para atualizar os aplicativos cliente para usar o novo ouvinte AlwaysOn.
 
 ##### <a name="advantages"></a>Vantagens
-* Você pode testar o ambiente de produção real hello, SQL Server, e alterações de build do sistema operacional.
-* Você tem o armazenamento de Olá Olá opção toocustomize e toopotentially reduzir o tamanho da VM. Isso pode resultar na redução de custos.
-* Você pode atualizar sua compilação ou versão do SQL Server durante esse processo. Você também pode atualizar o sistema operacional de saudação.
-* Olá que anterior sempre Cluster pode agir como um destino de reversão sólido.
+* Você pode testar o ambiente de produção real, o SQL Server e as alterações de compilação do sistema operacional.
+* Você tem a opção de personalizar o armazenamento e reduzir o tamanho da VM. Isso pode resultar na redução de custos.
+* Você pode atualizar sua compilação ou versão do SQL Server durante esse processo. Você também pode atualizar o sistema operacional.
+* O cluster AlwaysOn anterior pode atuar como um destino de reversão sólido.
 
 ##### <a name="disadvantages"></a>Desvantagens
-* Se você quiser que ambos os clusters sempre em execução simultaneamente, é necessário toochange nome DNS de saudação do ouvinte de saudação. Isso adiciona administração sobrecarga durante a migração de saudação como cadeias de caracteres de aplicativo cliente devem refletir o novo nome de ouvinte hello.
-* Você deve implementar um mecanismo de sincronização entre Olá dois ambientes tookeep-los como fechar como requisitos de sincronização final Olá toominimize possíveis antes da migração.
-* Há adicionada custo durante a migração enquanto você tem o novo ambiente de saudação em execução.
+* Você precisará alterar o nome DNS do ouvinte se quiser que os dois clusters AlwaysOn sejam executados simultaneamente. Isso adiciona sobrecarga administrativa durante a migração, pois as cadeias de caracteres de aplicativo cliente devem refletir o novo nome do ouvinte.
+* Você deve implementar um mecanismo de sincronização entre os dois ambientes para mantê-los o mais próximo possível para minimizar os requisitos de sincronização final antes da migração.
+* Há um custo adicional durante a migração com o novo ambiente em execução.
 
 ### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migrando implantações AlwaysOn para tempo de inatividade mínimo
 Existem duas estratégias para migrar implantações AlwaysOn para o tempo de inatividade mínimo:
@@ -460,15 +460,15 @@ Existem duas estratégias para migrar implantações AlwaysOn para o tempo de in
 2. **Utilizar réplicas secundárias existentes: vários sites**
 
 #### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Utilizar uma réplica secundária existente: site único
-Uma estratégia para o tempo de inatividade mínimo é tootake uma nuvem existente secundária e removê-lo Olá atual do serviço de nuvem. Copie Olá VHDs toohello nova conta de armazenamento Premium e crie Olá VM no novo serviço de nuvem hello. Em seguida, atualize o ouvinte Olá em cluster e o failover.
+Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundária de nuvem existente e removê-la do serviço de nuvem atual. Em seguida, copie os VHDs para a nova conta de Armazenamento Premium e crie a VM no novo serviço de nuvem. Em seguida, atualize o ouvinte no clustering e failover.
 
 ##### <a name="points-of-downtime"></a>Pontos de tempo de inatividade
-* Não há tempo de inatividade quando você atualiza o nó final Olá com ponto de extremidade com balanceamento de carga do hello.
+* Há um tempo de inatividade quando você atualiza o nó final com o ponto de extremidade de carga balanceada.
 * A reconexão do cliente pode ser atrasada dependendo da configuração do cliente/DNS.
-* Não há tempo de inatividade adicional se você escolher o grupo tootake Olá sempre Cluster offline tooswap endereços de IP hello. Você pode evitar isso usando uma dependência ou e proprietários possíveis para Olá adicionou o recurso de endereço IP. Consulte a seção 'Adicionar recurso de endereço IP na mesma sub-rede' hello de saudação [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Haverá um tempo de inatividade adicional se você optar por colocar o grupo de cluster AlwaysOn offline para trocar os endereços IP. Você pode evitar isso usando uma dependência OR e possíveis proprietários para o recurso de endereço IP adicionado. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
-> Quando você quiser Olá toopartake nó adicionado no como um sempre no parceiro de Failover, você precisa tooadd um ponto de extremidade do Azure com um toohello de referência de carga balanceada definido. Quando você executa Olá **Add-AzureEndpoint** comando toodo, tooremain atual de conexões aberta, mas o novo ouvinte de toohello conexões não será capaz de toobe estabelecido balanceador de carga Olá foi atualizado. No teste foi visto toolast 90-120seconds, isso deve ser testado.
+> Quando quiser que o nó adicional participe como um parceiro de failover AlwaysOn, você precisará adicionar um ponto de extremidade do Azure com uma referência a um conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas as novas conexões com o ouvinte não poderão ser estabelecidas até o balanceador de carga ser atualizado. Em testes, observou-se que isso durava de 90 a 120 segundos, mas é necessário conferir.
 >
 >
 
@@ -476,77 +476,77 @@ Uma estratégia para o tempo de inatividade mínimo é tootake uma nuvem existen
 * Sem custo extra incorrido durante a migração.
 * Uma migração um-para-um.
 * Redução da complexidade.
-* Permite maior IOPS de SKUs de Armazenamento Premium. Quando parte de um 3º Olá discos são desanexados de saudação VM e copiados toohello novo serviço de nuvem, a ferramenta pode ser usado tooincrease Olá tamanho do VHD, que fornece a taxas de transferência mais altas. Para tamanhos de VHD maiores, consulte este [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
+* Permite maior IOPS de SKUs de Armazenamento Premium. Quando os discos são desanexados da VM e copiados para o novo serviço de nuvem, uma ferramenta de terceiros pode ser usada para aumentar o tamanho do VHD, que oferece taxas de transferência mais altas. Para tamanhos de VHD maiores, consulte este [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
 ##### <a name="disadvantages"></a>Desvantagens
 * Há uma perda temporária de alta disponibilidade e recuperação de desastre durante a migração.
-* Como esta é uma migração 1:1, você terá toouse um tamanho de VM mínimo que oferecerá suporte ao seu número de VHDs, portanto você pode não ser capaz de toodownsize suas VMs.
-* Esse cenário usa hello Azure **AzureStorageBlobCopy início** commandlet, que é assíncrona. Não há nenhum SLA na conclusão da cópia. tempo de saudação de cópias de saudação varia, enquanto isso depende de espera em fila também depende de quantidade de saudação do tootransfer de dados. tempo de cópia de saudação aumenta se a transferência de saudação for tooanother data center do Azure que dá suporte ao armazenamento Premium em outra região. Se você tiver apenas 2 nós, considere uma possível redução no caso de cópia Olá demora mais do que no teste. Isso pode incluir Olá ideias a seguir.
-  * Adicione um nó do SQL Server 3º temporário para HA antes da migração de saudação com tempo de inatividade acordada.
-  * Execute a migração Olá fora do Azure manutenção agendada.
+* Como essa é uma migração 1:1, você terá que usar um tamanho mínimo de VM que dará suporte a seu número de VHDs, portanto, você não poderá diminuir suas VMs.
+* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA na conclusão da cópia. O tempo das cópias varia, embora isso dependa da espera na fila, também dependerá da quantidade de dados a ser transferida. O tempo de cópia aumentará se a transferência for para outro data center do Azure que com suporte ao Armazenamento Premium em outra região. Se você tiver apenas dois nós, considere uma possível redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
+  * Adicione um terceiro nó temporário do SQL Server para alta disponibilidade antes da migração com tempo de inatividade estabelecido.
+  * Execute a migração fora da manutenção programada do Azure.
   * Verifique se você configurou corretamente o quorum do cluster.  
 
 ##### <a name="high-level-steps"></a>Etapas de alto nível
-Este documento demonstra um exemplo de tooend final completa, porém Olá [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) fornece detalhes que podem ser utilizado tooperform isso.
+Este documento não demonstra um exemplo completo de ponta a ponta, no entanto, o [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) fornece detalhes que podem ser usados para isso.
 
 ![MinimalDowntime][8]
 
-* Obter configuração de disco e remover nó de saudação (não excluir VHDs anexados).
-* Crie uma conta de armazenamento Premium e copiar VHDs de saudação conta de armazenamento padrão
-* Criar novo serviço de nuvem e reimplantar Olá VM SQL2 no serviço em nuvem. Criar hello VM usar Olá copiados VHD original do sistema operacional e anexar Olá copiados VHDs.
+* Obtenha a configuração de disco e remova o nó (não exclua VHDs anexados).
+* Crie uma conta de Armazenamento Premium e copie VHDs da conta de Armazenamento Padrão
+* Crie um novo serviço de nuvem e reimplante a VM SQL2 no serviço de nuvem. Crie a VM usando o VHD do sistema operacional original copiado e anexe VHDs copiados.
 * Configure o ILB / ELB e adicione pontos de extremidade.
 * Siga um destes procedimentos para atualizar o ouvinte:
-  * Levando Olá sempre grupo off-line e atualização Olá sempre no ouvinte com o novo ILB / endereço IP ELB.
-  * Ou adicionar o recurso de endereço IP hello da nova nuvem serviço ILB/ELB por meio do PowerShell para clusters do Windows. Em seguida, conjunto Olá possíveis proprietários de saudação toohello de recurso de endereço IP migrados nó, SQL2 e defini-lo como dependência OR em Olá nome de rede. Consulte a seção 'Adicionar recurso de endereço IP na mesma sub-rede' hello de saudação [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Verifique se os clientes toohello de configuração/propagação DNS.
+  * Coloque o grupo AlwaysOn offline e atualize o ouvinte AlwaysOn com o novo endereço IP ILB/ELB.
+  * Ou adicione o recurso de endereço IP do novo ILB/ELB do serviço de nuvem por meio do PowerShell para clustering do Windows. Em seguida, defina os possíveis proprietários do recurso de endereço IP para o nó migrado, o SQL2 e defina isso como dependência OR no nome da rede. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Verifique a configuração/propagação DNS para os clientes.
 * Migre a VM do SQL1 e siga as etapas 2 a 4.
-* Se usar as etapas 5ii, em seguida, adicione SQL1 como um possível proprietário de saudação adicionado o recurso de endereço IP
+* Se você seguir as etapas 5ii, adicione SQL1 como um possível proprietário para o recurso de endereço IP adicionado
 * Failovers de teste.
 
 #### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Utilizar réplicas secundárias existentes: vários sites
-Se você tiver nós em mais de um datacenter do Azure (controlador de domínio) ou se você tiver um ambiente híbrido, você pode usar uma configuração de AlwaysOn esse tempo de inatividade do ambiente toominimize.
+Se tiver nós em mais de um DC (data center) do Azure ou se tiver um ambiente híbrido, você poderá usar uma configuração AlwaysOn nesse ambiente para minimizar o tempo de inatividade.
 
-abordagem de saudação é toochange Olá sempre em sincronização tooSynchronous para Olá local ou controlador de domínio secundário do Azure e failover toothat do SQL Server. Copie Olá VHDs tooa conta de armazenamento Premium e reimplantar a máquina de saudação em um novo serviço de nuvem. Atualize o ouvinte hello e, em seguida, execute o failback.
+A abordagem é alterar a sincronização AlwaysOn para Síncrona para o DC do Azure local ou secundário e executar o failover para esse SQL Server. Em seguida, copie os VHDs em uma conta de Armazenamento Premium e reimplante a máquina em um novo serviço de nuvem. Atualize o ouvinte e, em seguida, execute o failback.
 
 ##### <a name="points-of-downtime"></a>Pontos de tempo de inatividade
-tempo de inatividade Olá consiste em toofailover toohello alternativa DC do hello tempo e vice-versa. Também depende da sua configuração cliente/DNS e a reconexão do cliente poder ser atrasada.
-Considere Olá seguinte exemplo de uma configuração híbrida AlwaysOn:
+O tempo de inatividade consiste no tempo para executar o failover para o controlador de domínio alternativo e voltar. Também depende da sua configuração cliente/DNS e a reconexão do cliente poder ser atrasada.
+Considere o seguinte exemplo de uma configuração AlwaysOn híbrida:
 
 ![MultiSite1][9]
 
 ##### <a name="advantages"></a>Vantagens
 * Você pode utilizar a infraestrutura existente.
-* Você tem Olá toopre a atualização da opção Olá armazenamento do Azure em hello Azure DR DC primeiro.
-* saudação de armazenamento do Azure DR DC pode ser reconfigurada.
+* Você tem a opção de atualizar previamente o armazenamento do Azure no controlador de domínio do Azure DR pela primeira vez.
+* O armazenamento do controlador de domínio do Azure DR pode ser reconfigurado.
 * Há um mínimo de dois failovers durante a migração, excluindo failovers de teste.
-* Você não precisa de dados do SQL Server toomove com backup e restauração.
+* Você não precisa mover dados do SQL Server com backup e restauração.
 
 ##### <a name="disadvantages"></a>Desvantagens
-* Dependendo tooSQL de acesso de cliente servidor, pode haver latência aumentada quando o SQL Server está em execução em um aplicativo de toohello do controlador de domínio alternativo.
-* tempo de cópia de saudação de VHDs tooPremium armazenamento pode ser longo. Isso pode afetar sua decisão sobre se tookeep Olá Olá grupo de disponibilidade do nó. Considere o seguinte para quando o trabalho intensivas de log cargas estão em execução durante a migração de saudação é necessário, desde que o nó primário Olá terá tookeep Olá transações não replicadas no log de transações. Portanto, isso pode crescer significativamente.
-* Esse cenário usa hello Azure **AzureStorageBlobCopy início** commandlet, que é assíncrona. Não há nenhum SLA a concluir. Olá tempo de saudação cópias varia, enquanto isso depende de espera na fila, também depende de quantidade de saudação do tootransfer de dados. Portanto você tiver apenas um nó em seu data center 2, você deve executar etapas de mitigação no caso de cópia Olá demora mais do que no teste. Isso pode incluir Olá ideias a seguir.
-  * Adicione um nó SQL 2º temporário para HA antes da migração de saudação com tempo de inatividade acordada.
-  * Execute a migração Olá fora do Azure manutenção agendada.
+* Dependendo do acesso de cliente para o SQL Server, poderá haver latência aumentada quando o SQL Server estiver em execução em um controlador de domínio alternativo para o aplicativo.
+* O tempo de cópia de VHDs de armazenamento Premium pode ser longo. Isso poderá afetar sua decisão de manter o nó no grupo de disponibilidade. Considere isso para ocasiões em que a execução de cargas de trabalho com uso intensivo de log durante a migração for necessária, pois o nó primário terá que manter as transações não replicadas em seu log de transações. Portanto, isso pode crescer significativamente.
+* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA a concluir. O tempo das cópias varia, embora isso dependa da espera na fila, também dependerá da quantidade de dados a ser transferida. Portanto, você tem apenas um nó no segundo data center. Adote medidas de redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
+  * Adicione um segundo nó temporário do SQL para alta disponibilidade antes da migração com tempo de inatividade estabelecido.
+  * Execute a migração fora da manutenção programada do Azure.
   * Verifique se você configurou corretamente o quorum do cluster.
 
-Este cenário pressupõe que você deixe de documentar a instalação e sabe como armazenamento Olá é mapeado em ordem toomake será alterado para configurações de cache ideais.
+Esse cenário pressupõe que você documentou sua instalação e sabe como o armazenamento é mapeado para fazer alterações para as configurações de cache de disco ideais.
 
 ##### <a name="high-level-steps"></a>Etapas de alto nível
 ![Multisite2][10]
 
-* Tornar Olá local / alternativa saudação do controlador de domínio do Azure SQL Server primário e torná-lo Olá outros parceiro de Failover automático (AFP).
-* Coletar informações de configuração de disco do SQL2 e remover nó de saudação (não excluir VHDs anexados).
-* Crie uma conta de armazenamento Premium e copiar VHDs de saudação conta de armazenamento padrão.
-* Criar um novo serviço de nuvem e crie Olá VM SQL2 com seus discos de armazenamento gratificações anexados.
+* Torne o controlador de domínio do Azure local / alternativo o SQL Server Primário e torne-o o outro AFP (Parceiro de Failover Automático).
+* Obtenha as informações de configuração de disco do SQL2 e remova o nó (não exclua VHDs anexados).
+* Crie uma conta de Armazenamento Premium e copie VHDs da conta de Armazenamento Padrão.
+* Crie um novo serviço de nuvem e crie a VM SQL2 com seus discos de Armazenamento Premium anexados.
 * Configure o ILB / ELB e adicione pontos de extremidade.
-* Saudação de atualização sempre no ouvinte com o novo ILB / failover de teste e o endereço IP ELB.
-* Verifique a configuração de DNS hello.
-* Alterar Olá AFP tooSQL2 e, em seguida, migrar SQL1 e percorrer as etapas 2 a 5.
+* Atualize o ouvinte AlwaysOn com novos endereços IP ILB/ELB e failover de teste.
+* Verifique a configuração DNS.
+* Altere o AFP para o SQL2, migre o SQL1 e execute as etapas 2 a 5.
 * Failovers de teste.
-* Alternar tooSQL1 back Olá AFP e SQL2
+* Alternar o AFP de volta para SQL1 e SQL2
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-toopremium-storage"></a>Apêndice: Migrar um armazenamento de tooPremium de multissite sempre em Cluster
-Olá restante este tópico fornece um exemplo detalhado de conversão de um armazenamento de multissite AlwaysOn cluster tooPremium. Ele também converte Olá ouvinte usa um balanceador de carga interno de tooan (ELB) do balanceador externo de carga (ILB).
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apêndice: Migrando um cluster AlwaysOn de vários sites para o Armazenamento Premium
+O restante deste tópico fornece um exemplo detalhado de conversão de um cluster AlwaysOn de vários sites para o Armazenamento Premium. Ele também converte o Ouvinte de usar um ELB (balanceador de carga externo) em um ILB (balanceador de carga interno).
 
 ### <a name="environment"></a>Ambiente
 * Windows 2k12 / SQL 2k12
@@ -556,11 +556,11 @@ Olá restante este tópico fornece um exemplo detalhado de conversão de um arma
 ![Appendix1][11]
 
 ### <a name="vm"></a>VM:
-Neste exemplo, vamos toodemonstrate mover de um tooILB ELB. ELB estava disponível antes de ILB, então isso mostra como toothis tooswitch durante Olá migração.
+Neste exemplo, vamos demonstrar a movimentação de um ELB para ILB. O ELB estava disponível antes do ILB, então esse procedimento mostra como alternar para isso durante a migração.
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-toosubscription"></a>As etapas anteriores: Conectar tooSubscription
+### <a name="pre-steps-connect-to-subscription"></a>Pré-etapas: conectar-se à assinatura
     Add-AzureAccount
 
     #Set up subscription
@@ -571,7 +571,7 @@ Neste exemplo, vamos toodemonstrate mover de um tooILB ELB. ELB estava disponív
     $location = "West Europe"
 
     #Storage accounts
-    #current storage account where hello vm toomigrate resides
+    #current storage account where the vm to migrate resides
     $origstorageaccountname = "danstdams"
 
     #Create Premium Storage account
@@ -600,32 +600,32 @@ Neste exemplo, vamos toodemonstrate mover de um tooILB ELB. ELB estava disponív
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### <a name="step-2-increase-hello-permitted-failures-on-resources-optional"></a>Etapa 2: Saudação de aumento permitida falhas nos recursos<Optional>
-Em determinados recursos que pertencem a tooyour grupo de disponibilidade AlwaysOn, há limites no quantas falhas que podem ocorrer em um período, em que o serviço de cluster Olá tentará toorestart grupo de recursos de saudação. É recomendável que aumentar esse enquanto são acompanhará neste procedimento, pois se você não manualmente failovers de failover e gatilho desligando máquinas você pode obter o limite de toothis fechar.
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Etapa 2: Aumentar as falhas permitidas nos recursos <Optional>
+Em determinados recursos que pertencem ao seu grupo de disponibilidade AlwaysOn há limites no número de falhas que podem ocorrer em um período, em que o serviço de cluster tentará reiniciar o grupo de recursos. É recomendável aumentar isso, durante a execução deste procedimento, pois se não você não executar manualmente o failover e disparar failovers desligando máquinas, poderá chegar perto desse limite.
 
-Ele seria ser limite de falha de Olá toodouble prudente, toodo isso no Gerenciador de Cluster de Failover, consulte Propriedades toohello Olá AlwaysOn do grupo de recursos:
+Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de Cluster de Failover, acesse as Propriedades do grupo de recursos AlwaysOn:
 
 ![Appendix3][13]
 
-Altere Olá too6 máximo de falhas.
+Altere o Máximo de Falhas para 6.
 
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Etapa 3: Adição do recurso de endereço IP ao grupo de clusters <Optional>
-Se você tiver apenas um endereço IP para Olá grupo de clusters e isso é alinhado toohello nuvem sub-rede, lembre-se, se você acidentalmente coloca offline todos os nós de cluster na nuvem de saudação que rede e recursos de Cluster IP hello e nome de rede do Cluster não será capaz de toocome on-line. Olá evento isso impedirá atualiza tooother os recursos de cluster.
+Se você tiver apenas um endereço IP para o grupo de clusters e ele estiver alinhado à sub-rede de nuvem, tome cuidado: se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP de cluster e o nome de rede do cluster não poderão ficar online. Caso isso ocorra, as atualizações serão impedidas para outros recursos de cluster.
 
 #### <a name="step-4-dns-configuration"></a>Etapa 4: Configuração de DNS
-tooimplement uma transição suave depende de como o DNS está sendo utilizado e atualizado.
-Quando AlwaysOn é instalado, ele cria um grupo de recursos de Cluster do Windows, se você abrir o Gerenciador de Cluster de Failover, você verá que, no mínimo, ele terá três recursos, Olá dois que Olá documento se refere a tooare:
+A implementação de uma transição suave depende de como o DNS está sendo utilizado e atualizado.
+Quando o AlwaysOn está instalado, ele cria um grupo de recursos de cluster do Windows. Se você abrir o Gerenciador de Cluster de Failover, verá que, no mínimo, ele terá três recursos, os dois aos que o documento se refere são:
 
-* Nome de rede virtual (VNN) – Este é Olá DNS nome que o cliente se conectar toowhen desejarem tooconnect tooSQL servidores por meio do AlwaysOn.
-* Recurso de endereço IP – isso é Olá de endereços IP que associado Olá VNN, você pode ter mais de um e uma configuração multissite, você terá um endereço IP por sub-rede/site.
+* VNN (Nome da Rede Virtual): este é o nome DNS ao qual o cliente se conecta quando quer se conectar aos SQL Servers via AlwaysOn.
+* Recurso de endereço IP – Este é o endereço IP associado à VNN. Você pode ter mais de um e, em uma configuração de vários sites, terá um endereço IP por site/sub-rede.
 
-Ao conectar tooSQL Server, o driver do SQL Server Client Olá será recuperar os registros DNS Olá associados ouvinte hello e tente tooconnect tooeach AlwaysOn associado endereço IP, abaixo, discutiremos alguns fatores que podem influenciar a isso.
+Quando se conectar ao SQL Server, o driver do Cliente do SQL Server recuperará os registros DNS associados ao ouvinte e tentará se conectar a cada endereço IP AlwaysOn associado. Abaixo, discutiremos alguns fatores que podem influenciar isso.
 
-Olá número de registros DNS simultâneos que estão associados com o nome do ouvinte Olá depende não apenas número de saudação de endereços IP associados, mas Olá ' RegisterAllIpProviders'setting no cluster de Failover para Olá recursos sempre ON VNN.
+O número de registros DNS simultâneos associados ao nome do ouvinte depende não só do número de endereços IP associados, mas da configuração ‘RegisterAllIpProviders' no Clustering de Failover para o recurso de VNN AlwaysON.
 
-Quando você implanta sempre ativa no Azure há etapas diferentes toocreate Olá ouvinte e endereços IP, toomanually configurar Olá 'RegisterAllIpProviders' too1, isso é tooan diferentes locais sempre na implantação em que ele já está definido too1.
+Quando você implanta o AlwaysOn no Azure, há diferentes etapas para criar os Endereços IP e o Ouvinte. É necessário configurar manualmente ‘RegisterAllIpProviders’ como 1 e isso é diferente para uma implantação local AlwaysOn em que já está definido como 1.
 
-Se 'RegisterAllIpProviders' for 0, em seguida, você só verá o registro DNS no DNS associado Olá ouvinte:
+Se 'RegisterAllIpProviders' for 0, você verá somente um registro DNS no DNS associado com o ouvinte:
 
 ![Appendix4][14]
 
@@ -633,7 +633,7 @@ Se 'RegisterAllIpProviders' for 1:
 
 ![Appendix5][15]
 
-Olá código abaixo despejar Olá configurações VNN e defina-a para você,. Observe que, para hello alterar tootake efeito você precisará tootake Olá VNN off-line e ligue-o novamente online, essa colocando Olá offline interrupção causando conectividade de cliente ouvinte.
+O código a seguir despejará as configurações de VNN e as definirá para você. Observe que, para que a alteração tenha efeito, será necessário colocar a VNN offline e novamente online, colocando offline o ouvinte que esteja causando interrupções de conectividade de cliente.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -642,11 +642,11 @@ Olá código abaixo despejar Olá configurações VNN e defina-a para você,. Ob
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-Em uma etapa posterior da migração, você precisará tooupdate Olá sempre no ouvinte com um endereço IP atualizado que fazem referência a um balanceador de carga, isso envolverá uma remoção do recurso de endereço IP e a adição. Após a atualização IP hello, é necessário tooensure Olá novo endereço IP foi atualizado na zona DNS e que os clientes de saudação estão atualizando seu cache DNS local.
+Em uma etapa de migração posterior, você precisará atualizar o ouvinte AlwaysOn com um endereço IP atualizado que fará referência a um balanceador de carga. Isso envolverá uma remoção e uma adição do recurso de endereço IP. Após a atualização IP, você precisa garantir que o novo endereço IP tenha sido atualizado na zona DNS e que os clientes estejam atualizando seu cache DNS local.
 
-Se os clientes residem em um segmento de rede diferente e fazer referência a um servidor DNS diferente, será necessário tooconsider o que acontece com transferência de zona DNS durante a migração de saudação hello aplicativo reconectá tempo será limitado pelo menos Olá tempo de transferência de zona de qualquer novos endereços IP de ouvinte de saudação. Se você estiver na restrição de tempo aqui, você deve discutir e testar a imposição de uma transferência de zona incremental com as equipes de Windows, e também colocar Olá DNS tooa de registro de host reduzir tempo tooLive (TTL), para atualizam clientes de saudação. Para obter mais informações, consulte [Transferências de Zona Incrementais](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Se os clientes residirem em um segmento de rede diferente e referenciarem um servidor DNS diferente, você terá que considerar o que acontece com a transferência de zona DNS durante a migração, pois o tempo de reconexão de aplicativo será restrito por pelo menos o tempo de transferência de zona de quaisquer novos endereços IP para o ouvinte. Se tiver pouco tempo aqui, você deverá discutir e testar forçar uma transferência de zona incremental com as equipes do Windows e definir o registro de host DNS para uma TTL (tempo de vida) menor, para atualização dos clientes. Para obter mais informações, consulte [Transferências de Zona Incrementais](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
-Por saudação padrão TTL de registro de DNS que está associado a saudação ouvinte AlwaysOn no Azure é 1200 segundos. Talvez você queira tooreduce isso se você estiver na restrição de tempo durante a atualização de clientes migração tooensure Olá seus DNS com IP hello atualizado o endereço para o ouvinte de saudação. Você pode ver e modificar a configuração de saudação despejando configuração de saudação do hello VNN:
+Por padrão, a TTL do registro DNS que está associada ao ouvinte no AlwaysOn no Azure é de 1200 segundos. Talvez você queira reduzi-lo se houver restrições de tempo durante sua migração para assegurar que os clientes atualizem seu DNS com o endereço IP atualizado do ouvinte. Você pode ver e modificar a configuração despejando a configuração de VNN:
 
     $AGName = "myProductionAG"
     $ListenerName = "Mylistener"
@@ -656,35 +656,35 @@ Por saudação padrão TTL de registro de DNS que está associado a saudação o
     #Set HostRecordTTL Examples
     Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
-Observe, Olá Olá inferior 'HostRecordTTL', ocorrerá uma quantidade maior de tráfego DNS.
+Observe que, quanto menor for 'HostRecordTTL', ocorrerá uma maior quantidade de tráfego DNS.
 
 ##### <a name="client-application-settings"></a>Configurações de aplicativo cliente
-Se seu aplicativo de cliente SQL oferece suporte Olá .net 4.5 SQLClient, em seguida, você pode usar ' MULTISUBNETFAILOVER = TRUE' palavra-chave, isso é recomendado toobe aplicada conforme permite tooSQL mais rápido de conexão sempre no grupo de disponibilidade durante o failover. Ele enumera através de todos os endereços IP associados Olá sempre no ouvinte de em paralelo e executa uma velocidade de repetição de conexão TCP mais agressiva durante um failover.
+Se seu aplicativo cliente do SQL der suporte ao .Net 4.5 SQLClient, você poderá usar a palavra-chave ‘MULTISUBNETFAILOVER=TRUE’. A aplicação dessa opção é recomendável, pois ela permite a conexão mais rápida com o grupo de disponibilidade AlwaysOn do SQL durante o failover. Isso enumera todos os endereços IP associados ao ouvinte AlwaysOn em paralelo e executa uma velocidade de repetição de conexão TCP mais agressiva durante um failover.
 
-Para obter mais informações sobre configurações de saudação acima, consulte [palavra-chave MultiSubnetFailover e recursos associados ao](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte do SqlClient para a Alta Disponibilidade e a Recuperação de Desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Para saber mais sobre as configurações acima, confira [Palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte do SqlClient para a Alta Disponibilidade e a Recuperação de Desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>Etapa 5: Configurações de quórum do cluster
-Como você vai toobe fazer pelo menos um SQL Server para baixo em um momento, você deve modificar a configuração de quorum do cluster hello, se usar testemunha de compartilhamento de arquivo (FSW) com 2 nós, você deve definir a maioria de nós Olá quorum tooallow e utilizar votação dinâmico, e isso é tooallow para constantes de tooremain um único nó.
+Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a configuração de quorum do cluster. Se estiver usando FSW (File Share Witness) com 2 nós, você deverá definir o quorum para permitir a maioria dos nós e utilizar votação dinâmica e isso tem o objetivo de permitir que um único nó fique de pé.
 
     Set-ClusterQuorum -NodeMajority  
 
-Para obter mais informações sobre como gerenciar e configurar quorum do cluster hello, consulte [Olá a configurar e gerenciar o Quorum em um Cluster de Failover do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
+Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### <a name="step-6-extract-existing-endpoints-and-acls"></a>Etapa 6: extrair ACLs e pontos de extremidade existentes
     #GET Endpoint info
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
-    #GET ACL Rules for Each EP, this example is for hello Always On Endpoint
+    #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
-Salve esses arquivos de texto tooa.
+Salve-os em um arquivo de texto.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Etapa 7: alterar parceiros de failover e modos de replicação
-Se você tiver mais de 2 servidores do SQL, você deve alterar o failover de saudação da outra réplica secundária em outro controlador de domínio ou local 'too'Synchronous e torná-lo um parceiro de Failover automático (AFP), isso é para manter alta disponibilidade enquanto você estiver fazendo alterações. Você pode fazer isso por meio do TSQL ou modificar por SSMS:
+Se tiver mais de dois SQL Servers, você deverá alterar o failover de outra secundário em outro DC ou local para 'Síncrono' e torná-lo um AFP (Parceiro de Failover Automático), de modo a manter a alta disponibilidade durante as alterações. Você pode fazer isso por meio do TSQL ou modificar por SSMS:
 
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Etapa 8: Remover a VM secundária do serviço de nuvem
-Você deve estar planejando toomigrate um nó secundário nuvem pela primeira vez, se isso for primário no momento, você deve iniciar um failover manual.
+Você deve estar planejando a migração de um nó secundário de nuvem primeiro. Se esse for o primário no momento, você deve iniciar um failover manual.
 
     $vmNameToMigrate="dansqlams2"
 
@@ -720,7 +720,7 @@ Você deve estar planejando toomigrate um nó secundário nuvem pela primeira ve
     #Import disk config
     $diskobjects  = Import-CSV $file
 
-    #Check disk config, make sure below returns hello disks associated with hello VM
+    #Check disk config, make sure below returns the disks associated with the VM
     $diskobjects
 
     #Identify OS Disk
@@ -730,25 +730,25 @@ Você deve estar planejando toomigrate um nó secundário nuvem pela primeira ve
     #Check machibe is off
     Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 
-    #Drop machine and rebuild toonew cls
+    #Drop machine and rebuild to new cls
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 9: Alterar as configurações de caching de disco no arquivo CSV e salvar
-Para volumes de dados essas devem ser definidas tooREADONLY.
+Para volumes de dados, isso deve ser definido como READONLY.
 
-Para volumes TLOG esses devem ser definidos tooNONE.
+Para volumes TLOG, isso deve ser definido como NONE.
 
 ![Appendix7][17]
 
 #### <a name="step-10-copy-vhds"></a>Etapa 10: copiar VHDS
-    #Ensure you have created hello container for these:
+    #Ensure you have created the container for these:
     $containerName = 'vhds'
 
     #Create container
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
     ####DISK COPYING####
-    #Get disks from csv, get settings for each VHDs and copy tooPremium Storage accoun
+    #Get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
     ForEach ($disk in $diskobjects)
        {
        $lun = $disk.Lun
@@ -768,7 +768,7 @@ Para volumes TLOG esses devem ser definidos tooNONE.
 
 
 
-Você pode verificar o status da cópia Olá de saudação VHDs toohello conta de armazenamento Premium:
+Você pode verificar o status da cópia dos VHDs à conta de Armazenamento Premium:
 
     ForEach ($disk in $diskobjects)
        {
@@ -805,11 +805,11 @@ Para obter informações para blobs individuais:
     Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 
 #### <a name="step-12-import-secondary-into-new-cloud-service"></a>Etapa 12: Importar a réplica secundária para o novo serviço de nuvem
-opção de código Olá abaixo também Olá usa adicionado aqui você pode importar máquina hello e use o VIP devem ser retidos hello.
+O código a seguir também usa a opção adicional em que é possível importar a máquina e usar o VIP preservável.
 
     #Build VM Config
     $ipaddr = "192.168.0.5"
-    #Remember toochange tooXIO
+    #Remember to change to XIO
     $newInstanceSize = "Standard_DS13"
     $subnet = "SQL"
 
@@ -831,7 +831,7 @@ opção de código Olá abaixo também Olá usa adicionado aqui você pode impor
     $datadiskforbuild = $attachdatadisk.diskName
     $vhdname = $attachdatadisk.vhdname
 
-    ###Attaching disks tooa VM during a deploy tooa new cloud service and new storage account is different from just attaching VHDs toojust a redeploy in a new cloud service
+    ###Attaching disks to a VM during a deploy to a new cloud service and new storage account is different from just attaching VHDs to just a redeploy in a new cloud service
     $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
 
     }
@@ -862,8 +862,8 @@ opção de código Olá abaixo também Olá usa adicionado aqui você pode impor
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
 #### <a name="step-14-update-always-on"></a>Etapa 14: Atualizar AlwaysOn
-    #Code toobe executed on a Cluster Node
-    $ClusterNetworkNameAmsterdam = "Cluster Network 2" # hello azure cluster subnet network name
+    #Code to be executed on a Cluster Node
+    $ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
     $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service
 
     $AGName = "myProductionAG"
@@ -877,21 +877,21 @@ opção de código Olá abaixo também Olá usa adicionado aqui você pode impor
     #set NETBIOS, then remove old IP address
     Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServiceIPAmsterdam" | Set-ClusterParameter -Name EnableNetBIOS -Value 0
 
-    #set dependency tooListener (OR Dependency) and delete previous IP Address resource that references:
+    #set dependency to Listener (OR Dependency) and delete previous IP Address resource that references:
 
     #Make sure no static records in DNS
 
 ![Appendix9][19]
 
-Agora, remova o serviço de nuvem antigo Olá endereço IP.
+Agora, remova o endereço IP do serviço de nuvem antigo.
 
 ![Appendix10][20]
 
 #### <a name="step-15-dns-update-check"></a>Etapa 15: Verificar a atualização do DNS
-Agora, verifique os servidores DNS em suas redes de cliente do SQL Server e certifique-se de que o cluster adicionou Olá registro de host adicionais para Olá adicionou o endereço IP. Se os servidores DNS não atualizou, considere forçar uma transferência de zona DNS e garantir que os clientes na sub-rede há hello são capazes de tooresolve tooboth sempre em endereços IP, isso é para que você não precisa toowait para a replicação automática do DNS.
+Agora você deve verificar os servidores DNS em suas redes cliente do SQL Server e assegurar que o clustering adicionou o registro do host extra ao endereço IP adicionado. Se os servidores DNS não foram atualizados, considere forçar uma transferência de zona DNS e garanta que os clientes nessa sub-rede podem ser resolvidos para os dois endereços IP AlwaysOn. Isso ocorre para que você não precise aguardar a replicação automática de DNS.
 
 #### <a name="step-16-reconfigure-always-on"></a>Etapa 16: Reconfigurar o AlwaysOn
-Neste ponto você aguardar Olá secundária desse nó que foi migrado toofully ressincronizar com o nó local do hello e alternar o nó de replicação toosynchronous e torná-lo Olá AFP.  
+Neste ponto, você aguarda o secundário para o qual o nó foi migrado ressincronizar-se totalmente com o nó local e mudar para o nó de replicação síncrona e torná-lo o AFP.  
 
 #### <a name="step-17-migrate-second-node"></a>Etapa 17: Migrar o segundo nó
     $vmNameToMigrate="dansqlams1"
@@ -939,13 +939,13 @@ Neste ponto você aguardar Olá secundária desse nó que foi migrado toofully r
     #Check machine is off
     Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 
-    #Drop machine and rebuild toonew cls
+    #Drop machine and rebuild to new cls
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 18: Alterar as configurações de caching de disco no arquivo CSV e salvar
-Para volumes de dados essas devem ser definidas tooREADONLY.
+Para volumes de dados, isso deve ser definido como READONLY.
 
-Para volumes TLOG esses devem ser definidos tooNONE.
+Para volumes TLOG, isso deve ser definido como NONE.
 
 ![Appendix11][21]
 
@@ -953,7 +953,7 @@ Para volumes TLOG esses devem ser definidos tooNONE.
     $newxiostorageaccountnamenode2 = "danspremsams2"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountnamenode2 -Location $location -Type "Premium_LRS"  
 
-    #Reset hello storage account src if node 1 in a different storage account
+    #Reset the storage account src if node 1 in a different storage account
     $origstorageaccountname2nd = "danstdams2"
 
     #Generate storage keys for later
@@ -967,14 +967,14 @@ Para volumes TLOG esses devem ser definidos tooNONE.
     Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
 #### <a name="step-20-copy-vhds"></a>Etapa 20: copiar VHDs
-    #Ensure you have created hello container for these:
+    #Ensure you have created the container for these:
     $containerName = 'vhds'
 
     #Create container
     New-AzureStorageContainer -Name $containerName -Context $xioContextnode2  
 
     ####DISK COPYING####
-    ##get disks from csv, get settings for each VHDs and copy tooPremium Storage accoun
+    ##get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
     ForEach ($disk in $diskobjects)
        {
        $lun = $disk.Lun
@@ -998,7 +998,7 @@ Para volumes TLOG esses devem ser definidos tooNONE.
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 
 
-Você pode verificar o status da cópia do VHD Olá para todos os VHDs: ForEach ($disk em $diskobjects) {$lun = $disk. LUN $vhdname = $disk.vhdname $cacheoption = $disk. HostCaching $disklabel = $disk. Etiqueta de disco $diskName = $disk. DiskName
+Você pode verificar o status da cópia VHD para todos os VHDs: ForEach ($disk in $diskobjects) { $lun = $disk.Lun $vhdname = $disk.vhdname $cacheoption = $disk.HostCaching $disklabel = $disk.DiskLabel $diskName = $disk.DiskName
 
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
     Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
@@ -1014,7 +1014,7 @@ Para obter informações para blobs individuais:
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### <a name="step-21-register-os-disk"></a>Etapa 21: Registrar o disco do sistema operacional
-    #change storage account toohello new XIO storage account
+    #change storage account to the new XIO storage account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
     Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
@@ -1031,7 +1031,7 @@ Para obter informações para blobs individuais:
     $ipaddr = "192.168.0.4"
     $newInstanceSize = "Standard_DS13"
 
-    #Join tooexisting Avaiability Set
+    #Join to existing Avaiability Set
 
     #Build machine config into object
     $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1048,8 +1048,8 @@ Para obter informações para blobs individuais:
     $datadiskforbuild = $attachdatadisk.diskName
     $vhdname = $attachdatadisk.vhdname
 
-    ###This is different toojust a straight cloud service change
-    #note if you do not have a disk label hello command below will fail, populate as required.
+    ###This is different to just a straight cloud service change
+    #note if you do not have a disk label the command below will fail, populate as required.
     $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountnamenode2.blob.core.windows.net/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
 
     }
@@ -1066,32 +1066,32 @@ Para obter informações para blobs individuais:
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
 
-    #STOP!!! CHECK in hello Azure portal or Machine Endpoints through PowerShell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure portal or Machine Endpoints through PowerShell that these Endpoints are created!
 
     #SET ACLs or Azure Network Security Groups & Windows FWs
 
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>Etapa 23: Failover de teste
-Você agora deve permitir que nós migrados Olá sincronizar com o nó local do AlwaysOn hello, colocá-lo no modo de replicação toosynchronous e aguarde até que ele seja sincronizado. Em seguida, o failover de local toohello primeiro nó migrado, que é Olá AFP. Depois que funcionou, alteração Olá migrados pela última vez nó toohello AFP.
+Agora, você deve deixar o nó migrado sincronizar-se ao nó migrado com o nó AlwaysOn local, colocá-lo no modo de replicação síncrona e aguardar sua sincronização. Em seguida, execute o failover do local para o primeiro nó migrado, que é o AFP. Depois que isso funcionar, altere o último nó migrado para o AFP.
 
-Você deve testar failovers entre todos os nós e executar Embora testes caos tooensure failovers funcionam como esperado e em um tempo manor.
+Você deve testar failovers entre todos os nós e executar testes de caos para garantir que os failovers funcionem como esperado e de modo oportuno.
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Etapa 24: colocar de volta configurações de quorum de cluster / TTL DNS / Failover de impressoras / Configurações de sincronização
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Adicionando recurso de endereço IP na mesma sub-rede
-Se você tiver apenas 2 servidores SQL e quiser toomigrate-los tooa novo serviço de nuvem, mas deseja tookeep-los em Olá mesma sub-rede, você pode evitar deixar ouvinte Olá original de saudação toodelete off-line sempre no endereço IP e adicionar Olá novo endereço IP. Se você estiver migrando Olá VMs tooanother subrede não será necessário toodo isso, haverá uma rede de cluster adicionais que fazem referência a essa sub-rede.
+Se você tiver apenas dois SQL Servers e quiser migrá-los para um novo serviço de nuvem, mas quiser mantê-los na mesma sub-rede, poderá evitar colocar o ouvinte offline para excluir o endereço IP AlwaysOn original e adicionar o novo endereço IP. Se você estiver migrando as VMs para outra sub-rede, não será necessário fazer isso, pois haverá uma rede de cluster adicional que fará referência a essa sub-rede.
 
-Depois de abrir hello migrados secundário e adicionado ao novo recurso de endereço IP Olá Olá novo serviço de nuvem antes de failover Olá primário existente, você deve executar essas etapas em Olá Gerenciador de Cluster de Failover:
+Depois que você ativar a réplica secundária migrada e adicionar o novo recurso de endereço IP ao novo serviço de nuvem antes de executar o failover da réplica primária existente, deverá executar essas etapas no Gerenciador de Cluster de Failover:
 
-tooadd no endereço IP, consulte Olá [apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), etapa 14.
+Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), etapa 14.
 
-1. Para o recurso de endereço IP atual hello, alterar Olá possível proprietário too'Existing SQL Server primário ', no exemplo hello abaixo 'dansqlams4':
+1. Para obter o recurso de endereço IP atual, altere o possível proprietário para ‘SQL Server Primário Existente’, no exemplo abaixo, ‘dansqlams4’:
 
     ![Appendix13][23]
-2. Para o novo recurso de endereço IP hello alterar Olá possível proprietário too'Migrated secundário do SQL Server', no exemplo hello abaixo 'dansqlams5':
+2. Para obter o novo recurso de endereço IP, altere o possível proprietário para ‘SQL Server secundário migrado’, no exemplo abaixo, ‘dansqlams5’:
 
     ![Appendix14][24]
-3. Depois que isso for definido, você poderá realizar failover, e quando é migrado do último nó Olá Olá possíveis proprietários devem ser editados para que esse nó é adicionado como um possível proprietário:
+3. Depois que isso for definido, você poderá executar o failover e, quando o último nó for migrado, os Possíveis Proprietários deverão ser editados para que esse nó seja adicionado como um Proprietário Possível:
 
     ![Appendix15][25]
 

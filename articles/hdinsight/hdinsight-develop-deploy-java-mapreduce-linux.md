@@ -1,6 +1,6 @@
 ---
-title: aaaCreate MapReduce Java para Hadoop - HDInsight do Azure | Microsoft Docs
-description: "Saiba como toouse aplicativo de MapReduce do Apache Maven toocreate um baseados em Java, em seguida, executá-lo com Hadoop no HDInsight do Azure."
+title: "Criar MapReduce em Java para Hadoop – Azure HDInsight | Microsoft Docs"
+description: Saiba como usar o Apache Maven para criar um aplicativo de MapReduce baseado em Java e, em seguida, execute-o com o Hadoop no Azure HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -16,15 +16,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 903a57a482395f7da79002188399a4d6288ff0af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 11d63f22204eb2acb530378f53ac72f16a35a4f2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desenvolver programas Java MapReduce para Hadoop no HDInsight
 
-Saiba como toouse aplicativo de MapReduce do Apache Maven toocreate um baseados em Java, em seguida, executá-lo com Hadoop no HDInsight do Azure.
+Saiba como usar o Apache Maven para criar um aplicativo de MapReduce baseado em Java e, em seguida, execute-o com o Hadoop no Azure HDInsight.
 
 > [!NOTE]
 > Este exemplo foi testado mais recentemente no HDInsight 3.6.
@@ -40,44 +40,44 @@ Saiba como toouse aplicativo de MapReduce do Apache Maven toocreate um baseados 
 
 ## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Olá seguintes variáveis de ambiente podem ser definidas quando você instala o Java e hello JDK. No entanto, você deve verificar se eles existem e que eles contêm valores de saudação corretos para seu sistema.
+As seguintes variáveis de ambiente podem ser definidas quando você instala o Java e o JDK. No entanto, você deve verificar se elas existem e se contêm os valores corretos para o seu sistema.
 
-* `JAVA_HOME`-deve apontar toohello diretório onde Olá o Java runtime environment (JRE) está instalado. Por exemplo, em um sistema OS X, Unix ou Linux, ele deve ter um valor semelhante muito`/usr/lib/jvm/java-7-oracle`. No Windows, ele deve ter um valor semelhante muito`c:\Program Files (x86)\Java\jre1.7`
+* `JAVA_HOME` – deve apontar para o diretório no qual o JRE (Java Runtime Environment) está instalado. Por exemplo, em um sistema OS X, Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
 
-* `PATH`-deve conter Olá caminhos a seguir:
+* `PATH` – deve conter os seguintes caminhos:
   
-  * `JAVA_HOME`(ou caminho equivalente Olá)
+  * `JAVA_HOME` (ou o caminho equivalente)
 
-  * `JAVA_HOME\bin`(ou caminho equivalente Olá)
+  * `JAVA_HOME\bin` (ou o caminho equivalente)
 
-  * diretório de saudação onde Maven está instalado
+  * O diretório onde o Maven está instalado
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-1. Uma sessão de terminal, ou a linha de comando no ambiente de desenvolvimento, altere diretórios toohello local toostore este projeto.
+1. Em uma sessão do terminal ou linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local em que você deseja armazenar o projeto.
 
-2. Saudação de uso `mvn` comando, que é instalado com o Maven, Olá toogenerate estrutura do projeto de saudação.
+2. Use o comando `mvn`, que é instalado com o Maven, para gerar o scaffolding para o projeto.
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
     > [!NOTE]
-    > Se você estiver usando o PowerShell, você deverá colocar Olá `-D` parâmetros entre aspas duplas.
+    > Se você estiver usando o PowerShell, coloque os parâmetros `-D` entre aspas duplas.
     >
     > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
-    Este comando cria um diretório com o nome de saudação especificado pelo Olá `artifactID` parâmetro (**wordcountjava** neste exemplo.) Este diretório contém Olá itens a seguir:
+    Esse comando cria um diretório com o nome especificado pelo parâmetro `artifactID` (**wordcountjava** neste exemplo). Esse diretório contém os seguintes itens:
 
-   * `pom.xml`-Olá [modelo de objeto do projeto (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contém informações e detalhes de configuração usados toobuild projeto de saudação.
+   * `pom.xml` – o [POM (Modelo de Objeto de Projeto)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contém informações e detalhes de configuração usados para criar o projeto.
 
-   * `src`-diretório Olá que contém o aplicativo hello.
+   * `src` – o diretório que contém o aplicativo.
 
-3. Excluir Olá `src/test/java/org/apache/hadoop/examples/apptest.java` arquivo. Ele não é usado neste exemplo.
+3. Exclua arquivo o `src/test/java/org/apache/hadoop/examples/apptest.java`. Ele não é usado neste exemplo.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-1. Editar saudação `pom.xml` de arquivos e adicionar Olá depois do texto dentro de saudação `<dependencies>` seção:
+1. Edite o arquivo `pom.xml` e adicione o seguinte texto dentro da seção `<dependencies>`:
    
    ```xml
     <dependency>
@@ -100,14 +100,14 @@ Olá seguintes variáveis de ambiente podem ser definidas quando você instala o
     </dependency>
    ```
 
-    Isso define as bibliotecas necessárias (listadas em &lt;artifactId\>) com uma versão específica (listada em &lt;version\>). Em tempo de compilação, essas dependências são baixadas do repositório de Maven saudação padrão. Você pode usar o hello [pesquisa de Repositório Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) tooview mais.
+    Isso define as bibliotecas necessárias (listadas em &lt;artifactId\>) com uma versão específica (listada em &lt;version\>). Em tempo de compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [pesquisa de repositório do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) para exibir mais informações.
    
-    Olá `<scope>provided</scope>` informa Maven que essas dependências não devem ser empacotadas com o aplicativo hello, conforme elas são fornecidas pelo cluster do HDInsight Olá em tempo de execução.
+    O `<scope>provided</scope>` informa o Maven que essas dependências não devem ser empacotadas com o aplicativo, pois são fornecidas pelo cluster do HDInsight em tempo de execução.
 
     > [!IMPORTANT]
-    > versão Olá usada deve corresponder a versão de saudação do Hadoop presente no cluster. Para obter mais informações sobre versões, consulte Olá [o controle de versão do HDInsight componente](hdinsight-component-versioning.md) documento.
+    > A versão usada deve corresponder à versão do Hadoop no cluster. Para obter mais informações sobre versões, consulte o documento [Versão do componente HDInsight](hdinsight-component-versioning.md).
 
-2. Adicionar Olá após toohello `pom.xml` arquivo. Esse texto deve estar dentro de saudação `<project>...</project>` no arquivo hello; por exemplo, entre as marcas `</dependencies>` e `</project>`.
+2. Adicione o seguinte ao arquivo `pom.xml`. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
 
    ```xml
     <build>
@@ -144,20 +144,20 @@ Olá seguintes variáveis de ambiente podem ser definidas quando você instala o
     </build>
    ```
 
-    plug-in do primeiro Hello configura Olá [plug-in de sombra Maven](http://maven.apache.org/plugins/maven-shade-plugin/), que é usado toobuild um uberjar (às vezes chamado de um fatjar), que contém as dependências exigidas pelo aplicativo hello. Isso também impedirá a eliminação de duplicação de licenças no pacote de jar hello, que pode causar problemas em alguns sistemas.
+    O primeiro plug-in configura o [Plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), que é usado para criar um uberjar (às vezes chamado de fatjar), que contém as dependências exigidas pelo aplicativo. Ele também evita a duplicação de licenças no pacote jar, que pode causar problemas em alguns sistemas.
 
-    plug-in do segundo Olá configura a versão do Java de destino de saudação.
+    O segundo plug-in configura a versão de Java de destino.
 
     > [!NOTE]
     > O HDInsight 3.4 e anteriores usam o Java 7. HDInsight 3.5 e posterior usa Java 8.
 
-3. Salvar Olá `pom.xml` arquivo.
+3. Salve o arquivo `pom.xml`.
 
-## <a name="create-hello-mapreduce-application"></a>Criar aplicativo de MapReduce hello
+## <a name="create-the-mapreduce-application"></a>Criar o aplicativo MapReduce
 
-1. Vá toohello `wordcountjava/src/main/java/org/apache/hadoop/examples` diretório e renomear Olá `App.java` arquivo muito`WordCount.java`.
+1. Vá para o diretório `wordcountjava/src/main/java/org/apache/hadoop/examples` e renomeie o arquivo `App.java` para `WordCount.java`.
 
-2. Olá abrir `WordCount.java` do arquivo em um editor de texto e substitua o conteúdo de saudação com hello texto a seguir:
+2. Abra o arquivo `WordCount.java` em um editor de texto e substitua o conteúdo pelo seguinte texto:
    
     ```java
     package org.apache.hadoop.examples;
@@ -230,58 +230,58 @@ Olá seguintes variáveis de ambiente podem ser definidas quando você instala o
     }
     ```
    
-    Nome do pacote de saudação de aviso é `org.apache.hadoop.examples` e o nome da classe Olá é `WordCount`. Use esses nomes ao enviar o trabalho de MapReduce Olá.
+    Observe que o nome do pacote é `org.apache.hadoop.examples` e o nome de classe é `WordCount`. Você usará esses nomes quando enviar o trabalho MapReduce.
 
-3. Salve o arquivo hello.
+3. Salve o arquivo.
 
-## <a name="build-hello-application"></a>Criar um aplicativo hello
+## <a name="build-the-application"></a>Compilar o aplicativo
 
-1. Alterar toohello `wordcountjava` directory, se você não ainda estiver lá.
+1. Altere para o diretório `wordcountjava` se ainda não estiver lá.
 
-2. Use Olá toobuild um JAR que contém aplicativos de saudação do arquivo de comando a seguir:
+2. Use o comando a seguir para compilar um arquivo JAR contendo o aplicativo:
 
    ```
    mvn clean package
    ```
 
-    Este comando limpa qualquer artefatos de compilação anterior, downloads de quaisquer dependências que ainda não tiver sido instaladas, e, em seguida, compilações e aplicativo hello de pacote.
+    Esse comando limpa quaisquer artefatos de criação anteriores, baixa quaisquer dependências que ainda não foram instaladas e, então, compila o aplicativo e cria seu pacote.
 
-3. Depois que o comando Olá concluído, hello `wordcountjava/target` diretório contém um arquivo chamado `wordcountjava-1.0-SNAPSHOT.jar`.
+3. Quando o comando é concluído, o diretório `wordcountjava/target` contém um arquivo chamado `wordcountjava-1.0-SNAPSHOT.jar`.
    
    > [!NOTE]
-   > Olá `wordcountjava-1.0-SNAPSHOT.jar` arquivo é um uberjar, que contém o trabalho de WordCount Olá não apenas, mas também requer que as dependências de Olá trabalho em tempo de execução.
+   > O arquivo `wordcountjava-1.0-SNAPSHOT.jar` é um uberjar, que contém não apenas o trabalho WordCount, mas também as dependências necessárias para o trabalho em tempo de execução.
 
-## <a id="upload"></a>Carregar jar Olá
+## <a id="upload"></a>Carregar o jar
 
-Use Olá comando tooupload Olá jar arquivo toohello HDInsight um nó principal a seguir:
+Use o comando a seguir para carregar o arquivo jar para o nó do HDInsight:
 
    ```bash
    scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
    ```
 
-    Replace __USERNAME__ with your SSH user name for hello cluster. Replace __CLUSTERNAME__ with hello HDInsight cluster name.
+    Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-Este comando copia os arquivos de saudação do nó principal do toohello Olá sistema local. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Esse comando copia os arquivos do sistema local para o nó principal. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run"></a>Executar trabalho de MapReduce Olá no Hadoop
+## <a name="run"></a>Para executar o trabalho MapReduce no Hadoop
 
-1. Conecte-se tooHDInsight usando o SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Conecte-se ao HDInsight usando o SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Da sessão SSH hello, use Olá aplicativo MapReduce do comando toorun hello a seguir:
+2. Na sessão do SSH, use o seguinte comando para executar o aplicativo MapReduce:
    
    ```bash
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    Esse comando inicia Olá aplicativo WordCount MapReduce. arquivo de entrada Hello está `/example/data/gutenberg/davinci.txt`, e o diretório de saída de hello `/example/data/wordcountout`. Arquivo de entrada hello e saída são toohello armazenado um armazenamento padrão para o cluster de saudação.
+    Esse comando inicia o aplicativo WordCount MapReduce. O arquivo de entrada é `/example/data/gutenberg/davinci.txt`, e o diretório de saída é `/example/data/wordcountout`. Os arquivos de entrada e saída são armazenados no armazenamento padrão do cluster.
 
-3. Após a conclusão do trabalho hello, use Olá resultados do comando tooview Olá a seguir:
+3. Quando o trabalho for concluído, use o seguinte comando para exibir os resultados:
    
    ```bash
    hdfs dfs -cat /example/data/wordcountout/*
    ```
 
-    Você deve receber uma lista de palavras e as contagens, com valores toohello semelhante texto a seguir:
+    Você deverá receber uma lista de palavras e contagens, com valores semelhantes ao seguinte texto:
    
         zeal    1
         zelus   1
@@ -289,13 +289,13 @@ Este comando copia os arquivos de saudação do nó principal do toohello Olá s
 
 ## <a id="nextsteps"></a>Próximas etapas
 
-Neste documento, você aprendeu como toodevelop um trabalho de MapReduce Java. Consulte Olá documentos para toowork outras formas ao HDInsight a seguir.
+Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Consulte os seguintes documentos para ver outras maneiras de trabalhar com o HDInsight.
 
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-Para obter mais informações, consulte também Olá [Central de desenvolvedores de Java](https://azure.microsoft.com/develop/java/).
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

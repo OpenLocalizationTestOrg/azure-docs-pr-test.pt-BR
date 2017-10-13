@@ -1,5 +1,5 @@
 ---
-title: aaaDeploy IDES EHP7 SP3 do SAP para o SAP ERP 6.0 no Azure | Microsoft Docs
+title: Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure | Microsoft Docs
 description: Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,112 +16,112 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 26d88c7b48a91d35602464c4f89ca7a30502c4b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
-Este artigo descreve como toodeploy um SAP sistema IDES em execução no SQL Server e do sistema de operacional do Windows hello no Azure por meio de saudação biblioteca de dispositivo de nuvem do SAP (SAP CAL) 3.0. Olá capturas de tela mostram processo passo a passo de saudação. toodeploy uma solução diferente, siga Olá as mesmas etapas.
+Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL Server e o sistema operacional Windows no Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de tela mostram o processo passo a passo. Para implantar uma solução diferente, siga as mesmas etapas.
 
-toostart com hello CAL do SAP, vá toohello [biblioteca de dispositivo de nuvem do SAP](https://cal.sap.com/) site. SAP também tem um blog sobre Olá novo [SAP nuvem Appliance biblioteca 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Para iniciar com a SAP CAL, consulte o site [SAP Cloud Appliance Library](https://cal.sap.com/). A SAP também tem um blog sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-Além disso como de 29 de maio de 2017, você pode usar o modelo de implantação do Azure Resource Manager Olá implantação clássica menos preferencial toohello modelo toodeploy Olá CAL do SAP. É recomendável que você use o novo modelo de implantação de Gerenciador de recursos hello e ignorar o modelo de implantação clássico hello.
+A partir de 29 de maio de 2017, você pode usar o modelo de implantação do Azure Resource Manager além do modelo de implantação clássico menos preferencial para implantar a SAP CAL. É recomendável que você use o novo modelo de implantação do Resource Manager e ignore o modelo de implantação clássico.
 
-Se você já criou uma conta de CAL do SAP que usa o modelo clássico de hello, *precisar toocreate outra conta SAP CAL*. Essa conta precisa tooexclusively implantar no Azure usando o modelo do Gerenciador de recursos de saudação.
+Se você já criou uma conta da SAP CAL que usa o modelo clássico, *é necessário criar outra conta da SAP CAL*. Essa conta precisa implantar exclusivamente no Azure usando o modelo do Gerenciador de recursos.
 
-Depois que você entra no toohello CAL do SAP, primeira página do hello geralmente leva você toohello **soluções** página. soluções Olá oferecidas no hello CAL SAP estão aumentando continuamente, para que você talvez precise tooscroll solução Olá um pouco toofind que você deseja. Olá realçado baseados em Windows SAP IDES solução disponível exclusivamente no Azure demonstra o processo de implantação de saudação:
+Depois de entrar na SAP CAL, a primeira página geralmente leva você para a página **Soluções**. As soluções oferecidas no SAP CAL continuamente estão aumentando, portanto, talvez seja necessário rolar um pouco para encontrar a solução que você deseja. A solução SAP IDES com base em Windows destacada está disponível exclusivamente no Azure e demonstra o processo de implantação:
 
 ![Soluções de SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
-### <a name="create-an-account-in-hello-sap-cal"></a>Criar uma conta no hello CAL do SAP
-1. toosign em toohello CAL do SAP para hello primeira vez, use seu usuário SAP S ou outro usuário registrado com o SAP. Em seguida, defina uma conta de CAL do SAP que é usada por dispositivos de toodeploy Olá CAL do SAP no Azure. Na definição de conta hello, você precisa:
+### <a name="create-an-account-in-the-sap-cal"></a>Criar uma conta na SAP CAL
+1. Para entrar na SAP CAL pela primeira vez, use o seu SAP S-User ou outro usuário registrado com a SAP. Em seguida, defina uma conta da SAP CAL que é usada pela SAP CAL para implantar dispositivos no Azure. Na definição de conta, você precisa:
 
-    a. Selecione o modelo de implantação de saudação no Azure (Gerenciador de recursos ou clássico).
+    a. Selecionar o modelo de implantação no Azure (Resource Manager ou clássico).
 
-    b. Inserir sua assinatura do Azure. Tooone assinatura só pode ser atribuída a uma conta de CAL do SAP. Se você precisar de mais de uma assinatura, você precisa toocreate outra conta de CAL do SAP.
+    b. Inserir sua assinatura do Azure. Uma conta da SAP CAL pode ser atribuída a apenas uma assinatura. Se você precisar de mais de uma assinatura, precisará criar uma outra conta da SAP CAL.
     
-    c. Dê Olá SAP CAL permissão toodeploy em sua assinatura do Azure.
+    c. Conceder a permissão da SAP CAL para implantar em sua assinatura do Azure.
 
     > [!NOTE]
-    as próximas etapas Olá mostram como a conta toocreate um CAL do SAP para implantações do Gerenciador de recursos. Se você já tiver uma conta de CAL do SAP que é o modelo de implantação clássico toohello vinculado, você *necessário* toofollow toocreate essas etapas uma nova conta de CAL do SAP. nova conta de CAL SAP Olá precisa toodeploy no modelo do Gerenciador de recursos de saudação.
+    As próximas etapas mostram como criar uma conta da SAP CAL para implantações do Resource Manager. Se você já tiver uma conta da SAP CAL que está vinculada ao modelo de implantação clássico, é *necessário* seguir estas etapas para criar uma nova conta da SAP CAL. A nova conta da SAP CAL precisa ser implantada no modelo do Resource Manager.
 
-2. toocreate um CAL SAP nova conta, hello **contas** página mostra duas opções para o Azure: 
+2. Para criar uma nova conta da SAP CAL, a página **Contas** mostra duas opções para o Azure: 
 
-    a. **Microsoft Azure (clássica)** é o modelo de implantação clássico hello e não está mais preferencial.
+    a. **Microsoft Azure (clássico)** é o modelo de implantação clássico e não é mais preferencial.
 
-    b. **Microsoft Azure** é Olá novo modelo de implantação de Gerenciador de recursos.
+    b. **Microsoft Azure** é o novo modelo de implantação do Resource Manager.
 
     ![Contas da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
-    Selecione toodeploy no modelo do Gerenciador de recursos de hello, **Microsoft Azure**.
+    Para implantar no modelo do Resource Manager, selecione **Microsoft Azure**.
 
     ![Contas da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-3. Digite hello Azure **ID da assinatura** que podem ser encontrados no hello portal do Azure. 
+3. Insira a **ID da assinatura** do Azure que pode ser encontrada no portal do Azure. 
 
     ![ID da assinatura da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-4. tooauthorize Olá CAL SAP toodeploy em Olá assinatura do Azure que você definiu, clique em **autorizar**. saudação de página a seguir aparece na guia do navegador hello:
+4. Para autorizar a SAP CAL para implantar na assinatura do Azure que você definiu, clique em **Autorizar**. A seguinte página será exibida na guia do navegador:
 
     ![Entrar nos serviços de nuvem do Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
-5. Se mais de um usuário estiver listado, escolha a conta da Microsoft hello que é vinculado toobe Olá coadministrator de saudação assinatura do Azure que você selecionou. saudação de página a seguir aparece na guia do navegador hello:
+5. Se mais de um usuário estiver listado, escolha a conta da Microsoft que está vinculada para ser o coadministrador da assinatura do Azure que você selecionou. A seguinte página será exibida na guia do navegador:
 
     ![Confirmação dos serviços de nuvem do Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-6. Clique em **Aceitar**. Se a autorização Olá for bem-sucedida, Olá SAP CAL definição da conta será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização de saudação foi bem-sucedida.
+6. Clique em **Aceitar**. Se a autorização for bem-sucedido, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização foi bem-sucedido.
 
-7. Olá tooassign recém-criado CAL SAP tooyour de conta do usuário, insira seu **ID de usuário** no hello caixa de texto de saudação à direita e clique em **adicionar**. 
+7. Para atribuir a conta da CAL SAP recém-criada ao seu usuário, insira sua **ID de usuário** na caixa de texto à direita e clique em **Adicionar**. 
 
-    ![Associação de toouser de conta](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
+    ![Conta a ser associada ao usuário](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
-8. clique de sua conta com usuário Olá que você use toosign em toohello CAL do SAP, tooassociate **revisão**. 
+8. Para associar sua conta com o usuário que você usa para entrar na SAP CAL, clique em **Análise**. 
 
-9. associação de saudação toocreate entre o usuário e conta de CAL SAP Olá recém-criado, clique em **criar**.
+9. Para criar a associação entre o usuário e a conta da CAL SAP recém-criada, clique em **Criar**.
 
-    ![Associação de tooaccount do usuário](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
+    ![Usuário para a associação de conta](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
 Você criou com êxito uma conta da SAP CAL que é capaz de:
 
-- Use o modelo de implantação do Gerenciador de recursos de saudação.
+- Usar o Modelo de implantação do Resource Manager.
 - Implantar os sistemas SAP na sua assinatura do Azure.
 
 > [!NOTE]
-Antes de implantar solução SAP IDES Olá com base no Windows e do SQL Server, talvez seja necessário toosign para uma assinatura de CAL do SAP. Caso contrário, solução de saudação pode mostrar como **bloqueado** na página de visão geral de saudação.
+Antes de implantar a solução SAP IDES com base no Windows e no SQL Server, você precisará inscrever-se para uma assinatura da SAP CAL. Caso contrário, a solução pode mostrar como **Bloqueado** na página da visão geral.
 
 ### <a name="deploy-a-solution"></a>Implantar uma solução
-1. Depois de configurar uma conta de CAL do SAP, selecione **Olá solução SAP IDES no Windows e no SQL Server** solução. Clique em **criar instância**e confirme as condições de uso e os termos de saudação. 
+1. Depois de configurar uma conta da SAP CAL, selecione a solução **A solução SAP IDES no Windows e no SQL Server**. Clique em **Criar instância** e confirme as condições de uso e termos. 
 
-2. Em Olá **modo básico: criar instância** página, você precisa:
+2. Na página **Modo básico: criar instância**, você precisa:
 
     a. Inserir um **Nome** para a instância.
 
-    b. Selecionar uma **Região** do Azure. Talvez seja necessário um tooget de assinatura de CAL SAP oferecidas várias regiões do Azure.
+    b. Selecionar uma **Região** do Azure. Talvez seja necessário uma assinatura da SAP CAL para obter várias regiões do Azure oferecidas.
 
-    c.  Insira o mestre de saudação **senha** para solução hello, conforme mostrado:
+    c.  Inserir a **Senha** mestre para a solução, conforme mostrado:
 
     ![Modo básico da SAP CAL: criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-3. Clique em **Criar**. Depois de algum tempo, dependendo do tamanho de saudação e a complexidade da solução hello (Olá SAP CAL fornece uma estimativa), Olá status será mostrado como ativa e pronta para uso: 
+3. Clique em **Criar**. Após algum tempo, dependendo do tamanho e da complexidade da solução (uma estimativa é fornecida pela SAP CAL), o status é mostrado como ativo e pronto para uso: 
 
     ![Instâncias da SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-4. grupo de recursos de saudação toofind e todos os seus objetos que foram criados pelo Olá CAL do SAP, visite toohello portal do Azure. máquina virtual de saudação podem ser encontrada começando com hello mesmo nome que foi fornecida no hello SAP CAL da instância.
+4. Para localizar o grupo de recursos e todos os seus objetos que foram criados pela SAP CAL, acesse o portal do Azure. As máquinas virtuais podem ser encontradas começando com o mesmo nome de instância fornecido na SAP CAL.
 
     ![Objetos do grupo de recursos](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
-5. No portal do SAP CAL hello, vá instâncias toohello implantado e clique em **conectar**. Olá janela pop-up a seguir será exibida: 
+5. No portal da SAP CAL, vá para as instâncias implantadas e clique em **Conectar**. A seguinte janela pop-up será exibida: 
 
-    ![Conecte-se a instância de toohello](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
+    ![Conecte-se à instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
-6. Antes de usar um dos sistemas de toohello implantado em tooconnect Olá opções, clique em **guia de Introdução**. nomes de documentação Olá Olá usuários para cada um dos métodos de conectividade de saudação. as senhas de saudação para os usuários são definidas toohello senha mestra que você definiu no início do processo de implantação de saudação hello. Na documentação do hello, outros usuários mais funcionais são listados com suas senhas, o que você pode usar toosign no toohello implantado sistema.
+6. Antes de você poder usar uma das opções para se conectar aos sistemas implantados, clique em **Guia de introdução**. A documentação nomeia os usuários para cada um dos métodos de conectividade. As senhas para esses usuários são definidas como a senha mestra que você definiu no início do processo de implantação. Na documentação, outros usuários mais funcionais são listados com suas senhas, o que você pode usar para entrar no sistema implantado.
 
     ![Documentação de boas-vindas da SAP](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 Em algumas horas, um sistema de SAP IDES íntegro é implantado no Azure.
 
-Se você comprou uma assinatura de CAL do SAP, SAP totalmente dá suporte a implantações por meio de saudação CAL do SAP no Azure. fila de suporte de saudação é BC-VCM-CAL.
+Se você comprou uma assinatura da CAL SAP, a SAP dará total suporte a implantações por meio da CAL SAP no Azure. A fila de suporte é BC-VCM-CAL.
 

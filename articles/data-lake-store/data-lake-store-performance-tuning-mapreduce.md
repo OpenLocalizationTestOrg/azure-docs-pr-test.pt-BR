@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Data Lake repositório MapReduce ajuste diretrizes de desempenho | Microsoft Docs"
+title: Diretrizes de ajuste de desempenho para MapReduce do Azure Data Lake Store | Microsoft Docs
 description: Diretrizes de ajuste de desempenho para MapReduce do Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e21414a23530e65613c85156af0209c88ec54d2d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para o MapReduce no HDInsight e Azure Data Lake Store
 
@@ -26,55 +26,55 @@ ms.lasthandoff: 10/06/2017
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como um, ver toocreate [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Cluster de HDInsight do Azure** com acesso tooa conta do repositório Data Lake. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Verifique se que você habilitar a área de trabalho remota para o cluster de saudação.
+* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
+* **Cluster HDInsight do Azure** com acesso a uma conta do Repositório Data Lake. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Usando o MapReduce no HDInsight**.  Para obter mais informações, consulte [Usar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-mapreduce)  
 * **Diretrizes de ajuste de desempenho no ADLS**.  Para ver os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
 
 ## <a name="parameters"></a>parâmetros
 
-Ao executar trabalhos de MapReduce, eis os Olá parâmetros mais importantes que você pode configurar o desempenho de tooincrease em ADLS:
+Ao executar trabalhos do MapReduce, aqui estão os parâmetros mais importantes que você pode configurar para aumentar o desempenho no ADLS:
 
-* **MapReduce.map.Memory.MB** – quantidade de saudação do mapeador de tooeach de tooallocate de memória
-* **MapReduce.job.Maps** – Olá número de tarefas de mapa por trabalho
-* **MapReduce** – quantidade de saudação do Redutor de tooeach de tooallocate de memória
-* **MapReduce.job.Reduces** – Olá número de tarefas de redução por trabalho
+* **Mapreduce.map.memory.mb** – a quantidade de memória para alocar para cada mapeador
+* **Mapreduce.job.maps** – o número de tarefas de mapeamento por trabalho
+* **Mapreduce.reduce.memory.mb** – a quantidade de memória para alocar para cada redutor
+* **Mapreduce.job.reduces** – o número de tarefas de redução por trabalho
 
-**MapReduce.map.Memory / Mapreduce.reduce.memory** esse número deve ser ajustada com base em como a quantidade de memória é necessária para o mapa de saudação e/ou reduzir a tarefa.  valores padrão de saudação do mapreduce.map.memory e mapreduce.reduce.memory podem ser exibidos no Ambari através da configuração do Yarn hello.  No Ambari, navegar tooYARN e exiba a guia de configurações de saudação.  Olá memória YARN será exibida.  
+**Mapreduce.map.memory / Mapreduce.reduce.memory** Esse número deve ser ajustado com base na quantidade de memória que é necessária para a tarefa de mapeamento e/ou redução.  Os valores padrão de mapreduce.map.memory e mapreduce.reduce.memory podem ser exibidos no Ambari por meio da configuração do Yarn.  No Ambari, navegue até YARN e exiba a guia Configurações.  A memória YARN será exibida.  
 
-**MapReduce.job.Maps / Mapreduce.job.reduces** isso determinará o número máximo de saudação de mapeadores ou reducers toobe criado.  número de saudação de divisões determinará quantos mapeadores serão criados para o trabalho de MapReduce Olá.  Portanto, você pode receber menos mapeadores de solicitado se há menos divisões que número de saudação de mapeadores solicitado.       
+**Mapreduce.job.maps / Mapreduce.job.reduces** Isso determinará o número máximo de mapeadores ou redutores a serem criados.  O número de divisões determinará quantas mapeadores serão criados para o trabalho MapReduce.  Portanto, você poderá obter menos mapeadores que o solicitado se houver menos divisões do que o número de mapeadores solicitado.       
 
 ## <a name="guidance"></a>Diretrizes
 
-**Etapa 1: Determinar o número de trabalhos em execução** -por padrão, MapReduce usará o cluster inteiro Olá para seu trabalho.  Você pode usar menos cluster hello usando menos mapeadores de que os contêineres disponíveis.  Guia de saudação neste documento presume que seu aplicativo é o único aplicativo de saudação em execução no seu cluster.      
+**Etapa 1: determinar o número de trabalhos em execução** – por padrão, o MapReduce usará todo o cluster para o seu trabalho.  Você pode usar uma parte menor do cluster ao usar um número de mapeadores menor do que o número de contêineres disponíveis existentes.  As diretrizes neste documento pressupõem que seu aplicativo é o único aplicativo em execução no cluster.      
 
-**Etapa 2: Configurar mapreduce.map.memory/mapreduce.reduce.memory** – Olá tamanho da memória de saudação de mapa e reduzir tarefas serão dependentes em seu trabalho específico.  Você pode reduzir o tamanho da memória Olá se você quiser tooincrease simultaneidade.  número de saudação de tarefas em execução simultaneamente depende número Olá de contêineres.  Ao diminuir a quantidade de saudação de memória por mapeador ou Redutor, mais contêineres podem ser criados, que permitem mais toorun mapeadores ou reducers simultaneamente.  Quantidade Olá decrescente de memória muito pode causar algumas toorun processos sem memória.  Se você receber um erro de heap ao executar seu trabalho, você deve aumentar memória Olá por mapeador ou Redutor.  Considere que adicionar mais contêineres adicionará sobrecarga extra para cada contêiner adicional, o que pode degradar o desempenho.  Outra alternativa é tooget mais memória usando um cluster que tem a maior quantidade de memória ou aumentar Olá número de nós no cluster.  Mais memória permitirá toobe contêineres mais usado, o que significa que mais de simultaneidade.  
+**Etapa 2: Definir mapreduce.map.memory/mapreduce.reduce.memory** – o tamanho da memória para tarefas de mapeamento e redução dependerá do seu trabalho específico.  Caso deseje aumentar a simultaneidade, você poderá reduzir o tamanho da memória.  O número de tarefas em execução simultânea depende do número de contêineres.  Diminuindo a quantidade de memória por mapeador ou redutor, mais contêineres podem ser criados, o que permite a execução simultânea de mais mapeadores ou redutores.  Diminuir muito a quantidade de memória pode fazer com que alguns processos fiquem sem memória.  Se você receber um erro de heap quando executar seu trabalho, você deverá aumentar a memória por mapeador ou redutor.  Considere que adicionar mais contêineres adicionará sobrecarga extra para cada contêiner adicional, o que pode degradar o desempenho.  Outra alternativa é de obter mais memória pelo uso de um cluster com maiores quantidades de memória ou pelo aumento do número de nós no cluster.  Mais memória permitirá o uso de mais contêineres, o que significa mais simultaneidade.  
 
-**Etapa 3: Determinar a memória Total YARN** -tootune mapreduce.job.maps/mapreduce.job.reduces, você deve considerar a quantidade de saudação de memória total do YARN disponível para uso.  Essas informações estão disponíveis no Ambari.  Navegue tooYARN e exiba a guia de configurações de saudação.  Olá memória YARN é exibido nesta janela.  Você deve multiplicar Olá YARN de memória com número de saudação de nós no seu cluster tooget Olá total YARN de memória.
+**Etapa 3: determinar a memória YARN total** – para ajustar mapreduce.job.maps/mapreduce.job.reduces, você deve considerar a quantidade de memória YARN total disponível para uso.  Essas informações estão disponíveis no Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nessa janela.  Para obter a memória YARN total, você deve multiplicar a memória YARN por nó pelo número de nós em seu cluster.
 
     Total YARN memory = nodes * YARN memory per node
-Se você estiver usando um cluster vazio, memória poderá ser Olá total YARN de memória para o cluster.  Se outros aplicativos estão usando memória, em seguida, você pode escolher usar tooonly uma parte da memória do seu cluster, reduzindo o número de saudação de mapeadores reducers toohello número de contêineres, você deseja toouse.  
+Se você estiver usando um cluster vazio, a memória poderá ser a memória YARN total para seu cluster.  Se outros aplicativos estiverem usando memória, você poderá usar apenas uma parte da memória do cluster, reduzindo o número de mapeadores ou redutores para o número de contêineres que você deseja usar.  
 
-**Etapa 4: Calcular o número de contêineres YARN** – contêineres YARN ditam a quantidade de saudação de simultaneidade disponível para o trabalho de saudação.  Pegar a memória YARN total e divida-a por mapreduce.map.memory.  
+**Etapa 4: calcular o número de contêineres YARN** – contêineres YARN determinam a quantidade de simultaneidade disponível para o trabalho.  Pegar a memória YARN total e divida-a por mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Etapa 5: Definir mapreduce.job.maps/mapreduce.job.reduces** definir mapreduce.job.maps/mapreduce.job.reduces tooat menor número de saudação de recipientes disponíveis.  Você pode testar adicional, aumentando o número de saudação de toosee mapeadores e reducers se obter um melhor desempenho.  Tenha em mente que mais mapeadores terão uma sobrecarga adicional, então ter um número excessivo de mapeadores pode degradar o desempenho.  
+**Etapa 5: definir mapreduce.job.maps/mapreduce.job.reduces** Defina mapreduce.job.maps/mapreduce.job.reduces para, no mínimo, o número de contêineres disponíveis.  Você pode experimentar ainda mais aumentando o número de mapeadores e redutores para ver se obtém um melhor desempenho.  Tenha em mente que mais mapeadores terão uma sobrecarga adicional, então ter um número excessivo de mapeadores pode degradar o desempenho.  
 
-Agendamento de CPU e o isolamento de CPU estão desativados por padrão para que o número de saudação de contêineres YARN é restrito por memória.
+O isolamento de CPU e agendamento de CPU são desligados por padrão para que o número de contêineres YARN seja restrito pela memória.
 
 ## <a name="example-calculation"></a>Exemplo de cálculo
 
-Digamos que você possui um cluster composto de 8 nós D14 e você deseja toorun um trabalho de uso intensivo de e/s.  Aqui estão os cálculos de saudação, que você deve fazer:
+Suponhamos que você tenha um cluster composto de oito nós D14 e deseje executar um trabalho com uso intensivo de E/S.  Aqui estão os cálculos que você deve fazer:
 
-**Etapa 1: Determinar o número de trabalhos em execução** -para nosso exemplo, vamos supor que nosso trabalho é Olá apenas uma execução.  
+**Etapa 1: determinar o número de trabalhos em execução** – em nosso exemplo, vamos supor que nosso trabalho seja o único em execução.  
 
 **Etapa 2: definir mapreduce.map.memory/mapreduce.reduce.memory** – em nosso exemplo, você está executando um trabalho com uso intensivo de E/S e decide que 3 GB de memória para tarefas de mapeamento serão suficientes.
 
     mapreduce.map.memory = 3GB
 **Etapa 3: determinar o total de memória YARN**
 
-    total memory from hello cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+    total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Etapa 4: calcular o número de contêineres YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
@@ -87,24 +87,24 @@ Digamos que você possui um cluster composto de 8 nós D14 e você deseja toorun
 
 **Limitação do ADLS**
 
-Como um serviço multilocatário, o ADLS define limites de largura de banda de nível de conta.  Se você receber esses limites, você começará toosee falhas de tarefas. Isso pode ser identificado observando os erros de limitação nos logs de tarefa.  Se precisar de mais largura de banda para seu trabalho, entre em contato conosco.   
+Como um serviço multilocatário, o ADLS define limites de largura de banda de nível de conta.  Se você atingir esses limites, começará a ver falhas de tarefas. Isso pode ser identificado observando os erros de limitação nos logs de tarefa.  Se precisar de mais largura de banda para seu trabalho, entre em contato conosco.   
 
-toocheck se você estiver obtendo limitadas, você precisa tooenable Olá log de depuração no lado do cliente de saudação. Veja como fazer isso:
+Para verificar se há problemas de limitação, você precisa habilitar o log de depuração no lado do cliente. Veja como fazer isso:
 
-1. PUT hello seguinte propriedade nas propriedades log4j Olá Ambari > YARN > Configuração > Avançado yarn log4j: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+1. Coloque a seguinte propriedade nas propriedades de log4j em Ambari > YARN > Configuração > Avançado yarn-log4j: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-2. Reinicie todos os nós/serviço Olá para efeito de tootake Olá config.
+2. Reinicie todos os nós/o serviço para que a configuração entre em vigor.
 
-3. Se você estiver obtendo limitada, você verá o código de erro HTTP 429 Olá no arquivo de log YARN Olá. arquivo de log do Hello YARN está em /tmp/&lt;usuário&gt;/yarn.log
+3. Se o problema for de limitação, você verá o código de erro HTTP 429 no arquivo de log do YARN. O arquivo de log do YARN está em /tmp/&lt;usuário&gt;/yarn.log
 
-## <a name="examples-toorun"></a>Exemplos tooRun
+## <a name="examples-to-run"></a>Exemplos para execução
 
-toodemonstrate como MapReduce é executado no repositório Azure Data Lake, abaixo está um código de exemplo que foi executado em um cluster com hello configurações a seguir:
+Para demonstrar como o MapReduce é executado no Azure Data Lake Store, temos abaixo um código de exemplo que foi executado em um cluster com as seguintes configurações:
 
 * 16 nós D14v2
 * Cluster Hadoop executando HDI 3.6
 
-Para um ponto de partida, aqui estão alguns comandos de exemplo toorun MapReduce Teragen, Terasort e Teravalidate.  Você pode ajustar esses comandos com base em seus recursos.
+Para um ponto de partida, aqui estão alguns comandos de exemplo para executar o MapReduce Teragen, Terasort e Teravalidate.  Você pode ajustar esses comandos com base em seus recursos.
 
 **Teragen**
 

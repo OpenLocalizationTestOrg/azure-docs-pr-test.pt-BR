@@ -1,6 +1,6 @@
 ---
 title: 'Backup do Azure: backups consistentes com o aplicativo de VMs Linux | Microsoft Docs'
-description: "Use scripts tooguarantee backups consistentes com aplicativos tooAzure, para as máquinas virtuais de Linux. scripts de saudação aplicam-se apenas tooLinux VMs em uma implantação do Gerenciador de recursos; scripts de saudação não se aplicam tooWindows VMs ou implantações do service manager. Este artigo descreve as etapas de saudação para configurar scripts de hello, incluindo a solução de problemas."
+description: "Use scripts para garantir backups consistentes com o aplicativo no Azure, para máquinas virtuais do Linux. Os scripts se aplicam somente às VMs do Linux em uma implantação do Resource Manager. Os scripts não se aplicam a VMs do Windows ou implantações do Service Manager. Este artigo o guiará durante as etapas para configurar os scripts, incluindo a solução de problemas."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.openlocfilehash: d557dd973364d79bb4d8ce954f648de835dd345f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup consistente com o aplicativo de VMs Linux do Azure (versão prévia)
 
-Este artigo aborda Olá pré-script Linux e do framework de pós- script e como ela pode ser backups consistentes com aplicativos de tootake usada das VMs do Linux do Azure.
+Este artigo fala sobre a estrutura pré e pós-script do Linux e como ela pode ser usada para fazer backups consistentes com o aplicativo de VMs Linux do Azure.
 
 > [!Note]
-> estrutura de script de pré e pós-Olá tem suporte somente para máquinas virtuais Linux implantadas pelo Gerenciador de recursos do Azure. Não há suporte a scripts para consistência com aplicativos em máquinas virtuais implantadas pelo Service Manager ou máquinas virtuais do Windows.
+> Só há suporte para a estrutura pré e pós-script para máquinas virtuais Linux implantadas pelo Azure Resource Manager. Não há suporte a scripts para consistência com aplicativos em máquinas virtuais implantadas pelo Service Manager ou máquinas virtuais do Windows.
 >
 
-## <a name="how-hello-framework-works"></a>Como funciona o framework Olá
+## <a name="how-the-framework-works"></a>Como funciona a estrutura
 
-estrutura Olá fornece uma opção toorun pré-scripts de personalizados e pós-scripts enquanto faz instantâneos VM. Pré-scripts são executados apenas antes de tirar instantâneo VM hello e pós-os scripts são executados imediatamente depois de tirar instantâneo VM hello. Isso proporciona Olá flexibilidade toocontrol seu ambiente e o aplicativo enquanto faz instantâneos VM.
+A estrutura fornece uma opção para executar pré e pós-scripts personalizados ao obter instantâneos de VM. Os pré-scripts são executados imediatamente antes de você obter o instantâneo da VM e os pós-scripts são executados imediatamente após você obter o instantâneo da VM. Isso oferece a flexibilidade para controlar seus aplicativos e o ambiente enquanto está obtendo instantâneos da VM.
 
-Nesse cenário, é importante tooensure consistente com o aplicativo backup de VM. pré-script de Olá pode invocar o aplicativo nativo APIs tooquiesce Olá IOs e liberar o disco toohello conteúdo na memória. Isso garante que esse Instantâneo Olá é consistente com o aplicativo (ou seja, o aplicativo hello vem quando pós-restauração Olá VM é inicializada). Pós-script pode ser usado toothaw Olá IOs. Ele faz isso por meio de APIs de aplicativo nativo para que o aplicativo hello pode retomar o instantâneo de VM de postagem de operações normais.
+Neste cenário, é importante garantir o backup da VM de forma consistente com o aplicativo. O pré-script de pode invocar as APIs nativas do aplicativo para desativar as E/Ss e liberar o conteúdo da memória para o disco. Isso garante que o instantâneo seja consistente com o aplicativo (isto é, que o aplicativo surja quando a VM for iniciada após a restauração). O pós-script pode ser usado para descongelar as E/Ss. Ele faz isso usando APIs nativas do aplicativo, de modo que o aplicativo possa retomar as operações normais após o instantâneo da VM.
 
-## <a name="steps-tooconfigure-pre-script-and-post-script"></a>Etapas tooconfigure script de pré e pós-
+## <a name="steps-to-configure-pre-script-and-post-script"></a>Etapas para configurar o pré-script e o pós-script
 
-1. Faça logon no hello raiz usuário toohello VM do Linux que você deseja tooback backup.
+1. Entre como o usuário raiz da VM do Linux da qual você deseja fazer backup.
 
-2. Baixar **VMSnapshotScriptPluginConfig.json** de [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)e, em seguida, copie-o toohello **/etc/azure** pasta em todas as VMs de saudação que você vai tooback backup. Criar hello **/etc/azure** diretório se ele já não existe.
+2. Baixe **VMSnapshotScriptPluginConfig.json** do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copie-o para a pasta **/etc/azure** em todas as VMs das quais fará o backup. Crie o diretório **/etc/azure** se ele ainda não existir.
 
-3. Copie Olá script de pré e pós-para o aplicativo no hello todas as máquinas virtuais que você planejar tooback backup. Você pode copiar tooany local scripts Olá Olá VM. Ser tooupdate se Olá caminho completo Olá arquivos de script na Olá **VMSnapshotScriptPluginConfig.json** arquivo.
+3. Copie o pré-script e o pós-script para seu aplicativo em todas as VMs das quais você planeja fazer backup. Você pode copiar os scripts em qualquer local na VM. Certifique-se de atualizar o caminho completo dos arquivos de script no arquivo **VMSnapshotScriptPluginConfig.json**.
 
-4. Certifique-se de saudação as seguintes permissões para esses arquivos:
+4. Verifique se estas permissões existem para os arquivos:
 
-   - **VMSnapshotScriptPluginConfig.json**: permissão “600.” Por exemplo, apenas o usuário "raiz" deve ter um arquivo de toothis de permissões de "leitura" e "gravação" e nenhum usuário deve ter permissões de "execução".
+   - **VMSnapshotScriptPluginConfig.json**: permissão “600.” Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura" e "gravação" para esse arquivo e nenhum usuário deve ter permissões de "execução".
 
-   - **Arquivo de pré-script**: permissão "700".  Por exemplo, apenas o usuário "raiz" deve ter "leitura", "gravação" e "executar" arquivo de toothis de permissões.
+   - **Arquivo de pré-script**: permissão "700".  Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
   
-   - **Pós-script** permissão "700". Por exemplo, apenas o usuário "raiz" deve ter "leitura", "gravação" e "executar" arquivo de toothis de permissões.
+   - **Pós-script** permissão "700". Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
 
    > [!Important]
-   > estrutura Olá fornece aos usuários uma grande quantidade de energia. É importante que é seguro e o usuário "raiz" só tem acesso toocritical JSON e arquivos de script.
-   > Se os requisitos de saudação anteriores não forem atendidos, Olá script não é executado. Isso resulta em backup consistente de sistema de arquivos/falha.
+   > A estrutura concede aos usuários muito poder. É importante que ela seja segura e que apenas o usuário “raiz” tenha acesso aos arquivos de script e JSON críticos.
+   > Se os requisitos anteriores não forem atendidos, o script não será executado. Isso resulta em backup consistente de sistema de arquivos/falha.
    >
 
 5. Configure o **VMSnapshotScriptPluginConfig.json** conforme descrito aqui:
     - **pluginName**: deixe esse campo como está ou os scripts podem não funcionar conforme o esperado.
 
-    - **preScriptLocation**: fornecer o caminho completo de saudação do pré-script de Olá em Olá VM toobe do que será feito backup.
+    - **preScriptLocation**: forneça o caminho completo do pré-script na VM que passará pelo backup.
 
-    - **postScriptLocation**: fornecer o caminho completo de saudação do pós-script Olá em Olá VM toobe do que será feito backup.
+    - **postScriptLocation**: forneça o caminho completo do pós-script na VM que passará pelo backup.
 
-    - **preScriptParams**: fornecem parâmetros opcionais de saudação que precisam toobe passado pré-script toohello. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
+    - **preScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
 
-    - **postScriptParams**: fornecer parâmetros opcionais de saudação que precisam toobe passado pós-script toohello. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
+    - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
 
-    - **preScriptNoOfRetries**: definir Olá número de vezes que deve ser repetida pré-script Olá, se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
-    - **postScriptNoOfRetries**: definir Olá número de vezes que deve ser repetida pós-script Olá, se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **postScriptNoOfRetries**: defina o número de vezes que o pós-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
     
-    - **timeoutInSeconds**: especificar tempos limites individuais para pré-script de Olá e Olá pós.
+    - **timeoutInSeconds**: especifique os tempos limites individuais para o pré-script e o pós-script.
 
-    - **continueBackupOnFailure**: Defina esse valor muito**true** se deseja Azure Backup toofall tooa back sistema consistente/falha consistente backup de arquivo se script pré ou pós-script falha. Essa configuração muito**false** falhar Olá backup no caso de falha de script (exceto quando você tem em um único disco VM que vão o backup novamente toocrash consistente, independentemente dessa configuração).
+    - **continueBackupOnFailure**: defina esse valor como **true** se você quiser que o Backup do Azure passe por fallback para um backup consistente com falha/ consistente com o sistema de arquivos, se o pré-script ou pós-script falhar. Definir isso como **false** causará a falha do backup no caso de falha do script (exceto quando você tiver uma VM de disco único que passa por fallback par a um backup consistente com a falha independentemente dessa configuração).
 
-    - **fsFreezeEnabled**: Especifique se fsfreeze Linux deve ser chamado enquanto você está fazendo a consistência do sistema de arquivos tooensure Olá VM instantâneo. É recomendável manter essa configuração definida muito**true** , a menos que seu aplicativo tem uma dependência em Desabilitar fsfreeze.
+    - **fsFreezeEnabled**: especifique se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como **true**, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
 
-6. estrutura do script Hello agora está configurada. Se o backup de VM Olá já estiver configurado, o próximo backup de saudação invoca scripts hello e dispara backup consistente com o aplicativo. Se o backup de VM Olá não estiver configurado, configure-o usando [máquinas virtuais do Azure tooRecovery serviços cofres de backup.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-Verifique se você adicionar log apropriadas ao gravar o script de pré e pós- e revisar os problemas de script de sua toofix de logs do script. Se você ainda tiver problemas ao executar scripts, consulte toohello para obter mais informações a tabela a seguir.
+Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine os logs de script para corrigir quaisquer problemas de script. Se você ainda tiver problemas para executar scripts, veja a tabela a seguir para obter mais informações.
 
 | Erro | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |pré-script de Olá retornou um erro, para que o backup pode não ser consistente com o aplicativo. | Examine os logs de falha de saudação para seu problema de saudação do script toofix.|  
-|   Post-ScriptExecutionFailed |    pós-script Olá retornou um erro que pode afetar o estado do aplicativo. |  Examine logs de falha de saudação para seu problema de saudação do script toofix e verificar o estado do aplicativo hello. |
-| Pre-ScriptNotFound |  Olá pré-script não foi encontrado no local de saudação que é especificado no hello **VMSnapshotScriptPluginConfig.json** arquivo de configuração. | Certifique-se que pré-script está presente no caminho de saudação especificado no hello config tooensure consistente com o aplicativo o backup do arquivo.|
-| Post-ScriptNotFound | Olá pós-script não foi encontrado no local de saudação que é especificado no hello **VMSnapshotScriptPluginConfig.json** arquivo de configuração. | Certifique-se que pós-script está presente no caminho de saudação especificado no hello config tooensure consistente com o aplicativo o backup do arquivo.|
-| IncorrectPluginhostFile | Olá **Pluginhost** arquivo, o que vem com hello extensão VmSnapshotLinux, está corrompido, portanto, não é possível executar o script de pré e pós- e backup Olá não será consistente com o aplicativo.   | Desinstalar Olá **VmSnapshotLinux** extensão e ele serão reinstalado automaticamente com o problema do hello próximo backup toofix Olá. |
-| IncorrectJSONConfigFile | Olá **VMSnapshotScriptPluginConfig.json** arquivo está incorreta, portanto pré-script e pós-script não é possível executar e backup Olá não será consistente com o aplicativo. | Baixar a cópia de saudação do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configurá-lo novamente. |
-| InsufficientPermissionforPre-Script | Para executar scripts, usuário "raiz" deve ser o proprietário de saudação do arquivo hello e arquivo hello deve ter permissões "700" (ou seja, apenas "proprietário" deve ter "leitura", "gravação" e "executar" permissões). | Verifique se é de usuário "raiz" hello "proprietário" hello do arquivo de script e que somente "proprietário" tem "permissões de leitura", "gravação" e "executar". |
-| InsufficientPermissionforPost-Script | Para executar scripts, usuário raiz deve ser o proprietário de saudação do arquivo hello e arquivo hello deve ter permissões "700" (ou seja, apenas "proprietário" deve ter "leitura", "gravação" e "executar" permissões). | Verifique se é de usuário "raiz" hello "proprietário" hello do arquivo de script e que somente "proprietário" tem "permissões de leitura", "gravação" e "executar". |
-| Pre-ScriptTimeout | Olá a execução do pré-script de backup consistente com o aplicativo hello atingiu o tempo limite. | Verifique o script hello e aumentar o tempo limite de saudação em Olá **VMSnapshotScriptPluginConfig.json** arquivo está localizado em **/etc/azure**. |
-| Post-ScriptTimeout | a execução do pós-script de backup consistente com o aplicativo hello Olá atingiu o tempo limite. | Verifique o script hello e aumentar o tempo limite de saudação em Olá **VMSnapshotScriptPluginConfig.json** arquivo está localizado em **/etc/azure**. |
+| Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto talvez o backup não seja consistente com o aplicativo.   | Examine os logs de falha do script para corrigir o problema.|  
+|   Post-ScriptExecutionFailed |    O pós-script retornou um erro que pode afetar o estado do aplicativo. |    Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
+| Pre-ScriptNotFound |  O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |   Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| Post-ScriptNotFound | O pós-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |   Verifique se o pós-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| IncorrectPluginhostFile | O arquivo **Pluginhost**, que vem com a extensão VmSnapshotLinux, está corrompido, portanto, o pré-script e o pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Desinstale a extensão **VmSnapshotLinux** e ela será automaticamente instalada novamente com o próximo backup para corrigir o problema. |
+| IncorrectJSONConfigFile | O arquivo **VMSnapshotScriptPluginConfig.json** está incorreto, portanto, o pré-script e pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Baixe a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configure-a novamente. |
+| InsufficientPermissionforPre-Script | Para executar scripts, o usuário "raiz" deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente o proprietário deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente o "proprietário" tem permissões de "leitura", "gravação" e "execução". |
+| InsufficientPermissionforPost-Script | Para executar scripts, o usuário raiz deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente o proprietário deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente o "proprietário" tem permissões de "leitura", "gravação" e "execução". |
+| Pre-ScriptTimeout | A execução do pré-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig.json** que está localizado em **/etc/azure**. |
+| Post-ScriptTimeout | A execução do pós-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig.json** que está localizado em **/etc/azure**. |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configurar o Cofre de serviços de recuperação de backup tooa VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configurar o backup da VM para um cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

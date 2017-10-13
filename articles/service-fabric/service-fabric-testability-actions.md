@@ -1,6 +1,6 @@
 ---
-title: falhas de aaaSimulate em microservices do Azure | Microsoft Docs
-description: "Este artigo fala sobre ações de capacidade de teste de saudação encontradas no Microsoft Azure Service Fabric."
+title: "Simular falhas nos microsserviços do Azure | Microsoft Docs"
+description: "Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
-ms.openlocfilehash: 5bdda1c0c5a40b243ab956c4791afd52e11c4089
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
-Em ordem toosimulate uma infraestrutura não confiável, Azure Service Fabric fornece, desenvolvedor hello, com modos toosimulate várias falhas do mundo real e as transições de estado. Elas são expostas como ações de possibilidade de teste. ações de saudação são Olá APIs de baixo nível que causam uma injeção de falha específico, a transição de estado ou a validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
+Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
 
-O Service Fabric fornece alguns cenários comuns de teste compostos por essas ações. É altamente recomendável que você utiliza esses cenários internos, que são escolhidos com cuidado as transições de estado comum tootest e casos de falha. No entanto, as ações podem ser cenários de teste personalizada toocreate usado quando você desejar tooadd cobertura para cenários que não são cobertas por cenários internos Olá ainda ou que são personalizados personalizadas para seu aplicativo.
+O Service Fabric fornece alguns cenários comuns de teste compostos por essas ações. É altamente recomendável utilizar esses cenários internos, que são escolhidos cuidadosamente para testar transições de estado comuns e casos de falha. No entanto, as ações podem ser usadas para criar cenários de teste personalizados quando você desejar adicionar cobertura para cenários que ainda não estão cobertos pelos cenários internos ou personalizados sob medida para seu aplicativo.
 
-C# implementações das ações de saudação são encontradas em Olá System.Fabric.dll assembly. módulo do PowerShell de malha do sistema Olá encontra-se em Olá Microsoft.ServiceFabric.Powershell.dll assembly. Como parte da instalação do tempo de execução, Olá módulo ServiceFabric do PowerShell é instalado tooallow para facilidade de uso.
+As implementações das ações em C# são encontradas no assembly System.Fabric.dll. O módulo Service Fabric PowerShell é encontrado no assembly Microsoft.ServiceFabric.Powershell.dll. Como parte da instalação em tempo de execução, o módulo do PowerShell ServiceFabric é instalado para fins de facilidade de uso.
 
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>Ações de falha normais x anormais
 As ações da Possibilidade de Teste são classificadas em dois blocos principais:
 
-* Falhas anormais: simulam falhas como reinicializações de máquina e panes de processo. No caso de falhas, o contexto de execução de saudação do processo para abruptamente. Isso significa que nenhuma limpeza do estado de saudação pode ser executado antes que o aplicativo hello for iniciado novamente.
-* Falhas normais: simulam ações normais como movimentações de réplica e remoções acionadas pelo balanceamento de carga. Nesses casos, o serviço de saudação recebe uma notificação de saudação fechar e pode limpar o estado de saudação antes de sair.
+* Falhas anormais: simulam falhas como reinicializações de máquina e panes de processo. No caso dessas falhas, o contexto de execução do processo é interrompido abruptamente. Isso significa que nenhuma limpeza de estado pode ser executada antes de o aplicativo ser iniciado novamente.
+* Falhas normais: simulam ações normais como movimentações de réplica e remoções acionadas pelo balanceamento de carga. Nesses casos, o serviço recebe uma notificação de fechamento e pode limpar o estado antes de sair.
 
-Para validação de melhor qualidade, executar o serviço de saudação e carga de trabalho de negócios ao induzindo várias falhas normais e anormais. Falhas anormais exercitam cenários em que o processo de serviço Olá abruptamente encerrada no meio de saudação de fluxos de trabalho. Isso testa o caminho de recuperação hello quando réplicas do serviço Olá for restaurada pela malha do serviço. Isso ajudará a consistência dos dados e se o estado do serviço Olá é mantido corretamente após falhas de teste. Hello outro conjunto de falhas (saudação normal de falhas) de teste que o serviço Olá reage corretamente tooreplicas seja movido pela malha do serviço. Isso testa o tratamento de cancelamento no método de RunAsync hello. serviço de saudação precisa toocheck Olá cancelamento token que está sendo definido corretamente salvar seu estado e sair do método de RunAsync hello.
+Para validação de melhor qualidade, execute a carga de trabalho de serviço e comercial enquanto estiver induzindo várias falhas normais e anormais. Falhas anormais utilizam cenários em que o processo de serviço é interrompido abruptamente no meio de algum fluxo de trabalho. Isso testa o caminho de recuperação assim que a réplica do serviço é restaurada pelo Service Fabric. Isso ajudará na consistência dos dados de teste e a verificar se o estado do serviço é mantido corretamente após as falhas. O outro conjunto de falhas (falhas normais) testa se o serviço reage corretamente à movimentação das réplicas pelo Service Fabric. Isso testa o tratamento de cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento que está sendo definido salva seu estado e encerra o método RunAsync corretamente.
 
 ## <a name="testability-actions-list"></a>Lista de ações da Possibilidade de Teste
 | Ação | Descrição | API gerenciada | Cmdlet do Powershell | Falhas normais/anormais |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Remove todos os estados de teste de saudação do cluster Olá no caso de um desligamento incorreto do driver de teste de saudação. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
+| CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induz a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
 | InvokeQuorumLoss |Coloca uma determinada partição de serviço com estado na perda de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Normal |
-| Mover primária |Olá move especificado a réplica primária de um nó de cluster especificado toohello serviço com monitoração de estado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
-| Mover secundária |Move a réplica secundária atual de saudação de um nó de cluster diferente de tooa de serviço com monitoração de estado. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normal |
-| RemoveReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isso fechará réplica hello e mudará toorole 'None', removendo todos os seus estados de cluster hello. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
-| RestartDeployedCodePackage |Simula uma falha de processo do pacote de códigos reiniciando um pacote de códigos implantado em um nó em um cluster. Isso anula o processo de pacote de código hello, que irá reiniciar todas as réplicas de serviço do usuário Olá hospedadas no processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Anormais |
+| Mover primária |Move a réplica primária especificada do serviço com estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
+| Mover secundária |Move a réplica secundária atual de um serviço com  estado para outro nó de cluster. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normal |
+| RemoveReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isso fecha a réplica e faz a transição dela para a função “Nenhum”, removendo todo o seu estado do cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
+| RestartDeployedCodePackage |Simula uma falha de processo do pacote de códigos reiniciando um pacote de códigos implantado em um nó em um cluster. Isso anula o processo do pacote de códigos, o que reiniciará todas as réplicas de serviço do usuário hospedadas nesse processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Anormais |
 | RestartNode |Simula uma falha de nó de cluster da Malha de Serviço reinicializando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Anormais |
 | RestartPartition |Simula um cenário de blecaute do datacenter ou cluster reiniciando algumas ou todas as réplicas de uma partição. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
-| RestartReplica |Simule uma falha de réplica reiniciando uma réplica persistente em um cluster, fechando réplica hello e, em seguida, abri-la. |RestartReplicaAsync |Restart-ServiceFabricReplica |Normal |
+| RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistente em um cluster, fechando a réplica e reabrindo-a. |RestartReplicaAsync |Restart-ServiceFabricReplica |Normal |
 | StartNode |Inicia um nó em um cluster que já foi interrompido. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
-| StopNode |Simula uma falha de nó interrompendo um nó em um cluster. nó de saudação permanecerá inativo até StartNode é chamado. |StopNodeAsync |Stop-ServiceFabricNode |Anormais |
-| ValidateApplication |Valida a disponibilidade de saudação e a integridade de todos os serviços do Service Fabric dentro de um aplicativo, geralmente após induzindo algumas falhas no sistema de saudação. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
-| ValidateService |Valida a disponibilidade hello e a integridade de um serviço de malha do serviço, geralmente após induzindo algumas falhas no sistema de saudação. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
+| StopNode |Simula uma falha de nó interrompendo um nó em um cluster. O nó permanecerá inativo até que StartNode seja chamado. |StopNodeAsync |Stop-ServiceFabricNode |Anormais |
+| ValidateApplication |Valida a disponibilidade e a integridade de todos os serviços da Malha de Serviço em um aplicativo, geralmente depois de induzir alguma falha no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
+| ValidateService |Valida a disponibilidade e a integridade de um serviço da Malha de Serviço, geralmente depois de induzir alguma falha no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Executando uma ação de possibilidade de teste usando o PowerShell
-Este tutorial mostra como toorun uma ação de capacidade de teste usando o PowerShell. Você aprenderá como toorun uma ação de capacidade de teste em um cluster (caixa) local ou em um cluster do Azure. Microsoft.Fabric.Powershell.dll – hello módulo PowerShell do Service Fabric – é instalado automaticamente quando você instala o hello MSI do Microsoft Service Fabric. módulo Olá é carregado automaticamente quando você abrir um prompt do PowerShell.
+Este tutorial mostra como executar uma ação de possibilidade de teste com o PowerShell. Você aprenderá a executar uma ação da possibilidade de teste em um cluster local (one-box) ou em um cluster do Azure. Microsoft.Fabric.Powershell.dll – o módulo Service Fabric PowerShell – é instalado automaticamente quando você instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando você abre um prompt do PowerShell.
 
 Segmentos do tutorial:
 
@@ -62,13 +62,13 @@ Segmentos do tutorial:
 * [Executar uma ação em um cluster do Azure](#run-an-action-against-an-azure-cluster)
 
 ### <a name="run-an-action-against-a-one-box-cluster"></a>Executar uma ação em um cluster one-box
-toorun uma ação de capacidade de teste em um cluster local, conecte-se primeiro toohello cluster e o prompt do PowerShell Olá aberto no modo de administrador. Vamos dar uma olhada em Olá **ServiceFabricNode reinicialização** ação.
+Para executar uma ação da Possibilidade Teste em um cluster local, primeiramente, conecte-se ao cluster e abra o prompt do PowerShell no modo de administrador. Vejamos a ação **Restart-ServiceFabricNode** .
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Olá aqui ação **ServiceFabricNode reinicialização** está sendo executado em um nó denominado "Node1". modo de conclusão de saudação especifica que ele não deve verificar se ação de reinicialização do nó Olá teve êxito realmente. Modo de preenchimento Olá especificando como "Verificar" fará com que ele tooverify se a ação de reinicialização Olá foi bem-sucedida. Em vez de especificar diretamente o nó Olá por seu nome, você pode especificá-lo por meio de um tipo de chave e hello de partição da réplica, da seguinte maneira:
+Aqui, a ação **Restart-ServiceFabricNode** está sendo executada em um nó chamado "Node1". O modo de preenchimento especifica que ela não deve verificar se a ação de reinicialização do nó foi bem-sucedida. Especificar o modo de preenchimento como "Verify" fará com que ele verifique se a ação de reinicialização foi bem-sucedida. Em vez de especificar o nó diretamente por seu nome, você pode especificá-lo por meio de uma chave de partição e pelo tipo de réplica, da seguinte maneira:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -83,20 +83,20 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Reinicialização ServiceFabricNode** deve ser usado toorestart um nó de malha do serviço em um cluster. Isso interromperá o processo de Fabric.exe hello, que irá reiniciar todas Olá system service e o usuário serviço réplicas hospedadas naquele nó. Usando essa API tootest seu serviço ajuda a revelar bugs em caminhos de recuperação de failover de saudação. Ele ajuda a simular falhas de nó no cluster hello.
+**Restart-ServiceFabricNode** deve ser usada para reiniciar um nó da Malha de Serviço em um cluster. Isso encerrará o processo Fabric.exe, que reiniciará todo o serviço do sistema e as réplicas de serviço do usuário hospedadas nesse nó. Usar essa API para testar seu serviço ajuda a descobrir bugs ao longo dos caminhos de recuperação de failover. Ela ajuda a simular falhas de nó no cluster.
 
-Olá, seguinte captura de tela mostra Olá **ServiceFabricNode reinicialização** comando de capacidade de teste em ação.
+A captura de tela a seguir mostra o comando **Restart-ServiceFabricNode** da possibilidade de teste em ação.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-saudação de saída de hello primeiro **Get-ServiceFabricNode** (um cmdlet do módulo do PowerShell do Service Fabric Olá) mostra o cluster local Olá tem cinco nós: Node.1 tooNode.5. Após a ação de capacidade de teste de saudação (cmdlet) **ServiceFabricNode reinicialização** é executado no nó hello, denominado Node.4, podemos ver tempo de atividade do nó Olá foi redefinido.
+A saída do primeiro **Get-ServiceFabricNode** (um cmdlet do módulo do PowerShell do Service Fabric) mostra que o cluster local tem cinco nós: Node.1 para Node.5. Depois que a ação da possibilidade de teste (cmdlet) **Restart-ServiceFabricNode** for executada no nó, denominado Node.4, poderemos ver o tempo de atividade do nó redefinido.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Executar uma ação em um cluster do Azure
-Executar uma ação de capacidade de teste (usando o PowerShell) em um cluster do Azure é a ação de saudação de toorunning semelhante em um cluster local. Olá somente a diferença é que, antes de executar a ação de hello, em vez de conectar toohello de cluster local, você precisa tooconnect toohello Azure cluster primeiro.
+Executar uma ação da possibilidade de teste (usando o PowerShell) em um cluster do Azure é semelhante ao executar a ação em um cluster local. A única diferença é que, antes de executar a ação, em vez de conectar-se ao cluster local, você precisa se conectar ao cluster do Azure pela primeira vez.
 
 ## <a name="running-a-testability-action-using-c35"></a>Executando uma ação de possibilidade de teste usando o C&#35;
-toorun uma ação de capacidade de teste usando c#, primeiro é necessário tooconnect toohello cluster usando FabricClient. Em seguida, obter Olá parâmetros necessários toorun Olá ação. Parâmetros diferentes podem ser usados toorun Olá a mesma ação.
-Olhando Olá RestartServiceFabricNode ação, toorun unidirecional usando informações de nó da saudação (nome de nó e ID de instância do nó) no cluster hello.
+Para executar uma ação da possibilidade de teste usando C#, você precisa se conectar ao cluster usando o FabricClient. Em seguida, obtenha os parâmetros necessários para executar a ação. Parâmetros diferentes podem ser usados para executar a mesma ação.
+Uma maneira de executar a ação RestartServiceFabricNode é usando as informações do nó (nome do nó e id da instância do nó) no cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -104,16 +104,16 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Explicação do parâmetro:
 
-* **CompleteMode** Especifica que o modo de saudação não deve verificar se ação de reinicialização Olá teve êxito realmente. Modo de preenchimento Olá especificando como "Verificar" fará com que ele tooverify se a ação de reinicialização Olá foi bem-sucedida.  
-* **OperationTimeout** conjuntos Olá quantidade de tempo da saudação operação toofinish antes de uma exceção TimeoutException é lançada.
-* **CancellationToken** permite que um toobe pendente chamada cancelada.
+* **CompleteMode** especifica que o modo não deve verificar se a ação de reinicialização de fato foi bem-sucedida. Especificar o modo de preenchimento como "Verify" fará com que ele verifique se a ação de reinicialização foi bem-sucedida.  
+* **OperationTimeout** define a quantidade de tempo para conclusão da operação antes que uma exceção TimeoutException seja lançada.
+* **CancellationToken** permite que uma chamada pendente seja cancelada.
 
-Em vez de especificar diretamente o nó Olá por seu nome, você pode especificar isso por meio de um tipo de chave e hello de partição de réplica.
+Em vez de especificar o nó diretamente por seu nome, você pode especificá-lo por meio de uma chave de partição e pelo tipo de réplica.
 
 Para obter mais informações, consulte [PartitionSelector e ReplicaSelector](#partition_replica_selector).
 
 ```csharp
-// Add a reference tooSystem.Fabric.Testability.dll and System.Fabric.dll
+// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -136,10 +136,10 @@ class Test
         Console.WriteLine("Starting RestartNode test");
         try
         {
-            //Restart hello node by using ReplicaSelector
+            //Restart the node by using ReplicaSelector
             RestartNodeAsync(clusterConnection, serviceName).Wait();
 
-            //Another way toorestart node is by using nodeName and nodeInstanceId
+            //Another way to restart node is by using nodeName and nodeInstanceId
             RestartNodeAsync(clusterConnection, nodeName, nodeInstanceId).Wait();
         }
         catch (AggregateException exAgg)
@@ -180,9 +180,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector e ReplicaSelector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector é um auxiliar exposto na capacidade de teste e é tooselect usado uma determinada partição no qual tooperform qualquer uma das ações de capacidade de teste de saudação. Pode ser usado tooselect uma partição específica se a ID de partição Olá é conhecido com antecedência. Ou, você pode fornecer a chave de partição hello e operação Olá resolverá o ID de partição Olá internamente. Você também tem a opção de saudação do selecionando uma partição aleatória.
+PartitionSelector é um auxiliar exposto na possibilidade de teste e é usado para selecionar uma partição específica na qual executar qualquer uma das ações da possibilidade de teste. Ele pode ser usado para selecionar uma partição específica se a ID da partição for conhecida. Ou você pode fornecer a chave de partição e a operação resolverá a ID da partição internamente. Você também tem a opção de selecionar uma partição aleatória.
 
-toouse este auxiliar, criar hello PartitionSelector objeto e selecione partição hello usando um dos métodos de saudação Select *. Em seguida, passe Olá PartitionSelector objeto toohello API que exija isso. Se nenhuma opção for selecionada, será padronizado partição aleatória tooa.
+Para usar esse auxiliar, crie o objeto PartitionSelector e selecione a partição usando um dos métodos Select *. Em seguida, passe o objeto PartitionSelector para a API que precisa dele. Se nenhuma opção for selecionada, ela será padronizada para partição aleatória.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -204,9 +204,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector é um auxiliar exposto na capacidade de teste e é usado toohelp selecione uma réplica na qual tooperform qualquer uma das ações de capacidade de teste de saudação. Pode ser usado tooselect uma réplica específica se a ID da réplica Olá é conhecido com antecedência. Além disso, você tem opção de saudação da seleção de uma réplica primária ou um secundário aleatório. ReplicaSelector deriva PartitionSelector, portanto, você precisa tooselect ambos Olá hello e réplica de partição no qual você deseja tooperform operação de capacidade de teste de saudação.
+ReplicaSelector é um auxiliar exposto na possibilidade de teste usado para ajudar a selecionar uma réplica na qual executar qualquer uma das ações da possibilidade de teste. Ele pode ser usado para selecionar uma réplica específica se a ID da réplica já for conhecida. Além disso, você tem a opção de selecionar uma réplica primária ou uma secundária aleatória. ReplicaSelector deriva de PartitionSelector, de modo que você precisa selecionar a réplica e a partição nas quais deseja executar a operação da possibilidade de teste.
 
-toouse este auxiliar, crie um objeto de ReplicaSelector e definido como Olá desejar partição de réplica e Olá Olá tooselect. Você pode passá-lo em Olá API que exija isso. Se nenhuma opção for selecionada, o padrão é réplica aleatório tooa e partição aleatória.
+Para usar esse auxiliar, crie um objeto ReplicaSelector e defina a maneira como deseja selecionar a réplica e a partição. Em seguida, passe-o para a API que o exige. Se nenhuma opção for selecionada, ela será padronizada para uma réplica ou partição aleatória.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -216,10 +216,10 @@ long replicaId = 130559876481875498;
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
-// Select hello primary replica
+// Select the primary replica
 ReplicaSelector primaryReplicaSelector = ReplicaSelector.PrimaryOf(partitionSelector);
 
-// Select hello replica by ID
+// Select the replica by ID
 ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelector, replicaId);
 
 // Select a random secondary replica
@@ -228,7 +228,7 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Cenários da possibilidade de teste](service-fabric-testability-scenarios.md)
-* Como tootest seu serviço
+* Como testar seu serviço
   * [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
   * [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
 

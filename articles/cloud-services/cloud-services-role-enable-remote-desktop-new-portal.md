@@ -1,6 +1,6 @@
 ---
-title: "aaaEnable Conexão de área de trabalho remota para uma função nos serviços de nuvem do Azure | Microsoft Docs"
-description: "Como tooconfigure do azure nuvem conexões de área de trabalho remota de tooallow aplicativo de serviço"
+title: "Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure | Microsoft Docs"
+description: "Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota"
 services: cloud-services
 documentationcenter: 
 author: mmccrory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 55d7043df571c2e88b04aa9ef01dc8ae1d6784f7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 > [!div class="op_single_selector"]
@@ -29,46 +29,46 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Área de trabalho remota permite que você tooaccess área de trabalho de saudação de uma função em execução no Azure. Você pode usar um tootroubleshoot de conexão de área de trabalho remota e diagnosticar problemas com seu aplicativo enquanto ele está em execução.
+A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
 
-Você pode habilitar uma conexão de área de trabalho remota na sua função durante o desenvolvimento, incluindo módulos de área de trabalho remota de saudação em sua definição de serviço ou você pode escolher tooenable área de trabalho remota por meio de saudação extensão de área de trabalho remota. Olá abordagem preferencial é toouse Olá área de trabalho remota extensão como você pode habilitar área de trabalho remota, mesmo após a implantação do aplicativo hello sem ter que tooredeploy seu aplicativo.
+Você pode habilitar uma conexão de Área de Trabalho Remota em sua função durante o desenvolvimento, incluindo os módulos de Área de Trabalho Remota em sua definição de serviço, ou você pode optar por habilitar a Área de Trabalho Remota por meio da Extensão de Área de Trabalho Remota. A abordagem preferida é usar a extensão de Área de Trabalho Remota, pois você poderá habilitar a Área de Trabalho Remota mesmo depois que o aplicativo for implantado, sem precisar reimplantar o aplicativo.
 
-## <a name="configure-remote-desktop-from-hello-azure-portal"></a>Configurar área de trabalho remota a partir do hello portal do Azure
-Olá portal do Azure usa o método de extensão da área de trabalho remota de saudação para que você possa habilitar a área de trabalho remota mesmo após a implantação do aplicativo hello. Olá **área de trabalho remota** folha para seu serviço de nuvem permite que você tooenable área de trabalho remota, Olá alterar conta do administrador local usado tooconnect toohello VMs, certificado Olá usado na autenticação e defina Olá Data de expiração.
+## <a name="configure-remote-desktop-from-the-azure-portal"></a>Configurar a Área de Trabalho Remota do Portal do Azure
+O Portal do Azure usa a abordagem de Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois que o aplicativo for implantado. A folha **Área de Trabalho Remota** de seu Serviço de Nuvem permite habilitar a Área de Trabalho Remota, alterar a conta do administrador local usada para conexão às máquinas virtuais, o certificado usado na autenticação e definir a data de validade.
 
-1. Clique em **serviços de nuvem**, clique em nome de Olá Olá do serviço de nuvem e, em seguida, clique em **área de trabalho remota**.
+1. Clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Área de Trabalho Remota**.
 
     ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
-2. Escolha se você deseja tooenable área de trabalho remota para uma função individual ou para todas as funções e altere o valor de saudação do alternador Olá muito**habilitado**.
+2. Escolha se você quer habilitar a Área de Trabalho Remota para uma função individual ou para todas as funções, e altere o valor do alternador para **Habilitado**.
 
-3. Preencha os campos de saudação necessárias para o nome de usuário, senha, expiração e certificado.
+3. Preencha os campos obrigatórios de nome de usuário, senha, expiração e certificado.
 
     ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). tooprevent uma reinicialização, a senha de Olá Olá certificado tooencrypt usado deve ser instalado na função hello. tooprevent uma reinicialização, [carregar um certificado para o serviço de nuvem Olá](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e, em seguida, retornar toothis caixa de diálogo.
+   > Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Para evitar uma reinicialização, [carregue um certificado para o serviço de nuvem](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e retorne a esta caixa de diálogo.
    >
    >
-3. Em **funções**, selecione função hello desejado tooupdate ou selecione **todos os** para todas as funções.
+3. Em **Funções**, selecione a função que você deseja atualizar ou selecione **Tudo** para todas as funções.
 
-4. Ao concluir as atualizações da configuração, clique em **Salvar**. Levará alguns minutos antes que suas instâncias de função são conexões tooreceive pronto.
+4. Ao concluir as atualizações da configuração, clique em **Salvar**. Levará alguns minutos para que as instâncias da função estejam prontas para receber conexões.
 
 ## <a name="remote-into-role-instances"></a>Remoto em instâncias de função
-Depois que a área de trabalho remota está habilitada em funções hello, você pode iniciar uma conexão diretamente da saudação Portal do Azure:
+Após a habilitação da Área de Trabalho Remota nas funções, você poderá iniciar uma conexão diretamente do Portal do Azure:
 
-1. Clique em **instâncias** tooopen Olá **instâncias** folha.
+1. Clique em **Instâncias** para abrir a folha **Instâncias**.
 2. Selecione uma instância de função com a área de trabalho remota configurada.
-3. Clique em **conectar** toodownload uma RDP de arquivo para a instância de função hello.
+3. Clique em **Conectar** para baixar um arquivo RDP para a instância da função.
 
     ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
-4. Clique em **abrir** e **conectar** toostart Olá conexão de área de trabalho remota.
+4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de Área de Trabalho Remota.
 
 >[!NOTE]
-> Se seu serviço de nuvem estiver atrás de um NSG, talvez seja necessário toocreate regras que permitam o tráfego em portas **3389** e **20000**.  A Área de Trabalho Remota usa a porta **3389**.  Instâncias de serviço de nuvem têm a carga balanceada, portanto diretamente, você não pode controlar quais tooconnect de instância para.  Olá *RemoteForwarder* e *RemoteAccess* agentes gerenciar o tráfego RDP e permitir Olá cliente toosend um cookie RDP e especifique um tooconnect instância individual para.  Olá *RemoteForwarder* e *RemoteAccess* agentes exigem essa porta **20000*** aberto, que pode ser bloqueado se você tiver um NSG.
+> Se o serviço de nuvem estiver atrás de um NSG, talvez você precisará criar regras que permitam tráfego nas portas **3389** e **20000**.  A Área de Trabalho Remota usa a porta **3389**.  Instâncias de serviço de nuvem têm a carga balanceada, de modo que você não pode controlar diretamente a escolha da instância à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* gerenciam o tráfego RDP e permitem que o cliente envie um cookie RDP e especifique uma instância individual à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* exigem que essa porta **20000*** esteja aberta, a qual poderá ser bloqueada se você tiver um NSG.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-[Como tooConfigure serviços de nuvem](cloud-services-how-to-configure.md)
-[serviços em nuvem perguntas Frequentes – área de trabalho remota](cloud-services-faq.md)
+[Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
+[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md)

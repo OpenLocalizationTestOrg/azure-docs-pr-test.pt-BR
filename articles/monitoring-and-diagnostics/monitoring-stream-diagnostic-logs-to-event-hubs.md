@@ -1,6 +1,6 @@
 ---
-title: "Logs de diagnóstico do Azure de aaaStream tooan Namespace de Hubs de evento | Microsoft Docs"
-description: "Saiba como toostream diagnóstico do Azure registra tooan namespace de Hubs de eventos."
+title: "Transmitir Logs de Diagnóstico do Azure para um Namespace de Hubs de Eventos | Microsoft Docs"
+description: "Saiba como transmitir logs de diagnóstico do Azure para um namespace de Hubs de Eventos."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,90 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: 00092ea8f3fe4fa1476e3a697bf1e8645dd21e6e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="stream-azure-diagnostic-logs-tooan-event-hubs-namespace"></a>Fluxo de Logs de diagnóstico do Azure tooan Namespace de Hubs de evento
-**[Logs de diagnósticos do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode ser transmitida em quase em tempo real tooany aplicativo usando a opção hello "Exportar tooEvent Hubs" incorporada no Portal de saudação ou habilitando Olá ID de regra de barramento de serviço em uma configuração de diagnóstica por meio de saudação do PowerShell do Azure CLI cmdlets ou do Azure.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Transmitir Logs de Diagnóstico do Azure para um Namespace de Hubs de Eventos
+Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos em tempo real a qualquer aplicativo usando a opção interna "Exportar para Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Barramento de Serviço em uma configuração de diagnóstico por meio de cmdlets do Azure PowerShell ou da CLI do Azure.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que você pode fazer com os logs de diagnóstico e os Hubs de Eventos
-Aqui estão algumas maneiras que você pode usar o hello capacidade para streaming para Logs de diagnóstico:
+Veja algumas maneiras de usar o recurso de streaming para os Logs de Diagnóstico:
 
-* **Fluxo de logs de sistemas de registro em log e telemetria de too3rd** – ao longo do tempo, streaming de Hubs de eventos se tornará Olá mecanismo toopipe os logs de diagnóstico na parte toothird SIEMs e soluções de análise de log.
-* **Exibir a integridade do serviço por streaming "afunilamento" dados tooPowerBI** – usando Hubs de eventos, análise de fluxo e Power BI, você pode facilmente transformar os dados de diagnóstico em informações em tempo real toonear em seus serviços do Azure. [Este artigo de documentação fornece uma visão de geral grande como tooset a Hubs de eventos, processar dados com a análise de fluxo e usar o Power BI como uma saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para configurá-lo com os logs de diagnóstico:
+* **Transmitir logs para sistemas de registro em log e telemetria de terceiros** – ao longo do tempo, a transmissão de Hubs de Eventos se tornará o mecanismo para direcionar seus logs de diagnóstico para SIEMs e soluções de análise de log de terceiros.
+* **Exibir a integridade do serviço transmitindo dados de "afunilamento" para o PowerBI** – com os Hubs de Eventos, Stream Analytics e o PowerBI, é fácil transformar seus dados de diagnóstico em informações quase em tempo real nos serviços do Azure. [Este artigo de documentação apresenta uma excelente visão geral de como configurar Hubs de Eventos, processar dados com o Stream Analytics e usar o PowerBI como saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para configurá-lo com os logs de diagnóstico:
   
-  * Um hub de eventos para uma categoria de logs de diagnóstico é criado automaticamente quando você marca a opção Olá no portal de saudação ou habilitá-lo por meio do PowerShell, para que você deseja que o hub de eventos tooselect Olá Olá namespace com o nome da saudação que começa com **insights**.
-  * Olá código SQL a seguir está um exemplo de análise de fluxo de consulta que você pode usar tooparse todos os dados de log Olá na tabela do Power BI tooa:
+  * Um hub de eventos de uma categoria de logs de diagnóstico é criado automaticamente quando você marca a opção no portal ou habilita-a por meio do PowerShell, de modo que você possa selecionar o hub de evento no namespace com o nome que começa com **insights-**.
+  * O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do PowerBI:
 
     ```sql
     SELECT
-    records.ArrayValue.[Properties you want tootrack]
+    records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – hello PowerBI source]
+    [OutputSourceName – the PowerBI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **Criar uma plataforma de registro em log e telemetria personalizada** – se você já tem uma plataforma de telemetria personalizada ou estão pensando sobre como criar um, Olá altamente escalonável de publicação / assinatura natureza dos Hubs de eventos permite que você tooflexibly ingestão diagnóstico logs. [Consulte toousing de guia de Dan Rosanova Hubs de eventos em uma plataforma de telemetria de escala global aqui](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Compilar uma plataforma de registro em log e telemetria personalizada** – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de logs de diagnóstico. [Confira o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Habilitar o streaming de logs de diagnóstico
-Você pode habilitar o streaming de logs de diagnóstico programaticamente, por meio do portal hello, ou usando Olá [APIs de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstica que você especifica um namespace de Hubs de eventos e categorias de log hello e métricas que você deseja toosend no namespace toohello. Um hub de eventos é criado no namespace Olá para cada categoria de log que você habilitar. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode coletar.
+Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico no qual especifica um namespace de Hubs de Eventos e as categorias de log e as métricas que deseja enviar para o namespace. Um hub de eventos é criado no namespace para cada categoria de log que você habilitar. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode coletar.
 
 > [!WARNING]
 > A habilitação e streaming de logs de diagnóstico dos recursos de computação (por exemplo, VMs ou Service Fabric) [exige um conjunto diferente de etapas](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
 
-Olá barramento de serviço ou Hubs de evento namespace não tem toobe em Olá mesma assinatura que o recurso Olá emitindo logs como usuário Olá que configura a configuração de saudação tem assinaturas de tooboth de acesso RBAC apropriadas.
+O namespace do Barramento de Serviço ou dos Hubs de Eventos não precisa estar na mesma assinatura que o recurso que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
-## <a name="stream-diagnostic-logs-using-hello-portal"></a>Logs de diagnóstico de fluxo usando o portal de saudação
-1. No portal de hello, navegar tooAzure Monitor e clique em **configurações de diagnóstico**
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Transmitir logs de diagnóstico usando o portal
+1. No portal, navegue até o Azure Monitor e clique em **Configurações de Diagnóstico**
 
     ![Seção de monitoramento do Azure Monitor](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
 
-2. Se desejar filtrar lista Olá por tipo de recurso ou grupo de recursos, clique no recurso Olá para o qual você gostaria que tooset uma configuração de diagnóstica.
+2. Se desejar filtrar a lista por tipo de recurso ou grupo de recursos, clique no recurso para o qual você deseja definir uma configuração de diagnóstica.
 
-3. Se nenhuma configuração existir no recurso de saudação selecionado, você está toocreate solicitada uma configuração. Clique em “Ativar diagnóstico”.
+3. Se nenhuma configuração existir no recurso que você selecionou, será solicitada a criação de uma configuração. Clique em “Ativar diagnóstico”.
 
    ![Adicionar configuração de diagnóstico - nenhuma configuração existente](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
 
-   Se houver configurações existentes no recurso hello, você verá uma lista de configurações já configurado nesse recurso. Clique em "Adicionar configuração de diagnóstico".
+   Se houver configurações existentes no recurso, você verá uma lista de configurações já definidas nesse recurso. Clique em "Adicionar configuração de diagnóstico".
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
-3. Dê sua configuração para um nome e marque a caixa de saudação para **hub de eventos do fluxo tooan**, em seguida, selecione um namespace de Hubs de eventos.
+3. Dê um nome à sua configuração e marque a caixa **Fluxo para um hub de eventos** e então selecione um namespace de Hubs de Eventos.
    
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   Olá namespace selecionado será onde o hub de eventos de saudação é criado (se esta for a primeira vez em que os logs de diagnósticos de streaming) ou transmitido muito (se já houver recursos que são de streaming log categoria toothis namespace), e política de saudação define Olá permissões de mecanismo de fluxo de saudação. Atualmente, o hub de eventos streaming tooan requer permissões de escuta, envio e gerenciar. Você pode criar ou modificar políticas de acesso compartilhado de namespace Hubs de eventos no portal de saudação na guia Configurar de saudação para seu namespace. tooupdate uma destas configurações de diagnósticas, o cliente Olá deve ter permissão de ListKey de Olá na regra de autorização de Hubs de eventos de saudação.
+   O namespace selecionado será o local em que o hub de evento é criado (se este for seu primeiro streaming de logs de diagnóstico) ou transmitido (se já houver recursos realizando o streaming dessa categoria log para esse namespace) e a política define as permissões do mecanismo de streaming. Atualmente, o streaming para um hub de eventos exige as permissões para Gerenciar, Enviar e Escutar. Você pode criar ou modificar políticas de acesso compartilhado de namespace de Hubs de Eventos no portal na guia Configurar para seu namespace. Para atualizar uma dessas configurações de diagnóstico, o cliente deve ter a permissão ListKey na regra de autorização de Hubs de Evento.
 
 4. Clique em **Salvar**.
 
-Após alguns instantes, nova configuração de saudação aparece na lista de configurações para esse recurso e logs de diagnóstico são transmitidos a conta de armazenamento toothat assim que novos dados de evento são gerados.
+Após alguns instantes, a nova configuração aparece na lista de configurações para esse recurso e os logs de diagnóstico são transmitidos para a conta de armazenamento assim que os novos dados de evento são gerados.
 
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
-tooenable streaming por meio do hello [Cmdlets do PowerShell do Azure](insights-powershell-samples.md), você pode usar o hello `Set-AzureRmDiagnosticSetting` cmdlet com estes parâmetros:
+Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-powershell-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-Olá ID de regra de barramento de serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}` , `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 ### <a name="via-azure-cli"></a>Via CLI do Azure
-tooenable streaming por meio do hello [CLI do Azure](insights-cli-samples.md), você pode usar o hello `insights diagnostic set` comando como este:
+Para habilitar o streaming por meio da [CLI do Azure](insights-cli-samples.md), use o comando `insights diagnostic set` da seguinte forma:
 
 ```azurecli
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Use Olá mesmo formato para ID de regra de barramento de serviço, conforme explicado para Olá Cmdlet do PowerShell.
+Use o mesmo formato para ID de Regra do Barramento de Serviço, conforme explicado para o Cmdlet do PowerShell.
 
-## <a name="how-do-i-consume-hello-log-data-from-event-hubs"></a>Como consomem a dados de log de saudação dos Hubs de eventos?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como eu consumo os dados de log dos Hubs de Eventos?
 Aqui está um exemplo de dados de saída dos Hubs de Eventos:
 
 ```json
@@ -164,17 +164,17 @@ Aqui está um exemplo de dados de saída dos Hubs de Eventos:
 | Nome do elemento | Descrição |
 | --- | --- |
 | records |Uma matriz de todos os eventos de log nessa carga. |
-| tempo real |Hora em que hello evento ocorreu. |
+| tempo real |A hora na qual o evento ocorreu. |
 | categoria |Categoria do log desse evento. |
-| resourceId |ID de recurso do recurso de saudação que gerou este evento. |
-| operationName |Nome da operação de saudação. |
-| level |Opcional. Indica o nível de log de eventos de saudação. |
-| propriedades |Propriedades de evento de saudação. |
+| resourceId |ID de recurso do recurso que gerou esse evento. |
+| operationName |Nome da operação. |
+| level |Opcional. Indica o nível do evento de log. |
+| propriedades |Propriedades do evento. |
 
-Você pode exibir uma lista de todos os provedores de recursos que oferecem suporte a streaming Hubs tooEvent [aqui](monitoring-overview-of-diagnostic-logs.md).
+É possível exibir uma lista de todos os provedores de recursos que dão suporte a streaming para o Hub de Eventos [aqui](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Transmitir dados de recursos de Computação
-Você também pode transmitir os logs de diagnóstico dos recursos de computação usando o agente de diagnóstico do Windows Azure hello. [Consulte este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) como tooset esse backup.
+Também é possível transmitir logs de diagnóstico de recursos de Computação usando o agente do Diagnóstico do Azure. [Consulte este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para saber como configurar isso.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)

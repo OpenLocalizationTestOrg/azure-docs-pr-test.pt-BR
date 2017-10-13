@@ -1,8 +1,8 @@
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos com hello [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* em Olá *eastus* local.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -10,9 +10,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Criar uma VM com hello [criar vm az](/cli/azure/vm#create) comando. 
+Crie uma VM com o comando [az vm create](/cli/azure/vm#create). 
 
-Olá, exemplo a seguir cria uma VM denominada *myVM* e cria as chaves de SSH se eles ainda não existir em um local de chave padrão. toouse um conjunto específico de chaves, use Olá `--ssh-key-value` opção.  
+O exemplo a seguir cria uma VM denominada *myVM* e cria chaves SSH, se elas ainda não existirem em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Quando Olá VM tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir. Anote Olá `publicIpAddress`. Esse endereço é usado tooaccess Olá VM.
+Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir. Anote `publicIpAddress`. Esse endereço é usado para acessar a VM.
 
 ```azurecli-interactive 
 {
@@ -42,7 +42,7 @@ Quando Olá VM tiver sido criado, Olá CLI do Azure mostra informações toohell
 
 ## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web 
 
-Por padrão, somente as conexões de SSH têm permissão em VMs Linux implantadas no Azure. Como essa VM toobe um servidor web, você precisa tooopen porta 80 de saudação à internet. Saudação de uso [az vm abrir portas](/cli/azure/vm#open-port) saudação do comando tooopen desejado de porta.  
+Por padrão, somente as conexões de SSH têm permissão em VMs Linux implantadas no Azure. Como essa VM será um servidor Web, você precisa abrir a porta 80 na Internet. Use o comando [az vm open-port](/cli/azure/vm#open-port) para abrir a porta desejada.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>SSH em sua VM
 
 
-Se você não souber Olá endereço IP público da VM, execute Olá [lista de ip público de rede az](/cli/azure/network/public-ip#list) comando:
+Se você ainda não souber o endereço IP público de sua VM, execute o comando [az network public-ip list](/cli/azure/network/public-ip#list):
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-A seguir Olá Use o comando toocreate uma sessão SSH com a máquina virtual de saudação. Substituir saudação correto endereço IP público de sua máquina virtual. Neste exemplo, o endereço IP de saudação é *40.68.254.142*.
+Use o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP público correto de sua máquina virtual. Neste exemplo, o endereço IP é *40.68.254.142*.
 
 ```bash
 ssh azureuser@40.68.254.142

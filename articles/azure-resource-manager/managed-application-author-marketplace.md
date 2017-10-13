@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure gerenciados aplicativos Olá Marketplace | Microsoft Docs"
-description: "Descreve o Azure aplicativos gerenciados que estão disponíveis por meio de saudação Marketplace."
+title: Aplicativos gerenciados do Azure no Marketplace | Microsoft Docs
+description: "Descreve os aplicativos gerenciados do Azure que estão disponíveis por meio do Marketplace."
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -10,69 +10,69 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.openlocfilehash: b3cdf3f1fccdd47db699e4892ae8bce35118bfd8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="azure-managed-applications-in-hello-marketplace"></a>Aplicativos no hello Marketplace de gerenciado do Azure
+# <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
- MSPs, ISVs e integradores de sistema (SIs) podem usar aplicativos toooffer gerenciado do Azure aos clientes do Azure Marketplace de tooall soluções. Essas soluções reduzem manutenção hello e sobrecarga de manutenção para os clientes. Editores podem vender infraestrutura e software por meio de saudação Marketplace. Eles podem anexar suporte operacional toomanaged aplicativos e serviços. Para saber mais, consulte [Visão geral do aplicativo gerenciado](managed-application-overview.md).
+ MSPs, ISVs e ISs (integradores de sistema) podem usar os aplicativos gerenciados do Azure para oferecer suas soluções para todos os clientes do Azure Marketplace. Essas soluções reduzem a sobrecarga de manutenção e de serviço para os clientes. Os editores podem vender infraestrutura e software por meio do Marketplace. Eles podem anexar serviços e suporte operacional para aplicativos gerenciados. Para saber mais, consulte [Visão geral do aplicativo gerenciado](managed-application-overview.md).
 
-Este artigo explica como um MSP, ISV ou SI pode publicar um aplicativo toohello Marketplace e torná-lo toocustomers amplamente disponíveis.
+Este artigo explica como um MSP, ISV ou SI pode publicar um aplicativo no Marketplace e torná-lo amplamente disponível aos clientes.
 
 ## <a name="prerequisites-for-publishing-a-managed-application"></a>Pré-requisitos para publicar um aplicativo gerenciado
 
-Pré-requisitos toolisting em Olá Marketplace:
+Pré-requisitos para a listagem no Marketplace:
 
 * Técnicos
 
-    *  Para obter informações sobre a estrutura básica de saudação e a sintaxe de modelos do Azure Resource Manager, consulte [modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-    *  soluções de modelo completa tooview, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/en-us/documentation/templates/) ou hello [repositório de modelos de início rápido](https://github.com/azure/azure-quickstart-templates).
-    *  Para obter informações sobre como toocreate Olá interface para os clientes que implantar seu aplicativo por meio de saudação Marketplace, consulte [criar um arquivo de definição de interface do usuário](managed-application-createuidefinition-overview.md).
+    *  Para obter informações sobre a estrutura básica e a sintaxe de modelos do Azure Resource Manager, consulte [Modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+    *  Para exibir as soluções de modelo completas, consulte [Modelos de Início Rápido do Azure](https://azure.microsoft.com/en-us/documentation/templates/) ou [Repositório de modelos Quickstart](https://github.com/azure/azure-quickstart-templates).
+    *  Para saber mais sobre como criar a interface para clientes que implantam seu aplicativo por meio do Marketplace, consulte [Criar um arquivo de definição de interface do usuário](managed-application-createuidefinition-overview.md).
 
 * Não técnico (requisitos de negócios)
 
-    *   Sua empresa ou a sua subsidiária deve estar localizada em um país onde as vendas são suportadas pelo Olá Marketplace.
-    *   O produto deve ser licenciado de forma que seja compatível com modelos de cobrança com suporte Olá Marketplace.
-    *   Você é responsável para fazer toocustomers de suporte técnico disponíveis de forma comercialmente razoável. suporte de saudação pode ser gratuito, paga, ou por meio da comunidade de suporte.
+    *   Sua empresa, ou subsidiária, deve estar localizada em um país no qual as vendas têm suporte no Marketplace.
+    *   O produto deve ser licenciado de forma que seja compatível com modelos de cobrança com suporte no Marketplace.
+    *   Você é responsável por disponibilizar o suporte técnico a clientes de modo comercialmente razoável. O suporte pode ser gratuito, pago ou oferecido por meio de suporte da comunidade.
     *   Você é responsável pelo licenciamento do software e quaisquer dependências de software de terceiros.
-    *   Você deve fornecer o conteúdo que atenda aos critérios para sua oferta toobe listados no hello Marketplace e no hello portal do Azure.
-    *   Você deve aceitar os termos de toohello de saudação do Azure Marketplace participação políticas e contrato do publicador.
-    *   Você deve concordar toocomply com hello termos de uso, declaração de privacidade da Microsoft e contrato de programa de certificados do Microsoft Azure.
+    *   Você deve fornecer conteúdo que atenda aos critérios da oferta a serem listados no Marketplace e no Portal do Azure.
+    *   Você deve concordar com os termos das Políticas de Participação do Azure Marketplace e com o Contrato do Publicador.
+    *   Você deve concordar em cumprir os Termos de uso, a Política de privacidade da Microsoft e o Contrato do programa de certificação do Microsoft Azure.
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicativo do Azure
 
-Depois que você atenda aos pré-requisitos de hello, você está pronto toocreate sua oferta do aplicativo gerenciado. Vamos analisar rapidamente uma visão geral de uma oferta e um SKU.
+Após atender aos pré-requisitos, você estará pronto para criar sua oferta de aplicativo gerenciado. Vamos analisar rapidamente uma visão geral de uma oferta e um SKU.
 
 ### <a name="offer"></a>Oferta
 
-oferta de saudação de um aplicativo gerenciado corresponde classe tooa do produto da oferta do publicador. Se você tiver um novo tipo de solução/aplicativo que você deseja toomake disponível no hello Marketplace, você pode configurá-lo como uma oferta nova. Uma oferta é uma coleção de SKUs. Cada oferta aparece como sua própria entidade em Olá Marketplace.
+A oferta para um aplicativo gerenciado corresponde a uma classe de oferta de produtos de um publicador. Se você tiver um novo tipo de solução/aplicativo que queira disponibilizar no Marketplace, configure-o como uma oferta nova. Uma oferta é uma coleção de SKUs. Cada oferta aparece como sua própria entidade no Marketplace.
 
 ### <a name="sku"></a>SKU
 
-Um SKU é Olá menor podem ser comprados unidade de uma oferta. Você pode usar um SKU dentro Olá mesmo toodifferentiate de classe (oferta) de produto entre:
+Uma SKU é a menor unidade de compra de uma oferta. Use um SKU dentro da mesma classe de produto (oferta) para diferenciar entre:
 
 * Diferentes recursos com suporte.
-* Se a oferta de saudação é gerenciada ou não.
+* Se a oferta é gerenciada ou não.
 * Modelos de cobrança com suporte.
 
-Um SKU aparece sob Olá pai oferta no hello Marketplace. Ele aparecerá como sua própria entidade pode ser adquirida em Olá portal do Azure.
+Um SKU aparece sob a oferta pai no Marketplace. Ele aparece como sua própria entidade disponível para compra no portal do Azure.
 
 ### <a name="set-up-an-offer"></a>Configurar uma oferta
 
-1. Entrar toohello [portal Cloud Partner](https://cloudpartner.azure.com/).
+1. Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2. No painel de navegação Olá Olá esquerda, selecione **+ nova oferta** > **aplicativos do Azure**.
+2. No painel de navegação à esquerda, selecione **+ Nova oferta** > **Aplicativos do Azure**.
 
     ![Nova oferta](./media/managed-application-author-marketplace/newOffer.png)
 
-3. Preencher formulários Olá que aparecem no hello deixado no hello **Editor** exibição. Os campos obrigatórios estão marcados com um asterisco vermelho (*).
+3. Preencha os formulários à esquerda no modo de exibição do **Editor**. Os campos obrigatórios estão marcados com um asterisco vermelho (*).
 
     ![Configurações da oferta](./media/managed-application-author-marketplace/newOffer_OfferSettings.png)
 
-    Quatro formulários principais são usado toocreate um aplicativo gerenciado:
+    Quatro formulários principais são usados para criar um aplicativo gerenciado:
 
     a. Configurações da oferta
 
@@ -82,74 +82,74 @@ Um SKU aparece sob Olá pai oferta no hello Marketplace. Ele aparecerá como sua
 
     d. Suporte
 
-Esses formulários são descritos mais detalhadamente nas seções a seguir de saudação.
+Esses formulários são descritos mais detalhadamente nas seções a seguir.
 
 ## <a name="offer-settings-form"></a>Formulário de Configurações de Oferta
-Use configurações de oferta este formulário básico toospecify hello.
+Use este formulário básico para especificar as configurações da oferta.
 
-1. Preencha Olá **oferecem configurações** formulário. campos diferentes Olá são:
+1. Preencha o formulário **Configuração da Oferta**. Os diferentes campos são:
 
-    a. **ID da oferta**: este identificador exclusivo identifica oferta hello dentro de um perfil do publicador. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). Olá ID não pode terminar com um traço. Ele é limitado tooa máximo de 50 caracteres. Após a ativação da oferta, esse campo é bloqueado.
+    a. **ID da Oferta**: esse identificador exclusivo identifica a oferta em um perfil de publicador. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço. Ela tem um limite máximo de 50 caracteres. Após a ativação da oferta, esse campo é bloqueado.
 
-    b. **ID do editor**: Use esse perfil de publicador lista suspensa toochoose Olá deseja toopublish esta oferta em. Após a ativação da oferta, esse campo é bloqueado.
+    b. **ID do Publicador**: use essa lista suspensa para escolher o perfil de publicador no qual você deseja publicar essa oferta. Após a ativação da oferta, esse campo é bloqueado.
 
-    c. **Nome**: este nome para exibição para sua oferta aparece no hello Marketplace e no portal de saudação. Ele pode ter um máximo de 50 caracteres. Inclua um nome de marca reconhecível para o seu produto. Não inclua o nome de sua empresa aqui, a menos que seja a maneira como ela é comercializada. Se você estiver marketing esta oferta em seu próprio site, certifique-se de que o nome hello seja exatamente como ela aparece no seu site.
+    c. **Nome**: este nome de exibição de sua oferta aparece no Marketplace e no portal. Ele pode ter um máximo de 50 caracteres. Inclua um nome de marca reconhecível para o seu produto. Não inclua o nome de sua empresa aqui, a menos que seja a maneira como ela é comercializada. Se você estiver comercializando essa oferta em seu próprio site, certifique-se de que o nome seja exatamente como aparece em seu site.
 
-2. Selecione **salvar** toosave seu progresso. 
+2. Selecione **Salvar** para salvar o progresso. 
 
 ## <a name="skus-form"></a>Formulário de SKUs
-Olá próxima etapa é tooadd SKUs para sua oferta.
+A próxima etapa é adicionar SKUs para a sua oferta.
 
 1. Selecione **SKUs** > **Novo SKU**. 
 
     ![Selecionar novo SKU](./media/managed-application-author-marketplace/newOffer_skus.png)
 
-2. Insira uma **ID de SKU**. Uma ID de SKU é um identificador exclusivo para Olá SKU dentro de uma oferta. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). Olá ID não pode terminar com um traço e é limitado tooa máximo de 50 caracteres. Após a ativação da oferta, esse campo é bloqueado. Pode existir várias SKUs em uma oferta. Você precisa de uma SKU de cada imagem de plano de toopublish.
+2. Insira uma **ID de SKU**. Uma ID de SKU é um identificador exclusivo para o SKU dentro de uma oferta. Essa ID está visível em URLs de produto, modelos do Resource Manager e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e está limitada a 50 caracteres no máximo. Após a ativação da oferta, esse campo é bloqueado. Pode existir várias SKUs em uma oferta. Você precisa de um SKU para cada imagem que planeja publicar.
 
-3. Preencha Olá **detalhes de SKU** seção Olá formulário a seguir:
+3. Preencha a seção **Detalhes do SKU** no seguinte formulário:
 
     ![Fornecer novo SKU](./media/managed-application-author-marketplace/newOffer_newsku.png)
 
-    Preencha Olá campos a seguir:
+    Preencha os campos a seguir:
     
-    a. **Título**: insira um título para esse SKU. Esse título aparece na Galeria de saudação para este item.
+    a. **Título**: insira um título para esse SKU. Esse título aparecerá na galeria para este item.
 
-    b. **Resumo**: insira um breve resumo para esse SKU. Esse texto aparece sob o título de saudação.
+    b. **Resumo**: insira um breve resumo para esse SKU. Esse texto aparece abaixo do título.
 
-    c. **Descrição**: insira uma descrição detalhada sobre Olá SKU.
+    c. **Descrição**: insira uma descrição detalhada sobre a SKU.
 
-    d. **Tipo de SKU**: Olá valores permitidos são **aplicativo gerenciado** e **modelos de solução**. Nesse caso, selecione **Aplicativo Gerenciado**.
+    d. **Tipo de SKU**: os valores permitidos são **Aplicativo Gerenciado** e **Modelos de Solução**. Nesse caso, selecione **Aplicativo Gerenciado**.
 
-4. Preencha Olá **detalhes do pacote** seção Olá formulário a seguir:
+4. Preencha a seção **Detalhes do Pacote** no seguinte formulário:
 
     ![Pacote](./media/managed-application-author-marketplace/newOffer_newsku_package.png)
 
-    Preencha Olá campos a seguir:
+    Preencha os campos a seguir:
 
-    a. **Versão atual**: insira uma versão para o pacote de saudação carregar. Ele deve estar no formato de saudação `{number}.{number}.{number}{number}`.
+    a. **Versão Atual**: insira uma versão para o pacote que você carregar. Ela deve estar no formato `{number}.{number}.{number}{number}`.
 
-    b. **Selecione um arquivo de pacote**: Este pacote contém os seguintes arquivos compactados em um arquivo. zip de saudação:
-    * **applianceMainTemplate.json**: arquivo de modelo de implantação de saudação que tenha usado o aplicativo da solução toodeploy hello. Para obter informações sobre como toocreate arquivos de modelo de implantação, consulte [criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
-    * **appliancecreateUIDefinition.json**: este arquivo é usado pelo Olá toogenerate portal do Azure Olá interface do usuário que tenha usado tooprovision essa solução/aplicativo. Para saber mais, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
-    * **mainTemplate.json**: este arquivo de modelo contém apenas os recursos de Microsoft.Solution/appliances hello. arquivo de mainTemplate Olá inclui Olá propriedades a seguir:
+    b. **Selecionar um arquivo de pacote**: esse pacote contém os seguintes arquivos que estão compactados em um arquivo .zip:
+    * **applianceMainTemplate.json**: o arquivo do modelo de implantação que é usado para implantar a solução/aplicativo. Para saber mais sobre como criar arquivos de modelo de implantação, confira [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
+    * **appliancecreateUIDefinition.json**: esse arquivo é usado pelo portal do Azure para gerar a interface do usuário usada para provisionar essa solução/aplicativo. Para saber mais, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+    * **mainTemplate.json**: esse arquivo de modelo que contém somente o recurso Microsoft.Solution/appliances. O arquivo mainTemplate inclui as seguintes propriedades:
 
-        *  **tipo**: Use **Marketplace** para aplicativos gerenciados no hello Marketplace.
-        *  **ManagedResourceGroupId**: este grupo de recursos na assinatura saudação do cliente é onde todos os recursos de saudação definidos no applianceMainTemplate.json são implantados.
-        *  **PublisherPackageId**: esta cadeia de caracteres identifica com exclusividade o pacote de saudação. Fornecer valor Olá no formato de saudação do `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
+        *  **tipo**: use **Marketplace** para aplicativos gerenciados no Marketplace.
+        *  **ManagedResourceGroupId**: esse grupo de recursos na assinatura do cliente em que todos os recursos definidos no applianceMainTemplate.json são implantados.
+        *  **PublisherPackageId**: essa cadeia de caracteres que identifica exclusivamente o pacote. Forneça o valor no formato de `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
 
-Obter Olá **ID oferecem** e **ID do editor** de saudação publicação portal, conforme mostrado no Olá a imagem a seguir:
+Obtenha a **ID da oferta**  e a **ID do publicador** do portal de publicação, conforme mostra a imagem a seguir:
 
 ![ID da oferta](./media/managed-application-author-marketplace/UniqueString_pubid_offerid.png)
         
-Obter Olá **ID do SKU**, conforme mostrado no Olá a imagem a seguir:
+Obtenha a **ID do SKU**, conforme mostra a imagem a seguir:
 
 ![Id do SKU](./media/managed-application-author-marketplace/UniqueString_skuid.png)
         
-Obter pacote hello **versão**, conforme mostrado no Olá a imagem a seguir:
+Obtenha a **Versão** do pacote, conforme mostra a imagem a seguir:
 
 ![Versão do pacote](./media/managed-application-author-marketplace/UniqueString_packageversion.png)
     
-  Com base em Olá anterior exemplos, Olá valor **PublisherPackageId** é `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`.
+  Com base nos exemplos anteriores, o valor de **PublisherPackageId** é `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`.
 
   Exemplo de mainTemplate.json:
 
@@ -161,7 +161,7 @@ Obter pacote hello **versão**, conforme mostrado no Olá a imagem a seguir:
       "storageAccountNamePrefix": {
         "type": "string",
         "metadata": {
-          "description": "Specify hello name of hello storage account"
+          "description": "Specify the name of the storage account"
         }
       },
       "storageAccountType": {
@@ -196,84 +196,84 @@ Obter pacote hello **versão**, conforme mostrado no Olá a imagem a seguir:
   }
   ```
 
-Este pacote deve conter todos os outros modelos aninhados ou scripts que são necessário toosuccessfully provisionar este aplicativo. Olá arquivos mainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json devem estar presentes na pasta raiz de saudação.
+Esse pacote deve conter quaisquer outros modelos ou scripts aninhados que sejam necessários para provisionar com êxito esse aplicativo. Os arquivos mainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json devem estar presentes na pasta raiz.
 
-* **Autorizações**: esta propriedade define que obtém acesso e hello nível de acesso a recursos de toohello em assinaturas de clientes. publicador de saudação pode usá-lo aplicativo hello de toomanage em nome do cliente hello.
-* **PrincipalId**: esta propriedade é o identificador do hello Azure Active Directory (AD do Azure) de um usuário, grupo de usuários ou aplicativos que concedeu permissões específicas nos recursos Olá Olá a assinatura de cliente. saudação de definição de função descreve as permissões de saudação. 
-* **Definição de função**: esta propriedade é uma lista de todos os hello controle de acesso baseado em função (RBAC) funções internas fornecidas pelo AD do Azure. Você pode selecionar a função hello que é mais apropriados recursos de saudação do toomanage toouse em nome do cliente hello.
+* **Autorizações**: essa propriedade define quem obtém acesso e o nível de acesso aos recursos em assinaturas de clientes. O publicador pode usar isso para gerenciar o aplicativo em nome do cliente.
+* **PrincipalId**: essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, grupo de usuários ou aplicativo que recebeu determinadas permissões nos recursos na assinatura de clientes. A Definição de Função descreve as permissões. 
+* **Definição de Função**: essa propriedade é uma lista de todas as funções RBAC (Controle de acesso baseado em função) internas fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
 
-É possível adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais grupo de usuário toohello usuários sem a necessidade de Olá tooupdate Olá SKU.
+É possível adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.
 
-Para obter mais informações sobre o RBAC, consulte [Introdução ao RBAC no portal do Azure de saudação](../active-directory/role-based-access-control-what-is.md).
+Para saber mais sobre RBAC, consulte [Introdução ao RBAC no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
 
 ## <a name="marketplace-form"></a>Formulário do Marketplace
 
-Olá formulário Marketplace solicita para os campos que aparecem na Olá [Azure Marketplace](https://azuremarketplace.microsoft.com) e Olá [portal do Azure](https://portal.azure.com/).
+O formulário do Marketplace pede campos que aparecem no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [portal do Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>IDs de assinatura para versão prévia
 
-Insira uma lista de IDs que podem acessar a oferta de saudação após a publicação de assinatura do Azure. Você pode usar esses oferta de saudação visualizada tootest assinaturas listadas em branco antes de você fazê-lo ao vivo. Você pode compilar uma lista de permissões de backup too100 assinaturas no portal de parceiros de saudação.
+Insira uma lista de IDs de assinatura do Azure que podem acessar a oferta após a publicação. Use essas assinaturas da lista branca para testar a oferta de versão prévia antes de ativá-la. Você pode compilar uma lista branca com até 100 assinaturas no portal de parceiros.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 
-Selecione as categorias de toofive da lista de saudação que sua oferta pode ser associada ao melhor. Essas categorias é usado toomap suas categorias de produtos de toohello de oferta que estão disponíveis no hello [Azure Marketplace](https://azuremarketplace.microsoft.com) e hello [portal do Azure](https://portal.azure.com/).
+Selecione até cinco categorias da lista às quais sua oferta pode ser associada. Essas categorias selecionadas serão usadas para mapear sua oferta para as categorias de produto disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [Portal do Azure](https://portal.azure.com/).
 
 #### <a name="azure-marketplace"></a>Azure Marketplace
 
-Resumo de saudação do seu aplicativo gerenciado exibe Olá campos a seguir:
+O resumo de seu aplicativo gerenciado exibe os campos a seguir:
 
 ![Resumo do marketplace](./media/managed-application-author-marketplace/publishvm10.png)
 
-Olá **visão geral** guia de seu aplicativo gerenciado exibe Olá campos a seguir:
+A guia **Visão geral** de seu aplicativo gerenciado exibe os campos a seguir:
 
 ![Visão geral do Marketplace](./media/managed-application-author-marketplace/publishvm11.png)
 
-Olá **planos + preços** guia de seu aplicativo gerenciado exibe Olá campos a seguir:
+A guia **Planos + Preços** de seu aplicativo gerenciado exibe os campos a seguir:
 
 ![Planos do marketplace](./media/managed-application-author-marketplace/publishvm15.png)
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Resumo de saudação do seu aplicativo gerenciado exibe Olá campos a seguir:
+O resumo de seu aplicativo gerenciado exibe os campos a seguir:
 
 ![Resumo do portal](./media/managed-application-author-marketplace/publishvm12.png)
 
-Visão geral de saudação do seu aplicativo gerenciado exibe Olá campos a seguir:
+A guia visão geral de seu aplicativo gerenciado exibe os campos a seguir:
 
 ![Visão geral do portal](./media/managed-application-author-marketplace/publishvm13.png)
 
 #### <a name="logo-guidelines"></a>Diretrizes de logotipo
 
-Siga estas diretrizes para qualquer logotipo que você carrega no portal de parceiros de nuvem de saudação:
+Siga estas diretrizes para qualquer logotipo carregado no Portal do Cloud Partner:
 
-*   Olá design do Azure tem uma paleta de cores simples. Limitar o número de saudação do primário e secundário cores no logotipo.
-*   cores de tema de saudação do portal de saudação são brancas e preto. Não use essas cores como cores de plano de fundo Olá do seu logotipo. Use uma cor que torna seu logotipo proeminente no portal de saudação. É recomendável usar cores primárias simples. *Se você usar um plano de fundo transparente, certifique-se de Olá logotipo e o texto não estiverem em branco, preto ou azul.*
-*   Não use uma cor de fundo do logotipo hello.
-*   Não coloque o texto no logotipo hello, nem mesmo sua empresa ou o nome da marca. Olá aparência de seu logotipo deve ser simples e evitar gradientes.
-*   Certifique-se de logotipo Olá não está ampliado.
+*   O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias em seu logotipo.
+*   As cores do tema do portal são branca e preta. Não use essas cores como a cor de fundo de seu logotipo. Use uma cor que destaque seu logotipo no portal. É recomendável usar cores primárias simples. *Se você usar um plano de fundo transparente, certifique-se de que o logotipo e o texto não sejam branco, preto ou azul.*
+*   Não use um fundo gradiente no logotipo.
+*   Não coloque texto no logotipo, nem mesmo o nome ou marca da sua empresa. A aparência de seu logotipo deve ser simples e evitar gradientes.
+*   Verifique se o logotipo não está esticado.
 
 #### <a name="hero-logo"></a>Logotipo Hero
 
-logotipo do Hello herói é opcional. publicador de saudação pode escolher não tooupload um logotipo herói. Depois que o ícone de herói Olá é carregado, ele não pode ser excluído. Nesse momento, parceiro Olá deve seguir diretrizes de mercado Olá para ícones herói.
+O logotipo hero é opcional. O publicador pode optar por não carregar um logotipo hero. Após o upload do logotipo hero, não é possível exclui-lo. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones hero.
 
-Siga estas diretrizes para o ícone do logotipo herói hello:
+Siga estas diretrizes para o ícone do logotipo hero:
 
-*   nome de exibição do publicador Hello, título de plano hello e resumo longo de oferta de saudação são exibidos em branco. Portanto, não use uma cor clara para plano de fundo de saudação do ícone de herói hello. Não há permissão para telas de fundo pretas, brancas ou transparentes para ícones hero.
-*   Depois de oferta Olá estiver listada, publisher Olá nome para exibição, título do plano de saudação, resumo longo de oferta hello e Olá **criar** botão são inserido programaticamente no logotipo de herói hello. Consequentemente, não digite qualquer texto enquanto você projeta o logotipo de herói hello. Deixe espaço vazio do hello direita como texto de saudação está incluído programaticamente nesse espaço. um espaço vazio para o texto de saudação Olá deve ser 415 x 100 pixels saudação à direita. Ele tem um deslocamento de 370 pixels da saudação esquerda.
+*   O nome de exibição do publicador, o título do plano e o resumo longo da oferta são exibidas em branco. Portanto, não use uma cor clara de fundo do ícone hero. Não há permissão para telas de fundo pretas, brancas ou transparentes para ícones hero.
+*   Após a listagem da oferta, o nome de exibição do publicador, o título do plano, o resumo longo da oferta e o botão **Criar** são inseridos programaticamente no logotipo hero. Consequentemente, não insira qualquer texto enquanto projeta o logotipo hero. Deixe o espaço vazio à direita, pois o texto é incluído nesse espaço por meio de programação. O espaço vazio para o texto deve ter 415 x 100 pixels à direita. É um deslocamento de 370 pixels a partir da esquerda.
 
     ![Exemplo de logotipo hero](./media/managed-application-author-marketplace/publishvm14.png)
 
 ## <a name="support-form"></a>Formulário de suporte
 
-Preencha Olá **suporte** entra em contato com o formulário com o suporte da sua empresa. Essas informações podem ser de contatos da engenharia e do atendimento ao cliente.
+Preencha o formulário **Suporte** com contatos de suporte de sua empresa. Essas informações podem ser de contatos da engenharia e do atendimento ao cliente.
 
 ## <a name="publish-an-offer"></a>Publicar uma oferta
 
-Depois de preencher todas as seções de saudação, selecione **publicar** toostart processo de saudação que torna seu toocustomers disponíveis da oferta.
+Depois de preencher todas as seções, selecione **Publicar** para iniciar o processo de disponibilização de sua oferta aos clientes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para aplicativos de toomanaged uma introdução, consulte [visão geral do aplicativo gerenciado](managed-application-overview.md).
-* Para obter informações sobre o consumo de um aplicativo gerenciado de saudação Marketplace, consulte [Azure consumir gerenciados aplicativos Olá Marketplace](managed-application-consume-marketplace.md).
+* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](managed-application-overview.md).
+* Para obter informações sobre como consumir um aplicativo gerenciado do Marketplace, consulte [Consumir aplicativos gerenciados pelo Azure no Marketplace](managed-application-consume-marketplace.md).
 * Para obter informações sobre como publicar um aplicativo gerenciado do Catálogo de Serviços, consulte [Criar e publicar um aplicativo gerenciado do Catálogo de Serviços](managed-application-publishing.md).
 * Para obter informações sobre como consumir um aplicativo gerenciado do Catálogo de Serviços, consulte [Consumir um aplicativo gerenciado do Catálogo de Serviços](managed-application-consumption.md).

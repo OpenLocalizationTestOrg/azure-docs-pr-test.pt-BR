@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate rede grupos de segurança - Azure PowerShell | Microsoft Docs"
-description: "Saiba como toocreate e implantar grupos de segurança de rede usando o PowerShell."
+title: "Criar grupos de segurança de rede – Azure PowerShell | Microsoft Docs"
+description: "Aprenda a criar e implantar grupos de segurança de rede usando o PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c8db773febb163d9cb010d23f2913b5ebe0fa94
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-network-security-groups-using-powershell"></a>Criar grupos de segurança usando o PowerShell
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda a criação de recursos por meio do modelo de implantação do Gerenciador de recursos de saudação. mais sobre toolearn Olá diferenças entre modelos de saudação dois ler Olá [modelos de implantação do Azure entender](../azure-resource-manager/resource-manager-deployment-model.md) artigo. Este artigo aborda o modelo de implantação do Gerenciador de recursos de saudação. Você também pode [criar NSGs no modelo de implantação clássico Olá](virtual-networks-create-nsg-classic-ps.md).
+O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda criar recursos por meio do modelo de implantação do Gerenciador de Recursos. Para saber mais sobre as diferenças entre os dois modelos, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar NSGs no modelo de implantação clássica](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-exemplo Hello PowerShell comandos abaixo esperam um ambiente simples já foi criado com base no cenário de saudação acima. Se você quiser comandos de saudação toorun conforme elas são exibidas neste documento, primeiro criar o ambiente de teste Olá implantando [este modelo](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), clique em **implantar tooAzure**, substitua os valores de parâmetro padrão Olá Se necessário e siga as instruções de saudação em Olá portal.
+O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste ao implantar [esse modelo](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
-## <a name="how-toocreate-hello-nsg-for-hello-front-end-subnet"></a>Como toocreate Olá NSG para Olá sub-rede front-end
-toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concluir Olá etapas a seguir:
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede front-end
+Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas a seguir:
 
-1. Se você nunca usou o Azure PowerShell, consulte [como tooInstall e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções Olá todos os toohello de maneira Olá terminar toosign no Azure e selecione sua assinatura.
-2. Crie uma regra de segurança que permite o acesso de Internet de saudação tooport 3389.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+2. Crie uma regra de segurança permitindo acesso da Internet à porta 3389.
 
     ```powershell
     $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
@@ -47,7 +47,7 @@ toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concl
     -DestinationAddressPrefix * -DestinationPortRange 3389
     ```
 
-3. Crie uma regra de segurança que permite o acesso de Internet de saudação tooport 80.
+3. Crie uma regra de segurança permitindo acesso da Internet à porta 80.
 
     ```powershell
     $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
@@ -56,20 +56,20 @@ toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concl
     -DestinationPortRange 80
     ```
 
-4. Adicionar regras de saudação criadas acima tooa chamado novo NSG **NSG-front-end**.
+4. Adicione as regras criadas acima a um novo NSG chamado **NSG-FrontEnd**.
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
     -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
     ```
 
-5. Verifique as regras de saudação criadas no hello NSG digitando Olá seguinte:
+5. Verifique as regras criadas no NSG digitando o seguinte:
 
     ```powershell
     $nsg
     ```
    
-    Regras de segurança mostrando Olá apenas de saída:
+    Saída mostrando apenas as regras de segurança:
    
         SecurityRules        : [
                                  {
@@ -103,7 +103,7 @@ toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concl
                                    "ProvisioningState": "Succeeded"
                                  }
                                ]
-6. Associar Olá NSG criado acima toohello *front-end* sub-rede.
+6. Associe o NSG criado acima à sub-rede *FrontEnd* .
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -111,7 +111,7 @@ toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concl
     -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
     ```
 
-    Olá somente de exibição de saída *front-end* as configurações de sub-rede, observe valor Olá Olá **NetworkSecurityGroup** propriedade:
+    Saída mostrando apenas as configurações da sub-rede *FrontEnd* ; observe o valor da propriedade **NetworkSecurityGroup** :
    
                     Subnets           : [
                                           {
@@ -135,25 +135,25 @@ toocreate um NSG denominado *NSG-front-end* com base no cenário de hello, concl
                                           }
    
    > [!WARNING]
-   > saída de Hello para comando de saudação acima mostra o conteúdo de Olá para objeto de configuração de rede virtual hello, que só existe no computador Olá onde você está executando o PowerShell. Você precisa Olá toorun `Set-AzureRmVirtualNetwork` cmdlet toosave tooAzure essas configurações.
+   > A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet `Set-AzureRmVirtualNetwork` para salvar essas configurações no Azure.
    > 
    > 
-7. Salve Olá novo tooAzure de configurações de rede virtual.
+7. Salve as novas configurações da VNet no Azure.
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-    Mostrando apenas a parte do hello NSG de saída:
+    Saída mostrando apenas a parte do NSG:
    
         "NetworkSecurityGroup": {
           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
         }
 
-## <a name="how-toocreate-hello-nsg-for-hello-back-end-subnet"></a>Como toocreate Olá NSG para a sub-rede de back-end Olá
-toocreate um NSG denominado *back-end NSG* com base no cenário de saudação acima, conclua Olá etapas a seguir:
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Como criar o NSG para a sub-rede back-end
+Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas a seguir:
 
-1. Crie uma regra de segurança que permite o acesso de saudação sub-rede front-end tooport 1433 (porta padrão usada pelo SQL Server).
+1. Crie uma regra de segurança, permitindo o acesso na sub-rede front-end à porta 1433 (porta padrão usada pelo SQL Server).
 
     ```powershell
     $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule `
@@ -163,7 +163,7 @@ toocreate um NSG denominado *back-end NSG* com base no cenário de saudação ac
     -DestinationAddressPrefix * -DestinationPortRange 1433
     ```
 
-2. Crie uma regra de segurança de bloqueio toohello de acesso à Internet.
+2. Crie uma regra de segurança impedindo o acesso à Internet.
 
     ```powershell
     $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule `
@@ -173,7 +173,7 @@ toocreate um NSG denominado *back-end NSG* com base no cenário de saudação ac
     -DestinationAddressPrefix Internet -DestinationPortRange *
     ```
 
-3. Adicionar regras de saudação criadas acima tooa chamado novo NSG **back-end NSG**.
+3. Adicione as regras criadas acima ao novo NSG chamado **NSG-BackEnd**.
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
@@ -181,14 +181,14 @@ toocreate um NSG denominado *back-end NSG* com base no cenário de saudação ac
     -SecurityRules $rule1,$rule2
     ```
 
-4. Associar Olá NSG criado acima toohello *back-end* sub-rede.
+4. Associe o NSG criado acima à sub-rede *BackEnd* .
 
     ```powershell
     Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
     -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
     ```
 
-    Olá somente de exibição de saída *back-end* as configurações de sub-rede, observe valor Olá Olá **NetworkSecurityGroup** propriedade:
+    Saída mostrando apenas as configurações da sub-rede *BackEnd* ; observe o valor da propriedade **NetworkSecurityGroup** :
    
         Subnets           : [
                       {
@@ -203,16 +203,16 @@ toocreate um NSG denominado *back-end NSG* com base no cenário de saudação ac
                         "RouteTable": null,
                         "ProvisioningState": "Succeeded"
                       }
-5. Salve Olá novo tooAzure de configurações de rede virtual.
+5. Salve as novas configurações da VNet no Azure.
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-## <a name="how-tooremove-an-nsg"></a>Como tooremove um NSG
-toodelete um NSG existente, chamada *NSG-front-end* nesse caso, siga a etapa de saudação abaixo:
+## <a name="how-to-remove-an-nsg"></a>Como remover um NSG
+Para excluir um NSG existente, chamado *NSG-Frontend* neste caso, siga a etapa abaixo:
 
-Executar Olá **AzureRmNetworkSecurityGroup remover** mostrado abaixo e ter certeza de que tooinclude Olá recurso grupo Olá NSG está em.
+Execute o comando **Remove-AzureRmNetworkSecurityGroup** mostrado abaixo e inclua o grupo de recursos em que o NSG está.
 
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"

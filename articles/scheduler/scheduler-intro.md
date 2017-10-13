@@ -1,6 +1,6 @@
 ---
-title: "aaaWhat é o Agendador do Azure? | Microsoft Docs"
-description: "O Agendador do Azure permite que você toodeclaratively descrevem ações toorun na nuvem hello. Em seguida, ele agenda e executa essas ações automaticamente."
+title: "O que é o Agendador do Azure? | Microsoft Docs"
+description: "O Agendador do Azure permite que você descreva declarativamente ações a serem executadas na nuvem. Em seguida, ele agenda e executa essas ações automaticamente."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 062e25ae473510264dc0038198c05e7ac1e86210
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
-O Agendador do Azure permite que você toodeclaratively descrevem ações toorun na nuvem hello. Em seguida, ele agenda e executa essas ações automaticamente.  Faz isso usando [Olá portal do Azure](scheduler-get-started-portal.md), código, [API REST](https://msdn.microsoft.com/library/mt629143.aspx), ou o Azure PowerShell.
+O Agendador do Azure permite que você descreva declarativamente ações a serem executadas na nuvem. Em seguida, ele agenda e executa essas ações automaticamente.  O Agendador do Azure faz isso usando o [portal do Azure](scheduler-get-started-portal.md), código, a [API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou o Azure PowerShell.
 
 O Agendador cria, mantém e invoca o trabalho agendado.  O Agendador não hospeda qualquer carga de trabalho ou executar qualquer código. Ele apenas *invoca* código hospedado em outro lugar—no Azure, no local ou em outro provedor. Ele invoca via HTTP, HTTPS, uma fila de armazenamento, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
-Agendas de Agendador [trabalhos](scheduler-concepts-terms.md), mantém um histórico dos resultados da execução de trabalho que um pode examinar e forma determinista e confiável executar agendas toobe de cargas de trabalho. WebJobs do Azure (parte do recurso de aplicativos Web Olá no serviço de aplicativo do Azure) e outros recursos de agendamento do Azure usam o Agendador no plano de fundo de saudação. Olá [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx) ajuda a gerenciar a comunicação Olá para essas ações. Dessa forma, o Agendador oferece suporte para [agendas complexas e recorrência avançadas](scheduler-advanced-complexity.md) facilmente.
+O Agendador agenda [trabalhos](scheduler-concepts-terms.md), mantém um histórico do trabalho de resultados de execução que alguém pode revisar, e agenda de forma determinista e confiável agenda cargas de trabalho a serem executadas. Trabalhos Web do Azure (parte do recurso de aplicativos Web no serviço de aplicativo do Azure) e outro recursos de agendamento do Azure usam o Agendador em segundo plano. A [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx) ajuda a gerenciar a comunicação para essas ações. Dessa forma, o Agendador oferece suporte para [agendas complexas e recorrência avançadas](scheduler-advanced-complexity.md) facilmente.
 
-Há vários cenários que se prestam toohello uso do Agendador. Por exemplo:
+Há vários cenários em que o Agendador pode ser usado. Por exemplo:
 
 * *Ações do aplicativo recorrente* : coleta periódica de dados do Twitter no feed.
-* *Manutenção diária:* redução diária de logs, realização de backups e outras tarefas de manutenção. Por exemplo, um administrador pode escolher tooback o banco de dados de saudação à 1:00 A.M. todos os dias para Olá próximos nove meses.
+* *Manutenção diária:* redução diária de logs, realização de backups e outras tarefas de manutenção. Por exemplo, um administrador pode escolher realizar o backup de seu banco de dados à 1h da manhã, todos os dias, pelos próximos nove meses. todos os dias nos próximos nove meses.
 
-Agendador permite toocreate, atualizar, excluir, exibir e gerenciar trabalhos e [coleções de trabalhos](scheduler-concepts-terms.md) programaticamente, usando scripts e no portal de saudação.
+O Agendador permite criar, atualizar, excluir, exibir e gerenciar trabalhos e [coleções de trabalhos](scheduler-concepts-terms.md) programaticamente, usando scripts e no portal.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Como toobuild complexo agenda e recorrência avançadas com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
 
  [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 

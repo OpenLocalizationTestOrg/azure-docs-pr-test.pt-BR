@@ -1,6 +1,6 @@
 ---
-title: modelo do Gerenciador de recursos de aaaExport com CLI do Azure | Microsoft Docs
-description: Use o Gerenciador de recursos do Azure e a CLI do Azure tooexport um modelo a partir de um grupo de recursos.
+title: Exportar modelo do Resource Manager com a CLI do Azure | Microsoft Docs
+description: Use o Azure Resource Manager e a CLI do Azure para exportar um modelo de um grupo de recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2d44a0a6e9717504d4c2a01254d826679b381f22
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportar modelos do Azure Resource Manager com a CLI do Azure
 
-Gerenciador de recursos permite que você tooexport um modelo do Gerenciador de recursos de recursos existentes em sua assinatura. Você pode usar esse toolearn modelo gerado sobre Olá modelo sintaxe ou tooautomate Olá reimplantação de sua solução, conforme necessário.
+O Gerenciador de Recursos permite que você exporte um modelo do Gerenciador de Recursos a partir dos recursos existentes em sua assinatura. Você pode usar esse modelo gerado para saber mais sobre a sintaxe do modelo ou automatizar a reimplantação de sua solução, conforme o necessário.
 
-É importante toonote que há dois tooexport de formas diferentes um modelo:
+É importante observar que há duas maneiras diferentes de exportar um modelo:
 
-* Você pode exportar Olá real do modelo que você usou para uma implantação. modelo exportado Olá inclui todas as variáveis e parâmetros de saudação exatamente como eles eram exibidos no modelo original hello. Essa abordagem é útil quando você precisa tooretrieve um modelo.
-* Você pode exportar um modelo que representa o estado atual de Olá Olá do grupo de recursos. modelo exportado Olá não é baseado em qualquer modelo que você usou para a implantação. Em vez disso, ele cria um modelo que é um instantâneo de saudação do grupo de recursos. modelo exportado Olá tem muitos valores embutidos e provavelmente não tantos parâmetros quantos você definiria normalmente. Essa abordagem é útil quando você modificou o grupo de recursos de saudação. Agora, você precisa de grupo de recursos de saudação toocapture como um modelo.
+* Você pode exportar o modelo real que usou para uma implantação. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você precisa recuperar um modelo.
+* Você pode exportar um modelo que representa o estado atual do grupo de recursos. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um instantâneo do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Essa abordagem é útil quando você modificou o grupo de recursos. Agora, você precisa capturar o grupo de recursos como um modelo.
 
 Este tópico mostra as duas abordagens.
 
 ## <a name="deploy-a-solution"></a>Implantar uma solução
 
-tooillustrate ambas as abordagens para exportar um modelo, vamos começar com a implantação de uma assinatura de tooyour da solução. Se você já tiver um grupo de recursos em sua assinatura que você deseja tooexport, você não tem toodeploy nesta solução. No entanto, o restante deste artigo Olá refere-se toohello modelo para esta solução. script de exemplo Hello implanta uma conta de armazenamento.
+Para ilustrar as duas abordagens de exportação de um modelo, vamos começar implantando uma solução em sua assinatura. Se você já tiver um grupo de recursos em sua assinatura que queira exportar, não será preciso implantar essa solução. No entanto, o restante deste artigo refere-se ao modelo dessa solução. O script de exemplo implanta uma conta de armazenamento.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -44,24 +44,24 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Salvar modelo do histórico de implantações
 
-Você pode recuperar um modelo de seu histórico de implantação usando Olá [exportação de implantação de grupo az](/cli/azure/group/deployment#export) comando. Olá modelo saudação do exemplo salva anteriormente implantado a seguir:
+Você pode recuperar um modelo do histórico de implantações usando o comando [az group deployment export](/cli/azure/group/deployment#export). O exemplo a seguir salva o modelo implantado anteriormente:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
 ```
 
-Retorna o modelo de saudação. Copie Olá JSON e salve como um arquivo. Observe que é Olá modelo exato usado para a implantação. variáveis e parâmetros de saudação correspondem o modelo de saudação do GitHub. Você pode reimplantar esse modelo.
+Retorna o modelo. Copie o JSON e salve como um arquivo. Observe que é o modelo exato que foi usado para implantação. Os parâmetros e as variáveis correspondem ao modelo do GitHub. Você pode reimplantar esse modelo.
 
 
 ## <a name="export-resource-group-as-template"></a>Exportar grupo de recursos como modelo
 
-Em vez de recuperar um modelo do histórico de implantação hello, você pode recuperar um modelo que representa o estado atual de saudação de um grupo de recursos usando Olá [exportação de grupo az](/cli/azure/group#export) comando. Você usa esse comando quando você fez muitas alterações de grupo de recursos de tooyour e nenhum modelo existente representa todas as alterações de saudação.
+Em vez de recuperar um modelo do histórico de implantações, você pode recuperar um modelo que representa o estado atual de um grupo de recursos usando o comando [az group export](/cli/azure/group#export). Use esse comando quando você fez muitas alterações no seu grupo de recursos e nenhum modelo existente representa todas as alterações.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Retorna o modelo de saudação. Copie Olá JSON e salve como um arquivo. Observe que é diferente do modelo de saudação no GitHub. Ele tem parâmetros diferentes e nenhuma variável. armazenamento de saudação SKU e local são toovalues embutido. Olá, exemplo a seguir mostra modelo exportado hello, mas seu modelo tem um nome de parâmetro ligeiramente diferentes:
+Retorna o modelo. Copie o JSON e salve como um arquivo. Observe que ele é diferente do modelo no GitHub. Ele tem parâmetros diferentes e nenhuma variável. O SKU e o local de armazenamento são embutidos em código para valores. O exemplo abaixo mostra o modelo exportado, mas seu modelo tem um nome de parâmetro ligeiramente diferente:
 
 ```json
 {
@@ -93,7 +93,7 @@ Retorna o modelo de saudação. Copie Olá JSON e salve como um arquivo. Observe
 }
 ```
 
-Você pode reutilizar esse modelo, mas requer um nome exclusivo para a conta de armazenamento de saudação de adivinhação. nome de saudação do parâmetro é ligeiramente diferente.
+Você pode reimplantar esse modelo, mas ele exige a suposição de um nome exclusivo para a conta de armazenamento. O nome do parâmetro é ligeiramente diferente.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -103,13 +103,13 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## <a name="customize-exported-template"></a>Personalizar modelo exportado
 
-Você pode modificar este modelo toomake-toouse mais fácil e mais flexível. tooallow para obter mais locais, alteração Olá local propriedade toouse Olá mesmo local que o grupo de recursos de saudação:
+Você pode modificar esse modelo para facilitar o uso e torná-lo mais flexível. Para permitir mais locais, altere a propriedade de local para usar o mesmo local do grupo de recursos:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-tooavoid ter tooguess um nome de uniques para a conta de armazenamento, remover Olá parâmetro de nome de conta de armazenamento hello. Adicione um parâmetro para um sufixo de nome de armazenamento e um SKU de armazenamento:
+Para não ter que supor um nome exclusivo para a conta de armazenamento, remova o parâmetro do nome da conta de armazenamento. Adicione um parâmetro para um sufixo de nome de armazenamento e um SKU de armazenamento:
 
 ```json
 "parameters": {
@@ -132,7 +132,7 @@ tooavoid ter tooguess um nome de uniques para a conta de armazenamento, remover 
 },
 ```
 
-Adicione uma variável que constrói o nome de conta de armazenamento Olá com função de uniqueString hello:
+Adicione uma variável que construa o nome da conta de armazenamento com a função uniqueString:
 
 ```json
 "variables": {
@@ -140,13 +140,13 @@ Adicione uma variável que constrói o nome de conta de armazenamento Olá com f
   },
 ```
 
-Definir nome de saudação da variável de toohello de conta de armazenamento hello:
+Defina o nome da conta de armazenamento para a variável:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-Definir Olá SKU toohello parâmetro:
+Defina o SKU para o parâmetro:
 
 ```json
 "sku": {
@@ -201,9 +201,9 @@ O modelo agora se parece com:
 }
 ```
 
-Reimplante o modelo modificado hello.
+Reimplante o modelo modificado.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter informações sobre como usar o hello portal tooexport um modelo, consulte [exportar um modelo do Gerenciador de recursos do Azure de recursos existentes](resource-manager-export-template.md).
-* parâmetros de toodefine no modelo, consulte [criar modelos](resource-group-authoring-templates.md#parameters).
+* Para obter informações sobre como usar o portal para exportar um modelo, confira [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
+* Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).

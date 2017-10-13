@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Five9 Plus Adapter (CTI, Contact Center Agents) | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Five9 mais adaptador (CTI, entre em contato com os agentes Center)."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Five9 Plus Adapter (CTI, Contact Center Agents)."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,104 +13,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 2e3ea8b5f2a6eaa8ad17d39e03fa490038b14561
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d75163ea5eb3fa811e07861f06e6c4d5c758b898
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Active Directory ao Five9 Plus Adapter (CTI, Contact Center Agents)
 
-Neste tutorial, você aprenderá como toointegrate Five9 Plus adaptador (CTI, entre em contato com os agentes Center) com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprende a integrar o Five9 Plus Adapter (CTI, Contact Center Agents) ao Azure AD (Azure Active Directory).
 
-Integrar Five9 Plus adaptador (CTI, entre em contato com os agentes Center) com o AD do Azure fornece Olá benefícios a seguir:
+A integração do Five9 Plus Adapter (CTI, Contact Center Agents) ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooFive9 mais adaptador (CTI, entre em contato com os agentes Center)
-- Você pode habilitar seus usuários tooautomatically get conectado tooFive9 mais adaptador (CTI, entre em contato com Center agentes) (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao Five9 Plus Adapter (CTI, Contact Center Agents)
+- É possível permitir que os usuários se conectem automaticamente ao Five9 Plus Adapter (CTI, Contact Center Agents) (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-integração de tooconfigure AD do Azure com Five9 Plus adaptador (CTI, contato Center agentes), você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao Five9 Plus Adapter (CTI, Contact Center Agents), você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Five9 Plus Adapter (CTI, Contact Center Agents)
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Five9 Plus adaptador (CTI, entre em contato com os agentes Center) da Galeria de saudação
+1. Adicionando o Five9 Plus Adapter (CTI, Contact Center Agents) por meio da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-hello-gallery"></a>Adicionando Five9 Plus adaptador (CTI, entre em contato com os agentes Center) da Galeria de saudação
-integração de saudação tooconfigure do Five9 mais adaptador (CTI, entre em contato com os agentes Center) no AD do Azure, você precisa tooadd Five9 Plus adaptador (CTI, entre em contato com os agentes Center) na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Adicionando o Five9 Plus Adapter (CTI, Contact Center Agents) por meio da galeria
+Para configurar a integração do Five9 Plus Adapter (CTI, Contact Center Agents) ao Azure AD, é necessário adicionar o Five9 Plus Adapter (CTI, Contact Center Agents) à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**tooadd Five9 Plus adaptador (CTI, entre em contato com os agentes Center) da Galeria de hello, execute Olá etapas a seguir:**
+**Para adicionar o Five9 Plus Adapter (CTI, Contact Center Agents) por meio da galeria, realize as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **Five9 Plus adaptador (CTI, entre em contato com os agentes Center)**.
+4. Na caixa de pesquisa, digite **Five9 Plus Adapter (CTI, Contact Center Agents)**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/tutorial_five9_search.png)
 
-5. No painel de resultados de saudação, selecione **Five9 Plus adaptador (CTI, entre em contato com os agentes Center)**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Five9 Plus Adapter (CTI, Contact Center Agents)** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/tutorial_five9_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contact Center Agents), com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá Five9 Plus adaptador (CTI, entre em contato com os agentes Center) é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação Five9 Plus adaptador (CTI, entre em contato com Center agentes) deve toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Five9 Plus Adapter (CTI, Contact Center Agents) é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Five9 Plus Adapter (CTI, Contact Center Agents).
 
-Five9 mais adaptador (CTI, entre em contato com os agentes Center), atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No Five9 Plus Adapter (CTI, Contact Center Agents), atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com Five9 Plus adaptador (CTI, contato Center agentes), precisa Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contact Center Agents), você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste Five9 Plus adaptador (CTI, entre em contato com os agentes Center)](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)**  -toohave um equivalente de Britta Simon Five9 Plus adaptador (CTI, entre em contato com os agentes Center) que é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Five9 Plus Adapter (CTI, Contact Center Agents)](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)** – para ter um equivalente de Brenda Fernandes no Five9 Plus Adapter (CTI, Contact Center Agents) que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo Five9 Plus adaptador (CTI, entre em contato com os agentes Center).
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Five9 Plus Adapter (CTI, Contact Center Agents).
 
-**tooconfigure logon único do AD do Azure com Five9 Plus adaptador (CTI, entre em contato com os agentes Center), execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contact Center Agents), realize as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **Five9 Plus adaptador (CTI, entre em contato com os agentes Center)** página de integração de aplicativos, clique em **o logon único**.
+1. No portal do Azure, na página de integração do aplicativo **Five9 Plus Adapter (CTI, Contact Center Agents)**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_five9_samlbase.png)
 
-3. Em Olá **Five9 Plus adaptador (CTI, entre em contato com os agentes Center) de domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **Domínio e URLs do Five9 Plus Adapter (CTI, Contact Center Agents)**, realize as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_five9_url.png)
     
-    a. Em Olá **identificador** caixa de texto, digite uma URL usando Olá seguintes padrões:
+    a. Na caixa de texto **Identificador**, digite uma URL usando os seguintes padrões:
 
     |    Ambiente      |       URL      |
     | :-- | :-- |
@@ -118,7 +118,7 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     | Para o “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
     | Para o “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
-    b. Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:
+    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
 
     |      Ambiente     |      URL      |
     | :--                  | :--           |
@@ -126,19 +126,19 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
     | Para o “Five9 Plus Adapter for Zendesk” | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
     | Para o “Five9 Plus Adapter for Agent Desktop Toolkit” | `https://app.five9.com/appsvcs/saml/SSO/alias/adt` |
 
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_five9_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-five9-tutorial/tutorial_five9_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_general_400.png)
 
-6. Em Olá **Five9 Plus adaptador (CTI, entre em contato com os agentes Center) configuração** seção, clique em **configurar Five9 Plus adaptador (CTI, entre em contato com os agentes Center)** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
+6. Na seção **Configuração do Five9 Plus Adapter (CTI, Contact Center Agents)**, clique em **Configurar o Five9 Plus Adapter (CTI, Contact Center Agents)** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_five9_configure.png) 
 
-7. tooconfigure logon único no **Five9 Plus adaptador (CTI, entre em contato com os agentes Center)** lado, você precisa toosend Olá baixado **Certificate(Base64), URL de logout, ID de entidade de SAML e SAML Single Sign-On URL do serviço** muito[Five9 Plus (CTI, entre em contato com os agentes Center) suporte adaptadoras](https://www.five9.com/about/contact). Também Além disso, para configurar SSO adicional, siga Olá etapas de acordo com o adaptador de toohello abaixo:
+7. Para configurar o logon único no lado do **Five9 Plus Adapter (CTI, Contact Center Agents)**, é necessário enviar o **Certificado (Base64) baixado, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact). Além disso, para configurar o SSO adicional, siga as etapas abaixo de acordo com o adaptador:
 
     a. Guia do Administrador do “Five9 Plus Adapter for Agent Desktop Toolkit”: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
@@ -148,61 +148,61 @@ Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e c
 
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-five9-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Criando um usuário de teste do Five9 Plus Adapter (CTI, Contact Center Agents)
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Five9 Plus Adapter (CTI, Contact Center Agents). Trabalhar com [Five9 Plus (CTI, entre em contato com os agentes Center) suporte adaptadoras](https://www.five9.com/about/contact) para adicionar usuários de saudação na plataforma do hello Five9 Plus adaptador (CTI, entre em contato com os agentes Center). Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Five9 Plus Adapter (CTI, Contact Center Agents). Trabalhe com a [equipe de suporte do Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact) para adicionar os usuários à plataforma Five9 Plus Adapter (CTI, Contact Center Agents). Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooFive9 além do adaptador (CTI, entre em contato com os agentes Center).
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Five9 Plus Adapter (CTI, Contact Center Agents).
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooFive9 Plus adaptador (CTI, entre em contato com os agentes Center), execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Five9 Plus Adapter (CTI, Contact Center Agents), realize as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Five9 Plus adaptador (CTI, entre em contato com os agentes Center)**.
+2. Na lista de aplicativos, selecione **Five9 Plus Adapter (CTI, Contact Center Agents)**.
 
     ![Configurar Logon Único](./media/active-directory-saas-five9-tutorial/tutorial_five9_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -210,7 +210,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -218,14 +218,14 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Five9 Plus adaptador (CTI, entre em contato com os agentes Center) Olá Olá painel de acesso, você deve obter tooyour automaticamente conectado no aplicativo de Five9 mais adaptador (CTI, entre em contato com os agentes Center).
-Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
+Quando você clicar no bloco do Five9 Plus Adapter (CTI, Contact Center Agents) no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo Five9 Plus Adapter (CTI, Contact Center Agents).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

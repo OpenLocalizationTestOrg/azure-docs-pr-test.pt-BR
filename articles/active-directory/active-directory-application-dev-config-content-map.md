@@ -1,5 +1,5 @@
 ---
-title: aaaProblems configurando ou registrar meu aplicativo"
+title: Problemas ao configurar ou registrar meu aplicativo"
 description: Problemas ao configurar ou registrar meu aplicativo"
 services: active-directory
 documentationcenter: 
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9a3a971c3f2873e581fae907c22ddf4dff304d0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 573fa7e9017e0b7746e40639370e68a2b7bb8548
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problems-configuring-or-registering-my-application"></a>Problemas ao configurar ou registrar meu aplicativo
 
 
 
-## <a name="i-dont-know-how-tooconfigure-my-application"></a>Não sei como tooconfigure meu aplicativo
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não sei o que são pontos de extremidade de autenticação Olá para meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não sei como tooconfigure o logon único aplicativo toomy](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-sso-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não sei como toofill-out de um campo específico no objeto de aplicativo hello](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-specific-application-property-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+## <a name="i-dont-know-how-to-configure-my-application"></a>Não sei como configurar meu aplicativo
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não sei quais são os pontos de extremidade de autenticação para o meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não sei como configurar o logon único para o meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-sso-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não sei como preencher um campo específico no objeto do aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-specific-application-property-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
-## <a name="i-dont-know-how-toocreate-and-configure-a-multi-tenant-application"></a>Não sei como toocreate e configurar um aplicativo multilocatário
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não sei como tooset um aplicativo multilocatário](https://docs.microsoft.com/azure/active-directory/application-dev-setup-multi-tenant-app/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não sei como tooadd meu Galeria de aplicativos do aplicativo multilocatário toohello AD do Azure](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+## <a name="i-dont-know-how-to-create-and-configure-a-multi-tenant-application"></a>Não sei como criar e configurar um aplicativo multilocatário
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não sei como configurar um aplicativo multilocatário](https://docs.microsoft.com/azure/active-directory/application-dev-setup-multi-tenant-app/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não sei como adicionar meu aplicativo multilocatário à Galeria de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
-## <a name="i-dont-know-how-tooselect-or-manage-permissions-for-my-application"></a>Não sei como tooselect ou gerenciar permissões para meu aplicativo
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não sei qual tooselect permissões para uma determinada API](https://docs.microsoft.com/azure/active-directory/application-dev-perms-for-given-api/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+## <a name="i-dont-know-how-to-select-or-manage-permissions-for-my-application"></a>Não sei como selecionar ou gerenciar permissões para meu aplicativo
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não sei quais permissões selecionar para uma determinada API](https://docs.microsoft.com/azure/active-directory/application-dev-perms-for-given-api/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
 ## <a name="im-having-a-problem-using-or-finding-a-specific-api"></a>Estou tendo um problema para usar ou localizar uma API específica
-  Olá documentos a seguir podem ajudá-lo tooresolve alguns dos problemas mais comuns de saudação nessa categoria.
-  * [Não é possível localizar o hello necessário toouse para meu aplicativo de API](https://docs.microsoft.com/azure/active-directory/application-dev-api-find-an-api-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não sei como a vida útil do token Olá toochange padrões do meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
+  * [Não consigo localizar a API que preciso para usar no meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-api-find-an-api-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não sei como alterar os padrões de tempo de vida do token para o meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Estou confuso a respeito de como o consentimento do aplicativo funciona](https://docs.microsoft.com/azure/active-directory/application-dev-consent-framework/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não sei como aplicativo de toomy permissões toogrant](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-grant-permissions-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-  * [Não compreendo diferença Olá entre permissões delegadas e de aplicativos](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não sei como conceder permissões ao meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-grant-permissions-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
+  * [Não compreendo a diferença entre as permissões delegadas e permissões do aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)

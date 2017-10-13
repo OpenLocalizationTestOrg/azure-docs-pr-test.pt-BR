@@ -1,6 +1,6 @@
 ---
-title: "formato de arquivo de log de importação/exportação aaaAzure | Microsoft Docs"
-description: "Saiba mais sobre o formato Olá Olá de arquivos de log criados quando as etapas são executadas para um trabalho do serviço de importação/exportação."
+title: "Formato do arquivo de log da Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba mais sobre o formato dos arquivos de log criados quando etapas são executadas para um trabalho do serviço de Importação/Exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 15a652455aa947922af0aa39ccefe68811a3db19
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato de arquivo de log de serviço de Importação/Exportação do Azure
-Quando Olá serviço de importação/exportação do Microsoft Azure executa uma ação em uma unidade como parte de um trabalho de importação ou exportação, os logs são gravados tooblock blobs na conta de armazenamento Olá associada ao trabalho.  
+Quando o serviço de importação/exportação do Microsoft Azure executa uma ação em uma unidade como parte de um trabalho de importação ou exportação, os logs são gravados para bloquear blobs na conta de armazenamento associado ao trabalho.  
   
-Há dois logs que podem ser gravados pelo Olá serviço de importação/exportação:  
+Há dois logs que podem ser gravados pelo serviço de importação/exportação:  
   
--   log de erros de saudação sempre é gerada no evento de saudação do erro.  
+-   O log de erros sempre é gerado se ocorrer um erro.  
   
--   Hello log detalhado não é habilitado por padrão, mas pode ser habilitado pela configuração Olá `EnableVerboseLog` propriedade em uma [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) operação.  
+-   O log detalhado não é habilitado por padrão, mas pode ser habilitado configurando a propriedade `EnableVerboseLog` em um [Trabalho Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou em uma operação de [Atualização de Propriedades do Trabalho](/rest/api/storageimportexport/jobs#Jobs_Update).  
   
 ## <a name="log-file-location"></a>Local do arquivo de log  
-Olá os logs são gravados tooblock blobs no contêiner de saudação ou diretório virtual especificado pelo Olá `ImportExportStatesPath` configuração, que você pode definir em uma `Put Job` operação. Olá local toowhich Olá os logs são gravados depende de como a autenticação é especificada para o trabalho de hello, junto com o valor de saudação especificado para `ImportExportStatesPath`. A autenticação para o trabalho de saudação pode ser especificada por meio de uma chave de conta de armazenamento ou um contêiner de SAS (assinatura de acesso compartilhado).  
+Os logs são gravados para bloquear blobs no contêiner ou diretório virtual especificado pela configuração `ImportExportStatesPath`, que pode ser definida em um operação `Put Job`. O local no qual os logs são gravados depende de como a autenticação é especificada para o trabalho, junto com o valor especificado para `ImportExportStatesPath`. A autenticação para o trabalho pode ser especificada por meio de uma chave de conta de armazenamento ou um contêiner SAS (assinatura de acesso compartilhado).  
   
-nome de saudação do diretório virtual ou contêiner Olá pode ser o nome padrão de saudação do `waimportexport`, ou em outro contêiner ou nome do diretório virtual que você especificar.  
+O nome do contêiner ou diretório virtual pode ser o nome padrão de `waimportexport` ou outro nome de contêiner ou diretório virtual que você especificar.  
   
-Olá tabela a seguir mostra as opções possíveis hello:  
+A tabela a seguir mostra as opções possíveis:  
   
 |Método de autenticação|Valor de `ImportExportStatesPath`Elemento|Local dos Blobs de Log|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Chave da conta de armazenamento|Valor padrão|Um contêiner denominado `waimportexport`, que é o contêiner padrão de saudação. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Chave da conta de armazenamento|Valores especificados pelo usuário|Um contêiner nomeado pelo usuário hello. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
-|SAS do contêiner|Valor padrão|Um diretório virtual chamado `waimportexport`, que é o nome do padrão de saudação, recipiente de saudação especificado no hello SAS.<br /><br /> Por exemplo, se Olá SAS especificada para o trabalho de Olá for `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, Olá log local será`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
-|SAS do contêiner|Valores especificados pelo usuário|Um diretório virtual denominado pelo usuário hello, recipiente de saudação especificado no hello SAS.<br /><br /> Por exemplo, se Olá SAS especificada para o trabalho de Olá for `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e Olá especificado o diretório virtual é denominado `mylogblobs`, Olá log local será `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
+|Chave da conta de armazenamento|Valor padrão|Um contêiner denominado `waimportexport`, que é o contêiner padrão. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Chave da conta de armazenamento|Valores especificados pelo usuário|Um contêiner nomeado pelo usuário. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|SAS do contêiner|Valor padrão|Um diretório virtual chamado `waimportexport`, que é o nome padrão, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, então o local do log será`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
+|SAS do contêiner|Valores especificados pelo usuário|Um diretório virtual nomeado pelo usuário, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o diretório virtual especificado for denominado `mylogblobs`, então o local do log será `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Você pode recuperar Olá URL logs detalhados e de erro Olá Olá chamada [obter trabalho](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação. Olá logs estão disponíveis após a conclusão do processamento da unidade de saudação.  
+Você pode recuperar a URL de erro e logs detalhados chamando a operação [Obter Trabalho](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Os logs estão disponíveis após a conclusão do processamento da unidade.  
   
 ## <a name="log-file-format"></a>Formato do arquivo de log  
-Olá formato para ambos os logs é Olá mesmo: um blob que contém descrições XML dos eventos de Olá ocorridos ao copiar blobs entre o disco rígido hello e conta saudação do cliente.  
+O formato para ambos os logs é o mesmo: um blob que contém descrições XML dos eventos ocorridos ao copiar blobs entre o disco rígido e a conta do cliente.  
   
-log detalhado Olá contém informações completas sobre o status de Olá Olá operação de cópia para cada blob (para um trabalho de importação) ou arquivo (para um trabalho de exportação), enquanto o log de erros de saudação contém apenas informações de saudação de blobs ou arquivos que encontraram erros durante a saudação Importar ou exportar o trabalho.  
+O log detalhado contém informações completas sobre o status da operação de cópia para cada blob (para um trabalho de importação) ou arquivo (para um trabalho de exportação), enquanto que o log de erros contém apenas as informações para blobs ou arquivos que tiveram erros durante o trabalho de importação ou exportação.  
   
-formato de log detalhado de saudação é mostrado abaixo. log de erros de saudação tem Olá a mesma estrutura, mas filtra operações bem-sucedidas.  
+O formato de log detalhado é mostrado abaixo. O log de erros tem a mesma estrutura, mas filtra operações bem-sucedidas.  
 
 ```xml
 <DriveLog Version="2014-11-01">  
@@ -104,162 +104,162 @@ properties-status ::=
 </Properties>  
 ```
 
-Olá tabela a seguir descreve os elementos de Olá Olá do arquivo de log.  
+A tabela a seguir descreve os elementos do arquivo de log.  
   
 |Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um log de unidade.|  
-|`Version`|Atributo, cadeia de caracteres|versão de saudação do formato de log hello.|  
-|`DriveId`|Cadeia de caracteres|Olá número de série do hardware da unidade.|  
-|`Status`|Cadeia de caracteres|Status do processamento de unidade de saudação. Consulte Olá `Drive Status Codes` tabela abaixo para obter mais informações.|  
+|`Version`|Atributo, cadeia de caracteres|A versão do formato do log.|  
+|`DriveId`|Cadeia de caracteres|Número de série do hardware da unidade.|  
+|`Status`|Cadeia de caracteres|Status do processamento da unidade. Consulte a tabela `Drive Status Codes` abaixo para obter mais informações.|  
 |`Blob`|Elemento XML aninhado|Representa um blob.|  
-|`Blob/BlobPath`|Cadeia de caracteres|Olá URI do blob hello.|  
-|`Blob/FilePath`|Cadeia de caracteres|arquivo de toohello de caminho relativo de saudação na unidade de saudação.|  
-|`Blob/Snapshot`|Datetime|versão do instantâneo de saudação do blob hello, para um trabalho de exportação.|  
-|`Blob/Length`|Número inteiro|tamanho total de saudação do blob de saudação em bytes.|  
-|`Blob/LastModified`|Datetime|saudação de data/hora blob Olá da última modificação, para um trabalho de exportação.|  
-|`Blob/ImportDisposition`|Cadeia de caracteres|Olá disposição de blob hello, para um trabalho de importação de importação.|  
-|`Blob/ImportDisposition/@Status`|Atributo, cadeia de caracteres|status de saudação do hello disposição de importação.|  
+|`Blob/BlobPath`|Cadeia de caracteres|O URI do blob.|  
+|`Blob/FilePath`|Cadeia de caracteres|Caminho relativo até o arquivo na unidade.|  
+|`Blob/Snapshot`|DateTime|A versão de instantâneo do blob, apenas para um trabalho de exportação.|  
+|`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
+|`Blob/LastModified`|DateTime|A data/hora em que o blob foi modificado pela última vez, apenas para um trabalho de exportação.|  
+|`Blob/ImportDisposition`|Cadeia de caracteres|A disposição de importação do blob, para um trabalho de importação.|  
+|`Blob/ImportDisposition/@Status`|Atributo, cadeia de caracteres|O status de disposição de importação.|  
 |`PageRangeList`|Elemento XML aninhado|Representa uma lista de intervalos de página para um blobs de página.|  
 |`PageRange`|Elemento XML|Representa um intervalo de páginas.|  
-|`PageRange/@Offset`|Atributo, inteiro|Iniciando o deslocamento do intervalo de página Olá no blob hello.|  
-|`PageRange/@Length`|Atributo, inteiro|Comprimento em bytes do intervalo de páginas de saudação.|  
-|`PageRange/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do intervalo de página hello.|  
-|`PageRange/@Status`|Atributo, cadeia de caracteres|Status do processamento do intervalo de páginas de saudação.|  
+|`PageRange/@Offset`|Atributo, inteiro|Iniciando o deslocamento do intervalo de página no blob.|  
+|`PageRange/@Length`|Atributo, inteiro|Comprimento em bytes do intervalo de página.|  
+|`PageRange/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do intervalo de página.|  
+|`PageRange/@Status`|Atributo, cadeia de caracteres|Status do processamento do intervalo de páginas.|  
 |`BlockList`|Elemento XML aninhado|Representa uma lista de blocos para um blobs de bloco.|  
 |`Block`|Elemento XML|Representa um bloco.|  
-|`Block/@Offset`|Atributo, inteiro|Iniciando o deslocamento do bloco de saudação no blob de saudação.|  
-|`Block/@Length`|Atributo, inteiro|Comprimento em bytes do bloco de saudação.|  
-|`Block/@Id`|Atributo, cadeia de caracteres|ID do bloco de saudação.|  
-|`Block/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do bloco de saudação.|  
-|`Block/@Status`|Atributo, cadeia de caracteres|Status do processamento de bloco hello.|  
-|`Metadata`|Elemento XML aninhado|Representa os metadados do blob hello.|  
-|`Metadata/@Status`|Atributo, cadeia de caracteres|Status do processamento dos metadados de blob hello.|  
-|`Metadata/GlobalPath`|Cadeia de caracteres|Arquivo de metadados globais de toohello caminho relativo.|  
-|`Metadata/GlobalPath/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de metadados globais hello.|  
-|`Metadata/Path`|Cadeia de caracteres|Arquivo de metadados do caminho relativo toohello.|  
-|`Metadata/Path/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de metadados de saudação.|  
-|`Properties`|Elemento XML aninhado|Representa as propriedades de blob hello.|  
-|`Properties/@Status`|Atributo, cadeia de caracteres|Status do processamento propriedades de blob hello, por exemplo, o arquivo não encontrado, concluído.|  
-|`Properties/GlobalPath`|Cadeia de caracteres|Arquivo de propriedades globais de toohello caminho relativo.|  
-|`Properties/GlobalPath/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de propriedades globais de saudação.|  
-|`Properties/Path`|Cadeia de caracteres|Arquivo de propriedades de toohello de caminho relativo.|  
-|`Properties/Path/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de propriedades de saudação.|  
-|`Blob/Status`|Cadeia de caracteres|Status do processamento Olá blob.|  
+|`Block/@Offset`|Atributo, inteiro|Iniciando o deslocamento do bloco no blob.|  
+|`Block/@Length`|Atributo, inteiro|Comprimento em bytes do bloco.|  
+|`Block/@Id`|Atributo, cadeia de caracteres|ID do bloco.|  
+|`Block/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do bloco.|  
+|`Block/@Status`|Atributo, cadeia de caracteres|Status do processamento do bloco.|  
+|`Metadata`|Elemento XML aninhado|Representa os metadados do blob.|  
+|`Metadata/@Status`|Atributo, cadeia de caracteres|Status de processamento dos metadados do blob.|  
+|`Metadata/GlobalPath`|Cadeia de caracteres|Caminho relativo para o arquivo de metadados globais.|  
+|`Metadata/GlobalPath/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo global de metadados.|  
+|`Metadata/Path`|Cadeia de caracteres|Caminho relativo para o arquivo de metadados.|  
+|`Metadata/Path/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de metadados.|  
+|`Properties`|Elemento XML aninhado|Representa as propriedades do blob.|  
+|`Properties/@Status`|Atributo, cadeia de caracteres|Status do processamento de propriedades de blob, por exemplo, arquivo não encontrado, concluído.|  
+|`Properties/GlobalPath`|Cadeia de caracteres|Caminho relativo para o arquivo global de propriedades.|  
+|`Properties/GlobalPath/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo global de propriedades.|  
+|`Properties/Path`|Cadeia de caracteres|Caminho relativo para o arquivo de propriedades.|  
+|`Properties/Path/@Hash`|Atributo, cadeia de caracteres|Hash de MD5 codificado para Base16 do arquivo de propriedades.|  
+|`Blob/Status`|Cadeia de caracteres|Status do processamento do blob.|  
   
 # <a name="drive-status-codes"></a>Códigos de status da unidade  
-Olá tabela a seguir lista os códigos de status de saudação para uma unidade de processamento.  
+A tabela a seguir lista os códigos de status para o processamento de uma unidade.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Olá unidade concluiu o processamento sem erros.|  
-|`CompletedWithWarnings`|Olá unidade concluiu o processamento com avisos em um ou mais blobs por disposições de importação de saudação especificados para blobs de saudação.|  
-|`CompletedWithErrors`|Olá unidade foi concluída com erros em um ou mais blobs ou partes.|  
-|`DiskNotFound`|Nenhum disco foi encontrado na unidade de saudação.|  
-|`VolumeNotNtfs`|Olá primeiro volume de dados em disco Olá não está no formato NTFS.|  
-|`DiskOperationFailed`|Falha desconhecida ocorreu ao executar operações na unidade de saudação.|  
+|`Completed`|A unidade concluiu o processamento sem erros.|  
+|`CompletedWithWarnings`|A unidade concluiu o processamento com avisos em um ou mais blobs de acordo com as disposições de importação especificadas para os blobs.|  
+|`CompletedWithErrors`|A unidade foi concluída com erros em um ou mais blobs ou partes.|  
+|`DiskNotFound`|Nenhum disco foi encontrado na unidade.|  
+|`VolumeNotNtfs`|O primeiro volume de dados no disco não está no formato NTFS.|  
+|`DiskOperationFailed`|Uma falha desconhecida ocorreu ao executar operações na unidade.|  
 |`BitLockerVolumeNotFound`|Nenhum volume criptografável BitLocker foi encontrado.|  
-|`BitLockerNotActivated`|O BitLocker não está habilitado no volume de saudação.|  
-|`BitLockerProtectorNotFound`|protetor de senha numérica de saudação não existe no volume de saudação.|  
-|`BitLockerKeyInvalid`|senha numérica de saudação fornecida não é possível desbloquear o volume de saudação.|  
-|`BitLockerUnlockVolumeFailed`|Falha desconhecida ocorreu durante a tentativa de volume de saudação toounlock.|  
+|`BitLockerNotActivated`|O BitLocker não está habilitado no volume.|  
+|`BitLockerProtectorNotFound`|O protetor de chave de senha numérica não existe no volume.|  
+|`BitLockerKeyInvalid`|A senha numérica fornecida não é pode desbloquear o volume.|  
+|`BitLockerUnlockVolumeFailed`|Uma falha desconhecida ocorreu ao tentar desbloquear o volume.|  
 |`BitLockerFailed`|Uma falha desconhecida ocorreu ao executar operações BitLocker.|  
-|`ManifestNameInvalid`|Olá nome de arquivo de manifesto é inválido.|  
-|`ManifestNameTooLong`|nome do arquivo de manifesto de saudação é muito longo.|  
-|`ManifestNotFound`|arquivo de manifesto Olá não foi encontrado.|  
-|`ManifestAccessDenied`|Arquivo de manifesto de toohello de acesso é negado.|  
-|`ManifestCorrupted`|Olá arquivo de manifesto está corrompido (Olá conteúdo não corresponde ao seu hash).|  
-|`ManifestFormatInvalid`|conteúdo do manifesto Olá não está de acordo com formato necessário toohello.|  
-|`ManifestDriveIdMismatch`|unidade Olá ID no arquivo de manifesto Olá não coincide Olá leitura da unidade de saudação.|  
-|`ReadManifestFailed`|Ocorreu uma falha de e/s de disco durante a leitura do manifesto de saudação.|  
-|`BlobListFormatInvalid`|Olá exportar lista de blob não está de acordo com formato necessário toohello.|  
-|`BlobRequestForbidden`|Acessar toohello blobs na conta de armazenamento Olá é proibido. Isso pode ser devido a chave de conta de armazenamento tooinvalid ou SAS do contêiner.|  
-|`InternalError`|E ocorreu um erro interno durante o processamento da unidade de saudação.|  
+|`ManifestNameInvalid`|O nome do arquivo de manifesto é inválido.|  
+|`ManifestNameTooLong`|O nome do arquivo de manifesto é muito longo.|  
+|`ManifestNotFound`|O arquivo de manifesto não foi encontrado.|  
+|`ManifestAccessDenied`|Acesso ao arquivo de manifesto foi negado.|  
+|`ManifestCorrupted`|O arquivo de manifesto está corrompido (o conteúdo não corresponde ao seu hash).|  
+|`ManifestFormatInvalid`|O conteúdo do manifesto não corresponde ao formato necessário.|  
+|`ManifestDriveIdMismatch`|A ID de unidade no arquivo de manifesto não corresponde à leitura do disco.|  
+|`ReadManifestFailed`|Ocorreu uma falha de E/S de disco durante a leitura do manifesto.|  
+|`BlobListFormatInvalid`|A lista de blob de exportação não corresponde ao formato necessário.|  
+|`BlobRequestForbidden`|O acesso aos blobs na conta de armazenamento é proibido. Isso pode ser devido a uma chave da conta de armazenamento inválida ou SAS do contêiner.|  
+|`InternalError`|Ocorreu um erro interno durante o processamento da unidade.|  
   
 ## <a name="blob-status-codes"></a>Códigos de status de blobs  
-Olá tabela a seguir lista os códigos de status de saudação para processamento de um blob.  
+A tabela a seguir lista os códigos de status para o processamento de um blob.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Olá blob concluiu o processamento sem erros.|  
-|`CompletedWithErrors`|Olá blob concluiu o processamento com erros em um ou mais intervalos de páginas ou blocos, metadados ou propriedades.|  
-|`FileNameInvalid`|nome de arquivo Hello é inválido.|  
-|`FileNameTooLong`|nome do arquivo Hello é muito longo.|  
-|`FileNotFound`|não foi encontrado o arquivo Hello.|  
-|`FileAccessDenied`|Arquivo de toohello de acesso é negado.|  
-|`BlobRequestFailed`|Falha na solicitação de serviço de Blob Olá tooaccess Olá blob.|  
-|`BlobRequestForbidden`|solicitação de serviço de Blob Olá tooaccess Olá blob é proibida. Isso pode ser devido a chave de conta de armazenamento tooinvalid ou SAS do contêiner.|  
-|`RenameFailed`|Falha ao blob de saudação toorename (para um trabalho de importação) ou arquivo de saudação (para um trabalho de exportação).|  
-|`BlobUnexpectedChange`|Uma alteração inesperada ocorreu com o blob de saudação (para um trabalho de exportação).|  
-|`LeasePresent`|Há uma concessão no blob de saudação.|  
-|`IOFailed`|Um disco ou uma falha de e/s de rede ocorreu durante o processamento de blob de saudação.|  
-|`Failed`|Falha desconhecida ocorreu ao processar o blob de saudação.|  
+|`Completed`|O blob concluiu o processamento sem erros.|  
+|`CompletedWithErrors`|O blob concluiu o processamento com erros em um ou mais intervalos de páginas ou blocos, metadados ou propriedades.|  
+|`FileNameInvalid`|O nome do arquivo é inválido.|  
+|`FileNameTooLong`|O nome do arquivo é muito longo.|  
+|`FileNotFound`|O arquivo não foi encontrado.|  
+|`FileAccessDenied`|Acesso ao arquivo foi negado.|  
+|`BlobRequestFailed`|A solicitação de serviço Blob para acessar o blob falhou.|  
+|`BlobRequestForbidden`|A solicitação de serviço Blob para acessar o blob é proibida. Isso pode ser devido a uma chave da conta de armazenamento inválida ou SAS do contêiner.|  
+|`RenameFailed`|Falha ao renomear o blob (para um trabalho de importação) ou o arquivo (para um trabalho de exportação).|  
+|`BlobUnexpectedChange`|Ocorreu uma alteração inesperada com o blob (para um trabalho de exportação).|  
+|`LeasePresent`|Há uma concessão no blob.|  
+|`IOFailed`|Uma falha de E/S de disco ou rede ocorreu durante o processamento de blob.|  
+|`Failed`|Uma falha desconhecida ocorreu durante o processamento de blob.|  
   
 ## <a name="import-disposition-status-codes"></a>Códigos de status de disposição de importação  
-Olá tabela a seguir lista os códigos de status de saudação para resolver uma disposição de importação.  
+A tabela a seguir lista os códigos de status para resolver uma disposição de importação.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Created`|Olá blob foi criado.|  
-|`Renamed`|Olá blob foi renomeado por disposição de importação de renomeação. Olá `Blob/BlobPath` elemento contém Olá URI de blob Olá renomeado.|  
-|`Skipped`|Olá blob foi ignorado por `no-overwrite` disposição de importação.|  
-|`Overwritten`|blob Olá substituiu um blob existente por `overwrite` disposição de importação.|  
-|`Cancelled`|Uma falha anterior interrompeu o processamento da disposição de importação de saudação.|  
+|`Created`|O blob foi criado.|  
+|`Renamed`|O blob foi renomeado de acordo com a disposição de importação de renomeação. O elemento `Blob/BlobPath` contém o URI para o blob renomeado.|  
+|`Skipped`|O blob foi ignorado de acordo com a disposição de importação `no-overwrite`.|  
+|`Overwritten`|O blob substituiu um blob existente de acordo com a disposição de importação `overwrite`.|  
+|`Cancelled`|Uma falha anterior interrompeu o processamento da disposição de importação.|  
   
 ## <a name="page-rangeblock-status-codes"></a>Códigos de status do intervalo de página/bloco  
-Olá tabela a seguir lista os códigos de status de saudação para processamento de um intervalo de página ou bloco.  
+A tabela a seguir lista os códigos de status para o processamento de um intervalo de páginas ou de um bloco.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Olá intervalo de página ou bloco concluiu o processamento sem erros.|  
-|`Committed`|Olá bloco foi confirmado, mas não no hello lista completa de bloco porque outros blocos tem falha ou colocar a própria lista completa de bloco falhou.|  
-|`Uncommitted`|bloco de saudação é carregado, mas não foi confirmado.|  
-|`Corrupted`|Olá intervalo de página ou bloco está corrompido (Olá conteúdo não corresponde ao seu hash).|  
+|`Completed`|O intervalo de páginas ou bloco concluiu o processamento sem erros.|  
+|`Committed`|O bloco foi confirmado, mas não na lista completa de blocos porque outros blocos têm falha ou a própria lista de blocos falhou.|  
+|`Uncommitted`|O bloco foi carregado, mas não foi confirmado.|  
+|`Corrupted`|O intervalo de páginas ou bloco está corrompido (o conteúdo não corresponde ao seu hash).|  
 |`FileUnexpectedEnd`|Fim de arquivo inesperado foi encontrado.|  
 |`BlobUnexpectedEnd`|Fim de blob inesperado foi encontrado.|  
-|`BlobRequestFailed`|Olá solicitar o serviço Blob tooaccess Olá intervalo de página ou bloco falhou.|  
-|`IOFailed`|Um disco ou uma falha de e/s de rede ocorreu durante o processamento Olá intervalo de página ou bloco.|  
-|`Failed`|Falha desconhecida ocorreu ao processar Olá intervalo de página ou bloco.|  
-|`Cancelled`|Uma falha anterior interrompeu o processamento do intervalo de páginas de saudação ou bloco.|  
+|`BlobRequestFailed`|A solicitação de serviço Blob para acessar o intervalo de páginas ou bloco falhou.|  
+|`IOFailed`|Uma falha de E/S de disco ou rede ocorreu durante o processamento do intervalo de páginas ou bloco.|  
+|`Failed`|Uma falha desconhecida ocorreu durante o processamento do intervalo de páginas ou bloco.|  
+|`Cancelled`|Uma falha anterior interrompeu o processamento do intervalo de páginas ou bloco.|  
   
 ## <a name="metadata-status-codes"></a>Códigos de status de metadados  
-Olá tabela a seguir lista os códigos de status de saudação para metadados de blob de processamento.  
+A tabela a seguir lista os códigos de status para o processamento dos metadados do blob.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Olá metadados concluiu o processamento sem erros.|  
-|`FileNameInvalid`|nome do arquivo de metadados de saudação é inválido.|  
-|`FileNameTooLong`|nome do arquivo de metadados de saudação é muito longo.|  
-|`FileNotFound`|arquivo de metadados de saudação não foi encontrado.|  
-|`FileAccessDenied`|Arquivo de metadados de toohello de acesso é negado.|  
-|`Corrupted`|arquivo de metadados de saudação está corrompido (Olá conteúdo não corresponde ao seu hash).|  
-|`XmlReadFailed`|conteúdo da saudação de metadados não está de acordo com formato necessário toohello.|  
-|`XmlWriteFailed`|Gravando Olá metadados que XML falhou.|  
-|`BlobRequestFailed`|Falha na solicitação de serviço de Blob Olá tooaccess Olá metadados.|  
-|`IOFailed`|Uma falha de e/s de disco ou rede ocorreu durante o processamento de metadados de saudação.|  
-|`Failed`|Falha desconhecida ocorreu ao processar metadados hello.|  
-|`Cancelled`|Uma falha anterior interrompeu o processamento dos metadados de saudação.|  
+|`Completed`|Os metadados concluíram o processamento sem erros.|  
+|`FileNameInvalid`|O nome do arquivo de metadados é inválido.|  
+|`FileNameTooLong`|O nome do arquivo de metadados é muito longo.|  
+|`FileNotFound`|O arquivo de metadados não foi encontrado.|  
+|`FileAccessDenied`|Acesso ao arquivo de metadados foi negado.|  
+|`Corrupted`|O arquivo de metadados está corrompido (o conteúdo não corresponde ao seu hash).|  
+|`XmlReadFailed`|O conteúdo dos metadados não corresponde ao formato necessário.|  
+|`XmlWriteFailed`|A gravação de metadados XML falhou.|  
+|`BlobRequestFailed`|A solicitação de serviço Blob para acessar os metadados falhou.|  
+|`IOFailed`|Uma falha de E/S de disco ou rede ocorreu durante o processamento dos metadados.|  
+|`Failed`|Uma falha desconhecida ocorreu durante o processamento dos metadados.|  
+|`Cancelled`|Uma falha anterior interrompeu o processamento dos metadados.|  
   
 ## <a name="properties-status-codes"></a>Códigos de status das propriedades  
-Olá tabela a seguir lista os códigos de status de saudação para propriedades de blob de processamento.  
+A tabela a seguir lista os códigos de status para o processamento das propriedades do blob.  
   
 |Código de status|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Propriedades de saudação concluiu o processamento sem erros.|  
-|`FileNameInvalid`|nome do arquivo de propriedades de saudação é inválido.|  
-|`FileNameTooLong`|nome do arquivo de propriedades de saudação é muito longo.|  
-|`FileNotFound`|arquivo de propriedades de saudação não foi encontrado.|  
-|`FileAccessDenied`|Arquivo de propriedades de toohello de acesso é negado.|  
-|`Corrupted`|arquivo de propriedades de saudação está corrompido (Olá conteúdo não corresponde ao seu hash).|  
-|`XmlReadFailed`|conteúdo das propriedades Olá não está de acordo com formato necessário toohello.|  
-|`XmlWriteFailed`|Gravar propriedades Olá que XML falhou.|  
-|`BlobRequestFailed`|Falha na solicitação de serviço de Blob Olá tooaccess Olá propriedades.|  
-|`IOFailed`|Uma falha de e/s de disco ou rede ocorreu durante o processamento de propriedades de saudação.|  
-|`Failed`|Falha desconhecida ocorreu ao processar as propriedades de saudação.|  
-|`Cancelled`|Uma falha anterior interrompeu o processamento das propriedades de saudação.|  
+|`Completed`|As propriedades concluíram o processamento sem erros.|  
+|`FileNameInvalid`|O nome do arquivo de propriedades é inválido.|  
+|`FileNameTooLong`|O nome do arquivo de propriedades é muito longo.|  
+|`FileNotFound`|O arquivo de propriedades não foi encontrado.|  
+|`FileAccessDenied`|O acesso ao arquivo de propriedades foi negado.|  
+|`Corrupted`|O arquivo de propriedades está corrompido (o conteúdo não corresponde ao seu hash).|  
+|`XmlReadFailed`|O conteúdo das propriedades não corresponde ao formato necessário.|  
+|`XmlWriteFailed`|Falha ao gravar as propriedades XML.|  
+|`BlobRequestFailed`|A solicitação de serviço Blob para acessar as propriedades falhou.|  
+|`IOFailed`|Uma falha de E/S de disco ou rede ocorreu durante o processamento das propriedades.|  
+|`Failed`|Uma falha desconhecida ocorreu durante o processamento das propriedades.|  
+|`Cancelled`|Uma falha anterior interrompeu o processamento das propriedades.|  
   
 ## <a name="sample-logs"></a>Logs de exemplo  
-a seguir Olá é um exemplo de log detalhado.  
+A seguir está um exemplo de log detalhado.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -296,7 +296,7 @@ a seguir Olá é um exemplo de log detalhado.
 </DriveLog>  
 ```  
   
-log de erros Olá correspondente é mostrado abaixo.  
+O log de erros correspondente é mostrado abaixo.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -315,7 +315,7 @@ log de erros Olá correspondente é mostrado abaixo.
 </DriveLog>  
 ```
 
- log de erros de acompanhamento Olá para um trabalho de importação contém um erro sobre um arquivo não encontrado na unidade de importação de saudação. Observe que o status de saudação dos componentes subsequentes é `Cancelled`.  
+ O log de erros a seguir para um trabalho de importação contém um erro sobre um arquivo não encontrado na unidade de importação. Observe que o status dos componentes subsequentes é `Cancelled`.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -338,7 +338,7 @@ log de erros Olá correspondente é mostrado abaixo.
 </DriveLog>  
 ```
 
-Olá seguinte o log de erros para um trabalho de exportação indica que o conteúdo do blob Olá tem foi gravado com êxito toohello unidade, mas ocorreu um erro durante a exportação de propriedades do blob hello.  
+O log de erros a seguir para um trabalho de exportação indica que o conteúdo do blob foi gravado com êxito na unidade, mas ocorreu um erro ao exportar as propriedades do blob.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  

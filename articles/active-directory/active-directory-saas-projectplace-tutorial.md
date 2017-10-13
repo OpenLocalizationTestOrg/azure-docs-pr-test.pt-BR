@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Projectplace | Microsoft Docs"
-description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Projectplace."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Projectplace."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,164 +13,164 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 95d109052096161f995ff26a18f8d64f0c4a3dc5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Tutorial: Integração do Active Directory do Azure ao Projectplace
 
-Neste tutorial, você aprenderá como toointegrate Projectplace com o Azure Active Directory (AD do Azure).
+Neste tutorial, você aprenderá a integrar o Projectplace ao Azure AD (Azure Active Directory).
 
-Integração do Projectplace com o Azure AD oferece Olá benefícios a seguir:
+A integração do Projectplace ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure que tenha acesso tooProjectplace
-- Você pode habilitar seu usuários tooautomatically get conectado tooProjectplace (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central - Olá portal do Azure
+- Você pode controlar no Azure AD quem tem acesso ao Projectplace
+- Você pode permitir que os usuários façam logon automaticamente no Projectplace (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-tooconfigure integração do AD do Azure com Projectplace, você precisa Olá itens a seguir:
+Para configurar a integração do Azure AD ao Projectplace, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Projectplace com logon único habilitado
 
 > [!NOTE]
-> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Projectplace da Galeria de saudação
+1. Adicionar o Projectplace da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-projectplace-from-hello-gallery"></a>Adicionando Projectplace da Galeria de saudação
-integração de saudação tooconfigure do Projectplace no AD do Azure, você precisa tooadd Projectplace da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
+## <a name="adding-projectplace-from-the-gallery"></a>Adicionar o Projectplace da galeria
+Para configurar a integração do Projectplace ao Azure AD, você precisa adicionar o Projectplace à sua lista de aplicativos SaaS gerenciados na galeria.
 
-**tooadd Projectplace da Galeria hello, execute Olá etapas a seguir:**
+**Para adicionar o Projectplace na galeria, execute as seguintes etapas:**
 
-1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa hello, digite **Projectplace**.
+4. Na caixa de pesquisa, digite **Projectplace**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
 
-5. No painel de resultados de saudação, selecione **Projectplace**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
+5. No painel de resultados, selecione **Projectplace** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Projectplace, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Projectplace é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Projectplace precisa toobe estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Projectplace é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Projectplace.
 
-No Projectplace, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
+No Projectplace, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-tooconfigure e teste de logon único do AD do Azure com Projectplace, você precisa Olá toocomplete blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o Projectplace, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
-3. **[Criar um usuário de teste do Projectplace](#creating-a-projectplace-test-user)**  -toohave um equivalente do Britta Simon no Projectplace que é vinculado toohello AD do Azure representação do usuário.
-4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
-5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Projectplace](#creating-a-projectplace-test-user)** – para ter um equivalente de Brenda Fernandes no Projectplace que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo do Projectplace.
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Projectplace.
 
-**tooconfigure AD do Azure-logon único com Projectplace, execute Olá etapas a seguir:**
+**Para configurar o logon único do Azure AD com o Projectplace, realize as seguintes etapas:**
 
-1. Em Olá portal do Azure, Olá **Projectplace** página de integração de aplicativos, clique em **o logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **Projectplace**, clique em **Logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_samlbase.png)
 
-3. Em Olá **Projectplace domínio e URLs** , execute Olá etapas a seguir:
+3. Na seção **URLs e Domínio do Projectplace**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_url.png)
 
-    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company>.projectplace.com`
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company>.projectplace.com`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com hello URL de logon real. Entre em contato com [a equipe de suporte Projectplace cliente](https://success.planview.com/Projectplace/Support) tooget esse valor. 
+    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Projectplace](https://success.planview.com/Projectplace/Support) para obter esse valor. 
  
-4. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/tutorial_general_400.png)
 
-7. tooconfigure logon único no **Projectplace** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte Projectplace](https://success.planview.com/Projectplace/Support). Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.
+7. Para configurar o logon único no lado do **Projectplace**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Projectplace](https://success.planview.com/Projectplace/Support). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 >[!NOTE]
->configuração de logon único Olá tem toobe executada pelo Olá [a equipe de suporte Projectplace](https://success.planview.com/Projectplace/Support). Você receberá uma notificação assim Olá configuração foi concluída.
+>A configuração de logon único deve ser executada pela [equipe de suporte do Projectplace](https://success.planview.com/Projectplace/Support). Assim que a configuração for concluída, você receberá uma notificação.
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
-**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/create_aaduser_01.png) 
 
-2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/create_aaduser_02.png) 
 
-3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/create_aaduser_03.png) 
 
-4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-projectplace-tutorial/create_aaduser_04.png) 
 
-    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-projectplace-test-user"></a>Criação de um usuário de teste do Projectplace
 
-Ordem tooenable AD do Azure usuários toolog no Projectplace, eles devem ser provisionados no Projectplace. No caso de saudação do Projectplace, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no Projectplace, eles devem ser provisionados no Projectplace. No caso do Projectplace, o provisionamento é uma tarefa manual.
 
-**tooprovision uma conta de usuário, execute Olá etapas a seguir:**
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Faça logon no tooyour **Projectplace** site da empresa como um administrador.
+1. Faça logon em seu site de empresa do **Projectplace** como administrador.
 
-2. Vá muito**pessoas**e, em seguida, clique em **membros**.
+2. Vá para **Pessoas** e clique em **Membros**.
    
     ![Pessoas](./media/active-directory-saas-projectplace-tutorial/ic790228.png "Pessoas")
 
@@ -178,36 +178,36 @@ Ordem tooenable AD do Azure usuários toolog no Projectplace, eles devem ser pro
    
     ![Adicionar Membros](./media/active-directory-saas-projectplace-tutorial/ic790232.png "Adicionar membros")
 
-4. Em Olá **Adicionar membro** , execute Olá etapas a seguir:
+4. Na seção **Adicionar Membro** , realize as seguintes etapas:
    
     ![Novos Membros](./media/active-directory-saas-projectplace-tutorial/ic790233.png "Novos Membros")
    
-    a. Em Olá **novos membros** de texto, endereço de email de saudação do tipo de uma conta válida do AAD você deseja tooprovision em Olá relacionados caixas de texto.
+    a. Na caixa de texto **Novos Membros** , digite o endereço de email de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
    
     b. Clique em **Enviar**.
 
-   Um email incluindo uma conta de saudação do link tooconfirm antes de se tornar ativa é enviado toohello titular da conta de Active Directory do Azure.
+   Um email incluindo um link para confirmar a conta antes que ela se torne ativa é enviado ao titular da conta do Active Directory do Azure.
 
 >[!NOTE]
->Você pode usar qualquer ferramenta de criação outros Projectplace usuário conta ou APIs fornecidas pelo Projectplace tooprovision contas de usuário do AAD.
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Projectplace ou APIs fornecidas pelo Projectplace para provisionar as contas de usuário do AAD.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooProjectplace.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Projectplace.
 
 ![Atribuir usuário][200] 
 
-**tooassign Britta Simon tooProjectplace, execute Olá etapas a seguir:**
+**Para atribuir Brenda Fernandes ao Projectplace, realize as seguintes etapas:**
 
-1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos hello, selecione **Projectplace**.
+2. Na lista de aplicativos, selecione **Projectplace**.
 
     ![Configurar Logon Único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_app.png) 
 
-3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -215,7 +215,7 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -223,14 +223,14 @@ Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, c
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica em bloco Projectplace Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Projectplace aplicativo.
-Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco do Projectplace no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Projectplace.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

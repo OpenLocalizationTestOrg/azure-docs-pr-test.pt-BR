@@ -1,6 +1,6 @@
 ---
-title: aaaFailback VMware VMs do Azure tooon-local | Microsoft Docs
-description: "Saiba mais sobre a falha toohello back local após o failover de máquinas virtuais do VMware e servidores físicos tooAzure."
+title: Failback de VMs VMware do Azure para o local | Microsoft Docs
+description: "Saiba mais sobre como realizar o failback no site local após o failover de VMs do VMware e de servidores físicos no Azure."
 services: site-recovery
 documentationcenter: 
 author: ruturaj
@@ -14,159 +14,159 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.openlocfilehash: 258f5a55252083135b2040e5a235fa1ffbf3b9d0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="fail-back-vmware-virtual-machines-and-physical-servers-toohello-on-premises-site"></a>Fazer back máquinas virtuais de VMware e servidores físicos toohello no site local
+# <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 
 
-Este artigo descreve como toofailback Azure máquinas virtuais do Azure toohello no site local. Siga as instruções de saudação aqui quando estiver pronto toofail fazer suas máquinas virtuais VMware ou servidores físicos do Windows ou Linux depois de ter protegido novamente suas máquinas usando esse [referência](site-recovery-how-to-reprotect.md).
+Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções encontradas aqui quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows ou Linux após ter protegido novamente suas máquinas usando esta [referência](site-recovery-how-to-reprotect.md).
 
 >[!NOTE]
->Se você estiver usando o portal do Azure clássico de hello, consulte tooinstructions mencionado [aqui](site-recovery-failback-azure-to-vmware-classic.md) para arquitetura de tooAzure VMware avançada e [aqui](site-recovery-failback-azure-to-vmware-classic-legacy.md) para arquitetura de saudação herdados
+>Se você estiver usando o Portal Clássico do Azure, consulte as instruções mencionadas [aqui](site-recovery-failback-azure-to-vmware-classic.md) para VMware aprimorado para arquitetura do Azure e [aqui](site-recovery-failback-azure-to-vmware-classic-legacy.md) para a arquitetura herdada
 
 ## <a name="overview"></a>Visão geral
-diagramas de saudação nesta seção mostram a arquitetura de failback Olá para esse cenário.
+Os diagramas desta seção mostram a arquitetura de failback para esse cenário.
 
-Quando a saudação do servidor em processo é o local e você estiver usando uma conexão de rota expressa do Azure, use essa arquitetura:
+Quando o Servidor de processo for local e você estiver usando uma conexão ExpressRoute do Azure, use esta arquitetura:
 
 ![Diagrama da arquitetura para ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
-Quando a saudação do servidor em processo é no Azure e você tiver uma VPN ou uma conexão de rota expressa, use essa arquitetura:
+Quando o Servidor de processo estiver no Azure e você tiver uma VPN ou uma conexão ExpressRoute, use esta arquitetura:
 
 ![Diagrama da arquitetura para VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
-Para obter uma lista completa de portas e diagrama de arquitetura de failback hello, consulte toohello a imagem a seguir:
+Para ver a lista completa de portas e o diagrama da arquitetura de failback, consulte a imagem abaixo:
 
 ![Lista de failover-failback para todas as portas](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
-Após o failover tooAzure, você não tooyour back local em três estágios:
+Após a realização do failover para o Azure, execute o failback para seu site local em três estágios:
 
-* **Estágio 1**: Proteja hello Azure VMs para que eles são iniciados replicando toohello back VMware VMs em execução no seu site local.
-* **Fase 2**: depois que suas VMs do Azure são replicados tooyour no site local, você executar um failover toofail do Azure.
-* **Fase 3**: após a falharam volta seus dados, você proteja Olá VMs locais que você não faça, para que eles são iniciados replicando tooAzure.
+* **Estágio 1**: proteja novamente as VMs do Azure para que comecem a replicar de volta para as VMs VMware em execução em seu site local.
+* **Estágio 2**: após a replicação das VMs do Azure para seu site local, execute um failover para realizar o failback do Azure.
+* **Estágio 3**: após realizar o failback de seus dados, você protege novamente as VMs locais para as quais você realizou o failback, para que comecem a serem replicadas no Azure.
 
-### <a name="fail-back-toohello-original-location-or-an-alternate-location"></a>Falha do local original toohello back ou um local alternativo
-Depois de executar o failover de uma VM do VMware, você pode fazer back toohello mesmo VM de origem, se ele ainda existe no local. Nesse cenário, somente os deltas Olá são falha novamente.
+### <a name="fail-back-to-the-original-location-or-an-alternate-location"></a>Failback para o local original ou um local alternativo
+Depois de realizar o failover de uma VM VMware, você pode fazer o failback para a mesma VM de origem, caso ela ainda exista no local. Neste cenário, apenas os deltas passarão por failback.
 
-Se o failover de servidores físicos, failback é sempre tooa nova VM do VMware. Antes de realizar failback em uma máquina física, observe que:
-* Uma máquina física protegida voltará como uma máquina virtual quando ele é feito o failover da tooVMware do Azure. Um computador físico do Windows Server 2008 R2 SP1, se ele é protegido e failover tooAzure, não pode ser feito novamente. Uma máquina Windows Server 2008 R2 SP1 que foi iniciado como uma máquina virtual local será capaz de toofail novamente.
-* Certifique-se de que você descobrir que pelo menos um servidor de destino mestre junto com hello hosts ESX/ESXi necessários que você precisa toofail fazer.
+Se você realizou o failover de servidores físicos, o failback sempre ocorrerá para uma nova VM VMware. Antes de realizar failback em uma máquina física, observe que:
+* Uma máquina física protegida voltará como uma máquina virtual após a realização do failover do Azure para o VMware. Se estiver protegido e passar por um failover no Azure, um computador físico com Windows Server 2008 R2 SP1 não pode passar por um failback. Um computador Windows Server 2008 R2 SP1 que tenha sido iniciado como uma máquina virtual local conseguirá realizar um failback.
+* Certifique-se de descobrir pelo menos um servidor de destino mestre juntamente com os hosts ESX/ESXi cujo failback você precisa realizar.
 
-Se você não toohello back VM original, o seguinte Olá é necessários:
+Se realizar o failback para a VM original, você vai precisar do seguinte:
 
-* Se hello VM é gerenciada por um servidor do vCenter, hello host do ESX do destino mestre deve ter acesso toohello VMs repositório de dados.
-* Se hello VM estiver em um host ESX, mas não é gerenciada pelo vCenter, de disco rígido Olá Olá VM deve ser em um repositório de dados que é acessível pelo host de saudação do MT.
-* Se sua VM estiver em um host ESX e não usa o vCenter, você deve concluir a descoberta de host do ESX Olá de saudação MT antes que você proteja. Isso se aplicará se você também estiver realizando o failback de servidores físicos.
-* Outra opção (se Olá local existe VM) é toodelete antes de você fazer um failback. Failback, em seguida, cria uma nova VM no hello mesmo host como host do ESX Olá destino mestre.
+* Se a VM for gerenciada por um servidor vCenter, o host do ESX de destino mestre deve ter acesso ao armazenamento de dados das máquinas virtuais.
+* Se a VM estiver em um host ESX, mas não for gerenciada pelo vCenter, o disco rígido da VM deverá estar em um armazenamento de dados que seja acessível ao host do MT.
+* Se sua VM estiver em um host ESX e não usar o vCenter, complete a descoberta do host ESX do MT antes de protegê-la novamente. Isso se aplicará se você também estiver realizando o failback de servidores físicos.
+* Outra opção (se a VM local existir) é excluí-la antes de fazer um failback. O failback vai criar uma nova VM no mesmo host que o host ESX de destino mestre.
 
-Quando houver falha local alternativo tooan voltar, dados de saudação são recuperado toohello mesmo repositório de dados e hello mesmo host ESX que é usada pelo servidor de destino mestre local hello.
+Ao realizar o failback para um local alternativo, os dados são recuperados no mesmo armazenamento de dados e no mesmo host ESX usados pelo servidor de destino mestre local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* toofail back VMs VMware e servidores físicos, é necessário um ambiente VMware. Falha na tooa back servidor físico não tem suporte.
-* toofail novamente, você deve ter criado uma rede do Azure ao configurar proteção inicialmente. Failback precisa de uma conexão VPN ou rota expressa do hello Azure rede na qual Olá VMs do Azure são toohello localizado no site local.
-* Se hello VMs que você deseja toofail fazer tooare gerenciado por um servidor vCenter, certifique-se de que você tenha permissões de saudação necessários para a descoberta de máquinas virtuais em servidores vCenter. Para obter mais informações, consulte [tooAzure de servidores físicos com o Azure Site Recovery e de máquinas virtuais VMware replicar](site-recovery-vmware-to-azure-classic.md).
-* Se houver instantâneos em uma VM, a nova proteção vai falhar. Você pode excluir instantâneos hello ou discos de saudação.
+* Para realizar failbacks de VMs VMware e servidores físicos, você vai precisar de um ambiente VMware. Não há suporte para a realização de failback para um servidor físico.
+* Para realizar o failback, você precisa ter criado uma rede do Azure durante a configuração inicial da proteção. O failback precisa de uma conexão VPN ou de ExpressRoute da rede do Azure onde estão as VMs do Azure para o site local.
+* Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, verifique se você tem as permissões necessárias para a descoberta das VMs nos servidores vCenter. Para obter mais informações, consulte [Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
+* Se houver instantâneos em uma VM, a nova proteção vai falhar. Você pode excluir os instantâneos ou os discos.
 * Antes de realizar o failback, crie estes componentes:
-  * **Crie um Servidor de processos no Azure**. Esse componente é uma VM do Azure que você cria e mantém em execução durante o failback. Você pode excluir Olá VM após a conclusão do failback.
-  * **Criar um servidor de destino mestre**: servidor de destino mestre Olá envia e recebe dados de failback. servidor de gerenciamento de saudação que você criou no local tem um servidor de destino mestre que é instalado por padrão. No entanto, dependendo do volume de saudação do tráfego de failback, talvez seja necessário toocreate um servidor de destino mestre separada para failback.
-  * toocreate um servidor de destino mestre adicionais que executa no Linux, configurar Olá VM Linux antes de instalar o servidor de destino mestre hello, conforme descrito posteriormente.
-* O servidor de configuração é necessário localmente para fazer um failback. Durante o failback, máquina virtual de saudação deve existir no banco de dados de servidor de configuração hello. Se o banco de dados de servidor de configuração Olá não contém nenhuma VM, failback não pode ser bem-sucedida. Sendo assim, certifique-se de fazer backups agendados regulares de seu servidor. Em um desastre, você precisa toorestore com hello de endereços IP mesmo para que o failback funcione.
-* Definir configuração de disk.enableUUID=true saudação **parâmetros de configuração** do mestre de saudação de VM no VMware de destino. Se essa linha não existir, adicione-a. Essa configuração é necessária tooprovide um arquivo de disco (VMDK) consistente do identificador universalmente exclusivo (UUID) toohello máquina virtual para que ele está montado corretamente.
-* Lembre-se de um "mestre de servidor de destino não pode ser armazenamento vMotioned" condição, o que pode causar Olá failback toofail. Olá VM não pode ser ativado, pois discos de saudação não ficam disponível tooit.
-* Adicione uma unidade, chamada de uma unidade de retenção, no servidor de destino mestre hello. Adicionar um disco e formatar a unidade de saudação.
+  * **Crie um Servidor de processos no Azure**. Esse componente é uma VM do Azure que você cria e mantém em execução durante o failback. Você pode excluir a VM após a conclusão do failback.
+  * **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento que você criou no local tem um servidor de destino mestre que é instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
+  * Para criar um servidor de destino mestre adicional que seja executado no Linux, configure a VM do Linux antes de instalar o servidor de destino mestre, conforme descrito adiante.
+* O servidor de configuração é necessário localmente para fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração. Se o banco de dados do servidor de configuração não contiver VM, o failback não será bem-sucedido. Sendo assim, certifique-se de fazer backups agendados regulares de seu servidor. Em caso de desastre, você precisa restaurá-lo com o mesmo endereço IP para que o failback funcione.
+* Defina a configuração disk.enableUUID=true nos **Parâmetros de Configuração** da VM de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um identificador universalmente exclusivo (UUID) consistente para que o arquivo de disco da máquina virtual (VMDK) seja montado corretamente.
+* Fique atento à condição "Servidor de destino mestre não pode ser de armazenamento vMotion", que pode causar uma falha de failback. Não é possível criar a VM porque os discos não ficam disponíveis para ela.
+* Adicione uma unidade, chamada de unidade de retenção, no servidor de destino mestre. Adicione um disco e formate a unidade.
 
 ## <a name="failback-policy"></a>Política de failback
-tooreplicate back tooon local, você precisa de uma diretiva de failback. política de saudação é criada automaticamente quando você criar uma política de frente, e é associada automaticamente com o servidor de configuração de saudação. Ela não é editável. política de saudação tem Olá as configurações de replicação a seguir:
+Para replicar de volta para local, você precisa de uma política de failback. Essa política é criada automaticamente quando você cria uma política de direção de avanço, e é automaticamente associada ao servidor de configuração. Ela não é editável. A política tem as seguintes configurações de replicação:
 
 * Limite RPO = 15 minutos
 * Retenção de ponto de recuperação = 24 horas
 * Frequência de instantâneos consistentes com aplicativos = 60 minutos
 
- ![Configurações de replicação de política de saudação de failback](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
+ ![Configurações de replicação da política de failback](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
 
 ## <a name="set-up-a-process-server-in-azure"></a>Crie um Servidor de processo no Azure
-Instale um servidor de processo no Azure para que as VMs do Azure de saudação possa enviar o servidor de destino mestre do hello dados toohello back local.
+Instale um Servidor de processo no Azure para que as VMs do Azure possam enviar os dados de volta para o servidor de destino mestre local.
 
-Se você protegeu suas máquinas virtuais como recursos clássicos (ou seja, Olá recuperada de VM no Azure é uma VM que foi criada usando o modelo de implantação clássico Olá), é necessário um servidor de processo no Azure. Se você tiver recuperado Olá VMs com o Azure Resource Manager como tipo de implantação Olá, saudação do servidor em processo deve ter o Gerenciador de recursos como o tipo de implantação de saudação. Olá tipo de implantação é selecionado por hello Azure rede virtual que você implantar Olá servidor de processo.
+Se você protegeu suas máquinas virtuais como recursos clássicos (ou seja, a VM recuperada no Azure é uma VM que foi criada usando o modelo de implantação clássico), você precisará de um Servidor de processo no Azure. Se você tiver recuperado as VMs com o Azure Resource Manager como tipo de implantação, o Servidor de processo deve ter o Resource Manager como tipo de implantação. O tipo de implantação é selecionado pela rede virtual do Azure em que o Servidor de processo foi implantado.
 
-1. Em **cofre** > **configurações** > **infraestrutura de recuperação de Site** (em **gerenciar**) > **Servidores de configuração** (em **para VMware e máquinas físicas**), selecione o servidor de configuração hello.
+1. Em **Cofre** > **Configurações** > **Infraestrutura do Site Recovery** (em **Gerenciar**) > **Servidores de Configuração** (em **Para VMware e Máquinas Físicas**), selecione o servidor de configuração.
 2. Clique em **Servidor de processo**.
 
   ![Botão Servidor de processo](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
-3. Escolha toodeploy Olá servidor de processo como **implantar um servidor de processo no Azure failback**.
-4. Selecione a assinatura de saudação que você recuperou Olá VMs.
-5. Selecione Olá rede do Azure que você recuperou Olá VMs. Olá toobe de necessidades de servidor de processo no hello que mesmo de rede para que Olá recuperados VMs e hello processo servidor pode se comunicar.
-6. Se você tiver selecionado um *modelo de implantação clássico* de rede, crie uma VM por meio de saudação do Azure Marketplace e, em seguida, instalar saudação do servidor em processo nele.
+3. Opte por implantar o Servidor de processo como **Implantar um Servidor de processo de failback no Azure**.
+4. Selecione a assinatura para a qual você recuperou as VMs.
+5. Selecione a rede do Azure para a qual você recuperou as VMs. O Servidor de processo precisa estar na mesma rede para que as VMs recuperadas e o Servidor de processo possam se comunicar.
+6. Se você tiver selecionado um *modelo de implantação clássico* de rede, crie uma máquina virtual por meio do Azure Marketplace e, em seguida, instale o Servidor de processo nela.
 
- ![janela de "Adicionar servidor de processo" Hello](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
+ ![A janela “Adicionar Servidor de processo”](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 
- Como a criação de saudação do servidor em processo, paga a seguir toohello atenção:
- * Olá nome da imagem de saudação é *V2 de servidor do Microsoft Azure Site Recovery processo*. Selecione **clássico** como modelo de implantação de saudação.
+ Como você está criando o Servidor de processo, preste atenção ao seguinte:
+ * O nome da imagem é *Servidor de processo V2 do Microsoft Azure Site Recovery*. Selecione **Clássico** como o modelo de implantação.
 
-       ![Select "Classic" as hello Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * Instalar saudação do servidor em processo acordo toohello instruções [tooAzure de servidores físicos com o Azure Site Recovery e de máquinas virtuais VMware replicar](site-recovery-vmware-to-azure-classic.md).
-7. Se você selecionar Olá *Gerenciador de recursos* Azure de rede, implantar saudação do servidor em processo fornecendo Olá informações a seguir:
+       ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
+ * Instale o Servidor de processo de acordo com as instruções em [Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
+7. Se você selecionar a rede *Resource Manager* do Azure, implante o Servidor de processo fornecendo as seguintes informações:
 
-  * nome de Olá Olá do grupo de recursos que você deseja que o servidor Olá toodeploy
-  * nome de saudação do servidor de saudação
-  * Um nome de usuário e senha para entrar no servidor toohello
-  * conta de armazenamento Olá que você deseja que o servidor Olá toodeploy
-  * subrede Hello e interface de rede de saudação que você deseja tooconnect tooit
+  * O nome do grupo de recursos no qual você deseja implantar o servidor
+  * O nome do servidor
+  * O nome de usuário e a senha para entrar no servidor
+  * A conta de armazenamento na qual você deseja implantar o servidor
+  * A sub-rede e a interface de rede à qual você deseja conectá-la
    >[!NOTE]
-   >Você deve criar seu próprio [interface de rede](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selecioná-la enquanto você estiver implantando saudação do servidor em processo.
+   >Você precisa criar seu próprio [adaptador de rede](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selecioná-lo durante a implantação do Servidor de processo.
 
-    ![Insira as informações na caixa de diálogo "Adicionar servidor de processo" hello](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
+    ![Insira as informações na caixa de diálogo "Adicionar Servidor de processo"](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. Clique em **OK**. Essa ação aciona um trabalho que cria uma máquina virtual de tipo de implantação de Gerenciador de recursos durante a instalação do servidor de processo hello. tooregister Olá toohello configuração servidor, configuração de execução hello dentro Olá VM, seguindo as instruções de saudação do [tooAzure de servidores físicos com o Azure Site Recovery e de máquinas virtuais VMware replicar](site-recovery-vmware-to-azure-classic.md). Saudação de toodeploy um trabalho do servidor em processo também é disparada.
+8. Clique em **OK**. Esta ação dispara um trabalho que cria uma máquina virtual do tipo de implantação do Gerenciador de Recursos durante a instalação do Servidor de processo. Para registrar o servidor no servidor de configuração, execute a instalação dentro da VM, seguindo as instruções em [Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md). Um trabalho de implantação do Servidor de processo também será disparado.
 
-  Olá servidor de processo está listado na Olá **servidores de configuração** > **associado servidores** > **servidores de processo** guia.
+  O Servidor de processo está listado na guia **Servidores de configuração** > **Servidores associados** > **Servidores de processo**.
 
     ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
     > [!NOTE]
-    > Olá servidor de processo não estiver visível em **propriedades da VM**. Ele só é visível Olá **servidores** guia no servidor de gerenciamento de saudação que ele está registrado. Pode levar 10 minutos too15 Olá tooappear de servidor de processo.
+    > O Servidor de processo não está visível em **Propriedades da VM**. Ele só está visível na guia **Servidores** no servidor de gerenciamento em que está registrado. O Servidor de processo pode demorar de 10 a 15 minutos para aparecer.
 
 
-## <a name="set-up-hello-master-target-server-on-premises"></a>Configurar Olá destino mestre server local
-o servidor de destino mestre Olá recebe dados de failback de saudação. servidor de saudação é instalado automaticamente no servidor de gerenciamento local hello, mas se você estiver falhando volta muitos dados, talvez seja necessário tooset um servidor de destino mestre adicionais. tooset backup mestre de um local do servidor de destino, Olá a seguir:
+## <a name="set-up-the-master-target-server-on-premises"></a>Configurar o servidor de destino mestre no local
+O servidor de destino mestre recebe os dados do failback. O servidor é automaticamente instalado no servidor de gerenciamento local, mas se você estiver realizando o failback de um volume muito grande de dados, talvez seja necessário configurar um servidor de destino mestre adicional. Para configurar um servidor de destino mestre local, faça o seguinte:
 
 > [!NOTE]
-> tooset um servidor de destino mestre no Linux, ignore toohello próximo procedimento. Use somente CentOS 6.6 sistema operacional mínimo como Olá o sistema operacional de destino mestre.
+> Para configurar um servidor de destino mestre no Linux, vá para o próximo procedimento. Use apenas o sistema operacional mínimo CentOS 6.6 como o SO de destino mestre.
 
-1. Se você estiver configurando o servidor de destino mestre Olá no Windows, abra a página de início rápido de saudação da saudação VM que você está instalando o servidor de destino mestre Olá.
-2. Baixe o arquivo de instalação de saudação para o Assistente de configuração do Azure Site Recovery unificado hello.
-3. Execute a instalação do hello e, na **antes de começar a**, selecione **adicionar tooscale adicional de servidores de processo implantação**.
-4. Assistente de saudação completa no hello como fazia quando você [configurar o servidor de gerenciamento Olá](site-recovery-vmware-to-azure-classic.md). Em Olá **detalhes do servidor de configuração** página, especifique o endereço IP de saudação do servidor de destino mestre hello e insira uma saudação de tooaccess senha VM.
+1. Se você estiver configurando o servidor de destino mestre no Windows, abra a página de início rápido da VM em que você está instalando o servidor de destino mestre.
+2. Baixe o arquivo de instalação do assistente de Instalação Unificada do Azure Site Recovery.
+3. Execute a instalação e, em **Antes de começar**, escolha **Adicionar Servidores de processo adicionais para escalar horizontalmente a implantação**.
+4. Conclua o assistente da mesma forma que fez ao [configurar o servidor de gerenciamento](site-recovery-vmware-to-azure-classic.md). Na página **Detalhes do Servidor de Configuração** , especifique o endereço IP do servidor de destino mestre e insira uma senha para acessar a VM.
 
-### <a name="set-up-a-linux-vm-as-hello-master-target-server"></a>Configurar uma VM do Linux como servidor de destino mestre Olá
-tooset o servidor de gerenciamento de saudação executando o servidor de destino mestre hello como uma VM do Linux, instale Olá CentOS 6.6 mínimos do sistema operacional. Em seguida, recuperar as IDs de SCSI Olá cada disco de SCSI, instalar alguns pacotes adicionais e aplicar algumas alterações personalizadas.
+### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Configurar uma VM do Linux como o servidor de destino mestre
+Para configurar o servidor de gerenciamento executando o servidor de destino mestre como uma VM do Linux, instale o sistema operacional mínimo CentOS 6.6. Em seguida, recupere as IDs de SCSI para cada disco rígido SCSI, instale alguns pacotes adicionais e aplique algumas alterações personalizadas.
 
 #### <a name="install-centos-66"></a>Instalar o CentOS 6.6
 
-1. Instale Olá CentOS 6.6 mínimos do sistema operacional no servidor de gerenciamento de saudação VM. Lembre-Olá ISO em uma unidade de DVD e Olá sistema de inicialização. Ignore o teste de mídia de saudação. Selecione **inglês (EUA)** como linguagem hello, selecione **dispositivos de armazenamento básico**, verifique se Olá a unidade de disco rígido não tem dados importantes, clique em **Sim**e descartar todos os dados. Insira nome de host Olá saudação do servidor de gerenciamento e selecione o adaptador de rede do servidor de saudação.  Em Olá **sistema edição** caixa de diálogo, selecione **conectar automaticamente**e, em seguida, adicione um endereço IP estático, rede e as configurações de DNS. Especifique um fuso horário. tooaccess Olá servidor de gerenciamento, digite a senha de raiz de saudação.
-2. Quando for perguntado que tipo de instalação que você deseja, selecione **Create Custom Layout** como partição de saudação. Clique em **Avançar**. Selecione **Gratuito** e, em seguida, clique em **Criar**. Crie partições **/**, **/var/crash** e **/home** com Tipo **FS:**  **ext4**. Criar partição de permuta hello como **FS tipo: troca**.
-3. Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso é exibida. Clique em **formato** tooformat unidade de saudação com configurações de partição de saudação. Clique em **gravação alterar toodisk** tooapply alterações de partição de saudação.
-4. Selecione **carregador de inicialização de instalação** > **próximo** tooinstall carregador de inicialização Olá na partição de raiz de saudação.
-5. Quando a saudação instalação for concluída, clique em **reinicializar**.
+1. Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia. Escolha **Português (Brasil)** como idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes, clique em **Sim** e descarte quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor.  Na caixa de diálogo **Sistema de Edição**, escolha **Conectar automaticamente** e, em seguida, adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário. Para acessar o servidor de gerenciamento, digite a senha raiz.
+2. Quando receber uma solicitação do tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Clique em **Avançar**. Selecione **Gratuito** e, em seguida, clique em **Criar**. Crie partições **/**, **/var/crash** e **/home** com Tipo **FS:**  **ext4**. Crie a partição de troca como **Tipo FS: troca**.
+3. Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso é exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alteração no disco** para aplicar as alterações à partição.
+4. Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
+5. Quando a instalação estiver concluída, clique em **Reiniciar**.
 
-#### <a name="retrieve-hello-scsi-ids"></a>Recuperar as IDs de SCSI Olá
+#### <a name="retrieve-the-scsi-ids"></a>Recuperar as IDs de SCSI
 
-1. Após a instalação do hello, recupere Olá IDs de SCSI para cada disco rígido SCSI Olá VM. toodo assim, desligar o servidor de gerenciamento de saudação VM. Nas propriedades da VM Olá no VMware, com o botão direito entrada VM hello > **editar configurações de** > **opções**.
-2. Escolha **Avançado** > **Item geral** e, em seguida, clique em **Parâmetros de Configuração**. Essa opção não está disponível quando a saudação máquina está em execução. Para toobe de opção Olá disponível, Olá máquina deve ser desligada.
-3. Siga um destes procedimentos hello:
- * Se hello linha **em disco. EnableUUID** existir, certifique-se de que o valor de saudação está definido muito**True** (com distinção entre maiusculas e minúsculas). Se o valor de saudação já está definido tooTrue, você pode cancelar e testar o comando de SCSI hello dentro de um sistema operacional convidado após a inicialização.
- * Se hello linha **em disco. EnableUUID** não existe, clique em **Adicionar linha**e, em seguida, adicioná-la com hello **True** valor. Não use aspas duplas.
+1. Após a instalação, recupere as IDs de SCSI de cada disco rígido SCSI na VM. Para fazer isso, desligue a VM do servidor de gerenciamento. Nas propriedades da VM no VMware, clique com o botão direito do mouse na entrada da VM > **Editar Configurações** > **Opções**.
+2. Escolha **Avançado** > **Item geral** e, em seguida, clique em **Parâmetros de Configuração**. Essa opção ficará indisponível enquanto a máquina estiver em execução. Para a opção fique disponível, a máquina deve ser desligada.
+3. Faça uma das opções a seguir:
+ * Se a linha **disk.EnableUUID** existir, defina o valor como **True** (diferencia maiúsculas de minúsculas). Se o valor já estiver definido como True, você pode cancelar e testar o comando SCSI dentro do sistema operacional convidado após a inicialização.
+ * Se a linha **disk.EnableUUID**não existir, clique em **Adicionar Linha** e, em seguida, adicione-a com o valor **True**. Não use aspas duplas.
 
 #### <a name="install-additional-packages"></a>Instalar pacotes adicionais
 Baixe e instale os pacotes adicionais.
 
-1. Verifique se o servidor de destino mestre Olá toohello conectado à Internet.
-2. toodownload e pacotes de instalação 15 de repositório de CentOS hello, execute este comando: `# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools`.
-3. Se as máquinas de origem de saudação protegendo estiverem executando o Linux com um Reiser ou XFS sistema para o dispositivo de inicialização ou raiz de saudação do arquivo, baixe e instale pacotes adicionais da seguinte maneira:
+1. Verifique se o servidor de destino mestre está conectado à internet.
+2. Para baixar e instalar 15 pacotes do repositório CentOS, execute este comando: `# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools`.
+3. Se as máquinas de origem que você está protegendo estiverem executando o Linux com um sistema de arquivos Reiser ou XFS no dispositivo de inicialização ou raiz, baixe e instale outros pacotes da seguinte maneira:
 
    * \# cd /usr/local
    * \# wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
@@ -174,72 +174,72 @@ Baixe e instale os pacotes adicionais.
    * \# rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
    * \# wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
    * \# rpm –ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
-   * \#yum Instalar dispositivo mapeador-multipath (pacotes multipath tooenable necessária no servidor de destino mestre Olá)
+   * \# yum install device-mapper-multipath (necessário para habilitar pacotes de vários caminhos no servidor de destino mestre)
 
 #### <a name="apply-custom-changes"></a>Aplicar alterações personalizadas
-Depois de concluir as etapas de pós-instalação hello e pacotes de saudação instalado, aplica alterações personalizadas fazendo Olá seguinte:
+Após concluir das etapas pós-instalação e instalar os pacotes, faça o seguinte para aplicar as alterações personalizadas:
 
-1. Copie toohello binário do hello RHEL 6-64 unificado agente VM. Olá toountar binário, execute este comando: `tar –zxvf <file name>`.
-2. permissões de toogive, execute este comando: `# chmod 755 ./ApplyCustomChanges.sh`.
-3. Execução hello script a seguir: `# ./ApplyCustomChanges.sh`. Execute apenas uma vez. Depois que ele é executado com êxito, reinicie o servidor de saudação.
+1. Copie o binário do Agente Unificado RHEL 6-64 para a VM. Para descompactar o binário, execute este comando: `tar –zxvf <file name>`.
+2. Para conceder permissões, execute este comando: `# chmod 755 ./ApplyCustomChanges.sh`.
+3. Execute o seguinte script: `# ./ApplyCustomChanges.sh`. Execute apenas uma vez. Após a execução com êxito, reinicie o servidor.
 
-## <a name="run-hello-failback"></a>Execute o failback Olá
-### <a name="reprotect-hello-azure-vms"></a>Proteja hello Azure VMs
-1. Em **cofre**, na **replicadas itens**, Olá VM que tenha um failover e, em seguida, selecione **proteger novamente**.
-2. Na folha de hello, você pode ver nessa direção Olá de proteção **tooOn-local do Azure** já está selecionado.
-3. Em **servidor de destino mestre** e **servidor de processo**, selecione o servidor de destino mestre local hello e Olá servidor de processo de VM do Azure.
-4. Olá selecione repositório de dados que você deseja que discos de saudação toorecover local para. Use essa opção quando Olá local VM é excluída e é necessário toocreate novos discos. Ignore a opção de saudação se hello discos já existem, mas você ainda precisa toospecify um valor.
-5. Use pontos de saudação do toostop de unidade de retenção no tempo quando Olá VM é replicado back tooon local. Alguns critérios de uma unidade de retenção estão listados aqui. Sem esses critérios, unidade de saudação não está listada para o servidor de destino mestre hello.
+## <a name="run-the-failback"></a>Executar o failback
+### <a name="reprotect-the-azure-vms"></a>Proteja novamente as VMs do Azure
+1. Em **Cofre**, em **Itens replicados**, clique com o botão direito na VM em que foi executado o failover e, em seguida, selecione **Proteger Novamente**.
+2. Na folha, você poderá ver que a direção da proteção **Azure para Local** já está marcada.
+3. Em **Servidor de Destino Mestre** e **Servidor de Processo**, escolha o servidor de destino mestre local e o Servidor de processo da VM do Azure.
+4. Selecione o armazenamento de dados no qual você deseja recuperar os discos localmente. Essa opção é usada quando a VM local é excluída e novos discos precisam ser criados. Ignorada a opção se os discos já existirem, mas você ainda precisará especificar um valor.
+5. Use uma unidade de retenção para interromper os pontos no tempo quando a VM for replicada de volta para o local. Alguns critérios de uma unidade de retenção estão listados aqui. Sem esses critérios, a unidade não está listada para o servidor de destino mestre.
 
   * O volume não deve estar em uso para nenhuma outra finalidade (destino de replicação, entre outros).
   * O volume não deve estar no modo de bloqueio.
-  * O volume não deve ser o volume de cache. (instalação de destino mestre Olá não deve existir no volume. Olá servidor de processo mais mestre volume de instalação personalizada de destino não está qualificado para o volume de retenção. Aqui, Olá instalado o servidor de processo e volume de destino mestre é o volume de cache de saudação do destino mestre hello.)
-  * tipo de sistema de arquivos de volume Olá não deve ser FAT e FAT32.
-  * a capacidade de volume Olá deve ser diferente de zero.
-  * volume de retenção saudação padrão para o Windows é o volume de R.
-  * volume de retenção padrão Olá para Linux é /mnt/retention.
+  * O volume não deve ser o volume de cache. (A instalação do destino mestre não deve existir nesse volume. O volume de instalação personalizada do Servidor de Processo mais o destino mestre não está qualificado para o volume de retenção. Aqui, o volume do servidor de processo instalado mais o destino mestre é o volume de cache de destino mestre.)
+  * O tipo de sistema de arquivos do volume não deve ser FAT ou FAT32.
+  * A capacidade de volume deve ser diferente de zero.
+  * O volume de retenção padrão para o Windows é o volume R.
+  * O volume de retenção padrão para o Linux é /mnt/retention.
 
-6. diretiva de failback Olá é selecionada automaticamente.
-7. Depois de clicar em **Okey** toobegin reproteção, um trabalho começa tooreplicate Olá VM do Azure toohello no site local. Você pode acompanhar o progresso de saudação em Olá **trabalhos** guia.
+6. A politica de failback é selecionada automaticamente.
+7. Depois de clicar em **OK** para iniciar a nova proteção, um trabalho começará a replicar a VM do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos** .
 
-Se você quiser toorecover tooan alternativo local, selecione a unidade de retenção de Olá e repositório de dados que estão configurados para o servidor de destino mestre Olá. Quando você não toohello Voltar no site local, Olá VMs VMware no plano de proteção de failback Olá usar Olá mesmo repositório de dados como o servidor de destino mestre hello. Se você quiser toorecover Olá réplica Azure VM toohello mesmo local VM, Olá a VM deve já estar em Olá mesmo no local como servidor de destino mestre de saudação do repositório de dados. Se não houver uma VM local, uma nova será criada durante a nova proteção.
+Se quiser recuperar para um local alternativo, escolha a unidade de retenção e o armazenamento de dados que estão configurados para o servidor de destino mestre. Quando você realiza o failback para o site local, as VMs do VMware no plano de proteção de failback usam o mesmo armazenamento de dados que o servidor de destino mestre. Se você quiser recuperar a VM réplica do Azure para a mesma VM local, esta já deve estar no mesmo armazenamento de dados que o servidor de destino mestre. Se não houver uma VM local, uma nova será criada durante a nova proteção.
 
-![Selecione "Tooon-local do Azure" no menu suspenso de saudação](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
+![Selecione "Azure para local" no menu suspenso](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
-Também é possível proteger novamente em um nível do plano de recuperação. Caso você tenha um grupo de replicação, ele só poderá ser protegido novamente com o uso de um plano de recuperação. Quando você proteger novamente usando um plano de recuperação, use valores anteriores Olá para todos os computadores protegidos.
+Também é possível proteger novamente em um nível do plano de recuperação. Caso você tenha um grupo de replicação, ele só poderá ser protegido novamente com o uso de um plano de recuperação. Ao proteger novamente usando um plano de recuperação, use os valores anteriores para cada computador protegido.
 
 > [!NOTE]
-> Grupos de replicação devem ser protegidos com o hello mesmo destino mestre. Se forem protegidos novamente com um servidor de destino mestre diferente, não será possível determinar um ponto comum no tempo para eles.
+> Grupos de replicação devem ser protegidos novamente com o mesmo destino mestre. Se forem protegidos novamente com um servidor de destino mestre diferente, não será possível determinar um ponto comum no tempo para eles.
 
-### <a name="run-a-failover-toohello-on-premises-site"></a>Executar um failover toohello no site local
-Depois que você proteja Olá VM, você pode iniciar um failover de local de tooon do Azure.
+### <a name="run-a-failover-to-the-on-premises-site"></a>Executar um failover para o site local
+Após a nova proteção da VM, é possível iniciar um failover do Azure para o local.
 
-1. Na página de itens replicados hello, Olá VM e, em seguida, selecione **Failover não planejado**.
-2. Em **confirmar Failover**, verifique se a direção do failover hello (do Azure) e, em seguida, selecione o ponto de recuperação de saudação que você deseja toouse para failover hello (Olá mais recente ou Olá último consistente com o aplicativo de ponto de recuperação). Um ponto de recuperação consistente de aplicativo ocorre antes do ponto mais recente Olá no tempo e causará perda de dados.
-3. Durante o failover, recuperação de Site desliga Olá VMs do Azure. Depois de verificar que o failback foi concluído como esperado, você pode verificar tooensure hello Azure VMs ter sido desligadas conforme o esperado.
+1. Na página Itens replicados, clique com o botão direito na máquina virtual e, em seguida, selecione **Failover não planejado**.
+2. Em **Confirmar Failover** , verifique a direção do failover (para o Azure) e, em seguida, selecione o ponto de recuperação que você deseja usar para o failover (o mais recente, ou um que seja consistente com o aplicativo mais recente). Um ponto de recuperação consistente com o aplicativo ocorre antes do ponto mais recente no tempo, e vai causar perda de dados.
+3. Durante o failover, o Site Recovery desligará as VMs do Azure. Depois de verificar se o failback foi concluído conforme o esperado, você pode verificar se as VMs do Azure foram desligadas conforme o esperado.
 
-### <a name="reprotect-hello-on-premises-site"></a>Proteja Olá no site local
-Depois de concluir o failback, confirmação Olá máquina virtual tooensure que Olá VMs recuperadas no Azure são excluídos. Assim, toodo clique item Olá protegido e, em seguida, clique em **confirmar**. Essa ação aciona um trabalho que remove Olá antiga máquinas virtuais recuperado no Azure.
+### <a name="reprotect-the-on-premises-site"></a>Proteger novamente o site local
+Após a conclusão do failback, você precisará confirmar a máquina virtual para garantir que as VMs recuperadas no Azure sejam excluídas. Para fazer isso, clique com o botão direito no item protegido e, em seguida, clique em **Confirmar**. Essa ação dispara um trabalho que remove as máquinas virtuais recuperadas anteriormente no Azure.
 
-Após a confirmação de hello, seus dados devem ser em Olá no site local, mas ele não estará protegido. tooAzure replicação toostart novamente, Olá a seguir:
+Após a conclusão da confirmação, seus dados voltam ao site local, mas não estarão protegidos. Para iniciar a replicação no Azure novamente, faça o seguinte:
 
-1. Em **cofre**, na **configuração** > **replicadas itens**, selecione VMs Olá que falharam novamente e, em seguida, clique em **proteger novamente**.
-2. Atribua o valor de saudação de saudação do servidor em processo que precisa toobe usado toosend dados back tooAzure.
+1. Em **Cofre**, em **Configuração** > **Itens replicados**, selecione as VMs na quais foi executado o failback e clique em **Proteger novamente**.
+2. Forneça o valor do Servidor de processo que precisa ser usado para enviar dados de volta ao Azure.
 3. Clique em **OK**.
 
-Após concluir a reproteção hello, Olá VM replica tooAzure voltar e você pode fazer um failover.
+Após a conclusão da nova proteção, a VM será replicada de volta no Azure e você poderá executar um failover.
 
 ### <a name="resolve-common-failback-issues"></a>Resolver problemas comuns de failback
-* Se você executar a descoberta de vCenter de Usuário somente leitura e proteger as máquinas virtuais, ela terá êxito e o failover funcionará. Durante a nova proteção, o failover falhar porque Olá armazenamentos de dados não podem ser descobertos. Como um sintoma, você não verá Olá armazenamentos de dados listados durante a nova proteção. tooresolve esse problema, você pode atualizar credencial do vCenter Olá com uma conta apropriada que tenha permissões e repita o trabalho de saudação. Para obter mais informações, consulte [máquinas virtuais VMware replicar e tooAzure servidores físicos com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md)
-* Quando você failback uma VM do Linux e executá-lo no local, você pode ver que esse pacote de Gerenciador de rede Olá foi desinstalado do computador hello. Essa desinstalação acontece porque o pacote do Gerenciador de rede Olá é removido quando Olá VM é recuperado no Azure.
-* Quando uma máquina virtual é configurada com um endereço IP estático e failover tooAzure, endereço IP de saudação é adquirido por meio de DHCP. Quando houver falha local tooon voltar, Olá VM continua o endereço IP do toouse DHCP tooacquire hello. Manualmente entre toohello máquina e definir endereço estático de tooa back Olá de endereço IP, se necessário.
-* Se você estiver usando a edição gratuita ESXi 5.5 ou a edição gratuita do 6 vSphere Hypervisor, o failover terá êxito, mas o failback, não. failback tooenable, licença de avaliação de atualização tooeither do programa.
-* Se você não conseguir acessar o servidor de configuração de saudação de saudação do servidor em processo, verifique o servidor de configuração de toohello conectividade por máquina do servidor de configuração do Telnet toohello na porta 443. Você também pode tentar o servidor de configuração de saudação tooping da máquina do servidor de processo hello. Um servidor de processo também deve ter uma pulsação quando é conectado toohello servidor de configuração.
-* Se você estiver tentando toofail tooan back alternativo vCenter, certifique-se de que seu novo vCenter foi descoberto e esse servidor de destino mestre Olá também é descoberto. Um sintoma típico é Olá armazenamentos de dados não são acessíveis ou visível no hello **proteja** caixa de diálogo.
-* Uma máquina WS2008R2SP1 protegido como uma máquina física local não pode ser falha do local de tooon do Azure.
+* Se você executar a descoberta de vCenter de Usuário somente leitura e proteger as máquinas virtuais, ela terá êxito e o failover funcionará. Durante a nova proteção, o failover falha porque não é possível descobrir os armazenamentos de dados. Como sintoma, você não verá os armazenamentos de dados listados durante a nova proteção. Para resolver esse problema, você pode atualizar a credencial do vCenter com uma conta apropriada que tenha permissões e repetir o trabalho. Para obter mais informações, consulte [Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery](site-recovery-vmware-to-azure-classic.md)
+* Ao executar failback de uma VM do Linux e executá-la localmente, você verá que o pacote do Gerenciador de Rede foi desinstalado do computador. A desinstalação ocorre porque o pacote do Gerenciador de Rede é removido quando a VM é recuperada no Azure.
+* Quando uma máquina virtual é configurada com um endereço IP estático e o failover é feito para o Azure, o endereço IP é obtido por meio de DHCP. Quando você executa o failover de volta para o local, a VM continua a usar o DHCP para obter o endereço IP. Conecte-se manualmente à máquina e defina o endereço IP para um endereço estático, se necessário.
+* Se você estiver usando a edição gratuita ESXi 5.5 ou a edição gratuita do 6 vSphere Hypervisor, o failover terá êxito, mas o failback, não. Para permitir o failback, atualize para a licença de avaliação dos programas.
+* Se você não conseguir acessar o servidor de configuração do Servidor de processo, verifique a conectividade com o servidor de configuração por Telnet à máquina do servidor de configuração na porta 443. Você também pode tentar executar ping no servidor de configuração da máquina do Servidor de processo. O Servidor de processo também deve ter uma pulsação quando for conectado ao servidor de configuração.
+* Se você estiver tentando realizar failback para um vCenter alternativo, verifique se seu novo vCenter está descoberto e se o servidor de destino mestre também está descoberto. Um sintoma típico é que os armazenamentos de dados não ficam acessíveis ou visíveis na caixa de diálogo **Proteger Novamente**.
+* Um computador WS2008R2SP1 que esteja protegido como um computador local físico não pode passar por failback do Azure para local.
 
 ## <a name="fail-back-with-expressroute"></a>Failback com o ExpressRoute
-Você pode realizar o failback em uma conexão VPN ou usando uma conexão ExpressRoute. Se você quiser toouse uma conexão de rota expressa, observe o seguinte hello:
+Você pode realizar o failback em uma conexão VPN ou usando uma conexão ExpressRoute. Se você quiser usar uma conexão ExpressRoute, observe o seguinte:
 
-* Olá conexão de rota expressa deve ser configurado em Olá rede virtual do Azure que máquinas de origem Olá failover tooand Olá VMs do Azure encontram após o failover de saudação.
-* Os dados são replicado tooan conta de armazenamento do Azure em um ponto de extremidade público. toouse uma conexão de rota expressa, configurar o emparelhamento público na rota expressa com o Centro de dados de destino Olá para replicação de recuperação de Site.
+* A conexão ExpressRoute deve ser configurada na rede virtual do Azure em que as máquinas de origem realizam failover e onde as VMs do Azure ficam após o failover.
+* Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Para usar uma conexão ExpressRoute, configure o emparelhamento público no ExpressRoute com o data center de destino para replicação do Site Recovery.

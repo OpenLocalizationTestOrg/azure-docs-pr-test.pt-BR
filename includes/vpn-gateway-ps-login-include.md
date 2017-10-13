@@ -1,18 +1,18 @@
-Antes de começar essa configuração, você deve fazer logon no tooyour conta do Azure. Olá cmdlet solicita as credenciais de logon de saudação para sua conta do Azure. Após o logon, ele baixa as configurações de conta para que eles fiquem disponível tooAzure PowerShell. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../articles/powershell-azure-resource-manager.md).
+Antes de iniciar essa configuração, você deve fazer logon na sua conta do Azure. O cmdlet solicita as credenciais de logon para sua conta do Azure. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../articles/powershell-azure-resource-manager.md).
 
-toolog, abra o console do PowerShell com privilégios elevados e conectar-se a conta de tooyour. Use Olá toohelp de exemplo que você se conectar a seguir:
+Para fazer logon, abra o console do PowerShell com privilégios elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Se você tiver várias assinaturas do Azure, verificar as assinaturas de saudação para conta de saudação.
+Se você tiver várias assinaturas do Azure, verifique as assinaturas para a conta.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Especifique que você deseja toouse de assinatura de saudação.
+Especifique a assinatura que você quer usar.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"

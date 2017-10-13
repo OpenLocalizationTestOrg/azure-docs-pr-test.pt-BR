@@ -1,6 +1,6 @@
 ---
-title: clusters de Hadoop aaaCreate usando a API REST do Azure - Azure | Microsoft Docs
-description: Saiba como toocreate HDInsight clusters enviando toohello de modelos do Gerenciador de recursos do Azure API REST do Azure.
+title: "Criar clusters Hadoop usando a API REST do Azure – Azure | Microsoft Docs"
+description: Saiba como criar clusters do HDInsight enviando os modelos do Azure Resource Manager para a API REST do Azure.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 87b585e5084eccdc3d7c57483deabb4ad6e32597
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="create-hadoop-clusters-using-hello-azure-rest-api"></a>Criar clusters de Hadoop usando Olá API REST do Azure
+# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Hadoop usando a API REST do Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Saiba como toocreate uma HDInsight cluster usando um modelo do Gerenciador de recursos do Azure e Olá API REST do Azure.
+Saiba como criar um cluster HDInsight usando um modelo do Azure Resource Manager e a API REST do Azure.
 
-Olá API REST do Azure permite operações de gerenciamento de tooperform em serviços hospedados em Olá plataforma Windows Azure, incluindo a criação de saudação de novos recursos, como clusters HDInsight.
+A API REST do Azure permite executar operações de gerenciamento de serviços hospedados na plataforma Azure, incluindo a criação de novos recursos, como clusters HDInsight.
 
 > [!IMPORTANT]
-> Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
-> Olá etapas Olá de usar este documento [ondulação (https://curl.haxx.se/)](https://curl.haxx.se/) toocommunicate utilitário com hello API REST do Azure.
+> As etapas desse documento usam o utilitário [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para se comunicar com a API REST do Azure.
 
 ## <a name="create-a-template"></a>Criar um modelo
 
-Os modelos do Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite que você os recursos de saudação toodefine que você precisa para HDInsight em um modelo.
+Os modelos do Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
 
-Olá documento JSON a seguir é uma fusão de saudação arquivos de modelo e os parâmetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um baseados em Linux cluster usando uma saudação de toosecure de senha SSH conta de usuário.
+O seguinte documento JSON é uma fusão dos arquivos de modelo e parâmetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário do SSH.
 
    ```json
    {
@@ -56,50 +56,50 @@ Olá documento JSON a seguir é uma fusão de saudação arquivos de modelo e os
                        "storm",
                        "spark"],
                        "metadata": {
-                           "description": "hello type of hello HDInsight cluster toocreate."
+                           "description": "The type of the HDInsight cluster to create."
                        }
                    },
                    "clusterName": {
                        "type": "string",
                        "metadata": {
-                           "description": "hello name of hello HDInsight cluster toocreate."
+                           "description": "The name of the HDInsight cluster to create."
                        }
                    },
                    "clusterLoginUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
+                           "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
                        }
                    },
                    "clusterLoginPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "sshUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used tooremotely access hello cluster."
+                           "description": "These credentials can be used to remotely access the cluster."
                        }
                    },
                    "sshPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "clusterStorageAccountName": {
                        "type": "string",
                        "metadata": {
-                           "description": "hello name of hello storage account toobe created and be used as hello cluster's storage."
+                           "description": "The name of the storage account to be created and be used as the cluster's storage."
                        }
                    },
                    "clusterWorkerNodeCount": {
                        "type": "int",
                        "defaultValue": 4,
                        "metadata": {
-                           "description": "hello number of nodes in hello HDInsight cluster."
+                           "description": "The number of nodes in the HDInsight cluster."
                        }
                    }
                },
@@ -215,52 +215,52 @@ Olá documento JSON a seguir é uma fusão de saudação arquivos de modelo e os
    }
    ```
 
-Este exemplo é usado nas etapas Olá neste documento. Substitua o exemplo hello *valores* em Olá **parâmetros** seção com valores de saudação para seu cluster.
+Esse exemplo será usado nas etapas presentes neste documento. Substitua os *valores* de exemplo na seção **Parâmetros** pelos valores para o cluster.
 
 > [!IMPORTANT]
-> modelo de Olá usa o número padrão de saudação de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> O modelo usa o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-tooyour-azure-subscription"></a>Faça logon no tooyour assinatura do Azure
+## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
 
-Execute as etapas de saudação documentadas em [Introdução ao Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se a assinatura de tooyour usando Olá `az login` comando.
+Siga as etapas documentadas em [Introdução à CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o comando `az login`.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 > [!NOTE]
-> Essas etapas são uma versão resumida do hello *criar entidade de serviço com a senha* seção Olá [toocreate CLI do Azure Use uma entidade de serviço tooaccess recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) documento. Essas etapas de criam uma entidade de serviço é usado tooauthenticate toohello API REST do Azure.
+> Essas etapas são uma versão resumida da seção *Criar a entidade de serviço com uma senha* do documento [Usar a CLI do Azure para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password). Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
 
-1. Em uma linha de comando, use Olá toolist de comando a seguir suas assinaturas do Azure.
+1. Em uma linha de comando, use o seguinte comando para listar as assinaturas do Azure.
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Na lista de hello, selecione a assinatura de saudação que você deseja toouse e observe Olá **Subscription_ID** e __Tenant_ID__ colunas. Salve esses valores.
+    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__. Salve esses valores.
 
-2. Use Olá comando toocreate um aplicativo no Azure Active Directory a seguir.
+2. Use o comando a seguir para criar um aplicativo no Azure Active Directory.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Substituir valores Olá Olá `--display-name`, `--homepage`, e `--identifier-uris` com seus próprios valores. Forneça uma senha para a nova entrada de Active Directory hello.
+    Substitua os valores de `--display-name`, `--homepage` e `--identifier-uris` pelos seus próprios valores. Forneça uma senha para a nova entrada do Active Directory.
 
    > [!NOTE]
-   > Olá `--home-page` e `--identifier-uris` valores não é necessário tooreference uma página da web hospedado em Olá internet. Eles devem ser URIs exclusivos.
+   > Os valores `--home-page` e `--identifier-uris` não precisam fazer referência a uma página da Web real hospedada na Internet. Eles devem ser URIs exclusivos.
 
-   valor retornado deste comando Hello é hello __ID do aplicativo__ para o novo aplicativo de saudação. Salve esse valor.
+   O valor retornado deste comando é a __ID do aplicativo__ do novo aplicativo. Salve esse valor.
 
-3. Comando de uso a seguir de Olá toocreate uma entidade de serviço usando Olá **ID do aplicativo**.
+3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo**.
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     valor retornado deste comando Hello é hello __ID de objeto__. Salve esse valor.
+     O valor retornado deste comando é a __ID de Objeto__. Salve esse valor.
 
-4. Atribuir Olá **proprietário** entidade de serviço toohello de função usando Olá **ID de objeto** valor. Saudação de uso **ID da assinatura** obtidos anteriormente.
+4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto**. Use o valor **ID da assinatura** obtido anteriormente.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -268,7 +268,7 @@ Execute as etapas de saudação documentadas em [Introdução ao Azure CLI 2.0](
 
 ## <a name="get-an-authentication-token"></a>Obtenha um token de autenticação
 
-Use Olá comando tooretrieve um token de autenticação a seguir:
+Use o seguinte comando para recuperar um token de autenticação:
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -280,11 +280,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Definir `$TENANTID`, `$APPID`, e `$PASSWORD` toohello valores obtido ou usado anteriormente.
+Defina `$TENANTID`, `$APPID` e `$PASSWORD` para os valores obtidos ou usado anteriormente.
 
-Se essa solicitação tiver êxito, você receberá uma resposta 200 série e corpo da resposta Olá contém um documento JSON.
+Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series, e o corpo da resposta conterá um documento JSON.
 
-documento JSON retornado por esta solicitação Hello contém um elemento denominado **access_token**. Olá valor **access_token** é usado tooauthentication solicitações toohello API REST.
+O documento JSON retornado por esta solicitação contém um elemento denominado **access_token**. O valor de **access_token** é usado para solicitações de autenticação para a API REST.
 
 ```json
 {
@@ -298,12 +298,12 @@ documento JSON retornado por esta solicitação Hello contém um elemento denomi
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Use Olá toocreate um grupo de recursos a seguir.
+Use o que é descrito a seguir para criar um grupo de recursos.
 
-* Definir `$SUBSCRIPTIONID` ID da assinatura toohello recebido durante a criação de saudação entidade de serviço.
-* Definir `$ACCESSTOKEN` toohello token de acesso recebido na etapa anterior hello.
-* Substituir `DATACENTERLOCATION` com o Centro de dados Olá desejar toocreate grupo de recursos de saudação e recursos, em. Por exemplo, "Centro-Sul dos EUA".
-* Definir `$RESOURCEGROUPNAME` toohello nome você deseja toouse para este grupo:
+* Substitua `$SUBSCRIPTIONID` pela ID da assinatura recebida ao criar a entidade de serviço.
+* Substitua `$ACCESSTOKEN` pelo token de acesso recebido na etapa anterior.
+* Substitua `DATACENTERLOCATION` pelo data center no qual você quer criar o grupo de recursos e os recursos. Por exemplo, "Centro-Sul dos EUA".
+* Defina `$RESOURCEGROUPNAME` como o nome que deseja usar para este grupo:
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -314,34 +314,34 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Se essa solicitação tiver êxito, você receberá uma resposta 200 série e corpo da resposta Olá contém um documento JSON que contém informações sobre o grupo de saudação. Olá `"provisioningState"` elemento contém um valor de `"Succeeded"`.
+Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series e o corpo da resposta conterá um documento JSON com informações sobre o grupo. O elemento `"provisioningState"` contém um valor de `"Succeeded"`.
 
 ## <a name="create-a-deployment"></a>Criar uma implantação
 
-Saudação de usar o grupo de recursos do comando toodeploy Olá modelo toohello a seguir.
+Execute o comando a seguir para implantar o modelo no grupo de recursos.
 
-* Definir `$DEPLOYMENTNAME` toohello nome você deseja toouse para essa implantação.
+* Defina `$DEPLOYMENTNAME` como o nome que deseja usar para esta implantação.
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
 -H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
--d "{set your body string toohello template and parameters}"
+-d "{set your body string to the template and parameters}"
 ```
 
 > [!NOTE]
-> Se você salvou o arquivo de tooa Olá modelo, você pode usar Olá seguinte comando em vez de `-d "{ template and parameters}"`:
+> Se você salvou o modelo em um arquivo, pode usar o seguinte comando em vez de `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-Se essa solicitação tiver êxito, você receberá uma resposta 200 série e corpo da resposta Olá contém um documento JSON que contém informações sobre a operação de implantação hello.
+Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series e o corpo da resposta conterá um documento JSON com informações sobre a operação de implantação.
 
 > [!IMPORTANT]
-> implantação de saudação foi enviada, mas não foi concluída. Pode levar vários minutos, normalmente em torno 15, para Olá toocomplete de implantação.
+> A implantação foi enviada, mas não foi concluída. Pode levar vários minutos, normalmente em torno de 15, para concluir a implantação.
 
-## <a name="check-hello-status-of-a-deployment"></a>Verificar o status de uma implantação Olá
+## <a name="check-the-status-of-a-deployment"></a>Verificar o status de uma implantação
 
-status de saudação toocheck de implantação de hello, use Olá comando a seguir:
+Para verificar o status da implantação, use o comando a seguir:
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -349,7 +349,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-Esse comando retorna um documento JSON que contém informações sobre a operação de implantação hello. Olá `"provisioningState"` elemento contém o status de saudação de implantação de saudação. Se esse elemento contém um valor de `"Succeeded"`, em seguida, implantação de saudação foi concluída com êxito.
+Esse comando retorna informações de um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -357,7 +357,7 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou com êxito um cluster HDInsight, usar Olá toolearn a seguir como toowork com o cluster.
+Agora que você criou com êxito um cluster HDInsight, use o seguinte para aprender a trabalhar com o seu cluster.
 
 ### <a name="hadoop-clusters"></a>Clusters do Hadoop
 

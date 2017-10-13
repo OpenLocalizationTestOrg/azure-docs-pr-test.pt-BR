@@ -1,6 +1,6 @@
 ---
-title: compartilhamento de arquivos do aaaAutomate StorSimple DR com o Azure Site Recovery | Microsoft Docs
-description: "Descreve as etapas de saudação e práticas recomendadas para criar uma solução de recuperação de desastres para compartilhamentos de arquivos hospedados no armazenamento do Microsoft Azure StorSimple."
+title: Automatizar a DR de compartilhamento de arquivos do StorSimple com o Azure Site Recovery | Microsoft Docs
+description: "Descreve as etapas e práticas recomendadas para criar uma solução de recuperação de desastre para compartilhamentos de arquivos hospedados no armazenamento do Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,133 +14,133 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
-ms.openlocfilehash: fa3e8d4e77ca0f6a7b5f9bbb956a4de12547642e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 ## <a name="overview"></a>Visão geral
-Microsoft Azure StorSimple é uma solução de armazenamento de nuvem híbrida endereços Olá complexidades de comumente associadas a compartilhamentos de arquivos de dados não estruturados. StorSimple usa armazenamento em nuvem como uma extensão da saudação solução local e automaticamente de camadas de dados em armazenamento local e o armazenamento em nuvem. Integra a proteção de dados local e instantâneos em nuvem, que elimina a necessidade de saudação de uma infraestrutura de armazenamento amplas.
+O Microsoft Azure StorSimple é uma solução de armazenamento de nuvem híbrida que resolve as complexidades de dados não estruturados comumente associados aos compartilhamentos de arquivos. O StorSimple usa o armazenamento em nuvem como uma extensão da solução local e dispõe os dados em camadas automaticamente no armazenamento local e no armazenamento em nuvem. A proteção de dados integrada, com instantâneos locais e de nuvem, elimina a necessidade de uma infraestrutura de armazenamento ampla.
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) é um serviço baseado no Azure que fornece recursos de DR (recuperação de desastre) por meio da orquestração de replicação, de failover e da recuperação de máquinas virtuais. Recuperação de Site do Azure dá suporte a um número de replicação de tooconsistently de tecnologias de replicação, proteger e realizará failover nuvens de máquinas virtuais e aplicativos de tooprivate/público ou hospedados.
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) é um serviço baseado no Azure que fornece recursos de DR (recuperação de desastre) por meio da orquestração de replicação, de failover e da recuperação de máquinas virtuais. O Azure Site Recovery dá suporte para várias tecnologias de replicação, com o intuito de replicar, proteger e fazer o failover de forma consistente das máquinas virtuais e dos aplicativos em nuvens privadas/públicas ou hospedadas.
 
-Usando o Azure Site Recovery, replicação de máquina virtual e recursos de instantâneo de nuvem do StorSimple, você pode proteger o ambiente de servidor completo do arquivo hello. No evento de saudação de interrupção, você pode usar um toobring de único clique seus compartilhamentos de arquivos online no Azure em apenas alguns minutos.
+Ao usar o Azure Site Recovery, a replicação de máquina virtual e os recursos de instantâneo de nuvem do StorSimple, você pode proteger o ambiente completo do servidor de arquivos. Caso haja uma interrupção, você poderá usar um clique simples para colocar seus compartilhamentos de arquivos online no Azure em apenas alguns minutos.
 
-Este documento explica detalhadamente como você pode criar uma solução de recuperação de desastre para seus compartilhamentos de arquivos hospedados no armazenamento do StorSimple e executar failovers planejados, não planejados e de teste usando um plano de recuperação de um clique. Em essência, ele mostra como você pode modificar Olá plano de recuperação no seu tooenable do cofre Azure Site Recovery StorSimple failovers nos cenários de desastre. Além disso, ele descreve as configurações e pré-requisitos com suporte. Este documento assume que você esteja familiarizado com conceitos básicos de saudação do Azure Site Recovery e StorSimple arquiteturas.
+Este documento explica detalhadamente como você pode criar uma solução de recuperação de desastre para seus compartilhamentos de arquivos hospedados no armazenamento do StorSimple e executar failovers planejados, não planejados e de teste usando um plano de recuperação de um clique. Basicamente, ele mostra como você pode modificar o plano de recuperação em seu cofre do Azure Site Recovery para habilitar failovers do StorSimple em cenários de desastre. Além disso, ele descreve as configurações e pré-requisitos com suporte. Este documento presume que você esteja familiarizado com os fundamentos básicos do Azure Site Recovery e com as arquiteturas do StorSimple.
 
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Opções de implantação com suporte do Azure Site Recovery
-Os clientes podem implantar servidores de arquivos como servidores físicos ou VMs (máquinas virtuais) em execução no Hyper-V ou no VMware e, então, criar compartilhamentos de arquivos de volumes configurados fora do armazenamento do StorSimple. O Azure Site Recovery pode proteger tooeither ambas as implantações físicas e virtuais de um site secundário ou tooAzure. Este documento abrange detalhes de uma solução de recuperação de desastres com o Azure como local de recuperação de saudação para um servidor de arquivos que VM hospedada no Hyper-V e compartilhamentos de arquivos no armazenamento do StorSimple. Outros cenários em qual servidor de arquivo hello VM está em uma VM do VMware ou em um computador físico podem ser implementados de maneira semelhante.
+Os clientes podem implantar servidores de arquivos como servidores físicos ou VMs (máquinas virtuais) em execução no Hyper-V ou no VMware e, então, criar compartilhamentos de arquivos de volumes configurados fora do armazenamento do StorSimple. O Azure Site Recovery pode proteger as implantações físicas e virtuais em um site secundário ou no Azure. Este documento aborda os detalhes de uma solução de DR com o Azure como o site de recuperação para uma VM de servidor de arquivos hospedada no Hyper-V e com compartilhamentos de arquivos no armazenamento do StorSimple. Outros cenários nos quais a VM do servidor de arquivos está em uma VM do VMware ou em um computador físico podem ser implementados de maneira semelhante.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Implementar uma solução de recuperação de desastres de um clique que usa o Azure Site Recovery para compartilhamentos de arquivos hospedados no armazenamento do StorSimple possui Olá pré-requisitos a seguir:
+A implementação de uma solução de recuperação de desastre de um clique, que usa o Azure Site Recovery para compartilhamentos de arquivos hospedados no armazenamento do StorSimple, tem os seguintes pré-requisitos:
 
 * VM de servidor de arquivo do Windows Server 2012 R2 local hospedada no Hyper-V, no VMware ou em um computador físico
 * Dispositivo de armazenamento do StorSimple local registrado com o Azure StorSimple Manager
-* StorSimple Appliance de nuvem criado no Gerenciador do StorSimple do Azure hello (podem ser mantido em estado de desligamento)
-* Compartilhamentos de arquivos, hospedados em volumes de saudação configurados no dispositivo de armazenamento do StorSimple Olá
+* Dispositivo de nuvem do StorSimple criado no StorSimple Manager do Azure (ele pode ser mantido no estado de desligamento)
+* Compartilhamentos de arquivos hospedados em volumes configurados no dispositivo de armazenamento do StorSimple
 * [Cofre de serviços do Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) criado em uma assinatura do Microsoft Azure
 
-Além disso, se o Azure é o local de recuperação, executar Olá [ferramenta de avaliação de preparação de máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs tooensure que eles sejam compatíveis com VMs do Azure e o Azure Site Recovery services.
+Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
 
-problemas de latência de tooavoid (que podem resultar em custos mais altos), certifique-se de que você criar seu dispositivo StorSimple de nuvem, conta de automação e Olá de conta (s) de armazenamento na mesma região.
+Para evitar problemas de latência (que podem resultar em custos mais altos), certifique-se de criar seu dispositivo de nuvem do StorSimple, a conta de automação e as contas de armazenamento na mesma região.
 
 ## <a name="enable-dr-for-storsimple-file-shares"></a>Habilitar a DR para os compartilhamentos de arquivos do StorSimple
-Cada componente do hello local ambiente precisar toobe protegido tooenable concluir a replicação e a recuperação. Esta seção descreve como:
+Cada componente do ambiente local precisa ser protegido para habilitar a replicação e a recuperação completas. Esta seção descreve como:
 
 * Configurar o Active Directory e a replicação do DNS (opcional)
-* Usar a proteção do Azure Site Recovery tooenable saudação do servidor de arquivos VM
+* Use o Azure Site Recovery para habilitar a proteção da VM do servidor de arquivos
 * Habilitar a proteção de volumes do StorSimple
-* Configurar rede Olá
+* Configurar a rede
 
 ### <a name="set-up-active-directory-and-dns-replication-optional"></a>Configurar o Active Directory e a replicação do DNS (opcional)
-Se você quiser tooprotect Olá máquinas em execução do Active Directory e DNS para que fiquem disponíveis no site de saudação DR, você precisa tooexplicitly protegê-los (de forma que os servidores de arquivos de saudação são acessíveis após o failover com a autenticação). Há duas opções recomendadas com base em complexidade Olá Olá do local do ambiente de cliente.
+Se você quiser proteger os computadores que executam o Active Directory e o DNS para que fiquem disponíveis no site de DR, você precisará protegê-los explicitamente (de modo que os servidores de arquivos sejam acessíveis após a execução do failover com autenticação). Há duas opções recomendadas com base na complexidade do ambiente local do cliente.
 
 #### <a name="option-1"></a>Opção 1
-Se cliente Olá tem um pequeno número de aplicativos, um único controlador de domínio para Olá todo site local e estar falhando em todo o site hello, em seguida, é recomendável usar o computador de controlador de domínio do Azure Site Recovery replicação tooreplicate Olá site secundário do tooa (Isso é aplicável para o site a site e o site para o Azure).
+Se o cliente tem um número pequeno de aplicativos, um único controlador de domínio para todo o site local e eles estão apresentando falhas em todo o site, é recomendável usar a replicação do Azure Site Recovery para replicar o computador do controlador de domínio para um site secundário (isso é aplicável tanto de site a site quando de site para o Azure).
 
 #### <a name="option-2"></a>Opção 2
-Se Olá cliente tem um grande número de aplicativos, está em execução para uma floresta do Active Directory e será estar falhando por alguns aplicativos cada vez, é recomendável configurar um controlador de domínio no site Olá DR (ou um site secundário ou no Azure).
+Se o cliente tem um grande número de aplicativos, está executando uma floresta do Active Directory e se alguns aplicativos apresentam falhas de uma vez, é recomendável configurar um controlador de domínio adicional no site de DR (em um site secundário ou no Azure).
 
-Consulte também[solução de recuperação de desastres automatizada para o Active Directory e DNS usando o Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) para obter instruções ao disponibilizar um controlador de domínio no site Olá DR. Para restante Olá deste documento, vamos pressupor que um controlador de domínio está disponível no local de recuperação de desastres hello.
+Confira [Automated DR solution for Active Directory and DNS using Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) (Solução de DR automatizada para o Active Directory e para o DNS usando o Azure Site Recovery) para obter instruções ao disponibilizar um controlador de domínio no site de DR. Para o restante deste documento, presumiremos que um controlador de domínio está disponível no site de DR.
 
-### <a name="use-azure-site-recovery-tooenable-protection-of-hello-file-server-vm"></a>Usar a proteção do Azure Site Recovery tooenable saudação do servidor de arquivos VM
-Esta etapa requer que você preparar o ambiente de servidor de arquivo hello local, cria e preparar um cofre do Azure Site Recovery e habilite a proteção de arquivo de saudação VM.
+### <a name="use-azure-site-recovery-to-enable-protection-of-the-file-server-vm"></a>Use o Azure Site Recovery para habilitar a proteção da VM do servidor de arquivos
+Esta etapa exige que você prepare o ambiente do servidor de arquivos local, crie e prepare um cofre do Azure Site Recovery e habilite a proteção de arquivo da VM.
 
-#### <a name="tooprepare-hello-on-premises-file-server-environment"></a>Olá tooprepare ambiente de servidor de arquivos local
-1. Saudação de conjunto **User Account Control** muito**nunca notificar**. Isso é necessário para que você pode usar os destinos iSCSI do automação do Azure scripts tooconnect Olá após falha com o Azure Site Recovery.
+#### <a name="to-prepare-the-on-premises-file-server-environment"></a>Para preparar o ambiente do servidor de arquivos local
+1. Defina o **Controle de Conta de Usuário** para **Nunca Notificar**. Isso é necessário para que você possa usar os scripts de Automação do Azure para conectar os destinos iSCSI após fazer failover por meio do Azure Site Recovery.
 
-   1. Pressione a tecla do Windows hello + Q e procure **UAC**.
+   1. Pressione a tecla Windows +Q e pesquise por **UAC**.
    2. Selecione **Alterar configurações de Controle de Conta de Usuário**.
-   3. Olá arraste barra inferior toohello para **nunca notificar**.
+   3. Arraste a barra para a parte inferior até **Nunca Notificar**.
    4. Clique em **OK** e, então, selecione **Sim** quando solicitado.
 
       ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image1.png)
-2. Instale Olá VM Agent em cada servidor de arquivo hello VMs. Isso é necessário para que você pode executar scripts de automação do Azure em Olá failover de máquinas virtuais.
+2. Instale o agente de VM em cada uma das VMs do servidor de arquivos. Isso é necessário para que você possa executar os scripts de Automação do Azure nas máquinas virtuais que foram submetidas ao failover.
 
-   1. [Baixar o agente Olá](http://aka.ms/vmagentwin) muito`C:\\Users\\<username>\\Downloads`.
-   2. Abrir o Windows PowerShell no modo de administrador (Executar como administrador) e, em seguida, digite Olá local de download do comando toonavigate toohello a seguir:
+   1. [Baixar o agente](http://aka.ms/vmagentwin) para `C:\\Users\\<username>\\Downloads`.
+   2. Abra o Windows PowerShell no modo de Administrador (Executar como Administrador) e, em seguida, digite o seguinte comando para navegar até o local de download:
 
       `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
 
       > [!NOTE]
-      > nome do arquivo Hello pode mudar dependendo versão hello.
+      > O nome do arquivo poderá mudar dependendo da versão.
       >
       >
 3. Clique em **Avançar**.
-4. Aceitar Olá **termos do contrato de** e, em seguida, clique em **próximo**.
+4. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 5. Clique em **Concluir**.
-6. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, consulte [usar Olá StorSimple Manager serviço toomanage volumes](storsimple-manage-volumes.md).
+6. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
 
-   1. Em suas VMs locais, pressione a tecla do Windows hello + Q e procure **iSCSI**.
+   1. Em suas VMs locais, pressione a tecla Windows +Q e pesquise por **iSCSI**.
    2. Selecione o **iniciador iSCSI**.
-   3. Selecione Olá **configuração** guia e copiar o nome do iniciador hello.
-   4. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
-   5. Selecione Olá **StorSimple** guia e, em seguida, selecione Olá serviço StorSimple Manager que contém o dispositivo físico hello.
-   6. Crie contêineres de volume e, em seguida, crie volumes. (Esses volumes são Olá compartilhamentos de arquivo no servidor de arquivos Olá VMs). Copie o nome do iniciador hello e dê um nome apropriado para Olá registros de controle de acesso ao criar volumes de saudação.
-   7. Selecione Olá **configurar** guia e anote o endereço IP de saudação do dispositivo de saudação.
-   8. Em suas VMs locais, acesse toohello **iniciador iSCSI** novamente e insira IP Olá Olá seção conexão rápida. Clique em **conexão rápida** (dispositivo Olá agora deve estar conectado).
-   9. Olá Abrir portal do Azure e selecione Olá **Volumes e dispositivos** guia. Clique em **Configuração Automática**. volume de saudação que você criou deve aparecer.
-   10. No portal de saudação, selecione Olá **dispositivos** guia e, em seguida, selecione **criar um novo dispositivo Virtual.** (Este dispositivo virtual será usado se ocorrer um failover). Este novo dispositivo virtual possa ser mantido em um estado offline tooavoid custos extras. tootake Olá toohello de dispositivo virtual offline, vá **máquinas virtuais** seção Olá Portal e desligá-lo.
-   11. Voltar toohello VMs locais e abra o gerenciamento de disco (pressione a tecla do Windows hello + X e selecione **gerenciamento de disco**).
-   12. Você observará algumas discos extras (dependendo do número de saudação de volumes que você criou). Com o botão direito Olá primeiro, selecione **inicializar disco**e selecione **Okey**. Saudação de atalho **não alocado** seção, selecione **Novo Volume simples**, atribuir uma letra de unidade e concluir o Assistente de saudação.
-   13. Repita a etapa l para todos os discos de saudação. Agora você pode ver todos os discos de saudação em **este PC** em Olá Windows Explorer.
-   14. Use Olá serviços de arquivo e armazenamento função toocreate compartilhamentos de arquivos nesses volumes.
+   3. Selecione a guia **Configuração** e copie o nome do iniciador.
+   4. Faça logon no [Portal do Azure](https://portal.azure.com/).
+   5. Selecione a guia **StorSimple** e, então, o serviço StorSimple Manager que contém o dispositivo físico.
+   6. Crie contêineres de volume e, em seguida, crie volumes. (Esses volumes são para os compartilhamentos de arquivos nas VMs do servidor de arquivos). Copie o nome do iniciador e dê um nome apropriado para os Registros de Controle de Acesso ao criar os volumes.
+   7. Selecione a guia **Configurar** e anote o endereço IP do dispositivo.
+   8. Em suas VMs locais, acesse o **iniciador iSCSI** novamente e digite o IP na seção Conexão Rápida. Clique em **Conexão Rápida** (o dispositivo agora deve estar conectado).
+   9. Abra o Portal do Azure e selecione a guia **Volumes e Dispositivos** . Clique em **Configuração Automática**. O volume que você acabou de criar deverá aparecer.
+   10. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.** (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
+   11. Volte para as VMs locais e abra o Gerenciamento de Disco (pressione a tecla Windows + X e selecione **Gerenciamento de Disco**).
+   12. Você notará alguns discos extras (dependendo do número de volumes que você criou). Clique com o botão direito do mouse no primeiro, selecione **Inicializar Disco** e selecione **OK**. Clique com o botão direito do mouse na seção **Não Alocado**, selecione **Novo Volume Simples**, atribua uma letra da unidade e conclua o assistente.
+   13. Repita a etapa l para todos os discos. Agora você pode ver todos os discos **neste computador** no Windows Explorer.
+   14. Use a função Serviços de Arquivo e Armazenamento para criar compartilhamentos de arquivos nesses volumes.
 
-#### <a name="toocreate-and-prepare-an-azure-site-recovery-vault"></a>toocreate e preparar um cofre do Azure Site Recovery
-Consulte toohello [documentação do Azure Site Recovery](../site-recovery/site-recovery-hyper-v-site-to-azure.md) tooget iniciado com o Azure Site Recovery antes de proteger a VM do servidor de arquivo hello.
+#### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre do Azure Site Recovery
+Confira a [documentação do Azure Site Recovery](../site-recovery/site-recovery-hyper-v-site-to-azure.md) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
 
-#### <a name="tooenable-protection"></a>proteção de tooenable
-1. Desconectar Olá iSCSI delimitar da saudação VMs que você deseja tooprotect por meio do Azure Site Recovery local:
+#### <a name="to-enable-protection"></a>Para habilitar a proteção
+1. Desconecte os destinos iSCSI das VMs locais que você deseja proteger por meio do Azure Site Recovery:
 
    1. Pressione a tecla Windows + Q e pesquise por **iSCSI**.
    2. Selecione **Configurar o iniciador iSCSI**.
-   3. Desconecte o dispositivo StorSimple Olá que você está conectado anteriormente. Como alternativa, você pode desativar o servidor de arquivos Olá por alguns minutos ao habilitar a proteção.
+   3. Desconecte o dispositivo do StorSimple que você conectou anteriormente. Como alternativa, você pode desativar o servidor de arquivos por alguns minutos ao habilitar a proteção.
 
    > [!NOTE]
-   > Isso fará com que toobe de compartilhamentos de arquivo de saudação temporariamente indisponível.
+   > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    >
    >
-2. [Habilitar proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) saudação do servidor de arquivos VM do portal do Azure Site Recovery hello.
-3. Quando a sincronização inicial Olá começa, você pode se reconectar destino Olá novamente. Vá toohello iniciador de iSCSI, selecione o dispositivo StorSimple hello e clique em **conectar**.
-4. Quando sincronização Olá for concluída e status de saudação do hello VM é **protegidos**, selecione Olá VM, selecione Olá **configurar** guia e atualize a rede de saudação do hello VM adequadamente (Esta é a rede de saudação Esse Olá failover VMs farão parte do). Se a rede Olá não aparecer, significa sincronização Olá ainda está acontecendo.
+2. [Habilitar a proteção da máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) da VM do servidor de arquivos do portal do Azure Site Recovery.
+3. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
+4. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 
 ### <a name="enable-protection-of-storsimple-volumes"></a>Habilitar a proteção de volumes do StorSimple
-Se você não selecionou Olá **habilitar um backup padrão para este volume** opção para volumes do StorSimple hello, vá muito**políticas de Backup** Olá serviço StorSimple Manager e criar um backup adequado política para todos os volumes de saudação. É recomendável que você defina a frequência de saudação de backups toohello ponto de recuperação objetivo (RPO) que deseja toosee para o aplicativo hello.
+Se você não tiver selecionado a opção **Habilitar um backup padrão para este volume** para os volumes do StorSimple, acesse as **Políticas de Backup** no serviço StorSimple Manager e crie uma política de backup adequada para todos os volumes. É recomendável que você defina a frequência dos backups para o RPO (Objetivo de Ponto de Recuperação) que você gostaria de ver no aplicativo.
 
-### <a name="configure-hello-network"></a>Configurar rede Olá
-Para o servidor de arquivo hello VM, definir configurações de rede no Azure Site Recovery para que as redes VM Olá são anexados toohello correto DR rede após o failover.
+### <a name="configure-the-network"></a>Configurar a rede
+Para o servidor de arquivos da VM, defina as configurações de rede no Azure Site Recovery para que as redes da VM sejam conectadas à rede correta de DR após o failover.
 
-Você pode selecionar Olá VM Olá **replicadas itens** guia Configurações de rede Olá tooconfigure, conforme mostrado na ilustração a seguir de saudação.
+Você pode selecionar a VM na guia **Itens replicados** para definir as configurações de rede, conforme mostrado na ilustração a seguir.
 
 ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
-Você pode criar um plano de recuperação no processo de failover do ASR tooautomate Olá Olá de compartilhamentos de arquivos. Se ocorrer uma interrupção, você poderá exibir compartilhamentos de arquivo hello em poucos minutos, com apenas um único clique. tooenable essa automação, você precisará de uma conta de automação do Azure.
+Você pode criar um plano de recuperação no ASR para automatizar o processo de failover de compartilhamentos de arquivos. Se ocorrer uma interrupção, você poderá exibir os compartilhamentos de arquivos em poucos minutos com apenas um clique simples. Para habilitar essa automação, você precisará de uma conta de Automação do Azure.
 
-#### <a name="toocreate-an-automation-account"></a>toocreate uma conta de automação
-1. Vá toohello portal do Azure &gt; **automação** seção.
+#### <a name="to-create-an-automation-account"></a>Para criar uma conta de Automação
+1. Vá para o Portal do Azure, &gt; seção **Automação**.
 2. Clique no botão **+ Adicionar** e a folha abaixo é aberta.
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
@@ -148,11 +148,11 @@ Você pode criar um plano de recuperação no processo de failover do ASR tooaut
    * Nome – insira uma nova conta de automação
    * Assinatura – escolha uma assinatura
    * Grupo de recursos – crie um novo grupo de recursos ou escolha um grupo de recursos existente
-   * Local - Escolher local, lembre-Olá mesmo/região geográfica na qual Olá StorSimple Appliance de nuvem e contas de armazenamento foram criadas.
+   * Localização – escolha uma localização e mantenha-a na mesma área geográfica/região em que as Contas de Armazenamento e o Dispositivo de Nuvem StorSimple foram criados.
    * Criar conta Executar Como do Azure – selecione a opção **Sim**.
 
-3. Vá toohello conta de automação, clique em **Runbooks** &gt; **procurar galeria** tooimport todos Olá necessário runbooks na conta de automação de saudação.
-4. Adicionar Olá runbooks a seguir, localizando **a recuperação de desastres** marca na Galeria de saudação:
+3. Vá para a conta Automação, clique em **Runbooks** &gt; **Procurar na Galeria** para importar todos os runbooks necessários para a conta de automação.
+4. Adicione os seguintes runbooks ao localizar a marcação **Recuperação de Desastre** na galeria:
 
    * Limpe os volumes do StorSimple após o TFO (failover de teste)
    * Faça failover de contêineres de volume do StorSimple
@@ -162,31 +162,31 @@ Você pode criar um plano de recuperação no processo de failover do ASR tooaut
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
 
-5. Publicar todos os scripts de saudação selecionando Olá runbook na conta de automação hello e clique em **editar** &gt; **publicar** e **Sim** toohello verificação Mensagem. Após essa etapa, Olá **Runbooks** guia será exibida da seguinte maneira:
+5. Publique todos os scripts, selecionando o runbook na conta de automação e clique em **Editar** &gt; **Publicar** e, em seguida, em **Sim** para a mensagem de verificação. Após essa etapa, a guia **Runbooks** será exibida da seguinte maneira:
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
 
-6. Na conta de automação hello, selecione Olá **ativos** guia &gt; clique **variáveis** &gt; **adicionar uma variável** e adicione Olá variáveis a seguir. Você pode escolher tooencrypt esses ativos. Essas variáveis são específicas do plano de recuperação. Se a recuperação do plano (que você irá criar na próxima etapa do hello) nome for TestPlan, as variáveis devem ser StorSimRegKey do plano de teste, AzureSubscriptionName do plano de teste e assim por diante.
+6. Na conta de automação, selecione a guia **Ativos** &gt;, clique em **Variáveis** &gt; **Adicionar Variável** e adicione as seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o nome do seu plano de recuperação (que você criará na próxima etapa) for TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   * *RecoveryPlanName***- StorSimRegKey**: chave de registro de saudação para Olá serviço StorSimple Manager.
-   * *RecoveryPlanName***- AzureSubscriptionName**: nome de saudação do hello assinatura do Azure.
-   * *RecoveryPlanName***- ResourceName**: nome de saudação do hello recurso StorSimple com o dispositivo StorSimple hello.
-   * *RecoveryPlanName***- DeviceName**: dispositivo Olá toobe failover.
-   * *RecoveryPlanName***- VolumeContainers**: uma cadeia de caracteres separada por vírgulas de contêineres de volume presente no dispositivo de saudação que precisam toobe falha; por exemplo, volcon1, volcon2, volcon3.
-   * *RecoveryPlanName***- TargetDeviceName**: Olá StorSimple Appliance de nuvem na qual Olá contêineres são toobe falhou.
-   * *RecoveryPlanName***- TargetDeviceDnsName**: nome do serviço de saudação do dispositivo de destino da saudação (pode ser encontrado na Olá **Máquina Virtual** seção: nome do serviço Olá é Olá mesmo como Olá Nome DNS).
-   * *RecoveryPlanName***- StorageAccountName**: nome de conta de armazenamento Olá no qual script hello (que toorun em Olá falhou VM) serão armazenados. Isso pode ser qualquer conta de armazenamento que tem o script hello espaço toostore temporariamente.
-   * *RecoveryPlanName***- StorageAccountKey**: chave de acesso de saudação de saudação acima de conta de armazenamento.
-   * *RecoveryPlanName***- ScriptContainer**: nome de saudação do contêiner de saudação na qual Olá script será armazenado na nuvem hello. Se o contêiner de saudação não existir, ele será criado.
-   * *RecoveryPlanName***- VMGUIDS**: após a proteção de uma VM, Azure Site Recovery atribui cada VM uma identificação exclusiva que fornece detalhes de saudação do hello Falha na VM. Olá tooobtain VMGUID, selecione Olá **dos serviços de recuperação** guia e clique em **Item protegido** &gt; **grupos de proteção** &gt; **Máquinas** &gt; **propriedades**. Se você tiver várias VMs, adicione Olá GUIDs como uma cadeia de caracteres separada por vírgulas.
-   * *RecoveryPlanName***- AutomationAccountName** – hello nome da conta de automação Olá no qual você adicionou Olá runbooks e ativos de saudação.
+   * *RecoveryPlanName***-StorSimRegKey**: a chave de registro para o serviço StorSimple Manager.
+   * *RecoveryPlanName***- AzureSubscriptionName**: o nome da assinatura do Azure.
+   * *RecoveryPlanName***-ResourceName**: o nome do recurso do StorSimple que tem o dispositivo StorSimple.
+   * *RecoveryPlanName***-DeviceName**: o dispositivo que precisa ser submetido ao failover.
+   * *RecoveryPlanName***-VolumeContainers**: uma cadeia de caracteres separada por vírgulas dos contêineres de volume presentes no dispositivo que precisa ser submetido ao failover; por exemplo, volcon1, volcon2, volcon3.
+   * *RecoveryPlanName***-TargetDeviceName**: o dispositivo de nuvem do StorSimple no qual os contêineres serão submetidos ao failover.
+   * *RecoveryPlanName***-TargetDeviceDnsName**: o nome do dispositivo de destino (ele pode ser encontrado na seção **Máquina Virtual**: o nome do serviço é o mesmo que o nome DNS).
+   * *RecoveryPlanName***-StorageAccountName**: o nome da conta de armazenamento na qual o script (que precisa ser executado na VM submetida ao failover) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha espaço para armazenar o script temporariamente.
+   * *RecoveryPlanName***-StorageAccountKey**: a tecla de acesso da conta de armazenamento acima.
+   * *RecoveryPlanName***-ScriptContainer**: o nome do contêiner no qual o script será armazenado na nuvem. Se o contêiner não existir, ele será criado.
+   * *RecoveryPlanName***-VMGUIDS**: ao proteger uma VM, o Azure Site Recovery atribui uma identificação exclusiva para todas as VMs, que fornece os detalhes sobre a VM submetida ao failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.
+   * *RecoveryPlanName***-AutomationAccountName** – O nome da conta de automação na qual você adicionou os runbooks e os ativos.
 
-  Por exemplo, se hello nome saudação do plano de recuperação é fileServerpredayRP, o **credenciais** & **variáveis** guias devem aparecer da seguinte maneira depois de adicionar todos os ativos de saudação.
+  Por exemplo, se o nome do plano de recuperação for fileServerpredayRP, então, as suas guias **Credenciais** & **Variáveis** deverão aparecer da seguinte forma após a adição de todos os recursos.
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-7. Vá toohello **dos serviços de recuperação** seção e o cofre do Azure Site Recovery Olá selecione que você criou anteriormente.
-8. Selecione Olá **planos de recuperação (recuperação de Site)** opção **gerenciar** grupo e crie um novo plano de recuperação da seguinte maneira:
+7. Acesse a seção **Serviços de Recuperação** e selecione o cofre do Azure Site Recovery que você criou anteriormente.
+8. Selecione a opção **Planos de Recuperação (Recuperação de Site)** do grupo **Gerenciar** e crie um novo plano de recuperação, conforme a seguir:
 
    a.  Clique no botão **+ Plano de recuperação**, abra a folha abaixo.
 
@@ -194,122 +194,122 @@ Você pode criar um plano de recuperação no processo de failover do ASR tooaut
 
    b.  Insira um nome de plano de recuperação, escolha valores de modelo de Implantação, Destino e Origem.
 
-   c.  Selecione VMs Olá Olá do grupo de proteção que você deseja tooinclude no plano de recuperação de saudação e clique em **Okey** botão.
+   c.  Selecione as VMs do grupo de proteção que você deseja incluir no plano de recuperação e clique no botão **OK**.
 
-   d.  Selecione o plano de recuperação que você criou anteriormente, clique em **personalizar** botão exibição de personalização de plano de recuperação do tooopen hello.
+   d.  Selecione o plano de recuperação que você criou anteriormente, clique no botão **Personalizar** para abrir a exibição de personalização do plano de recuperação.
 
    e.  Clique com o botão direito em **Desligamento de todos os grupos** e clique em **Adicionar ação prévia**.
 
-   f.  Abre folha de ação de inserção, insira um nome, selecione **lado primário** opção onde toorun opção, selecione a conta de automação (no qual você adicionou Olá runbooks) e selecione Olá  **Failover-StorSimple-contêineres de Volume** runbook.
+   f.  Abra a folha de ação Inserir, insira um nome, selecione a opção **Lado primário** na opção Onde executar, selecione a conta de Automação (na qual os runbooks foram adicionados) e, em seguida, selecione o runbook **Failover-StorSimple-Volume-Containers**.
 
-   g.  Clique com o botão direito em **grupo 1: Iniciar** e clique em **itens protegidos de adicionar** opção e selecione VMs Olá toobe protegida no plano de recuperação de saudação e clique em **Okey** botão. Opcional, caso as VMs já estejam selecionadas.
+   g.  Clique com o botão direito em **Grupo 1: Iniciar** e clique na opção **Adicionar itens protegidos** e selecione as VMs que devem ser protegidas no plano de recuperação e clique no botão **OK**. Opcional, caso as VMs já estejam selecionadas.
 
-   h.  Clique com o botão direito em **grupo 1: Iniciar** e clique em **lançar ação** opção e adicione Olá a todos os scripts a seguir:
+   h.  Clique com o botão direito em **Grupo 1: Iniciar** e clique na opção **Ação posterior** e adicione os seguintes scripts:
 
    * Runbook Start-StorSimple-Virtual-Appliance
    * Runbook Fail over-StorSimple-volume-containers
    * Runbook mount-volumes-after-failover
    * Runbook uninstall-custom-script-extension
 
-   i.  Adicionar uma ação manual depois Olá superior a 4 scripts no hello mesmo **grupo 1: pós-etapas** seção. Esta ação é ponto Olá no qual você pode verificar se tudo está funcionando corretamente. Essa ação precisa toobe adicionado somente como parte do failover de teste (portanto, apenas selecione Olá **Failover de teste** caixa de seleção).
+   i.  Adicione uma ação manual após os quatro scripts acima na mesma seção **Grupo 1: etapas posteriores** . Essa ação é o ponto em que você pode verificar se tudo está funcionando corretamente. Essa ação precisa ser adicionada somente como parte do Failover de teste (portanto, selecione apenas a caixa de seleção **Failover de Teste** ).
 
-   j.  Após a ação manual do hello, adicionar Olá **limpeza** script usando Olá mesmo procedimento usado para Olá outros runbooks. **Salvar** plano de recuperação de saudação.
+   j.  Após a ação manual, adicione o script **Limpeza**, usando o mesmo procedimento utilizado para os outros runbooks. **Salvar** o plano de recuperação.
 
     > [!NOTE]
-    > Ao executar um failover de teste, você deve verificar tudo na etapa de ação manual Olá porque os volumes do StorSimple Olá que tinham sido clonados no dispositivo de destino hello serão excluídos como parte da limpeza Olá após a conclusão da ação manual hello.
+    > Ao executar um failover de teste, você deverá verificar tudo na etapa de ação manual porque os volumes do StorSimple que tinham sido clonados no dispositivo de destino serão excluídos como parte da limpeza após a ação manual.
     >
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Executar um failover de teste
-Consulte toohello [solução de recuperação de desastres do Active Directory](../site-recovery/site-recovery-active-directory.md) guia complementar para considerações específicas tooActive diretório durante o failover de teste de saudação. configuração do local de saudação não será afetada em todos os quando ocorre um failover de teste de saudação. Olá volumes do StorSimple que estavam anexados toohello a VM são clonado toohello StorSimple Appliance de nuvem no Azure no local. Uma VM para fins de teste é colocada no Azure e volumes clonados hello são anexado toohello VM.
+Confira o guia complementar [Solução de DR do Active Directory](../site-recovery/site-recovery-active-directory.md) para considerações específicas sobre o Active Directory durante o failover de teste. A configuração local não será afetada quando o failover de teste ocorrer. Os volumes do StorSimple que foram anexados à VM local são clonados para o dispositivo de nuvem do StorSimple no Azure. Uma VM para fins de teste é colocada no Azure e os volumes clonados são anexados à VM.
 
-#### <a name="tooperform-hello-test-failover"></a>failover de teste tooperform Olá
-1. No portal do Azure de Olá, selecione seu Cofre de recuperação de site.
-2. Clique em plano de recuperação de saudação criado para a VM do servidor de arquivo hello.
+#### <a name="to-perform-the-test-failover"></a>Para executar o failover de teste
+1. No Portal do Azure, selecione seu cofre de recuperação de site.
+2. Clique no plano de recuperação criado para a VM do servidor de arquivos.
 3. Clique em **Failover de Teste**.
-4. Selecione toowhich de rede virtual do Azure Olá que VMs do Azure serão conectadas após o failover.
+4. Selecione a rede virtual do Azure à qual as VMs do Azure serão conectadas após o failover.
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
-5. Clique em **Okey** toobegin Olá failover. Você pode acompanhar o progresso clicando no hello VM tooopen suas propriedades, ou em Olá **trabalho de failover de teste** no nome do cofre &gt; **trabalhos** &gt; **ostrabalhosderecuperaçãodeSite**.
-6. Após a conclusão do failover hello, você também deve ser capaz de réplica de saudação toosee máquina do Azure aparecem no hello portal do Azure &gt; **máquinas virtuais**. Você pode executar suas validações.
-7. Depois que as validações de saudação, clique em **validações completa**. Essa saudação de limpeza será Volumes do StorSimple e desligamento Olá StorSimple Appliance de nuvem.
-8. Quando terminar, clique em **failover de teste de limpeza** no plano de recuperação de saudação. No registro de notas e salve todas as observações associadas Olá failover de teste. Isso excluirá a máquina virtual Olá que foram criados durante o failover de teste.
+5. Clique em **OK** para iniciar o failover. É possível acompanhar o progresso, clicando na VM para abrir suas propriedades ou no **Trabalho de failover de teste** no nome do cofre &gt; **Trabalhos** &gt; **Trabalhos do Site Recovery**.
+6. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure &gt; **Máquinas Virtuais**. Você pode executar suas validações.
+7. Depois que as validações forem feitas, clique em **Validações Completas**. Isso limpará os Volumes StorSimple e desligará o Dispositivo de Nuvem StorSimple.
+8. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em Observações, registre e salve todas as observações associadas ao failover de teste. Isso excluirá a máquina virtual que foi criada durante o teste de failover.
 
 ## <a name="perform-a-planned-failover"></a>Faça um failover planejado
-   Durante um failover planejado, Olá local servidores de arquivos que VM desligar normalmente e uma nuvem de instantâneo de backup de volumes de saudação no dispositivo StorSimple é obtido. volumes do StorSimple Olá falharem em dispositivo virtual toohello, uma réplica de máquina virtual é colocado no Azure, e os volumes de saudação são anexado toohello VM.
+   Durante um failover planejado, a VM do servidor de arquivos local é desligada normalmente e os instantâneos de backup de nuvem dos volumes no dispositivo StorSimple são criados. Os volumes do StorSimple são submetidos ao failover para o dispositivo virtual, uma réplica da VM é colocada no Azure e os volumes são associados à VM.
 
-#### <a name="tooperform-a-planned-failover"></a>tooperform um failover planejado
-1. No portal do Azure de Olá, selecione **dos serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de Site)** &gt; **recoveryplan_name** criado para servidor de arquivos Olá VM.
-2. Na folha de plano de recuperação de saudação, clique em **mais** &gt; **failover planejado**.  
+#### <a name="to-perform-a-planned-failover"></a>Para executar um failover planejado
+1. No portal do Azure, selecione o cofre **Serviços de Recuperação** &gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
+2. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover Planejado**.
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
-3. Em Olá **confirmar Failover planejado** folha, escolha Olá locais de destino e de rede de destino selecione e clique em processo de failover de Olá Olá seleção ícone ✓ toostart.
-4. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **confirmar** toocommit Olá failover.
-5. Após a conclusão da replicação, máquinas virtuais de saudação iniciado no local secundário hello.
+3. Na folha **Confirmar Failover Planejado**, escolha os locais de origem e destino, selecione a rede de destino e clique no ícone de seleção ✓ para iniciar o processo de failover.
+4. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
+5. Depois que a replicação é concluída, as máquinas virtuais são iniciadas no local secundário.
 
 ## <a name="perform-a-failover"></a>Executar um failover
-Durante um failover não planejado, volumes do StorSimple Olá falharem em dispositivo virtual toohello, uma VM será levada no Azure, de réplica e volumes de Olá estão anexado toohello VM.
+Durante um failover não planejado, os volumes do StorSimple serão submetidos ao failover para o dispositivo virtual, uma réplica da VM será colocada no Azure e os volumes serão associados à VM.
 
-#### <a name="tooperform-a-failover"></a>tooperform um failover
-1. No portal do Azure de Olá, selecione **dos serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de Site)** &gt; **recoveryplan_name** criado para servidor de arquivos Olá VM.
-2. Na folha de plano de recuperação de saudação, clique em **mais** &gt; **Failover**.  
-3. Em Olá **confirmar Failover** folha, escolha a fonte de saudação e locais de destino.
-4. Selecione **desligar máquinas virtuais e sincronize os dados mais recentes Olá** toospecify que recuperação de Site deve tente tooshut máquina virtual do hello protegida e sincronizar dados de Olá para que hello versão mais recente dos dados Olá será failover.
-5. Após o failover hello, máquinas virtuais de saudação estão em um estado de confirmação pendente. Clique em **confirmar** toocommit Olá failover.
+#### <a name="to-perform-a-failover"></a>Executar um failover
+1. No portal do Azure, selecione o cofre **Serviços de Recuperação** &gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
+2. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover**.
+3. Na folha **Confirmar Failover** , escolha os locais de origem e de destino.
+4. Selecione **Desligue as máquinas virtuais e sincronize os dados mais recentes** para especificar que a Recuperação de Site deve tentar desligar a máquina virtual protegida e sincronizar os dados para que ocorra o failover da versão mais recente dos dados.
+5. Após o failover, as máquinas virtuais entram em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 
 
 ## <a name="perform-a-failback"></a>Executar um failback
-Durante um failback, contêineres de volume StorSimple falha de dispositivo físico toohello voltar depois que um backup é feito.
+Durante um failback, os contêineres de volume do StorSimple são submetidos ao failover para o dispositivo físico depois que o backup é feito.
 
-#### <a name="tooperform-a-failback"></a>tooperform um failback
-1. No portal do Azure de Olá, selecione **dos serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de Site)** &gt; **recoveryplan_name** criado para servidor de arquivos Olá VM.
-2. Na folha de plano de recuperação de saudação, clique em **mais** &gt; **Failover planejado**.  
-3. Escolha os locais de origem e destino hello, a sincronização de dados apropriada Olá select e opções de criação de VM.
-4. Clique em **Okey** botão o processo de failback toostart hello.
+#### <a name="to-perform-a-failback"></a>Para executar um failback
+1. No portal do Azure, selecione o cofre **Serviços de Recuperação** &gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
+2. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover Planejado**.
+3. Escolha os locais de origem e de destino, selecione as opções apropriadas de sincronização de Dados e de criação de VM.
+4. Clique no botão **OK** para iniciar o processo de failback.
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
 ## <a name="best-practices"></a>Práticas Recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planejamento da capacidade e avaliação de prontidão
 #### <a name="hyper-v-site"></a>Site do Hyper-V
-Saudação de uso [ferramenta Planejador de capacidade do usuário](http://www.microsoft.com/download/details.aspx?id=39057) toodesign Olá de servidor, armazenamento e infraestrutura de rede para seu ambiente de réplica do Hyper-V.
+Use a [ferramenta Planejador de Capacidade do usuário](http://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.
 
 #### <a name="azure"></a>As tabelas
-Você pode executar Olá [ferramenta de avaliação de preparação de máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs tooensure que eles sejam compatíveis com VMs do Azure e serviços de recuperação de Site do Azure. Olá, ferramenta de avaliação de prontidão verifica as configurações de VM e avisa quando as configurações são incompatíveis com o Azure. Por exemplo, ela emitirá um aviso se uma unidade C: tiver mais do que 127 GB.
+Você pode executar a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery. A Ferramenta de Avaliação de Prontidão verifica as configurações da VM e avisa quando elas são incompatíveis com o Azure. Por exemplo, ela emitirá um aviso se uma unidade C: tiver mais do que 127 GB.
 
 O planejamento de capacidade é composto de, pelo menos, dois processos importantes:
 
-* Mapeamento de tamanhos de VM do Hyper-V VMs tooAzure (por exemplo, A6, A7, A8 e A9) no local.
-* Determinar Olá necessária largura de banda de Internet.
+* Mapeamento das VMs do Hyper-V locais para obter os tamanhos de VM do Azure ( como A6, A7, A8 e A9).
+* Determinação da largura de banda de Internet necessária.
 
 ## <a name="limitations"></a>Limitações
-* Atualmente, o dispositivo StorSimple somente 1 pode falhar (tooa único StorSimple Appliance de nuvem). cenário de saudação do servidor de arquivos que abrange vários dispositivos StorSimple ainda não é suportado.
-* Se você receber um erro ao habilitar a proteção para uma máquina virtual, certifique-se de que você desconectou destinos iSCSI do hello.
-* Todos os contêineres de volume Olá que foram agrupados devido a políticas de backup abrangência contêineres de volume realizarão failover juntos.
-* Todos os volumes de saudação em contêineres de volume Olá escolhido serão submetidos a failover.
-* Volumes que somam toomore de 64 TB não pode falhar porque a capacidade máxima de saudação de um único dispositivo de nuvem StorSimple é de 64 TB.
-* Se falha de failover planejadas hello e Olá máquinas virtuais são criadas no Azure, em seguida, executar a limpeza não Olá VMs. Em vez disso, faça um failback. Se você excluir VMs hello, em seguida, Olá local VMs não podem ser ativadas novamente.
-* Após um failover, se não for possível toosee Olá volumes, vá toohello VMs, abra o gerenciamento de disco, examinar novamente discos hello e, em seguida, colocá-los online.
-* Em algumas instâncias, letras de unidade Olá no local de recuperação de desastres Olá podem ser diferentes do hello letras local. Se isso ocorrer, você precisará toomanually problema de saudação correto após a conclusão do failover de saudação.
-* Autenticação multifator deve ser desabilitada para Olá credencial do Azure que é inserido na conta de automação hello como um ativo. Se essa autenticação não for desabilitada, scripts não poderão ser toorun automaticamente e o plano de recuperação de saudação falhará.
-* Tempo limite do trabalho de failover: Olá StorSimple script atingirá o tempo limite se o failover de saudação de contêineres de volume leva mais tempo do que o limite do Azure Site Recovery Olá por script (atualmente 120 minutos).
-* Tempo limite do trabalho de backup: Olá StorSimple script expira se Olá o backup de volumes demora mais tempo do que o limite do Azure Site Recovery Olá por script (atualmente 120 minutos).
+* Atualmente, somente um dispositivo StorSimple pode ser submetido ao failover (para um único dispositivo de nuvem StorSimple). Ainda não há suporte para o cenário de um servidor de arquivos que abrange vários dispositivos StorSimple.
+* Se houver um erro ao habilitar a proteção para uma VM, certifique-se de ter desconectado os destinos iSCSI.
+* Todos os contêineres de volume que foram agrupados devido a abrangência das políticas de backup em contêineres de volume serão submetidos ao failover juntos.
+* Todos os volumes nos contêineres de volume que você escolheu serão submetidos ao failover.
+* Os volumes que somam mais de 64 TB não podem ser submetidos ao failover porque a capacidade máxima de um único dispositivo de nuvem do StorSimple é de 64 TB.
+* Não limpe as VMs se o failover planejado/não planejado falhar e as VMs forem criadas no Azure. Em vez disso, faça um failback. Se você excluir as VMs, as VMs locais não poderão ser ativadas novamente.
+* Após um failover, se você não conseguir ver os volumes, acesse as VMs, abra o Gerenciamento de Disco, examine os discos novamente e coloque-os online.
+* Em alguns casos, as letras de unidade no site de DR podem ser diferentes das letras locais. Se isso ocorrer, você precisará corrigir o problema manualmente depois que o failover for concluído.
+* O Multi-Factor Authentication deve ser desabilitado para a credencial do Azure que foi inserida na conta de automação como um ativo. Se essa autenticação não for desabilitada, os scripts não poderão ser executados automaticamente e o plano de recuperação falhará.
+* Tempo limite do trabalho de failover: o script do StorSimple atingirá o tempo limite se o failover dos contêineres de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+* Tempo limite do trabalho de backup: o script do StorSimple atingirá o tempo limite se o backup de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
 
   > [!IMPORTANT]
-  > Executar backup Olá manualmente de saudação portal do Azure e execute novamente o plano de recuperação de saudação.
+  > Execute o backup manualmente no Portal do Azure e, em seguida, execute o plano de recuperação novamente.
 
-* Tempo limite do trabalho de clone: Olá StorSimple script expira se Olá clonagem de volumes leva mais tempo do que o limite do Azure Site Recovery Olá por script (atualmente 120 minutos).
-* Erro de sincronização de hora: Olá StorSimple scripts erro dizendo que backups Olá tenham tido êxito mesmo que backup Olá seja bem-sucedida no portal de saudação. Uma causa possível para isso pode ser a que hora do dispositivo StorSimple que Olá pode ser fora de sincronia com hello hora atual no fuso horário de saudação.
-
-  > [!IMPORTANT]
-  > Sincronização Olá hora do dispositivo com hello hora atual no fuso horário de saudação.
-
-* Erro de failover do dispositivo: Olá StorSimple script poderá falhar se houver um failover de dispositivo quando o plano de recuperação hello está sendo executado.
+* Tempo limite do trabalho de clonagem: o script do StorSimple atingirá o tempo limite se a clonagem de volumes levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+* Erro de sincronização de tempo: os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
 
   > [!IMPORTANT]
-  > Execute novamente o plano de recuperação Olá após a conclusão do failover de dispositivo de saudação.
+  > Sincronize a hora do dispositivo com a hora atual no fuso horário.
+
+* Erro de failover do dispositivo: o script do StorSimple poderá falhar se houver um failover de dispositivo quando o plano de recuperação estiver em execução.
+
+  > [!IMPORTANT]
+  > Execute o plano de recuperação novamente após concluir o failover do dispositivo.
 
 
 ## <a name="summary"></a>Resumo
-Ao usar o Azure Site Recovery, você poderá criar um plano de recuperação de desastre automatizado completo para um servidor de arquivos de VM com compartilhamentos de arquivos hospedados no armazenamento do StorSimple. Você pode iniciar failover hello dentro de segundos de qualquer lugar no hello evento de interrupção e obter o aplicativo hello em funcionamento em poucos minutos.
+Ao usar o Azure Site Recovery, você poderá criar um plano de recuperação de desastre automatizado completo para um servidor de arquivos de VM com compartilhamentos de arquivos hospedados no armazenamento do StorSimple. Você poderá iniciar o failover em segundos e de qualquer lugar, caso haja uma interrupção, e fazer o aplicativo funcionar em alguns minutos.

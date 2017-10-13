@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Service Fabric Inverter comunicação segura proxy | Microsoft Docs"
-description: "Configure a comunicação de ponta a ponta proxy reverso tooenable segura."
+title: "Comunicação segura por proxy reverso do Azure Service Fabric | Microsoft Docs"
+description: "Configure o proxy reverso para permitir a comunicação segura de ponta a ponta."
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,27 +13,27 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: e1248dffe2c324373ad0d09d3f5f094db74480d7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 568f9638c59282bcd7d3fae058a1588a889c22dc
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="connect-tooa-secure-service-with-hello-reverse-proxy"></a>Conecte-se o serviço seguro tooa com proxy reverso Olá
+# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy inverso
 
-Este artigo explica como tooestablish proteger a conexão entre o proxy reverso hello e serviços, permitindo que um canal seguro de tooend final.
+Este artigo explica como estabelecer uma conexão segura entre o proxy reverso e serviços, permitindo um canal seguro de ponta a ponta.
 
-Conectando a serviços toosecure é suportado apenas quando o proxy reverso é toolisten configurado em HTTPS. Restante do documento hello supõe que esse é o caso de saudação.
-Consulte também[proxy no Azure Service Fabric reverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) tooconfigure proxy reverso do hello na malha do serviço.
+A conexão aos serviços seguros tem suporte apenas quando o proxy reverso é configurado para escutar em HTTPS. O restante do documento supõe que esse é o caso.
+Consulte [Proxy reverso no Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para configurar o proxy reverso no Service Fabric.
 
-## <a name="secure-connection-establishment-between-hello-reverse-proxy-and-services"></a>Estabelecimento de conexão segura entre o proxy reverso hello e serviços 
+## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de conexão segura entre o proxy reverso e os serviços 
 
-### <a name="reverse-proxy-authenticating-tooservices"></a>Inverter tooservices de autenticação de proxy:
-Olá proxy reverso se identifica tooservices usando seu certificado, especificado com ***reverseProxyCertificate*** propriedade Olá **Cluster** [seção de tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md). Serviços podem implementar o certificado de saudação do hello lógica tooverify apresentado pelo proxy reverso hello. Serviços de saudação podem especificar detalhes do certificado de cliente de saudação aceitada como definições de configuração no pacote de configuração de saudação. Isso pode ser lida em tempo de execução e usado toovalidate Olá certificado apresentado pelo proxy reverso hello. Consulte também[gerenciar parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) tooadd definições de configuração de saudação. 
+### <a name="reverse-proxy-authenticating-to-services"></a>Autenticação do proxy reverso nos serviços:
+O proxy reverso identifica-se para os serviços usando seu certificado, que é especificado com a propriedade ***reverseProxyCertificate*** na seção **Cluster** [Tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md). Os serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy reverso. Os serviços podem especificar os detalhes do certificado de cliente aceito como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e usado para validar o certificado apresentado pelo proxy reverso. Consulte [Gerenciar parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 
-### <a name="reverse-proxy-verifying-hello-services-identity-via-hello-certificate-presented-by-hello-service"></a>Reverte a verificar a identidade do serviço Olá via Olá certificado apresentado pelo serviço de saudação do proxy:
-tooperform a validação de certificado do servidor de certificados Olá apresentado pelos serviços Olá, proxy reverso dá suporte a uma saudação as opções a seguir: None, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
-tooselect uma dessas três opções, especifique Olá **ApplicationCertificateValidationPolicy** na seção de parâmetros de saudação do elemento de ApplicationGateway/Http em [fabricSettings](service-fabric-cluster-fabric-settings.md).
+### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Proxy reverso verificando a identidade do serviço por meio do certificado apresentado pelo serviço:
+Para executar a validação de certificado do servidor dos certificados apresentados pelos serviços, o proxy reverso dá suporte a uma das seguintes opções: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
+Para selecionar uma dessas três opções, especifique o **ApplicationCertificateValidationPolicy** na seção de parâmetros do elemento ApplicationGateway/Http em [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 ```json
 {
@@ -53,14 +53,14 @@ tooselect uma dessas três opções, especifique Olá **ApplicationCertificateVa
 }
 ```
 
-Para obter detalhes sobre a configuração adicional para cada uma dessas opções, consulte toohello próxima seção.
+Consulte a próxima seção para obter detalhes sobre a configuração adicional para cada uma dessas opções.
 
 ### <a name="service-certificate-validation-options"></a>Opções de validação do certificado de serviço 
 
-- **Nenhum**: proxy reverso ignora a verificação Olá delegadas do certificado de serviço e estabelece a conexão segura hello. Este é o comportamento padrão de saudação.
-Especifique a saudação **ApplicationCertificateValidationPolicy** com valor **nenhum** na seção de parâmetros de saudação do elemento de ApplicationGateway/Http.
+- **Nenhum**: o proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Esse é o comportamento padrão.
+Especifique o **ApplicationCertificateValidationPolicy** com o valor **Nenhum** na seção de parâmetros do elemento ApplicationGateway/Http.
 
-- **ServiceCommonNameAndIssuer**: proxy reverso verifica o certificado Olá apresentado pelo serviço de saudação com base no nome comum do certificado e a impressão digital de imediato do emissor: especificar Olá **ApplicationCertificateValidationPolicy**  com valor **ServiceCommonNameAndIssuer** na seção de parâmetros de saudação do elemento de ApplicationGateway/Http.
+- **ServiceCommonNameAndIssuer**: o proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e a impressão digital do emissor imediato: especifique **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** na seção de parâmetros do elemento ApplicationGateway/Http.
 
 ```json
 {
@@ -80,9 +80,9 @@ Especifique a saudação **ApplicationCertificateValidationPolicy** com valor **
 }
 ```
 
-lista de saudação toospecify de nome comum de serviço e as impressões digitais de emissor, adicione um **Http/ApplicationGateway/ServiceCommonNameAndIssuer** elemento sob fabricSettings, conforme mostrado abaixo. Vários nome comum do certificado e pares de impressão digital do emissor podem ser adicionados no elemento de matriz de parâmetros de saudação. 
+Para especificar a lista de nomes de serviço comuns e as impressões digitais do emissor, adicione um elemento **Http/ApplicationGateway/ServiceCommonNameAndIssuer** em fabricSettings, conforme mostrado abaixo. É possível adicionar vários pares de nome de certificado comum e impressão digital do emissor no elemento da matriz dos parâmetros. 
 
-Se proxy reverso do ponto de extremidade de saudação estiver se conectando a um certificado que é comum de toopresents nome e o emissor a impressão digital corresponde a qualquer um dos valores de saudação especificados aqui, canal SSL é estabelecido. Após os detalhes da falha toomatch Olá certificado, proxy reverso falha Olá solicitação de cliente com um código de status 502 (Gateway incorreto). saudação de linha de status HTTP também conterá frase hello "Certificado SSL inválido." 
+Se o proxy reverso do ponto de extremidade estiver se conectando para apresentar um certificado cujo nome comum e impressão digital do emissor correspondam a qualquer um dos valores especificados aqui, o canal SSL será estabelecido. Em caso de falha de correspondência dos detalhes do certificado, a solicitação do cliente não será realizada pelo proxy reverso com um código de status 502 (Gateway incorreto). A linha de status HTTP também conterá a frase "Certificado SSL Inválido." 
 
 ```json
 {
@@ -107,7 +107,7 @@ Se proxy reverso do ponto de extremidade de saudação estiver se conectando a u
 ```
 
 
-- **ServiceCertificateThumbprints**: proxy reverso verificará se o certificado de serviço de proxy de saudação com base em sua impressão digital. Você pode escolher toogo essa rota ao Olá serviços estão configurados com certificados auto-assinados: especificar Olá **ApplicationCertificateValidationPolicy** com valor **ServiceCertificateThumbprints**na seção de parâmetros de saudação do elemento de ApplicationGateway/Http.
+- **ServiceCertificateThumbprints**: o proxy reverso verificará se o certificado de serviço com proxy tem base em sua impressão digital. Você pode optar por acessar essa rota quando os serviços estiverem configurados com certificados autoassinados: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** na seção de parâmetros do elemento ApplicationGateway/Http.
 
 ```json
 {
@@ -127,7 +127,7 @@ Se proxy reverso do ponto de extremidade de saudação estiver se conectando a u
 }
 ```
 
-Também especificar impressões digitais de saudação com um **ServiceCertificateThumbprints** entrada na seção de parâmetros de elemento de ApplicationGateway/Http. Impressões digitais vários podem ser especificados como uma lista separada por vírgulas no campo de valor hello, conforme mostrado abaixo:
+Especifique também as impressões digitais com uma entrada **ServiceCertificateThumbprints** na seção de parâmetros do elemento ApplicationGateway/Http. É possível especificar várias impressões digitais como uma lista separada por vírgulas no campo de valor, conforme mostrado abaixo:
 
 ```json
 {
@@ -148,12 +148,12 @@ Também especificar impressões digitais de saudação com um **ServiceCertifica
 }
 ```
 
-Se a impressão digital de Olá Olá do certificado do servidor está listado nesta entrada de configuração, o proxy reverso terá êxito conexão de SSL hello. Caso contrário, ele termina a conexão de saudação e falhar Olá solicitação do cliente com um 502 (Gateway incorreto). saudação de linha de status HTTP também conterá frase hello "Certificado SSL inválido."
+Se a impressão digital do certificado do servidor estiver listada nesta entrada de configuração, o proxy reverso terá êxito na conexão SSL. Caso contrário, ele encerrará a conexão e a solicitação do cliente falhará com um erro 502 (Gateway incorreto). A linha de status HTTP também conterá a frase "Certificado SSL Inválido."
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de seleção do ponto de extremidade quando os serviços expõem pontos de extremidade seguros e inseguros
 O Service Fabric oferece suporte à configuração de vários pontos de extremidade para um serviço. Confira [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md).
 
-Proxy reverso seleciona uma saudação pontos de extremidade tooforward Olá solicitação com base em Olá **ListenerName** parâmetro de consulta. Se não for especificado, ele pode escolher qualquer ponto de extremidade da lista de pontos de extremidade de saudação. Pode ser um ponto de extremidade HTTP ou HTTPS. Pode haver requisitos/cenários em que você deseja toooperate de proxy reverso Olá no "modo de segurança somente", ou seja Você não quer Olá segura de proxy reverso tooforward solicitações toounsecured pontos de extremidade. Isso pode ser feito especificando Olá **SecureOnlyMode** entrada de configuração com o valor **true** na seção de parâmetros de saudação do elemento de ApplicationGateway/Http.   
+O proxy reverso seleciona um dos pontos de extremidade para encaminhar a solicitação com base no parâmetro de consulta **ListenerName**. Se isso não for especificado, ele poderá escolher qualquer ponto de extremidade da lista de pontos de extremidade. Pode ser um ponto de extremidade HTTP ou HTTPS. Pode haver requisitos ou situações nas quais você deseja que o proxy reverso opere em um "modo somente de segurança", ou seja você não quer que o proxy reverso seguro encaminhe solicitações para pontos de extremidade não seguros. Isso pode ser feito especificando a entrada de configuração **SecureOnlyMode** com o valor **true** na seção de parâmetros do elemento ApplicationGateway/Http.   
 
 ```json
 {
@@ -175,23 +175,23 @@ Proxy reverso seleciona uma saudação pontos de extremidade tooforward Olá sol
 ```
 
 > 
-> Ao operar em **SecureOnlyMode**, se o cliente tiver especificado um **ListenerName** correspondente tooan HTTP(unsecured) endpoint, falha de proxy reverso solicitação Olá com um código de status 404 (não encontrado) HTTP.
+> Ao operar em **SecureOnlyMode**, se o cliente tiver especificado um **ListenerName** correspondente a um ponto de extremidade HTTP(não seguro), a solicitação não será realizada pelo proxy reverso com um código de status HTTP 404 (Não Encontrado).
 
-## <a name="setting-up-client-certificate-authentication-through-hello-reverse-proxy"></a>Configurando a autenticação de certificado de cliente por meio do proxy reverso Olá
-Terminação SSL ocorre no proxy reverso hello e todos os dados do certificado de cliente hello serão perdidos. Olá serviços tooperform certificado para autenticação de cliente, definir Olá **ForwardClientCertificate** configuração na seção de parâmetros de saudação do elemento de ApplicationGateway/Http.
+## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configurar a autenticação de certificado do cliente através do proxy reverso
+A terminação SSL ocorre no proxy reverso e todos os dados de certificado do cliente são perdidos. Para que os serviços realizem a autenticação de certificado do cliente, defina a configuração **ForwardClientCertificate** na seção de parâmetros do elemento ApplicationGateway/Http.
 
-1. Quando **ForwardClientCertificate** está definido muito**false**, inversa proxy não solicitará Olá certificado de cliente durante o handshake SSL com o cliente hello.
-Este é o comportamento padrão de saudação.
+1. Quando **ForwardClientCertificate** for definido como **false**, o proxy reverso não solicitará o certificado de cliente durante o handshake de SSL com o cliente.
+Esse é o comportamento padrão.
 
-2. Quando **ForwardClientCertificate** está definido muito**true**, reverter solicitações de proxy para o certificado do cliente Olá durante o handshake SSL com o cliente de saudação.
-Em seguida, encaminhará cliente Olá dados do certificado em um cabeçalho HTTP personalizado chamado **certificado de cliente X**. valor do cabeçalho de saudação é cadeia de formato PEM Olá codificada em base64 do certificado saudação do cliente. serviço Olá pode ter êxito/falhar Olá solicite com código de status apropriado depois de inspecionar os dados do certificado hello.
-Se o cliente Olá não apresentar um certificado, o proxy reverso encaminha um cabeçalho vazio e deixe caso de Olá Olá serviço identificador.
+2. Quando **ForwardClientCertificate** for definido como **true**, o proxy reverso solicitará o certificado de cliente durante o handshake de SSL com o cliente.
+Em seguida, ele encaminhará os dados do certificado do cliente em um cabeçalho HTTP personalizado chamado **X-Client-Certificate**. O valor do cabeçalho é a cadeia de formato PEM codificado em base64 do certificado do cliente. O serviço pode conseguir ou não atender à solicitação com o código de status apropriado depois de inspecionar os dados do certificado.
+Se o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá ao serviço lidar com o caso.
 
-> Proxy reverso é um mero encaminhador. Ele não executará nenhuma validação de certificado saudação do cliente.
+> Proxy reverso é um mero encaminhador. Ele não executará nenhuma validação de certificado do cliente.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte também[configurar proxy reverso tooconnect toosecure serviços](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager proxy reverso segura de tooconfigure com opções de validação de certificado de serviço diferentes Olá amostras de modelo.
+* Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.
 * Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)

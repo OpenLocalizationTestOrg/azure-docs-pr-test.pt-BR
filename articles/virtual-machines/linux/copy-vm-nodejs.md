@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate uma cópia da sua VM do Linux com hello 1.0 da CLI do Azure | Microsoft Docs"
-description: "Saiba como toocreate uma cópia da máquina virtual do Azure Linux com hello Azure CLI 1.0 no modelo de implantação do Gerenciador de recursos de saudação"
+title: Criar e copiar da sua VM Linux com a CLI do Azure 1.0 | Microsoft Docs
+description: "Saiba como criar uma cópia de sua máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implantação do Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 997a2c8109e7083ececd76fd1013e9ed4d3e6afd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-hello-azure-cli-10"></a>Criar uma cópia de uma máquina virtual do Linux em execução no Azure com hello 1.0 da CLI do Azure
-Este artigo mostra como toocreate uma cópia de sua máquina virtual do Azure (VM) em execução Linux usando Olá modelo de implantação do Gerenciador de recursos. Primeiro copiar sobre o sistema operacional de saudação e dados discos tooa novo contêiner, e em seguida, configurar recursos de rede hello e criar nova máquina de virtual hello.
+# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Criar uma cópia de uma máquina virtual Linux em execução no Azure com a CLI do Azure 1.0
+Este artigo mostra como criar uma cópia de sua VM (máquina virtual) do Azure executando o Linux no modelo de implantação do Resource Manager. Primeiro, você copia o sistema operacional e os discos de dados para um novo contêiner e, em seguida, configura os recursos de rede para criar a nova máquina virtual.
 
 Você também pode [carregar e criar uma VM com base em uma imagem de disco personalizada](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
-Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- CLI do Azure 1.0 – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
-- [2.0 do CLI do Azure](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
+- CLI 1.0 do Azure – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
+- [CLI 2.0 do Azure](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="before-you-begin"></a>Antes de começar
-Certifique-se de que você atenda aos Olá pré-requisitos a seguir antes de começar as etapas de saudação:
+Verifique se você atende os seguintes pré-requisitos antes de iniciar as etapas:
 
-* Você tem Olá [CLI do Azure](../../cli-install-nodejs.md) baixado e instalado em seu computador. 
+* Você tem a [CLI do Azure](../../cli-install-nodejs.md) baixada e instalada em seu computador. 
 * Você também precisa de algumas informações sobre sua VM Linux do Azure existente:
 
-| Informações sobre a VM de origem | Onde tooget-lo |
+| Informações sobre a VM de origem | Onde obter |
 | --- | --- |
 | Nome da VM |`azure vm list` |
 | Nome do Grupo de Recursos |`azure vm list` |
@@ -46,10 +46,10 @@ Certifique-se de que você atenda aos Olá pré-requisitos a seguir antes de com
 | Nome do contêiner |`azure storage container list -a <sourcestorageaccountname>` |
 | Nome do arquivo VHD da VM de origem |`azure storage blob list --container <containerName>` |
 
-* Você precisará toomake algumas opções sobre a nova VM:   <br> -Nome do contêiner    <br> -Nome da VM    <br> -Tamanho da VM    <br> -Nome da VNet    <br> -Nome da sub-rede    <br> -Nome IP    <br> -Nome da NIC
+* Você precisará fazer algumas escolhas quanto a sua nova VM:    <br> -Nome do contêiner    <br> -Nome da VM    <br> -Tamanho da VM    <br> -Nome da VNet    <br> -Nome da sub-rede    <br> -Nome IP    <br> -Nome da NIC
 
 ## <a name="login-and-set-your-subscription"></a>Faça logon e configure sua assinatura
-1. Logon toohello CLI.
+1. Faça logon na CLI.
 
     ```azurecli
     azure login
@@ -59,14 +59,14 @@ Certifique-se de que você atenda aos Olá pré-requisitos a seguir antes de com
     ```azurecli
     azure config mode arm
     ```
-3. Definir a assinatura correta hello. Você pode usar 'lista de contas do azure' toosee todas as suas assinaturas.
+3. Configure a assinatura correta. Você pode usar “azure account list” para ver todas as suas assinaturas.
 
     ```azurecli
     azure account set mySubscriptionID
     ```
 
-## <a name="stop-hello-vm"></a>Parar Olá VM
-Parar e desalocar a VM de origem hello. Você pode usar 'lista de vm do azure' tooget uma lista de todas as VMs de saudação em sua assinatura e os nomes de grupo de recursos.
+## <a name="stop-the-vm"></a>Pare a VM.
+Pare e desaloque a VM de origem. Você pode usar “azure vm list” para obter uma lista de todas as VMs em sua assinatura e os nomes de seus grupos de recursos.
 
 ```azurecli
 azure vm stop myResourceGroup myVM
@@ -74,10 +74,10 @@ azure vm deallocate myResourceGroup MyVM
 ```
 
 
-## <a name="copy-hello-vhd"></a>Copiar Olá VHD
-Você pode copiar Olá VHD de destino Olá fonte armazenamento toohello usando Olá `azure storage blob copy start`. Neste exemplo, vamos toocopy Olá VHD toohello mesma conta de armazenamento, mas um contêiner diferente.
+## <a name="copy-the-vhd"></a>Copie o VHD
+Você pode copiar o VHD do armazenamento de origem para o destino usando o `azure storage blob copy start`. Neste exemplo, vamos copiar o VHD para a mesma conta de armazenamento, mas para um contêiner diferente.
 
-contêiner de tooanother VHD toocopy Olá no hello mesma conta de armazenamento, digite:
+Para copiar o VHD para outro contêiner na mesma conta de armazenamento, digite:
 
 ```azurecli
 azure storage blob copy start \
@@ -85,7 +85,7 @@ azure storage blob copy start \
         myNewContainerName
 ```
 
-## <a name="set-up-hello-virtual-network-for-your-new-vm"></a>Configurar a rede virtual Olá para sua nova VM
+## <a name="set-up-the-virtual-network-for-your-new-vm"></a>Configure a rede virtual para sua nova VM
 Configure uma rede virtual e NIC para sua nova VM. 
 
 ```azurecli
@@ -99,8 +99,8 @@ azure network nic create myResourceGroup myNic -k mySubnet -m myVnet -p myPublic
 ```
 
 
-## <a name="create-hello-new-vm"></a>Criar hello nova VM
-Agora você pode criar uma máquina virtual do disco virtual carregado [usando um modelo do Gerenciador de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) ou por meio de saudação CLI especificando Olá URI tooyour copiados disco digitando:
+## <a name="create-the-new-vm"></a>Crie a nova VM
+Agora, você pode criar uma VM com base no disco virtual carregado [usando um modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) ou por meio da CLI, especificando o URI para seu disco copiado digitando:
 
 ```azurecli
 azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
@@ -111,5 +111,5 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 
 ## <a name="next-steps"></a>Próximas etapas
-toolearn como toouse CLI do Azure toomanage nova máquina virtual, consulte [comandos de CLI do Azure para hello Azure Resource Manager](../azure-cli-arm-commands.md).
+Para saber como usar a CLI do Azure para gerenciar sua nova máquina virtual, consulte [Comandos da CLI do Azure para o Azure Resource Manager](../azure-cli-arm-commands.md).
 

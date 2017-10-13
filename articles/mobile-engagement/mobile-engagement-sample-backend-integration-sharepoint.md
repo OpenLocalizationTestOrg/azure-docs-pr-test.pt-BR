@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement - integração do back-end"
-description: Conecte-se do Azure Mobile Engagement com um campanhas de toocreate de back-end do SharePoint do SharePoint
+title: "Azure Mobile Engagement - integração do back-end"
+description: Conectar o Azure Mobile Engagement com um back-end do SharePoint para criar campanhas do SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 89e1ef57db607d63c326a760b20260ad439f08b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Integração da API do Azure Mobile Engagement
-Em um sistema automatizado de marketing, criar e ativar Olá campanhas de marketing também ocorrem automaticamente. Para essa finalidade - o Azure Mobile Engagement permite criar essas campanhas de marketing automatizadas usando também as APIs. 
+Em um sistema automatizado de marketing, a criação e ativação das campanhas de marketing também ocorrerem automaticamente. Para essa finalidade - o Azure Mobile Engagement permite criar essas campanhas de marketing automatizadas usando também as APIs. 
 
-Os clientes usam Olá Mobile Engagement front-end interface toocreate anúncios/pesquisas etc como parte de suas campanhas de marketing. No entanto, como Olá se tornam consolidadas de campanhas de marketing, é necessário tooleverage Olá os dados bloqueados em sistemas de back-end de saudação (como qualquer sistema CRM ou sistema CMS como SharePoint) para que possa ser criado um pipeline totalmente automatizado que cria campanhas no celular Contrato dinamicamente com base em fluxo de sistemas de back-end de saudação de dados hello. 
+Normalmente os clientes usam a interface de front-end do Mobile Engagement para criar anúncios/pesquisas etc como parte de suas campanhas de marketing. No entanto conforme as campanhas de marketing ficam maduras, é necessário aproveitar os dados bloqueados nos sistemas de back-end (como qualquer sistema CRM ou sistema CMS como o SharePoint) para que possa ser criado um pipeline totalmente automatizado que cria campanhas em Mobile Engagement dinamicamente com base nos dados que fluem dos sistemas back-end. 
 
 ![][5]
 
-Este tutorial vai por meio do cenário em que um usuário de negócios do SharePoint preenche uma lista do SharePoint com dados de marketing e um processo automatizado seleciona itens da lista de saudação e conecta-se com hello Mobile Engagement sistema usando Olá disponíveis APIs de REST toocreate uma campanha de marketing de dados do SharePoint de saudação. 
+Este tutorial passa pelo cenário em que um usuário de negócios do SharePoint preenche uma lista do SharePoint com dados de marketing e um processo automatizado pega itens da lista e conecta-se com o sistema Mobile Engagement usando as APIs REST disponíveis para criar uma campanha de marketing dos dados do SharePoint. 
 
 > [!IMPORTANT]
-> Em geral, você pode usar este exemplo como um ponto de partida para entender como toocall qualquer API de REST do Mobile Engagement como detalhes Olá dois aspectos-chave da chamada hello APIs - autenticando e passando parâmetros. 
+> Em geral, é possível usar este exemplo como ponto de partida para entender como chamar qualquer API REST do Mobile Engagement, pois ela detalha os dois principais aspectos de chamar as APIs - autenticação e passagem de parâmetros. 
 > 
 > 
 
 ## <a name="sharepoint-integration"></a>Integração do SharePoint
-1. Aqui está o exemplo hello aparência de lista do SharePoint. **Título**, **categoria**, **NotificationTitle**, **mensagem** e **URL** são usadas para criar o anúncio de saudação. Há uma coluna chamada **IsProcessed** que é usada pelo processo de automação de exemplo hello na forma de saudação de um programa de console. Você pode executar esse programa de console como um trabalho de Web do Azure para que agendá-la ou diretamente você pode usar Olá SharePoint fluxo de trabalho tooprogram criando e comunicado de saudação de ativação quando um item é inserido na lista do SharePoint hello. Neste exemplo, usamos programa do console Olá que vai nos itens de saudação de saudação do SharePoint lista e criar o anúncio no Azure Mobile Engagement para cada um deles e, em seguida, por fim, marca Olá **IsProcessed** true toobe sinalizador criação bem-sucedida de anúncio.
+1. A lista do SharePoint de exemplo é semelhante ao seguinte. **Title**, **Category**, **NotificationTitle**, **Message** e **URL** são usados para criar o anúncio. Há uma coluna chamada **IsProcessed** que é usada pelo processo de automação de exemplo na forma de um programa de console. É possível executar esse console do programa como um Trabalho Web do Azure para que você pode programá-lo ou usar diretamente o fluxo de trabalho do SharePoint para programar a criação e ativação do anúncio quando um item é inserido na lista do SharePoint. Neste exemplo, usamos o programa de console que vai pelos itens da lista do SharePoint e cria um anúncio no Azure Mobile Engagement para cada um deles e, em seguida, marca o sinalizador **IsProcessed** como true na criação do anúncio com êxito.
    
     ![][1]
-2. Estamos usando o código de saudação do exemplo hello *autenticação remota na saudação do SharePoint Online usando o modelo de objeto do cliente* [aqui](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) tooauthenticate com a lista do SharePoint hello.
-3. Uma vez autenticado, executamos um loop Olá toofind de itens de lista os itens criados recentemente (que tem **IsProcessed** = false). 
+2. Estamos usando o código do exemplo *Autenticação remota no SharePoint Online usando o modelo de objeto do cliente* [aqui](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) para autenticar com a lista do SharePoint.
+3. Depois de autenticado, executamos um loop pelos itens de lista para localizar os itens recém-criados (que têm **IsProcessed** = false). 
    
          static async void CreateCampaignFromSharepoint()
         {
@@ -52,12 +52,12 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                 query.ViewXml = "<View/>";
                 ListItemCollection items = list.GetItems(query);
    
-                // Load hello SharePoint list
+                // Load the SharePoint list
                 clientContext.Load(list);
                 clientContext.Load(items);
                 clientContext.ExecuteQuery();
    
-                // Loop through hello list toogo through all hello items which are newly added
+                // Loop through the list to go through all the items which are newly added
                 foreach (ListItem item in items)
                     if (item["IsProcessed"].ToString() != "Yes")
                     {
@@ -67,16 +67,16 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                         string category = item["Category"].ToString();
                         string actionURL = ((FieldUrlValue)item["URL"]).Url;
    
-                        // Send an HTTP request toocreate AzME campaign
+                        // Send an HTTP request to create AzME campaign
                         int campaignId = CreateAzMECampaign
                             (name, notificationTitle, notificationMessage, category, actionURL).Result;
    
                         if (campaignId != -1)
                         {
-                            // If creating campaign is successful then set this tootrue
+                            // If creating campaign is successful then set this to true
                             item["IsProcessed"] = "Yes";
    
-                            // Now try tooactivate hello campaign also
+                            // Now try to activate the campaign also
                             await ActivateAzMECampaign(campaignId);
                         }
                         else
@@ -90,8 +90,8 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
         }
 
 ## <a name="mobile-engagement-integration"></a>Integração do Mobile Engagement
-1. Quando encontramos um item que requer processamento - é extrair informações Olá necessárias toocreate um anúncio da saudação do item de lista e chame `CreateAzMECampaign` toocreate-lo e, subsequentemente, `ActivateAzMECampaign` tooactivate-lo. Esses são essencialmente chamadas da API REST chamar back-end do toohello Mobile Engagement. 
-2. Olá APIs de REST do Mobile Engagement exigem um **cabeçalho de autorização HTTP do esquema de autenticação básica** que é composto de saudação `ApplicationId` e hello `ApiKey` que você obtém do hello portal do Azure. Certifique-se de que você está usando Olá chave do hello **chaves de api** seção e *não* de saudação **sdk chaves** seção. 
+1. Depois de encontrarmos um item que requer processamento - podemos extrair as informações necessárias para criar um anúncio do item de lista e chamada `CreateAzMECampaign` para criá-lo e subsequentemente `ActivateAzMECampaign` para ativá-lo. Essas são essencialmente chamadas da API REST chamaando para o back-end do Mobile Engagement. 
+2. As APIs REST do Mobile Engagement exigem um **Cabeçalho de autenticação HTTP de esquema de autenticação básica** composto pelo `ApplicationId` e pelo `ApiKey` que você obtém do portal do Azure. Certifique-se de estar usando a chave da seção **chaves de api** e *não* da seção **chaves do sdk**. 
    
    ![][2]
    
@@ -107,7 +107,7 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
            return returnValue;
        }  
-3. Para criar tipo de anúncio de saudação da campanha - consulte toohello [documentação](https://msdn.microsoft.com/library/azure/mt683750.aspx). Você precisa toomake-se de que você está especificando campanha Olá `kind` como *comunicado* e hello [carga](https://msdn.microsoft.com/library/azure/mt683751.aspx) e passá-lo como FormUrlEncodedContent. 
+3. Para criar a campanha do tipo do anúncio - consulte a [documentação](https://msdn.microsoft.com/library/azure/mt683750.aspx). Você precisará se certificar de que está especificando a campanha `kind` como *anúncio* e [carga](https://msdn.microsoft.com/library/azure/mt683751.aspx) e passá-la como FormUrlEncodedContent. 
    
         static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -119,7 +119,7 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                 // Add Authorization Header
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
    
-                // Create hello payload toosend hello content
+                // Create the payload to send the content
                 // Reference -> https://msdn.microsoft.com/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
@@ -135,13 +135,13 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                     new KeyValuePair<string, string>("data", data),
                 });
    
-                // Send hello POST request
+                // Send the POST request
                 var response = await client.PostAsync(url + createURIFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 int campaignId = -1;
                 if (response.StatusCode.ToString() == "OK")
                 {
-                    // This is hello campaign id
+                    // This is the campaign id
                     campaignId = Convert.ToInt32(responseString);
                     Console.WriteLine("Campaign successfully created with id {0}", campaignId);
                 }
@@ -152,10 +152,10 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                 return campaignId;
             }
         }
-4. Uma vez que o anúncio Olá criado, você verá algo parecido com hello a seguir no portal do Mobile Engagement hello (Observe que Olá estado = rascunho e ativado = n/d)
+4. Uma vez que o anúncio é criado, você verá algo semelhante ao seguinte no portal Mobile Engagement (observe que Estado = Rascunho e Ativado = N/A)
    
     ![][3]
-5. `CreateAzMECampaign`cria uma campanha de anúncio e retorna seu chamador toohello de Id. `ActivateAzMECampaign`requer essa Id como campanha de Olá Olá parâmetro tooactivate. 
+5. `CreateAzMECampaign` cria uma campanha de anúncio e retorna sua identificação para o chamador. `ActivateAzMECampaign` necessita dessa Id como o parâmetro para ativar a campanha. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {
@@ -171,7 +171,7 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                     new KeyValuePair<string, string>("id", campaignId.ToString()),
                 });
    
-                // Send hello POST request
+                // Send the POST request
                 var response = await client.PostAsync(url + activateUriFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 if (response.StatusCode.ToString() == "OK")
@@ -186,13 +186,13 @@ Este tutorial vai por meio do cenário em que um usuário de negócios do ShareP
                 }
             }
         }
-6. Uma vez que o anúncio Olá ativado, você verá algo parecido com hello seguinte no portal do Mobile Engagement hello:
+6. Uma vez que o anúncio é ativado, você verá algo semelhante ao seguinte no portal Mobile Engagement:
    
     ![][4]
-7. Assim que a campanha Olá obtém ativada, quaisquer dispositivos que satisfazem o critério Olá campanha Olá iniciará vendo notificações. 
-8. Você observará aquele item de lista Olá marcado com IsProcessed = false tiver sido definido tooTrue quando Olá comunicado campanha foi criada.  
+7. Assim que a campanha é ativada, os dispositivos que atendem aos critérios da campanha começarão a ver notificações. 
+8. Você também observará que o item de lista marcada com IsProcessed = false foi definido como True depois que a campanha de anúncio foi criada.  
 
-Este exemplo criado uma campanha de anúncio simples especificando principalmente Olá necessário propriedades. Você pode personalizá-la tanto quanto pode do portal hello usando informações de saudação [aqui](https://msdn.microsoft.com/library/azure/mt683751.aspx). 
+Esse exemplo criou uma campanha de anúncio simples especificando principalmente as propriedades necessárias. Você pode personalizá-la tanto quanto possível a partir do portal usando as informações [aqui](https://msdn.microsoft.com/library/azure/mt683751.aspx). 
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png

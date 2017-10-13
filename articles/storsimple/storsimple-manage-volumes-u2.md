@@ -1,6 +1,6 @@
 ---
-title: aaaManage seus volumes do StorSimple (U2) | Microsoft Docs
-description: "Explica como tooadd, modificar, monitorar e excluir volumes do StorSimple e tootake-los offline, se necessário."
+title: Gerenciar seus volumes do StorSimple (U2) | Microsoft Docs
+description: "Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-ms.openlocfilehash: 8b64f1d92023646cdf881882854d9bc5d7334a10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomanage-volumes-update-2"></a>Usar Olá StorSimple Manager serviço toomanage volumes (atualização 2)
+# <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## <a name="overview"></a>Visão geral
-Este tutorial explica como toouse Olá toocreate do serviço StorSimple Manager e gerenciar volumes no dispositivo do StorSimple hello e o dispositivo virtual StorSimple com atualização 2 instalado.
+Este tutorial explica como usar o serviço StorSimple Manager para criar e gerenciar volumes no dispositivo StorSimple e no dispositivo virtual StorSimple com Atualização 2 instalada.
 
-Olá serviço StorSimple Manager é uma extensão em Olá portal clássico do Azure que permite que você gerencie sua solução StorSimple de uma única interface da web. Em volumes de toomanaging adição, você pode usar toocreate de serviço do StorSimple Manager hello e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup hello.
+O serviço StorSimple Manager é uma extensão do portal clássico do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
 
 ## <a name="volume-types"></a>Tipos de volumes
 Os volumes do StorSimple podem ser:
 
-* **Localmente afixado volumes**: dados nesses volumes permanecem no dispositivo StorSimple local de saudação em todos os momentos.
-* **Em camadas volumes**: dados nesses volumes podem despejar toohello nuvem.
+* **Volumes fixados localmente**: os dados desses volumes permanecem no dispositivo StorSimple local em todos os momentos.
+* **Volumes hierárquicos**: os dados desses volumes podem transbordar para a nuvem.
 
-Um volume de arquivamento é um tipo de volume em camadas. Olá maior eliminação de duplicação parte tamanho usado para volumes de arquivamento permite que os segmentos maior de saudação dispositivo tootransfer de toohello de dados na nuvem. 
+Um volume de arquivamento é um tipo de volume em camadas. O maior tamanho de bloco de eliminação de duplicação usado para volumes de arquivamento permite que o dispositivo transfira mais segmentos de dados para a nuvem. 
 
-Se necessário, você pode alterar o tipo de volume de saudação de tootiered local ou de toolocal em camadas. Para obter mais informações, vá muito[alterar o tipo de volume Olá](#change-the-volume-type).
+Se necessário, você pode alterar o tipo de volume de local para camadas ou de camadas para local. Para obter mais informações, vá para [Alterar o tipo de volume](#change-the-volume-type).
 
 ### <a name="locally-pinned-volumes"></a>Volumes fixados localmente
-Volumes localmente afixados são totalmente provisionados volumes que não camada de dados na nuvem toohello, garantindo assim local garante de dados primários, independentemente de conectividade de nuvem. Dados em volumes afixados localmente não são deduplicados nem compactados; no entanto, instantâneos de volumes afixados localmente são deduplicados. 
+Volumes afixados localmente são volumes totalmente provisionados que não colocam os dados em camadas na nuvem, dando garantia local a dados primário, independentes da conectividade de nuvem. Dados em volumes afixados localmente não são deduplicados nem compactados; no entanto, instantâneos de volumes afixados localmente são deduplicados. 
 
-Volumes afixados localmente são totalmente provisionados; portanto, você deve ter espaço suficiente no dispositivo ao criá-los. Você pode provisionar volumes localmente afixados até tooa o tamanho máximo de 8 TB no dispositivo Olá StorSimple 8100 e 20 TB em dispositivo 8600 de saudação. StorSimple reserva espaço local restantes em Olá no dispositivo de saudação de instantâneos, metadados e processamento de dados. Você pode aumentar o tamanho de saudação de um volume localmente afixado toohello espaço máximo disponível, mas não é possível diminuir o tamanho de saudação de um volume depois de criado.
+Volumes afixados localmente são totalmente provisionados; portanto, você deve ter espaço suficiente no dispositivo ao criá-los. Você pode provisionar volumes afixados localmente até um tamanho máximo de 8 TB no dispositivo StorSimple 8100 e 20 TB no dispositivo 8600. O StorSimple reserva o espaço local restante no dispositivo para instantâneos, metadados e processamento de dados. Você pode aumentar o tamanho de um volume afixado localmente para o espaço máximo disponível, mas não é possível diminuir o tamanho de um volume depois de criado.
 
-Quando você cria um volume localmente afixado, o espaço disponível de saudação para criação de volumes em camadas é reduzido. Olá inverso também é verdadeiro: se você tiver volumes em camadas existentes, Olá espaço para criar localmente fixados volumes será menor do que os limites máximos Olá mencionados acima. Para obter mais informações sobre volumes locais, consulte toohello [perguntas frequentes sobre volumes localmente afixados](storsimple-local-volume-faq.md).   
+Quando você cria um volume afixado localmente, o espaço disponível para criação de volumes em camadas é reduzido. O inverso também é verdadeiro: se você tiver volumes em camadas existentes, o espaço disponível para criar volume afixado localmente será menor do que os limites máximos mencionados acima. Para saber mais sobre volumes locais, confira as [Perguntas frequentes sobre volumes afixados localmente](storsimple-local-volume-faq.md).   
 
 ### <a name="tiered-volumes"></a>Volumes hierárquicos
-Volumes em camadas são volumes escassamente provisionados no qual Olá frequentemente dados acessados permanece local no dispositivo hello e menos dados usados com frequência é automaticamente hierárquico toohello nuvem. O provisionamento dinâmico é uma tecnologia de virtualização na qual o armazenamento disponível aparece recursos físicos tooexceed. Em vez de reservar um armazenamento suficiente antecedência, StorSimple usa tooallocate provisionamento thin suficiente requisitos de espaço atual em toomeet. a natureza elástica Olá de armazenamento em nuvem facilita essa abordagem porque StorSimple pode aumentar ou diminuir a nuvem armazenamento toomeet demandas em constante mudança.
+Volumes em camadas são volumes escassamente provisionados no qual os dados acessados com frequência permanecem locais no dispositivo e os menos usados são colocados automaticamente em camadas na nuvem. Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
 
-Se você estiver usando Olá volume em camadas para dados de arquivamento, selecionando Olá **usar este volume para dados de arquivamento acessados com frequência menos** caixa de seleção altera o tamanho do bloco de eliminação de duplicação de saudação para seu volume too512 KB. Se você não selecionar essa opção, o volume em camadas correspondente de saudação usará um tamanho de bloco de 64 KB. Um tamanho de bloco de eliminação de duplicação maior permite a transferência de saudação do hello dispositivo tooexpedite da nuvem de toohello grandes de dados de arquivamento.
+Se você estiver usando o volume em camadas para dados de arquivamento, marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** alterará o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivo grandes para a nuvem.
 
 > [!NOTE]
-> Arquivamento volumes criados com uma versão de pré-atualização 2 do StorSimple serão importados como em camadas com hello arquivamento caixa de seleção.
+> Volumes de arquivamento criados com uma versão anterior à atualização 2 do StorSimple serão importados em camadas, com a caixa de seleção de arquivamento marcada.
 > 
 > 
 
 ### <a name="provisioned-capacity"></a>Capacidade provisionada
-Consulte toohello para máxima capacidade provisionada para cada tipo de dispositivo e o volume a tabela a seguir. (Observe que os volumes afixados localmente não estão disponíveis em um dispositivo virtual.)
+Consulte a tabela a seguir para máxima capacidade provisionada para cada tipo de dispositivo e volume. (Observe que os volumes afixados localmente não estão disponíveis em um dispositivo virtual.)
 
 |  | Tamanho máximo do volume em camadas | Tamanho máximo de volume afixado localmente |
 | --- | --- | --- |
@@ -67,26 +67,26 @@ Consulte toohello para máxima capacidade provisionada para cada tipo de disposi
 | 8010 |30 TB |N/D |
 | 8020 |64 TB |N/D |
 
-## <a name="hello-volumes-page"></a>página de Volumes Olá
-Olá **Volumes** página permite que você toomanage Olá os volumes de armazenamento que são provisionados no dispositivo do Microsoft Azure StorSimple Olá para os seus iniciadores (servidores). Ele exibe a lista de saudação de volumes em seu dispositivo StorSimple.
+## <a name="the-volumes-page"></a>A página Volumes
+A página **Volumes** página permite que você gerencie os volumes de armazenamento provisionados no dispositivo Microsoft Azure StorSimple para os iniciadores (servidores). Ela exibe a lista de volumes no seu dispositivo StorSimple.
 
  ![Página Volumes](./media/storsimple-manage-volumes-u2/VolumePage.png)
 
 Um volume consiste em uma série de atributos:
 
-* **Nome do volume** – um nome descritivo que deve ser exclusivo e ajuda a identificar o volume de saudação. Esse nome também é usado em relatórios de monitoramento ao filtrar um volume específico.
-* **Status** – Pode ser online ou offline. Se o volume estiver offline, não é visível tooinitiators (servidores) que têm permissão de acesso toouse Olá volume.
-* **Capacidade** – Especifica a quantidade total de saudação de dados que podem ser armazenados pelo iniciador da saudação (servidor). Volumes localmente fixados são totalmente provisionados e residem no dispositivo do StorSimple hello. Volumes em camadas são escassamente provisionados e eliminação de duplicação de dados de saudação. Com volumes de provisionamento thin, seu dispositivo não pré-aloca a capacidade de armazenamento físico internamente ou na nuvem de saudação de acordo com a capacidade de volume tooconfigured. a capacidade de volume Olá é alocada e consumida sob demanda.
-* **Tipo** – indica se o volume de saudação é **em camadas** (Olá padrão) ou **localmente afixado**.
-* **Backup** – indica se uma política de backup padrão existe para o volume de saudação.
-* **Acesso** – Especifica os iniciadores de saudação (servidores) que têm permissão de acesso toothis volume. Os iniciadores que não são membros de registro de controle de acesso (ACR) que está associado ao volume de saudação não poderão ver o volume de saudação.
-* **Monitoramento** – Especifica se um volume está sendo monitorado. Um volume terá o monitoramento ativado por padrão quando ele é criado. O monitoramento será, no entanto, desabilitado para um clone de volume. tooenable monitoramento para um volume, siga as instruções de saudação em [monitorar um volume](#monitor-a-volume). 
+* **Nome** – Um nome descritivo que deve ser exclusivo e que ajuda a identificar o volume. Esse nome também é usado em relatórios de monitoramento ao filtrar um volume específico.
+* **Status** – Pode ser online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm permissão de acesso para usar o volume.
+* **Capacidade** – especifica a quantidade total de dados que pode ser armazenada pelo iniciador (servidor). Volumes afixados localmente são totalmente provisionados e residem no dispositivo StorSimple. Volumes em camada são escassamente provisionados e os dados são deduplicados. Com volumes escassamente provisionados, o dispositivo não aloca previamente capacidade interna de armazenamento físico, nem na nuvem, de acordo com a capacidade de volume configurada. A capacidade de volume é alocada e consumida por demanda.
+* **Tipo** – Indica se o volume é **Em camadas** (o padrão) ou **Afixados localmente**.
+* **Backup** – Indica se uma política de backup padrão existe para o volume.
+* **Acesso** – Especifica os iniciadores (servidores) que podem acessar este volume. Os iniciadores que não são membros do registro de controle de acesso (ACR) que está associado com o volume não verão o volume.
+* **Monitoramento** – Especifica se um volume está sendo monitorado. Um volume terá o monitoramento ativado por padrão quando ele é criado. O monitoramento será, no entanto, desabilitado para um clone de volume. Para habilitar o monitoramento de um volume, siga as instruções em [Monitorar um volume](#monitor-a-volume). 
 
-Use as instruções de saudação este Olá tooperform tutorial tarefas a seguir:
+Use as instruções neste tutorial para executar as seguintes tarefas:
 
 * Adicionar um volume 
 * Modificar um volume 
-* Alterar o tipo de volume Olá
+* Alterar o tipo de volume
 * Excluir um volume 
 * Colocar um volume offline 
 * Monitorar um volume 
@@ -94,146 +94,146 @@ Use as instruções de saudação este Olá tooperform tutorial tarefas a seguir
 ## <a name="add-a-volume"></a>Adicionar um volume
 Você [criou um volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) durante a implantação da solução StorSimple. Adicionar um volume é um procedimento semelhante.
 
-#### <a name="tooadd-a-volume"></a>tooadd um volume
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Selecione um contêiner de volume na lista de saudação e clique duas vezes nele tooaccess Olá volumes associados ao contêiner de saudação.
-3. Clique em **adicionar** final Olá Olá página. Inicia o Assistente adicionar um volume de saudação.
+#### <a name="to-add-a-volume"></a>Para adicionar um volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
+2. Selecione um contêiner de volume na lista e clique duas vezes para acessar os volumes associados ao contêiner.
+3. Clique em **Adicionar** na parte inferior da página. Isso inicia o assistente Adicionar um volume.
    
      ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
-4. Em hello Assistente de adição de um volume, em **configurações básicas**, Olá a seguir:
+4. No assistente Adicionar um volume, em **Configurações Básicas**, faça o seguinte:
    
    1. Digite um **Nome** para o seu volume.
-   2. Selecione um **tipo de uso** da lista suspensa de saudação. Para cargas de trabalho que exigem dados toobe disponível localmente no dispositivo de saudação em todos os momentos, selecione **localmente afixado**. Para todos os outros tipos de dados, selecione **Em camadas**. (**Em camadas** é saudação padrão.)
-   3. Se você selecionou **em camadas** na etapa 2, você pode selecionar Olá **usar este volume para dados de arquivamento acessados com frequência menos** caixa de seleção tooconfigure um volume de arquivamento.
-   4. Digite hello **capacidade provisionada** para seu volume em GB ou TB. Consulte [Capacidade provisionada](#provisioned-capacity) para tamanhos máximos de cada dispositivo e tipo de volume. Examinar Olá **capacidade disponível** toodetermine quanto armazenamento está realmente disponível no seu dispositivo.
-5. Clique no ícone de seta Olá![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Se você estiver configurando um volume localmente afixado, você verá a seguinte mensagem de saudação.
+   2. Selecione um **Tipo de Uso** na lista suspensa. Para cargas de trabalho que exigem dados disponíveis localmente no dispositivo em todos os momentos, selecione **Localmente Afixado**. Para todos os outros tipos de dados, selecione **Em camadas**. (**Em camadas** é o padrão.)
+   3. Se você selecionou **Em camadas** na etapa 2, pode marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para configurar um volume de arquivamento.
+   4. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. Consulte [Capacidade provisionada](#provisioned-capacity) para tamanhos máximos de cada dispositivo e tipo de volume. Examine a **Capacidade Disponível** para determinar a quantidade de armazenamento disponível no dispositivo.
+5. Clique no ícone de seta![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Se você estiver configurando um volume afixado localmente, verá a seguinte mensagem de erro.
    
     ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
-6. Clique no ícone de seta Olá ![ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)novamente toogo toohello **configurações adicionais** página.
+6. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)novamente para ir para a página **Configurações Adicionais** .
    
     ![Configurações adicionais do assistente para Adicionar volume](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
 7. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
    
-   1. Selecione um registro de controle de acesso (ACR) na lista suspensa de saudação. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar seus volumes por correspondência Olá IQN de host com o listado no registro de saudação. Se você não especificar um ACR, você verá a seguinte mensagem de saudação.
+   1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro. Se você não especificar um ACR, verá a seguinte mensagem de erro.
       
         ![Especifique um ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-   2. Recomendamos que você selecione Olá **habilitar um backup padrão para este volume** caixa de seleção.
-   3. Clique o ícone de verificação Olá ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) volume de saudação toocreate com hello especificado as configurações.
+   2. É recomendável que você marque a caixa de seleção **Habilitar um backup padrão para este volume** .
+   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 
-Novo volume agora está pronto toouse.
+O seu novo volume agora está pronto para uso.
 
 > [!NOTE]
-> Se você cria um volume afixado localmente e, em seguida, cria outro localmente fixados volume imediatamente depois disso, os trabalhos de criação de volume Olá são executados sequencialmente. trabalho de criação de volume primeiro Olá deve concluir antes de começar o próximo trabalho de criação de volume hello.
+> Se você criar um volume afixado localmente e depois criar outro volume afixado localmente imediatamente, os trabalhos de criação de volumes serão executados sequencialmente. O primeiro trabalho de criação de volume deve terminar antes de começar o próximo trabalho de criação de volume.
 > 
 > 
 
 ## <a name="modify-a-volume"></a>Modificar um volume
-Modificar um volume quando precisar tooexpand-lo ou alterar Olá hosts que acessam o volume de saudação.
+Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
 > [!IMPORTANT]
-> * Se você modificar o tamanho do volume Olá no dispositivo Olá, tamanho do volume Olá precisa toobe alterado no host de saudação também. 
-> * etapas do lado do host Olá descritas aqui são para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte tooyour instruções do sistema operacional de host ao modificar o volume de saudação em um host executando outro sistema operacional. 
+> * Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. 
+> * As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional. 
 > 
 > 
 
-#### <a name="toomodify-a-volume"></a>toomodify um volume
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Selecione um contêiner de volume na lista de saudação e clique duas vezes nele volumes de saudação tooview associados ao contêiner de saudação.
-3. Selecione um volume e final Olá Olá página, clique em **modificar**. Olá Modificar volume assistente é iniciado.
-4. Em Olá Assistente para modificar volume, em **configurações básicas**, você pode fazer a seguir hello:
+#### <a name="to-modify-a-volume"></a>Para modificar um volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
+2. Selecione um contêiner de volume na lista e clique duas vezes para exibir os volumes associados ao contêiner.
+3. Selecione um volume e, na parte inferior da página, clique em **Modificar**. O assistente Modificar volume é iniciado.
+4. No assistente Adicionar um volume, em **Configurações Básicas**, você pode fazer o seguinte:
    
-   * Editar saudação **nome**.
-   * Converter Olá **tipo de uso** de tootiered localmente afixado ou de toolocally hierárquico fixado (consulte [alterar o tipo de volume Olá](#change-the-volume-type) para obter mais informações).
-   * Aumentar Olá **capacidade provisionada**. Olá **capacidade provisionada** só pode ser aumentado. Não é possível reduzir um volume depois que ele é criado.
-5. Em **configurações adicionais**, você pode modificar Olá ACR, desde que o volume de saudação está offline. Se o volume de saudação estiver online, você precisará tootake-lo primeiro offline. Consulte as etapas toohello [colocar um volume offline](#take-a-volume-offline) toomodifying anterior Olá ACR.
+   * Edite o **Nome**.
+   * Converta **Tipo de Uso** de afixado localmente para em camadas ou de em camadas para afixado localmente (consulte [Alterar o tipo de volume](#change-the-volume-type) para obter mais informações).
+   * Aumentar a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
+5. Em **Configurações Adicionais**, você pode modificar o ACR, desde que o volume esteja offline. Se o volume estiver online, você precisará colocá-lo offline primeiro. Consulte as etapas em [Colocar um volume offline](#take-a-volume-offline) antes de modificar o ACR.
    
    > [!NOTE]
-   > Não é possível alterar Olá **habilitar um backup padrão** opção para o volume de saudação.
+   > Você não pode alterar a opção **Habilitar um backup padrão** para o volume.
    > 
    > 
-6. Salvar as alterações clicando o ícone de verificação de saudação ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Olá portal clássico do Azure exibirá uma mensagem de volume de atualização. Ele exibirá uma mensagem de êxito quando o volume de saudação foi atualizado com êxito.
-7. Se você está expandindo um volume, conclua Olá seguindo as etapas em seu computador de host do Windows:
+6. Salve suas alterações, clicando no ícone de verificação  ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
    
-   1. Vá muito**gerenciamento do computador** ->**gerenciamento de disco**.
+   1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de saudação de discos, selecione o volume Olá atualizados, com o botão direito e selecione **estender Volume**. Olá estender Volume assistente é iniciado. Clique em **Avançar**.
-   4. Conclua o Assistente de saudação, aceitando os valores padrão de saudação. Concluído o Assistente de saudação, volume Olá deve mostrar Olá maior tamanho.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
+   4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
-      > Se você expandir um volume localmente afixado e, em seguida, expanda outro localmente fixados volume logo depois, trabalhos de expansão de volume Olá são executados sequencialmente. trabalho de expansão de volume primeiro Olá deve concluir antes de começar o próximo trabalho de expansão de volume hello.
+      > Se você expandir um volume afixado localmente e depois expandir outro volume afixado localmente imediatamente, os trabalhos de expansão de volumes serão executados sequencialmente. O primeiro trabalho de expansão de volume deve terminar antes de começar o próximo trabalho de expansão de volume.
       > 
       > 
 
 ![Vídeo disponível](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vídeo disponível**
 
-toowatch um vídeo que demonstra como tooexpand um volume, clique em [aqui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
+Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
-## <a name="change-hello-volume-type"></a>Alterar o tipo de volume Olá
-Você pode alterar o tipo de volume de saudação do toolocally hierárquico fixado ou de tootiered localmente afixado. No entanto, essa conversão não deve ser uma ocorrência frequente. Algumas das razões para a conversão de um volume em camadas toolocally fixado são:
+## <a name="change-the-volume-type"></a>Alterar o tipo de volume
+Se necessário, você pode alterar o tipo de volume de em camadas para afixado localmente ou de afixado localmente para em camadas. No entanto, essa conversão não deve ser uma ocorrência frequente. Algumas razões para converter um volume em camadas para afixado localmente são:
 
 * Garantias locais sobre disponibilidade e desempenho dos dados
 * Eliminação de latências de nuvem e problemas de conectividade de nuvem.
 
-Normalmente, esses são pequenos volumes existentes que você deseja tooaccess com frequência. Um volume afixado localmente é totalmente provisionado quando é criado. Se você estiver convertendo um volume do volume em camadas tooa fixado localmente, StorSimple verifica se você tem espaço suficiente em seu dispositivo antes de começar a conversão de saudação. Se você tiver espaço suficiente, você receberá um erro e operação hello será cancelada. 
+Geralmente, existem pequenos volumes que você quer acessar com frequência. Um volume afixado localmente é totalmente provisionado quando é criado. Se você estiver convertendo um volume em camadas para um volume afixado localmente, o StorSimple verifica se você tem espaço suficiente no dispositivo antes de iniciar a conversão. Se não houver espaço suficiente, você receberá um erro e a operação será cancelada. 
 
 > [!NOTE]
-> Antes de começar uma conversão de em camadas toolocally fixado, certifique-se de que você considere Olá requisitos de espaço de outras cargas de trabalho. 
+> Antes de começar uma conversão de em camadas para afixado localmente, verifique se você considera os requisitos de espaço de outras cargas de trabalho. 
 > 
 > 
 
-Talvez você queira toochange tooa um volume localmente afixado em camadas volume se você precisar de mais espaço tooprovision outros volumes. Quando você converte Olá localmente afixado volume tootiered, Olá capacidade disponível no aumento de dispositivo Olá por tamanho de saudação da capacidade de saudação liberada. Se problemas de conectividade impedir que a conversão de saudação de um volume de saudação tipo local toohello hierárquico tipo, hello volume local exibirá propriedades de um volume em camadas até que a conversão de saudação é concluída. Isso ocorre porque alguns dados podem ter vazados toohello nuvem. Esses dados derramados continuarão toooccupy o espaço local no dispositivo Olá que não pode ser liberado até que a operação de saudação é reiniciada e concluída.
+Altere um volume afixado localmente para um volume em camadas se precisar de espaço adicional para provisionar outros volumes. Ao converter o volume afixado localmente em camadas, a capacidade disponível no dispositivo aumenta de acordo com a capacidade liberada. Se problemas de conectividade impedirem a conversão de um volume de tipo local para tipo em camadas, o volume local exibirá propriedades de um volume em camadas até que a conversão seja concluída. Isso ocorre porque alguns dados podem ter sido despejados na nuvem. Esses dados despejados continuarão a ocupar espaço local no dispositivo que não pode ser liberado até que a operação seja iniciada e concluída.
 
 > [!NOTE]
-> Converter um volume pode levar algum tempo e não é possível cancelar uma conversão depois de iniciada. volume Olá permanecerá online durante a conversão de Olá e fazer o backup, mas você não pode expandir ou restaurar o volume de saudação enquanto conversão Olá estiver ocorrendo.  
+> Converter um volume pode levar algum tempo e não é possível cancelar uma conversão depois de iniciada. O volume permanece online durante a conversão e você pode fazer backups, mas não pode expandir nem restaurar o volume durante a conversão.  
 > 
 > 
 
-Conversão de um volume em camadas tooa localmente afixado pode afetar adversamente o desempenho do dispositivo. Além disso, Olá fatores a seguir pode aumentar o tempo de saudação que leva a conversão de saudação toocomplete:
+A conversão de um volume em camadas em um volume fixo local pode prejudicar o desempenho do dispositivo. Além disso, os seguintes fatores podem aumentar o tempo necessário para concluir a conversão:
 
 * Não há largura de banda suficiente.
 * Não há backup atual.
 
-efeitos de saudação toominimize que esses fatores podem ter:
+Para minimizar os efeitos que esses fatores podem ter:
 
 * Examine suas políticas de limitação de largura de banda e certifique-se de que uma largura de banda dedicada de 40 Mbps está disponível.
-* Agende a conversão de saudação do horário de pico.
-* Pegue um instantâneo antes de iniciar a conversão de saudação.
+* Agende a conversão para fora do horário de pico.
+* Tire um instantâneo de nuvem antes de iniciar a conversão.
 
-Se você estiver convertendo vários volumes (suporte a cargas de trabalho diferentes), você deve priorizar conversão do volume Olá para que os volumes de prioridade mais altos são convertidos primeiro. Por exemplo, é necessário converter os volumes que hospedam VMs (máquinas virtuais) ou volumes com cargas de trabalho do SQL antes de converter volumes com cargas de trabalho de compartilhamento de arquivos.
+Se estiver convertendo vários volumes (que dão suporte a cargas de trabalho diferentes), será necessário priorizar a conversão de volume para que os volumes de prioridade mais alta sejam convertidos primeiro. Por exemplo, é necessário converter os volumes que hospedam VMs (máquinas virtuais) ou volumes com cargas de trabalho do SQL antes de converter volumes com cargas de trabalho de compartilhamento de arquivos.
 
-#### <a name="toochange-hello-volume-type"></a>tipo de volume Olá toochange
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Selecione um contêiner de volume na lista de saudação e clique duas vezes nele volumes de saudação tooview associados ao contêiner de saudação.
-3. Selecione um volume e final Olá Olá página, clique em **modificar**. Olá Modificar volume assistente é iniciado.
-4. Em Olá **configurações básicas** página, altere o tipo de uso de saudação selecionando o novo tipo de saudação do hello **tipo de uso** lista suspensa.
+#### <a name="to-change-the-volume-type"></a>Para alterar o tipo de volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
+2. Selecione um contêiner de volume na lista e clique duas vezes para exibir os volumes associados ao contêiner.
+3. Selecione um volume e, na parte inferior da página, clique em **Modificar**. O assistente Modificar volume é iniciado.
+4. Na página **Configurações Básicas**, altere o tipo de uso selecionando o novo tipo na lista suspensa **Tipo de Uso**.
    
-   * Se você estiver alterando o tipo de saudação muito**localmente afixado**, StorSimple irá verificar toosee se não houver capacidade suficiente.
-   * Se você estiver alterando o tipo de saudação muito**em camadas** e esse volume será usado para dados de arquivamento, selecione Olá **usar este volume para dados de arquivamento acessados com frequência menos** caixa de seleção.
+   * Se você estiver alterando o tipo de **Localmente afixado**, o StorSimple verificará se há capacidade suficiente.
+   * Se você estiver alterando o tipo para **Em camadas** e esse volume for usado em dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**.
      
        ![Caixa de seleção Arquivo Morto](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
-5. Clique no ícone de seta Olá ![ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) toogo toohello **configurações adicionais** página. Se você estiver configurando um volume localmente afixado, hello seguinte mensagem será exibida.
+5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir para a página **Configurações Adicionais** . Se você estiver configurando um volume afixado localmente, a seguinte mensagem de erro aparecerá.
    
     ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
-6. Clique no ícone de seta Olá ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) novamente, toocontinue.
-7. Clique o ícone de verificação Olá ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) processo de conversão de saudação toostart. Olá portal do Azure exibirá uma mensagem de volume de atualização. Ele exibirá uma mensagem de êxito quando o volume de saudação foi atualizado com êxito.
+6. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) novamente para continuar.
+7. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para iniciar o processo de conversão. O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
 ## <a name="take-a-volume-offline"></a>Colocar um volume offline
-Talvez seja necessário tootake um volume offline quando você estiver planejando toomodify-lo ou exclua-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará tootake Olá volume offline no host hello, bem como no dispositivo de saudação. 
+Talvez seja necessário colocar um volume offline quando você estiver planejando modificá-lo ou excluí-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará colocar o volume offline no host e no dispositivo. 
 
-#### <a name="tootake-a-volume-offline"></a>tootake um volume offline
-1. Certifique-se de que o volume de saudação em questão não está em uso antes de colocá-lo offline.
-2. Olá primeiro coloque volume offline no host de saudação. Isso eliminará qualquer risco potencial de corrupção de dados no volume de saudação. Para etapas específicas, consulte as instruções de toohello para seu sistema operacional do host.
-3. Depois de saudação host estiver offline, coloque o volume de saudação no dispositivo Olá off-line executando Olá etapas a seguir:
+#### <a name="to-take-a-volume-offline"></a>Para colocar um volume offline
+1. Certifique-se de que o volume em questão não está em uso antes de colocá-lo offline.
+2. Coloque o volume offline no host primeiro. Isso elimina qualquer risco de corrupção de dados no volume. Para etapas específicas, consulte as instruções do sistema operacional do host.
+3. Depois que o host estiver offline, coloque o volume no dispositivo offline executando as seguintes etapas:
    
-   1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** Olá guia **contêineres de Volume** guia listas em um formato tabular todos os Olá contêineres de volume que estão associados ao dispositivo hello.
-   2. Selecione um contêiner de volume e clique em lista de saudação toodisplay de todos os volumes Olá Olá contêiner.
+   1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**. A guia **Contêineres de Volume** lista todos os contêineres de volume associados ao dispositivo em formato de tabela.
+   2. Selecione um contêiner de volume e clique nele para exibir a lista de todos os volumes dentro do contêiner.
    3. Selecione um volume e clique em **Colocar offline**.
-   4. Quando solicitado a confirmar, clique em **Sim**. volume Olá agora deve estar offline.
+   4. Quando solicitado a confirmar, clique em **Sim**. Agora, o volume deve estar offline.
       
-      Depois que um volume estiver offline, Olá **colocar Online** opção ficará disponível.
+      Depois que um volume está offline, a opção **Colocar Online** ficará disponível.
 
 > [!NOTE]
-> Olá **colocar Offline** comando envia um toohello dispositivo tootake Olá volume offline. Se os hosts ainda estiverem usando o volume de hello, isso resulta em interrupções nas conexões, mas colocar offline o volume de saudação não falhará. 
+> O comando **Colocar Offline** envia uma solicitação para o dispositivo para colocar o volume offline. Se os hosts ainda estiverem usando o volume, ocorrerão conexões interrompidas, mas não ocorrerá nenhuma falha ao colocar o volume offline. 
 > 
 > 
 
@@ -243,33 +243,33 @@ Talvez seja necessário tootake um volume offline quando você estiver planejand
 > 
 > 
 
-Concluir Olá etapas toodelete um volume a seguir.
+Conclua as seguintes etapas para excluir um volume.
 
-#### <a name="toodelete-a-volume"></a>toodelete um volume
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Selecione o contêiner de volume de saudação que tem o volume a saudação ser toodelete. Clique em Olá Olá de tooaccess de contêiner de volume **Volumes** página.
-3. Todos os volumes de saudação associados a este contêiner são exibidos em um formato tabular. Verificar o status de saudação do volume Olá deseja toodelete. Se o volume Olá toodelete desejado não estiver offline, etapas-lo offline Olá primeiro, o seguinte [colocar um volume offline](#take-a-volume-offline).
-4. Depois de saudação volume estiver offline, clique em **excluir** final Olá Olá página.
-5. Quando solicitado a confirmar, clique em **Sim**. volume de saudação será excluída e Olá **Volumes** página mostrará a lista de saudação atualizada de volumes no contêiner de saudação.
+#### <a name="to-delete-a-volume"></a>Para excluir um volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
+2. Selecione o contêiner de volume que possui o volume que você deseja excluir. Clique no contêiner de volume para acessar a página **Volumes** .
+3. Todos os volumes associados a este contêiner são exibidos em formato de tabela. Verifique o status do volume que deseja excluir. Se o volume que você deseja excluir não estiver offline, coloque-o offline em primeiro lugar, seguindo as etapas em [Colocar um volume offline](#take-a-volume-offline).
+4. Depois que o volume estiver offline, clique em **Excluir** na parte inferior da página.
+5. Quando solicitado a confirmar, clique em **Sim**. O volume será excluído e a página **Volumes** mostrará a lista atualizada de volumes dentro do contêiner.
    
    > [!NOTE]
-   > Se você excluir um volume localmente afixado, espaço para novos volumes Olá pode não ser atualizado imediatamente. Olá serviço StorSimple Manager atualiza disponível de espaço local Olá periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar de novo volume do toocreate hello.<br> Além disso, se você excluir um volume localmente afixado e, em seguida, excluir outro localmente fixados volume logo depois, trabalhos de exclusão do volume de saudação são executados sequencialmente. trabalho de exclusão de volume primeiro Olá deve concluir antes de começar o próximo trabalho de exclusão de volume hello.
+   > Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço do StorSimple Manager atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.<br> Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
    > 
    > 
 
 ## <a name="monitor-a-volume"></a>Monitorar um volume
-Monitoramento de volume permite estatísticas de toocollect relacionados de I/O para um volume. Monitoramento é habilitado por padrão para Olá primeiros 32 volumes que você criar. O monitoramento de volumes adicionais é desabilitado por padrão. Monitoramento de volumes clonados também será desabilitado por padrão.
+O monitoramento de volume permite coletar estatísticas de E/S para um volume. O monitoramento é habilitado por padrão para os primeiros 32 volumes que você criar. O monitoramento de volumes adicionais é desabilitado por padrão. Monitoramento de volumes clonados também será desabilitado por padrão.
 
-Execute Olá tooenable as etapas a seguir ou desabilitar o monitoramento para um volume.
+Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para um volume.
 
-#### <a name="tooenable-or-disable-volume-monitoring"></a>tooenable ou desabilite o monitoramento de volume
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Selecione Olá contêiner de volume no qual Olá volume reside e clique em Olá Olá de tooaccess de contêiner de volume **Volumes** página.
-3. Todos os volumes de saudação associados a este contêiner são listados na exibição tabular hello. Clique e selecione o volume de saudação ou clone de volume.
-4. Final Olá Olá página, clique em **modificar**.
-5. No Assistente para modificar Volume de hello, em **configurações básicas**, selecione **habilitar** ou **desabilitar** de saudação **monitoramento** lista suspensa.
+#### <a name="to-enable-or-disable-volume-monitoring"></a>Para habilitar ou desabilitar o monitoramento de volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
+2. Selecione o contêiner de volume em que reside o volume e, em seguida, clique no contêiner de volume para acessar a página **Volumes** .
+3. Todos os volumes associados a este contêiner são listados em formato de tabela. Clique e selecione o volume ou o clone do volume.
+4. Na parte inferior da página, clique em **Modificar**.
+5. No assistente Modificar Volume, em **Configurações Básicas**, selecione **Habilitar** ou **Desabilitar** na lista suspensa **Monitoramento**.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como muito[clonar um volume StorSimple](storsimple-clone-volume.md).
-* Saiba como muito[use Olá tooadminister do serviço StorSimple Manager seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
+* Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

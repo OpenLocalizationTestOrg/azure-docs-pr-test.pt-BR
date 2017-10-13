@@ -1,6 +1,6 @@
 ---
-title: "aaaPlan de rede para o servidor físico replicação tooAzure | Microsoft Docs"
-description: "Este artigo descreve o planejamento necessário da rede durante a replicação de servidores físicos tooAzure"
+title: "Planejar a rede para a replicação de servidor físico para o Azure | Microsoft Docs"
+description: "Este artigo aborda o planejamento de rede necessário ao replicar servidores físicos para o Azure"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: e2ca2db2a1cb58ca5468d4ee2b0406f29ff09479
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f8a20b45b50f71631122e574b634818c1912f12e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-4-plan-networking-for-physical-server-replication-tooazure"></a>Etapa 4: Planejar a rede para o servidor físico tooAzure de replicação
+# <a name="step-4-plan-networking-for-physical-server-replication-to-azure"></a>Etapa 4: Planejar a rede para a replicação de servidor físico para o Azure
 
-Este artigo resume rede considerações de planejamento, quando a replicação local tooAzure servidores físicos usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo resume as considerações sobre planejamento de rede ao replicar servidores físicos locais para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
-Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="connect-tooreplica-azure-vms"></a>Conectar máquinas virtuais do Azure tooreplica
+## <a name="connect-to-replica-azure-vms"></a>Conectar-se às VMs de réplica do Azure
 
-Ao planejar sua estratégia de failover e replicação, uma das perguntas mais importantes Olá é como tooconnect toohello VM do Azure após o failover. Há algumas opções ao criar sua estratégia de rede para VMs de réplica do Azure:
+Ao planejar sua estratégia de replicação e failover, uma das principais questões é como se conectar à VM do Azure após o failover. Há algumas opções ao criar sua estratégia de rede para VMs de réplica do Azure:
 
-- **Use um endereço IP diferente**: você pode selecionar toouse um intervalo de endereço IP diferente para Olá replicadas a rede VM do Azure. Nesse cenário, a máquina Olá obtém um novo endereço IP após o failover e uma atualização DNS é necessário.
-- **Use Olá mesmo endereço IP**: talvez você queira toouse Olá mesmo intervalo de endereços IP que o do site primário local, para Olá rede Azure após o failover. Olá mantendo mesmos endereços IP simplifica recuperação hello, reduzindo problemas relacionados à rede após o failover. No entanto, quando você estiver replicando tooAzure, você precisará tooupdate rotas com o novo local Olá endereços IP hello após o failover.
+- **Usar outro endereço IP**: você pode optar por usar outro intervalo de endereços IP para a rede VM replicada do Azure. Nesse cenário, o computador obtém um novo endereço IP após o failover e uma atualização de DNS é necessária.
+- **Usar o mesmo endereço IP**: talvez você deseje usar o mesmo intervalo de endereços IP do site primário local para a rede do Azure após o failover. Manter os mesmos endereços IP simplifica a recuperação, reduzindo problemas relacionados à rede após o failover. No entanto, quando você estiver replicando para o Azure, precisará atualizar as rotas com o novo local dos endereços IP após o failover.
 
-## <a name="retain-ip-addresses"></a>Reter os endereços IP
+## <a name="retain-ip-addresses"></a>Manter os endereços IP
 
-Recuperação de site fornece endereços IP hello recurso tooretain fixo durante o failover tooAzure, com um failover de sub-rede.
-Com o failover de sub-rede, uma sub-rede específica está presente no Site 1 ou Site 2, mas nunca em ambos os sites ao mesmo tempo. Em ordem toomaintain Olá espaço de endereço IP no evento de saudação de um failover, você organiza programaticamente para Olá roteador infraestrutura toomove Olá subredes de tooanother de um site. Durante o failover, Olá sub-redes mover com hello associados VMs protegidas. Olá principal desvantagem é na saudação de uma falha, você tem subrede inteira toomove hello.
+O Site Recovery fornece a capacidade de manter endereços IP fixos durante o failover para o Azure, com um failover de sub-rede.
+Com o failover de sub-rede, uma sub-rede específica está presente no Site 1 ou Site 2, mas nunca em ambos os sites ao mesmo tempo. Para manter o espaço de endereço IP no caso de um failover, de forma programática, faça com que a infraestrutura do roteador mova as sub-redes de um site para outro. Durante o failover, as sub-redes são movidas com as VMs protegidas associadas. A principal desvantagem é que, em caso de falha, você precisa mover toda a sub-rede.
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vejamos um exemplo de tooAzure de failover.
+Vejamos um exemplo de failover para o Azure.
 
 - Uma organização fictícia, o Woodgrove Bank, tem uma infraestrutura local que hospeda seus aplicativos de negócios. Seus aplicativos móveis são hospedados no Azure.
-- Conectividade entre VMs do Woodgrove Bank em servidores locais e do Azure é fornecida por uma conexão de (VPN) site a site entre a rede de borda de local de saudação e Olá rede virtual do Azure.
-- Isso significa VPN que Olá da rede virtual no Azure da empresa é exibido como uma extensão da sua rede local.
-- O Woodgrove deseja toouse recuperação de Site tooreplicate local cargas de trabalho tooAzure.
- - O Woodgrove tem toodeal com aplicativos e configurações que dependem embutido endereços IP e, portanto, precisam tooretain endereços IP para seus aplicativos depois tooAzure de failover.
- - O Woodgrove tem endereços IP do intervalo 172.16.1.0/24, 172.16.2.0/24 tooits recursos atribuídos em execução no Azure.
+- A conectividade entre as VMs do Woodgrove Bank no Azure e os servidores locais é fornecida por uma conexão (VPN) site a site entre a rede de borda local e a rede virtual do Azure.
+- Essa VPN significa que a rede virtual da empresa no Azure aparece como uma extensão de sua rede local.
+- O Woodgrove deseja usar o Site Recovery para replicar as cargas de trabalho locais para o Azure.
+ - O Woodgrove precisa lidar com aplicativos e configurações que dependem de endereços IP embutidos em código e, portanto, precisa reter endereços IP para seus aplicativos após o failover para o Azure.
+ - O Woodgrove atribuiu endereços IP do intervalo 172.16.1.0/24 a 172.16.2.0/24 aos seus recursos em execução no Azure.
 
 
-Para Woodgrove toobe capaz de tooreplicate tooAzure seus servidores, enquanto retendo Olá IP endereços, é aqui que empresa Olá precisa toodo:
+Para que o Woodgrove consiga replicar seus servidores para o Azure, ao mesmo tempo que retém os endereços IP, veja o que a empresa precisa fazer:
 
-1. Crie uma rede virtual do Azure. Ele deve ser uma extensão da saudação de rede, no local para que os aplicativos podem fazer failover perfeitamente.
-2. Azure permite que você tooadd site a site conectividade VPN, além de conectividade de site a toopoint toohello as redes virtuais criadas no Azure.
-3. Ao configurar a conexão de site a site Olá, em hello Azure de rede, você pode rotear o tráfego toohello local (rede local) somente se o intervalo de endereços IP hello é diferente do intervalo de endereços IP hello local.
-    - Isso ocorre porque o Azure não dá suporte a sub-redes ampliadas. Então se você tiver sub-redes 192.168.1.0/24 local, não é possível adicionar 192.168.1.0/24 um local de rede na rede do Azure de saudação.
-    - Isso é esperado, pois o Azure não sabe que existem máquinas ativas na sub-rede hello e sub-rede hello está sendo criado para a recuperação de desastres.
-    - toobe toocorrectly capaz de rotear o tráfego de rede fora de um Azure Olá sub-redes na rede de saudação e saudação da rede local não deve estar em conflito.
+1. Crie uma rede virtual do Azure. Ela deve ser uma extensão da rede local, de forma que os aplicativos possam fazer failover de forma ininterrupta.
+2. O Azure permite que você adicione a conectividade VPN site a site, além da conectividade ponto a site, às redes virtuais criadas no Azure.
+3. Ao configurar a conexão site a site, na rede do Azure, você poderá encaminhar o tráfego para a localização local (rede local) somente se o intervalo de endereços IP for diferente do intervalo de endereços IP local.
+    - Isso ocorre porque o Azure não dá suporte a sub-redes ampliadas. Portanto, se você tiver uma sub-rede 192.168.1.0/24 local, não poderá adicionar uma rede local 192.168.1.0/24 à rede do Azure.
+    - Isso é esperado, porque o Azure não reconhece que não há nenhum computador ativo na sub-rede e que a sub-rede está sendo criada apenas para fins de recuperação de desastre.
+    - Para poder encaminhar o tráfego de rede corretamente para fora de uma rede do Azure, as sub-redes na rede e a rede local não devem entrar em conflito.
 
 ![Antes do failover da sub-rede](./media/physical-walkthrough-network/network-design7.png)
 
 #### <a name="before-failover"></a>Antes do failover
 
-1. Crie uma rede adicional (por exemplo, uma Rede de Recuperação). Esta é a rede de saudação que passou por failover de máquinas virtuais são criados.
-2. tooensure que Olá endereço IP para uma máquina é mantido após um failover, nas propriedades de máquina hello > **configurar**, especifique Olá mesmo endereço IP que Olá server tem local e clique em **salvar**.
-3. Quando a máquina Olá realizar failover, Azure Site Recovery atribuirá Olá fornecido tooit de endereço IP.
-4. Depois de failover disparador é acionado e Olá VMs são criadas no Azure com o endereço IP hello necessário, você pode se conectar toohello de rede usando um [Vnet tooVnet conexão](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Essa ação pode ser inserida em um script.
-5. Rotas necessário toobe modificado adequadamente, tooreflect que 192.168.1.0/24 agora foi movido tooAzure.
+1. Crie uma rede adicional (por exemplo, uma Rede de Recuperação). Essa é a rede na qual as VMs com failover são criadas.
+2. Para garantir que o endereço IP de um computador é retido após um failover, nas propriedades do computador > **Configurar**, especifique o mesmo endereço IP que o servidor tem local e clique em **Salvar**.
+3. Quando o computador passar por failover, o Azure Site Recovery atribuirá o endereço IP fornecido a ele.
+4. Depois que o failover for disparado e as VMs forem criadas no Azure com o endereço IP solicitado, você poderá se conectar à rede usando uma [conexão Vnet a Vnet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Essa ação pode ser inserida em um script.
+5. As rotas precisam ser modificadas de maneira apropriada, para refletir que 192.168.1.0/24 agora foi movido para o Azure.
 
     ![Após o failover da sub-rede](./media/physical-walkthrough-network/network-design9.png)
 
@@ -78,8 +78,8 @@ Caso você não tenha uma rede do Azure, conforme ilustrado acima, poderá criar
 
 ## <a name="change-ip-addresses"></a>Alterar os endereços IP
 
-Isso [postagem de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como tooset backup Olá infraestrutura de rede do Azure, quando você não precisar tooretain IP endereços após o failover. Começa com uma descrição do aplicativo, procura no como tooset uma rede local e no Azure e termina com as informações sobre como executar failovers.  
+Esta [postagem no blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando você não precisa reter os endereços IP após o failover. Ela começa com uma descrição do aplicativo, explica como configurar a rede local e no Azure e termina com informações sobre como executar failovers.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Vá muito[etapa 5: preparar o Azure](physical-walkthrough-prepare-azure.md)
+Ir para a [Etapa 5: Preparar o Azure](physical-walkthrough-prepare-azure.md)

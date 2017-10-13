@@ -1,5 +1,5 @@
 ---
-title: aaaAzure SQL Data Warehouse perguntas frequentes | Microsoft Docs
+title: Perguntas frequentes sobre o Azure SQL Data Warehouse | Microsoft Docs
 description: Este artigo lista as perguntas frequentes sobre o Azure SQL Data Warehouse de clientes e desenvolvedores
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 09fd3f65d9507b09fcb8f477742c7d020add2755
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4c00710ecc0c91f8407eca81b78176075fcbd6ad
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Perguntas frequentes sobre o SQL Data Warehouse
 
@@ -31,7 +31,7 @@ R. O SQL DW oferece diversas soluções para proteger dados como TDE e auditoria
 
 P. Em que local posso encontrar os padrões legais ou comerciais com os quais o SQL DW está em conformidade?
 
-R. Visite Olá [Microsoft Compliance] página para várias ofertas de conformidade por produto como SOC e ISO. Primeiro escolha por título de conformidade, e então expanda Azure na seção de serviços de nuvem Olá Microsoft em escopo no lado direito de saudação do hello página toosee quais serviços são os serviços do Azure é compatíveis.
+R. Visite a página [Conformidade da Microsoft] para ver várias ofertas de conformidade por produto, como SOC e ISO. Primeiro escolha pelo título Conformidade e, em seguida, expanda Azure na seção de serviços de nuvem no escopo da Microsoft no lado direito da página para ver quais serviços do Azure estão em conformidade.
 
 P. Posso conectar o Power BI?
 
@@ -43,7 +43,7 @@ R. Consulte nossa página de [limites de capacidade] atuais.
 
 P. Por que Escalar/Pausar/Retomar está demorando tanto para mim?
 
-R. Uma variedade de fatores pode influenciar o tempo de saudação para operações de gerenciamento de computação. Um caso comum para operações de execução longa é a reversão transacional. Quando uma operação de escala ou pausa é iniciada, todas as sessões de entrada são bloqueadas e as consultas são esvaziadas. No sistema de saudação ordem tooleave em um estado estável, transações devem ser revertidas antes de uma operação pode começar. Olá maior número de saudação e tamanho de log Olá maior de transações, mais longa operação de Olá Olá será ser parado e restaurar o estado estável da saudação sistema tooa.
+R. Uma variedade de fatores pode influenciar o tempo de computação das operações de gerenciamento. Um caso comum para operações de execução longa é a reversão transacional. Quando uma operação de escala ou pausa é iniciada, todas as sessões de entrada são bloqueadas e as consultas são esvaziadas. Para deixar o sistema em um estado estável, as transações devem ser revertidas antes do início de uma operação. Quanto maior o número e maior o tamanho do log de transações, por mais tempo a operação ficará interrompida na restauração do sistema para um estado estável.
 
 ## <a name="user-support"></a>Suporte ao usuário
 
@@ -73,7 +73,7 @@ R. Embora o SQL Data Warehouse dê suporte a vários recursos, não há suporte 
 
 P. Há suporte para projetos de Banco de Dados no Visual Studio?
 
-R. Atualmente, não há suporte para projetos de Banco de Dados no Visual Studio para o SQL Data Warehouse. Se você quiser toocast tooget um voto que esse recurso, visite nosso User Voice [projetos de banco de dados de solicitação de recurso].
+R. Atualmente, não há suporte para projetos de Banco de Dados no Visual Studio para o SQL Data Warehouse. Se desejar votar para obter esse recurso, visite nossa [solicitação de recursos de projetos de Banco de Dados] do User Voice.
 
 P. O SQL Data Warehouse dá suporte a APIs REST?
 
@@ -84,23 +84,23 @@ R. Sim. A maioria das funcionalidades REST que pode ser usada com o Banco de Dad
 
 P. Para quais drivers de cliente há suporte?
 
-R. Suporte de driver para DW pode ser encontrado no hello [cadeias de caracteres de Conexão] página
+R. O suporte ao driver para o DW pode ser encontrado na página [Cadeias de conexão]
 
 P: Para quais formatos de arquivo há suporte no PolyBase com o SQL Data Warehouse?
 
 R: Orc, RC, Parquet e texto simples delimitado
 
-P: o que pode conectar-se toofrom SQL DW usando PolyBase? 
+P: Ao que posso me conectar do SQL DW usando o PolyBase? 
 
 R: O [Azure Data Lake Store] e o [Azure Storage Blobs]
 
-P: é possível a aplicação de computação, ao conectar-se tooAzure Blobs de armazenamento ou ADLS? 
+P: A aplicação de computação é possível ao conectar aos Azure Storage Blobs ou ao ADLS? 
 
-R: não, PolyBase do SQL DW interage somente os componentes de armazenamento hello. 
+R: Não, o PolyBase do SQL DW interage apenas com os componentes de armazenamento. 
 
-P: posso conectar tooHDI?
+P: Posso me conectar ao HDI?
 
-R: HDI pode usar ADLS ou WASB como camada HDFS hello. Se você tiver como a camada HDFS, será possível carregar esse dados no SQL DW. No entanto, você não pode gerar a instância HDI de toohello de computação de aplicação. 
+R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver como a camada HDFS, será possível carregar esse dados no SQL DW. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o SQL Data Warehouse como um todo, consulte nossa página [Visão geral].
@@ -108,16 +108,16 @@ Para obter mais informações sobre o SQL Data Warehouse como um todo, consulte 
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[cadeias de caracteres de Conexão]: ./sql-data-warehouse-connection-strings.md
+[Cadeias de conexão]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Tíquetes de Suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Segurança]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
+[Conformidade da Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [limites de capacidade]: ./sql-data-warehouse-service-capacity-limits.md
 [tipos de dados]: ./sql-data-warehouse-tables-data-types.md
 [Recursos de tabela sem suporte]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[projetos de banco de dados de solicitação de recurso]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[solicitação de recursos de projetos de Banco de Dados]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
 [Visão geral]: ./sql-data-warehouse-overview-faq.md

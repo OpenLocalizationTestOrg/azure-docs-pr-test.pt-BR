@@ -1,6 +1,6 @@
 ---
-title: "Define aaaAvailability para VMs clássicas do Windows | Microsoft Docs"
-description: "Configure uma conjunto de disponibilidade para uma máquina de virtual do Windows nova ou existente no modelo de implantação clássico hello usando hello portal do Azure e o Azure PowerShell."
+title: "Conjuntos de disponibilidades para as VMs clássicas do Windows | Microsoft Docs"
+description: "Configure um conjunto de disponibilidades para uma máquina virtual nova ou existente do Windows no modelo de implantação clássico usando o portal do Azure e o Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
-ms.openlocfilehash: bd652a0401a34b57447551204b8f50d106715e1c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a5cbbdf402ee06a34a339b193b0cdd5c952d6248
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-tooconfigure-an-availability-set-for-windows-virtual-machines-in-hello-classic-deployment-model"></a>Como tooconfigure uma conjunto de disponibilidade para máquinas virtuais do Windows no modelo de implantação clássico Olá
+# <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>Como configurar um conjunto de disponibilidades para as máquinas virtuais do Windows no modelo de implantação clássico
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Você também pode [configurar os conjuntos de disponibilidades](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nas implantações do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [configurar os conjuntos de disponibilidades](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nas implantações do Gerenciador de Recursos.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
 
