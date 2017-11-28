@@ -1,0 +1,18 @@
+### <a name="prerequisites"></a><span data-ttu-id="1a9bf-101">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1a9bf-101">Prerequisites</span></span>
+* <span data-ttu-id="1a9bf-102">Uma conta do [Trello](http://trello.com)</span><span class="sxs-lookup"><span data-stu-id="1a9bf-102">A [Trello](http://trello.com) account</span></span> 
+
+<span data-ttu-id="1a9bf-103">Antes de usar sua conta do Trello em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Trello.</span><span class="sxs-lookup"><span data-stu-id="1a9bf-103">Before you can use your Trello account in a Logic app, you must authorize the Logic app to connect to your Trello account.</span></span> <span data-ttu-id="1a9bf-104">Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="1a9bf-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
+
+<span data-ttu-id="1a9bf-105">Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Trello:</span><span class="sxs-lookup"><span data-stu-id="1a9bf-105">Here are the steps to authorize your Logic app to connect to your Trello account:</span></span>
+
+1. <span data-ttu-id="1a9bf-106">Para criar uma conexão com o Trello, no designer do Aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, digite *Trello* na caixa de pesquisa.</span><span class="sxs-lookup"><span data-stu-id="1a9bf-106">To create a connection to Trello, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Trello* in the search box.</span></span> <span data-ttu-id="1a9bf-107">Selecione o gatilho ou ação que gostaria de usar: </span><span class="sxs-lookup"><span data-stu-id="1a9bf-107">Select the trigger or action you'll like to use:</span></span>  
+   ![](./media/connectors-create-api-trello/trello-1.png)
+2. <span data-ttu-id="1a9bf-108">Se você não tiver criado quaisquer conexões Trello antes, será solicitado a fornecer suas credenciais do Trello.</span><span class="sxs-lookup"><span data-stu-id="1a9bf-108">If you haven't created any connections to Trello before, you'll get prompted to provide your Trello credentials.</span></span> <span data-ttu-id="1a9bf-109">Essas credenciais serão usadas para autorizar seu Aplicativo lógico a se conectar e acessar os dados da sua conta do Trello:</span><span class="sxs-lookup"><span data-stu-id="1a9bf-109">These credentials will be used to authorize your Logic app to connect to, and access your Trello account's data:</span></span>  
+   ![](./media/connectors-create-api-trello/trello-2.png) 
+3. <span data-ttu-id="1a9bf-110">Permitir que nós nos conectemos ao Trello:</span><span class="sxs-lookup"><span data-stu-id="1a9bf-110">Allow us to connect to Trello:</span></span>  
+   ![](./media/connectors-create-api-trello/trello-3.png)   
+4. <span data-ttu-id="1a9bf-111">Forneça seu nome de usuário do Trello e a senha para autorizar seu Aplicativo lógico:</span><span class="sxs-lookup"><span data-stu-id="1a9bf-111">Provide your Trello user name and password to authorize your Logic app:</span></span>  
+   ![](./media/connectors-create-api-trello/trello-4.png)  
+5. <span data-ttu-id="1a9bf-112">Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: </span><span class="sxs-lookup"><span data-stu-id="1a9bf-112">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
+   ![](./media/connectors-create-api-trello/trello-5.png)
+

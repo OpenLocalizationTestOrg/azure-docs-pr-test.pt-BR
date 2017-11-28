@@ -1,0 +1,58 @@
+---
+title: "Adicionar um certificado ao repositório Java CA | Microsoft Docs"
+description: "Saiba como adicionar um certificado de autoridade de certificação (AC) para o armazenamento de certificado CA (cacerts) do Java para serviço Twilio ou barramento de serviço do Azure."
+services: 
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: 
+ms.assetid: d3699b0a-835c-43fb-844d-9c25344e5cda
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 04/25/2017
+ms.author: robmcm
+ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
+---
+# <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a><span data-ttu-id="9b1c0-103">Adicionar um certificado ao repositório de certificados Java CA</span><span class="sxs-lookup"><span data-stu-id="9b1c0-103">Adding a Certificate to the Java CA Certificates Store</span></span>
+<span data-ttu-id="9b1c0-104">As etapas a seguir mostram como adicionar um certificado de autoridade de certificado (CA) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-104">The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store.</span></span> <span data-ttu-id="9b1c0-105">O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-105">The example used is for the CA certificate required by the Twilio service.</span></span> <span data-ttu-id="9b1c0-106">Informações fornecidas posteriormente no tópico descrevem como instalar o certificado de autoridade de certificação para o Barramento de Serviço do Azure.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-106">Information provided later in the topic describes how to install the CA certificate for the Azure Service Bus.</span></span> 
+
+<span data-ttu-id="9b1c0-107">Você pode usar o keytool para adicionar o certificado de autoridade de certificação antes de compactar seu JDK e adicionar a sua pasta **approot** do projeto do Azure ou executar uma tarefa de inicialização do Azure que usa keytool para adicionar o certificado.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-107">You can use keytool to add the CA certificate prior to zipping your JDK and adding it to your Azure project's **approot** folder, or you could run an Azure start-up task that uses keytool to add the certificate.</span></span> <span data-ttu-id="9b1c0-108">Este exemplo assume que você irá adicionar um certificado de autoridade de certificação antes do JDK ser compactado.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-108">This example assumes you will add a CA certificate prior to the JDK being zipped.</span></span> <span data-ttu-id="9b1c0-109">Além disso, um certificado de autoridade de certificação específico será usado no exemplo, mas as etapas para obter um certificado de autoridade de certificação diferente e importar no repositório cacerts seriam semelhantes.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-109">Also, a specific CA certificate will be used in the example, but the steps of obtaining a different CA certificate and importing it into the cacerts store would be similar.</span></span>
+
+## <a name="to-add-a-certificate-to-the-cacerts-store"></a><span data-ttu-id="9b1c0-110">Para adicionar um certificado ao repositório cacerts</span><span class="sxs-lookup"><span data-stu-id="9b1c0-110">To add a certificate to the cacerts store</span></span>
+1. <span data-ttu-id="9b1c0-111">No prompt de comando definido como sua pasta **jdk\jre\lib\security** do JDK, execute o seguinte para ver quais certificados estão instalados:</span><span class="sxs-lookup"><span data-stu-id="9b1c0-111">At a command prompt that is set to your JDK's **jdk\jre\lib\security** folder, run the following to see what certificates are installed:</span></span>
+   
+    `keytool -list -keystore cacerts`
+   
+    <span data-ttu-id="9b1c0-112">Você será solicitado a digitar a senha de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-112">You'll be prompted for the store password.</span></span> <span data-ttu-id="9b1c0-113">A senha padrão é **changeit**.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-113">The default password is **changeit**.</span></span> <span data-ttu-id="9b1c0-114">(Se você quiser alterar a senha, consulte a documentação do keytool em <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) Este exemplo assume que o certificado com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 não está listado e que você deseja importar (esse certificado específico é necessário para o serviço Twilio API).</span><span class="sxs-lookup"><span data-stu-id="9b1c0-114">(If you want to change the password, see the keytool documentation at <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) This example assumes that the certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 is not listed, and that you want to import it (this particular certificate is needed by the Twilio API service).</span></span>
+2. <span data-ttu-id="9b1c0-115">Obtenha o certificado da lista de certificados em [Certificados de raiz de GeoTrust](http://www.geotrust.com/resources/root-certificates/).</span><span class="sxs-lookup"><span data-stu-id="9b1c0-115">Obtain the certificate from the list of certificates listed at [GeoTrust Root Certificates](http://www.geotrust.com/resources/root-certificates/).</span></span> <span data-ttu-id="9b1c0-116">Clique com botão direito no link do certificado com o número de série 35:DE:F4:CF e salve na pasta **jdk\jre\lib\security**.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-116">Right-click the link for the certificate with serial number 35:DE:F4:CF and save it to the **jdk\jre\lib\security** folder.</span></span> <span data-ttu-id="9b1c0-117">Para fins deste exemplo, ele foi salvo em um arquivo chamado **Equifax\_Secure\_Certificate\_Authority.cer**.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-117">For purposes of this example, it was saved to a file named **Equifax\_Secure\_Certificate\_Authority.cer**.</span></span>
+3. <span data-ttu-id="9b1c0-118">Importe o certificado por meio do seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="9b1c0-118">Import the certificate via the following command:</span></span>
+   
+    `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
+   
+    <span data-ttu-id="9b1c0-119">Quando solicitado para confiar nesse certificado, se o certificado tiver impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, responda digitando **y**.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-119">When prompted to trust this certificate, if the certificate has MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, respond by typing **y**.</span></span>
+4. <span data-ttu-id="9b1c0-120">Execute o seguinte comando para garantir que o certificado de CA foi importado com êxito:</span><span class="sxs-lookup"><span data-stu-id="9b1c0-120">Run the following command to ensure the CA certificate has been successfully imported:</span></span>
+   
+    `keytool -list -keystore cacerts`
+5. <span data-ttu-id="9b1c0-121">Compacte o JDK e adicione a sua pasta **approot** do projeto do Azure.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-121">Zip the JDK and add it to your Azure project's **approot** folder.</span></span>
+
+<span data-ttu-id="9b1c0-122">Para obter mais informações sobre o keytool, consulte <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-122">For information about keytool, see <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.</span></span>
+
+## <a name="azure-root-certificates"></a><span data-ttu-id="9b1c0-123">Certificados de Raiz do Azure</span><span class="sxs-lookup"><span data-stu-id="9b1c0-123">Azure Root Certificates</span></span>
+<span data-ttu-id="9b1c0-124">Os aplicativos que usam os serviços do Azure (por exemplo, o Service Bus do Azure) precisam confiar no certificado de Baltimore CyberTrust Root.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-124">Your applications that use Azure services (such as Azure Service Bus) need to trust the Baltimore CyberTrust Root certificate.</span></span> <span data-ttu-id="9b1c0-125">(A partir de 15 de abril de 2013, o Azure começou migrando do GTE CyberTrust Global Root para o Baltimore CyberTrust Root.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-125">(Beginning April 15, 2013, Azure began migrating from the GTE CyberTrust Global Root to the Baltimore CyberTrust Root.</span></span> <span data-ttu-id="9b1c0-126">Essa migração levou vários meses para ser concluída.)</span><span class="sxs-lookup"><span data-stu-id="9b1c0-126">This migration took several months to complete.)</span></span>
+
+<span data-ttu-id="9b1c0-127">O certificado Baltimore já pode estar instalado no seu repositório cacerts, portanto, lembre-se de executar o comando **keytool-list** primeiro para ver se ele já existe.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-127">The Baltimore certificate might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if it already exists.</span></span>
+
+<span data-ttu-id="9b1c0-128">Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de série 02:00:00:b9 e impressão digital SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-128">If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74.</span></span> <span data-ttu-id="9b1c0-129">Ele pode ser baixado do <https://cacert.omniroot.com/bc2025.crt>, salvo em um arquivo local com extensão **.cer**, e importado usando o **keytool** conforme mostrado acima.</span><span class="sxs-lookup"><span data-stu-id="9b1c0-129">It can be downloaded from <https://cacert.omniroot.com/bc2025.crt>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="9b1c0-130">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="9b1c0-130">Next steps</span></span>
+<span data-ttu-id="9b1c0-131">Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de Certificados raiz do Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).</span><span class="sxs-lookup"><span data-stu-id="9b1c0-131">For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).</span></span>
+
+<span data-ttu-id="9b1c0-132">Para saber mais sobre Java, veja [Centro de desenvolvedores do Java](/java/azure).</span><span class="sxs-lookup"><span data-stu-id="9b1c0-132">For more information about Java, see [Azure for Java developers](/java/azure).</span></span>
+

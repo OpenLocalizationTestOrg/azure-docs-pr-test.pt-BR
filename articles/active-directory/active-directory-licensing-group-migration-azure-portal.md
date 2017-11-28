@@ -1,0 +1,91 @@
+---
+title: "toomigrate aaaHow tooa seus usuários licenciados individuais de grupo no Active Directory do Azure | Microsoft Docs"
+description: "Como tooswitch de usuário individual licenças licenciamento baseado em toogroup usando o Active Directory do Azure"
+services: active-directory
+keywords: Licenciamento do AD do Azure
+documentationcenter: 
+author: curtand
+manager: femila
+editor: 
+ms.assetid: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/05/2017
+ms.author: curtand
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 25e5c760b7e632ba71edde10d937fe580aa6ed35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="how-tooadd-licensed-users-tooa-group-for-licensing-in-azure-active-directory"></a><span data-ttu-id="e127f-104">Como tooadd licenciado grupo tooa de usuários para licenciamento no Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="e127f-104">How tooadd licensed users tooa group for licensing in Azure Active Directory</span></span>
+
+<span data-ttu-id="e127f-105">Você pode ter toousers existente de licenças implantadas em organizações Olá via "atribuição direta"; ou seja, usando scripts do PowerShell ou outras licenças de usuário individual do tooassign de ferramentas.</span><span class="sxs-lookup"><span data-stu-id="e127f-105">You may have existing licenses deployed toousers in hello organizations via “direct assignment”; that is, using PowerShell scripts or other tools tooassign individual user licenses.</span></span> <span data-ttu-id="e127f-106">Se você quiser toostart usando licenças de toomanage licenciamento baseado em grupos em sua organização, você precisará de uma migração plano tooseamlessly substituir as soluções existentes com licenciamento baseado em grupo.</span><span class="sxs-lookup"><span data-stu-id="e127f-106">If you would like toostart using group-based licensing toomanage licenses in your organization, you will need a migration plan tooseamlessly replace existing solutions with group-based licensing.</span></span>
+
+<span data-ttu-id="e127f-107">Olá tookeep de coisa mais importante em mente é que você deve evitar uma situação onde migrando licenciamento baseado em toogroup resultará em usuários temporariamente perder suas licenças atribuídas no momento.</span><span class="sxs-lookup"><span data-stu-id="e127f-107">hello most important thing tookeep in mind is that you should avoid a situation where migrating toogroup-based licensing will result in users temporarily losing their currently assigned licenses.</span></span> <span data-ttu-id="e127f-108">Qualquer processo que pode resultar na remoção das licenças deve ser evitado tooremove risco de saudação de perder o acesso tooservices e seus dados de usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-108">Any process that may result in removal of licenses should be avoided tooremove hello risk of users losing access tooservices and their data.</span></span>
+
+## <a name="recommended-migration-process"></a><span data-ttu-id="e127f-109">Processo de migração recomendado</span><span class="sxs-lookup"><span data-stu-id="e127f-109">Recommended migration process</span></span>
+
+1. <span data-ttu-id="e127f-110">Você tem a automação existente (por exemplo, PowerShell) gerenciando a atribuição e a remoção de licenças para usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-110">You have existing automation (for example, PowerShell) managing license assignment and removal for users.</span></span> <span data-ttu-id="e127f-111">Deixe-o em execução como está.</span><span class="sxs-lookup"><span data-stu-id="e127f-111">Leave it running as is.</span></span>
+
+2. <span data-ttu-id="e127f-112">Criar um novo grupo de licença (ou decidir quais existente grupos toouse) e certifique-se de que todos os necessários os usuários são adicionados como membros.</span><span class="sxs-lookup"><span data-stu-id="e127f-112">Create a new licensing group (or decide which existing groups toouse) and make sure that all required users are added as members.</span></span>
+
+3. <span data-ttu-id="e127f-113">Atribuir licenças Olá necessário toothose grupos; sua meta deve ser tooreflect Olá mesmo estado de licenciamento sua automação existentes (por exemplo, o PowerShell) está aplicando toothose usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-113">Assign hello required licenses toothose groups; your goal should be tooreflect hello same licensing state your existing automation (for example, PowerShell) is applying toothose users.</span></span>
+
+4. <span data-ttu-id="e127f-114">Verifique se que as licenças foram aplicados tooall usuários nesses grupos.</span><span class="sxs-lookup"><span data-stu-id="e127f-114">Verify that licenses have been applied tooall users in those groups.</span></span> <span data-ttu-id="e127f-115">Isso pode ser feito verificando o estado de processamento de saudação em cada grupo e verificando os Logs de auditoria.</span><span class="sxs-lookup"><span data-stu-id="e127f-115">This can be done by checking hello processing state on each group and by checking Audit Logs.</span></span>
+
+  - <span data-ttu-id="e127f-116">Você pode identificar usuários individuais ao examinar os detalhes de suas licenças.</span><span class="sxs-lookup"><span data-stu-id="e127f-116">You can spot check individual users by looking at their license details.</span></span> <span data-ttu-id="e127f-117">Você verá que elas têm Olá mesmo licenças atribuídas "diretamente" e "herdado" de grupos.</span><span class="sxs-lookup"><span data-stu-id="e127f-117">You will see that they have hello same licenses assigned “directly” and “inherited” from groups.</span></span>
+
+  - <span data-ttu-id="e127f-118">Você pode executar um script do PowerShell muito[verificar como as licenças são atribuídas toousers](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).</span><span class="sxs-lookup"><span data-stu-id="e127f-118">You can run a PowerShell script too[verify how licenses are assigned toousers](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).</span></span>
+
+  - <span data-ttu-id="e127f-119">Quando hello mesmo produto licença será atribuída toohello usuário diretamente ou através de um grupo, apenas uma licença é consumida por usuário hello.</span><span class="sxs-lookup"><span data-stu-id="e127f-119">When hello same product license is assigned toohello user both directly and through a group, only one license is consumed by hello user.</span></span> <span data-ttu-id="e127f-120">Portanto, não há licenças adicionais são tooperform necessária migração.</span><span class="sxs-lookup"><span data-stu-id="e127f-120">Hence no additional licenses are required tooperform migration.</span></span>
+
+5. <span data-ttu-id="e127f-121">Verifique se nenhuma atribuição de licença falhou ao verificar cada grupo de usuários em estado de erro.</span><span class="sxs-lookup"><span data-stu-id="e127f-121">Verify that no license assignments failed by checking each group for users in error state.</span></span> <span data-ttu-id="e127f-122">Para saber mais, veja [Identificar e resolver problemas de licença para um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md).</span><span class="sxs-lookup"><span data-stu-id="e127f-122">For more information, see [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md).</span></span>
+
+6. <span data-ttu-id="e127f-123">Considere a remoção de atribuições de direta original Olá; Talvez você queira toodo gradativamente, em "ondas", toomonitor Olá resultado em um subconjunto de usuários primeiro.</span><span class="sxs-lookup"><span data-stu-id="e127f-123">Consider removing hello original direct assignments; you may want toodo it gradually, in “waves”, toomonitor hello outcome on a subset of users first.</span></span>
+
+  <span data-ttu-id="e127f-124">Pode deixar Olá atribuições diretas originais em usuários, mas quando os usuários de saudação deixar seus grupos licenciados, eles ainda manterão licença original hello, que é possivelmente não deseja que você deseja.</span><span class="sxs-lookup"><span data-stu-id="e127f-124">You could leave hello original direct assignments on users, but when hello users leave their licensed groups they will still retain hello original license, which is possibly not want you want.</span></span>
+
+## <a name="an-example"></a><span data-ttu-id="e127f-125">Um exemplo</span><span class="sxs-lookup"><span data-stu-id="e127f-125">An example</span></span>
+
+<span data-ttu-id="e127f-126">Temos uma organização com 1.000 usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-126">We have an organization with 1,000 users.</span></span> <span data-ttu-id="e127f-127">Todos os usuários exigem licenças EMS (Enterprise Mobility + Security).</span><span class="sxs-lookup"><span data-stu-id="e127f-127">All users require Enterprise Mobility + Security (EMS) licenses.</span></span> <span data-ttu-id="e127f-128">200 usuários estão em Olá departamento financeiro e exigem licenças do Office 365 Enterprise E3.</span><span class="sxs-lookup"><span data-stu-id="e127f-128">200 users are in hello Finance Department and require Office 365 Enterprise E3 licenses.</span></span> <span data-ttu-id="e127f-129">Temos um script do PowerShell em execução no local, adicionando e removendo licenças de usuários à medida que eles vêm e vão.</span><span class="sxs-lookup"><span data-stu-id="e127f-129">We have a PowerShell script running on premises adding and removing licenses from users as they come and go.</span></span> <span data-ttu-id="e127f-130">Queremos que o script de saudação tooreplace com licenciamento baseado em grupo para que licenças são gerenciadas automaticamente pelo AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="e127f-130">We want tooreplace hello script with group-based licensing so licenses are managed automatically by Azure AD.</span></span>
+
+<span data-ttu-id="e127f-131">Aqui está o processo de migração Olá pôde como:</span><span class="sxs-lookup"><span data-stu-id="e127f-131">Here is what hello migration process could look like:</span></span>
+
+1. <span data-ttu-id="e127f-132">Usando Olá atribuir portal do Azure Olá EMS licença toohello **todos os usuários** grupo no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="e127f-132">Using hello Azure portal assign hello EMS license toohello **All users** group in Azure AD.</span></span> <span data-ttu-id="e127f-133">Atribuir Olá E3 licença toohello **departamento financeiro** grupo que contém todos os usuários de saudação necessário.</span><span class="sxs-lookup"><span data-stu-id="e127f-133">Assign hello E3 license toohello **Finance department** group that contains all hello required users.</span></span>
+
+2. <span data-ttu-id="e127f-134">Para cada grupo, confirme que a atribuição de licença foi concluída para todos os usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-134">For each group, confirm that license assignment has completed for all users.</span></span> <span data-ttu-id="e127f-135">Folha de toohello vá para cada grupo, selecione **licenças**e verificar o status de processamento de saudação na parte superior de saudação do hello **licenças** folha.</span><span class="sxs-lookup"><span data-stu-id="e127f-135">Go toohello blade for each group, select **Licenses**, and check hello processing status at hello top of hello **Licenses** blade.</span></span>
+
+  - <span data-ttu-id="e127f-136">Pesquisar para "alterações de licença mais recentes foram aplicadas tooall usuários" tooconfirm o processamento foi concluído.</span><span class="sxs-lookup"><span data-stu-id="e127f-136">Look for “Latest license changes have been applied tooall users" tooconfirm processing has completed.</span></span>
+
+  - <span data-ttu-id="e127f-137">Procure uma notificação na parte superior sobre quaisquer usuários para os quais as licenças talvez não tenham sido atribuídas com êxito.</span><span class="sxs-lookup"><span data-stu-id="e127f-137">Look for a notification on top about any users for whom licenses may have not been successfully assigned.</span></span> <span data-ttu-id="e127f-138">Nós não temos mais licenças para alguns usuários?</span><span class="sxs-lookup"><span data-stu-id="e127f-138">Did we run out of licenses for some users?</span></span> <span data-ttu-id="e127f-139">Alguns usuários têm SKUs com licenças conflitantes que os impedem de herdar as licenças de grupo?</span><span class="sxs-lookup"><span data-stu-id="e127f-139">Do some users have conflicting license SKUs that prevent them from inheriting group licenses?</span></span>
+
+3. <span data-ttu-id="e127f-140">Ponto de verificação tooverify alguns usuários que têm Olá direto e licenças de grupo aplicadas.</span><span class="sxs-lookup"><span data-stu-id="e127f-140">Spot check some users tooverify that they have both hello direct and group licenses applied.</span></span> <span data-ttu-id="e127f-141">Folha de toohello vá para um usuário, selecione **licenças**e examinar o estado de saudação de licenças.</span><span class="sxs-lookup"><span data-stu-id="e127f-141">Go toohello blade for a user, select **Licenses**, and examine hello state of licenses.</span></span>
+
+  - <span data-ttu-id="e127f-142">Este é o estado do usuário Olá esperado durante a migração:</span><span class="sxs-lookup"><span data-stu-id="e127f-142">This is hello expected user state during migration:</span></span>
+
+      ![estado do usuário esperado](media/active-directory-licensing-group-migration-azure-portal/expected-user-state.png)
+
+  <span data-ttu-id="e127f-144">Isso confirma que Olá possui licenças diretas e herdadas.</span><span class="sxs-lookup"><span data-stu-id="e127f-144">This confirms that hello user has both direct and inherited licenses.</span></span> <span data-ttu-id="e127f-145">Podemos ver que **EMS** e **E3** estão atribuídas.</span><span class="sxs-lookup"><span data-stu-id="e127f-145">We see that both **EMS** and **E3** are assigned.</span></span>
+
+  - <span data-ttu-id="e127f-146">Selecione os detalhes de tooshow cada licença sobre serviços Olá habilitado.</span><span class="sxs-lookup"><span data-stu-id="e127f-146">Select each license tooshow details about hello enabled services.</span></span> <span data-ttu-id="e127f-147">Isso pode ser usado toocheck se hello direto e grupo licenças habilitar mesmo planos de serviço para usuário Olá Olá exatamente.</span><span class="sxs-lookup"><span data-stu-id="e127f-147">This can be used toocheck if hello direct and group licenses enable exactly hello same service plans for hello user.</span></span>
+
+      ![planos do serviço de aplicativo](media/active-directory-licensing-group-migration-azure-portal/check-service-plans.png)
+
+4. <span data-ttu-id="e127f-149">Depois de confirmar que as licenças direta e de grupo são equivalentes, você poderá começar a remover as licenças diretas dos usuários.</span><span class="sxs-lookup"><span data-stu-id="e127f-149">After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users.</span></span> <span data-ttu-id="e127f-150">Você pode testar isso, removendo-os para usuários individuais no portal de saudação e, em seguida, executar toohave de scripts de automação-los removidos em massa.</span><span class="sxs-lookup"><span data-stu-id="e127f-150">You can test this by removing them for individual users in hello portal and then run automation scripts toohave them removed in bulk.</span></span> <span data-ttu-id="e127f-151">Aqui está um exemplo de hello mesmo usuário com licenças direto Olá removido por meio do portal hello.</span><span class="sxs-lookup"><span data-stu-id="e127f-151">Here is an example of hello same user with hello direct licenses removed through hello portal.</span></span> <span data-ttu-id="e127f-152">Observe que o estado da licença Olá permanece inalterado, mas não vemos atribuições diretas.</span><span class="sxs-lookup"><span data-stu-id="e127f-152">Notice that hello license state remains unchanged, but we no longer see direct assignments.</span></span>
+
+  ![licenças diretas removidas](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
+
+
+## <a name="next-steps"></a><span data-ttu-id="e127f-154">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="e127f-154">Next steps</span></span>
+
+<span data-ttu-id="e127f-155">toolearn mais sobre outros cenários de gerenciamento de licenças por meio de grupos, ler</span><span class="sxs-lookup"><span data-stu-id="e127f-155">toolearn more about other scenarios for license management through groups, read</span></span>
+
+* [<span data-ttu-id="e127f-156">Atribuir licenças tooa grupo no Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="e127f-156">Assigning licenses tooa group in Azure Active Directory</span></span>](active-directory-licensing-group-assignment-azure-portal.md)
+* [<span data-ttu-id="e127f-157">O que é o licenciamento baseado em grupo no Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="e127f-157">What is group-based licensing in Azure Active Directory?</span></span>](active-directory-licensing-whatis-azure-portal.md)
+* [<span data-ttu-id="e127f-158">Identificar e resolver problemas de licença para um grupo no Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="e127f-158">Identifying and resolving license problems for a group in Azure Active Directory</span></span>](active-directory-licensing-group-problem-resolution-azure-portal.md)
+* [<span data-ttu-id="e127f-159">Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="e127f-159">Azure Active Directory group-based licensing additional scenarios</span></span>](active-directory-licensing-group-advanced.md)

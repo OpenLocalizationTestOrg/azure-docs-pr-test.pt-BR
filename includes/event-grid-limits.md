@@ -1,0 +1,4 @@
+| <span data-ttu-id="50d21-101">Recurso</span><span class="sxs-lookup"><span data-stu-id="50d21-101">Resource</span></span> | <span data-ttu-id="50d21-102">Limite</span><span class="sxs-lookup"><span data-stu-id="50d21-102">Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="50d21-103">Assinaturas de Evento por região</span><span class="sxs-lookup"><span data-stu-id="50d21-103">Event Subscriptions per region</span></span> |<span data-ttu-id="50d21-104">1000</span><span class="sxs-lookup"><span data-stu-id="50d21-104">1000</span></span> |
+| <span data-ttu-id="50d21-105">Tópicos Personalizados por região</span><span class="sxs-lookup"><span data-stu-id="50d21-105">Custom Topics per region</span></span> |<span data-ttu-id="50d21-106">20</span><span class="sxs-lookup"><span data-stu-id="50d21-106">20</span></span> |

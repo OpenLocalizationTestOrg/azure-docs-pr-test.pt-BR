@@ -1,0 +1,33 @@
+---
+title: aaaTag Azure recursos no modelo | Microsoft Docs
+description: Mostra como tooapply marcas tooresources em um modelo do Gerenciador de recursos do Azure
+services: azure-resource-manager
+documentationcenter: 
+author: tfitzmac
+manager: timlt
+editor: tysonn
+ms.assetid: 
+ms.service: azure-resource-manager
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/20/2017
+ms.author: tomfitz
+ms.openlocfilehash: 9e07837a4ca3ceffc9da3443e9390c95562eda99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="tag-resources-in-azure-resource-manager-templates"></a><span data-ttu-id="bcdf0-103">Marque recursos em modelos do Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="bcdf0-103">Tag resources in Azure Resource Manager templates</span></span>
+[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+
+## <a name="add-tags-tooyour-template"></a><span data-ttu-id="bcdf0-104">Adicionar marcas tooyour modelo</span><span class="sxs-lookup"><span data-stu-id="bcdf0-104">Add tags tooyour template</span></span>
+
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+
+## <a name="next-steps"></a><span data-ttu-id="bcdf0-105">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="bcdf0-105">Next steps</span></span>
+* <span data-ttu-id="bcdf0-106">Para obter informações sobre como gerenciar marcas, consulte [Use marcas tooorganize seus recursos do Azure](resource-group-using-tags.md).</span><span class="sxs-lookup"><span data-stu-id="bcdf0-106">For information about managing tags, see [Use tags tooorganize your Azure resources](resource-group-using-tags.md).</span></span>
+* <span data-ttu-id="bcdf0-107">Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="bcdf0-107">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
+

@@ -1,0 +1,10 @@
+
+
+1. <span data-ttu-id="34601-101">Faça logon no [console do Firebase](https://firebase.google.com/console/).</span><span class="sxs-lookup"><span data-stu-id="34601-101">Sign in to the [Firebase console](https://firebase.google.com/console/).</span></span> <span data-ttu-id="34601-102">Crie um novo projeto do Firebase se você ainda não tiver um.</span><span class="sxs-lookup"><span data-stu-id="34601-102">Create a new Firebase project if you don't already have one.</span></span>
+2. <span data-ttu-id="34601-103">Depois que o projeto for criado, clique em **Adicionar Firebase ao seu aplicativo Android** e siga as instruções fornecidas.</span><span class="sxs-lookup"><span data-stu-id="34601-103">After your project is created, click **Add Firebase to your Android app** and follow the instructions provided.</span></span>
+
+    ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
+3. <span data-ttu-id="34601-104">No Console do Firebase, clique na engrenagem para seu projeto e, em seguida, clique em **Configurações do Projeto**.</span><span class="sxs-lookup"><span data-stu-id="34601-104">In the Firebase console, click the cog for your project and then click **Project Settings**.</span></span>
+
+    ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
+4. <span data-ttu-id="34601-105">Clique na guia **Cloud Messaging** nas configurações do projeto e copie o valor da **Chave do servidor** e da **ID do remetente**.</span><span class="sxs-lookup"><span data-stu-id="34601-105">Click the **Cloud Messaging** tab in your project settings, and copy the value of the **Server key** and **Sender ID**.</span></span> <span data-ttu-id="34601-106">Esses valores serão usados mais tarde para configurar a Política de Acesso do hub de notificação e o manipulador de notificações no aplicativo.</span><span class="sxs-lookup"><span data-stu-id="34601-106">These values will be used later to configure the notification hub access policy, and your notification handler in the app.</span></span>

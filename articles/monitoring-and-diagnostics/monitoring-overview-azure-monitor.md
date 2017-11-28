@@ -1,0 +1,148 @@
+---
+title: "Visão geral do Monitor de aaaAzure | Microsoft Docs"
+description: "O Azure Monitor coleta estatísticas para uso em alertas, webhooks, dimensionamento automático e automação. O artigo também lista outras opções de monitoramento da Microsoft."
+author: rboucher
+manager: carmonm
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/12/2017
+ms.author: robb
+ms.openlocfilehash: ffa304e7b158f0fceb7f60ab88fab291976aa0e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="overview-of-azure-monitor"></a><span data-ttu-id="6fa00-104">Visão geral do Azure Monitor</span><span class="sxs-lookup"><span data-stu-id="6fa00-104">Overview of Azure Monitor</span></span>
+<span data-ttu-id="6fa00-105">Este artigo fornece uma visão geral da saudação serviço do Monitor do Azure no Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-105">This article provides an overview of hello Azure Monitor service in Microsoft Azure.</span></span> <span data-ttu-id="6fa00-106">Ele discute o que faz Monitor do Azure e fornece ponteiros tooadditional informações sobre como toouse Monitor do Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-106">It discusses what Azure Monitor does and provides pointers tooadditional information on how toouse Azure Monitor.</span></span>  <span data-ttu-id="6fa00-107">Se você preferir um vídeo de Introdução, consulte links para etapas Avançar na parte inferior da saudação deste artigo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-107">If you prefer a video introduction, see Next steps links at hello bottom of this article.</span></span> 
+
+## <a name="why-monitor-your-application-or-system"></a><span data-ttu-id="6fa00-108">Por que monitorar seu aplicativo ou sistema</span><span class="sxs-lookup"><span data-stu-id="6fa00-108">Why monitor your application or system</span></span>
+<span data-ttu-id="6fa00-109">Os aplicativos em nuvem são complexos com muitas partes móveis.</span><span class="sxs-lookup"><span data-stu-id="6fa00-109">Cloud applications are complex with many moving parts.</span></span> <span data-ttu-id="6fa00-110">O monitoramento fornece tooensure de dados que seu aplicativo permaneça ativo e em execução em um estado íntegro.</span><span class="sxs-lookup"><span data-stu-id="6fa00-110">Monitoring provides data tooensure that your application stays up and running in a healthy state.</span></span> <span data-ttu-id="6fa00-111">Ele também ajuda você toostave off problemas potenciais ou solucionar problemas após os.</span><span class="sxs-lookup"><span data-stu-id="6fa00-111">It also helps you toostave off potential problems or troubleshoot past ones.</span></span> <span data-ttu-id="6fa00-112">Além disso, você pode usar o monitoramento dados toogain aprofundamento sobre seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-112">In addition, you can use monitoring data toogain deep insights about your application.</span></span> <span data-ttu-id="6fa00-113">Esse conhecimento pode ajudá-lo a facilidade de manutenção ou de desempenho do aplicativo tooimprove, ou automatizar ações que normalmente exigiriam a intervenção manual.</span><span class="sxs-lookup"><span data-stu-id="6fa00-113">That knowledge can help you tooimprove application performance or maintainability, or automate actions that would otherwise require manual intervention.</span></span>
+
+
+## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a><span data-ttu-id="6fa00-114">Azure Monitor e outros produtos de monitoramento da Microsoft</span><span class="sxs-lookup"><span data-stu-id="6fa00-114">Azure Monitor and Microsoft's other monitoring products</span></span>
+<span data-ttu-id="6fa00-115">O Azure Monitor fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-115">Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure.</span></span> <span data-ttu-id="6fa00-116">Serviços do Azure que não colocarem ainda seus dados no Monitor do Azure colocará-lo no hello futuras.</span><span class="sxs-lookup"><span data-stu-id="6fa00-116">Azure services that do not yet put their data into Azure Monitor will put it there in hello future.</span></span>
+
+<span data-ttu-id="6fa00-117">A Microsoft fornece produtos e serviços adicionais que oferecem mais recursos de monitoramento para desenvolvedores, DevOps ou operações de TI que também têm instalações locais.</span><span class="sxs-lookup"><span data-stu-id="6fa00-117">Microsoft ships additional products and services that provide additional monitoring capabilities for developers, DevOps, or IT Ops that also have on-premises installations.</span></span> <span data-ttu-id="6fa00-118">Para ter uma compreensão e visão geral de como esses diferentes produtos e serviços funcionam juntos, consulte [Monitoramento no Microsoft Azure](monitoring-overview.md).</span><span class="sxs-lookup"><span data-stu-id="6fa00-118">For an overview and understanding of how these different products and services work together, see [Monitoring in Microsoft Azure](monitoring-overview.md).</span></span>
+
+## <a name="monitoring-sources---compute"></a><span data-ttu-id="6fa00-119">Fontes de monitoramento – Computação</span><span class="sxs-lookup"><span data-stu-id="6fa00-119">Monitoring Sources - Compute</span></span>
+
+![Modelo para o monitoramento e diagnóstico dos recursos não de computação](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
+<span data-ttu-id="6fa00-121">Serviços de computação Olá incluem</span><span class="sxs-lookup"><span data-stu-id="6fa00-121">hello Compute services include</span></span> 
+- <span data-ttu-id="6fa00-122">Serviços de Nuvem</span><span class="sxs-lookup"><span data-stu-id="6fa00-122">Cloud Services</span></span> 
+- <span data-ttu-id="6fa00-123">Máquinas Virtuais</span><span class="sxs-lookup"><span data-stu-id="6fa00-123">Virtual Machines</span></span> 
+- <span data-ttu-id="6fa00-124">Conjuntos de escala de Máquina Virtual</span><span class="sxs-lookup"><span data-stu-id="6fa00-124">Virtual Machine scale sets</span></span> 
+- <span data-ttu-id="6fa00-125">Service Fabric</span><span class="sxs-lookup"><span data-stu-id="6fa00-125">Service Fabric</span></span>
+
+### <a name="application---diagnostics-logs-application-logs-and-metrics"></a><span data-ttu-id="6fa00-126">Aplicativo - Logs de Diagnóstico, Logs de Aplicativo e Métrica</span><span class="sxs-lookup"><span data-stu-id="6fa00-126">Application - Diagnostics Logs, Application Logs, and Metrics</span></span>
+<span data-ttu-id="6fa00-127">Aplicativos podem ser executados sobre Olá SO convidado no modelo de computação hello.</span><span class="sxs-lookup"><span data-stu-id="6fa00-127">Applications can run on top of hello Guest OS in hello compute model.</span></span> <span data-ttu-id="6fa00-128">Eles emitem seu próprio conjunto de métricas e logs.</span><span class="sxs-lookup"><span data-stu-id="6fa00-128">They emit their own set of logs and metrics.</span></span> <span data-ttu-id="6fa00-129">Monitor do Azure depende Olá diagnóstico do Azure extensão (Windows ou Linux) toocollect a maioria dos logs e as métricas de nível de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-129">Azure Monitor relies on hello Azure diagnostics extension (Windows or Linux) toocollect most application level metrics and logs.</span></span> <span data-ttu-id="6fa00-130">Olá tipos incluem</span><span class="sxs-lookup"><span data-stu-id="6fa00-130">hello types include</span></span>
+
+* <span data-ttu-id="6fa00-131">Contadores de desempenho</span><span class="sxs-lookup"><span data-stu-id="6fa00-131">Performance counters</span></span>
+* <span data-ttu-id="6fa00-132">Logs de aplicativo</span><span class="sxs-lookup"><span data-stu-id="6fa00-132">Application Logs</span></span>
+* <span data-ttu-id="6fa00-133">Logs de Eventos do Windows</span><span class="sxs-lookup"><span data-stu-id="6fa00-133">Windows Event Logs</span></span>
+* <span data-ttu-id="6fa00-134">Fonte de evento do .NET</span><span class="sxs-lookup"><span data-stu-id="6fa00-134">.NET Event Source</span></span>
+* <span data-ttu-id="6fa00-135">Logs IIS</span><span class="sxs-lookup"><span data-stu-id="6fa00-135">IIS Logs</span></span>
+* <span data-ttu-id="6fa00-136">Manifesto com base no ETW</span><span class="sxs-lookup"><span data-stu-id="6fa00-136">Manifest based ETW</span></span>
+* <span data-ttu-id="6fa00-137">Despejos de Falha</span><span class="sxs-lookup"><span data-stu-id="6fa00-137">Crash Dumps</span></span>
+* <span data-ttu-id="6fa00-138">Logs de Erro do Cliente</span><span class="sxs-lookup"><span data-stu-id="6fa00-138">Customer Error Logs</span></span>
+
+<span data-ttu-id="6fa00-139">Sem extensão de diagnóstico hello, apenas algumas métricas como uso de CPU estão disponíveis.</span><span class="sxs-lookup"><span data-stu-id="6fa00-139">Without hello diagnostics extension, only a few metrics like CPU usage are available.</span></span> 
+
+### <a name="host-and-guest-vm-metrics"></a><span data-ttu-id="6fa00-140">Métricas de VM host e convidada</span><span class="sxs-lookup"><span data-stu-id="6fa00-140">Host and Guest VM metrics</span></span>
+<span data-ttu-id="6fa00-141">Olá recursos de computação listadas anteriormente tem uma VM do host dedicado e interagem com sistema operacional convidado.</span><span class="sxs-lookup"><span data-stu-id="6fa00-141">hello previously listed compute resources have a dedicated host VM and guest OS they interact with.</span></span> <span data-ttu-id="6fa00-142">Olá host VM e o sistema operacional convidado são equivalente de saudação da raiz da VM e VM convidada no modelo de hipervisor Hyper-V hello.</span><span class="sxs-lookup"><span data-stu-id="6fa00-142">hello host VM and guest OS are hello equivalent of root VM and guest VM in hello Hyper-V hypervisor model.</span></span> <span data-ttu-id="6fa00-143">Você pode coletar métricas sobre ambos.</span><span class="sxs-lookup"><span data-stu-id="6fa00-143">You can collect metrics on both.</span></span> <span data-ttu-id="6fa00-144">Você também pode coletar logs de diagnóstico no sistema operacional convidado de saudação.</span><span class="sxs-lookup"><span data-stu-id="6fa00-144">You can also collect diagnostics logs on hello guest OS.</span></span>   
+
+### <a name="activity-log"></a><span data-ttu-id="6fa00-145">Log de Atividade</span><span class="sxs-lookup"><span data-stu-id="6fa00-145">Activity Log</span></span>
+<span data-ttu-id="6fa00-146">Você pode pesquisar hello (anteriormente chamado operacional ou os Logs de auditoria) do Log de atividades para obter informações sobre seu recurso como visto pelo Olá infraestrutura do Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-146">You can search hello Activity Log (previously called Operational or Audit Logs) for information about your resource as seen by hello Azure infrastructure.</span></span> <span data-ttu-id="6fa00-147">log de saudação contém informações como horários quando os recursos são criados ou destruídos.</span><span class="sxs-lookup"><span data-stu-id="6fa00-147">hello log contains information such as times when resources are created or destroyed.</span></span>  <span data-ttu-id="6fa00-148">Para obter mais informações, consulte [Visão geral do log de atividades](monitoring-overview-activity-logs.md).</span><span class="sxs-lookup"><span data-stu-id="6fa00-148">For more information, see [Overview of Activity Log](monitoring-overview-activity-logs.md).</span></span> 
+
+## <a name="monitoring-sources---everything-else"></a><span data-ttu-id="6fa00-149">Fontes de monitoramento – todo o restante</span><span class="sxs-lookup"><span data-stu-id="6fa00-149">Monitoring Sources - everything else</span></span>
+
+![Modelo para o monitoramento e diagnóstico dos recursos de computação](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
+
+
+### <a name="resource---metrics-and-diagnostics-logs"></a><span data-ttu-id="6fa00-151">Recursos - Métricas e Logs de Diagnóstico</span><span class="sxs-lookup"><span data-stu-id="6fa00-151">Resource - Metrics and Diagnostics Logs</span></span>
+<span data-ttu-id="6fa00-152">Logs de diagnóstico e métricas colecionável variam com base no tipo de recurso de saudação.</span><span class="sxs-lookup"><span data-stu-id="6fa00-152">Collectable metrics and diagnostics logs vary based on hello resource type.</span></span> <span data-ttu-id="6fa00-153">Por exemplo, aplicativos Web fornece estatísticas sobre hello e/s de disco e por cento da CPU.</span><span class="sxs-lookup"><span data-stu-id="6fa00-153">For example, Web Apps provides statistics on hello Disk IO and Percent CPU.</span></span> <span data-ttu-id="6fa00-154">Essas métricas não existem para uma fila do Barramento de Serviço, que, em vez disso, fornece métricas como tamanho da fila e taxa de transferência de mensagem.</span><span class="sxs-lookup"><span data-stu-id="6fa00-154">Those metrics don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput.</span></span> <span data-ttu-id="6fa00-155">Uma lista de métricas que podem ser coletadas para cada recurso está disponível em [métricas com suporte](monitoring-supported-metrics.md).</span><span class="sxs-lookup"><span data-stu-id="6fa00-155">A list of collectable metrics for each resource is available at [supported metrics](monitoring-supported-metrics.md).</span></span> 
+
+### <a name="host-and-guest-vm-metrics"></a><span data-ttu-id="6fa00-156">Métricas de VM host e convidada</span><span class="sxs-lookup"><span data-stu-id="6fa00-156">Host and Guest VM metrics</span></span>
+<span data-ttu-id="6fa00-157">Não há necessariamente um mapeamento individual entre o recurso e uma determinada VM host ou convidada, portanto, as métricas não estão disponíveis.</span><span class="sxs-lookup"><span data-stu-id="6fa00-157">There is not necessarily a 1:1 mapping between your resource and a particular Host or Guest VM so metrics are not available.</span></span>
+
+### <a name="activity-log"></a><span data-ttu-id="6fa00-158">Log de Atividade</span><span class="sxs-lookup"><span data-stu-id="6fa00-158">Activity Log</span></span>
+<span data-ttu-id="6fa00-159">log de atividades de saudação é Olá igual para recursos de computação.</span><span class="sxs-lookup"><span data-stu-id="6fa00-159">hello activity log is hello same as for compute resources.</span></span>  
+
+## <a name="uses-for-monitoring-data"></a><span data-ttu-id="6fa00-160">Usos dos Dados de Monitoramento</span><span class="sxs-lookup"><span data-stu-id="6fa00-160">Uses for Monitoring Data</span></span>
+<span data-ttu-id="6fa00-161">Depois de coletar os dados, você pode fazer Olá a seguir com ele no Monitor do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-161">Once you collect your data, you can do hello following with it in Azure Monitor</span></span>
+
+### <a name="route"></a><span data-ttu-id="6fa00-162">Rota</span><span class="sxs-lookup"><span data-stu-id="6fa00-162">Route</span></span>
+<span data-ttu-id="6fa00-163">Você pode transmitir locais de tooother de dados de monitoramento em tempo real.</span><span class="sxs-lookup"><span data-stu-id="6fa00-163">You can stream monitoring data tooother locations in real time.</span></span>
+
+<span data-ttu-id="6fa00-164">Os exemplos incluem:</span><span class="sxs-lookup"><span data-stu-id="6fa00-164">Examples include:</span></span>
+
+- <span data-ttu-id="6fa00-165">Envie tooApplication Insights, você pode usar suas ferramentas de visualização e análise mais ricas.</span><span class="sxs-lookup"><span data-stu-id="6fa00-165">Send tooApplication Insights so you can use its richer visualization and analysis tools.</span></span>
+- <span data-ttu-id="6fa00-166">Envie Hubs tooEvent para que você possa rotear ferramentas de terceiros toothird.</span><span class="sxs-lookup"><span data-stu-id="6fa00-166">Send tooEvent Hubs so you can route toothird-party tools.</span></span> 
+
+### <a name="store-and-archive"></a><span data-ttu-id="6fa00-167">Armazenar e arquivar</span><span class="sxs-lookup"><span data-stu-id="6fa00-167">Store and Archive</span></span>
+<span data-ttu-id="6fa00-168">Alguns dados de monitoramento já ficam armazenados e disponíveis no Azure Monitor por um período determinado.</span><span class="sxs-lookup"><span data-stu-id="6fa00-168">Some monitoring data is already stored and available in Azure Monitor for a set amount of time.</span></span> 
+- <span data-ttu-id="6fa00-169">As métricas são armazenadas por 30 dias.</span><span class="sxs-lookup"><span data-stu-id="6fa00-169">Metrics are stored for 30 days.</span></span> 
+- <span data-ttu-id="6fa00-170">As entradas do log de atividades são armazenadas por 90 dias.</span><span class="sxs-lookup"><span data-stu-id="6fa00-170">Activity log entries are stored for 90 days.</span></span> 
+- <span data-ttu-id="6fa00-171">Logs de diagnóstico não são armazenados.</span><span class="sxs-lookup"><span data-stu-id="6fa00-171">Diagnostics logs are not stored at all.</span></span> 
+
+<span data-ttu-id="6fa00-172">Se você quiser toostore dados mais de saudação períodos de tempo listados acima, você pode usar um armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-172">If you want toostore data longer than hello time periods listed above, you can use an Azure storage.</span></span> <span data-ttu-id="6fa00-173">Os dados de monitoramento são mantidos em sua conta de armazenamento com base em uma política de retenção que você definir.</span><span class="sxs-lookup"><span data-stu-id="6fa00-173">Monitoring data is kept in your storage acccount based on a retention policy you set.</span></span> <span data-ttu-id="6fa00-174">Você tem toopay para Olá Olá de espaço dados ocupam no armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="6fa00-174">You do have toopay for hello space hello data takes up in Azure storage.</span></span> 
+
+<span data-ttu-id="6fa00-175">Alguns toouse de maneiras esses dados:</span><span class="sxs-lookup"><span data-stu-id="6fa00-175">A few ways toouse this data:</span></span>
+
+- <span data-ttu-id="6fa00-176">Uma vez gravados, você pode ter outras ferramentas dentro ou fora do Azure para lê-los e processá-los.</span><span class="sxs-lookup"><span data-stu-id="6fa00-176">Once written, you can have other tools within or outside of Azure read it and process it.</span></span>
+- <span data-ttu-id="6fa00-177">Baixar dados Olá localmente para um arquivo local ou alterar sua política de retenção nos dados do hello nuvem tookeep por longos períodos de tempo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-177">You download hello data locally for a local archive or change your retention policy in hello cloud tookeep data for extended periods of time.</span></span>  
+- <span data-ttu-id="6fa00-178">Você pode deixar dados saudação no armazenamento do Azure indefinidamente para fins de arquivamento.</span><span class="sxs-lookup"><span data-stu-id="6fa00-178">You leave hello data in Azure storage indefinitely for archive purposes.</span></span> 
+
+### <a name="query"></a><span data-ttu-id="6fa00-179">Consultar</span><span class="sxs-lookup"><span data-stu-id="6fa00-179">Query</span></span>
+<span data-ttu-id="6fa00-180">Você pode usar o hello API REST do Monitor do Azure, comandos de Interface de linha de comando (CLI) de plataforma cruzada, cmdlets do PowerShell, ou tooaccess do SDK do .NET Olá Olá dados no sistema de saudação ou no armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-180">You can use hello Azure Monitor REST API, cross platform Command-Line Interface (CLI) commands, PowerShell cmdlets, or hello .NET SDK tooaccess hello data in hello system or Azure storage</span></span>
+
+<span data-ttu-id="6fa00-181">Os exemplos incluem:</span><span class="sxs-lookup"><span data-stu-id="6fa00-181">Examples include:</span></span>
+
+* <span data-ttu-id="6fa00-182">Obtendo dados para um aplicativo de monitoramento personalizado escrito por você</span><span class="sxs-lookup"><span data-stu-id="6fa00-182">Getting data for a custom monitoring application you have written</span></span>
+* <span data-ttu-id="6fa00-183">Criar consultas personalizadas e enviar esse aplicativo de terceiros tooa dados.</span><span class="sxs-lookup"><span data-stu-id="6fa00-183">Creating custom queries and sending that data tooa third-party application.</span></span>
+
+### <a name="visualize"></a><span data-ttu-id="6fa00-184">Visualizar</span><span class="sxs-lookup"><span data-stu-id="6fa00-184">Visualize</span></span>
+<span data-ttu-id="6fa00-185">Visualizando seus dados em gráficos e gráficos de monitoramentos ajuda você a encontrar as tendências mais rápido do que examinar dados Olá em si.</span><span class="sxs-lookup"><span data-stu-id="6fa00-185">Visualizing your monitoring data in graphics and charts helps you find trends quicker than looking through hello data itself.</span></span>  
+
+<span data-ttu-id="6fa00-186">Alguns métodos de visualização incluem:</span><span class="sxs-lookup"><span data-stu-id="6fa00-186">A few visualization methods include:</span></span>
+
+* <span data-ttu-id="6fa00-187">Use Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-187">Use hello Azure portal</span></span>
+* <span data-ttu-id="6fa00-188">Dados de rota tooAzure Application Insights</span><span class="sxs-lookup"><span data-stu-id="6fa00-188">Route data tooAzure Application Insights</span></span>
+* <span data-ttu-id="6fa00-189">Dados de rota tooMicrosoft PowerBI</span><span class="sxs-lookup"><span data-stu-id="6fa00-189">Route data tooMicrosoft PowerBI</span></span>
+* <span data-ttu-id="6fa00-190">Rota Olá dados tooa visualização de terceiros ferramenta usando o live streaming ou fazendo com que a ferramenta de saudação ler de um arquivo no armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-190">Route hello data tooa third-party visualization tool using either live streaming or by having hello tool read from an archive in Azure storage</span></span>
+
+
+### <a name="automate"></a><span data-ttu-id="6fa00-191">Automatizar</span><span class="sxs-lookup"><span data-stu-id="6fa00-191">Automate</span></span>
+<span data-ttu-id="6fa00-192">Você pode usar os alertas de monitoramento tootrigger de dados ou até mesmo processos inteiros.</span><span class="sxs-lookup"><span data-stu-id="6fa00-192">You can use monitoring data tootrigger alerts or even whole processes.</span></span> <span data-ttu-id="6fa00-193">Os exemplos incluem:</span><span class="sxs-lookup"><span data-stu-id="6fa00-193">Examples include:</span></span>
+
+* <span data-ttu-id="6fa00-194">Use instâncias de computação tooautoscale dados para cima ou para baixo com base na carga do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-194">Use data tooautoscale compute instances up or down based on application load.</span></span>
+* <span data-ttu-id="6fa00-195">Envie emails quando uma métrica passar de um limite predeterminado.</span><span class="sxs-lookup"><span data-stu-id="6fa00-195">Send emails when a metric crosses a predetermined threshold.</span></span>
+* <span data-ttu-id="6fa00-196">Chamar uma ação de um tooexecute de URL (webhook) da web em um sistema fora do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-196">Call a web URL (webhook) tooexecute an action in a system outside of Azure</span></span>
+* <span data-ttu-id="6fa00-197">Iniciar um runbook na automação do Azure tooperform qualquer variedade de tarefas</span><span class="sxs-lookup"><span data-stu-id="6fa00-197">Start a runbook in Azure automation tooperform any variety of tasks</span></span>
+
+## <a name="methods-of-accessing-azure-monitor"></a><span data-ttu-id="6fa00-198">Métodos para acessar o Azure Monitor</span><span class="sxs-lookup"><span data-stu-id="6fa00-198">Methods of accessing Azure Monitor</span></span>
+<span data-ttu-id="6fa00-199">Em geral, você pode manipular o controle de dados, o roteamento e a recuperação usando um dos métodos a seguir de saudação.</span><span class="sxs-lookup"><span data-stu-id="6fa00-199">In general, you can manipulate data tracking, routing, and retrieval using one of hello following methods.</span></span> <span data-ttu-id="6fa00-200">Nem todos os métodos estão disponíveis para todas as ações ou tipos de dados.</span><span class="sxs-lookup"><span data-stu-id="6fa00-200">Not all methods are available for all actions or data types.</span></span>
+
+* [<span data-ttu-id="6fa00-201">Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="6fa00-201">Azure portal</span></span>](https://portal.azure.com)
+* [<span data-ttu-id="6fa00-202">PowerShell</span><span class="sxs-lookup"><span data-stu-id="6fa00-202">PowerShell</span></span>](insights-powershell-samples.md)  
+* [<span data-ttu-id="6fa00-203">CLI (Interface de linha de comando) de plataforma cruzada</span><span class="sxs-lookup"><span data-stu-id="6fa00-203">Cross-platform Command Line Interface (CLI)</span></span>](insights-cli-samples.md)
+* [<span data-ttu-id="6fa00-204">API REST</span><span class="sxs-lookup"><span data-stu-id="6fa00-204">REST API</span></span>](https://docs.microsoft.com/rest/api/monitor/)
+* [<span data-ttu-id="6fa00-205">SDK .NET</span><span class="sxs-lookup"><span data-stu-id="6fa00-205">.NET SDK</span></span>](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+## <a name="next-steps"></a><span data-ttu-id="6fa00-206">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6fa00-206">Next steps</span></span>
+<span data-ttu-id="6fa00-207">Saiba mais sobre</span><span class="sxs-lookup"><span data-stu-id="6fa00-207">Learn more about</span></span>
+- <span data-ttu-id="6fa00-208">Um passo a passo em vídeo do Azure Monitor está disponível em</span><span class="sxs-lookup"><span data-stu-id="6fa00-208">A video walkthrough of just Azure Monitor is available at</span></span>  
+<span data-ttu-id="6fa00-209">[Introdução ao Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor).</span><span class="sxs-lookup"><span data-stu-id="6fa00-209">[Get Started with Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor).</span></span> <span data-ttu-id="6fa00-210">Um vídeo adicional explicando um cenário no qual você pode usar o Azure Monitor está disponível em [Explore o monitoramento e diagnósticos no Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234) e [Azure Monitor em um vídeo do Ignite 2016](https://myignite.microsoft.com/videos/4977)</span><span class="sxs-lookup"><span data-stu-id="6fa00-210">An additional video explaining a scenario where you can use Azure Monitor is available at [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) and [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)</span></span>
+- <span data-ttu-id="6fa00-211">Percorra a interface do Monitor do Azure Olá no [guia de Introdução ao Monitor do Azure](monitoring-get-started.md)</span><span class="sxs-lookup"><span data-stu-id="6fa00-211">Run through hello Azure Monitor interface in [Getting Started with Azure Monitor](monitoring-get-started.md)</span></span>
+- <span data-ttu-id="6fa00-212">Configurar Olá [extensões de diagnóstico do Azure](../azure-diagnostics.md) se você estiver tentando toodiagnose problemas em seu serviço de nuvem, Máquina Virtual, a máquina Virtual dimensionar conjuntos ou aplicativo do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="6fa00-212">Set up hello [Azure Diagnostics Extensions](../azure-diagnostics.md) if you are attempting toodiagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale sets, or Service Fabric application.</span></span>
+- <span data-ttu-id="6fa00-213">[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você estiver tentando toodiagnostic problemas em seu aplicativo Web do serviço de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6fa00-213">[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying toodiagnostic problems in your App Service Web app.</span></span>
+- <span data-ttu-id="6fa00-214">[Solucionar de problemas no Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md) ao usar os Blobs, Tabelas ou Filas de Armazenamento</span><span class="sxs-lookup"><span data-stu-id="6fa00-214">[Troubleshooting Azure Storage](../storage/common/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues</span></span>
+- <span data-ttu-id="6fa00-215">[Análise de log](https://azure.microsoft.com/documentation/services/log-analytics/) e hello [Operations Management Suite](https://www.microsoft.com/oms/)</span><span class="sxs-lookup"><span data-stu-id="6fa00-215">[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and hello [Operations Management Suite](https://www.microsoft.com/oms/)</span></span>

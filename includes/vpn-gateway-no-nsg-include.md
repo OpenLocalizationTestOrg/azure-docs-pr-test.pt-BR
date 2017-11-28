@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> <span data-ttu-id="8358c-101">Ao trabalhar com sub-redes de gateway, evite a associação de um NSG (grupo de segurança de rede) à sub-rede de gateway.</span><span class="sxs-lookup"><span data-stu-id="8358c-101">When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet.</span></span> <span data-ttu-id="8358c-102">Associar um grupo de segurança de rede a essa sub-rede pode fazer com que seu gateway de VPN para parar de funcionar conforme o esperado.</span><span class="sxs-lookup"><span data-stu-id="8358c-102">Associating a network security group to this subnet may cause your VPN gateway to stop functioning as expected.</span></span> <span data-ttu-id="8358c-103">Para obter mais informações sobre grupos de segurança de rede, confira [O que é um grupo de segurança de rede?](../articles/virtual-network/virtual-networks-nsg.md)</span><span class="sxs-lookup"><span data-stu-id="8358c-103">For more information about network security groups, see [What is a network security group?](../articles/virtual-network/virtual-networks-nsg.md)</span></span>
+> 
+> 
+

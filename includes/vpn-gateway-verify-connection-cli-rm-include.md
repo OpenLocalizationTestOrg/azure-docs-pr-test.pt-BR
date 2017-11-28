@@ -1,0 +1,6 @@
+<span data-ttu-id="e0f84-101">Você pode verificar se a conexão foi bem-sucedida usando o comando [az network vpn-connection show](/cli/azure/network/vpn-connection#show).</span><span class="sxs-lookup"><span data-stu-id="e0f84-101">You can verify that your connection succeeded by using the [az network vpn-connection show](/cli/azure/network/vpn-connection#show) command.</span></span> <span data-ttu-id="e0f84-102">No exemplo, "--name" refere-se ao nome da conexão que você deseja testar.</span><span class="sxs-lookup"><span data-stu-id="e0f84-102">In the example, '--name' refers to the name of the connection that you want to test.</span></span> <span data-ttu-id="e0f84-103">Quando a conexão ainda está sendo estabelecida, seu status de conexão mostra "Conectando".</span><span class="sxs-lookup"><span data-stu-id="e0f84-103">When the connection is in the process of being established, its connection status shows 'Connecting'.</span></span> <span data-ttu-id="e0f84-104">Quando a conexão for estabelecida, o status será alterado para "Conectado".</span><span class="sxs-lookup"><span data-stu-id="e0f84-104">Once the connection is established, the status changes to 'Connected'.</span></span>
+
+```azurecli
+az network vpn-connection show --name VNet1toSite2 --resource-group TestRG1
+```
+

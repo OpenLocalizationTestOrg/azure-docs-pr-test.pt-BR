@@ -1,0 +1,51 @@
+---
+title: "Alterar o locatário do Azure Active Directory no Azure RemoteApp | Microsoft Docs"
+description: "Saiba como alterar o locatário do Active Directory do Azure associado ao RemoteApp do Azure"
+services: remoteapp
+documentationcenter: 
+author: msmbaldwin
+manager: mbaldwin
+ms.assetid: 20faf169-6e48-428a-8bdd-f231daff19fa
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/26/2017
+ms.author: mbaldwin
+ms.openlocfilehash: 7c6c4ded8a11d8399968b2c32aff055d7f3ae5f8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a><span data-ttu-id="e99d2-103">Alterar o locatário do Active Directory do Azure no RemoteApp do Azure</span><span class="sxs-lookup"><span data-stu-id="e99d2-103">Change the Azure Active Directory tenant in Azure RemoteApp</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="e99d2-104">O Azure RemoteApp será descontinuado até 31 de agosto de 2017.</span><span class="sxs-lookup"><span data-stu-id="e99d2-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="e99d2-105">Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.</span><span class="sxs-lookup"><span data-stu-id="e99d2-105">Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> 
+> 
+
+<span data-ttu-id="e99d2-106">O RemoteApp do Azure usa o Active Directory do Azure (Azure AD) para permitir o acesso do usuário.</span><span class="sxs-lookup"><span data-stu-id="e99d2-106">Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access.</span></span> <span data-ttu-id="e99d2-107">O único locatário do Azure AD que você pode usar no Azure RemoteApp é aquele associado à assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="e99d2-107">The only Azure AD tenant that you can use in Azure RemoteApp is the one associated with the Azure subscription.</span></span> <span data-ttu-id="e99d2-108">Você pode exibir a assinatura associada na página **Configurações** no portal.</span><span class="sxs-lookup"><span data-stu-id="e99d2-108">You can view the associated subscription on the **Settings** page in the portal.</span></span> <span data-ttu-id="e99d2-109">Examine a coluna **Diretório** na guia **Assinaturas**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-109">Look at the **Directory** column on the **Subscriptions** tab.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="e99d2-110">Para que essa alteração seja bem-sucedida, primeiro remova todos os usuários do locatário existente do Active Directory do Azure de todas as coleções do RemoteApp do Azure.</span><span class="sxs-lookup"><span data-stu-id="e99d2-110">For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections.</span></span> <span data-ttu-id="e99d2-111">Para isso, acesse o Portal do Azure, vá para a guia **Azure RemoteApp** e abra cada coleção do Azure RemoteApp.</span><span class="sxs-lookup"><span data-stu-id="e99d2-111">To do this, go to the Azure Portal, go to the **Azure RemoteApp** tab and open every Azure RemoteApp collection.</span></span> <span data-ttu-id="e99d2-112">Vá para a guia **Usuários** e remova usuários que pertencem ao seu locatário atual do Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="e99d2-112">Go to the **Users** tab and remove users that belong to your current Azure Active Directory tenant.</span></span> <span data-ttu-id="e99d2-113">Repita para todas as coleções de RemoteApp do Azure existentes.</span><span class="sxs-lookup"><span data-stu-id="e99d2-113">Repeat for all existing Azure RemoteApp collections.</span></span> <span data-ttu-id="e99d2-114">Sem isso, você não poderá criar ou aplicar patches em coleções.</span><span class="sxs-lookup"><span data-stu-id="e99d2-114">Without doing this, you will not be able to create or patch collections.</span></span>
+> 
+> 
+
+<span data-ttu-id="e99d2-115">Se você quiser usar um locatário diferente, siga estas etapas para alterar a associação à sua assinatura:</span><span class="sxs-lookup"><span data-stu-id="e99d2-115">If you want to use a different tenant, use these steps to change the association with your subscription:</span></span>
+
+1. <span data-ttu-id="e99d2-116">No portal, remova os usuários do Azure AD para os quais você deu acesso aos serviços do RemoteApp.</span><span class="sxs-lookup"><span data-stu-id="e99d2-116">In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections.</span></span> <span data-ttu-id="e99d2-117">(Veja a observação acima para obter as etapas para fazer isso).</span><span class="sxs-lookup"><span data-stu-id="e99d2-117">(See the note above for steps on how to do this.)</span></span>
+2. <span data-ttu-id="e99d2-118">Defina uma conta da Microsoft (anteriormente chamada de Live ID) como o Administrador de serviços.</span><span class="sxs-lookup"><span data-stu-id="e99d2-118">Set a Microsoft account (formerly called a Live ID) as the Service administrator.</span></span> <span data-ttu-id="e99d2-119">(Não sabe se você já é o administrador de serviço?</span><span class="sxs-lookup"><span data-stu-id="e99d2-119">(Don't know if you already are the service admin?</span></span> <span data-ttu-id="e99d2-120">É possível descobrir isso clicando em **Configurações -> Administradores**.) Veja como você pode alterar isso:</span><span class="sxs-lookup"><span data-stu-id="e99d2-120">You can find out by clicking **Settings -> Administrators**.) Now, here's how you change that:</span></span>
+   
+   1. <span data-ttu-id="e99d2-121">Clique no usuário no canto superior direito e clique em **Exibir minha cobrança**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-121">Click the user in the upper right corner, and then click **View my bill**.</span></span>
+   2. <span data-ttu-id="e99d2-122">Clique na assinatura.</span><span class="sxs-lookup"><span data-stu-id="e99d2-122">Click the subscription.</span></span> <span data-ttu-id="e99d2-123">Em seguida, na nova página, role para baixo e clique em **Editar detalhes da assinatura** no canto direito.</span><span class="sxs-lookup"><span data-stu-id="e99d2-123">Then, on the new page, scroll down and click **Edit subscription details** in the right.</span></span> <span data-ttu-id="e99d2-124">(Classifique a partir da metade inferior direita, se isso ajudá-lo a encontrar).</span><span class="sxs-lookup"><span data-stu-id="e99d2-124">(Sort of the middle bottom right, if that helps you find it.)</span></span>
+   3. <span data-ttu-id="e99d2-125">Digite a conta da Microsoft para o usuário deve ser o administrador de serviços.</span><span class="sxs-lookup"><span data-stu-id="e99d2-125">Type the Microsoft account for the user that should be the service admin.</span></span>
+3. <span data-ttu-id="e99d2-126">Agora, saia do portal e entre novamente com a conta da Microsoft especificada na etapa anterior.</span><span class="sxs-lookup"><span data-stu-id="e99d2-126">Now, sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.</span></span>
+4. <span data-ttu-id="e99d2-127">Clique em **Novo -> Serviços de Aplicativos -> Active Directory -> Diretório -> Criação Personalizada**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-127">Click **New -> App Services -> Active Directory -> Directory -> Custom Create**.</span></span>
+5. <span data-ttu-id="e99d2-128">Em **Diretório**, escolha **Usar diretório existente**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-128">Under **Directory**, choose **Use existing directory**.</span></span> <span data-ttu-id="e99d2-129">Precisaremos desconectá-lo do portal agora, portanto escolha **Estou pronto para sair agora**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-129">We're going to have to sign you out of the portal now, so choose **I am ready to be signed out now**.</span></span>
+6. <span data-ttu-id="e99d2-130">Entre novamente no portal como administrador global do diretório que você deseja adicionar.</span><span class="sxs-lookup"><span data-stu-id="e99d2-130">Sign back into the portal as a global admin of the directory you want to add.</span></span> <span data-ttu-id="e99d2-131">(Se você ainda não era o administrador global, você será após uma rodada de entrada e saída).</span><span class="sxs-lookup"><span data-stu-id="e99d2-131">(If you weren't already a global admin, you will be after a round of sign in and then sign out.)</span></span>
+7. <span data-ttu-id="e99d2-132">Ao entrar, será solicitado se você deseja usar seu locatário do AD existente com a sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="e99d2-132">You'll be asked when you sign in if you want to use your existing AD tenant with your subscription.</span></span> <span data-ttu-id="e99d2-133">Clique em **Continuar** e em **Sair agora**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-133">Click **Continue**, and then click **Sign out now**.</span></span>
+8. <span data-ttu-id="e99d2-134">Entre novamente e volte para **Configurações -> Assinaturas**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-134">Sign back in again, and go back to **Settings -> Subscriptions**.</span></span> <span data-ttu-id="e99d2-135">Selecione sua assinatura e clique em **Editar Diretório**.</span><span class="sxs-lookup"><span data-stu-id="e99d2-135">Select your subscription, and then click **Edit Directory**.</span></span> <span data-ttu-id="e99d2-136">Selecione o locatário do AD do Azure que deseja usar.</span><span class="sxs-lookup"><span data-stu-id="e99d2-136">Select the Azure AD tenant that you want to use.</span></span>
+
+<span data-ttu-id="e99d2-137">Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no Azure RemoteApp.</span><span class="sxs-lookup"><span data-stu-id="e99d2-137">You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.</span></span>
+

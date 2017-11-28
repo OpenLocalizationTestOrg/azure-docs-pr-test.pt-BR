@@ -1,0 +1,46 @@
+<!--author=alkohli last changed: 07/07/17-->
+
+#### <a name="to-install-an-update-from-the-azure-portal"></a><span data-ttu-id="0de6c-101">Para instalar uma atualização por meio do portal do Azure</span><span class="sxs-lookup"><span data-stu-id="0de6c-101">To install an update from the Azure portal</span></span>
+
+1. <span data-ttu-id="0de6c-102">Na página do serviço StorSimple, selecione seu dispositivo.</span><span class="sxs-lookup"><span data-stu-id="0de6c-102">On the StorSimple service page, select your device.</span></span>
+
+    ![Selecionar dispositivo](./media/storsimple-8000-install-update4-via-portal/update1.png)
+
+2. <span data-ttu-id="0de6c-104">Navegue até **Configurações do dispositivo** > **Atualizações de dispositivo**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-104">Navigate to **Device settings** > **Device updates**.</span></span>
+
+    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update4-via-portal/update2.png)
+
+2. <span data-ttu-id="0de6c-106">Uma notificação será exibida se houver novas atualizações disponíveis.</span><span class="sxs-lookup"><span data-stu-id="0de6c-106">A notification appears if new updates are available.</span></span> <span data-ttu-id="0de6c-107">Como alternativa, na folha **Atualizações de dispositivo**, clique em **Verificar Atualizações**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-107">Alternatively, in the **Device updates** blade, click **Scan Updates**.</span></span> <span data-ttu-id="0de6c-108">Um trabalho é criado para verificar se há atualizações disponíveis.</span><span class="sxs-lookup"><span data-stu-id="0de6c-108">A job is created to scan for available updates.</span></span> <span data-ttu-id="0de6c-109">Você será notificado quando o trabalho for concluído com êxito.</span><span class="sxs-lookup"><span data-stu-id="0de6c-109">You are notified when the job completes successfully.</span></span>
+
+    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update4-via-portal/update3.png)
+
+3. <span data-ttu-id="0de6c-111">É recomendável examinar as notas de versão antes de aplicar uma atualização em seu dispositivo.</span><span class="sxs-lookup"><span data-stu-id="0de6c-111">We recommend that you review the release notes before you apply an update on your device.</span></span> <span data-ttu-id="0de6c-112">Para aplicar atualizações, clique em **Instalar atualizações**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-112">To apply updates, click **Install updates**.</span></span> <span data-ttu-id="0de6c-113">Na folha **Confirmar atualizações regulares**, examine os pré-requisitos a serem concluídos antes de aplicar as atualizações.</span><span class="sxs-lookup"><span data-stu-id="0de6c-113">In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates.</span></span> <span data-ttu-id="0de6c-114">Marque a caixa de seleção para indicar que você está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-114">Select the checkbox to indicate that you are ready to update the device and then click **Install**.</span></span>
+
+    ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update4-via-portal/update4.png)
+
+6. <span data-ttu-id="0de6c-116">Um conjunto de verificações de pré-requisito é iniciado.</span><span class="sxs-lookup"><span data-stu-id="0de6c-116">A set of prerequisite checks starts.</span></span> <span data-ttu-id="0de6c-117">Essas verificações incluem:</span><span class="sxs-lookup"><span data-stu-id="0de6c-117">These checks include:</span></span>
+   
+   * <span data-ttu-id="0de6c-118">**Verificações de integridade do controlador** para verificar se ambos os controladores do dispositivo estão em boas condições e online.</span><span class="sxs-lookup"><span data-stu-id="0de6c-118">**Controller health checks** to verify that both the device controllers are healthy and online.</span></span>
+   * <span data-ttu-id="0de6c-119">**Verificações de integridade do componente de hardware** para verificar se todos os componentes de hardware no dispositivo StorSimple estão em boas condições.</span><span class="sxs-lookup"><span data-stu-id="0de6c-119">**Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.</span></span>
+   * <span data-ttu-id="0de6c-120">**Verificações de DATA 0** para verificar se DATA 0 está habilitada no dispositivo.</span><span class="sxs-lookup"><span data-stu-id="0de6c-120">**DATA 0 checks** to verify that DATA 0 is enabled on your device.</span></span> <span data-ttu-id="0de6c-121">Se essa interface não estiver habilitada, você deverá habilitá-la e repetir a ação.</span><span class="sxs-lookup"><span data-stu-id="0de6c-121">If this interface is not enabled, you must enable it and then retry.</span></span>
+
+    <span data-ttu-id="0de6c-122">A atualização só será baixada e instalada se todas as verificações forem concluídas com êxito.</span><span class="sxs-lookup"><span data-stu-id="0de6c-122">The update is downloaded and installed only if all the checks are successfully completed.</span></span> <span data-ttu-id="0de6c-123">Você será notificado quando as verificações estiverem em andamento.</span><span class="sxs-lookup"><span data-stu-id="0de6c-123">You are notified when the checks are in progress.</span></span> <span data-ttu-id="0de6c-124">Se as verificações prévias falharem, os motivos da falha serão fornecidos.</span><span class="sxs-lookup"><span data-stu-id="0de6c-124">If the prechecks fail, then you will be provided with the reasons for failure.</span></span> <span data-ttu-id="0de6c-125">Resolva esses problemas e então repita a operação.</span><span class="sxs-lookup"><span data-stu-id="0de6c-125">Address those issues and then retry the operation.</span></span> <span data-ttu-id="0de6c-126">Talvez seja necessário entrar em contato com o Suporte da Microsoft se você não conseguir resolver esses problemas por conta própria.</span><span class="sxs-lookup"><span data-stu-id="0de6c-126">You may need to contact Microsoft Support if you cannot address these issues by yourself.</span></span>
+
+7. <span data-ttu-id="0de6c-127">Depois que as pré-verificações tiverem sido concluídas com êxito, será criado um trabalho de atualização.</span><span class="sxs-lookup"><span data-stu-id="0de6c-127">After the prechecks are successfully completed, an update job is created.</span></span> <span data-ttu-id="0de6c-128">Você será notificado quando o trabalho de atualização for criado com êxito.</span><span class="sxs-lookup"><span data-stu-id="0de6c-128">You are notified when the update job is successfully created.</span></span>
+   
+    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update6.png)
+   
+    <span data-ttu-id="0de6c-130">Em seguida, a atualização será aplicada ao seu dispositivo.</span><span class="sxs-lookup"><span data-stu-id="0de6c-130">The update is then applied on your device.</span></span>
+
+9. <span data-ttu-id="0de6c-131">A atualização demora algumas horas para ser concluída.</span><span class="sxs-lookup"><span data-stu-id="0de6c-131">The update takes a few hours to complete.</span></span> <span data-ttu-id="0de6c-132">Selecione o trabalho de atualização e clique em **Detalhes** para exibir os detalhes do trabalho a qualquer momento.</span><span class="sxs-lookup"><span data-stu-id="0de6c-132">Select the update job and click **Details** to view the details of the job at any time.</span></span>
+
+    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update8.png)
+
+     <span data-ttu-id="0de6c-134">Você também pode monitorar o andamento do trabalho de atualização de **Configurações do dispositivo > Trabalhos**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-134">You can also monitor the progress of the update job from **Device settings > Jobs**.</span></span> <span data-ttu-id="0de6c-135">Na folha **Trabalhos**, você pode ver o andamento da atualização.</span><span class="sxs-lookup"><span data-stu-id="0de6c-135">On the **Jobs** blade, you can see the update progress.</span></span>
+
+     ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update7.png)
+
+10. <span data-ttu-id="0de6c-137">Após a conclusão do trabalho, navegue até **Configurações do dispositivo > Atualizações do dispositivo**.</span><span class="sxs-lookup"><span data-stu-id="0de6c-137">After the job is complete, navigate to the **Device settings > Device updates**.</span></span> <span data-ttu-id="0de6c-138">A versão do software deve ser atualizada.</span><span class="sxs-lookup"><span data-stu-id="0de6c-138">The software version should now be updated.</span></span>
+
+    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update9.png)
+

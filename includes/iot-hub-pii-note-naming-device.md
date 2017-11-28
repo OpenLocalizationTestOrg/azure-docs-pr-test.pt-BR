@@ -1,0 +1,3 @@
+> [!IMPORTANT]
+> <span data-ttu-id="bc985-101">A ID do dispositivo pode estar visível nos logs coletados para o atendimento ao cliente e à solução de problemas. Portanto, evite informações confidenciais ao nomear.</span><span class="sxs-lookup"><span data-stu-id="bc985-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+>

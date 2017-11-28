@@ -1,0 +1,2 @@
+>[!Note]
+> <span data-ttu-id="e394f-101">É recomendável que você use uma conta de Armazenamento do Azure ao desenvolver localmente.</span><span class="sxs-lookup"><span data-stu-id="e394f-101">We recommend that you use an Azure Storage account when developing locally.</span></span> <span data-ttu-id="e394f-102">Não há suporte para o uso do Emulador de Armazenamento do Azure por ferramentas do Azure Functions.</span><span class="sxs-lookup"><span data-stu-id="e394f-102">Use of the Azure Storage Emulator is not supported by Azure Functions tools.</span></span>
