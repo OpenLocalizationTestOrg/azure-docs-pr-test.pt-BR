@@ -1,17 +1,18 @@
-1. Depois de saudação do Azure a máquina virtual é criada e em execução, clique o ícone de máquinas virtuais de saudação no hello tooview portal do Azure suas VMs.
 
-1. Clique nas reticências hello, **...** , para a nova VM.
+1. Após a criação e execução da máquina virtual do Azure, clique no ícone de Máquinas Virtuais no Portal do Azure para exibir suas VMs.
+
+1. Clique nas reticências, **...** , da nova VM.
 
 1. Clique em **Conectar**.
 
-   ![Conecte-se tooVM no portal](./media/virtual-machines-sql-server-remote-desktop-connect/azure-virtual-machine-connect.png)
+   ![Conectar-se à VM no portal](./media/virtual-machines-sql-server-remote-desktop-connect/azure-virtual-machine-connect.png)
 
-1. Olá abrir **RDP** arquivo downloads do seu navegador para Olá VM.
+1. Abra o arquivo **RDP** baixado pelo seu navegador para a VM.
 
-1. saudação de Conexão de área de trabalho remota notifica que Olá Editor desta conexão remota não pode ser identificado. Clique em **conectar** toocontinue.
+1. A Conexão de área de trabalho remota avisa você de que o distribuidor dessa conexão remota não pode ser identificado. Clique em **Conectar** para continuar.
 
-1. Em Olá **a segurança do Windows** caixa de diálogo, clique em **usar uma conta diferente**. Você pode ter tooclick **mais opções** toosee isso. Especifique nome de usuário de saudação e senha configurados quando você criou Olá VM. Você deve adicionar uma barra invertida antes do nome de usuário de saudação.
+1. Na caixa de diálogo **Segurança do Windows**, clique em **Usar uma conta diferente**. Talvez seja necessário clicar em **Mais opções** para vê-la. Especifique o nome de usuário e a senha configurados durante a criação da VM. Você deve adicionar uma barra invertida antes do nome de usuário.
 
    ![Autenticação de área de trabalho remota](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-1. Clique em **Okey** tooconnect.
+1. Clique em **OK** para conectar.

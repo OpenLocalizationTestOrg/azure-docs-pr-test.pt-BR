@@ -1,11 +1,11 @@
 
 ## <a name="about-vhds"></a>Sobre VHDs
 
-Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/storage/common/storage-premium-storage.md).
+Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 O Azure dá suporte aos discos fixos no formato VHD. O formato fixo dispõe o disco lógico linearmente dentro do arquivo, de forma que o deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé ao final do blob descreve as propriedades do VHD. Frequentemente, o formato fixo desperdiça espaço, porque muitos discos têm em si grandes intervalos não usados. No entanto, o Azure armazena arquivos .vhd em um formato livre, assim você obtém os benefícios de discos fixos e dinâmicos ao mesmo tempo. Para obter mais detalhes, consulte [Introdução aos discos rígidos virtuais](https://technet.microsoft.com/library/dd979539.aspx).
 
-Todos os arquivos .vhd no Azure que você deseja usar como fonte para criar discos ou imagens são somente leitura. Quando você cria um disco ou uma imagem, o Azure faz cópias dos arquivos .vhd. Essas cópias podem ser somente leitura ou de leitura e gravação, dependendo de como você usar o VHD.
+Todos os arquivos. vhd no Azure que você deseja usar como uma fonte para criar discos ou imagens são somente para leitura, exceto os arquivos. vhd carregados ou copiados para o Armazenamento do Azure pelo usuário (que pode ser leitura/gravação ou somente leitura). Quando você cria um disco ou uma imagem, o Azure faz cópias dos arquivos .vhd da fonte. Essas cópias podem ser somente leitura ou de leitura e gravação, dependendo de como você usar o VHD.
 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco para a máquina virtual que é uma cópia do arquivo .vhd de origem. Para proteger contra exclusão acidental, o Azure faz uma concessão de qualquer arquivo .vhd de origem que é usado para criar uma imagem, um disco de sistema operacional ou um disco de dados.
 
@@ -26,11 +26,11 @@ Há dois níveis de desempenho de armazenamento que você pode escolher ao criar
 
 Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e eficaz. Armazenamento padrão pode ser replicado localmente em um data center ou ser redundante geograficamente com centros de dados primários e secundários. Para saber mais sobre a replicação de armazenamento, veja [Replicação do Armazenamento do Azure](../articles/storage/common/storage-redundancy.md). 
 
-Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja [Armazenamento Standard e discos](../articles/storage/common/storage-standard-storage.md).
+Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja [Armazenamento Standard e discos](../articles/virtual-machines/windows/standard-storage.md).
 
 ### <a name="premium-storage"></a>Armazenamento Premium 
 
-O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o Armazenamento Premium com DS, DSv2, GS, Ls ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/storage/common/storage-premium-storage.md).
+O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o Armazenamento Premium com DS, DSv2, GS, Ls ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 

@@ -1,7 +1,11 @@
-Agora que o aplicativo estiver em execução, você desejará tooensure business continuity e monitoramento de usuário acesso tooensure alta disponibilidade. Você pode usar o hello disponibilidade de saudação tooreview portal do Azure, latência, taxa de transferência e a consistência da sua coleção. 
+A taxa de transferência, o armazenamento, a disponibilidade, a latência e a consistência dos recursos na conta são monitorados no Portal do Azure. Vamos analisar rapidamente essas métricas. 
 
-Cada gráfico associado Olá [contratos de nível de serviço (SLAs) do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/documentdb/) fornece uma linha que mostra Olá cota necessária toomeet Olá SLA e seu uso real, fornecendo uma visão clara o desempenho do banco de dados. Métricas adicionais, como a utilização de armazenamento e o número de solicitações por minuto, também estão incluídas no portal de saudação.
+1. Clique em **Métricas** no menu de navegação.
 
-* No portal do Azure de Olá, em Olá painel esquerdo, em **monitoramento**, clique em **métricas**.
+   ![Métricas no Portal do Azure](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-   ![Aplicativo de tarefas pendentes com os dados de exemplo](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+2. Clique em cada uma das guias para que você esteja ciente das métricas que o Azure Cosmos DB fornece. 
+
+    Cada gráfico que é associado aos [SLAs (Contratos de Nível de Serviço) do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) fornece uma linha que mostra se um dos SLAs foi violado. O Azure Cosmos DB torna o monitoramento dos SLAs transparente com seu pacote de métricas. 
+
+   ![Pacote de métricas do Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

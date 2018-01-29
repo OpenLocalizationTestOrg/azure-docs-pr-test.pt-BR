@@ -1,24 +1,25 @@
-1. Faça logon no toohello [portal do Azure][Azure portal].
-2. No painel de navegação à esquerda de saudação do portal de saudação, clique em **novo**, em seguida, clique em **integração corporativa**e, em seguida, clique em **retransmissão**.
-3. Em Olá **criar namespace** caixa de diálogo, digite um nome de namespace. sistema de saudação imediatamente verifica toosee se Olá nome está disponível.
-4. Em Olá **assinatura** campo, escolha uma assinatura do Azure no qual namespace de saudação toocreate.
-5. Em Olá  **[grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md)**  campo, escolha um grupo de recursos existente no qual Olá namespace ao vivo ou criar um novo.      
-6. Em **local**, escolha o país de saudação ou região em que o namespace deve ser hospedado.
+1. Entre no [Portal do Azure][Azure portal].
+2. No menu esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Enterprise Integration** > **Retransmissão**.
+3. Em **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+4. Na caixa **Assinatura**, selecione uma assinatura do Azure na qual criar o namespace.
+5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), selecione um grupo de recursos existente no qual colocar o namespace, ou então crie um novo.  
+6. Em **Localização**, selecione o país ou região no qual o namespace deve ser hospedado.
    
     ![Criar um namespace][create-namespace]
-7. Clique em **Criar**. sistema de saudação agora cria seu namespace e permite que ele. Depois de alguns minutos, Olá sistema Provisione recursos para sua conta.
+7. Selecione **Criar**. O sistema cria o seu namespace e o habilita. Depois de alguns minutos, o sistema provisiona recursos para sua conta.
 
-### <a name="obtain-hello-management-credentials"></a>Obter credenciais de gerenciamento Olá
-1. Na lista de saudação de namespaces, clique Olá recém-criada em nome do namespace.
-2. Na folha de namespace hello, clique em **políticas de acesso compartilhado**.
-3. Em Olá **políticas de acesso compartilhado** folha, clique em **RootManageSharedAccessKey**.
+### <a name="get-management-credentials"></a>Obter credenciais de gerenciamento
+
+1. Selecione **Todos os recursos** e depois selecione o nome do namespace recém-criado.
+2. Em Namespace da Retransmissão, clique em **Políticas de acesso compartilhado**.  
+3. Em **Políticas de acesso compartilhado**, selecione **RootManageSharedAccessKey**.
    
     ![informações de conexão][connection-info]
-4. Em Olá **política: RootManageSharedAccessKey** folha, clique o botão de cópia de Olá Avançar muito**chave primária cadeia de caracteres de Conexão**, toocopy Olá conexão cadeia tooyour na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+4. Em **política: RootManageSharedAccessKey**, selecione o botão **Cópia** ao lado de **Cadeia de conexão – Chave primária**. Isso copiará a cadeia de conexão para a área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
    
     ![connection-string][connection-string]
 
-5. Etapa anterior Olá repetida, copiar e colar o valor de saudação do **chave primária** tooa o local temporário para uso posterior.  
+5. Repita a etapa anterior para copiar e colar o valor de **Chave primária** para um local temporário para uso posterior.  
 
 <!--Image references-->
 

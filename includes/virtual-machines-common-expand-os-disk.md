@@ -1,18 +1,22 @@
 ## <a name="overview"></a>Visão geral
-Quando você cria uma nova máquina virtual (VM) em um grupo de recursos ao implantar uma imagem de [Azure Marketplace](https://azure.microsoft.com/marketplace/), unidade de sistema operacional saudação padrão será de 127 GB. Mesmo que é possível tooadd dados discos toohello VM (dependendo de quantos dos Olá SKU que você escolheu) e Além disso é recomendado tooinstall aplicativos e cargas de trabalho intensivas nesses discos adendo da CPU, muitas vezes, os clientes precisam tooexpand Olá SO unidade toosupport determinados cenários, como a seguir:
+Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão normalmente é 127 GB (algumas imagens têm tamanhos de disco de sistema operacional menores por padrão). Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:
 
 1. Suporte a aplicativos herdados que instalam componentes na unidade do sistema operacional.
 2. Migração de um PC físico ou máquina virtual local com uma unidade do sistema operacional maior.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Resource Manager e Clássico. Este artigo aborda usando o modelo do Gerenciador de recursos de saudação. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Resource Manager e Clássico. Este artigo aborda o uso do modelo de implantação Resource Manager. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 > 
 > 
 
-## <a name="resize-hello-os-drive"></a>Redimensionar a unidade Olá SO
-Neste artigo é vai realizar tarefa de saudação do redimensionamento unidade Olá SO usando módulos de Gerenciador de recursos de [Azure Powershell](/powershell/azureps-cmdlets-docs). Abra o ISE do Powershell ou a janela do Powershell no modo de administrador e execute as etapas de saudação abaixo:
+## <a name="resize-the-os-drive"></a>Redimensionar a unidade do sistema operacional
+Neste artigo, vamos executar a tarefa de redimensionar a unidade do sistema operacional usando módulos do Resource Manager do [Azure PowerShell](/powershell/azureps-cmdlets-docs). Mostraremos o redimensionamento da unidade do sistema operacional para os discos Não Gerenciados e Gerenciados, já que a abordagem para redimensionar os discos difere entre os dois tipos de disco.
 
-1. Tooyour entrar no Microsoft Azure da conta no modo de gerenciamento de recursos e selecione sua assinatura da seguinte maneira:
+### <a name="for-resizing-unmanaged-disks"></a>Para redimensionar os Discos Não Gerenciados:
+
+Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga as etapas abaixo:
+
+1. Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
    
    ```Powershell
    Login-AzureRmAccount
@@ -24,17 +28,17 @@ Neste artigo é vai realizar tarefa de saudação do redimensionamento unidade O
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
-3. Obter uma referência tooyour VM da seguinte maneira:
+3. Obtenha uma referência para sua VM da seguinte maneira:
    
    ```Powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
-4. Pare Olá VM antes de redimensionar o disco de saudação da seguinte maneira:
+4. Interrompa a VM antes de redimensionar o disco da seguinte maneira:
    
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. E aqui vai momento Olá que você estava esperando! Definir tamanho de saudação do valor do hello OS disco toohello desejado e atualizar Olá VM da seguinte maneira:
+5. E chega o momento pelo qual estávamos esperando! Defina o tamanho do disco do sistema operacional Não Gerenciado para o valor desejado e atualize a VM da seguinte maneira:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,19 +46,64 @@ Neste artigo é vai realizar tarefa de saudação do redimensionamento unidade O
    ```
    
    > [!WARNING]
-   > Olá novo tamanho deve ser maior que o tamanho de disco existente hello. Olá máximo permitido é de 1023 GB.
+   > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2048 GB para discos do sistema operacional. (É possível expandir o blob VHD além desse tamanho, mas o sistema operacional só poderá trabalhar com os primeiros 2048 GB de espaço.)
    > 
    > 
-6. Olá atualização VM pode levar alguns segundos. Depois que o comando Olá conclui a execução, reinicie Olá VM da seguinte maneira:
+6. A atualização da VM pode demorar um pouco. Depois que o comando concluir a execução, reinicie a VM como se segue:
    
    ```Powershell
    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 
-É isso. Agora RDP em Olá VM, abra o gerenciamento do computador (ou o gerenciamento de disco) e expanda a unidade hello usando Olá espaço recentemente alocado.
+### <a name="for-resizing-managed-disks"></a>Para o redimensionamento de Managed Disks:
+
+Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga as etapas abaixo:
+
+1. Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
+   
+   ```Powershell
+   Login-AzureRmAccount
+   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   ```
+2. Defina o nome do grupo de recursos e o nome da VM como se segue:
+   
+   ```Powershell
+   $rgName = 'my-resource-group-name'
+   $vmName = 'my-vm-name'
+   ```
+3. Obtenha uma referência para sua VM da seguinte maneira:
+   
+   ```Powershell
+   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
+4. Interrompa a VM antes de redimensionar o disco da seguinte maneira:
+   
+    ```Powershell
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    ```
+5. Obtenha uma referência para o disco do sistema operacional Gerenciado. Defina o tamanho do disco do sistema operacional Gerenciado para o valor desejado e atualize o disco da seguinte maneira:
+   
+   ```Powershell
+   $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+   $disk.DiskSizeGB = 1023
+   Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+   ```   
+   > [!WARNING]
+   > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2048 GB para discos do sistema operacional. (É possível expandir o blob VHD além desse tamanho, mas o sistema operacional só poderá trabalhar com os primeiros 2048 GB de espaço.)
+   > 
+   > 
+6. A atualização da VM pode demorar um pouco. Depois que o comando concluir a execução, reinicie a VM como se segue:
+   
+   ```Powershell
+   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
+
+É isso. Agora, com o RDP na VM, abra Gerenciamento do Computador (ou Gerenciamento de Disco) e expanda a unidade usando o espaço recentemente alocado.
 
 ## <a name="summary"></a>Resumo
-Neste artigo, usamos o Azure Resource Manager módulos do Powershell tooexpand Olá unidade do sistema operacional de uma máquina virtual IaaS. Reproduzida abaixo é o script completo a saudação para referência:
+Neste artigo, usamos os módulos do Azure Resource Manager do PowerShell para expandir a unidade do sistema operacional de uma máquina virtual IaaS. Foi reproduzido abaixo o script completo para sua referência para discos Não Gerenciados e Gerenciados:
+
+Discos Não Gerenciados:
 
 ```Powershell
 Login-AzureRmAccount
@@ -67,18 +116,44 @@ $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
 Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
+Managed Disks:
+
+```Powershell
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+$rgName = 'my-resource-group-name'
+$vmName = 'my-vm-name'
+$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzureRMVM -ResourceGroupName $rgName -Name $vmName
+$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk.DiskSizeGB = 1023
+Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-Embora neste artigo, nos concentramos principalmente nos expandir disco Olá SO da VM de saudação, hello desenvolvido script também pode ser usado para expandir Olá dados discos anexados toohello VM alterando uma única linha de código. Por exemplo, tooexpand Olá primeiramente os dados anexado toohello VM de disco, substitua Olá ```OSDisk``` objeto do ```StorageProfile``` com ```DataDisks``` de matriz e usar um índice numérico de tooobtain um disco de dados anexados referência toofirst, conforme mostrado abaixo:
+Embora neste artigo tenhamos focado basicamente a expansão do disco do sistema operacional Não Gerenciado/Gerenciado da VM, o script desenvolvido também pode ser usado para expandir os discos de dados conectados à VM. Por exemplo, para expandir o primeiro disco de dados conectado à VM, substitua o objeto ```OSDisk``` de ```StorageProfile``` pela matriz ```DataDisks``` e use um índice numérico para obter uma referência para o primeiro disco de dados conectado, como mostrado abaixo:
 
+Disco Não Gerenciado:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Da mesma forma, você pode fazer referência a outros dados discos anexados toohello VM, usando um índice, como mostrado acima ou Olá ```Name``` Olá disco conforme ilustrado abaixo:
-
+Disco Gerenciado:
 ```Powershell
-($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
+$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
+$disk.DiskSizeGB = 1023
 ```
 
-Se você quiser toofind out como tooattach discos tooan VM do Azure Resource Manager, verifique isso [artigo](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Da mesma forma, você pode fazer referência a outros discos de dados conectados à VM usando um índice, conforme mostrado acima, ou a propriedade ```Name``` do disco, conforme ilustrado abaixo:
+
+Disco Não Gerenciado:
+```Powershell
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+```
+Disco Gerenciado:
+```Powershell
+(Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
+```
+
+Se quiser saber como conectar discos a uma VM do Azure Resource Manager, leia este [artigo](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

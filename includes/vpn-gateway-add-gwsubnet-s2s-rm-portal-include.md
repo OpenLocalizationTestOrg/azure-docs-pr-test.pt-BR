@@ -1,9 +1,9 @@
-1. No portal de hello, navegue até toohello rede virtual para o qual você deseja toocreate um gateway de rede virtual.
-2. Em Olá **configurações** seção da página rede virtual, clique em **sub-redes** tooexpand página de sub-redes de saudação.
-3. Em Olá **sub-redes** , clique em **+ sub-rede de Gateway** em Olá tooopen superior Olá **Adicionar sub-rede** página.
+1. No portal, navegue até a rede virtual para a qual você deseja criar um gateway de rede virtual.
+2. Na seção **Configurações** da página VNet, clique em **Sub-redes** para expandir a página Sub-redes.
+3. Na página **Sub-redes**, clique em **+Sub-rede de gateway** no topo para abrir a página **Adicionar sub-rede**.
 
-  ![Adicionar sub-rede de gateway Olá](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Adicionar sub-rede de gateway Olá")
-4. Olá **nome** para sua sub-rede é automaticamente preenchido com hello valor 'GatewaySubnet'. Olá valor GatewaySubnet é necessária para a sub-rede do Azure toorecognize Olá de sub-rede de gateway de saudação. Ajustar o preenchimento automático de saudação **um intervalo de endereços** valores toomatch seus requisitos de configuração.
+  ![Adicionar a sub-rede de gateway](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addgwsub.png "Adicionar a sub-rede de gateway")
+4. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. O valor GatewaySubnet é necessário para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seus requisitos de configuração.
 
-  ![Adicionar sub-rede de gateway Olá](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Adicionar sub-rede de gateway Olá")
-5. toocreate Olá sub-rede, clique em **Okey** final Olá Olá página.
+  ![Adição da sub-rede de gateway](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addsub2.png "Adição da sub-rede de gateway")
+5. Para criar a sub-rede, clique em **OK** na parte inferior da página.

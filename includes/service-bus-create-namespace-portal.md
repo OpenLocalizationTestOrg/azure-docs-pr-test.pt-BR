@@ -1,30 +1,31 @@
-filas de toobegin usando o barramento de serviço no Azure, você deve primeiro criar um namespace com um nome que seja exclusivo no Azure. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar as entidades de mensagens do Barramento de Serviço no Azure, primeiro é necessário criar um namespace com um nome exclusivo no Azure. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-toocreate um namespace:
+Para criar um namespace:
 
-1. Faça logon no toohello [portal do Azure][Azure portal].
-2. No painel de navegação à esquerda de saudação do portal de saudação, clique em **novo**, em seguida, clique em **integração corporativa**e, em seguida, clique em **barramento de serviço**.
-3. Em Olá **criar namespace** caixa de diálogo, digite um nome de namespace. sistema de saudação imediatamente verifica toosee se Olá nome está disponível.
-4. Depois de fazer o nome do namespace Olá-se de que está disponível, escolha Olá preço (Basic, Standard ou Premium).
-5. Em Olá **assinatura** campo, escolha uma assinatura do Azure no qual namespace de saudação toocreate.
-6. Em Olá **grupo de recursos** campo, escolha um grupo de recursos existente no qual Olá namespace ao vivo ou criar um novo.      
-7. Em **local**, escolha o país de saudação ou região em que o namespace deve ser hospedado.
+1. Faça logon no [Portal do Azure][Azure portal].
+2. No painel de navegação esquerdo do portal, clique em **+ Criar um recurso**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
+3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
+5. No campo **Assinatura** , escolha uma assinatura do Azure na qual criar o namespace.
+6. No campo **Grupo de Recursos** , escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.      
+7. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
    
     ![Criar um namespace][create-namespace]
-8. Clique em **Criar**. sistema de saudação agora cria seu namespace e permite que ele. Você pode ter toowait vários minutos como recursos de provisões de sistema Olá para sua conta.
+8. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
-### <a name="obtain-hello-management-credentials"></a>Obter credenciais de gerenciamento Olá
+### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
+A criação de um novo namespace gera automaticamente uma regra de SAS (assinatura de acesso compartilhado) inicial com um par de chaves primárias e secundárias associado que concede, cada um, controle total sobre todos os aspectos do namespace. Consulte [Autenticação e autorização do Barramento de Serviço](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para obter mais informações sobre como criar regras adicionais com direitos mais restritos para remetentes e destinatários regulares. Para copiar a regra inicial, siga estas etapas: 
 
-1. Na lista de saudação de namespaces, clique Olá recém-criada em nome do namespace.
-2. Na folha de namespace hello, clique em **políticas de acesso compartilhado**.
-3. Em Olá **políticas de acesso compartilhado** folha, clique em **RootManageSharedAccessKey**.
+1.  Clique em **Todos os recursos** e depois clique no nome do namespace recém-criado.
+2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
+3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
    
     ![informações de conexão][connection-info]
-4. Em Olá **política: RootManageSharedAccessKey** folha, clique o botão de cópia de Olá Avançar muito**chave primária cadeia de caracteres de Conexão**, toocopy Olá conexão cadeia tooyour na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+4. Na janela **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
    
     ![connection-string][connection-string]
 
-5. Etapa anterior Olá repetida, copiar e colar o valor de saudação do **chave primária** tooa o local temporário para uso posterior.
+5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
 
 <!--Image references-->
 

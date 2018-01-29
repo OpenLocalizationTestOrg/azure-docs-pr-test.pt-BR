@@ -1,14 +1,14 @@
 
-1. Selecione a VM no portal de saudação. Olá *nome DNS* está atualmente em branco. Selecione **Endereço IP público**:
+1. Selecione sua VM no portal. O *Nome DNS* está em branco. Selecione **Endereço IP público**:
    
-   ![Clique em recursos de IP público no portal de saudação](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Clique no recurso IP Público no portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2. Insira o nome DNS de saudação desejada e, em seguida, selecione **salvar**.
+2. Insira o nome DNS desejado e então selecione **Salvar**.
    
    ![Inserir um rótulo de nome DNS para seu recurso IP público](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
 
-3. folha de visão geral VM do toohello tooreturn, Olá fechar *endereço IP público* folha. Verifique se esse Olá *nome DNS* é exibido.
+
+3. Para retornar para a folha de visão geral da VM, feche a folha *Endereço IP público*. Verifique se o *Nome DNS* é mostrado agora.
    
    ![Confirme que o novo rótulo DNS foi definido](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 

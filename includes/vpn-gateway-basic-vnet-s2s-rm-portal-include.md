@@ -1,17 +1,22 @@
-toocreate uma rede virtual no modelo de implantação do Gerenciador de recursos hello usando Olá portal do Azure, siga as etapas de saudação abaixo. Saudação de uso [valores de exemplo](#values) se você estiver usando estas etapas como um tutorial. Se você não estiver fazendo o seguinte como um tutorial, ser valores de saudação tooreplace-se com seus próprios. Para obter mais informações sobre como trabalhar com redes virtuais, consulte Olá [visão geral da rede Virtual](../articles/virtual-network/virtual-networks-overview.md).
+Para criar uma Rede Virtual no modelo de implantação do Gerenciador de Recursos usando o portal do Azure, siga as etapas abaixo. Use o [valores de exemplo](#values) se você estiver usando estas etapas como um tutorial. Se você não estiver executando estas etapas como um tutorial, substitua os valores pelos seus próprios. Para saber mais sobre como trabalhar com as redes virtuais, consulte a [Visão Geral da Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
 
-1. Em um navegador, navegue toohello [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
-2. Clique em **Novo**. Em Olá **marketplace de saudação pesquisa** , digite 'Rede Virtual'. Localize **rede Virtual** de saudação retornada lista e clique em Olá tooopen **rede Virtual** folha.
-3. Inferior Olá da folha de rede Virtual de saudação do hello **selecionar um modelo de implantação** , selecione **Gerenciador de recursos de**e, em seguida, clique em **criar**. Isso abre a folha de 'Criar rede virtual' hello.
+>[!NOTE]
+>Para que essa rede virtual se conecte a um local, é necessário coordenar com o administrador de rede local para que ele consiga um intervalo de endereços IP que possa ser usado especificamente para essa rede virtual. Se um intervalo de endereços duplicado existir em ambos os lados da conexão de VPN, o tráfego não será roteado da maneira esperada. Além disso, se você deseja se conectar esta rede virtual a outra rede virtual, o espaço de endereços não pode sobrepor outra rede virtual. Tome cuidado e planeje sua configuração de rede de forma adequada.
+>
+>
 
-    ![Folha Criar rede virtual](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/createvnet.png "Folha Criar rede virtual")
-4. Em Olá **criar rede virtual** folha, definir configurações de rede virtual hello. Ao preencher os campos hello, hello de exclamação vermelho se torna uma marca de seleção verde quando caracteres hello inseridos no campo de saudação são válidos.
+1. Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
+2. Clique em **Novo**. No campo **Pesquisar no marketplace**, digite ‘rede virtual’. Localize a **Rede virtual** na lista retornada e clique para abrir a página **Rede Virtual**.
+3. Perto da parte inferior da página Rede Virtual, na lista **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**. Isso abre a página ‘Criar rede virtual’.
 
-  - **Nome**: digite Olá nome para sua rede virtual. Neste exemplo, usamos TestVNet1.
-  - **Espaço de endereço**: insira o espaço de endereço de saudação. Se você tiver várias tooadd de espaços de endereço, adicione o primeiro espaço de endereço. Você pode adicionar espaços de endereço adicionais mais tarde, depois de criar hello VNet. Verifique se esse espaço de endereço de saudação que você especificar não se sobrepõe ao espaço de endereço Olá para sua localização no local.
-  - **Nome da sub-rede**: Adicionar Olá primeiro nome e a sub-rede endereço intervalo de sub-rede. Você pode adicionar sub-redes adicionais e a sub-rede de gateway hello mais tarde, depois de criar essa rede virtual. 
-  - **Assinatura**: Verifique se que a assinatura Olá listada é Olá correto. Você pode alterar as assinaturas usando Olá lista suspensa.
-  - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, o grupo de recursos do nome hello tooyour de acordo com planejada valores de configuração. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-  - **Local**: selecione Olá local para sua rede virtual. local de saudação determina onde recursos Olá que você implante toothis VNet residirá.
+    ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Página Criar rede virtual")
+4. Na página **Criar rede virtual**, defina as configurações da VNet. Durante o preenchimento dos campos, o ponto de exclamação vermelho se tornará um ponto de seleção verde quando os caracteres digitados no campo forem válidos.
 
-5. Selecione **Pin toodashboard** se desejar toofind capaz de toobe sua VNet facilmente no painel de saudação e, em seguida, clique em **criar**. Depois de clicar em **criar**, você verá um bloco no seu painel que refletirá o progresso de saudação da sua rede virtual. as alterações bloco Olá Olá rede virtual está sendo criado.
+  - **Nome**: insira o nome de sua rede virtual. Neste exemplo, usamos TestVNet1.
+  - **Espaço de endereço**: insira o espaço de endereço. Se houver vários espaços de endereço para adicionar, adicione seu espaço de endereço primeiro. Você pode adicionar outros espaços de endereço posteriormente, depois de criar a rede virtual. Verifique se o espaço de endereço especificado não se sobrepõe ao espaço de endereço de sua localização.
+  - **Assinatura**: verifique se a assinatura listada é a correta. Você pode alterar as assinaturas usando o menu suspenso.
+  - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+  - **Local**: selecione o local de sua rede virtual. O local determina onde ficarão os recursos que você implanta nessa rede virtual.
+  - **Sub-rede**: adicione o primeiro nome da sub-rede e o intervalo de endereços da sub-rede. Você pode adicionar outras sub-redes e a sub-rede de gateway mais tarde, depois de criar essa rede virtual. 
+
+5. Selecione **Fixar no painel** se quiser ser capaz de encontrar sua VNet facilmente no painel, em seguida, clique em **Criar**. Depois de clicar em **Criar**, você verá um bloco em seu painel refletir o progresso de sua rede virtual. O bloco muda à medida que a rede virtual é criada.

@@ -1,5 +1,5 @@
 
-código de saudação para todas as funções hello em um aplicativo de determinada função reside em uma pasta raiz que contém um arquivo de configuração do host e as subpastas de um ou mais, cada qual contendo código Olá para uma função separada, como no exemplo a seguir de saudação:
+O código para todas as funções em um aplicativo de função específica está localizado em uma pasta raiz que contém um arquivo de configuração de host e uma ou mais subpastas. Cada subpasta contém o código para uma função distinta, como no exemplo a seguir:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-Olá *host.json* arquivo contém algumas configurações específicas de tempo de execução e se encontra na pasta raiz de saudação do aplicativo de função hello. Para obter informações sobre as configurações que estão disponíveis, consulte [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) no wiki do hello WebJobs.Script repositório.
+O arquivo host.json contém algumas configurações específicas do tempo de execução e encontra-se na pasta raiz do aplicativo de função. Para obter informações sobre as configurações que estão disponíveis, consulte a [referência do host.json](../articles/azure-functions/functions-host-json.md).
 
-Cada função tem uma pasta que contém um ou mais arquivos de código, configuração de function.json hello e outras dependências.
+Cada função tem uma pasta que contém um ou mais arquivos de código, a configuração function.json e outras dependências.
 

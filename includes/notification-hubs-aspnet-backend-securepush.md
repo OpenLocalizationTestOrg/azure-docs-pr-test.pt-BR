@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>Projeto WebAPI
-1. No Visual Studio, abra Olá **AppBackend** projeto que você criou no hello **notificar usuários** tutorial.
-2. Em Notifications.cs, substitua Olá todo **notificações** classe com hello código a seguir. Ser se tooreplace Olá reservados sua cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub hello. Você pode obter esses valores de saudação [Portal clássico do Azure](http://manage.windowsazure.com). Este módulo representa agora Olá diferentes seguro notificações que serão enviadas. Em uma implementação completa, notificações de saudação serão armazenadas em um banco de dados; para simplificar, nesse caso, armazená-las na memória.
+1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **Notificar Usuários** .
+2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal do Azure](http://portal.azure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. No NotificationsController.cs, substitua o código Olá Olá **NotificationsController** definição da classe com hello código a seguir. Esse componente implementa um modo para notificação de Olá Olá dispositivo tooretrieve com segurança e também fornece uma forma (para fins de saudação deste tutorial) tootrigger dispositivos tooyour de push segura. Observe que ao enviar o hub de notificação Olá notificação toohello, apenas enviar uma notificação bruta com a ID de saudação de notificação de saudação (e nenhuma mensagem real):
+1. Em NotificationsController.cs, substitua o código dentro da definição de classe **NotificationsController** pelo código a seguir. Este componente implementa um modo para o dispositivo obter a notificação com segurança, além de também fornecer um modo (para os fins deste tutorial) para disparar uma notificação por push segura para seus dispositivos. Observe que, ao enviar a notificação ao Hub de Notificação, enviamos somente uma notificação bruta com a ID da notificação (sem a mensagem em si):
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Observe que Olá `Post` método agora não envia uma notificação do sistema. Envia uma notificação bruta que contém a ID de notificação de saudação apenas e não qualquer conteúdo confidencial. Além disso, verifique se toocomment Olá operação para plataformas Olá para o qual você não tem credenciais configuradas em seu hub de notificação, conforme elas resultarão em erros de envio.
+Observe que agora o método `Post` não envia uma notificação de sistema. Ele envia uma notificação bruta, que contém somente a ID de notificação, sem conteúdo sensível. Além disso, certifique-se de comentar a operação de envio para as plataformas para as quais você não tem credenciais configuradas em seu hub de notificação, já que elas resultarão em erros.
 
-1. Agora podemos reimplantar esta tooan aplicativo site do Azure em ordem toomake-lo acessível de todos os dispositivos. Clique duas vezes em Olá **AppBackend** do projeto e selecione **publicar**.
-2. Selecione o Site do Azure como seu destino de publicação. Faça logon com sua conta do Azure e selecione um site novo ou existente e anote Olá **URL de destino** propriedade Olá **Conexão** guia. Chamaremos toothis URL como o *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
+1. Agora, reimplantaremos esse aplicativo em um Site do Azure para torná-lo acessível a partir de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
+2. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
 

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Embora o Load Balancer Basic esteja geralmente disponível, o Load Balancer Standard está em versão prévia pública. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](https://aka.ms/AzureLoadBalancerStandard).

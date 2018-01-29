@@ -1,17 +1,21 @@
-Por causa de desenvolvimento contínuo, versão do SDK do Android Olá instalado no Android Studio pode não corresponder versão Olá no código de saudação. Olá Android SDK referenciado neste tutorial é Olá 23, da versão mais recente no momento de saudação de gravação. número de versão de Hello pode aumentar como novas versões do hello SDK aparecem e é recomendável usar a versão mais recente da saudação disponível.
+Devido ao desenvolvimento contínuo, a versão do SDK do Android instalada no Android Studio pode não corresponder à versão no código. O SDK do Android referenciado neste tutorial é a versão 26, a mais recente no momento desta edição. O número da versão pode aumentar à medida que aparecem novas versões do SDK e é recomendável usar a versão mais recente disponível.
 
 Dois sintomas da incompatibilidade de versão são:
 
-- Quando você compilar ou recompilar o projeto hello, você pode receber mensagens de erro do Gradle como "**falha toofind destino Google Inc.:Google APIs:n**".
+- Quando você criar ou recriar o projeto, pode receber mensagens de erro de Gradle como `Gradle sync failed: Failed to find target with hash string 'android-XX'`.
 - Os objetos Android padrão no código que deve ser resolvido com base em instruções `import` podem gerar mensagens de erro.
 
-Se qualquer uma delas for exibida, versão Olá Olá Android SDK instalado no Android Studio pode não corresponder o destino do SDK de saudação do projeto Olá baixado. versão de hello tooverify, fazer Olá as seguintes alterações:
+Se um deles for exibido, a versão do SDK do Android instalado no Android Studio poderá não coincidir com o destino do SDK do projeto baixado. Para verificar a versão, faça as seguintes alterações:
 
-1. No Android Studio, clique em **Ferramentas** > **Android** > **Gerenciador de SDK**. Se você não tiver instalado a versão mais recente de saudação do hello Platform SDK, em seguida, clique em tooinstall-lo. Anote o número de versão hello.
-2. Em Olá **Explorador de projeto** guia em **Gradle Scripts**, abra arquivo hello **gradle (modeule: aplicativo)**. Certifique-se de que Olá **compileSdkVersion** e **buildToolsVersion** são definidos toohello versão do SDK mais recente instalado. marcas de saudação podem ter esta aparência:
+1. No Android Studio, clique em **Ferramentas** > **Android** > **Gerenciador de SDK**. Se você não tiver instalado a versão mais recente da plataforma do SDK, clique para instalá-la. Anote o número da versão.
 
-             compileSdkVersion 'Google Inc.:Google APIs:23'
-            buildToolsVersion "23.0.2"
-3. No hello Android Studio Explorador de projeto, nó de projeto de saudação com o botão direito, escolha **propriedades**e na coluna esquerda Olá escolha **Android**. Certifique-se de que Olá **destino de compilação de projeto** está definida toohello mesma versão do SDK Olá **targetSdkVersion**.
+2. Na guia **Gerenciador de Projetos**, em **Scripts Gradle**, abra o arquivo **build.gradle (módulo: aplicativo)**. Verifique se **compileSdkVersion** e **targetSdkVersion** estão definidos para a versão do SDK mais recente instalada. O `build.gradle` pode ter esta aparência:
 
-No Android Studio, o arquivo de manifesto Olá não é destino de saudação toospecify usado SDK e versão mínima do SDK, ao contrário do caso de Olá com o Eclipse.
+    ```gradle
+    android {
+        compileSdkVersion 26
+        defaultConfig {
+            targetSdkVersion 26
+        }
+    }
+    ```

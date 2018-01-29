@@ -1,17 +1,17 @@
-## <a name="add-function-apps-tooyour-portal-favorites"></a>Adicionar aplicativos de função tooyour portais Favoritos 
+## <a name="favorite-functions-in-the-portal"></a>Funções Favoritas no portal 
 
-Se ainda não o fez, adicione favoritos de tooyour aplicativos de função no Olá portal do Azure. Isso torna mais fácil toofind seus aplicativos de função. Se você já tiver feito isso, ignore toohello próxima seção. 
+Se você ainda não fez isso, adicione Aplicativos de Funções aos seus favoritos no Portal do Azure. Isso torna mais fácil localizar seus aplicativos de funções. Se você já tiver feito isso, vá para a próxima seção. 
 
-1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em seta Olá Olá inferior esquerdo tooexpand todos os serviços, digite `Functions` em Olá **filtro** campo e, em seguida, clique em estrela Olá Avançar muito**função aplicativos**.  
+2. Clique na seta no canto inferior esquerdo para expandir todos os serviços, digite `Functions` no campo **Filtro** e, em seguida, clique na estrela ao lado de **Aplicativos de Funções**.  
  
-    ![Criar aplicativo de função em Olá portal do Azure](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Criar um aplicativo de funções no portal do Azure](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Isso adiciona o menu de toohello do ícone de funções hello esquerda de saudação do portal de saudação.
+    Isso adiciona o ícone do Functions ao menu à esquerda do portal.
 
-3. Feche o menu hello e role para baixo do ícone de funções toohello inferior toosee hello. Clique em toosee este ícone uma lista de todos os seus aplicativos de função. Clique em seu toowork do aplicativo de função com funções neste aplicativo. 
+3. Feche o menu e role para baixo até a parte inferior para ver o ícone do Functions. Clique nesse ícone para ver uma lista de todos os seus aplicativos de funções. Clique em seu aplicativo de funções para trabalhar com funções neste aplicativo. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Aplicativos de funções nos Favoritos](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

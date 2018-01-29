@@ -1,16 +1,18 @@
-Verifique se você já criou um namespace Retransmissão, como mostrado [aqui][namespace-how-to].
+Verifique se você já [criou um namespace Retransmissão][namespace-how-to].
 
-1. Faça logon no toohello [portal do Azure](https://portal.azure.com).
-2. No painel de navegação à esquerda de saudação do portal de saudação, clique em **retransmissão**.
-3. Selecione o namespace de saudação em que você gostaria que toocreate Olá Conexão híbrida. Nesse caso, é **mynewns**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu do lado esquerdo, selecione **Todos os recursos**.
+3. Selecione o namespace no qual você gostaria de criar a conexão híbrida. Nesse caso, é **mynewns**.  
+4. Em **Namespace de Retransmissão**, selecione **Conexões Híbridas**.
+
+    ![Criar uma Conexão Híbrida](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
+
+5. Na janela de visão geral do namespace, selecione **+ Conexão Híbrida**
    
-    ![Criar um hc](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
-4. Em Olá **retransmissão namespace** folha, selecione **conexões híbridas**, em seguida, clique em **+ Conexão híbrida**.
-   
-    ![Selecionar hc](./media/relay-create-hybrid-connection-portal/create-hc-2.png)
-5. Digite hello **nome de Conexão híbrida** e deixe Olá outros valores com os padrões.
+    ![Selecione a conexão híbrida](./media/relay-create-hybrid-connection-portal/create-hc-2.png)
+6. Em **Criar Conexão Híbrida**, insira um valor para o nome da conexão híbrida. Deixe os outros valores padrão.
    
     ![Selecionar Nova](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
-6. Na parte inferior de saudação da folha de saudação, clique em **criar**.
+7. Selecione **Criar**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 

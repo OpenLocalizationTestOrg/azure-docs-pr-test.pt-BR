@@ -41,7 +41,7 @@ Há quatro áreas principais nas quais é possível solucionar problemas de aces
 4. Seu dispositivo de borda da Internet.
    * As regras de firewall estão impedindo o tráfego de fluir corretamente?
 
-Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou da Rota Expressa, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure.
+Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou do ExpressRoute, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure.
 
 Para determinar a origem do problema e sua correção, siga estas etapas.
 
@@ -115,7 +115,7 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Etapa 4 Se você não puder acessar o aplicativo, use o IP Verify para verificar as configurações. 
 
-Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

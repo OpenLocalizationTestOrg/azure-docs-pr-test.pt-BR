@@ -1,15 +1,15 @@
 
-Diagnosticar problemas com um serviço de nuvem do Microsoft Azure requer a coleta de arquivos de log do serviço de saudação em máquinas virtuais como Olá problemas ocorrem. Você pode usar a extensão de AzureLogCollector sob demanda de saudação tooperfom uma única coleção de logs de um ou mais VMs de serviço de nuvem (de funções web e funções de trabalho) e transferência Olá coletado arquivos tooan conta de armazenamento do Azure – tudo sem fazer logon remotamente em tooany de saudação VMs.
+O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
 > [!NOTE]
-> Descrições para a maioria das informações de saudação registrada podem ser encontradas em http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Encontre descrições para a maioria das informações registradas em http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
-Há dois modos de coleção depende de tipos de saudação do toobe arquivos coletados.
+Há dois modos de coleta, dependendo dos tipos de arquivos a serem coletados.
 
-* Somente Logs de GA (Agente Convidado) do Azure. Este modo de coleção inclui todos os agentes de convidados Olá logs tooAzure relacionados e outros componentes do Azure.
-* Todos os Logs (Completo). Esse modo de coleta obterá todos os arquivos do modo GA e:
+* **Somente Logs de GA (Agente Convidado) do Azure**. Esse modo de coleta inclui todos os logs relacionados a agentes convidados do Azure e a outros componentes do Azure.
+* **Todos os Logs (Completo)**. Esse modo de coleta obtém todos os arquivos do modo GA e:
   
   * logs de eventos do sistema e do aplicativo
   * logs de erros de HTTP
@@ -17,469 +17,500 @@ Há dois modos de coleção depende de tipos de saudação do toobe arquivos col
   * Logs de instalação
   * outros logs do sistema
 
-Em ambos os modos de coleção, as pastas de coleção de dados adicionais podem ser especificadas usando uma coleção de saudação estrutura a seguir:
+Em ambos os modos de coleta, é possível especificar pastas de coleta de dados adicionais usando uma coleta da seguinte estrutura:
 
-* **Nome**: nome de saudação da coleção de saudação, que será usada como nome de saudação da subpasta no toobe de arquivo zip Olá coletados.
-* **Local**: Olá toohello pasta do caminho na máquina virtual de saudação onde os arquivos serão coletados.
-* **SearchPattern**: padrão de saudação de nomes de saudação do toobe arquivos coletados. O padrão é “*”
-* **Recursiva**: se arquivos hello serão coletado recursivamente sob a pasta de saudação.
+* **Nome**: o nome da coleta, usado como o nome da subpasta dentro do arquivo zip com os arquivos coletados.
+* **Local**: o caminho para a pasta na máquina virtual na qual os arquivos a serem coletados ficam localizados.
+* **SearchPattern**: o padrão dos nomes de arquivos a serem coletados. O padrão é "\*"
+* **Recursivo**: se os arquivos a serem coletados estiverem localizados recursivamente no local especificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
-* Você precisa toohave uma conta de armazenamento para os arquivos zip com extensão toosave gerado.
-* Verifique se você está usando os cmdlets do Azure PowerShell V0.8.0 ou superior. Para saber mais, confira [Downloads do Azure](https://azure.microsoft.com/downloads/).
+## <a name="prerequisites"></a>pré-requisitos
+* Ter uma conta de armazenamento para a extensão salvar os arquivos zip gerados.
+* Usar Cmdlets do Azure PowerShell v0.8.0 ou posterior. Para saber mais, confira [Downloads do Azure](https://azure.microsoft.com/downloads/).
 
-## <a name="add-hello-extension"></a>Adicionar extensão Olá
-Você pode usar [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets ou [APIs de REST de gerenciamento de serviço](https://msdn.microsoft.com/library/ee460799.aspx) tooadd Olá extensão AzureLogCollector.
+## <a name="add-the-extension"></a>Adicionar a extensão
+Você pode usar cmdlets do [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [APIs REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
 
-Para serviços de nuvem, Olá cmdlet do Powershell do Azure existente, **Set-AzureServiceExtension**, pode ser usado tooenable Olá extensão em instâncias de função serviço de nuvem. Toda vez que essa extensão é habilitada por este cmdlet, coleta de log é disparada nas instâncias de função hello selecionado de funções selecionadas.
+Para Serviços de Nuvem, o cmdlet do Azure Powershell existente, **Set-AzureServiceExtension**, poderá ser usado para habilitar a extensão em instâncias de função do Serviço de Nuvem. Sempre que essa extensão for habilitada por meio desse cmdlet, a coleção de logs será disparada nas instâncias de função selecionadas das funções selecionadas.
 
-Para máquinas virtuais, Olá cmdlet do Powershell do Azure existente, **Set-AzureVMExtension**, pode ser usado tooenable Olá extensão em máquinas virtuais. Toda vez que essa extensão é habilitada por meio de cmdlets hello, coleta de log é acionada em cada instância.
+Para as Máquinas Virtuais, o cmdlet do Azure Powershell existente, **Set-AzureVMExtension**, pode ser usado para habilitar a extensão em Máquinas Virtuais. Sempre que essa extensão for habilitada por meio dos cmdlets, a coleta de logs será disparada em cada instância.
 
-Internamente, essa extensão usa hello PublicConfiguration com base em JSON e PrivateConfiguration. seguir Olá é o layout de saudação de um exemplo de JSON para configuração pública e privada.
+Internamente, essa extensão usa a PublicConfiguration e a PrivateConfiguration baseadas em JSON. A seguir, o layout de um exemplo de JSON para configuração pública e privada.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
-    {
-        "Instances":  "*",
-        "Mode":  "Full",
-        "SasUri":  "SasUri tooyour storage account with sp=wl",
-        "AdditionalData":
-        [
-          {
-                  "Name":  "StorageData",
-                  "Location":  "%roleroot%storage",
-                  "SearchPattern":  "*.*",
-                  "Recursive":  "true"
-          },
-          {
-                "Name":  "CustomDataFolder2",
-                "Location":  "c:\customFolder",
-                "SearchPattern":  "*.log",
-                "Recursive":  "false"
-          },
-        ]
-    }
+
+```json
+{
+    "Instances":  "*",
+    "Mode":  "Full",
+    "SasUri":  "SasUri to your storage account with sp=wl",
+    "AdditionalData":
+    [
+      {
+              "Name":  "StorageData",
+              "Location":  "%roleroot%storage",
+              "SearchPattern":  "*.*",
+              "Recursive":  "true"
+      },
+      {
+            "Name":  "CustomDataFolder2",
+            "Location":  "c:\customFolder",
+            "SearchPattern":  "*.log",
+            "Recursive":  "false"
+      },
+    ]
+}
+```
 
 ### <a name="privateconfiguration"></a>PrivateConfiguration
-    {
 
-    }
+```json
+{
+
+}
+```
 
 > [!NOTE]
-> Esta extensão não precisa de **privateConfiguration**. Você pode apenas fornecer uma estrutura vazia para Olá **– PrivateConfiguration** argumento.
+> Esta extensão não precisa de **privateConfiguration**. Você pode simplesmente fornecer uma estrutura vazia para o argumento **–PrivateConfiguration** .
 > 
 > 
 
-Você pode seguir uma saudação duas etapas tooadd Olá AzureLogCollector tooone ou mais instâncias de um serviço de nuvem ou máquina Virtual de funções selecionadas, os gatilhos Olá coleções em cada VM toorun e enviem arquivos de saudação coletado tooAzure conta a seguir especificado.
+Você pode acompanhar uma das duas etapas a seguir para adicionar o AzureLogCollector a uma ou mais instâncias de um Serviço de Nuvem ou de uma Máquina Virtual de funções selecionadas, o que disparará as coleções em cada VM para execução e envio dos arquivos coletados para a conta do Azure especificada.
 
 ## <a name="adding-as-a-service-extension"></a>Adicionar como uma extensão de serviço
-1. Execute a assinatura de tooyour Olá instruções tooconnect PowerShell do Azure.
-2. Especifique o nome do serviço hello, slot, funções e toowhich de instâncias de função você deseja tooadd e habilitar a extensão de AzureLogCollector hello.
-   
-        #Specify your cloud service name
-        $ServiceName = 'extensiontest2'
-   
-        #Specify hello slot. 'Production' or 'Staging'
-        $slot = 'Production'
-   
-        #Specified hello roles on which hello extension will be installed and enabled
-        $roles = @("WorkerRole1","WebRole1")
-   
-        #Specify hello instances on which extension will be installed and enabled.  Use wildcard * for all instances
-        $instances = @("*")
-   
-        #Specify hello collection mode, "Full" or "GA"
-        $mode = "GA"
-3. Especifique Olá pasta de dados adicionais para o qual os arquivos serão coletados (essa etapa é opcional).
-   
-        #add one location
-        $a1 = New-Object PSObject
-   
-        $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-        $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-        $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-        $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
-   
-        $AdditionalDataList+= $a1
-              #more locations can be added....
-   
+1. Siga as instruções para conectar o Azure PowerShell à sua assinatura.
+2. Especifique o nome do serviço, o slot, as funções e as instâncias de função às quais você deseja adicionar e habilitar a extensão AzureLogCollector.
+
+  ```powershell
+  #Specify your cloud service name
+  $ServiceName = 'extensiontest2'
+
+  #Specify the slot. 'Production' or 'Staging'
+  $slot = 'Production'
+
+  #Specified the roles on which the extension will be installed and enabled
+  $roles = @("WorkerRole1","WebRole1")
+
+  #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
+  $instances = @("*")
+
+  #Specify the collection mode, "Full" or "GA"
+  $mode = "GA"
+  ```
+
+3. Especifique a pasta de dados adicionais para a qual os arquivos serão coletados (esta etapa é opcional).
+
+  ```powershell
+  #add one location
+  $a1 = New-Object PSObject
+
+  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+
+  $AdditionalDataList+= $a1
+  #more locations can be added....
+  ```
+
    > [!NOTE]
-   > Você pode usar o token `%roleroot%` unidade toospecify Olá função raiz desde que ele não use uma unidade fixa.
+   > Você pode usar o token `%roleroot%` para especificar a unidade raiz da função, já que ela não usa uma unidade fixa.
    > 
    > 
-4. Forneça o nome de conta de armazenamento do Azure hello e arquivos de chave toowhich coletado serão carregados.
-   
-        $StorageAccountName = 'YourStorageAccountName'
-        $StorageAccountKey  = ‘YouStorageAccountKey'
-5. Chame hello SetAzureServiceLogCollector.ps1 (incluído no final de saudação do artigo Olá) como extensão de AzureLogCollector maneira tooenable Olá para um serviço de nuvem. Concluída a execução hello, você pode encontrar o arquivo de saudação carregado em`https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
-   
-        .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
+4. Forneça o nome e a chave da conta de armazenamento do Azure na qual os arquivos coletados serão carregados.
 
-a seguir Olá é a definição de Olá Olá parâmetros passados toohello script. (Isso também foi copiado abaixo.)
+  ```powershell
+  $StorageAccountName = 'YourStorageAccountName'
+  $StorageAccountKey  = 'YourStorageAccountKey'
+  ```
 
-    [CmdletBinding(SupportsShouldProcess = $true)]
+5. Chame o SetAzureServiceLogCollector.ps1 (incluído ao final do artigo) da seguinte maneira para habilitar a extensão AzureLogCollector para um Serviço de Nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-    param (
-      [Parameter(Mandatory=$true)]
-    [string]   $ServiceName,
+  ```powershell
+  .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
+  ```
 
-    [Parameter(Mandatory=$false)]
-    [string[]] $Roles ,
+A seguir, a definição dos parâmetros passados para o script. (Isso também foi copiado abaixo.)
 
-    [Parameter(Mandatory=$false)]
-    [string[]] $Instances,
+```powershell
+[CmdletBinding(SupportsShouldProcess = $true)]
 
-    [Parameter(Mandatory=$false)]
-    [string]   $Slot = 'Production',
+param (
+  [Parameter(Mandatory=$true)]
+  [string]   $ServiceName,
 
-    [Parameter(Mandatory=$false)]
-    [string]   $Mode = 'Full',
+  [Parameter(Mandatory=$false)]
+  [string[]] $Roles ,
 
-    [Parameter(Mandatory=$false)]
-    [string]   $StorageAccountName,
+  [Parameter(Mandatory=$false)]
+  [string[]] $Instances,
 
-    [Parameter(Mandatory=$false)]
-    [string]   $StorageAccountKey,
+  [Parameter(Mandatory=$false)]
+  [string]   $Slot = 'Production',
 
-    [Parameter(Mandatory=$false)]
-    [PSObject[]] $AdditionDataLocationList = $null
-    )
+  [Parameter(Mandatory=$false)]
+  [string]   $Mode = 'Full',
 
-* *ServiceName*: o nome do serviço de nuvem.
-* *Roles*: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
-* *Instâncias*: uma lista de nomes de saudação de instâncias de função separados por vírgula - usar cadeia de caracteres hello curinga ("*") para todas as instâncias de função.
-* *Slot*: nome do slot. “Produção” ou “Preparo”.
-* *Mode*: modo de coleta. "Completo" ou "GA".
-* *StorageAccountName*: nome da conta de armazenamento do Azure para armazenar os dados coletados.
-* *StorageAccountKey*: nome da chave de conta de armazenamento do Azure.
-* *AdditionalDataLocationList*: uma lista de saudação estrutura a seguir:
-  
-      {
-      String Name,
-      String Location,
-      String SearchPattern,
-      Bool   Recursive
-      }
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountName,
+
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountKey,
+
+  [Parameter(Mandatory=$false)]
+  [PSObject[]] $AdditionDataLocationList = $null
+)
+```
+
+* **ServiceName**: o nome do serviço de nuvem.
+* **Roles**: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
+* **Instances**: uma lista de nomes de instâncias de função separados por vírgula -- use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
+* **Slot**: nome do slot. “Produção” ou “Preparo”.
+* **Mode**: modo de coleta. "Completo" ou "GA".
+* **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
+* **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
+* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+
+  ```powershell
+  {
+    String Name,
+    String Location,
+    String SearchPattern,
+    Bool   Recursive
+  }
+  ```
 
 ## <a name="adding-as-a-vm-extension"></a>Adicionar como uma extensão de VM
-Execute a assinatura de tooyour Olá instruções tooconnect PowerShell do Azure.
+Siga as instruções para conectar o Azure PowerShell à sua assinatura.
 
-1. Especifique o nome do serviço hello, a VM e o modo de coleta de saudação.
-   
-        #Specify your cloud service name
-        $ServiceName = 'YourCloudServiceName'
-   
-        #Specify hello VM name
-        $VMName = "'YourVMName'"
-   
-        #Specify hello collection mode, "Full" or "GA"
-        $mode = "GA"
-   
-        Specify hello additional data folder for which files will be collected (this step is optional).
-   
-        #add one location
-        $a1 = New-Object PSObject
-   
-        $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-        $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-        $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-        $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
-   
-        $AdditionalDataList+= $a1
-              #more locations can be added....
-2. Forneça o nome de conta de armazenamento do Azure hello e arquivos de chave toowhich coletado serão carregados.
-   
-        $StorageAccountName = 'YourStorageAccountName'
-        $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Chame hello os SetAzureVMLogCollector.ps1 (incluído no final de saudação do artigo Olá) como extensão de AzureLogCollector maneira tooenable Olá para um serviço de nuvem. Concluída a execução hello, você pode encontrar o arquivo de saudação carregado em https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+1. Especifique o nome do serviço, a VM e o modo de coleta.
 
-a seguir Olá é a definição de Olá Olá parâmetros passados toohello script. (Isso também foi copiado abaixo.)
+  ```powershell
+  #Specify your cloud service name
+  $ServiceName = 'YourCloudServiceName'
 
-    [CmdletBinding(SupportsShouldProcess = $true)]
+  #Specify the VM name
+  $VMName = "'YourVMName'"
 
-    param (
-        [Parameter(Mandatory=$true)]
-      [string]   $ServiceName,
+  #Specify the collection mode, "Full" or "GA"
+  $mode = "GA"
 
-      [Parameter(Mandatory=$false)]
-      [string] $VMName ,
+  Specify the additional data folder for which files will be collected (this step is optional).
 
-        [Parameter(Mandatory=$false)]
-      [string]   $Mode = 'Full',
+  #add one location
+  $a1 = New-Object PSObject
 
-      [Parameter(Mandatory=$false)]
-      [string]   $StorageAccountName,
+  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-      [Parameter(Mandatory=$false)]
-      [string]   $StorageAccountKey,
+  $AdditionalDataList+= $a1
+        #more locations can be added....
+  ```
+  
+2. Forneça o nome e a chave da conta de armazenamento do Azure na qual os arquivos coletados serão carregados.
 
-      [Parameter(Mandatory=$false)]
-      [PSObject[]] $AdditionDataLocationList = $null
-      )
+  ```powershell
+  $StorageAccountName = 'YourStorageAccountName'
+  $StorageAccountKey  = 'YourStorageAccountKey'
+  ```
 
-* ServiceName: o nome do serviço de nuvem.
-* Nome de saudação VMName da saudação VM.
-* Mode: modo de coleta. "Completo" ou "GA".
-* StorageAccountName: nome da conta de armazenamento do Azure para armazenar os dados coletados.
-* StorageAccountKey: nome da chave de conta de armazenamento do Azure.
-* AdditionalDataLocationList: Uma lista de saudação estrutura a seguir:
+3. Chame o SetAzureServiceLogCollector.ps1 (incluído ao final do artigo) como mostrado a seguir para habilitar a extensão AzureLogCollector para um Serviço de Nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
+A seguir, a definição dos parâmetros passados para o script. (Isso também foi copiado abaixo.)
+
+```powershell
+[CmdletBinding(SupportsShouldProcess = $true)]
+
+param (
+  [Parameter(Mandatory=$true)]
+  [string]   $ServiceName,
+
+  [Parameter(Mandatory=$false)]
+  [string] $VMName ,
+
+  [Parameter(Mandatory=$false)]
+  [string]   $Mode = 'Full',
+
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountName,
+
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountKey,
+
+  [Parameter(Mandatory=$false)]
+  [PSObject[]] $AdditionDataLocationList = $null
+)
 ```
-      {
-        String Name,
-        String Location,
-        String SearchPattern,
-        Bool   Recursive
-      }
-```
+
+* **ServiceName**: o nome do serviço de nuvem.
+* **VMName**: o nome da VM.
+* **Mode**: modo de coleta. "Completo" ou "GA".
+* **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
+* **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
+* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+
+  ```
+  {
+    String Name,
+    String Location,
+    String SearchPattern,
+    Bool   Recursive
+  }
+  ```
 
 ## <a name="extention-powershell-script-files"></a>Arquivos de Script de Extensão do PowerShell
-SetAzureServiceLogCollector.ps1
+### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
-    [CmdletBinding(SupportsShouldProcess = $true)]
+```powershell
+[CmdletBinding(SupportsShouldProcess = $true)]
 
-    param (
-                  [Parameter(Mandatory=$true)]
-                  [string]   $ServiceName,
+param (
+  [Parameter(Mandatory=$true)]
+  [string]   $ServiceName,
 
-                  [Parameter(Mandatory=$false)]
-                  [string[]] $Roles ,
+  [Parameter(Mandatory=$false)]
+  [string[]] $Roles ,
 
-                  [Parameter(Mandatory=$false)]
-                  [string[]] $Instances = '*',
+  [Parameter(Mandatory=$false)]
+  [string[]] $Instances = '*',
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $Slot = 'Production',
+  [Parameter(Mandatory=$false)]
+  [string]   $Slot = 'Production',
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $Mode = 'Full',
+  [Parameter(Mandatory=$false)]
+  [string]   $Mode = 'Full',
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $StorageAccountName,
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountName,
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $StorageAccountKey,
+  [Parameter(Mandatory=$false)]
+  [string]   $StorageAccountKey,
 
-                  [Parameter(Mandatory=$false)]
-                  [PSObject[]] $AdditionDataLocationList = $null
-            )
+  [Parameter(Mandatory=$false)]
+  [PSObject[]] $AdditionDataLocationList = $null
+)
 
-    $publicConfig = New-Object PSObject
+$publicConfig = New-Object PSObject
 
-    if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be seperated by ,
-    {
-        $instanceText = $Instances[0]
-        for ($i = 1;$i -lt $Instances.Count;$i++)
-        {
-              $instanceText = $instanceText+ "," + $Instances[$i]
-          }
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value $instanceText
-    }
-    else  #For all instances if not specified.  hello value should be a space or *
-    {
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value " "
-    }
+if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be seperated by ,
+{
+  $instanceText = $Instances[0]
+  for ($i = 1;$i -lt $Instances.Count;$i++)
+  {
+    $instanceText = $instanceText+ "," + $Instances[$i]
+  }
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value $instanceText
+}
+else  #For all instances if not specified.  The value should be a space or *
+{
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value " "
+}
 
-    if ($Mode -ne $null )
-    {
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value $Mode
-    }
-    else
-    {
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value "Full"
-    }
+if ($Mode -ne $null )
+{
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value $Mode
+}
+else
+{
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value "Full"
+}
 
-    #
-    #we need tooget hello Sasuri from StorageAccount and containers
-    #
-    $context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+#
+#we need to get the Sasuri from StorageAccount and containers
+#
+$context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-    $ContainerName = "azurelogcollectordata"
-    $existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
-    if ($existingContainer -eq $null)
-    {
-        "Container ($ContainerName) doesn't exist. Creating it now.."
-        New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
-    }
+$ContainerName = "azurelogcollectordata"
+$existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
+if ($existingContainer -eq $null)
+{
+  "Container ($ContainerName) doesn't exist. Creating it now.."
+  New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
+}
 
-    $ExpiryTime =  [DateTime]::Now.AddMinutes(120).ToString("o")
-    $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
-    $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
+$ExpiryTime =  [DateTime]::Now.AddMinutes(120).ToString("o")
+$SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
+$publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
-    #
-    #Add AdditionalData toocollect data from additional folders
-    #
-    if ($AdditionDataLocationList -ne $null )
-    {
-      $publicConfig | Add-Member -MemberType NoteProperty -Name "AdditionalData" -Value $AdditionDataLocationList
-    }
+#
+#Add AdditionalData to collect data from additional folders
+#
+if ($AdditionDataLocationList -ne $null )
+{
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "AdditionalData" -Value $AdditionDataLocationList
+}
 
-    #
-    # Convert it tooJSON format
-    #
-    $publicConfigJSON = $publicConfig | ConvertTo-Json
-    "publicConfig is:  $publicConfigJSON"
+#
+# Convert it to JSON format
+#
+$publicConfigJSON = $publicConfig | ConvertTo-Json
+"publicConfig is:  $publicConfigJSON"
 
-    #we just provide a empty privateConfig object
-    $privateconfig = "{
-    }"
+#we just provide a empty privateConfig object
+$privateconfig = "{
+}"
 
-    if ($Roles -ne $null)
-    {
-          Set-AzureServiceExtension -Service $ServiceName -Slot $Slot -Role $Roles -ExtensionName 'AzureLogCollector' -ProviderNamespace Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.0 -Verbose
-    }
-    else
-    {
-          Set-AzureServiceExtension -Service $ServiceName -Slot $Slot  -ExtensionName 'AzureLogCollector' -ProviderNamespace Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.0 -Verbose
-    }
+if ($Roles -ne $null)
+{
+  Set-AzureServiceExtension -Service $ServiceName -Slot $Slot -Role $Roles -ExtensionName 'AzureLogCollector' -ProviderNamespace Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.0 -Verbose
+}
+else
+{
+  Set-AzureServiceExtension -Service $ServiceName -Slot $Slot  -ExtensionName 'AzureLogCollector' -ProviderNamespace Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.0 -Verbose
+}
 
-    #
-    #This is an optional step: generate a sasUri toohello container so it can be shared with other people if nened
-    #
-    $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
-    $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
-    $SasUri = $SasUri + "&restype=container&comp=list"
-    Write-Output "hello container for uploaded file can be accessed using this link:`r`n$sasuri"
+#
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#
+$SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
+$SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
+$SasUri = $SasUri + "&restype=container&comp=list"
+Write-Output "The container for uploaded file can be accessed using this link:`r`n$sasuri"
+```
 
+### <a name="setazurevmlogcollectorps1"></a>SetAzureVMLogCollector.ps1
 
-SetAzureVMLogCollector.ps1
+```powershell
+[CmdletBinding(SupportsShouldProcess = $true)]
 
-    [CmdletBinding(SupportsShouldProcess = $true)]
+param (
+              [Parameter(Mandatory=$true)]
+              [string]   $ServiceName,
 
-    param (
-                  [Parameter(Mandatory=$true)]
-                  [string]   $ServiceName,
+              [Parameter(Mandatory=$false)]
+              [string] $VMName ,
 
-                  [Parameter(Mandatory=$false)]
-                  [string] $VMName ,
+              [Parameter(Mandatory=$false)]
+              [string]   $Mode = 'Full',
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $Mode = 'Full',
+              [Parameter(Mandatory=$false)]
+              [string]   $StorageAccountName,
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $StorageAccountName,
+              [Parameter(Mandatory=$false)]
+              [string]   $StorageAccountKey,
 
-                  [Parameter(Mandatory=$false)]
-                  [string]   $StorageAccountKey,
+              [Parameter(Mandatory=$false)]
+              [PSObject[]] $AdditionDataLocationList = $null
+        )
 
-                  [Parameter(Mandatory=$false)]
-                  [PSObject[]] $AdditionDataLocationList = $null
-            )
+$publicConfig = New-Object PSObject
+$publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value "*"
 
-    $publicConfig = New-Object PSObject
-    $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value "*"
+if ($Mode -ne $null )
+{
+    $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value $Mode
+}
+else
+{
+    $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value "Full"
+}
 
-    if ($Mode -ne $null )
-    {
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value $Mode
-    }
-    else
-    {
-        $publicConfig | Add-Member -MemberType NoteProperty -Name "Mode" -Value "Full"
-    }
+#
+#we need to get the Sasuri from StorageAccount and containers
+#
+$context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-    #
-    #we need tooget hello Sasuri from StorageAccount and containers
-    #
-    $context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ContainerName = "azurelogcollectordata"
+$existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
+if ($existingContainer -eq $null)
+{
+    "Container ($ContainerName) doesn't exist. Creating it now.."
+    New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
+}
 
-    $ContainerName = "azurelogcollectordata"
-    $existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
-    if ($existingContainer -eq $null)
-    {
-        "Container ($ContainerName) doesn't exist. Creating it now.."
-        New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
-    }
+$ExpiryTime =  [DateTime]::Now.AddMinutes(90).ToString("o")
+$SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
+$publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
-    $ExpiryTime =  [DateTime]::Now.AddMinutes(90).ToString("o")
-    $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
-    $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
+#
+#Add AdditionalData to collect data from additional folders
+#
+if ($AdditionDataLocationList -ne $null )
+{
+  $publicConfig | Add-Member -MemberType NoteProperty -Name "AdditionalData" -Value $AdditionDataLocationList
+}
 
-    #
-    #Add AdditionalData toocollect data from additional folders
-    #
-    if ($AdditionDataLocationList -ne $null )
-    {
-      $publicConfig | Add-Member -MemberType NoteProperty -Name "AdditionalData" -Value $AdditionDataLocationList
-    }
+#
+# Convert it to JSON format
+#
+$publicConfigJSON = $publicConfig | ConvertTo-Json
 
-    #
-    # Convert it tooJSON format
-    #
-    $publicConfigJSON = $publicConfig | ConvertTo-Json
+Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
 
-    Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+#
+#we just provide a empty privateConfig object
+#
+$privateconfig = "{
+}"
 
-    #
-    #we just provide a empty privateConfig object
-    #
-    $privateconfig = "{
-    }"
+if ($VMName -ne $null )
+{
+      $VM = Get-AzureVM -ServiceName $ServiceName -Name $VMName
+      $VM.VM.OSVirtualHardDisk.OS
 
-    if ($VMName -ne $null )
-    {
-          $VM = Get-AzureVM -ServiceName $ServiceName -Name $VMName
-          $VM.VM.OSVirtualHardDisk.OS
+      if ($VM.VM.OSVirtualHardDisk.OS -like '*Windows*')
+      {
+            Set-AzureVMExtension -VM $VM -ExtensionName "AzureLogCollector" -Publisher Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.* | Update-AzureVM -Verbose
 
-          if ($VM.VM.OSVirtualHardDisk.OS -like '*Windows*')
-          {
-                Set-AzureVMExtension -VM $VM -ExtensionName "AzureLogCollector" -Publisher Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.* | Update-AzureVM -Verbose
+            #
+            #We will check the VM status to find if operation by extension has been completed or not. The completion of the operation,either succeed or fail, can be indicated by
+            #the presence of SubstatusList field.
+            #
+            $Completed = $false
+            while ($Completed -ne $true)
+            {
+                    $VM = Get-AzureVM -ServiceName $ServiceName -Name $VMName
+                    $status = $VM.ResourceExtensionStatusList | Where-Object {$_.HandlerName -eq "Microsoft.WindowsAzure.Compute.AzureLogCollector"}
 
-                #
-                #We will check hello VM status toofind if operation by extension has been completed or not. hello completion of hello operation,either succeed or fail, can be indicated by
-                #hello presence of SubstatusList field.
-                #
-                $Completed = $false
-                while ($Completed -ne $true)
-                {
-                        $VM = Get-AzureVM -ServiceName $ServiceName -Name $VMName
-                        $status = $VM.ResourceExtensionStatusList | Where-Object {$_.HandlerName -eq "Microsoft.WindowsAzure.Compute.AzureLogCollector"}
+                    if ( ($status.Code -ne 0) -and ($status.Status -like '*error*'))
+                    {
+                        Write-Output "Error status is returned: $($Status.ExtensionSettingStatus.FormattedMessage.Message)."
+                          $Completed = $true
+                    }
+                    elseif (($status.ExtensionSettingStatus.SubstatusList -eq $null -or $status.ExtensionSettingStatus.SubstatusList.Count -lt 1))
+                    {
+                          $Completed = $false
+                          Write-Output "Waiting for operation to complete..."
+                    }
+                    else
+                    {
+                          $Completed = $true
+                          Write-Output "Operation completed."
 
-                        if ( ($status.Code -ne 0) -and ($status.Status -like '*error*'))
-                        {
-                            Write-Output "Error status is returned: $($Status.ExtensionSettingStatus.FormattedMessage.Message)."
-                              $Completed = $true
-                        }
-                        elseif (($status.ExtensionSettingStatus.SubstatusList -eq $null -or $status.ExtensionSettingStatus.SubstatusList.Count -lt 1))
-                        {
-                              $Completed = $false
-                              Write-Output "Waiting for operation toocomplete..."
-                        }
-                        else
-                        {
-                              $Completed = $true
-                              Write-Output "Operation completed."
+                    $UploadedFileUri = $Status.ExtensionSettingStatus.SubStatusList[0].FormattedMessage.Message
+                          $blob = New-Object Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob($UploadedFileUri)
 
-                        $UploadedFileUri = $Status.ExtensionSettingStatus.SubStatusList[0].FormattedMessage.Message
-                              $blob = New-Object Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob($UploadedFileUri)
+                  #
+                        # This is an optional step:  For easier access to the file, we can generate a read-only SasUri directly to the file
+                          #
+                          $ExpiryTimeRead =  [DateTime]::Now.AddMinutes(120).ToString("o")
+                          $ReadSasUri = New-AzureStorageBlobSASToken -ExpiryTime $ExpiryTimeRead  -FullUri  -Blob  $blob.name -Container $blob.Container.Name -Permission r -Context $context
 
-                      #
-                            # This is an optional step:  For easier access toohello file, we can generate a read-only SasUri directly toohello file
-                              #
-                              $ExpiryTimeRead =  [DateTime]::Now.AddMinutes(120).ToString("o")
-                              $ReadSasUri = New-AzureStorageBlobSASToken -ExpiryTime $ExpiryTimeRead  -FullUri  -Blob  $blob.name -Container $blob.Container.Name -Permission r -Context $context
+                        Write-Output "The uploaded file can be accessed using this link: $ReadSasUri"
 
-                            Write-Output "hello uploaded file can be accessed using this link: $ReadSasUri"
+                          #
+                          #This is an optional step:  Remove the extension after we are done
+                          #
+                          Get-AzureVM -ServiceName $ServiceName -Name $VMName | Set-AzureVMExtension -Publisher Microsoft.WindowsAzure.Compute -ExtensionName "AzureLogCollector" -Version 1.* -Uninstall | Update-AzureVM -Verbose
 
-                              #
-                              #This is an optional step:  Remove hello extension after we are done
-                              #
-                              Get-AzureVM -ServiceName $ServiceName -Name $VMName | Set-AzureVMExtension -Publisher Microsoft.WindowsAzure.Compute -ExtensionName "AzureLogCollector" -Version 1.* -Uninstall | Update-AzureVM -Verbose
+                    }
+                    Start-Sleep -s 5
+            }
+      }
+      else
+      {
+          Write-Output "VM OS Type is not Windows, the extension cannot be enabled"
+      }
 
-                        }
-                        Start-Sleep -s 5
-                }
-          }
-          else
-          {
-              Write-Output "VM OS Type is not Windows, hello extension cannot be enabled"
-          }
-
-    }
-    else
-    {
-      Write-Output "VM name is not specified, hello extension cannot be enabled"
-    }
+}
+else
+{
+  Write-Output "VM name is not specified, the extension cannot be enabled"
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode examinar ou copiar os logs de um local muito simples.
+Agora, você pode examinar ou copiar os logs de um local muito simples.
 

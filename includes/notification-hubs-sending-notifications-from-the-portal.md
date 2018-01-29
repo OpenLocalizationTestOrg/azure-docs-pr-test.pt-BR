@@ -1,13 +1,11 @@
 
 
-As notificações por push normalmente são enviadas em um serviço de back-end como Aplicativos Móveis ou ASP.NET usando uma biblioteca compatível. Você também pode usar o hello API REST diretamente as mensagens de notificação de toosend se uma biblioteca não está disponível para o back-end. 
+As notificações por push normalmente são enviadas em um serviço de back-end como Aplicativos Móveis ou ASP.NET usando uma biblioteca compatível. Se uma biblioteca não estiver disponível para o seu back-end, você também poderá usar a API REST diretamente para enviar mensagens de notificação.
 
-Aqui está uma lista de alguns outros tutoriais talvez queira tooreview para enviar notificações:
+Aqui está uma lista de alguns outros tutoriais que talvez você queira examinar para o envio de notificações:
 
-* Os aplicativos móveis do Azure: Para obter um exemplo de como toosend notificações de um back-end de aplicativos móveis são integrados com Hubs de notificação, consulte [adicionar notificações por Push tooyour iOS aplicativo](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
-* ASP.NET: [usar Hubs de notificação toopush notificações toousers](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
-* Java de Hub de notificação do Azure SDK: consulte [como toouse Hubs de notificação do Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) para enviar notificações de Java. Isso foi testado no Eclipse para desenvolvimento no Android.
-* PHP: [como toouse Hubs de notificação do PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md).
-
-A próxima seção do tutorial Olá Olá, você aprenderá como Olá toouse [interface REST do Hub de notificação](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) toosend mensagem de notificação de saudação diretamente em seu aplicativo. Todos os dispositivos registrados recebem a notificação de saudação enviada por qualquer dispositivo.  
+* Aplicativos Móveis do Azure: para obter um exemplo de como enviar notificações por push de um back-end de Aplicativos Móveis integrado com Hubs de Notificação, veja [Adicionar notificações por push ao seu aplicativo iOS](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
+* ASP.NET: [Usar Hubs de Notificação para enviar notificações por push aos usuários](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+* SDK Java do Hub de Notificação do Azure: consulte [Como usar os Hubs de Notificação do Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) para enviar notificações do Java. Isso foi testado no Eclipse para desenvolvimento no Android.
+* PHP: [como usar Hubs de Notificação do PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md).
 

@@ -1,12 +1,7 @@
-saudação de serviço de Backup do Azure tem dois tipos de cofres - Cofre de Backup hello e Olá Cofre de serviços de recuperação. Cofre de Backup Olá ocorreram primeiro. Em seguida, Olá Cofre de serviços de recuperação fornecida ao longo de implantações de Gerenciador de recursos do toosupport Olá expandido. A Microsoft recomenda o uso das implantações do Resource Manager, a menos que você exija especificamente uma implantação Clássica.
-
-| **Implantação** | **Portal** | **Cofre** |
-| --- | --- | --- |
-| Clássico |[Clássico](https://manage.windowsazure.com) |Backup |
-| Gerenciador de Recursos |[As tabelas](https://portal.azure.com) |Serviços de Recuperação |
+O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o cofre de Serviços de Recuperação. O Cofre de Backup veio primeiro. Em seguida, o Cofre dos Serviços de Recuperação surgiu no mercado para oferecer suporte às implantações expandidas do Gerenciador de Recursos. A Microsoft recomenda o uso das implantações do Resource Manager, a menos que você exija especificamente uma implantação Clássica. No final de 2017, todos os cofres de Backup foram convertidos em cofres dos Serviços de Recuperação.
 
 > [!NOTE]
-> Cofres de backup não podem ser usados para proteger soluções implantadas pelo Resource Manager. No entanto, você pode usar os serviços de recuperação de um cofre tooprotect modo clássico implantado servidores e VMs.  
+> Cofres de backup não podiam proteger soluções implantadas pelo Resource Manager. No entanto, os cofres dos Serviços de Recuperação podem proteger VMs e servidores implantados com o modo clássico.  
 > 
 > 
 

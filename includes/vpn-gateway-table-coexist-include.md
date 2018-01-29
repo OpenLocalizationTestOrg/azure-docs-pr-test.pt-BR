@@ -1,6 +1,4 @@
-|  | **Implantação Clássica** | **Implantação do Gerenciador de Recursos** |
+| **Método/modelo de implantação** | **Portal do Azure** | **PowerShell** | 
 | --- | --- | --- |
-| **Portal clássico** |Sem suporte |Sem suporte |
-| **Portal do Azure** |Sem suporte |Sem suporte |
-| **PowerShell** |[Artigo](../articles/expressroute/expressroute-howto-coexist-classic.md) |[Artigo](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
-
+| Gerenciador de Recursos | **Sem suporte** | [Artigo](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| Clássico | **Sem suporte** | [Artigo](../articles/expressroute/expressroute-howto-coexist-classic.md) |

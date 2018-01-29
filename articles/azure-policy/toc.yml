@@ -1,0 +1,41 @@
+- name: Documentação do Azure Policy
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Visão geral da Política do Azure
+      href: azure-policy-introduction.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Atribuir uma política – Portal
+      href: assign-policy-definition.md
+    - name: Atribuir uma política – PowerShell
+      href: assign-policy-definition-ps.md
+    - name: Atribuir uma política – CLI do Azure
+      href: assign-policy-definition-cli.md
+- name: Tutoriais
+  items:
+    - name: Criar e gerenciar a Política do Azure
+      href: create-manage-policy.md
+- name: Exemplos
+  items:
+    - name: Modelos de política
+      href: json-samples.md
+- name: Conceitos
+  items:
+    - name: Estrutura de definição da Política do Azure
+      href: policy-definition.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/policy
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.resources/#policies'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'

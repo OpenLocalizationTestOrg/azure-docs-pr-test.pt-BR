@@ -1,10 +1,10 @@
-Você paga por duas coisas: hello, por hora calcular custos para gateway de rede virtual hello e transferência de dados de saída de saudação do gateway de rede virtual hello. Obter informações sobre preços podem ser encontradas no hello [preços](https://azure.microsoft.com/pricing/details/vpn-gateway) página.
+Você paga por duas coisas: os custos de computação por hora para o gateway de rede virtual, e transferência de dados de saída do gateway de rede virtual. Encontre informações sobre preços na página [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway) .
 
-**Custos de computação do gateway de rede virtual**<br>Cada gateway de rede virtual tem um custo de computação por hora. Olá preço é baseado no gateway Olá SKU especificado quando você criar um gateway de rede virtual. custo de saudação é para o próprio gateway hello e Além disso toohello transferência de dados que passa pela gateway hello.
+**Custos de computação do gateway de rede virtual**<br>Cada gateway de rede virtual tem um custo de computação por hora. O preço tem base no SKU do gateway que você especifica ao criar um gateway de rede virtual. O custo é para o próprio gateway e complementa a transferência de dados que fluem através do gateway.
 
-**Custos de transferência de dados**<br>Os custos de transferência de dados são calculados com base no tráfego de saída de gateway de rede virtual de origem hello.
+**Custos de transferência de dados**<br>Os custos de transferência de dados são calculados com base no tráfego de saída do gateway de rede virtual de origem.
 
-* Se você estiver enviando o dispositivo VPN do tráfego tooyour local, ele será cobrado com taxa de transferência de dados de saída do hello da Internet.
-* Se você estiver enviando tráfego entre redes virtuais em regiões diferentes, Olá preços é a região de saudação com base.
-* Se você estiver enviando tráfego somente entre redes virtuais que estão na mesma região de hello, não há nenhum custo de dados. O tráfego entre VNets Olá mesmo região é gratuita.
+* Se você estiver enviando o tráfego para o seu dispositivo VPN local, ele será cobrado com a taxa de transferência de dados de saída da Internet.
+* Se você estiver enviando tráfego entre redes virtuais em regiões diferentes, os preços terão base na região.
+* Se você estiver enviando o tráfego somente entre redes virtuais que estão na mesma região, não haverá custo de dados. O tráfego entre VNets na mesma região é gratuito.
 

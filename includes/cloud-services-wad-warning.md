@@ -1,5 +1,5 @@
 > [!WARNING]
-> Quando você habilitar o diagnóstico em uma função existente, qualquer extensão que você habilitou será desabilitado quando o pacote de saudação é implantado. Estão incluídos:
+> Quando você habilita o diagnóstico para uma função existente, qualquer extensão que você já tenha definido será desabilitado quando o pacote for implantado. Estão incluídos:
 >
 > * Diagnóstico do Microsoft Monitoring Agent
 > * Monitoramento de segurança do Microsoft Azure
@@ -11,5 +11,5 @@
 > * Extensão de Área de Trabalho Remota do Azure
 > * Coletor de Logs do Azure
 >
-> Você pode habilitar novamente suas extensões via Olá Portal do Azure ou o PowerShell depois que você implantou a função hello atualizado.
+> Depois de implantar a função atualizada, você pode redefinir as extensões por meio do portal do Azure ou do PowerShell.
 >

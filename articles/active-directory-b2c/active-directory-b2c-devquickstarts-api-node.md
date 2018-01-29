@@ -4,7 +4,7 @@ description: "Como criar uma API Web do Node.js que aceita tokens de um locatár
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.openlocfilehash: 6480be75c314ede1b786e959a79c0385dd2edea8
-ms.sourcegitcommit: 73f159cdbc122ffe42f3e1f7a3de05f77b6a4725
-ms.translationtype: MT
+ms.openlocfilehash: 3a0249f2f7dfd76d89cbf497376f53fe06c250c3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: proteger uma API Web usando o Node .js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -35,7 +35,7 @@ Com o Active Directory B2C do Azure (AD do Azure), você pode proteger uma API W
 Para realizar este exemplo, você precisa:
 
 1. Registrar um aplicativo com o Azure AD.
-2. Configurar seu aplicativo para usar o plug-in `azure-ad-passport` do Passport.
+2. Configurar seu aplicativo para usar o plug-in `passport-azure-ad` do Passport.
 3. Configurar um aplicativo cliente para chamar a API Web de "lista de tarefas pendentes".
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
@@ -48,8 +48,6 @@ Em seguida, você precisa criar um aplicativo no diretório B2C, que dá ao Azur
 * Digite `http://localhost/TodoListService` como uma **URL de Resposta**. É a URL padrão deste exemplo de código.
 * Crie um **Segredo de aplicativo** para seu aplicativo e copie-o. Você precisa destes dados mais tarde. Observe que esse valor precisa ser [seguido por caracteres de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de ser usado.
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisa destes dados mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar suas políticas
 No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). O aplicativo contém duas experiências de identidade: inscrever-se e entrar. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Ao criar as três políticas, não deixe de:

@@ -1,73 +1,71 @@
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C em Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> 
-> 
+> * [Node.js (genérico)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+> * [Node.js no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
+> * [C no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-## <a name="scenario-overview"></a>Visão geral do cenário
-Nesse cenário, você cria um dispositivo que envia Olá toohello telemetria de monitoramento remoto a seguir [pré-configurado solução][lnk-what-are-preconfig-solutions]:
+Neste tutorial, você implementará um dispositivo **Resfriador** que envia a telemetria a seguir para a [solução pré-configurada](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md) de monitoramento remoto:
 
-* Temperatura externa
-* Temperatura interna
+* Temperatura
+* Pressão
 * Umidade
 
-Para simplificar, código de saudação no dispositivo hello gera valores de exemplo, mas recomendamos exemplo hello tooextend conectar sensores real tooyour dispositivo e enviar telemetria real.
+Para simplificar, o código gera valores de telemetria de exemplo para o **Resfriador**. Você pode estender o exemplo conectando sensores reais ao dispositivo e enviando telemetria real.
 
-dispositivo Olá também é capaz de toorespond toomethods invocada a partir do painel de solução de saudação e desejado valores de propriedade definidos no painel de solução de saudação.
+O dispositivo de exemplo também:
 
-toocomplete neste tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
+* Envia os metadados à solução para descrever seus recursos.
+* Responde às ações disparadas da página **Dispositivos** na solução.
+* Responde às alterações de configuração da página **Dispositivos** na solução.
+
+Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de começar
+
 Antes de escrever qualquer código para o seu dispositivo, você precisa provisionar a solução pré-configurada de monitoramento remoto e provisionar um novo dispositivo personalizado nessa solução.
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provisionar sua solução pré-configurada de monitoramento remoto
-dispositivo Olá criado por você neste tutorial envia a instância de saudação tooan de dados [monitoramento remoto] [ lnk-remote-monitoring] pré-configurado de solução. Se você já não tiver provisionado Olá solução pré-configurada em sua conta do Azure de monitoramento remoto, use Olá etapas a seguir:
 
-1. Em Olá <https://www.azureiotsuite.com/> , clique em  **+**  toocreate uma solução.
-2. Clique em **selecione** em Olá **monitoramento remoto** painel toocreate sua solução.
-3. Em hello **criar monitoramento remoto solução** , insira um **nome da solução** de sua escolha, selecione Olá **região** você deseja toodeploy para e selecione saudação do Azure assinatura toowant toouse. Clique em **Criar solução**.
-4. Aguarde até que a saudação processo de provisionamento for concluído.
+O dispositivo **Resfriador** criado neste tutorial envia dados a uma instância da solução de [monitoramento remoto](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) pré-configurada. Se você ainda não tiver provisionado a solução de monitoramento remoto pré-configurada na sua conta do Azure, consulte [Implantar a solução de monitoramento remoto pré-configurada](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-> [!WARNING]
-> soluções de Olá pré-configurado usam os serviços do Azure faturáveis. Certifique-se de que tooremove Olá solução pré-configurada de sua assinatura, quando você tiver realizado tooavoid quaisquer encargos desnecessários. Você pode remover completamente uma solução pré-configurada de sua assinatura visitando Olá <https://www.azureiotsuite.com/> página.
-> 
-> 
+Quando o processo de provisionamento para a solução de monitoramento remoto for concluído, clique em **Iniciar** para abrir o painel da solução em seu navegador.
 
-Quando concluir a saudação processo para Olá remota de solução de monitoramento de provisionamento, clique em **iniciar** tooopen painel de solução de saudação em seu navegador.
+![O painel da solução](media/iot-suite-selector-connecting/dashboard.png)
 
-![Painel da solução][img-dashboard]
+### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provisionar o dispositivo na solução de monitoramento remoto
 
-### <a name="provision-your-device-in-hello-remote-monitoring-solution"></a>Configurar seu dispositivo no hello remota de solução de monitoramento
 > [!NOTE]
-> Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Você precisa ter credenciais de dispositivo de saudação do tooknow quando você cria o aplicativo de cliente hello.
-> 
-> 
+> Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Você precisará das credenciais do dispositivo ao criar o aplicativo cliente.
 
-Para uma solução de toohello pré-configurado de tooconnect do dispositivo, ele deve se identificar tooIoT Hub usando credenciais válidas. Você pode recuperar credenciais do dispositivo de saudação do painel de solução de saudação. Você pode incluir credenciais do dispositivo Olá em seu aplicativo cliente posteriormente neste tutorial.
+Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. Você pode recuperar as credenciais do dispositivo na página **Dispositivos** da solução. Você pode incluir as credenciais do dispositivo em seu aplicativo cliente posteriormente neste tutorial.
 
-tooadd uma solução de monitoramento remoto do tooyour dispositivo, Olá completo a seguir as etapas no painel de solução de saudação:
+Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua as seguintes etapas na página **Dispositivos** na solução:
 
-1. No hello canto inferior esquerdo do painel do hello, clique em **adicionar um dispositivo**.
-   
-   ![Adicionar um dispositivo][1]
-2. Em Olá **dispositivo personalizado** do painel, clique em **adicionar novo**.
-   
-   ![Adicionar um dispositivo personalizado][2]
-3. Escolha **Deixe-me definir minha própria ID de Dispositivo**. Insira uma ID de dispositivo como **meudispositivo**, clique em **verificar ID** tooverify esse nome não está em uso e, em seguida, clique em **criar** tooprovision dispositivo de saudação.
-   
-   ![Adicionar ID do dispositivo][3]
-4. Tornar um dispositivo de saudação de Observação credenciais (ID do dispositivo, nome de host de Hub IoT e chave do dispositivo). Seu aplicativo cliente precisa de solução de monitoramento remoto toohello de tooconnect esses valores. Em seguida, clique em **Concluído**.
-   
-    ![Exibir credenciais do dispositivo][4]
-5. Selecione o dispositivo na lista de dispositivos de saudação no painel de solução de saudação. Em seguida, no hello **detalhes do dispositivo** do painel, clique em **Ativar dispositivo**. status de saudação do seu dispositivo agora é **executando**. solução de monitoramento remoto Olá agora pode receber telemetria do seu dispositivo e chamar métodos no dispositivo de saudação.
+1. Escolha **Provisionar** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
 
-[img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
-[1]: ./media/iot-suite-selector-connecting/suite0.png
-[2]: ./media/iot-suite-selector-connecting/suite1.png
-[3]: ./media/iot-suite-selector-connecting/suite2.png
-[4]: ./media/iot-suite-selector-connecting/suite3.png
+    ![Provisionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
-[lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+1. Insira **Physical-chiller** como a ID do dispositivo. Escolha as opções **Chave Simétrica** e **Gerar chaves automaticamente**:
+
+    ![Escolher as opções do dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
+
+Para localizar as credenciais que o dispositivo deverá usar para conectar-se à solução pré-configurada, navegue até o portal do Azure no navegador. Entre em sua assinatura.
+
+1. Localize o grupo de recursos que contém os serviços do Azure que a solução de monitoramento remoto usa. O grupo de recursos tem o mesmo nome que a solução de monitoramento remoto provisionada.
+
+1. Navegue até o Hub IoT neste grupo de recursos. Em seguida, escolha **dispositivos IoT**:
+
+    ![Gerenciador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
+
+1. Escolha a **ID do dispositivo** criada na página **Dispositivos** na solução de monitoramento remoto.
+
+1. Anote os valores da **ID do dispositivo** e da **Chave primária**. Você usará esses valores ao adicionar o código para conectar o dispositivo à solução.
+
+Você acabou de provisionar um dispositivo físico na solução de monitoramento remoto pré-configurada. Nas seções a seguir, você implementará o aplicativo cliente que usa as credenciais do dispositivo para conectar-se à solução.
+
+O aplicativo cliente implementa o modelo de dispositivo **Resfriador** interno. Um modelo de dispositivo da solução pré-configurada especifica o seguinte sobre o dispositivo:
+
+* As propriedades que o dispositivo relata à solução. Por exemplo, um dispositivo **Resfriador** relata informações sobre seu firmware e sua localização.
+* Os tipos de telemetria que o dispositivo envia para a solução. Por exemplo, um dispositivo **Resfriador** envia valores de temperatura, umidade e pressão.
+* Os métodos que você pode agendar na solução para serem executados no dispositivo. Por exemplo, um dispositivo **Resfriador** deve implementar os métodos **Reiniciar**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressuree**.
