@@ -1,68 +1,68 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### <a name="step-1-authorize-a-device-toochange-hello-service-data-encryption-key-in-hello-azure-classic-portal"></a>Etapa 1: Autorizar uma chave de criptografia do dispositivo toochange Olá serviço dados em Olá portal clássico do Azure
-Normalmente, administrador do dispositivo Olá solicita esse administrador de serviço Olá autorizar chaves de criptografia de dados de serviço para toochange um dispositivo. administrador de serviço Hello, então, autorizará chave de Olá Olá dispositivo toochange.
+### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Etapa 1: Autorizar um dispositivo a alterar a chave de criptografia de dados de serviço no Portal clássico do Azure
+Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
 
-Esta etapa é executada no hello portal clássico do Azure. administrador de serviço Olá pode selecionar um dispositivo na lista exibida de dispositivos de saudação que são qualificado toobe autorizado. dispositivo Olá é, em seguida, o processo de alteração da chave de criptografia de dados do serviço de saudação toostart autorizados.
+Esta etapa é realizada no portal clássico do Azure. O administrador do serviço pode selecionar um dispositivo em uma lista exibida de dispositivos que estão qualificados para serem autorizados. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço.
 
-#### <a name="which-devices-can-be-authorized-toochange-service-data-encryption-keys"></a>Quais dispositivos podem ser autorizados toochange chaves de criptografia de dados de serviço?
-Um dispositivo deve atender aos Olá critérios a seguir para que possa ser alterações de criptografia de dados chave serviço tooinitiate autorizados:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Quais dispositivos podem ser autorizados a alterar as chaves de criptografia de dados de serviço?
+Um dispositivo deve atender aos seguintes critérios para que possa ser autorizado a iniciar as alterações da chave de criptografia de dados de serviço:
 
-* dispositivo de saudação deve ser on-line toobe qualificado para autorização de alteração de chave de criptografia de dados de serviço.
-* Você pode autorizar Olá mesmo dispositivo novamente após 30 minutos se a alteração da chave de saudação não foi iniciado.
-* Você pode autorizar um dispositivo diferente, desde que a alteração da chave Olá não foi iniciada pelo dispositivo anteriormente autorizado hello. Depois que o novo dispositivo de saudação tiver sido autorizado, dispositivo antigo Olá não pode iniciar a alteração hello.
-* Não é possível autorizar um dispositivo, enquanto Olá substituição de chave de criptografia de dados de serviço hello está em andamento.
-* Você pode autorizar um dispositivo quando alguns dispositivos Olá registrados com o serviço de saudação tiveram substituído Olá criptografia enquanto outros não. Nesses casos, os dispositivos qualificados Olá são Olá aqueles que concluíram a alteração de criptografia de dados chave serviço hello.
+* O dispositivo deve estar online para ser qualificado para autorização da alteração da chave de criptografia de dados de serviço.
+* Você pode autorizar o mesmo dispositivo novamente após 30 minutos, caso a alteração de chave não tenha sido iniciada.
+* Você pode autorizar um dispositivo diferente, desde que a alteração de chave não tenha sido iniciada pelo dispositivo autorizado anteriormente. Depois que o novo dispositivo tiver sido autorizado, o dispositivo antigo não poderá iniciar a alteração.
+* Não é possível autorizar um dispositivo enquanto a substituição da chave de criptografia de dados de serviço estiver em andamento.
+* Você pode autorizar um dispositivo quando alguns dos dispositivos registrados no serviço tiverem substituído a criptografia, enquanto outros não. Nesses casos, os dispositivos qualificados são aqueles que concluíram a alteração da chave de criptografia de dados de serviço.
 
 > [!NOTE]
-> Olá portal clássico do Azure, StorSimple dispositivos virtuais não são mostrados na lista de saudação de dispositivos que podem ser autorizado a alteração da chave toostart hello.
+> No portal clássico do Azure, os dispositivos virtuais StorSimple não são mostrados na lista de dispositivos que podem ser autorizados a iniciar a alteração da chave.
 > 
 > 
 
-Executar Olá tooselect as etapas a seguir e autorizar uma dispositivo tooinitiate Olá serviço alteração criptografia de dados chave.
+Execute as etapas a seguir para selecionar e autorizar um dispositivo a iniciar a alteração da chave de criptografia de dados de serviço.
 
-#### <a name="tooauthorize-a-device-toochange-hello-key"></a>tooauthorize uma chave de saudação do dispositivo toochange
-1. Na página de painel de serviço hello, clique em **alterar chave de criptografia de dados de serviço**.
+#### <a name="to-authorize-a-device-to-change-the-key"></a>Para autorizar um dispositivo a alterar a chave
+1. Na página do painel de serviço, clique em **Alterar chave de criptografia de dados de serviço**.
    
     ![Alterar chave de criptografia de serviço](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
-2. Em Olá **alterar chave de criptografia de dados de serviço** caixa de diálogo caixa, selecione e autorize uma dispositivo tooinitiate Olá serviço alteração criptografia de dados chave. lista suspensa de saudação tem todos os dispositivos qualificados Olá que podem ser autorizados.
-3. Clique o ícone de verificação Olá ![ícone de verificação](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+2. Na caixa de diálogo **Alterar chave de criptografia de dados de serviço** , selecione e autorize um dispositivo a iniciar a alteração da chave de criptografia de dados de serviço. A lista suspensa apresenta todos os dispositivos qualificados que podem ser autorizados.
+3. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### <a name="step-2-use-windows-powershell-for-storsimple-tooinitiate-hello-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple tooinitiate Olá serviço criptografia chave alteração de dados
-Esta etapa é executada no saudação do Windows PowerShell para StorSimple interface Olá autorizado dispositivo StorSimple.
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
+Essa etapa é executada na interface do Windows PowerShell para StorSimple no dispositivo StorSimple autorizado.
 
 > [!NOTE]
-> Nenhuma operação pode ser executada no hello portal clássico do Azure do seu serviço StorSimple Manager até que a substituição de chave Olá é concluída.
+> Nenhuma operação poderá ser executada no portal clássico do Azure do serviço StorSimple Manager até que a substituição de chave seja concluída.
 > 
 > 
 
-Se você estiver usando a interface do hello dispositivo console serial tooconnect toohello do Windows PowerShell, execute Olá etapas a seguir.
+Se você estiver usando o console serial do dispositivo para se conectar à interface do Windows PowerShell, execute as etapas a seguir.
 
-#### <a name="tooinitiate-hello-service-data-encryption-key-change"></a>alteração da chave de criptografia de dados de serviço do tooinitiate Olá
-1. Selecione a opção 1 toolog com acesso completo.
-2. No prompt de comando hello, digite:
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Para iniciar a alteração da chave de criptografia de dados de serviço
+1. Selecione a Opção 1 para fazer logon com acesso completo.
+2. No prompt de comando, digite:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. Depois que o cmdlet Olá for concluída com êxito, você obterá uma nova chave de criptografia de dados de serviço. Copie e salve essa chave para uso na etapa 3 deste processo. Esta chave será usada tooupdate Olá todos os demais dispositivos registrados com o serviço StorSimple Manager hello.
+3. Depois que o cmdlet tiver sido concluído com êxito, você receberá uma nova chave de criptografia de dados de serviço. Copie e salve essa chave para uso na etapa 3 deste processo. Essa chave será usada para atualizar todos os dispositivos restantes registrados no serviço StorSimple Manager.
    
    > [!NOTE]
    > Esse processo deve ser iniciado em quatro horas, a contar da autorização de um dispositivo StorSimple.
    > 
    > 
    
-   Essa nova chave é enviada toohello toobe enviada por push tooall Olá dispositivos de serviço que são registrados com o serviço de saudação. Um alerta aparecerá no painel de serviço hello. serviço Olá desabilitará todas as operações de Olá Olá registrado dispositivos e administrador do dispositivo hello, em seguida, será necessário chave de criptografia de dados tooupdate Olá serviço em Olá outros dispositivos. No entanto, hello e/SS (hosts que enviam dados na nuvem toohello) não serão interrompidas.
+   Essa nova chave é então enviada ao serviço para ser enviada por push a todos os dispositivos que são registrados no serviço. Um alerta aparecerá no painel de serviço. O serviço desabilitará todas as operações nos dispositivos registrados e o administrador do dispositivo precisará atualizar a chave de criptografia de dados de serviço nos outros dispositivos. No entanto, as E/Ss (hosts que enviam dados à nuvem) não serão interrompidas.
    
-   Se você tiver um único dispositivo registrado tooyour serviço, o processo de substituição Olá agora está concluído e você pode ignorar Olá próxima etapa. Se você tiver vários serviços de tooyour registrados de dispositivos, vá toostep 3.
+   Se você tiver um único dispositivo registrado no serviço, o processo de substituição agora está concluído e a próxima etapa poderá ser ignorada. Se você tiver vários dispositivos registrados em seu serviço, passe para a etapa 3.
 
-### <a name="step-3-update-hello-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualize a chave de criptografia de dados de serviço de saudação em outros dispositivos de StorSimple
-Essas etapas devem ser executadas na interface do Windows PowerShell de saudação do seu dispositivo StorSimple, se você tiver vários dispositivos registrados tooyour StorSimple Manager service. chave de saudação que você obteve na etapa 2: usar o Windows PowerShell para StorSimple tooinitiate Olá serviço criptografia chave alteração de dados deve ser usado tooupdate todos Olá restante do dispositivo StorSimple registrado com hello serviço StorSimple Manager.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
+Essas etapas devem ser executadas na interface do Windows PowerShell de seu dispositivo StorSimple, caso você tenha vários dispositivos registrados no serviço StorSimple Manager. A chave que você obteve na Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados serviço deve ser usada para atualizar todos os demais dispositivos StorSimple registrados no serviço StorSimple Manager.
 
-Execute Olá criptografia de dados de serviço do etapas tooupdate Olá a seguir em seu dispositivo.
+Execute as etapas a seguir para atualizar a criptografia de dados de serviço no seu dispositivo.
 
-#### <a name="tooupdate-hello-service-data-encryption-key"></a>chave de criptografia de dados de serviço do tooupdate Olá
-1. Use o Windows PowerShell para StorSimple tooconnect toohello console. Selecione a opção 1 toolog com acesso completo.
-2. No prompt de comando hello, digite:
+#### <a name="to-update-the-service-data-encryption-key"></a>Para atualizar a chave de criptografia de dados de serviço
+1. Use o Windows PowerShell para StorSimple para se conectar ao console. Selecione a Opção 1 para fazer logon com acesso completo.
+2. No prompt de comando, digite:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Forneça Olá serviço dados chave de criptografia que você obteve na [etapa 2: usar o Windows PowerShell para StorSimple tooinitiate Olá serviço alteração criptografia de dados chave](#to-initiate-the-service-data-encryption-key-change).
+3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
 

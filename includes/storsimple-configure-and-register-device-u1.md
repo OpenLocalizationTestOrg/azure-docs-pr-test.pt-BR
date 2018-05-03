@@ -1,65 +1,65 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### <a name="tooconfigure-and-register-hello-device"></a>dispositivo de saudação tooconfigure e registrar
-1. Acesse a interface do Windows PowerShell Olá no seu console serial do dispositivo StorSimple. Consulte [console serial do dispositivo Use PuTTY tooconnect toohello](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Ser exatamente o procedimento de saudação toofollow-se ou não será capaz de tooaccess console de saudação.**
-2. Na sessão de saudação que é aberta, pressione Enter de um tempo tooget um prompt de comando. 
-3. Será solicitada toochoose Olá idioma que você deseja tooset para seu dispositivo. Especifique o idioma de saudação e pressione Enter. 
+### <a name="to-configure-and-register-the-device"></a>Para configurar e registrar o dispositivo
+1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
+2. Na sessão que é aberta, pressione Enter uma vez para obter um prompt de comando. 
+3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique o idioma e pressione Enter. 
    
     ![O StorSimple configura e registra o dispositivo 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
-4. No menu do console serial Olá que é apresentado, escolha toolog opção 1 em com acesso completo. 
+4. No menu do console serial apresentado, escolha a opção 1 para efetuar logon com acesso completo. 
    
     ![Dispositivo de registro do StorSimple 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
    
-     Conclua as etapas 5-12 tooconfigure Olá mínima necessária as configurações de rede para seu dispositivo. **Essas etapas de configuração necessário toobe realizada no controlador active de saudação do dispositivo Olá.** menu do console serial Olá indica o estado do controlador de saudação na mensagem de saudação do banner. Se você não estiver conectado toohello de controlador ativo, desconecte e, em seguida, conecte-se o controlador ativo toohello.
-5. No prompt de comando hello, digite sua senha. senha do dispositivo padrão Olá é **Password1**.
-6. Saudação de tipo comando a seguir: `Invoke-HcsSetupWizard`. 
-7. Um Assistente de instalação será exibido toohelp você definir configurações de rede de saudação para dispositivo hello. Forneça Olá Olá informações a seguir: 
+     Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.** O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
+5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
+6. Digite o seguinte comando: `Invoke-HcsSetupWizard`. 
+7. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações: 
    
-   * Endereço IP hello dados 0 interface de rede
+   * Endereço IP para a interface de rede DADOS 0
    * Máscara da sub-rede
    * Gateway
    * Endereço IP do servidor DNS Primário
      
-        Observe que sistema hello está validando as configurações de rede depois de cada etapa no processo de saudação.
+        Note que o sistema validará as configurações de rede após cada etapa no processo.
      
      > [!NOTE]
-     > Você pode ter toowait por alguns minutos para máscara de sub-rede hello e toobe de configurações de DNS Olá aplicado. Se você receber uma mensagem de erro de "Verificação Olá rede conectividade tooData 0", verifique a conexão de rede física Olá na interface de rede 0 de dados de saudação do seu controlador ativo.
+     > Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
      > 
      > 
-8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, vá muito[configurar o proxy da web para seu dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
-9. Configure um servidor NTP primário para seu dispositivo. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem. Certifique-se de que sua rede permite toopass de tráfego NTP do toohello seu data center da Internet. Se isso não for possível, especifique um servidor NTP interno. 
-10. Por motivos de segurança, senha de administrador de dispositivo de saudação expira após Olá primeira sessão, e você precisará toochange it agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. Olá senha deve conter três das seguintes Olá: caracteres minúsculo, maiusculo, numéricos e especiais.
+8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
+9. Configure um servidor NTP primário para seu dispositivo. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet. Se isso não for possível, especifique um servidor NTP interno. 
+10. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão, e você precisará alterá-la agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter três das seguintes opções: caracteres com letras minúsculas e maiúsculas, numéricos e especiais.
     
     <br/>![Dispositivo de registro do StorSimple 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
-11. a etapa final Olá no Assistente de instalação Olá registra seu dispositivo com hello serviço StorSimple Manager. Para isso, você precisará Olá chave de registro que você obteve na etapa 2. Depois que você fornecer a chave de registro de saudação, talvez seja necessário toowait 2 a 3 minutos antes de saudação dispositivo está registrado.
+11. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na etapa 2. Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
     
     > [!NOTE]
-    > Você pode pressionar Ctrl + C a qualquer assistente de instalação do tempo tooexit hello. Se você inseriu todas as configurações de rede de saudação (endereço IP para Data 0, máscara de sub-rede e Gateway), as entradas serão mantidas.
+    > Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
     > 
     > 
     
     ![Dispositivo de registro do StorSimple 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
-12. Depois de saudação dispositivo estiver registrado, uma chave de criptografia de dados de serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será exigida com hello serviço Registro tooregister chave dispositivos adicionais com hello serviço StorSimple Manager.** Consulte também[segurança de StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
+12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
     
     ![Dispositivo de registro do StorSimple 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
     
     > [!NOTE]
-    > texto de saudação toocopy da janela de console serial hello, basta selecionar o texto de saudação. Em seguida, você deve ser capaz de toopaste-la na área de transferência de saudação ou qualquer editor de texto. Não use Ctrl + a chave de criptografia de dados de serviço C toocopy hello. Usar Ctrl + C fará com que você tooexit Olá Assistente de instalação. Como resultado, senha de administrador de dispositivo de saudação não será alterada e dispositivo Olá reverterá toohello senha de padrão.
+    > Para copiar o texto da janela do console serial, basta selecionar o texto. Então, você conseguirá colá-lo na área de transferência ou em qualquer editor de texto. NÃO use Ctrl + C para copiar a chave de criptografia de dados do serviço. Usar Ctrl + C fará com que você saia do assistente de instalação. Como resultado, a senha de administrador do dispositivo não será alterada, e o dispositivo voltará para a senha padrão.
     > 
     > 
-13. Console serial da saudação de saída.
-14. Retorno toohello portal clássico do Azure e Olá concluir as etapas a seguir:
+13. Saia do console serial.
+14. Volte para o portal clássico do Azure e realize as seguintes etapas:
     
-    1. Clique duas vezes em sua saudação do Gerenciador do StorSimple service tooaccess **início rápido** página.
+    1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página **Início Rápido** .
     2. Clique em **Exibir dispositivos conectados**.
-    3. Em Olá **dispositivos** , verifique se o dispositivo Olá conectou com êxito toohello serviço verificando o status de saudação. status de saudação do dispositivo deve ser **Online**.
+    3. Na página **Dispositivos** , verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
        
         ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
        
-        Se o status do dispositivo Olá **Offline**, aguarde alguns minutos para Olá online toocome de dispositivo. 
+        Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online. 
        
-        Se o dispositivo de saudação ainda está offline após alguns minutos, você precisará toomake-se de que seu firewall de rede foi configurado conforme descrito em [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
+        Se o dispositivo continuar offline após alguns minutos, você precisará se certificar de que a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
        
-        Verifique se a porta 9354 é aberta para comunicação de saída como isso é usado pelo barramento de serviço Olá para comunicação de serviço para dispositivo do StorSimple Manager.
+        Verifique se a porta 9354 está aberta para comunicações de saída, pois ela é usada pelo barramento de serviço para a comunicação serviço-dispositivo do StorSimple Manager.
 

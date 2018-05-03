@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="toomodify-a-volume-container"></a>toomodify um contêiner de volume
-1. Em Olá **dispositivos** página, selecione o dispositivo hello, clique duas vezes nele e, em seguida, clique em Olá **contêineres de Volume** guia.
-2. Na listagem tabular de Olá Olá de contêineres de volume, selecione configuração de saudação que você deseja toomodify e clique em **modificar**.
-3. Em Olá **modificar contêiner de Volume** caixa de diálogo caixa, Olá a seguir:
+#### <a name="to-modify-a-volume-container"></a>Para modificar um contêiner de volume
+1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e clique na guia **Contêineres de Volume**.
+2. Na listagem de tabela dos contêineres de volume, selecione a configuração que você deseja modificar e clique em **Modificar**.
+3. Na caixa de diálogo **Modificar Contêiner de Volume** , faça o seguinte:
    
-   1. Alterar nome Olá Olá do contêiner de volume e modificar a configuração de largura de banda Olá associado. 
+   1. Altere o nome do contêiner de volume e modifique a configuração de largura de banda associada. 
       
        ![Modificar o contêiner de volume com o Modelo de Largura de Banda 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. conta de armazenamento e chave de criptografia de saudação não pode ser alterada depois que forem especificados. Se você tiver especificado **selecionar um modelo de largura de banda**, clique em Olá seta tooproceed toohello próxima página.
-4. Na próxima página de saudação do hello **modificar contêiner de Volume** caixa de diálogo:
+   2. A conta de armazenamento e a chave de criptografia não poderão ser alteradas depois de especificadas. Se você especificou **Selecionar um modelo de largura de banda**, clique na seta para avançar para a próxima página.
+4. Na próxima página da caixa de diálogo **Modificar Contêiner de Volume** :
    
-   1. Na lista suspensa de hello, escolha um modelo de largura de banda existente.
-   2. Examine as configurações de agendamento de Olá para o modelo de largura de banda de saudação.
+   1. Na lista suspensa, escolha um modelo existente de largura de banda.
+   2. Examine as configurações de agendamento para o modelo de largura de banda especificado.
       
        ![Modificar o contêiner de volume com o Modelo de Largura de Banda 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Clique o ícone de verificação Olá ![ícone de verificação](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) toosave Olá atualizado configurações. Olá **contêineres de Volume** página será atualizada tooreflect Olá alterações.
+   3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) para salvar as configurações atualizadas. A página **Contêineres de Volume** será atualizada para refletir as alterações.
 
